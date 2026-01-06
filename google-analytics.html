@@ -1,0 +1,125 @@
+<!-- Google Analytics 4 (GA4) -->
+<!-- Reemplaza 'G-XXXXXXXXXX' con tu ID de medición real -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    // Configuración básica de GA4
+    gtag('config', 'G-XXXXXXXXXX', {
+        'send_page_view': true,
+        'anonymize_ip': true,
+        'cookie_flags': 'SameSite=None;Secure'
+    });
+
+    // Eventos personalizados para Lifextreme
+
+    // Evento: Click en Portal Partners
+    document.addEventListener('DOMContentLoaded', function () {
+        const partnersLink = document.getElementById('nav-partners');
+        if (partnersLink) {
+            partnersLink.addEventListener('click', function () {
+                gtag('event', 'click_portal_partners', {
+                    'event_category': 'navigation',
+                    'event_label': 'Portal Partners Access'
+                });
+            });
+        }
+    });
+
+    // Evento: Apertura de modal de reserva
+    window.trackBookingOpen = function (tourName) {
+        gtag('event', 'booking_modal_open', {
+            'event_category': 'booking',
+            'event_label': tourName,
+            'value': 1
+        });
+    };
+
+    // Evento: Agregar al carrito
+    window.trackAddToCart = function (tourName, price) {
+        gtag('event', 'add_to_cart', {
+            'event_category': 'ecommerce',
+            'event_label': tourName,
+            'value': price
+        });
+    };
+
+    // Evento: Completar reserva
+    window.trackPurchase = function (tourName, price, tourId) {
+        gtag('event', 'purchase', {
+            'transaction_id': 'LX-' + Date.now(),
+            'value': price,
+            'currency': 'PEN',
+            'items': [{
+                'item_id': tourId,
+                'item_name': tourName,
+                'price': price,
+                'quantity': 1
+            }]
+        });
+    };
+
+    // Evento: Scroll depth (25%, 50%, 75%, 100%)
+    let scrollDepths = [25, 50, 75, 100];
+    let scrollTracked = [];
+
+    window.addEventListener('scroll', function () {
+        let scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+
+        scrollDepths.forEach(function (depth) {
+            if (scrollPercent >= depth && !scrollTracked.includes(depth)) {
+                scrollTracked.push(depth);
+                gtag('event', 'scroll_depth', {
+                    'event_category': 'engagement',
+                    'event_label': depth + '%',
+                    'value': depth
+                });
+            }
+        });
+    });
+
+    // Evento: Tiempo en página (cada 30 segundos)
+    let timeOnPage = 0;
+    setInterval(function () {
+        timeOnPage += 30;
+        gtag('event', 'time_on_page', {
+            'event_category': 'engagement',
+            'event_label': timeOnPage + ' seconds',
+            'value': timeOnPage
+        });
+    }, 30000);
+
+</script>
+
+<!-- 
+INSTRUCCIONES DE CONFIGURACIÓN:
+
+1. Crear cuenta de Google Analytics:
+   - Ve a https://analytics.google.com
+   - Crea una propiedad GA4 para "Lifextreme"
+   - Obtén tu ID de medición (formato: G-XXXXXXXXXX)
+
+2. Reemplazar el ID:
+   - Busca 'G-XXXXXXXXXX' en este archivo (aparece 2 veces)
+   - Reemplázalo con tu ID real de GA4
+
+3. Agregar a tu sitio:
+   - Copia este código en el <head> de index.html
+   - Justo después de la línea <head>
+
+4. Verificar instalación:
+   - Abre tu sitio en el navegador
+   - Ve a Google Analytics → Realtime
+   - Deberías ver tu visita en tiempo real
+
+EVENTOS RASTREADOS AUTOMÁTICAMENTE:
+- ✅ Vistas de página
+- ✅ Clicks en Portal Partners
+- ✅ Apertura de modales de reserva
+- ✅ Agregar al carrito
+- ✅ Compras completadas
+- ✅ Profundidad de scroll (25%, 50%, 75%, 100%)
+- ✅ Tiempo en página (cada 30 segundos)
+-->

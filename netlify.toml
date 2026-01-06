@@ -1,0 +1,64 @@
+# Netlify Configuration File
+# Configuración para deployment automático desde GitHub
+
+[build]
+  # Directorio de publicación (raíz del proyecto)
+  publish = "."
+  
+  # Comando de build (no necesario para sitio estático)
+  command = "echo 'Static site - no build required'"
+
+# Configuración de headers para seguridad y rendimiento
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Seguridad
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    
+    # Performance - Cache de assets estáticos
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Redirecciones y rewrites
+[[redirects]]
+  from = "/partners"
+  to = "/partners/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/partners/*"
+  to = "/partners/:splat"
+  status = 200
+
+# Error 404 personalizado
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 404
+
+# Configuración de contexto de deployment
+[context.production]
+  environment = { NODE_ENV = "production" }
+
+[context.deploy-preview]
+  environment = { NODE_ENV = "staging" }
+
+[context.branch-deploy]
+  environment = { NODE_ENV = "development" }
