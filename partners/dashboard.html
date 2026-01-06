@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - LifExtreme Partners</title>
+    <meta name="description" content="Panel de control para gestionar tus experiencias de aventura.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="dashboard-body">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-container">
+                <div class="logo-icon">
+                    <i data-lucide="zap"></i>
+                </div>
+                <span class="logo-text">LIFEXTREME</span>
+            </div>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i data-lucide="chevron-left"></i>
+            </button>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active" data-section="dashboard">
+                <i data-lucide="layout-dashboard"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="#" class="nav-item" data-section="reservas">
+                <i data-lucide="calendar"></i>
+                <span>Reservas</span>
+                <span class="badge">12</span>
+            </a>
+            <a href="#" class="nav-item" data-section="actividades">
+                <i data-lucide="activity"></i>
+                <span>Mis Actividades</span>
+            </a>
+            <a href="#" class="nav-item" data-section="finanzas">
+                <i data-lucide="dollar-sign"></i>
+                <span>Finanzas</span>
+            </a>
+            <a href="#" class="nav-item" data-section="clientes">
+                <i data-lucide="users"></i>
+                <span>Clientes</span>
+            </a>
+            <a href="#" class="nav-item" data-section="analytics">
+                <i data-lucide="bar-chart-3"></i>
+                <span>Analytics</span>
+            </a>
+            <a href="#" class="nav-item" data-section="mensajes">
+                <i data-lucide="message-square"></i>
+                <span>Mensajes</span>
+                <span class="badge">3</span>
+            </a>
+            <a href="#" class="nav-item" data-section="configuracion">
+                <i data-lucide="settings"></i>
+                <span>Configuración</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="user-profile">
+                <div class="user-avatar">
+                    <img src="https://ui-avatars.com/api/?name=Aventura+Extrema&background=dc2626&color=fff" alt="User">
+                </div>
+                <div class="user-info">
+                    <div class="user-name">Aventura Extrema</div>
+                    <div class="user-role">Partner Pro</div>
+                </div>
+            </div>
+            <button class="logout-btn">
+                <i data-lucide="log-out"></i>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <header class="top-bar">
+            <div class="top-bar-left">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i data-lucide="menu"></i>
+                </button>
+                <h1 class="page-title">Dashboard</h1>
+            </div>
+            <div class="top-bar-right">
+                <button class="icon-btn">
+                    <i data-lucide="search"></i>
+                </button>
+                <button class="icon-btn">
+                    <i data-lucide="bell"></i>
+                    <span class="notification-dot"></span>
+                </button>
+                <button class="icon-btn">
+                    <i data-lucide="help-circle"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Dashboard Container -->
+        <div id="main-sections-container">
+            <!-- Sección: Dashboard (Resumen) -->
+            <section id="section-dashboard" class="dashboard-section active">
+                <!-- Welcome Banner -->
+                <div class="welcome-banner">
+                    <div class="welcome-content">
+                        <h2>¡Bienvenido de vuelta! 👋</h2>
+                        <p>Aquí está un resumen de tu actividad hoy</p>
+                    </div>
+                    <button class="btn btn-primary">
+                        <i data-lucide="plus"></i>
+                        Nueva Actividad
+                    </button>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid-dashboard">
+                    <div class="stat-card-dashboard">
+                        <div class="stat-icon-wrapper green">
+                            <i data-lucide="trending-up"></i>
+                        </div>
+                        <div class="stat-details">
+                            <div class="stat-label">Ingresos del Mes</div>
+                            <div class="stat-value">$12,450</div>
+                            <div class="stat-change positive">
+                                <i data-lucide="arrow-up"></i>
+                                <span>+23.5% vs mes anterior</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card-dashboard">
+                        <div class="stat-icon-wrapper blue">
+                            <i data-lucide="calendar-check"></i>
+                        </div>
+                        <div class="stat-details">
+                            <div class="stat-label">Reservas Activas</div>
+                            <div class="stat-value">47</div>
+                            <div class="stat-change positive">
+                                <i data-lucide="arrow-up"></i>
+                                <span>+12 esta semana</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card-dashboard">
+                        <div class="stat-icon-wrapper orange">
+                            <i data-lucide="users"></i>
+                        </div>
+                        <div class="stat-details">
+                            <div class="stat-label">Nuevos Clientes</div>
+                            <div class="stat-value">28</div>
+                            <div class="stat-change positive">
+                                <i data-lucide="arrow-up"></i>
+                                <span>+8 este mes</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card-dashboard">
+                        <div class="stat-icon-wrapper red">
+                            <i data-lucide="star"></i>
+                        </div>
+                        <div class="stat-details">
+                            <div class="stat-label">Calificación</div>
+                            <div class="stat-value">4.9</div>
+                            <div class="stat-change neutral">
+                                <span>De 156 reseñas</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Two Column Layout -->
+                <div class="dashboard-grid">
+                    <!-- Recent Bookings -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <i data-lucide="calendar"></i>
+                                Próximas Reservas
+                            </h3>
+                            <a href="#" class="card-action" onclick="switchSection('reservas')">Ver todas</a>
+                        </div>
+                        <div class="card-content">
+                            <div class="booking-list">
+                                <div class="booking-item">
+                                    <div class="booking-icon">
+                                        <i data-lucide="parachute"></i>
+                                    </div>
+                                    <div class="booking-details">
+                                        <div class="booking-title">Paracaidismo Tándem</div>
+                                        <div class="booking-meta">
+                                            <span><i data-lucide="user"></i> Carlos Mendoza</span>
+                                            <span><i data-lucide="calendar"></i> Hoy, 10:00 AM</span>
+                                        </div>
+                                    </div>
+                                    <div class="booking-status confirmed">Confirmada</div>
+                                </div>
+
+                                <div class="booking-item">
+                                    <div class="booking-icon">
+                                        <i data-lucide="mountain"></i>
+                                    </div>
+                                    <div class="booking-details">
+                                        <div class="booking-title">Escalada en Roca</div>
+                                        <div class="booking-meta">
+                                            <span><i data-lucide="user"></i> Ana García</span>
+                                            <span><i data-lucide="calendar"></i> Mañana, 8:00 AM</span>
+                                        </div>
+                                    </div>
+                                    <div class="booking-status pending">Pendiente</div>
+                                </div>
+
+                                <div class="booking-item">
+                                    <div class="booking-icon">
+                                        <i data-lucide="waves"></i>
+                                    </div>
+                                    <div class="booking-details">
+                                        <div class="booking-title">Rafting Nivel 4</div>
+                                        <div class="booking-meta">
+                                            <span><i data-lucide="user"></i> Grupo Aventura (6)</span>
+                                            <span><i data-lucide="calendar"></i> 10 Ene, 2:00 PM</span>
+                                        </div>
+                                    </div>
+                                    <div class="booking-status confirmed">Confirmada</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <i data-lucide="zap"></i>
+                                Acciones Rápidas
+                            </h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="quick-actions">
+                                <button class="quick-action-btn" onclick="switchSection('actividades')">
+                                    <div class="quick-action-icon">
+                                        <i data-lucide="plus-circle"></i>
+                                    </div>
+                                    <div class="quick-action-text">
+                                        <div class="quick-action-title">Nueva Actividad</div>
+                                        <div class="quick-action-desc">Agregar experiencia</div>
+                                    </div>
+                                </button>
+                                <button class="quick-action-btn">
+                                    <div class="quick-action-icon">
+                                        <i data-lucide="camera"></i>
+                                    </div>
+                                    <div class="quick-action-text">
+                                        <div class="quick-action-title">Subir Multimedia</div>
+                                        <div class="quick-action-desc">Fotos y videos</div>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección: Reservas -->
+            <section id="section-reservas" class="dashboard-section">
+                <div class="section-header">
+                    <h2 class="section-title">Gestión de Reservas</h2>
+                    <div class="header-actions">
+                        <button class="btn btn-secondary">
+                            <i data-lucide="download"></i> Exportar
+                        </button>
+                    </div>
+                </div>
+                <div class="dashboard-card">
+                    <div class="table-filters">
+                        <div class="search-box">
+                            <i data-lucide="search"></i>
+                            <input type="text" placeholder="Buscar por cliente o actividad...">
+                        </div>
+                        <div class="filter-group">
+                            <button class="filter-btn active">Todas</button>
+                            <button class="filter-btn">Pendientes</button>
+                            <button class="filter-btn">Confirmadas</button>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Reserva</th>
+                                    <th>Cliente</th>
+                                    <th>Actividad</th>
+                                    <th>Fecha y Hora</th>
+                                    <th>Monto</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bookings-table-body">
+                                <!-- Se llenará dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Placeholder para otras secciones -->
+            <section id="section-actividades" class="dashboard-section">
+                <div class="section-header">
+                    <h2 class="section-title">Mis Actividades</h2>
+                    <button class="btn btn-primary"><i data-lucide="plus"></i> Crear Actividad</button>
+                </div>
+                <div class="activities-grid" id="activities-container">
+                    <!-- Se llenará dinámicamente -->
+                </div>
+            </section>
+
+            <section id="section-finanzas" class="dashboard-section">
+                <div class="section-header">
+                    <h2 class="section-title">Finanzas</h2>
+                    <button class="btn btn-secondary">Reporte Mensual</button>
+                </div>
+                <div class="stats-grid-dashboard">
+                    <div class="stat-card-dashboard">
+                        <div class="stat-details">
+                            <div class="stat-label">Saldo Disponible</div>
+                            <div class="stat-value">$3,240.50</div>
+                            <button class="btn btn-primary mt-3">Solicitar Retiro</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-card mt-4">
+                    <div class="card-header">
+                        <h3 class="card-title">Retiros Recientes</h3>
+                    </div>
+                    <div class="card-content">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Monto</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>01 Ene 2026</td>
+                                    <td>$1,500.00</td>
+                                    <td><span class="booking-status confirmed">Completado</span></td>
+                                </tr>
+                                <tr>
+                                    <td>15 Dic 2025</td>
+                                    <td>$2,200.00</td>
+                                    <td><span class="booking-status confirmed">Completado</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section id="section-clientes" class="dashboard-section">
+                <div class="section-header">
+                    <h2 class="section-title">Mis Clientes</h2>
+                </div>
+                <div class="dashboard-card">
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Cliente</th>
+                                    <th>Email</th>
+                                    <th>Tours Realizados</th>
+                                    <th>Total Gastado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Carlos Mendoza</td>
+                                    <td>carlos@example.com</td>
+                                    <td>12</td>
+                                    <td>$1,850.00</td>
+                                </tr>
+                                <tr>
+                                    <td>Ana García</td>
+                                    <td>ana.g@example.com</td>
+                                    <td>5</td>
+                                    <td>$720.00</td>
+                                </tr>
+                                <tr>
+                                    <td>Luis Torres</td>
+                                    <td>luis.t@example.com</td>
+                                    <td>8</td>
+                                    <td>$1,100.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section id="section-analytics" class="dashboard-section">
+                <h2 class="section-title">Análisis de Rendimiento</h2>
+                <div class="dashboard-card">
+                    <div class="card-content">
+                        <!-- Performance Charts -->
+                        <div
+                            class="flex items-center justify-center h-64 bg-slate-50 rounded-3xl border-2 border-dashed border-slate-200">
+                            <div class="text-center">
+                                <i data-lucide="bar-chart" class="mx-auto mb-2 text-slate-300"></i>
+                                <p class="text-sm font-medium text-slate-400">Cargando datos de analytics...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="section-mensajes" class="dashboard-section">
+                <div class="section-header">
+                    <h2 class="section-title">Centro de Mensajes</h2>
+                </div>
+                <div class="dashboard-card">
+                    <div class="card-content">
+                        <div class="flex flex-col items-center justify-center h-64 text-center">
+                            <i data-lucide="message-square" class="w-12 h-12 text-slate-200 mb-4"></i>
+                            <h3 class="text-lg font-bold">No tienes mensajes nuevos</h3>
+                            <p class="text-sm text-slate-500 max-w-xs">Los mensajes de tus clientes y del soporte
+                                técnico aparecerán aquí.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="section-configuracion" class="dashboard-section">
+                <div class="section-header">
+                    <h2 class="section-title">Configuración del Perfil</h2>
+                </div>
+                <div class="dashboard-card">
+                    <div class="card-content">
+                        <div class="space-y-6 max-w-2xl">
+                            <div class="form-group">
+                                <label class="text-sm font-bold mb-2 block">Nombre de la Empresa</label>
+                                <input type="text" class="form-input" value="Aventura Extrema" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label class="text-sm font-bold mb-2 block">Email de Contacto</label>
+                                <input type="email" class="form-input" value="contacto@aventuraextrema.com" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label class="text-sm font-bold mb-2 block">Estado de Cuenta</label>
+                                <div class="flex items-center gap-2">
+                                    <span class="w-3 h-3 bg-emerald-500 rounded-full"></span>
+                                    <span class="text-sm font-bold text-emerald-600">Verificado</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>

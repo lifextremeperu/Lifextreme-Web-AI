@@ -1,0 +1,86 @@
+{
+    "personal": {
+        "fullName": "Carlos Mendoza Rivera",
+        "email": "carlos.mendoza@example.com",
+        "age": "32",
+        "phone": "+51 987 654 321"
+    },
+    "adventure": {
+        "experienceLevel": "advanced",
+        "interests": [
+            "trekking",
+            "climbing",
+            "camping"
+        ],
+        "budget": "premium",
+        "travelFrequency": "quarterly"
+    },
+    "preferences": {
+        "groupType": "friends",
+        "regions": [
+            "cusco",
+            "huaraz"
+        ],
+        "motivation": "Busco superar mis límites físicos y mentales. Me encanta la montaña y quiero conquistar los picos más altos del Perú. Viajo con un grupo de amigos que comparten mi pasión por la aventura extrema."
+    },
+    "createdAt": "2026-01-05T16:15:00.000Z",
+    "membershipActivated": true,
+    "_aiAnalysis": {
+        "persona": "🤝 Grupo de Amigos Activos",
+        "travelStyle": "Aventurero Full-Time",
+        "predictedLifetimeValue": "S/ 15,000",
+        "recommendedTours": [
+            {
+                "tourId": 1,
+                "title": "Inca Trail a Machu Picchu 4D",
+                "aiScore": 95,
+                "matchReasons": [
+                    "Coincide con región Cusco (+30 pts)",
+                    "Dificultad Alta apropiada para Advanced (+25 pts)",
+                    "Contiene keywords: trekking, camino (+20 pts)",
+                    "Precio S/ 2,800 dentro de rango Premium (+15 pts)"
+                ]
+            },
+            {
+                "tourId": 5,
+                "title": "Salkantay Trek 5D/4N",
+                "aiScore": 88,
+                "matchReasons": [
+                    "Coincide con región Cusco (+30 pts)",
+                    "Dificultad Alta apropiada (+25 pts)",
+                    "Contiene keywords: trek, camping (+20 pts)",
+                    "Precio S/ 3,200 dentro de rango (+15 pts)"
+                ]
+            },
+            {
+                "tourId": 12,
+                "title": "Escalada en Huaraz - Nevado Pisco",
+                "aiScore": 85,
+                "matchReasons": [
+                    "Coincide con región Huaraz (+30 pts)",
+                    "Dificultad Extrema para Advanced (+25 pts)",
+                    "Contiene keywords: escalada, climbing (+20 pts)",
+                    "Precio S/ 4,500 dentro de rango (+15 pts)"
+                ]
+            }
+        ],
+        "personalizedMessages": {
+            "heroTitle": "Carlos, Desafía tus Límites",
+            "heroDescription": "Basado en tu experiencia, te recomendamos expediciones de nivel medio-alto con trekking, climbing, camping.",
+            "chatbotGreeting": "¡Hola Carlos! 👋 Perfecto para alguien que busca superar límites. Tengo rutas extremas que te encantarán.",
+            "emailSubject": "Carlos, 3 Rutas Extremas Esperan por Ti"
+        },
+        "dynamicPricing": {
+            "baseDiscount": 0.10,
+            "reason": "Viajero trimestral - 10% descuento automático",
+            "estimatedSavings": "S/ 450 en próxima reserva"
+        },
+        "nextBestAction": {
+            "action": "open-booking",
+            "tourId": 1,
+            "message": "Te recomendamos reservar 'Inca Trail a Machu Picchu 4D' - 95% compatible con tu perfil",
+            "urgency": "high",
+            "cta": "Reservar Ahora con 10% Descuento"
+        }
+    }
+}

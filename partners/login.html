@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - LifExtreme Partners</title>
+    <meta name="description"
+        content="Accede a tu cuenta de LifExtreme Partners y gestiona tus experiencias de aventura.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+    <!-- Navegación Simple -->
+    <nav class="navbar-simple">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo-container">
+                    <div class="logo-icon">
+                        <i data-lucide="zap"></i>
+                    </div>
+                    <span class="logo-text">LIFEXTREME</span>
+                    <span class="logo-badge">Partners</span>
+                </a>
+                <a href="index.html" class="btn-back">
+                    <i data-lucide="arrow-left"></i>
+                    <span>Volver al inicio</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Section -->
+    <section class="auth-section">
+        <div class="auth-container">
+            <!-- Left Side - Form -->
+            <div class="auth-form-container">
+                <div class="auth-form-content">
+                    <div class="auth-header">
+                        <h1 class="auth-title">Bienvenido de vuelta</h1>
+                        <p class="auth-subtitle">Accede a tu panel de control y gestiona tus experiencias</p>
+                    </div>
+
+                    <form class="auth-form" id="loginForm">
+                        <div class="form-group">
+                            <label for="email" class="form-label">
+                                <i data-lucide="mail"></i>
+                                <span>Email</span>
+                            </label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="tu@email.com"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password" class="form-label">
+                                <i data-lucide="lock"></i>
+                                <span>Contraseña</span>
+                            </label>
+                            <div class="password-input-wrapper">
+                                <input type="password" id="password" name="password" class="form-input"
+                                    placeholder="••••••••" required>
+                                <button type="button" class="password-toggle" id="togglePassword">
+                                    <i data-lucide="eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="remember" id="remember">
+                                <span class="checkbox-custom"></span>
+                                <span>Recordarme</span>
+                            </label>
+                            <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large btn-block">
+                            Iniciar Sesión
+                        </button>
+
+                        <div class="auth-divider">
+                            <span>o continúa con</span>
+                        </div>
+
+                        <div class="social-login">
+                            <button type="button" class="btn-social">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path
+                                        d="M19.8055 10.2292C19.8055 9.55056 19.7501 8.86667 19.6306 8.19861H10.2V12.0486H15.6014C15.3771 13.2917 14.6571 14.3889 13.6153 15.0875V17.5861H16.8348C18.7196 15.8431 19.8055 13.2722 19.8055 10.2292Z"
+                                        fill="#4285F4" />
+                                    <path
+                                        d="M10.2 20C12.9 20 15.1714 19.1042 16.8348 17.5861L13.6153 15.0875C12.7357 15.6972 11.6071 16.0417 10.2 16.0417C7.59429 16.0417 5.38857 14.2833 4.60714 11.9167H1.28571V14.4917C3.00714 17.8944 6.47143 20 10.2 20Z"
+                                        fill="#34A853" />
+                                    <path
+                                        d="M4.60714 11.9167C4.17857 10.6736 4.17857 9.32639 4.60714 8.08333V5.50833H1.28571C-0.428571 8.88889 -0.428571 13.1111 1.28571 16.4917L4.60714 11.9167Z"
+                                        fill="#FBBC04" />
+                                    <path
+                                        d="M10.2 3.95833C11.6929 3.9375 13.1357 4.47222 14.2286 5.45833L17.0643 2.60417C15.0857 0.791667 12.4929 -0.208333 10.2 -0.1875C6.47143 -0.1875 3.00714 2.10556 1.28571 5.50833L4.60714 8.08333C5.38857 5.71667 7.59429 3.95833 10.2 3.95833Z"
+                                        fill="#EA4335" />
+                                </svg>
+                                <span>Google</span>
+                            </button>
+                            <button type="button" class="btn-social">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path
+                                        d="M20 10C20 4.47715 15.5229 0 10 0C4.47715 0 0 4.47715 0 10C0 14.9912 3.65684 19.1283 8.4375 19.8785V12.8906H5.89844V10H8.4375V7.79688C8.4375 5.29063 9.93047 3.90625 12.2146 3.90625C13.3084 3.90625 14.4531 4.10156 14.4531 4.10156V6.5625H13.1922C11.95 6.5625 11.5625 7.3334 11.5625 8.125V10H14.3359L13.8926 12.8906H11.5625V19.8785C16.3432 19.1283 20 14.9912 20 10Z"
+                                        fill="#1877F2" />
+                                </svg>
+                                <span>Facebook</span>
+                            </button>
+                        </div>
+
+                        <p class="auth-footer">
+                            ¿No tienes cuenta?
+                            <a href="registro.html" class="auth-link">Regístrate gratis</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Right Side - Hero -->
+            <div class="auth-hero">
+                <div class="auth-hero-overlay"></div>
+                <div class="auth-hero-content">
+                    <div class="auth-hero-badge">
+                        <i data-lucide="trending-up"></i>
+                        <span>+180% Crecimiento Anual</span>
+                    </div>
+                    <h2 class="auth-hero-title">Gestiona tus experiencias desde un solo lugar</h2>
+                    <ul class="auth-hero-features">
+                        <li>
+                            <i data-lucide="check-circle"></i>
+                            <span>Dashboard en tiempo real</span>
+                        </li>
+                        <li>
+                            <i data-lucide="check-circle"></i>
+                            <span>Gestión de reservas automática</span>
+                        </li>
+                        <li>
+                            <i data-lucide="check-circle"></i>
+                            <span>Pagos seguros y rápidos</span>
+                        </li>
+                        <li>
+                            <i data-lucide="check-circle"></i>
+                            <span>Analytics avanzados</span>
+                        </li>
+                    </ul>
+
+                    <div class="auth-hero-stats">
+                        <div class="hero-stat">
+                            <div class="hero-stat-number">1,200+</div>
+                            <div class="hero-stat-label">Partners Activos</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-number">500K+</div>
+                            <div class="hero-stat-label">Reservas Completadas</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="./js/main.js"></script>
+    <script src="./js/auth.js"></script>
+</body>
+
+</html>

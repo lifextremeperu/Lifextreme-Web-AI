@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <script src="https://static.readdy.ai/static/e.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifextreme | V29 Professional - Ultimate Adventure Experience</title>
+
+    <!-- External Dependencies -->
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Modularized CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4338ca',    /* Indigo 700 */
+                        secondary: '#f43f5e',  /* Rose 500 */
+                        accent: '#ffbf00',     /* Amber Custom */
+                        slate: { 900: '#0f172a', 910: '#020617' }
+                    },
+                    container: { center: true, padding: '2rem' },
+                    boxShadow: { '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.3)' }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-[#fcfdff] min-h-screen">
+
+    <!-- HEADER MASTER -->
+    <header class="bg-white/90 backdrop-blur-2xl shadow-sm fixed top-0 w-full z-[1000] border-b border-slate-50">
+        <div class="container mx-auto px-4 lg:px-6 py-4 flex justify-between items-center">
+            <a href="#" onclick="navigateTo('home')" class="flex items-center group">
+                <div
+                    class="w-9 h-9 lg:w-11 lg:h-11 bg-primary rounded-2xl flex items-center justify-center text-white shadow-xl group-hover:rotate-12 transition-all">
+                    <i class="ri-flashlight-fill text-lg lg:text-2xl"></i>
+                </div>
+                <div class="logo-font ml-2 lg:ml-3 leading-none select-none">
+                    <span class="text-slate-900 font-normal text-lg lg:text-2xl tracking-tight">LIFE</span><span
+                        class="logo-gradient font-black text-lg lg:text-2xl tracking-tighter italic">XTREME</span>
+                </div>
+            </a>
+
+            <nav class="hidden xl:flex ml-12 space-x-10">
+                <a href="javascript:void(0)" data-action="navigate" data-target="home" id="nav-home"
+                    data-i18n="nav_home"
+                    class="nav-link active text-slate-500 font-bold text-[10px] uppercase tracking-widest">Inicio</a>
+                <a href="javascript:void(0)" data-action="navigate" data-target="destinos" id="nav-destinos"
+                    data-i18n="nav_destinos"
+                    class="nav-link text-slate-500 font-bold text-[10px] uppercase tracking-widest">Destinos</a>
+                <a href="javascript:void(0)" data-action="navigate" data-target="eventos" id="nav-eventos"
+                    data-i18n="nav_eventos"
+                    class="nav-link text-slate-500 font-bold text-[10px] uppercase tracking-widest text-accent">Eventos</a>
+                <a href="javascript:void(0)" data-action="navigate" data-target="equipos" id="nav-equipos"
+                    data-i18n="nav_equipos"
+                    class="nav-link text-slate-500 font-bold text-[10px] uppercase tracking-widest">Equipos</a>
+                <a href="javascript:void(0)" data-action="navigate" data-target="guias" id="nav-guias"
+                    data-i18n="nav_guias"
+                    class="nav-link text-slate-500 font-bold text-[10px] uppercase tracking-widest">Guías</a>
+                <a href="partners/index.html" id="nav-partners"
+                    class="group relative flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border border-primary/20 backdrop-blur-sm overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/20 hover:border-primary/40">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    </div>
+                    <div class="relative flex items-center gap-2">
+                        <div
+                            class="w-5 h-5 rounded-lg bg-primary/20 flex items-center justify-center group-hover:bg-white/20 transition-all duration-300 group-hover:rotate-12">
+                            <i
+                                class="ri-briefcase-4-line text-primary text-xs group-hover:text-white transition-colors"></i>
+                        </div>
+                        <span
+                            class="font-black text-[10px] uppercase tracking-widest text-primary group-hover:text-white transition-colors">Portal
+                            Partners</span>
+                        <span
+                            class="px-1.5 py-0.5 rounded-md bg-secondary text-white text-[7px] font-black uppercase tracking-wider">PRO</span>
+                    </div>
+                    <div
+                        class="absolute -right-8 -top-8 w-16 h-16 bg-white/10 rounded-full blur-xl group-hover:bg-white/20 transition-all">
+                    </div>
+                </a>
+            </nav>
+
+            <div class="flex items-center gap-3 lg:gap-6">
+                <div class="hidden sm:flex items-center gap-3 cursor-pointer hover:bg-slate-50 p-2 rounded-2xl transition-all"
+                    data-action="navigate" data-target="socio">
+                    <div class="text-right leading-none">
+                        <p class="text-[8px] font-black text-primary uppercase" data-i18n="user_status">Socio Elite
+                            Active</p>
+                        <p class="text-xs font-black">Alex R.</p>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100"
+                        class="w-10 h-10 rounded-xl object-cover border border-slate-100">
+                </div>
+
+                <div class="flex items-center gap-2 bg-slate-50 rounded-xl p-1">
+                    <button id="lang-es" data-action="set-lang" data-lang="es"
+                        class="px-3 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest bg-white shadow-sm transition-all text-primary">🇪🇸
+                        ES</button>
+                    <button id="lang-en" data-action="set-lang" data-lang="en"
+                        class="px-3 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all text-slate-400">🇬🇧
+                        EN</button>
+                </div>
+
+                <button data-action="toggle-cart"
+                    class="w-10 h-10 lg:w-11 lg:h-11 bg-slate-50 rounded-xl flex items-center justify-center relative border border-slate-100">
+                    <i class="ri-handbag-line text-lg"></i>
+                    <span id="cart-count"
+                        class="absolute -top-1 -right-1 bg-red-500 text-white text-[8px] font-bold rounded-full w-4 h-4 flex items-center justify-center">0</span>
+                </button>
+                <button data-action="toggle-mobile-menu"
+                    class="xl:hidden w-10 h-10 bg-slate-50 rounded-xl flex items-center justify-center border border-slate-100 relative z-[2000]">
+                    <i class="ri-menu-4-line text-lg"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU OVERLAY -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-[1500] bg-white translate-x-full transition-transform duration-500 flex flex-col pt-32 px-8">
+        <a href="javascript:void(0)" data-action="mobile-navigate" data-target="home"
+            class="text-2xl font-black italic text-slate-900 border-b border-slate-100 py-6">INICIO</a>
+        <a href="javascript:void(0)" data-action="mobile-navigate" data-target="destinos"
+            class="text-2xl font-black italic text-slate-900 border-b border-slate-100 py-6">DESTINOS</a>
+        <a href="javascript:void(0)" data-action="mobile-navigate" data-target="eventos"
+            class="text-2xl font-black italic text-slate-900 border-b border-slate-100 py-6">EVENTOS</a>
+        <a href="javascript:void(0)" data-action="mobile-navigate" data-target="equipos"
+            class="text-2xl font-black italic text-slate-900 border-b border-slate-100 py-6">EQUIPAMIENTO</a>
+        <a href="javascript:void(0)" data-action="mobile-navigate" data-target="guias"
+            class="text-2xl font-black italic text-slate-900 border-b border-slate-100 py-6">GUÍAS</a>
+        <a href="partners/index.html"
+            class="group relative flex items-center justify-between border-b border-slate-100 py-6 px-4 -mx-4 rounded-2xl overflow-hidden transition-all duration-300 hover:bg-gradient-to-r hover:from-primary/10 hover:to-transparent">
+            <div
+                class="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-5 transition-opacity">
+            </div>
+            <div class="relative flex items-center gap-3">
+                <div
+                    class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-all group-hover:rotate-12">
+                    <i class="ri-briefcase-4-line text-primary text-xl"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-2xl font-black italic text-primary">PORTAL PARTNERS</span>
+                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Acceso Operadores</span>
+                </div>
+            </div>
+            <div class="relative flex items-center gap-2">
+                <span class="px-2 py-1 rounded-lg bg-secondary text-white text-[9px] font-black uppercase">PRO</span>
+                <i
+                    class="ri-arrow-right-up-line text-primary text-xl group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+            </div>
+        </a>
+        <div class="mt-auto pb-12">
+            <p class="text-[10px] font-black uppercase text-slate-400 mb-4">Lifextreme Pro System</p>
+            <div class="flex gap-4">
+                <a href="#"
+                    class="w-10 h-10 bg-slate-50 rounded-xl flex items-center justify-center hover:bg-primary hover:text-white transition-all"><i
+                        class="ri-instagram-line"></i></a>
+                <a href="#"
+                    class="w-10 h-10 bg-slate-50 rounded-xl flex items-center justify-center hover:bg-primary hover:text-white transition-all"><i
+                        class="ri-whatsapp-line"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- HOME -->
+        <section id="section-home" class="section-view active pt-24 lg:pt-32 pb-10 lg:pb-20">
+            <div class="container mx-auto px-6">
+                <div class="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center mb-16 lg:mb-32">
+                    <div class="text-center lg:text-left">
+                        <span data-i18n="hero_tag"
+                            class="bg-indigo-50 text-primary px-4 py-2 rounded-full text-[9px] font-black uppercase tracking-[0.4em] mb-8 inline-block italic">Aventura
+                            de Alta Gama</span>
+                        <h1
+                            class="text-4xl lg:text-7xl font-black text-slate-900 leading-[0.9] mb-8 tracking-tighter italic">
+                            <span data-i18n="hero_title_1">Domina el</span><br><span class="logo-gradient"
+                                data-i18n="hero_title_2">Territorio</span>
+                        </h1>
+                        <p class="text-md lg:text-lg text-slate-500 font-medium mb-12 max-w-lg mx-auto lg:mx-0"
+                            data-i18n="hero_desc">Reserva
+                            expediciones regionales, certifica tus habilidades en talleres técnicos y obtén equipo de
+                            elite en un solo lugar.</p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                            <button data-action="navigate" data-target="destinos" data-i18n="btn_explore"
+                                class="bg-primary text-white px-10 py-5 rounded-3xl font-black uppercase text-[10px] tracking-widest shadow-2xl hover:bg-slate-900 transition-all">Explorar
+                                Mapa</button>
+                            <button data-action="navigate" data-target="eventos" data-i18n="btn_events"
+                                class="bg-white border-2 border-slate-100 px-10 py-5 rounded-3xl font-black uppercase text-[10px] tracking-widest hover:border-accent transition-all">Ver
+                                Eventos</button>
+                        </div>
+                        <button data-action="open-quiz"
+                            class="mt-8 flex items-center gap-3 bg-indigo-50 px-6 py-3 rounded-2xl border border-indigo-100 hover:bg-white transition-all group">
+                            <i class="ri-survey-line text-primary text-xl"></i>
+                            <div>
+                                <p class="text-[9px] font-black text-primary uppercase tracking-widest"
+                                    data-i18n="quiz_prompt">¿No sabes qué elegir?</p>
+                                <p class="text-[10px] font-black text-slate-800" data-i18n="quiz_desc">Haz el Test de
+                                    Aventura y gana -10%</p>
+                            </div>
+                            <i
+                                class="ri-arrow-right-s-line text-slate-300 group-hover:translate-x-1 transition-all"></i>
+                        </button>
+                    </div>
+
+                    <!-- COMPACT AI CHAT -->
+                    <div class="relative bg-white rounded-[40px] shadow-2xl border border-slate-200 overflow-hidden">
+                        <div class="bg-gradient-to-r from-primary to-accent p-4 flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-10 h-10 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm">
+                                    <i class="ri-sparkling-fill text-white text-lg"></i>
+                                </div>
+                                <div>
+                                    <p class="text-white font-black text-sm">Lifextreme AI</p>
+                                    <p class="text-white/80 text-[9px] font-bold">Tu asistente de aventuras</p>
+                                </div>
+                            </div>
+                            <div class="w-2 h-2 bg-secondary rounded-full animate-pulse"></div>
+                        </div>
+                        <div id="compact-messages"
+                            class="h-[320px] overflow-y-auto p-6 space-y-4 bg-gradient-to-b from-slate-50/50 to-white">
+                            <div class="flex gap-3 items-start">
+                                <div
+                                    class="w-8 h-8 bg-black rounded-xl flex items-center justify-center text-white flex-shrink-0">
+                                    <i class="ri-sparkling-fill text-sm"></i>
+                                </div>
+                                <div class="flex-1 bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
+                                    <p class="text-slate-800 text-xs font-semibold mb-2">¡Hola! 👋 ¿Qué aventura buscas?
+                                    </p>
+                                    <div class="grid grid-cols-2 gap-2 mt-3">
+                                        <button data-action="send-chat" data-msg="Trekking en montaña"
+                                            class="bg-indigo-50 p-2 rounded-xl text-[9px] font-bold text-left">🏔️
+                                            Montañismo</button>
+                                        <button data-action="send-chat" data-msg="Expedición selva"
+                                            class="bg-emerald-50 p-2 rounded-xl text-[9px] font-bold text-left">🌴
+                                            Selva</button>
+                                        <button data-action="send-chat" data-msg="Equipamiento"
+                                            class="bg-orange-50 p-2 rounded-xl text-[9px] font-bold text-left">🎒
+                                            Equipo</button>
+                                        <button data-action="send-chat" data-msg="Sorpréndeme"
+                                            class="bg-purple-50 p-2 rounded-xl text-[9px] font-bold text-left">✨
+                                            Sorpresa</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white border-t border-slate-100 p-4 flex items-center gap-2">
+                            <input type="text" id="compact-input" placeholder="Escribe tu consulta..."
+                                class="flex-1 px-4 py-3 bg-slate-50 rounded-2xl text-xs font-medium outline-none"
+                                onkeydown="if(event.key==='Enter') sendCompactChatFromInput()">
+                            <button data-action="send-chat-input"
+                                class="w-10 h-10 bg-primary text-white rounded-xl flex items-center justify-center hover:bg-slate-900 transition-all"><i
+                                    class="ri-send-plane-fill text-sm"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MEMBERSHIP LOSS AVERSION BANNER -->
+                <div
+                    class="bg-slate-900 rounded-[64px] shadow-3xl p-12 flex flex-col items-center text-center overflow-hidden relative border border-white/5">
+                    <div
+                        class="absolute top-0 right-0 w-64 h-64 bg-secondary/10 rounded-full blur-[120px] animate-pulse">
+                    </div>
+                    <span data-i18n="membership_alert"
+                        class="bg-secondary/20 text-secondary px-4 py-2 rounded-full text-[9px] font-black uppercase tracking-[0.3em] inline-block mb-6 border border-secondary/30 animate-pulse">⚠️
+                        ALERTA DE EXPIRACIÓN</span>
+
+                    <h2 class="text-4xl lg:text-5xl font-black text-white leading-tight mb-4 italic">
+                        <span data-i18n="membership_title_1">Tu acceso</span> <span class="logo-gradient"
+                            data-i18n="membership_title_2">Elite</span> <span data-i18n="membership_title_3">expira
+                            pronto</span>
+                    </h2>
+                    <p class="text-slate-400 font-bold mb-8 max-w-lg text-sm">
+                        <span data-i18n="membership_desc_1">Estás a punto de perder un ahorro de</span> <span
+                            id="lost-savings-amount" class="text-secondary font-black">S/ 0</span> <span
+                            data-i18n="membership_desc_2">en tu mochila táctica. Activa ahora para asegurar tus
+                            beneficios.</span>
+                    </p>
+
+                    <div id="membership-timer" class="grid grid-cols-4 gap-4 mb-12 max-w-sm w-full">
+                        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-white/10">
+                            <div class="text-3xl font-black text-white" id="m-hours">00</div>
+                            <div class="text-[8px] font-black text-slate-500 uppercase tracking-widest mt-1"
+                                data-i18n="timer_hours">Horas</div>
+                        </div>
+                        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-white/10">
+                            <div class="text-3xl font-black text-white" id="m-minutes">00</div>
+                            <div class="text-[8px] font-black text-slate-500 uppercase tracking-widest mt-1"
+                                data-i18n="timer_min">Min</div>
+                        </div>
+                        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-white/10">
+                            <div class="text-3xl font-black text-white" id="m-seconds">00</div>
+                            <div class="text-[8px] font-black text-slate-500 uppercase tracking-widest mt-1"
+                                data-i18n="timer_sec">Seg</div>
+                        </div>
+                        <div
+                            class="bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-white/10 flex flex-col items-center justify-center">
+                            <i class="ri-timer-flash-line text-secondary text-2xl animate-pulse"></i>
+                        </div>
+                    </div>
+
+                    <button data-action="activate-membership" data-i18n="btn_secure_discount"
+                        class="bg-secondary text-white px-12 py-6 rounded-3xl font-black uppercase text-[13px] tracking-widest shadow-2xl shadow-secondary/20 hover:scale-105 transition-all group">
+                        Asegurar mi Descuento Elite <i
+                            class="ri-arrow-right-up-line ml-2 group-hover:rotate-45 transition-all"></i>
+                    </button>
+                    <p class="text-[9px] text-slate-600 mt-6 font-bold uppercase tracking-widest italic"
+                        data-i18n="membership_action_required">Acción
+                        requerida para mantener el status de socio</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- DESTINOS -->
+        <section id="section-destinos" class="section-view pt-32 pb-20">
+            <div class="container mx-auto px-6">
+                <!-- HEADER SEARCH -->
+                <div class="flex flex-col lg:flex-row justify-between items-center mb-12 gap-8">
+                    <h2 class="text-4xl font-black italic"><span data-i18n="section_destinos">Exploración
+                            Nacional</span></h2>
+
+                    <!-- LIVE SEARCH BAR -->
+                    <div class="relative w-full lg:w-96 group z-50">
+                        <input type="text" id="global-search" data-action="search-live"
+                            placeholder="Buscar aventura (ej. Trekking, Selva...)"
+                            class="w-full bg-slate-50 border border-slate-200 rounded-full pl-12 pr-6 py-4 text-xs font-bold outline-none group-hover:border-primary group-hover:shadow-lg transition-all focus:border-primary focus:ring-4 focus:ring-primary/10">
+                        <i
+                            class="ri-search-line absolute left-5 top-1/2 -translate-y-1/2 text-slate-400 group-hover:text-primary transition-colors text-lg"></i>
+                        <div id="search-results-dropdown"
+                            class="absolute top-16 left-0 w-full bg-white rounded-3xl shadow-2xl border border-slate-50 hidden opacity-0 translate-y-2 transition-all duration-300 overflow-hidden">
+                            <!-- SEARCH RESULTS -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 overflow-x-auto pb-8 no-scrollbar" id="region-selector">
+                    <div class="region-chip active" data-action="sel-region" data-region="Todos">Todos</div>
+                    <div class="region-chip" data-action="sel-region" data-region="Cusco">Cusco</div>
+                    <div class="region-chip" data-action="sel-region" data-region="Huaraz">Huaraz</div>
+                    <div class="region-chip" data-action="sel-region" data-region="Iquitos">Iquitos</div>
+                    <div class="region-chip" data-action="sel-region" data-region="Piura">Piura</div>
+                    <div class="region-chip" data-action="sel-region" data-region="Ica">Ica</div>
+                    <div class="region-chip" data-action="sel-region" data-region="Puno">Puno</div>
+                    <div class="region-chip" data-action="sel-region" data-region="Arequipa">Arequipa</div>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8" id="destinos-grid"></div>
+            </div>
+        </section>
+
+        <!-- EVENTOS -->
+        <section id="section-eventos" class="section-view pt-32 pb-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-black mb-4"><span data-i18n="section_eventos">Competencias &
+                            Festivales</span></h2>
+                    <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest italic"
+                        data-i18n="events_official_calendar">Calendario Oficial
+                        2026</p>
+                </div>
+                <div class="flex gap-4 overflow-x-auto pb-8 no-scrollbar mb-12" id="event-region-selector">
+                    <div class="region-chip active" data-action="sel-event-region" data-region="Todos">Todos</div>
+                    <div class="region-chip" data-action="sel-event-region" data-region="Cusco">Cusco</div>
+                    <div class="region-chip" data-action="sel-event-region" data-region="Huaraz">Huaraz</div>
+                    <div class="region-chip" data-action="sel-event-region" data-region="Iquitos">Iquitos</div>
+                    <div class="region-chip" data-action="sel-event-region" data-region="Piura">Piura</div>
+                    <div class="region-chip" data-action="sel-event-region" data-region="Ica">Ica</div>
+                    <div class="region-chip" data-action="sel-event-region" data-region="Puno">Puno</div>
+                    <div class="region-chip" data-action="sel-event-region" data-region="Arequipa">Arequipa</div>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10" id="events-grid"></div>
+            </div>
+        </section>
+
+        <!-- EQUIPOS -->
+        <section id="section-equipos" class="section-view pt-32 pb-20">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row gap-12">
+                    <div
+                        class="w-full lg:w-[300px] h-fit sticky top-32 space-y-8 bg-white p-10 rounded-[40px] border border-slate-100">
+                        <h3 class="font-black text-2xl" data-i18n="section_equipos">Catálogo Pro</h3>
+                        <div class="space-y-4">
+                            <label
+                                class="flex items-center gap-3 text-xs font-black uppercase tracking-widest cursor-pointer"
+                                data-action="filter-equip" data-category="Mochilas"><input type="radio" name="eq"
+                                    class="accent-primary"> <span
+                                    data-i18n="equip_sidebar_backpacks">Mochilas</span></label>
+                            <label
+                                class="flex items-center gap-3 text-xs font-black uppercase tracking-widest cursor-pointer"
+                                data-action="filter-equip" data-category="Calzado"><input type="radio" name="eq"
+                                    class="accent-primary"> <span
+                                    data-i18n="equip_sidebar_footwear">Calzado</span></label>
+                            <label
+                                class="flex items-center gap-3 text-xs font-black uppercase tracking-widest cursor-pointer"
+                                data-action="filter-equip" data-category="Accesorios"><input type="radio" name="eq"
+                                    class="accent-primary"> <span
+                                    data-i18n="equip_sidebar_accessories">Accesorios</span></label>
+                            <label
+                                class="flex items-center gap-3 text-xs font-black uppercase tracking-widest cursor-pointer"
+                                data-action="filter-equip" data-category="Todos"><input type="radio" name="eq" checked
+                                    class="accent-primary"> <span data-i18n="equip_sidebar_all">Ver Todo</span></label>
+                        </div>
+                    </div>
+                    <div class="flex-1 grid md:grid-cols-1 lg:grid-cols-2 gap-8" id="equip-grid"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GUIAS -->
+        <section id="section-guias" class="section-view pt-32 pb-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl font-black mb-16 italic"><span data-i18n="section_guias">Staff de Guías Elite</span>
+                </h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8" id="guides-grid"></div>
+            </div>
+        </section>
+
+        <!-- SOCIO -->
+        <section id="section-socio" class="section-view pt-32 pb-20">
+            <div class="container mx-auto px-6 max-w-6xl">
+                <div class="flex flex-col lg:flex-row gap-12 items-start">
+                    <div class="w-full lg:w-1/3 bg-white rounded-[48px] p-10 border border-slate-100 text-center">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300"
+                            class="w-24 h-24 rounded-3xl mx-auto shadow-2xl mb-6">
+                        <h2 class="text-2xl font-black italic mb-1">Alex R.</h2>
+                        <p class="text-[10px] font-black text-primary uppercase tracking-widest mb-8">Socio Elite Active
+                        </p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-slate-50 p-4 rounded-2xl">
+                                <p class="text-[8px] font-black text-slate-400 uppercase">Expediciones</p>
+                                <p class="text-xl font-black">14</p>
+                            </div>
+                            <div class="bg-slate-50 p-4 rounded-2xl">
+                                <p class="text-[8px] font-black text-slate-400 uppercase">Tokens</p>
+                                <p class="text-xl font-black">2,450</p>
+                            </div>
+                        </div>
+                        <button data-action="navigate" data-target="home"
+                            class="mt-8 w-full py-4 rounded-2xl border-2 border-slate-100 text-slate-400 font-black uppercase text-[10px] tracking-widest hover:bg-red-50 hover:text-red-500 hover:border-red-100 transition-all flex items-center justify-center gap-2">
+                            <i class="ri-logout-box-r-line text-lg"></i> Cerrar Sesión
+                        </button>
+                    </div>
+                    <div class="w-full lg:w-2/3 space-y-8">
+                        <div class="bg-slate-900 rounded-[48px] p-12 text-white">
+                            <h3 class="text-2xl font-black italic mb-8">Mis Próximos Desafíos</h3>
+                            <div id="wishlist-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+                        </div>
+
+                        <!-- REGISTRATION FORM -->
+                        <div
+                            class="bg-white rounded-[48px] p-12 border border-slate-100 shadow-sm relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-32 h-32 bg-secondary/5 rounded-bl-[100px]"></div>
+                            <h3 class="text-2xl font-black italic mb-2">Actualizar Datos de Socio</h3>
+                            <p class="text-xs font-bold text-slate-400 mb-8">Mantén tu perfil al día para recibir
+                                beneficios exclusivos.</p>
+
+                            <form name="socio-update" method="POST" data-netlify="true" class="space-y-6">
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div class="space-y-2">
+                                        <label class="text-[10px] font-black uppercase text-slate-400">Nombre
+                                            Completo</label>
+                                        <input type="text" name="name" placeholder="Tu nombre" required
+                                            class="w-full bg-slate-50 border border-slate-100 rounded-2xl px-4 py-3 text-xs font-bold focus:outline-none focus:border-primary transition-colors">
+                                    </div>
+                                    <div class="space-y-2">
+                                        <label class="text-[10px] font-black uppercase text-slate-400">Email
+                                            Táctico</label>
+                                        <input type="email" name="email" placeholder="correo@ejemplo.com" required
+                                            class="w-full bg-slate-50 border border-slate-100 rounded-2xl px-4 py-3 text-xs font-bold focus:outline-none focus:border-primary transition-colors">
+                                    </div>
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="text-[10px] font-black uppercase text-slate-400">Intereses
+                                        Principales</label>
+                                    <select name="interest"
+                                        class="w-full bg-slate-50 border border-slate-100 rounded-2xl px-4 py-3 text-xs font-bold focus:outline-none focus:border-primary transition-colors cursor-pointer appearance-none">
+                                        <option value="trekking">Trekking & Montañismo</option>
+                                        <option value="selva">Expediciones Selva</option>
+                                        <option value="climbing">Escalada Técnica</option>
+                                        <option value="all">Todo lo anterior</option>
+                                    </select>
+                                </div>
+                                <button type="submit"
+                                    class="w-full bg-secondary text-white py-4 rounded-2xl font-black uppercase text-[10px] tracking-widest hover:bg-slate-900 transition-all shadow-xl shadow-secondary/20">
+                                    Guardar Cambios
+                                </button>
+                            </form>
+                        </div>
+
+                        <div class="bg-white rounded-[48px] p-12 border border-slate-100">
+                            <h3 class="text-2xl font-black italic mb-8">Expediciones Realizadas</h3>
+                            <div id="completed-tours-container" class="space-y-4"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-900 text-white py-20 border-t border-white/5">
+        <div class="container mx-auto px-6 text-center">
+            <div class="logo-font text-2xl mb-8"><span class="font-normal">LIFE</span><span
+                    class="logo-gradient font-black italic">XTREME</span></div>
+            <p class="text-slate-500 text-[10px] font-black uppercase tracking-[0.5em]" data-i18n="footer_rights">© 2026
+                Lifextreme Pro System.
+                All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- MODALS -->
+    <!-- Booking Modal -->
+    <div id="booking-modal"
+        class="hidden fixed inset-0 z-[2000] bg-slate-900/60 backdrop-blur-md flex items-end lg:items-center justify-center p-0 lg:p-4">
+        <div
+            class="bg-white w-full max-w-6xl rounded-t-[48px] lg:rounded-[64px] overflow-y-auto lg:overflow-hidden flex flex-col lg:flex-row shadow-3xl h-[90vh] lg:max-h-[90vh] relative custom-scrollbar">
+
+            <!-- PROGRESS BAR (Metas) -->
+            <div
+                class="lg:absolute top-8 left-8 right-8 z-10 flex justify-between items-center bg-white/50 backdrop-blur-md p-2 rounded-2xl border border-white/50 xl:max-w-md xl:mx-auto mt-8 mx-6 lg:mt-0 lg:mx-0 mb-6 lg:mb-0">
+                <div class="wizard-progress-track absolute top-1/2 left-10 right-10 h-1 bg-slate-100 -translate-y-1/2">
+                    <div id="wizard-progress-bar"
+                        class="h-full bg-primary transition-all duration-500 w-[33%] rounded-full shadow-lg shadow-primary/20">
+                    </div>
+                </div>
+                <div class="flex flex-col items-center relative z-20">
+                    <div id="wiz-step-1"
+                        class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-[10px] font-black shadow-lg">
+                        1</div>
+                    <span class="text-[8px] font-black uppercase tracking-tighter mt-1 text-primary"
+                        data-i18n="wizard_step_1">Configura</span>
+                </div>
+                <div class="flex flex-col items-center relative z-20">
+                    <div id="wiz-step-2"
+                        class="w-8 h-8 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center text-[10px] font-black">
+                        2</div>
+                    <span class="text-[8px] font-black uppercase tracking-tighter mt-1 text-slate-400"
+                        data-i18n="wizard_step_2">Equipo</span>
+                </div>
+                <div class="flex flex-col items-center relative z-20">
+                    <div id="wiz-step-3"
+                        class="w-8 h-8 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center text-[10px] font-black">
+                        3</div>
+                    <span class="text-[8px] font-black uppercase tracking-tighter mt-1 text-slate-400"
+                        data-i18n="wizard_step_3">Pago</span>
+                </div>
+            </div>
+
+            <div class="flex-[1.5] p-6 lg:p-20 lg:pt-32 lg:overflow-y-auto custom-scrollbar order-2 lg:order-1">
+                <!-- STEP 1: CONFIGURATION -->
+                <div id="booking-step-1" class="booking-wizard-step space-y-8 lg:space-y-12">
+                    <div>
+                        <h4 id="b-title" class="text-3xl lg:text-5xl font-black italic mb-2 leading-none"></h4>
+                        <p id="b-dept" class="text-[10px] font-black text-primary uppercase tracking-[0.4em]"></p>
+                    </div>
+
+                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8">
+                        <div class="col-span-1 border-t pt-4">
+                            <h5 class="text-[10px] font-black uppercase" data-i18n="modal_duration">Duración</h5>
+                            <p id="b-duration" class="text-xs font-bold text-slate-500"></p>
+                        </div>
+                        <div class="col-span-1 border-t pt-4">
+                            <h5 class="text-[10px] font-black uppercase" data-i18n="modal_guide">Guía</h5>
+                            <p id="b-guide-lang" class="text-xs font-bold text-slate-500"></p>
+                        </div>
+                        <div class="col-span-2 border-t pt-4">
+                            <h5 class="text-[10px] font-black uppercase" data-i18n="modal_cancel">Cancelación</h5>
+                            <p id="b-cancel-policy" class="text-xs font-bold text-slate-500"></p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <h5 class="text-xs font-black uppercase border-b pb-4" data-i18n="modal_itinerary">Itinerario
+                            Táctico</h5>
+                        <div id="itinerary-flow" class="relative pl-8 max-h-64 overflow-y-auto custom-scrollbar"></div>
+                    </div>
+                </div>
+
+                <!-- STEP 2: EQUIPMENT & ADDONS -->
+                <div id="booking-step-2" class="booking-wizard-step hidden space-y-12">
+                    <div class="space-y-4">
+                        <h4 class="text-3xl font-black italic">Equipo Sugerido para <span id="tour-name-step-2"
+                                class="text-primary">Tu Ruta</span></h4>
+                        <p class="text-sm text-slate-500 font-medium">Basándonos en el terreno y clima, estos objetos
+                            son vitales para tu seguridad.</p>
+                    </div>
+
+                    <div id="recommended-equipment-list" class="grid gap-4">
+                        <!-- Inyectado por JS -->
+                    </div>
+
+                    <div class="space-y-6">
+                        <h5 class="text-xs font-black uppercase border-b pb-4" data-i18n="modal_addons">Servicios
+                            Adicionales (Addons)</h5>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <label
+                                class="flex items-center justify-between p-4 bg-slate-50 rounded-2xl border border-transparent hover:border-primary transition-all cursor-pointer group">
+                                <div class="flex items-center gap-3">
+                                    <input type="checkbox" data-action="toggle-addon" data-id="insurance"
+                                        data-price="45" data-name="Seguro Premium (Rescate Helo)"
+                                        class="addon-check w-5 h-5 accent-primary rounded-lg">
+                                    <span
+                                        class="text-[11px] font-black uppercase group-hover:text-primary transition-all">Seguro
+                                        Premium</span>
+                                </div>
+                                <span class="text-xs font-black italic text-slate-400">S/ 45</span>
+                            </label>
+                            <label
+                                class="flex items-center justify-between p-4 bg-slate-50 rounded-2xl border border-transparent hover:border-primary transition-all cursor-pointer group">
+                                <div class="flex items-center gap-3">
+                                    <input type="checkbox" data-action="toggle-addon" data-id="gopro" data-price="80"
+                                        data-name="Alquiler GoPro Hero 12"
+                                        class="addon-check w-5 h-5 accent-primary rounded-lg">
+                                    <span
+                                        class="text-[11px] font-black uppercase group-hover:text-primary transition-all">GoPro
+                                        Hero 12</span>
+                                </div>
+                                <span class="text-xs font-black italic text-slate-400">S/ 80</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 3: REVIEW & PAYMENT PREP -->
+                <div id="booking-step-3" class="booking-wizard-step hidden space-y-12">
+                    <div class="space-y-4">
+                        <h4 class="text-3xl font-black italic">Resumen de <span
+                                class="text-secondary tracking-tighter">Despliegue</span></h4>
+                        <p class="text-sm text-slate-500 font-medium italic">"La preparación es el 90% del éxito de
+                            cualquier expedición."</p>
+                    </div>
+
+                    <div class="bg-slate-900 rounded-[40px] p-8 text-white relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full blur-[60px]"></div>
+                        <div class="relative z-10 space-y-6">
+                            <div class="flex justify-between items-end border-b border-white/10 pb-4">
+                                <div>
+                                    <p class="text-[8px] font-black uppercase text-slate-400 opacity-60">Expedición
+                                        Seleccionada</p>
+                                    <p id="review-tour-title"
+                                        class="text-xl font-black italic tracking-wide text-white"></p>
+                                </div>
+                                <p id="review-date" class="text-[10px] font-black text-accent uppercase italic"></p>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-white/5 p-4 rounded-2xl">
+                                    <p class="text-[8px] font-black uppercase text-slate-400">Exploradores</p>
+                                    <p id="review-pax" class="text-xl font-black italic"></p>
+                                </div>
+                                <div class="bg-white/5 p-4 rounded-2xl">
+                                    <p class="text-[8px] font-black uppercase text-slate-400">Addons Activos</p>
+                                    <p id="review-addons-count" class="text-xl font-black italic"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4 p-6 bg-emerald-50 rounded-3xl border border-emerald-100">
+                        <i class="ri-checkbox-circle-fill text-emerald-500 text-2xl"></i>
+                        <p class="text-[10px] font-bold text-emerald-700 leading-relaxed uppercase tracking-widest">Tu
+                            itinerario ha sido validado por el sistema de seguridad regional.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT PANEL: CONTROLS & DYNAMIC SYNC -->
+            <div
+                class="flex-1 bg-slate-50 p-6 lg:p-16 flex flex-col justify-between pt-6 lg:pt-32 relative lg:overflow-y-auto custom-scrollbar order-1 lg:order-2">
+                <button data-action="close-modal"
+                    class="absolute top-4 right-4 lg:top-8 lg:right-8 w-10 h-10 lg:w-12 lg:h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm z-50 text-slate-400 hover:text-red-500 transition-colors"><i
+                        class="ri-close-large-line"></i></button>
+
+                <div class="space-y-10">
+                    <!-- Dynamic Date Picker (Visible in step 1) -->
+                    <div id="wiz-date-picker-container" class="space-y-10">
+                        <div>
+                            <div class="flex justify-between items-center mb-4">
+                                <h5 class="text-[10px] font-black uppercase" data-i18n="modal_date">Seleccionar Fecha
+                                </h5>
+                                <div id="month-display"
+                                    class="text-[10px] font-black text-primary uppercase bg-primary/5 px-3 py-1 rounded-lg italic">
+                                    Marzo 2026</div>
+                            </div>
+                            <div id="month-selector" class="flex gap-2 overflow-x-auto no-scrollbar mb-4 pb-2"></div>
+                            <div id="calendar-grid" class="grid grid-cols-7 gap-2"></div>
+                        </div>
+                        <div>
+                            <h5 class="text-[10px] font-black uppercase mb-4" data-i18n="modal_pax">Participantes</h5>
+                            <div class="flex items-center gap-6">
+                                <button data-action="change-pax" data-delta="-1"
+                                    class="w-12 h-12 bg-white rounded-xl shadow-sm hover:scale-105 transition-all">-</button>
+                                <span id="pax-count" class="text-xl font-black">01</span>
+                                <button data-action="change-pax" data-delta="1"
+                                    class="w-12 h-12 bg-white rounded-xl shadow-sm hover:scale-105 transition-all">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-t pt-8 mt-12">
+                    <div class="flex justify-between items-center mb-8">
+                        <div>
+                            <span class="text-[9px] font-black uppercase text-slate-400">Inversión Final</span>
+                            <div id="b-total-price" class="text-3xl font-black italic text-slate-900 leading-none">S/ 0
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <span
+                                class="text-[8px] font-black text-emerald-500 uppercase bg-emerald-50 px-2 py-1 rounded-md italic">Pago
+                                Seguro V3</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col gap-3">
+                        <button id="wiz-next-btn" data-action="next-step"
+                            class="w-full bg-primary text-white py-6 rounded-3xl font-black uppercase tracking-widest shadow-xl shadow-primary/20 hover:scale-[1.02] transition-all flex items-center justify-center gap-2">
+                            <span data-i18n="btn_next">Siguiente Paso</span> <i
+                                class="ri-arrow-right-long-line text-lg"></i>
+                        </button>
+                        <button id="wiz-prev-btn" data-action="prev-step"
+                            class="hidden w-full bg-white border-2 border-slate-100 text-slate-400 py-6 rounded-3xl font-black uppercase tracking-widest hover:border-slate-300 transition-all"
+                            data-i18n="btn_prev">
+                            Paso Anterior
+                        </button>
+                        <button id="add-btn" data-action="add-booking-cart"
+                            class="hidden w-full bg-emerald-500 text-white py-6 rounded-3xl font-black uppercase tracking-widest shadow-xl shadow-emerald-500/20 hover:bg-emerald-600 transition-all flex items-center justify-center gap-3">
+                            <span data-i18n="btn_book">RESERVAR AHORA</span>
+                            <i class="ri-shopping-cart-2-line border-l border-white/20 pl-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STICKY MOBILE FOOTER (Only visible on mobile) -->
+            <div id="sticky-booking-footer"
+                class="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-slate-100 p-4 shadow-2xl z-[2100] transform translate-y-full transition-transform duration-300">
+                <div class="flex items-center justify-between gap-4">
+                    <div class="flex-1">
+                        <p class="text-[8px] font-black uppercase text-slate-400 mb-1">Total</p>
+                        <p id="sticky-total-price" class="text-xl font-black italic text-slate-900">S/ 0</p>
+                    </div>
+                    <button id="sticky-next-btn" data-action="next-step"
+                        class="flex-1 bg-primary text-white py-4 px-6 rounded-2xl font-black uppercase text-[10px] tracking-widest shadow-lg hover:bg-slate-900 transition-all">
+                        <span data-i18n="btn_next">Siguiente</span> →
+                    </button>
+                    <button id="sticky-book-btn" data-action="add-booking-cart"
+                        class="hidden flex-1 bg-emerald-500 text-white py-4 px-6 rounded-2xl font-black uppercase text-[10px] tracking-widest shadow-lg">
+                        <span data-i18n="btn_book">Reservar</span> 🎒
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tactical Backpack Drawer -->
+    <div id="cart-drawer"
+        class="fixed top-0 right-0 w-full lg:w-[550px] h-full bg-white z-[3000] shadow-2xl translate-x-full transition-all duration-500 flex flex-col overflow-hidden">
+
+        <!-- Header con Efecto de Posesión -->
+        <div class="p-8 border-b flex justify-between items-center bg-slate-900 text-white">
+            <div class="flex items-center gap-4">
+                <div
+                    class="w-12 h-12 bg-primary rounded-2xl flex items-center justify-center shadow-lg shadow-primary/20">
+                    <i class="ri-handbag-fill text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-black italic tracking-tighter" data-i18n="backpack_title">MOCHILA TÁCTICA
+                    </h3>
+                    <p class="text-[9px] font-black text-slate-400 uppercase tracking-widest" data-i18n="backpack_tag">
+                        Preparada para la acción
+                    </p>
+                </div>
+            </div>
+            <button data-action="toggle-cart"
+                class="w-10 h-10 flex items-center justify-center hover:bg-white/10 rounded-xl transition-all">
+                <i class="ri-close-line text-2xl"></i>
+            </button>
+        </div>
+
+        <div class="flex-1 overflow-hidden flex flex-col">
+            <!-- Representación Visual de la Mochila (SVG interactivo) -->
+            <div
+                class="h-48 bg-gradient-to-b from-slate-50 to-white flex items-center justify-center p-6 border-b border-slate-50 relative overflow-hidden">
+                <div id="backpack-svg-container" class="relative z-10">
+                    <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                        class="text-slate-200 backpack-icon transition-all duration-500">
+                        <path d="M12 2L8 4v2a4 4 0 0 0 8 0V4l-4-2z" />
+                        <path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8" />
+                        <path d="M4 8l8-2 8 2" />
+                        <path d="M9 13h6" />
+                    </svg>
+                    <!-- Badges reactivos sobre la mochila -->
+                    <div id="backpack-status-badge"
+                        class="absolute -top-2 -right-2 bg-secondary text-white text-[8px] font-black px-2 py-1 rounded-full opacity-0 transform scale-0 transition-all duration-300">
+                        ELITE</div>
+                </div>
+                <!-- IMAGEN DINÁMICA CON TRACKING SENSORIAL -->
+                <div class="hidden lg:block flex-1 relative overflow-hidden group">
+                    <img id="b-img" src=""
+                        class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105"
+                        data-sensory="true" data-sensory-type="landscape" data-sensory-target="b-tagline">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent">
+                    </div>
+                    <div class="absolute bottom-12 left-12 right-12">
+                        <p id="b-tagline" class="text-white font-black italic text-4xl leading-tight sensory-text">
+                            La aventura de tu vida comienza aquí.
+                        </p>
+                    </div>
+                </div>
+                <!-- Partículas de ambiente -->
+                <div class="absolute inset-0 pointer-events-none opacity-20">
+                    <div class="absolute top-1/4 left-1/4 w-1 h-1 bg-primary rounded-full animate-ping"></div>
+                    <div class="absolute bottom-1/3 right-1/4 w-1 h-1 bg-accent rounded-full animate-ping"
+                        style="animation-delay: 1s"></div>
+                </div>
+            </div>
+
+            <!-- Lista de Posesiones con Scroll Refinado -->
+            <div id="cart-list" class="flex-1 overflow-y-auto p-8 space-y-4 bg-white custom-scrollbar">
+                <!-- Los items serán inyectados por useBackpack -->
+            </div>
+        </div>
+
+        <!-- Panel de Compra con Refuerzo Psicológico -->
+        <div class="p-8 bg-slate-50 border-t border-slate-100 rounded-t-[40px]">
+            <div class="space-y-4 mb-8">
+                <div
+                    class="flex justify-between items-center bg-white/50 backdrop-blur-sm p-4 rounded-2xl border border-white">
+                    <div>
+                        <p class="text-[9px] font-black text-slate-400 uppercase tracking-widest"
+                            data-i18n="backpack_investment">Inversión en Aventura
+                        </p>
+                        <p id="cart-total" class="text-3xl font-black italic text-slate-900">S/ 0</p>
+                    </div>
+                    <div class="text-right">
+                        <p data-i18n="user_status"
+                            class="text-[9px] font-black text-primary uppercase bg-primary/10 px-2 py-1 rounded-md mb-1 inline-block">
+                            Socio Elite Active</p>
+                        <p class="text-[10px] font-bold text-slate-500 italic" data-i18n="backpack_member_discount">-15%
+                            Descuento Apl.</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3 px-2">
+                    <i class="ri-shield-check-fill text-emerald-500"></i>
+                    <p class="text-[10px] font-bold text-slate-400" data-i18n="backpack_protection">Tus objetos están
+                        protegidos y listos para el
+                        despliegue.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <button data-action="continue-exploring" data-i18n="btn_continue_exploring"
+                    class="bg-white border-2 border-slate-200 py-4 rounded-2xl font-black text-[10px] uppercase tracking-widest hover:border-primary transition-all">Seguir
+                    Explorando</button>
+                <button data-action="open-checkout" data-i18n="btn_checkout"
+                    class="bg-primary text-white py-4 rounded-3xl font-black text-[10px] uppercase tracking-widest shadow-xl shadow-primary/20 hover:bg-slate-900 transition-all group shrink-0">
+                    PAGAR AHORA <i class="ri-arrow-right-line ml-2 group-hover:translate-x-1 transition-all"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stripe Checkout -->
+    <div id="stripe-checkout-modal"
+        class="hidden fixed inset-0 z-[4000] bg-slate-900/60 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-4xl rounded-[48px] overflow-hidden flex flex-col lg:flex-row shadow-3xl">
+            <div class="flex-1 p-12 lg:p-16 border-r border-slate-50">
+                <h3 class="text-2xl font-black italic mb-8">Detalles de Orden</h3>
+                <div id="stripe-order-items" class="space-y-6 mb-8 max-h-64 overflow-y-auto pr-4"></div>
+                <div class="border-t pt-6 flex justify-between items-center"><span
+                        class="text-xs font-black">SUBTOTAL</span><span id="stripe-total-amount"
+                        class="text-xl font-black"></span></div>
+            </div>
+            <div class="flex-1 p-12 lg:p-16 bg-slate-50 relative overflow-y-auto">
+                <button data-action="close-checkout"
+                    class="mb-6 text-slate-400 underline font-bold uppercase text-[10px] hover:text-red-500">Cancelar
+                    Operación</button>
+
+                <!-- ELITE MEMBER PAYMENT PLAN SELECTOR -->
+                <div
+                    class="mb-8 bg-gradient-to-br from-primary/5 to-accent/5 p-6 rounded-3xl border-2 border-primary/20">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
+                                <i class="ri-vip-crown-fill text-white text-lg"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-sm font-black italic text-slate-900">Beneficio Socio Elite</h5>
+                                <p class="text-[9px] font-bold text-slate-500 uppercase tracking-wide">Pago Fraccionado
+                                    Disponible</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2 bg-white rounded-full p-1 shadow-sm">
+                            <button id="payment-plan-full" data-action="select-payment-plan" data-plan="full"
+                                class="payment-plan-btn active px-4 py-2 rounded-full text-[9px] font-black uppercase tracking-wider transition-all bg-primary text-white">
+                                Completo
+                            </button>
+                            <button id="payment-plan-split" data-action="select-payment-plan" data-plan="split"
+                                class="payment-plan-btn px-4 py-2 rounded-full text-[9px] font-black uppercase tracking-wider transition-all text-slate-400">
+                                Fraccionado
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- SPLIT PAYMENT BREAKDOWN (Hidden by default) -->
+                    <div id="split-payment-details" class="hidden mt-6 space-y-3">
+                        <div class="bg-white rounded-2xl p-4 border border-slate-100 flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-emerald-100 rounded-lg flex items-center justify-center">
+                                    <span class="text-emerald-600 font-black text-xs">1</span>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] font-black text-slate-900 uppercase">Hoy - Reserva</p>
+                                    <p class="text-[8px] font-bold text-slate-400" id="payment-date-1">06 Ene 2026</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-lg font-black text-emerald-600" id="payment-amount-1">S/ 0</p>
+                                <p class="text-[8px] font-bold text-slate-400">30% del total</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-2xl p-4 border border-slate-100 flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-amber-100 rounded-lg flex items-center justify-center">
+                                    <span class="text-amber-600 font-black text-xs">2</span>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] font-black text-slate-900 uppercase">1 Día Antes</p>
+                                    <p class="text-[8px] font-bold text-slate-400" id="payment-date-2">--</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-lg font-black text-amber-600" id="payment-amount-2">S/ 0</p>
+                                <p class="text-[8px] font-bold text-slate-400">30% del total</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-2xl p-4 border border-slate-100 flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center">
+                                    <span class="text-primary font-black text-xs">3</span>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] font-black text-slate-900 uppercase">Día del Tour</p>
+                                    <p class="text-[8px] font-bold text-slate-400" id="payment-date-3">--</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-lg font-black text-primary" id="payment-amount-3">S/ 0</p>
+                                <p class="text-[8px] font-bold text-slate-400">40% del total</p>
+                            </div>
+                        </div>
+                        <div class="bg-indigo-50 p-3 rounded-xl flex items-start gap-2 mt-4">
+                            <i class="ri-information-line text-primary text-sm mt-0.5"></i>
+                            <p class="text-[9px] font-bold text-primary leading-relaxed">
+                                Recibirás recordatorios automáticos por WhatsApp antes de cada pago pendiente.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- CURRENT PAYMENT AMOUNT DISPLAY -->
+                    <div id="current-payment-display" class="mt-4 bg-white rounded-2xl p-4 border-2 border-primary/30">
+                        <div class="flex items-center justify-between">
+                            <p class="text-[9px] font-black text-slate-400 uppercase tracking-wider">Monto a Pagar Ahora
+                            </p>
+                            <p class="text-2xl font-black text-primary" id="current-payment-amount">S/ 0</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="text-xl font-black italic text-slate-900 mb-6">Selecciona Método de Pago</h4>
+
+                <!-- Payment Tabs -->
+                <div class="grid grid-cols-2 gap-4 mb-8">
+                    <button data-action="switch-payment" data-method="qr" id="btn-pay-qr"
+                        class="bg-white border-2 border-primary text-primary p-4 rounded-2xl flex flex-col items-center gap-2 transition-all shadow-md">
+                        <i class="ri-qr-code-line text-2xl"></i>
+                        <span class="text-[9px] font-black uppercase">Yape / Plin</span>
+                    </button>
+                    <button data-action="switch-payment" data-method="bank" id="btn-pay-bank"
+                        class="bg-white border-2 border-transparent text-slate-400 hover:text-slate-600 p-4 rounded-2xl flex flex-col items-center gap-2 transition-all">
+                        <i class="ri-bank-card-line text-2xl"></i>
+                        <span class="text-[9px] font-black uppercase">Transferencia</span>
+                    </button>
+                </div>
+
+                <!-- QR Payment View -->
+                <div id="view-pay-qr" class="space-y-6 text-center">
+                    <div class="bg-white p-6 rounded-3xl shadow-lg inline-block border border-slate-100">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=00020101021126580016A00000067701011101130036123456789020465.10530360490000508101004HOLA5802PE5915LIFEXTREME_CORP6007LIFEXTR62190115REFERENCIA_PAGO63041234"
+                            class="w-40 h-40 mx-auto opacity-90" alt="QR Yape/Plin">
+                        <p class="text-[10px] font-black text-slate-400 mt-4 uppercase">Escanear con Yape o Plin</p>
+                    </div>
+                    <div>
+                        <p class="text-[10px] font-bold text-slate-500 mb-1">Titular: Lifextreme Adventures SAC</p>
+                        <p class="text-lg font-black text-slate-900 tracking-widest">987 654 321</p>
+                    </div>
+                </div>
+
+                <!-- Bank Transfer View (Hidden by default) -->
+                <div id="view-pay-bank" class="hidden space-y-6">
+                    <div class="bg-white p-6 rounded-3xl border border-slate-100 space-y-4">
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-black text-xs">
+                                BCP</div>
+                            <div>
+                                <p class="text-[9px] font-black text-slate-400 uppercase">Cuenta Corriente Soles</p>
+                                <p class="text-sm font-black text-slate-900">193-12345678-0-99</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center text-white font-black text-xs">
+                                IBK</div>
+                            <div>
+                                <p class="text-[9px] font-black text-slate-400 uppercase">Cuenta Interbancaria (CCI)</p>
+                                <p class="text-sm font-black text-slate-900">003-193-001234567809-99</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-indigo-50 p-4 rounded-2xl flex items-start gap-3">
+                        <i class="ri-information-fill text-primary mt-0.5"></i>
+                        <p class="text-[10px] font-bold text-primary leading-tight">Envía la constancia de transferencia
+                            al WhatsApp oficial para validar tu reserva inmediatamente.</p>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-slate-100 space-y-3">
+                    <button id="confirm-payment-btn" data-action="confirm-payment"
+                        class="w-full bg-emerald-500 text-white py-4 rounded-2xl font-black uppercase text-[11px] tracking-widest shadow-xl shadow-emerald-500/20 hover:scale-[1.02] transition-all">
+                        Confirmar Pago Enviado
+                    </button>
+                    <button
+                        onclick="navigateTo('home'); document.getElementById('stripe-checkout-modal').classList.add('hidden'); document.getElementById('cart-drawer').classList.add('translate-x-full');"
+                        class="w-full bg-white border-2 border-slate-200 text-slate-700 py-4 rounded-2xl font-black uppercase text-[11px] tracking-widest hover:border-primary hover:text-primary transition-all flex items-center justify-center gap-2 group">
+                        <i class="ri-home-4-line text-lg group-hover:scale-110 transition-transform"></i>
+                        Volver al Inicio
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOMO Container -->
+    <div id="fomo-container" class="fixed bottom-10 left-10 z-[5000] flex flex-col gap-4 pointer-events-none"></div>
+
+    <!-- MODAL: Quiz -->
+    <div id="quiz-modal"
+        class="hidden fixed inset-0 z-[6000] bg-slate-900/80 backdrop-blur-xl flex items-center justify-center p-4 text-white text-center">
+        <div class="max-w-2xl w-full">
+            <div id="quiz-step-1" class="quiz-step">
+                <h2 class="text-4xl font-black italic mb-8" data-i18n="quiz_q1">¿Cuál es tu nivel de locura?</h2>
+                <div class="flex gap-4 justify-center"><button data-action="quiz-next" data-step="2" data-val="novice"
+                        data-i18n="quiz_a1_1"
+                        class="bg-white/10 p-6 rounded-3xl font-black uppercase hover:bg-white/20">Principiante</button><button
+                        data-action="quiz-next" data-step="2" data-val="elite" data-i18n="quiz_a1_2"
+                        class="bg-primary p-6 rounded-3xl font-black uppercase hover:scale-110 transition-all text-xl">Elite
+                        Pro</button></div>
+            </div>
+            <div id="quiz-step-2" class="quiz-step hidden">
+                <h2 class="text-4xl font-black italic mb-8" data-i18n="quiz_q2">¿Cuál es tu terreno?</h2>
+                <div class="flex gap-4 justify-center"><button data-action="quiz-next" data-step="3" data-val="montaña"
+                        data-i18n="quiz_a2_1" class="bg-white/10 p-6 rounded-3xl hover:bg-white/20">🏔️
+                        Montaña</button><button data-i18n="quiz_a2_2" data-action="quiz-next" data-step="3"
+                        data-val="selva" class="bg-white/10 p-6 rounded-3xl hover:bg-white/20">🌴
+                        Selva</button><button data-action="quiz-next" data-step="3" data-val="costa"
+                        class="bg-white/10 p-6 rounded-3xl hover:bg-white/20">🌊 Costa</button></div>
+            </div>
+            <div id="quiz-step-3" class="quiz-step hidden">
+                <h2 class="text-4xl font-black italic mb-8">Tu email táctico</h2><input type="email" id="quiz-email"
+                    class="bg-white/10 p-6 rounded-3xl w-full mb-8 outline-none text-2xl"
+                    placeholder="tu@email.com"><button data-action="quiz-finish"
+                    class="w-full bg-accent text-white py-6 rounded-3xl font-black uppercase">Obtener
+                    Recomendación</button>
+            </div>
+            <div id="quiz-step-result" class="quiz-step hidden">
+                <h2 class="text-3xl font-black italic mb-4">Aventura Ideal:</h2>
+                <p id="recommended-tour" class="text-5xl font-black text-accent italic mb-12"></p><button
+                    data-action="close-quiz"
+                    class="bg-white text-slate-900 px-10 py-5 rounded-3xl font-black uppercase">Volver</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- KIT BUILDER MODAL -->
+    <div id="kit-builder-modal"
+        class="hidden fixed inset-0 z-[5500] bg-slate-900/40 backdrop-blur-xl flex items-center justify-center p-4">
+        <div
+            class="bg-white w-full max-w-2xl rounded-[64px] overflow-hidden shadow-3xl text-center p-12 lg:p-16 relative">
+            <div
+                class="absolute -top-12 left-1/2 -translate-x-1/2 w-24 h-24 bg-primary rounded-3xl flex items-center justify-center text-white shadow-2xl rotate-12">
+                <i class="ri-briefcase-4-fill text-4xl"></i>
+            </div>
+
+            <div class="mt-8 space-y-6">
+                <h3 class="text-3xl font-black italic">¿Desplegar con <span class="logo-gradient">Kit Pro</span>?</h3>
+                <p class="text-sm text-slate-500 font-bold max-w-md mx-auto">Basado en tu destino, hemos pre-configurado
+                    este pack de supervivencia con un 25% de ahorro inmediato.</p>
+
+                <div id="kit-items-preview" class="flex justify-center gap-4 py-4">
+                    <!-- Dinámico -->
+                </div>
+
+                <div class="bg-slate-50 rounded-3xl p-8 flex items-center justify-between">
+                    <div class="text-left price-anchoring">
+                        <span id="kit-original-price" class="price-original">S/ 0</span>
+                        <span id="kit-final-price" class="price-final text-3xl">S/ 0</span>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-[10px] font-black text-emerald-500 uppercase italic">Ahorras <span
+                                id="kit-savings-amount">S/ 0</span></p>
+                        <p class="text-[8px] font-bold text-slate-400 uppercase">Oferta por tiempo limitado</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <button data-action="add-kit"
+                        class="w-full bg-primary text-white py-6 rounded-3xl font-black uppercase tracking-widest shadow-xl shadow-primary/20 hover:scale-[1.02] transition-all">Añadir
+                        Pack al Inventario</button>
+                    <button data-action="close-kit"
+                        class="text-xs font-black text-slate-400 uppercase tracking-widest">No,
+                        prefiero ir con lo básico</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI PERSONALIZATION MODAL -->
+    <div id="ai-personalization-modal"
+        class="hidden fixed inset-0 z-[6000] bg-slate-900/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-white w-full max-w-4xl rounded-[48px] shadow-3xl my-8 relative">
+            <!-- Header -->
+            <div
+                class="bg-gradient-to-r from-primary to-secondary p-8 lg:p-12 text-white text-center relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-[100px]"></div>
+                <div class="relative z-10">
+                    <div
+                        class="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-3xl mx-auto mb-6 flex items-center justify-center">
+                        <i class="ri-sparkling-2-fill text-4xl"></i>
+                    </div>
+                    <h2 class="text-3xl lg:text-4xl font-black italic mb-3">Activa tu Perfil <span
+                            class="text-accent">Elite IA</span></h2>
+                    <p class="text-white/80 font-bold text-sm max-w-2xl mx-auto">Completa tu perfil para que nuestra IA
+                        personalice ofertas, rutas y experiencias únicas basadas en tus preferencias de aventura.</p>
+                </div>
+            </div>
+
+            <!-- Form -->
+            <form id="ai-profile-form" class="p-8 lg:p-12 space-y-8">
+                <!-- Personal Info -->
+                <div class="space-y-6">
+                    <h3 class="text-xl font-black italic flex items-center gap-3">
+                        <i class="ri-user-star-line text-primary"></i>
+                        Información Personal
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Nombre
+                                Completo *</label>
+                            <input type="text" name="fullName" required
+                                class="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-primary transition-colors"
+                                placeholder="Ej: Carlos Mendoza">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Email
+                                *</label>
+                            <input type="email" name="email" required
+                                class="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-primary transition-colors"
+                                placeholder="tu@email.com">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Edad</label>
+                            <input type="number" name="age" min="18" max="99"
+                                class="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-primary transition-colors"
+                                placeholder="28">
+                        </div>
+                        <div class="space-y-2">
+                            <label
+                                class="text-[10px] font-black uppercase text-slate-400 tracking-widest">WhatsApp</label>
+                            <input type="tel" name="phone"
+                                class="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-primary transition-colors"
+                                placeholder="+51 999 999 999">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Adventure Profile -->
+                <div class="space-y-6 border-t pt-8">
+                    <h3 class="text-xl font-black italic flex items-center gap-3">
+                        <i class="ri-compass-3-line text-primary"></i>
+                        Perfil de Aventurero
+                    </h3>
+
+                    <div class="space-y-2">
+                        <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Nivel de
+                            Experiencia *</label>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                            <label class="relative cursor-pointer">
+                                <input type="radio" name="experienceLevel" value="beginner" class="peer sr-only"
+                                    required>
+                                <div
+                                    class="bg-slate-50 border-2 border-slate-100 rounded-2xl p-4 text-center peer-checked:border-primary peer-checked:bg-primary/5 transition-all">
+                                    <i class="ri-seedling-line text-2xl mb-2 block"></i>
+                                    <p class="text-[10px] font-black uppercase">Principiante</p>
+                                </div>
+                            </label>
+                            <label class="relative cursor-pointer">
+                                <input type="radio" name="experienceLevel" value="intermediate" class="peer sr-only">
+                                <div
+                                    class="bg-slate-50 border-2 border-slate-100 rounded-2xl p-4 text-center peer-checked:border-primary peer-checked:bg-primary/5 transition-all">
+                                    <i class="ri-walk-line text-2xl mb-2 block"></i>
+                                    <p class="text-[10px] font-black uppercase">Intermedio</p>
+                                </div>
+                            </label>
+                            <label class="relative cursor-pointer">
+                                <input type="radio" name="experienceLevel" value="advanced" class="peer sr-only">
+                                <div
+                                    class="bg-slate-50 border-2 border-slate-100 rounded-2xl p-4 text-center peer-checked:border-primary peer-checked:bg-primary/5 transition-all">
+                                    <i class="ri-run-line text-2xl mb-2 block"></i>
+                                    <p class="text-[10px] font-black uppercase">Avanzado</p>
+                                </div>
+                            </label>
+                            <label class="relative cursor-pointer">
+                                <input type="radio" name="experienceLevel" value="expert" class="peer sr-only">
+                                <div
+                                    class="bg-slate-50 border-2 border-slate-100 rounded-2xl p-4 text-center peer-checked:border-primary peer-checked:bg-primary/5 transition-all">
+                                    <i class="ri-rocket-2-line text-2xl mb-2 block"></i>
+                                    <p class="text-[10px] font-black uppercase">Experto</p>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Intereses de
+                            Aventura (Selecciona todos los que apliquen)</label>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                            <label
+                                class="flex items-center gap-3 bg-slate-50 p-3 rounded-xl cursor-pointer hover:bg-slate-100 transition-colors">
+                                <input type="checkbox" name="interests" value="trekking"
+                                    class="w-5 h-5 accent-primary rounded">
+                                <span class="text-xs font-bold">🏔️ Trekking</span>
+                            </label>
+                            <label
+                                class="flex items-center gap-3 bg-slate-50 p-3 rounded-xl cursor-pointer hover:bg-slate-100 transition-colors">
+                                <input type="checkbox" name="interests" value="climbing"
+                                    class="w-5 h-5 accent-primary rounded">
+                                <span class="text-xs font-bold">🧗 Escalada</span>
+                            </label>
+                            <label
+                                class="flex items-center gap-3 bg-slate-50 p-3 rounded-xl cursor-pointer hover:bg-slate-100 transition-colors">
+                                <input type="checkbox" name="interests" value="jungle"
+                                    class="w-5 h-5 accent-primary rounded">
+                                <span class="text-xs font-bold">🌴 Selva</span>
+                            </label>
+                            <label
+                                class="flex items-center gap-3 bg-slate-50 p-3 rounded-xl cursor-pointer hover:bg-slate-100 transition-colors">
+                                <input type="checkbox" name="interests" value="cycling"
+                                    class="w-5 h-5 accent-primary rounded">
+                                <span class="text-xs font-bold">🚴 Ciclismo</span>
+                            </label>
+                            <label
+                                class="flex items-center gap-3 bg-slate-50 p-3 rounded-xl cursor-pointer hover:bg-slate-100 transition-colors">
+                                <input type="checkbox" name="interests" value="water"
+                                    class="w-5 h-5 accent-primary rounded">
+                                <span class="text-xs font-bold">🏄 Deportes Acuáticos</span>
+                            </label>
+                            <label
+                                class="flex items-center gap-3 bg-slate-50 p-3 rounded-xl cursor-pointer hover:bg-slate-100 transition-colors">
+                                <input type="checkbox" name="interests" value="camping"
+                                    class="w-5 h-5 accent-primary rounded">
+                                <span class="text-xs font-bold">⛺ Camping</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Presupuesto
+                                Promedio por Aventura</label>
+                            <select name="budget"
+                                class="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-primary transition-colors cursor-pointer">
+                                <option value="">Seleccionar...</option>
+                                <option value="budget">S/ 500 - S/ 1,000 (Económico)</option>
+                                <option value="moderate">S/ 1,000 - S/ 2,500 (Moderado)</option>
+                                <option value="premium">S/ 2,500 - S/ 5,000 (Premium)</option>
+                                <option value="luxury">S/ 5,000+ (Lujo)</option>
+                            </select>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Frecuencia de
+                                Viaje</label>
+                            <select name="travelFrequency"
+                                class="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-primary transition-colors cursor-pointer">
+                                <option value="">Seleccionar...</option>
+                                <option value="monthly">Mensual</option>
+                                <option value="quarterly">Trimestral</option>
+                                <option value="biannual">Semestral</option>
+                                <option value="annual">Anual</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Preferences -->
+                <div class="space-y-6 border-t pt-8">
+                    <h3 class="text-xl font-black italic flex items-center gap-3">
+                        <i class="ri-settings-4-line text-primary"></i>
+                        Preferencias de Experiencia
+                    </h3>
+
+                    <div class="space-y-2">
+                        <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Tipo de Grupo
+                            Preferido</label>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                            <label class="relative cursor-pointer">
+                                <input type="radio" name="groupType" value="solo" class="peer sr-only">
+                                <div
+                                    class="bg-slate-50 border-2 border-slate-100 rounded-2xl p-4 text-center peer-checked:border-primary peer-checked:bg-primary/5 transition-all">
+                                    <i class="ri-user-line text-2xl mb-2 block"></i>
+                                    <p class="text-[10px] font-black uppercase">Solo</p>
+                                </div>
+                            </label>
+                            <label class="relative cursor-pointer">
+                                <input type="radio" name="groupType" value="couple" class="peer sr-only">
+                                <div
+                                    class="bg-slate-50 border-2 border-slate-100 rounded-2xl p-4 text-center peer-checked:border-primary peer-checked:bg-primary/5 transition-all">
+                                    <i class="ri-user-heart-line text-2xl mb-2 block"></i>
+                                    <p class="text-[10px] font-black uppercase">Pareja</p>
+                                </div>
+                            </label>
+                            <label class="relative cursor-pointer">
+                                <input type="radio" name="groupType" value="friends" class="peer sr-only">
+                                <div
+                                    class="bg-slate-50 border-2 border-slate-100 rounded-2xl p-4 text-center peer-checked:border-primary peer-checked:bg-primary/5 transition-all">
+                                    <i class="ri-group-line text-2xl mb-2 block"></i>
+                                    <p class="text-[10px] font-black uppercase">Amigos</p>
+                                </div>
+                            </label>
+                            <label class="relative cursor-pointer">
+                                <input type="radio" name="groupType" value="family" class="peer sr-only">
+                                <div
+                                    class="bg-slate-50 border-2 border-slate-100 rounded-2xl p-4 text-center peer-checked:border-primary peer-checked:bg-primary/5 transition-all">
+                                    <i class="ri-parent-line text-2xl mb-2 block"></i>
+                                    <p class="text-[10px] font-black uppercase">Familia</p>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Regiones de
+                            Interés</label>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                            <label
+                                class="flex items-center gap-3 bg-slate-50 p-3 rounded-xl cursor-pointer hover:bg-slate-100 transition-colors">
+                                <input type="checkbox" name="regions" value="cusco"
+                                    class="w-5 h-5 accent-primary rounded">
+                                <span class="text-xs font-bold">Cusco</span>
+                            </label>
+                            <label
+                                class="flex items-center gap-3 bg-slate-50 p-3 rounded-xl cursor-pointer hover:bg-slate-100 transition-colors">
+                                <input type="checkbox" name="regions" value="huaraz"
+                                    class="w-5 h-5 accent-primary rounded">
+                                <span class="text-xs font-bold">Huaraz</span>
+                            </label>
+                            <label
+                                class="flex items-center gap-3 bg-slate-50 p-3 rounded-xl cursor-pointer hover:bg-slate-100 transition-colors">
+                                <input type="checkbox" name="regions" value="iquitos"
+                                    class="w-5 h-5 accent-primary rounded">
+                                <span class="text-xs font-bold">Iquitos</span>
+                            </label>
+                            <label
+                                class="flex items-center gap-3 bg-slate-50 p-3 rounded-xl cursor-pointer hover:bg-slate-100 transition-colors">
+                                <input type="checkbox" name="regions" value="arequipa"
+                                    class="w-5 h-5 accent-primary rounded">
+                                <span class="text-xs font-bold">Arequipa</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Motivación
+                            Principal</label>
+                        <textarea name="motivation" rows="3"
+                            class="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-primary transition-colors resize-none"
+                            placeholder="Ej: Busco desconectar del trabajo, superar mis límites físicos, conectar con la naturaleza..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Actions -->
+                <div class="flex flex-col md:flex-row gap-4 pt-6">
+                    <button type="button" data-action="close-ai-modal"
+                        class="flex-1 bg-slate-100 text-slate-600 py-4 rounded-2xl font-black uppercase text-[10px] tracking-widest hover:bg-slate-200 transition-all">
+                        Cancelar
+                    </button>
+                    <button type="submit"
+                        class="flex-1 bg-gradient-to-r from-primary to-secondary text-white py-4 rounded-2xl font-black uppercase text-[10px] tracking-widest shadow-xl hover:scale-[1.02] transition-all">
+                        🚀 Activar Perfil IA Elite
+                    </button>
+                </div>
+
+                <p class="text-[9px] text-slate-400 text-center font-bold italic">
+                    🔒 Tus datos están protegidos y solo se usan para personalizar tu experiencia
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <!-- Columna 1: Marca -->
+                <div>
+                    <h3 class="text-2xl font-black italic mb-4 logo-gradient">Lifextreme</h3>
+                    <p class="text-slate-400 text-sm mb-6">Transformando aventureros en experiencias únicas desde 2024.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#"
+                            class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center hover:bg-primary transition-all">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center hover:bg-primary transition-all">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center hover:bg-primary transition-all">
+                            <i class="ri-youtube-line"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center hover:bg-primary transition-all">
+                            <i class="ri-tiktok-line"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Columna 2: Destinos -->
+                <div>
+                    <h4 class="text-sm font-black uppercase tracking-widest mb-4">Destinos</h4>
+                    <ul class="space-y-3 text-sm text-slate-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Cusco</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Huaraz</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Iquitos</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Arequipa</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Piura</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Empresa -->
+                <div>
+                    <h4 class="text-sm font-black uppercase tracking-widest mb-4">Empresa</h4>
+                    <ul class="space-y-3 text-sm text-slate-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Sobre Nosotros</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Nuestros Guías</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Trabaja con Nosotros</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Prensa</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: Contacto -->
+                <div>
+                    <h4 class="text-sm font-black uppercase tracking-widest mb-4">Contacto</h4>
+                    <ul class="space-y-3 text-sm text-slate-400">
+                        <li class="flex items-center gap-2">
+                            <i class="ri-whatsapp-line text-emerald-400"></i>
+                            <a href="https://wa.me/51XXXXXXXXX" class="hover:text-white transition-colors">+51 XXX XXX
+                                XXX</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="ri-mail-line text-primary"></i>
+                            <a href="mailto:info@lifextreme.com"
+                                class="hover:text-white transition-colors">info@lifextreme.com</a>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="ri-map-pin-line text-secondary mt-1"></i>
+                            <span>Av. El Sol 123, Cusco, Perú</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="ri-time-line text-accent"></i>
+                            <span>Lun-Sab: 8:00 AM - 8:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Línea divisoria -->
+            <div class="border-t border-white/10 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <!-- Copyright -->
+                    <p class="text-sm text-slate-500">
+                        © 2026 Lifextreme. Todos los derechos reservados.
+                    </p>
+
+                    <!-- Enlaces legales -->
+                    <div class="flex flex-wrap gap-6 text-sm text-slate-400">
+                        <a href="terminos.html" target="_blank" class="hover:text-white transition-colors">Términos y
+                            Condiciones</a>
+                        <a href="privacidad.html" target="_blank" class="hover:text-white transition-colors">Política de
+                            Privacidad</a>
+                        <a href="#" class="hover:text-white transition-colors">Política de Cookies</a>
+                    </div>
+
+                    <!-- Certificaciones -->
+                    <div class="flex items-center gap-3">
+                        <div class="bg-white/10 px-3 py-1 rounded-lg text-[10px] font-bold">
+                            🔒 SSL Seguro
+                        </div>
+                        <div class="bg-white/10 px-3 py-1 rounded-lg text-[10px] font-bold">
+                            ✓ Verificado
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nota legal adicional -->
+            <div class="mt-6 pt-6 border-t border-white/10">
+                <p class="text-xs text-slate-500 text-center max-w-4xl mx-auto">
+                    Lifextreme es una agencia de turismo de aventura registrada en Perú. RUC: XXXXXXXXXXX.
+                    Todos nuestros tours cuentan con seguro de accidentes y guías certificados por UIAGM.
+                    Las fotografías mostradas son referenciales. Los precios están sujetos a disponibilidad y pueden
+                    variar según temporada.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS Modularized (Links) -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/config.js"></script>
+    <script src="js/supabase-client.js"></script>
+    <script src="js/store.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/cms-service.js"></script>
+    <script src="js/price-engine.js"></script>
+    <script src="js/fomo-engine.js"></script>
+    <script src="js/sensory-engine.js"></script>
+    <script src="js/ai-personalization.js"></script>
+    <script src="js/ai-engine.js"></script>
+    <script src="js/share-engine.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
