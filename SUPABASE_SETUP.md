@@ -1,45 +1,37 @@
-# 🗄️ GUÍA RÁPIDA: CONFIGURAR SUPABASE
+# 🗄️ CONFIGURACIÓN DE SUPABASE - LIFEXTREME BACKEND
 
-## PASO 1: Crear Proyecto (5 min)
-1. Ir a https://supabase.com
-2. Sign up / Login
-3. "New Project"
-4. Nombre: `lifextreme-prod`
-5. Password: [guardar en lugar seguro]
-6. Region: `South America (São Paulo)`
+## 📋 PASO 1: Crear Proyecto en Supabase
 
-## PASO 2: Crear Tablas (10 min)
-1. Ir a "SQL Editor" (menú izquierdo)
-2. "New Query"
-3. Copiar TODO el contenido de `supabase-schema.sql`
-4. Pegar y ejecutar "Run"
-5. Verificar en "Table Editor" que aparecen:
-   - `bookings`
-   - `ai_profiles`
+### 1.1 Crear Cuenta y Proyecto
 
-## PASO 3: Obtener Credenciales (2 min)
-1. Ir a "Settings" → "API"
-2. Copiar:
-   - **Project URL**: `https://xxxxx.supabase.co`
-   - **anon public**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...`
-
-## PASO 4: Configurar en Lifextreme (5 min)
-1. Abrir `js/supabase-client.js`
-2. Reemplazar:
-   ```javascript
-   const SUPABASE_URL = 'TU_PROJECT_URL';
-   const SUPABASE_ANON_KEY = 'TU_ANON_KEY';
+1. **Ve a**: https://supabase.com
+2. **Click en** "Start your project"
+3. **Inicia sesión** con GitHub o email: lifextremeperu@gmail.com
+4. **Click en** "New Project"
+5. **Configuración del proyecto**:
    ```
+   Organization: Lifextreme (crear nueva si no existe)
+   Project name: lifextreme-backend
+   Database Password: [GENERA UNA CONTRASEÑA SEGURA]
+   Region: South America (São Paulo) - sa-east-1
+   Pricing Plan: Free (para empezar)
+   ```
+6. **Click en** "Create new project"
+7. **Espera 2-3 minutos** mientras se crea el proyecto
 
-## PASO 5: Agregar Script en HTML (2 min)
-En `index.html`, antes de `supabase-client.js`:
-```html
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="js/supabase-client.js"></script>
+### 1.2 Obtener Credenciales
+
+Una vez creado el proyecto:
+
+1. Ve a **Settings** → **API**
+2. Copia y guarda estos valores:
+
+```
+Project URL: https://[tu-proyecto].supabase.co
+API Key (anon/public): eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+API Key (service_role): eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9... [SECRETO]
 ```
 
-## ✅ LISTO
-Ahora las reservas se guardan en la nube automáticamente.
+---
 
-## 📊 Ver Datos
-Dashboard → Table Editor → bookings
+**Continúa en el archivo SUPABASE_COMPLETE_GUIDE.md para los siguientes pasos...**
