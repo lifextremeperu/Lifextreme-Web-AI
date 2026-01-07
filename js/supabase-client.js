@@ -5,10 +5,9 @@
 
 import { createClient } from '@supabase/supabase-js'
 
-// Configuración de Supabase
-// IMPORTANTE: Reemplaza estos valores con tus credenciales reales
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://tu-proyecto.supabase.co'
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'tu-anon-key-aqui'
+// ✅ Configuración de Supabase - Lifextreme Backend
+const supabaseUrl = 'https://zobpkmiqrvhbepqnjshr.supabase.co'
+const supabaseAnonKey = 'sb_publishable_pBMaD6Mm-6Pi5cwwp3UUsw_Pndjw-mo'
 
 // Crear cliente de Supabase
 export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
