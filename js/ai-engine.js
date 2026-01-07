@@ -423,12 +423,8 @@ class AIPersonalizationEngine {
         this.addUserMessage(msg);
         input.value = '';
 
-        // Simulate thinking and reply
-        this.showTypingIndicator();
-
-        setTimeout(() => {
-            this.processUserMessage(msg);
-        }, 1500);
+        // Send to AI Engine
+        this.processUserMessage(msg);
     }
 
     addUserMessage(text) {
@@ -500,10 +496,40 @@ class AIPersonalizationEngine {
         container.scrollTop = container.scrollHeight;
     }
 
-    // Logic to process intent (Mock NLP)
-    processUserMessage(msg) {
-        msg = msg.toLowerCase();
+    async processUserMessage(msg) {
+        // Show indicator immediately if not already shown
+        if (!document.getElementById('typing-indicator')) {
+            this.showTypingIndicator();
+        }
 
+        try {
+            // 1. Call Gemini API via Vercel Function
+            const response = await fetch('/api/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    message: msg,
+                    context: this.userProfile || {}
+                })
+            });
+
+            if (!response.ok) throw new Error('API request failed');
+
+            const data = await response.json();
+
+            // 2. Display AI Response
+            this.addBotMessage(data.reply);
+
+        } catch (error) {
+            console.warn('⚠️ Gemini API not active or unreachable. Using fallback logic.', error);
+
+            // 3. Fallback to Local Logic (Mock)
+            this.processOfflineIntent(msg);
+        }
+    }
+
+    processOfflineIntent(msg) {
+        msg = msg.toLowerCase();
         let reply = "Interesante... Cuéntame más sobre qué tipo de experiencia buscas.";
         let actions = [];
 
@@ -528,13 +554,12 @@ class AIPersonalizationEngine {
             reply = "Entiendo. Puedo ayudarte a armar un itinerario a medida. ¿Cuántos días planeas quedarte en Cusco?";
         }
 
-        this.addBotMessage(reply, actions);
+        setTimeout(() => this.addBotMessage(reply, actions), 1000); // Slight delay for offline feel
     }
 
     handleAction(val) {
         this.addUserMessage(val); // Treat button click as user message
-        this.showTypingIndicator();
-        setTimeout(() => this.processUserMessage(val), 1000);
+        this.processUserMessage(val);
     }
 
     suggestNextAction() {
