@@ -1759,9 +1759,16 @@
     </footer>
 
     <!-- JS Modularized (Links) -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- Import Map for Supabase & Modules -->
+    <script type="importmap">
+    {
+      "imports": {
+        "@supabase/supabase-js": "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm"
+      }
+    }
+    </script>
+    <!-- Removed blocking scripts that are now loaded as modules -->
     <script src="js/config.js"></script>
-    <script src="js/supabase-client.js"></script>
     <script src="js/store.js"></script>
     <script src="js/data.js"></script>
     <script src="js/cms-service.js"></script>
