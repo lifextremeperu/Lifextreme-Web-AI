@@ -811,6 +811,53 @@ function renderAll(region = 'Todos', category = 'Todos') {
     renderEvents();
 }
 
+function renderGuides() {
+    const grid = document.getElementById('guides-grid');
+    if (!grid) return;
+
+    // Use global guides data (fallback if not loaded yet)
+    const guidesList = window.guides || [];
+
+    grid.innerHTML = guidesList.map(g => `
+        <div class="bg-white rounded-[40px] p-4 shadow-sm hover:shadow-2xl transition-all duration-500 group border border-slate-50 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-32 bg-slate-100 mb-12 group-hover:bg-primary/5 transition-colors"></div>
+            
+            <div class="relative z-10 flex flex-col items-center">
+                <div class="w-24 h-24 rounded-[32px] overflow-hidden shadow-lg border-4 border-white mb-4 group-hover:scale-110 transition-transform duration-500">
+                    <img src="${g.img}" class="w-full h-full object-cover">
+                </div>
+                
+                <h4 class="text-lg font-black italic text-slate-900 mb-1 text-center">${g.name}</h4>
+                <p class="text-[9px] font-black text-primary uppercase tracking-widest mb-4">${g.specialty}</p>
+                
+                <div class="flex gap-2 mb-6 justify-center">
+                    ${g.languages.map(l => `<span class="bg-slate-50 px-2 py-1 rounded-lg text-[8px] font-bold text-slate-400 uppercase">${l.slice(0, 3)}</span>`).join('')}
+                </div>
+
+                <p class="text-xs text-slate-500 font-medium text-center mb-6 line-clamp-2 px-2">
+                    ${g.desc}
+                </p>
+
+                <div class="w-full mt-auto">
+                    <button onclick="openGuideHireModal('${g.name}', ${g.id})" 
+                        class="w-full bg-slate-900 text-white py-3 rounded-2xl font-black uppercase text-[10px] tracking-widest hover:bg-primary transition-all shadow-lg shadow-slate-900/10 flex items-center justify-center gap-2 group-hover:shadow-primary/20">
+                        Contratar <i class="ri-arrow-right-line group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+
+function openGuideHireModal(name, id) {
+    const modal = document.getElementById('guide-hire-modal');
+    if (modal) {
+        modal.classList.remove('hidden');
+        document.getElementById('guide-modal-name').innerText = name;
+        document.getElementById('guide-id-input').value = id;
+    }
+}
+
 function renderEvents(region = 'Todos') {
     const grid = document.getElementById('events-grid');
     if (!grid) return;

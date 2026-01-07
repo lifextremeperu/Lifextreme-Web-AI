@@ -1421,9 +1421,50 @@ const kitTemplates = {
         description: 'El kit versátil para cualquier tipo de trekking'
     }
 };
+
+const guides = [
+    {
+        id: 1,
+        name: 'Carlos "El Puma" Mamani',
+        specialty: 'Alta Montaña',
+        languages: ['Español', 'Quechua', 'Inglés'],
+        exp: '15 años',
+        img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1887&auto=format&fit=crop',
+        desc: 'Especialista en rutas de más de 5000msnm. Certificado UIAGM.'
+    },
+    {
+        id: 2,
+        name: 'Sarah "La Lince" Jenkins',
+        specialty: 'Trekking & Flora',
+        languages: ['Inglés', 'Español', 'Francés'],
+        exp: '8 años',
+        img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop',
+        desc: 'Bióloga experta en la biodiversidad de los Andes y Amazonía.'
+    },
+    {
+        id: 3,
+        name: 'Marco "Condor" Quispe',
+        specialty: 'Cultura Inca',
+        languages: ['Español', 'Quechua'],
+        exp: '20 años',
+        img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop',
+        desc: 'Historiador local con acceso a rutas sagradas exclusivas.'
+    },
+    {
+        id: 4,
+        name: 'Elena "River" Tuanama',
+        specialty: 'Selva & Kayak',
+        languages: ['Español', 'Portugués'],
+        exp: '12 años',
+        img: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1888&auto=format&fit=crop',
+        desc: 'Nacida en el Amazonas, experta en supervivencia y navegación.'
+    }
+];
+
 // Exportar para uso global
 window.tours = tours;
 window.events = events;
 window.equips = equips;
+window.guides = guides;
 window.tourEquipmentMap = tourEquipmentMap;
 window.kitTemplates = kitTemplates;
