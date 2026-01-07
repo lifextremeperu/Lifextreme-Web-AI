@@ -776,17 +776,33 @@ function renderAll(region = 'Todos', category = 'Todos') {
         }
 
         equipGrid.innerHTML = equipsData.map((e, i) => `
-            <div class="bg-white p-8 rounded-[40px] border border-slate-50 flex items-center gap-8 shadow-sm hover:shadow-xl transition-all animate-card-entry" style="animation-delay: ${i * 40}ms; animation-fill-mode: both;">
-                <div class="w-24 h-24 rounded-2xl relative bg-slate-50 overflow-hidden">
-                    <div class="skeleton-loader absolute inset-0"></div>
-                    <img src="${e.img}?w=200" loading="lazy" class="w-full h-full object-cover img-reveal" onload="this.classList.add('loaded'); this.previousElementSibling.style.display='none';">
+            <div class="bg-white p-6 rounded-[32px] border border-slate-50 flex flex-col gap-4 shadow-sm hover:shadow-xl transition-all animate-card-entry" style="animation-delay: ${i * 40}ms; animation-fill-mode: both;">
+                <div class="flex items-center gap-4">
+                    <div class="w-20 h-20 rounded-2xl relative bg-slate-50 overflow-hidden flex-shrink-0">
+                        <div class="skeleton-loader absolute inset-0"></div>
+                        <img src="${e.img}?w=200" loading="lazy" class="w-full h-full object-cover img-reveal" onload="this.classList.add('loaded'); this.previousElementSibling.style.display='none';">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-[8px] font-black text-slate-400 uppercase tracking-widest mb-1">${e.cat}</p>
+                        <h4 class="font-black italic text-md leading-tight truncate" title="${e.name}">${e.name}</h4>
+                    </div>
                 </div>
-                <div class="flex-1">
-                    <p class="text-[8px] font-black text-slate-400 uppercase tracking-widest mb-1">${e.cat}</p>
-                    <h4 class="font-black italic text-md mb-2 leading-tight">${e.name}</h4>
-                    <p class="text-xl font-black text-primary italic">S/ ${e.price}</p>
+                
+                <div class="grid grid-cols-2 gap-2 mt-auto">
+                    <!-- Buy Option -->
+                    <button data-action="add-cart-short" data-name="${e.name}" data-price="${e.price}" data-type="sale" data-img="${e.img}" 
+                        class="flex flex-col items-center justify-center bg-slate-50 hover:bg-slate-900 hover:text-white p-3 rounded-2xl transition-all group border border-slate-100">
+                        <span class="text-[9px] font-bold text-slate-400 uppercase mb-1 group-hover:text-slate-300">Comprar</span>
+                        <span class="text-sm font-black italic">S/ ${e.price}</span>
+                    </button>
+                    
+                    <!-- Rent Option -->
+                    <button data-action="add-cart-short" data-name="${e.name}" data-price="${e.rentPrice}" data-type="rent" data-img="${e.img}" 
+                        class="flex flex-col items-center justify-center bg-indigo-50 hover:bg-primary hover:text-white p-3 rounded-2xl transition-all group border border-indigo-100">
+                        <span class="text-[9px] font-bold text-indigo-400 uppercase mb-1 group-hover:text-indigo-100">Alquilar</span>
+                        <span class="text-sm font-black italic">S/ ${e.rentPrice}<small class="text-[8px] opacity-70">/day</small></span>
+                    </button>
                 </div>
-                <button data-action="add-cart-short" data-name="${e.name}" data-price="${e.price}" data-img="${e.img}" class="bg-slate-900 text-white w-12 h-12 rounded-xl flex items-center justify-center hover:bg-primary transition-all shadow-lg"><i class="ri-add-line text-xl"></i></button>
             </div>
         `).join('');
     }

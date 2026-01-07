@@ -1361,25 +1361,25 @@ const events = [
 
 const equips = [
     // MOCHILAS (5)
-    { name: 'Osprey Aether 65 Elite', cat: 'Mochilas', price: 1250, img: 'https://images.unsplash.com/photo-1622260614153-03223fb72052' }, // Dark Tactical/Hiking
-    { name: 'Mammal Pro 45L Tactical', cat: 'Mochilas', price: 850, img: 'https://images.unsplash.com/photo-1590845947698-8924d7409b56' }, // Camo/Green
-    { name: 'Arc teryx Bora 75', cat: 'Mochilas', price: 1800, img: 'https://images.unsplash.com/photo-1581605405669-fcdf81165afa' }, // Orange/Mountain
-    { name: 'Gregory Baltoro 85 Pro', cat: 'Mochilas', price: 1100, img: 'https://images.unsplash.com/photo-1547847932-d3a3d538df59' }, // Camping vibes
-    { name: 'Black Diamond Speed 30', cat: 'Mochilas', price: 650, img: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62' }, // General Rucksack
+    { name: 'Osprey Aether 65 Elite', cat: 'Mochilas', price: 1250, rentPrice: 45, img: 'https://images.unsplash.com/photo-1622260614153-03223fb72052' }, // Dark Tactical/Hiking
+    { name: 'Mammal Pro 45L Tactical', cat: 'Mochilas', price: 850, rentPrice: 35, img: 'https://images.unsplash.com/photo-1590845947698-8924d7409b56' }, // Camo/Green
+    { name: 'Arc teryx Bora 75', cat: 'Mochilas', price: 1800, rentPrice: 60, img: 'https://images.unsplash.com/photo-1581605405669-fcdf81165afa' }, // Orange/Mountain
+    { name: 'Gregory Baltoro 85 Pro', cat: 'Mochilas', price: 1100, rentPrice: 40, img: 'https://images.unsplash.com/photo-1547847932-d3a3d538df59' }, // Camping vibes
+    { name: 'Black Diamond Speed 30', cat: 'Mochilas', price: 650, rentPrice: 25, img: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62' }, // General Rucksack
 
     // CALZADO (5)
-    { name: 'La Sportiva Nepal Cube', cat: 'Calzado', price: 2150, img: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff' }, // Red Nike style but sturdy
-    { name: 'Scarpa Phantom 6000', cat: 'Calzado', price: 3200, img: 'https://images.unsplash.com/photo-1520639888713-7851133b1ed0' }, // Boot in snow
-    { name: 'Salomon Quest 4 GTX', cat: 'Calzado', price: 950, img: 'https://images.unsplash.com/photo-1512990414788-d97cb4a25db3' }, // Classic hiking boots
-    { name: 'Zamberlan Vioz Lux', cat: 'Calzado', price: 1300, img: 'https://images.unsplash.com/photo-1603808033192-082d6919d3e1' }, // Brown leather boots
-    { name: 'Merrell Moab 3 Tactical', cat: 'Calzado', price: 750, img: 'https://images.unsplash.com/photo-1595341888016-a392ef81b7de' }, // Tactical shoe
+    { name: 'La Sportiva Nepal Cube', cat: 'Calzado', price: 2150, rentPrice: 80, img: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff' }, // Red Nike style but sturdy
+    { name: 'Scarpa Phantom 6000', cat: 'Calzado', price: 3200, rentPrice: 120, img: 'https://images.unsplash.com/photo-1520639888713-7851133b1ed0' }, // Boot in snow
+    { name: 'Salomon Quest 4 GTX', cat: 'Calzado', price: 950, rentPrice: 35, img: 'https://images.unsplash.com/photo-1512990414788-d97cb4a25db3' }, // Classic hiking boots
+    { name: 'Zamberlan Vioz Lux', cat: 'Calzado', price: 1300, rentPrice: 50, img: 'https://images.unsplash.com/photo-1603808033192-082d6919d3e1' }, // Brown leather boots
+    { name: 'Merrell Moab 3 Tactical', cat: 'Calzado', price: 750, rentPrice: 30, img: 'https://images.unsplash.com/photo-1595341888016-a392ef81b7de' }, // Tactical shoe
 
     // ACCESORIOS (5)
-    { name: 'Black Diamond Spot 400', cat: 'Accesorios', price: 220, img: 'https://images.unsplash.com/photo-1563857508098-b6483134604d' }, // Headlamp style
-    { name: 'Garmin InReach Mini 2', cat: 'Accesorios', price: 1650, img: 'https://images.unsplash.com/photo-1557262947-2cb2d4705540' }, // Watch/GPS vibe
-    { name: 'Petzl Summit Evo Axe', cat: 'Accesorios', price: 780, img: 'https://images.unsplash.com/photo-1506377225131-41e98d9ba0d1' }, // Ice axe/Pick
-    { name: 'BioLite SolarPanel 5+', cat: 'Accesorios', price: 420, img: 'https://images.unsplash.com/photo-1545209355-66795f5539d8' }, // Solar/Tech
-    { name: 'Therma-Rest NeoAir XTherm', cat: 'Accesorios', price: 950, img: 'https://images.unsplash.com/photo-1617326693439-0bd649033376' } // Camping mat/gear
+    { name: 'Black Diamond Spot 400', cat: 'Accesorios', price: 220, rentPrice: 15, img: 'https://images.unsplash.com/photo-1563857508098-b6483134604d' }, // Headlamp style
+    { name: 'Garmin InReach Mini 2', cat: 'Accesorios', price: 1650, rentPrice: 65, img: 'https://images.unsplash.com/photo-1557262947-2cb2d4705540' }, // Watch/GPS vibe
+    { name: 'Petzl Summit Evo Axe', cat: 'Accesorios', price: 780, rentPrice: 35, img: 'https://images.unsplash.com/photo-1506377225131-41e98d9ba0d1' }, // Ice axe/Pick
+    { name: 'BioLite SolarPanel 5+', cat: 'Accesorios', price: 420, rentPrice: 20, img: 'https://images.unsplash.com/photo-1545209355-66795f5539d8' }, // Solar/Tech
+    { name: 'Therma-Rest NeoAir XTherm', cat: 'Accesorios', price: 950, rentPrice: 40, img: 'https://images.unsplash.com/photo-1617326693439-0bd649033376' } // Camping mat/gear
 ];
 
 // Equipment recommendation mapping by tour type
