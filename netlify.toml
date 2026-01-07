@@ -8,7 +8,33 @@
   # Comando de build (no necesario para sitio estático)
   command = "echo 'Static site - no build required'"
 
-# Configuración de headers para seguridad y rendimiento
+# ========================================
+# OPTIMIZACIÓN DE PERFORMANCE
+# ========================================
+
+# Procesamiento automático de assets
+[build.processing]
+  skip_processing = false
+
+[build.processing.css]
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  bundle = true
+  minify = true
+
+[build.processing.html]
+  pretty_urls = true
+
+[build.processing.images]
+  compress = true
+
+# ========================================
+# HEADERS DE SEGURIDAD Y PERFORMANCE
+# ========================================
+
+# Headers globales
 [[headers]]
   for = "/*"
   [headers.values]
@@ -17,26 +43,57 @@
     X-Content-Type-Options = "nosniff"
     X-XSS-Protection = "1; mode=block"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
     
-    # Performance - Cache de assets estáticos
-    Cache-Control = "public, max-age=31536000, immutable"
+    # Content Security Policy
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com https://cdn.tailwindcss.com https://www.googletagmanager.com https://analytics.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.tailwindcss.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: http:; connect-src 'self' https://analytics.google.com;"
+    
+    # Performance
+    X-DNS-Prefetch-Control = "on"
 
+# Cache para HTML (sin cache, siempre fresh)
 [[headers]]
-  for = "*.html"
+  for = "/*.html"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
 
+# Cache para CSS (1 año)
 [[headers]]
-  for = "*.css"
+  for = "/*.css"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# Cache para JavaScript (1 año)
 [[headers]]
-  for = "*.js"
+  for = "/*.js"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-# Redirecciones y rewrites
+# Cache para imágenes (1 año)
+[[headers]]
+  for = "/*.{jpg,jpeg,png,gif,svg,webp,ico}"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache para fuentes (1 año)
+[[headers]]
+  for = "/*.{woff,woff2,ttf,eot}"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Access-Control-Allow-Origin = "*"
+
+# ========================================
+# REDIRECCIONES Y REWRITES
+# ========================================
+
+# Forzar HTTPS
+[[redirects]]
+  from = "http://lifextreme-v29-pro.netlify.app/*"
+  to = "https://lifextreme-v29-pro.netlify.app/:splat"
+  status = 301
+  force = true
+
+# Portal Partners
 [[redirects]]
   from = "/partners"
   to = "/partners/index.html"
@@ -53,7 +110,10 @@
   to = "/index.html"
   status = 404
 
-# Configuración de contexto de deployment
+# ========================================
+# CONTEXTOS DE DEPLOYMENT
+# ========================================
+
 [context.production]
   environment = { NODE_ENV = "production" }
 
@@ -62,3 +122,15 @@
 
 [context.branch-deploy]
   environment = { NODE_ENV = "development" }
+
+# ========================================
+# PLUGINS DE NETLIFY
+# ========================================
+
+# Plugin para optimización de imágenes
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+
+# Plugin para sitemap automático
+[[plugins]]
+  package = "@netlify/plugin-sitemap"
