@@ -529,57 +529,194 @@
 
                 <!-- MEMBERSHIP LOSS AVERSION BANNER -->
                 <div
-                    class="bg-slate-900 rounded-[64px] shadow-3xl p-12 flex flex-col items-center text-center overflow-hidden relative border border-white/5">
+                    class="bg-slate-900 rounded-[64px] shadow-3xl p-8 lg:p-12 flex flex-col items-center text-center overflow-hidden relative border border-white/5">
+
+                    <!-- Background Effects -->
                     <div
                         class="absolute top-0 right-0 w-64 h-64 bg-secondary/10 rounded-full blur-[120px] animate-pulse">
                     </div>
-                    <span data-i18n="membership_alert"
-                        class="bg-secondary/20 text-secondary px-4 py-2 rounded-full text-[9px] font-black uppercase tracking-[0.3em] inline-block mb-6 border border-secondary/30 animate-pulse">⚠️
-                        ALERTA DE EXPIRACIÓN</span>
+                    <div class="absolute bottom-0 left-0 w-40 h-40 bg-primary/10 rounded-full blur-[80px]"></div>
 
-                    <h2 class="text-4xl lg:text-5xl font-black text-white leading-tight mb-4 italic">
-                        <span data-i18n="membership_title_1">Tu acceso</span> <span class="logo-gradient"
-                            data-i18n="membership_title_2">Elite</span> <span data-i18n="membership_title_3">expira
-                            pronto</span>
+                    <!-- Badge -->
+                    <span
+                        class="bg-secondary/20 text-secondary px-4 py-2 rounded-full text-[9px] font-black uppercase tracking-[0.3em] inline-block mb-6 border border-secondary/30 animate-pulse">
+                        <i class="ri-alarm-warning-fill mr-1"></i> Oferta Relámpago
+                    </span>
+
+                    <!-- Main Title - 100 FREE MEMBERSHIPS -->
+                    <h2 class="text-3xl lg:text-5xl font-black text-white leading-tight mb-4 italic">
+                        100 Membresías <span class="logo-gradient">GRATIS</span>
                     </h2>
                     <p class="text-slate-400 font-bold mb-8 max-w-lg text-sm">
-                        <span data-i18n="membership_desc_1">Estás a punto de perder un ahorro de</span> <span
-                            id="lost-savings-amount" class="text-secondary font-black">S/ 0</span> <span
-                            data-i18n="membership_desc_2">en tu mochila táctica. Activa ahora para asegurar tus
-                            beneficios.</span>
+                        Para los primeros 100 aventureros. Ahorra <span class="text-secondary font-black">S/ 450</span>
+                        en tu primer año.
                     </p>
 
-                    <div id="membership-timer" class="grid grid-cols-4 gap-4 mb-12 max-w-sm w-full">
-                        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-white/10">
-                            <div class="text-3xl font-black text-white" id="m-hours">00</div>
-                            <div class="text-[8px] font-black text-slate-500 uppercase tracking-widest mt-1"
-                                data-i18n="timer_hours">Horas</div>
-                        </div>
-                        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-white/10">
-                            <div class="text-3xl font-black text-white" id="m-minutes">00</div>
-                            <div class="text-[8px] font-black text-slate-500 uppercase tracking-widest mt-1"
-                                data-i18n="timer_min">Min</div>
-                        </div>
-                        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-white/10">
-                            <div class="text-3xl font-black text-white" id="m-seconds">00</div>
-                            <div class="text-[8px] font-black text-slate-500 uppercase tracking-widest mt-1"
-                                data-i18n="timer_sec">Seg</div>
-                        </div>
-                        <div
-                            class="bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-white/10 flex flex-col items-center justify-center">
-                            <i class="ri-timer-flash-line text-secondary text-2xl animate-pulse"></i>
+                    <!-- Timer & Counter Container -->
+                    <div
+                        class="bg-slate-800/50 rounded-3xl p-6 border border-white/10 backdrop-blur-md mb-8 w-full max-w-2xl">
+                        <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+
+                            <!-- Timer (36 Hrs) -->
+                            <div class="flex gap-3 text-center">
+                                <div>
+                                    <div class="w-16 h-16 bg-slate-900 rounded-xl flex items-center justify-center text-2xl font-black text-white border border-white/10"
+                                        id="m-hours">36</div>
+                                    <div class="text-[8px] font-bold text-slate-500 uppercase mt-2">Horas</div>
+                                </div>
+                                <div class="text-2xl font-black text-slate-600 self-center">:</div>
+                                <div>
+                                    <div class="w-16 h-16 bg-slate-900 rounded-xl flex items-center justify-center text-2xl font-black text-white border border-white/10"
+                                        id="m-minutes">00</div>
+                                    <div class="text-[8px] font-bold text-slate-500 uppercase mt-2">Min</div>
+                                </div>
+                                <div class="text-2xl font-black text-slate-600 self-center">:</div>
+                                <div>
+                                    <div class="w-16 h-16 bg-slate-900 rounded-xl flex items-center justify-center text-2xl font-black text-white border border-white/10"
+                                        id="m-seconds">00</div>
+                                    <div class="text-[8px] font-bold text-slate-500 uppercase mt-2">Seg</div>
+                                </div>
+                            </div>
+
+                            <!-- Divider -->
+                            <div class="h-12 w-px bg-white/10 hidden md:block"></div>
+
+                            <!-- Spots Counter (70 -> 12) -->
+                            <div class="text-center">
+                                <div class="text-4xl font-black text-emerald-400 mb-1" id="spots-counter">70</div>
+                                <div class="text-[10px] font-black text-emerald-500/80 uppercase tracking-widest">Cupos
+                                    Disponibles</div>
+                                <div class="w-32 h-1.5 bg-slate-900 rounded-full mt-3 overflow-hidden">
+                                    <div class="h-full bg-emerald-500 w-[70%]" id="spots-bar"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <button data-action="activate-membership" data-i18n="btn_secure_discount"
-                        class="bg-secondary text-white px-12 py-6 rounded-3xl font-black uppercase text-[13px] tracking-widest shadow-2xl shadow-secondary/20 hover:scale-105 transition-all group">
-                        Asegurar mi Descuento Elite <i
-                            class="ri-arrow-right-up-line ml-2 group-hover:rotate-45 transition-all"></i>
+                    <!-- CTA Button -->
+                    <button data-action="activate-membership"
+                        class="bg-gradient-to-r from-secondary to-pink-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest hover:scale-105 transition-transform shadow-lg shadow-secondary/25 mb-10 w-full max-w-md flex items-center justify-center gap-3">
+                        <span>Reclamar Membresía Gratis</span>
+                        <i class="ri-arrow-right-line"></i>
                     </button>
-                    <p class="text-[9px] text-slate-600 mt-6 font-bold uppercase tracking-widest italic"
-                        data-i18n="membership_action_required">Acción
-                        requerida para mantener el status de socio</p>
+
+                    <!-- Benefits List -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-left w-full max-w-4xl">
+                        <div class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors">
+                            <div
+                                class="w-8 h-8 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center">
+                                <i class="ri-store-2-fill"></i></div>
+                            <div>
+                                <h4 class="text-white text-xs font-bold">Tiendas & Rentas</h4>
+                                <p class="text-slate-500 text-[10px]">Descuentos exclusivos</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors">
+                            <div
+                                class="w-8 h-8 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center">
+                                <i class="ri-hotel-bed-fill"></i></div>
+                            <div>
+                                <h4 class="text-white text-xs font-bold">Hospedajes</h4>
+                                <p class="text-slate-500 text-[10px]">Tarifas preferenciales</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors">
+                            <div
+                                class="w-8 h-8 rounded-full bg-orange-500/20 text-orange-400 flex items-center justify-center">
+                                <i class="ri-restaurant-2-fill"></i></div>
+                            <div>
+                                <h4 class="text-white text-xs font-bold">Restaurantes</h4>
+                                <p class="text-slate-500 text-[10px]">Bebidas o postres free</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors">
+                            <div
+                                class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
+                                <i class="ri-robot-2-fill"></i></div>
+                            <div>
+                                <h4 class="text-white text-xs font-bold">Chat Asesor IA</h4>
+                                <p class="text-slate-500 text-[10px]">Tu guía experto 24/7</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-[9px] text-slate-600 mt-8 font-bold uppercase tracking-widest italic opacity-50">
+                        Oferta válida solo por tiempo limitado. T&C aplican.
+                    </p>
                 </div>
+            </div>
+
+            <!-- SELF-CONTAINED SCRIPT FOR MEMBERSHIP LOGIC (36 hrs Timer & 70 Spots) -->
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    // 1. TIMER LOGIC (36 Hours Countdown)
+                    // Set target date to 36 hours from now if no saved date, else load saved date
+                    const TIMER_KEY = 'lifextreme_offer_target';
+                    let targetDate = localStorage.getItem(TIMER_KEY);
+
+                    if (!targetDate || new Date(targetDate) < new Date()) {
+                        // If no deadline or expired, set new deadline: Now + 36 Hours
+                        const now = new Date();
+                        now.setHours(now.getHours() + 36);
+                        targetDate = now.toISOString();
+                        localStorage.setItem(TIMER_KEY, targetDate);
+                    }
+
+                    const hEl = document.getElementById('m-hours');
+                    const mEl = document.getElementById('m-minutes');
+                    const sEl = document.getElementById('m-seconds');
+
+                    function updateTimer() {
+                        const now = new Date();
+                        const end = new Date(targetDate);
+                        const diff = end - now;
+
+                        if (diff <= 0) {
+                            // Expired: Restart loop or show 00
+                            // Let's restart for marketing evergreen effect
+                            const next = new Date();
+                            next.setHours(next.getHours() + 36);
+                            localStorage.setItem(TIMER_KEY, next.toISOString());
+                            return;
+                        }
+
+                        const h = Math.floor(diff / (1000 * 60 * 60));
+                        const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                        const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+                        if (hEl) hEl.innerText = h.toString().padStart(2, '0');
+                        if (mEl) mEl.innerText = m.toString().padStart(2, '0');
+                        if (sEl) sEl.innerText = s.toString().padStart(2, '0');
+                    }
+
+                    setInterval(updateTimer, 1000);
+                    updateTimer(); // Initial call
+
+                    // 2. SPOTS COUNTER LOGIC (70 -> Decrease)
+                    // We simulate spots decreasing over time to create urgency
+                    let spots = 70;
+                    const spotsEl = document.getElementById('spots-counter');
+                    const barEl = document.getElementById('spots-bar');
+
+                    // Simple fake decrease logic based on time or random
+                    // We'll just fake it starting at 70 and dropping randomly
+
+                    function updateSpots() {
+                        if (spots > 12 && Math.random() > 0.6) {
+                            spots--;
+                            if (spotsEl) {
+                                spotsEl.innerText = spots;
+                                spotsEl.classList.add('scale-150', 'text-pink-500');
+                                setTimeout(() => spotsEl.classList.remove('scale-150', 'text-pink-500'), 500);
+                            }
+                            if (barEl) barEl.style.width = (spots / 100 * 100) + '%';
+                        }
+                    }
+
+                    // Decrease every 20-40 seconds randomly
+                    setInterval(updateSpots, 25000);
+                });
+            </script>
             </div>
         </section>
 
