@@ -1773,6 +1773,29 @@
     <script src="js/share-engine.js"></script>
     <script src="js/app.js"></script>
 
+    <!-- Supabase Integration -->
+    <script type="module">
+        import { initializeAppData } from './js/supabase-loader.js'
+
+        // Inicializar datos desde Supabase cuando la página cargue
+        window.addEventListener('DOMContentLoaded', async () => {
+            console.log('🚀 Inicializando Lifextreme con Supabase...')
+
+            // Cargar datos desde Supabase
+            const success = await initializeAppData()
+
+            if (success) {
+                console.log('✅ Datos cargados desde Supabase')
+                // Re-renderizar la interfaz con los datos nuevos
+                if (typeof renderAll === 'function') {
+                    renderAll()
+                }
+            } else {
+                console.log('ℹ️ Usando datos mock (fallback)')
+            }
+        })
+    </script>
+
 </body>
 
 </html>
