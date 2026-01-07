@@ -605,7 +605,8 @@
                         <div class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors">
                             <div
                                 class="w-8 h-8 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center">
-                                <i class="ri-store-2-fill"></i></div>
+                                <i class="ri-store-2-fill"></i>
+                            </div>
                             <div>
                                 <h4 class="text-white text-xs font-bold">Tiendas & Rentas</h4>
                                 <p class="text-slate-500 text-[10px]">Descuentos exclusivos</p>
@@ -614,7 +615,8 @@
                         <div class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors">
                             <div
                                 class="w-8 h-8 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center">
-                                <i class="ri-hotel-bed-fill"></i></div>
+                                <i class="ri-hotel-bed-fill"></i>
+                            </div>
                             <div>
                                 <h4 class="text-white text-xs font-bold">Hospedajes</h4>
                                 <p class="text-slate-500 text-[10px]">Tarifas preferenciales</p>
@@ -623,7 +625,8 @@
                         <div class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors">
                             <div
                                 class="w-8 h-8 rounded-full bg-orange-500/20 text-orange-400 flex items-center justify-center">
-                                <i class="ri-restaurant-2-fill"></i></div>
+                                <i class="ri-restaurant-2-fill"></i>
+                            </div>
                             <div>
                                 <h4 class="text-white text-xs font-bold">Restaurantes</h4>
                                 <p class="text-slate-500 text-[10px]">Bebidas o postres free</p>
@@ -632,7 +635,8 @@
                         <div class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors">
                             <div
                                 class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
-                                <i class="ri-robot-2-fill"></i></div>
+                                <i class="ri-robot-2-fill"></i>
+                            </div>
                             <div>
                                 <h4 class="text-white text-xs font-bold">Chat Asesor IA</h4>
                                 <p class="text-slate-500 text-[10px]">Tu guía experto 24/7</p>
@@ -1802,9 +1806,9 @@
                         class="flex-1 bg-slate-100 text-slate-600 py-4 rounded-2xl font-black uppercase text-[10px] tracking-widest hover:bg-slate-200 transition-all">
                         Cancelar
                     </button>
-                    <button type="submit"
-                        class="flex-1 bg-gradient-to-r from-primary to-secondary text-white py-4 rounded-2xl font-black uppercase text-[10px] tracking-widest shadow-xl hover:scale-[1.02] transition-all">
-                        🚀 Activar Perfil IA Elite
+                    <button type="submit" id="btn-activate-elite"
+                        class="flex-1 bg-gradient-to-r from-primary to-secondary text-white py-4 rounded-2xl font-black uppercase text-[10px] tracking-widest shadow-xl hover:scale-[1.02] transition-all flex items-center justify-center gap-2">
+                        <span>🚀 Activar Cuenta Socio</span>
                     </button>
                 </div>
 
@@ -1962,12 +1966,13 @@
     <!-- Supabase Integration -->
     <script type="module">
         import { initializeAppData } from './js/supabase-loader.js'
+        import { createEliteProfile } from './js/supabase-client.js'
 
         // Inicializar datos desde Supabase cuando la página cargue
         window.addEventListener('DOMContentLoaded', async () => {
             console.log('🚀 Inicializando Lifextreme con Supabase...')
 
-            // Cargar datos desde Supabase
+            // 1. Cargar datos desde Supabase
             const success = await initializeAppData()
 
             if (success) {
@@ -1978,6 +1983,80 @@
                 }
             } else {
                 console.log('ℹ️ Usando datos mock (fallback)')
+            }
+
+            // 2. Manejar Formulario de Activación Elite (Socio)
+            const eliteForm = document.getElementById('ai-personalization-form');
+            if (eliteForm) {
+                eliteForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+
+                    const btn = document.getElementById('btn-activate-elite');
+                    const originalContent = btn.innerHTML;
+
+                    // a) Loading State
+                    btn.disabled = true;
+                    btn.innerHTML = '<i class="ri-loader-4-line animate-spin text-xl"></i> Procesando...';
+
+                    // b) Collect Data
+                    const formData = new FormData(eliteForm);
+                    const profileData = {
+                        personal: {
+                            fullName: formData.get('fullName'),
+                            email: formData.get('email'),
+                            age: formData.get('age'),
+                            phone: formData.get('phone')
+                        },
+                        adventure: {
+                            experienceLevel: formData.get('experienceLevel'),
+                            budget: formData.get('budget'),
+                            travelFrequency: formData.get('travelFrequency'),
+                            interests: Array.from(formData.getAll('interests'))
+                        },
+                        preferences: {
+                            groupType: formData.get('groupType'),
+                            regions: Array.from(formData.getAll('regions')),
+                            motivation: formData.get('motivation')
+                        }
+                    };
+
+                    // c) Save to LocalStorage (Legacy / Quick Access)
+                    localStorage.setItem('lifextreme_ai_profile', JSON.stringify(profileData));
+
+                    // d) Save to Supabase (Backend)
+                    const result = await createEliteProfile(profileData);
+
+                    if (result.success) {
+                        // e) Success UI
+                        btn.classList.remove('from-primary', 'to-secondary');
+                        btn.classList.add('bg-emerald-500');
+                        btn.innerHTML = '<i class="ri-checkbox-circle-fill text-xl"></i> ¡CUENTA ACTIVADA!';
+
+                        if (window.showToast) window.showToast('Bienvenido, Socio Elite', 'Tu perfil ha sido registrado correctamente.', 'ri-vip-crown-fill');
+
+                        setTimeout(() => {
+                            // Close modal and initialize AI engine
+                            document.getElementById('ai-personalization-modal').classList.add('hidden');
+                            if (window.AIEngine) {
+                                window.AIEngine.userProfile = profileData;
+                                window.AIEngine.activatePersonalization();
+                            }
+                            // Reset button for next time (though modal closes)
+                            setTimeout(() => {
+                                btn.disabled = false;
+                                btn.innerHTML = originalContent;
+                                btn.classList.add('from-primary', 'to-secondary');
+                                btn.classList.remove('bg-emerald-500');
+                                eliteForm.reset();
+                            }, 500);
+                        }, 2000);
+                    } else {
+                        // f) Error Handling
+                        btn.disabled = false;
+                        btn.innerHTML = originalContent;
+                        alert('Hubo un error al activar tu cuenta. Por favor intenta nuevamente.');
+                    }
+                });
             }
         })
     </script>
