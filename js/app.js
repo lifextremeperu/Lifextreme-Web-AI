@@ -273,6 +273,11 @@ function openBooking(tourId) {
     activeTour = tours.find(t => t.id === tourId) || allEvents.find(e => e.id === tourId);
     if (!activeTour) return;
 
+    // 📊 GA4 Tracking: View Item
+    if (window.LifextremeAnalytics) {
+        window.LifextremeAnalytics.trackViewItem(activeTour);
+    }
+
     // Reset State
     participants = 1;
     selectedAddons = [];
@@ -491,6 +496,11 @@ function addToCartFinal() {
 
     // 1. Añadir a UI Mochila (Local)
     backpack.addItem(item);
+
+    // 📊 GA4 Tracking: Add to Cart
+    if (window.LifextremeAnalytics) {
+        window.LifextremeAnalytics.trackAddToCart(item);
+    }
 
     // 2. ☁️ Sincronizar con Supabase (Fire & Forget por ahora para no bloquear UI)
     if (window.processBookingCusco) {
