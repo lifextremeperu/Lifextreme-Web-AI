@@ -473,6 +473,12 @@ function changePax(delta) {
 }
 
 function addToCartFinal() {
+    // Construir fecha real
+    const year = currentYear || 2026;
+    const month = (currentMonthIndex + 1).toString().padStart(2, '0');
+    const day = selectedDay.toString().padStart(2, '0');
+    const fullDate = `${year}-${month}-${day}`;
+
     const item = {
         id: activeTour.id,
         name: activeTour.title,
@@ -482,7 +488,24 @@ function addToCartFinal() {
         date: selectedDay,
         pax: participants
     };
+
+    // 1. Añadir a UI Mochila (Local)
     backpack.addItem(item);
+
+    // 2. ☁️ Sincronizar con Supabase (Fire & Forget por ahora para no bloquear UI)
+    if (window.processBookingCusco) {
+        window.processBookingCusco({
+            tourId: activeTour.id,
+            date: fullDate,
+            pax: participants,
+            price: item.price,
+            contact: {
+                name: "Usuario Web", // Idealmente vendría de un form de checkout
+                email: "pendiente@checkout.com"
+            }
+        });
+    }
+
     closeModal();
     updateCart();
 
