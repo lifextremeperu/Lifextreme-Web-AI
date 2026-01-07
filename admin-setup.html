@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifextreme Admin Setup</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-900 text-white min-h-screen flex items-center justify-center">
+
+    <div class="bg-gray-800 p-8 rounded-3xl shadow-2xl max-w-lg w-full text-center border border-gray-700">
+        <div
+            class="w-20 h-20 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-emerald-500/20">
+            <i class="ri-database-2-fill text-4xl text-white"></i>
+        </div>
+
+        <h1 class="text-3xl font-black italic mb-2">SETUP AUTOMÁTICO</h1>
+        <p class="text-gray-400 mb-8">Cargar catálogo completo (20 Tours) a Supabase</p>
+
+        <div id="status-box"
+            class="bg-gray-900/50 rounded-xl p-4 mb-8 text-left text-sm font-mono h-48 overflow-y-auto hidden">
+            <!-- Logs go here -->
+        </div>
+
+        <button onclick="startSetup()" id="btn-start"
+            class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-black py-4 rounded-xl uppercase tracking-widest transition-all transform hover:scale-105 shadow-xl">
+            INICIAR CARGA DATOS 🚀
+        </button>
+    </div>
+
+    <script type="module">
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm'
+
+        // Credenciales (Usamos Service Role SOLO para setup local admin)
+        const SUPABASE_URL = 'https://zobpkmiqrvhbepqnjshr.supabase.co'
+        // NOTA: Normalmente esto no va en frontend, pero es una herramienta local de admin temporal
+        const SERVICE_KEY = 'sb_secret_7d_j2u37-hVXO_2VkvCc8A_tEaP_LDS' // Extraída de tus credenciales previas
+
+        const supabase = createClient(SUPABASE_URL, SERVICE_KEY)
+
+        const toursData = [
+            // CUSCO
+            { title: 'Choquequirao Trek Clásico', slug: 'choquequirao-4d', description: 'La hermana sagrada de Machu Picchu. Una caminata exigente sin multitudes hacia la ciudadela perdida.', region: 'Cusco', difficulty: 'challenging', duration_days: 4, price_pen: 1950.00, category: 'trekking', images: ['https://images.unsplash.com/photo-1526392060635-9d6019884377'], active: true, featured: true },
+            { title: 'Ausangate 7 Lagunas', slug: 'ausangate-7-lagunas', description: 'Explora las faldas del nevado Ausangate y sus lagunas turquesas en un día lleno de misticismo andino.', region: 'Cusco', difficulty: 'moderate', duration_days: 1, price_pen: 350.00, category: 'trekking', images: ['https://images.unsplash.com/photo-1587595431973-160d0d94add1'], active: true, featured: false },
+            { title: 'Montaña de Colores (Vinicunca)', slug: 'rainbow-mountain-1d', description: 'El desafío de altura más popular. Conquista los 5,200 msnm y admira los colores de la montaña sagrada.', region: 'Cusco', difficulty: 'moderate', duration_days: 1, price_pen: 150.00, category: 'trekking', images: ['https://images.unsplash.com/photo-1509216242873-7786f446f465'], active: true, featured: true },
+            { title: 'Valle Sagrado VIP', slug: 'valle-sagrado-vip', description: 'Recorrido exclusivo por Pisac, Ollantaytambo y Chinchero. Historia viva y arquitectura inca.', region: 'Cusco', difficulty: 'easy', duration_days: 1, price_pen: 280.00, category: 'culture', images: ['https://images.unsplash.com/photo-1587595431973-160d0d94add1'], active: true, featured: false },
+            { title: 'Humantay Lake Challenge', slug: 'humantay-lake', description: 'Caminata corta pero intensa hacia la laguna esmeralda bajo el glaciar Humantay.', region: 'Cusco', difficulty: 'moderate', duration_days: 1, price_pen: 180.00, category: 'trekking', images: ['https://images.unsplash.com/photo-1526392060635-9d6019884377'], active: true, featured: true },
+            { title: 'Huchuy Qosqo Trek', slug: 'huchuy-qosqo-2d', description: 'Ruta poco conocida por el Balcón del Inca con vistas espectaculares del Valle Sagrado.', region: 'Cusco', difficulty: 'moderate', duration_days: 2, price_pen: 650.00, category: 'trekking', images: ['https://images.unsplash.com/photo-1587595431973-160d0d94add1'], active: true, featured: false },
+
+            // HUARAZ
+            { title: 'Laguna 69 Day Hike', slug: 'laguna-69', description: 'La joya de la Cordillera Blanca. Un ascenso escénico hacia una laguna de azul intenso a 4,600 msnm.', region: 'Huaraz', difficulty: 'challenging', duration_days: 1, price_pen: 120.00, category: 'trekking', images: ['https://images.unsplash.com/photo-1534234828563-0229dda07976'], active: true, featured: true },
+            { title: 'Santa Cruz Trek', slug: 'santa-cruz-4d', description: 'El trekking más famoso de la Cordillera Blanca. Pasos de altura, lagunas y vistas del Alpamayo.', region: 'Huaraz', difficulty: 'challenging', duration_days: 4, price_pen: 1400.00, category: 'trekking', images: ['https://images.unsplash.com/photo-1464822759023-fed622ff2c3b'], active: true, featured: true },
+            { title: 'Huayhuash Circuit Full', slug: 'huayhuash-10d', description: 'Considerado uno de los mejores trekkings alpinos del mundo. 10 días de aislamiento total y belleza extrema.', region: 'Huaraz', difficulty: 'extreme', duration_days: 10, price_pen: 3500.00, category: 'expedition', images: ['https://images.unsplash.com/photo-1483729558449-99ef09a8c325'], active: true, featured: true },
+            { title: 'Nevado Mateo Summit', slug: 'nevado-mateo', description: 'Tu primer 5,000. Ascenso técnico moderado ideal para iniciarse en el montañismo glaciar.', region: 'Huaraz', difficulty: 'extreme', duration_days: 1, price_pen: 450.00, category: 'climbing', images: ['https://images.unsplash.com/photo-1519681393784-d120267933ba'], active: true, featured: true },
+
+            // AREQUIPA
+            { title: 'Cañón del Colca Trek 3D', slug: 'colca-canyon-3d', description: 'Descenso a las profundidades de uno de los cañones más profundos del mundo. Oasis, cóndores y cultura.', region: 'Arequipa', difficulty: 'moderate', duration_days: 3, price_pen: 480.00, category: 'trekking', images: ['https://images.unsplash.com/photo-1531366936337-7c912a4589a7'], active: true, featured: true },
+            { title: 'Ascenso Volcán Misti', slug: 'misti-climb-2d', description: 'Reto vertical. Conquista la cumbre del guardián de Arequipa a 5,822 msnm. Solo para valientes.', region: 'Arequipa', difficulty: 'extreme', duration_days: 2, price_pen: 850.00, category: 'climbing', images: ['https://images.unsplash.com/photo-1605540436563-5bca919ae763'], active: true, featured: false },
+            { title: 'Ruta del Sillar & Canteras', slug: 'ruta-sillar', description: 'Recorrido cultural por las canteras donde nace la arquitectura de la Ciudad Blanca.', region: 'Arequipa', difficulty: 'easy', duration_days: 1, price_pen: 90.00, category: 'culture', images: ['https://images.unsplash.com/photo-1531366936337-7c912a4589a7'], active: true, featured: false },
+
+            // SELVA & COSTA
+            { title: 'Tambopata Jungle Adventure', slug: 'tambopata-4d', description: 'Expedición a la Reserva Nacional. Avistamiento de guacamayos, caimanes y caminatas nocturnas.', region: 'Madre de Dios', difficulty: 'moderate', duration_days: 4, price_pen: 1800.00, category: 'jungle', images: ['https://images.unsplash.com/photo-1581881067989-713d26a5c8d2'], active: true, featured: true },
+            { title: 'Manu Biosphere Reserve', slug: 'manu-6d', description: 'Inmersión profunda en la zona reservada del Manu. La mayor biodiversidad del planeta.', region: 'Madre de Dios', difficulty: 'challenging', duration_days: 6, price_pen: 3200.00, category: 'expedition', images: ['https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f'], active: true, featured: false },
+            { title: 'Iquitos Amazonas Cruise', slug: 'iquitos-cruise-3d', description: 'Navegación de lujo por el río Amazonas. Delfines rosados, tribus locales y atardeceres mágicos.', region: 'Iquitos', difficulty: 'easy', duration_days: 3, price_pen: 2500.00, category: 'cruise', images: ['https://images.unsplash.com/photo-1580619305218-8423a7ef79b4'], active: true, featured: true },
+            { title: 'Islas Ballestas & Paracas', slug: 'paracas-full-day', description: 'Fauna marina, candelabro y reserva nacional. El Galápagos de los pobres.', region: 'Ica', difficulty: 'easy', duration_days: 1, price_pen: 150.00, category: 'nature', images: ['https://images.unsplash.com/photo-1589553416260-f586c8f1514f'], active: true, featured: false },
+            { title: 'Nazca Lines Flight', slug: 'nazca-flight', description: 'Sobrevuelo a las enigmáticas líneas de Nazca. Un misterio arqueológico desde el aire.', region: 'Ica', difficulty: 'easy', duration_days: 1, price_pen: 400.00, category: 'flight', images: ['https://images.unsplash.com/photo-1531219432768-9f540ce91ef3'], active: true, featured: true },
+            { title: 'Lunahuaná Rafting & Canopy', slug: 'lunahuana-full-day', description: 'Aventura cerca de Lima. Canotaje en el río Cañete, vinos y adrenalina.', region: 'Lima', difficulty: 'easy', duration_days: 1, price_pen: 180.00, category: 'adventure', images: ['https://images.unsplash.com/photo-1530866495561-507c9faab2ed'], active: true, featured: false }
+        ]
+
+        const log = (msg, type = 'info') => {
+            const box = document.getElementById('status-box')
+            box.classList.remove('hidden')
+            const color = type === 'error' ? 'text-red-400' : (type === 'success' ? 'text-emerald-400' : 'text-gray-300')
+            box.innerHTML += `<div class="${color} mb-1">> ${msg}</div>`
+            box.scrollTop = box.scrollHeight
+        }
+
+        window.startSetup = async () => {
+            const btn = document.getElementById('btn-start')
+            btn.disabled = true
+            btn.classList.add('opacity-50')
+
+            log('Iniciando conexión a Supabase...', 'info')
+
+            try {
+                // 1. Limpiar tabla primero (opcional, para evitar duplicados en este contexto)
+                // log('Limpiando tabla tours anterior...', 'info')
+                // await supabase.from('tours').delete().neq('id', '00000000-0000-0000-0000-000000000000') // Borrar todo
+
+                // 2. Insertar uno por uno para ver progreso
+                let count = 0
+                for (const tour of toursData) {
+                    const { error } = await supabase.from('tours').insert(tour)
+                    if (error) {
+                        if (error.code === '23505') { // Unique violation
+                            log(`⚠️ Tour ya existe (Omitiendo): ${tour.title}`, 'info')
+                        } else {
+                            log(`❌ Error al insertar ${tour.title}: ${error.message}`, 'error')
+                        }
+                    } else {
+                        log(`✅ Insertado: ${tour.title}`, 'success')
+                        count++
+                    }
+                    // Pequeña pausa para no saturar
+                    await new Promise(r => setTimeout(r, 100))
+                }
+
+                log('-----------------------------------', 'info')
+                log(`🎉 PROCESO COMPLETADO. ${count} tours nuevos agregados.`, 'success')
+                btn.innerText = '¡LISTO! REVISA TU WEB'
+                btn.classList.remove('bg-emerald-500')
+                btn.classList.add('bg-gray-600', 'cursor-not-allowed')
+
+            } catch (err) {
+                log(`ERROR FATAL: ${err.message}`, 'error')
+                btn.disabled = false
+                btn.classList.remove('opacity-50')
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Partner - Lifextreme</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+
+<body class="bg-indigo-900 text-white min-h-screen flex items-center justify-center">
+
+    <div class="bg-indigo-800 p-8 rounded-3xl shadow-2xl max-w-md w-full text-center border border-indigo-700">
+        <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+            <i class="ri-user-add-fill text-4xl text-indigo-600"></i>
+        </div>
+
+        <h1 class="text-2xl font-black italic mb-2">CREAR PARTNER VIP</h1>
+        <p class="text-indigo-200 mb-6 text-sm">lifextremeperu@gmail.com</p>
+
+        <div id="status-box"
+            class="bg-indigo-950/50 rounded-xl p-4 mb-8 text-left text-sm font-mono h-32 overflow-y-auto hidden">
+            <!-- Logs go here -->
+        </div>
+
+        <button onclick="createPartner()" id="btn-start"
+            class="w-full bg-white hover:bg-gray-100 text-indigo-900 font-black py-4 rounded-xl uppercase tracking-widest transition-all transform hover:scale-105 shadow-xl">
+            CREAR USUARIO AHORA 👤
+        </button>
+    </div>
+
+    <script type="module">
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm'
+
+        // Credenciales Admin (Service Role)
+        const SUPABASE_URL = 'https://zobpkmiqrvhbepqnjshr.supabase.co'
+        const SERVICE_KEY = 'sb_secret_7d_j2u37-hVXO_2VkvCc8A_tEaP_LDS'
+
+        const supabase = createClient(SUPABASE_URL, SERVICE_KEY, {
+            auth: {
+                autoRefreshToken: false,
+                persistSession: false
+            }
+        })
+
+        const log = (msg, type = 'info') => {
+            const box = document.getElementById('status-box')
+            box.classList.remove('hidden')
+            const color = type === 'error' ? 'text-red-400' : (type === 'success' ? 'text-emerald-400' : 'text-gray-300')
+            box.innerHTML += `<div class="${color} mb-1">> ${msg}</div>`
+            box.scrollTop = box.scrollHeight
+        }
+
+        window.createPartner = async () => {
+            const btn = document.getElementById('btn-start')
+            btn.disabled = true
+            btn.classList.add('opacity-50')
+
+            log('Iniciando proceso...', 'info')
+
+            const email = 'lifextremeperu@gmail.com'
+            const password = '123456' // ✅ Corregido: Mínimo 6 caracteres
+
+            try {
+                // 1. Crear Usuario Admin (Auto-confirmado)
+                log('Creando usuario Auth...', 'info')
+
+                const { data: user, error: userError } = await supabase.auth.admin.createUser({
+                    email: email,
+                    password: password,
+                    email_confirm: true,
+                    user_metadata: { full_name: 'Lifextreme Admin' }
+                })
+
+                if (userError) throw userError
+
+                log('✅ Usuario Auth creado ID: ' + user.user.id.slice(0, 8), 'success')
+
+                // 2. Crear Perfil Partner
+                log('Creando perfil Partner...', 'info')
+
+                const { error: partnerError } = await supabase
+                    .from('partners')
+                    .insert([
+                        {
+                            user_id: user.user.id,
+                            company_name: 'Lifextreme HQ',
+                            company_email: email,
+                            status: 'approved', // Ya aprobado
+                            plan_type: 'elite',
+                            description: 'Cuenta administrativa principal'
+                        }
+                    ])
+
+                if (partnerError) {
+                    // Si falla por duplicado en partners, intentamos actualizar
+                    if (partnerError.code === '23505') {
+                        log('⚠️ Perfil partner ya existía.', 'info')
+                    } else {
+                        throw partnerError
+                    }
+                } else {
+                    log('✅ Perfil Partner creado', 'success')
+                }
+
+                log('-----------------------------------', 'info')
+                log('🎉 LISTO! Puedes loguearte.', 'success')
+                btn.innerText = 'IR AL LOGIN ->'
+                btn.onclick = () => window.location.href = '/partners/'
+                btn.classList.remove('bg-gray-600', 'cursor-not-allowed', 'opacity-50')
+                btn.disabled = false
+
+            } catch (err) {
+                log(`ERROR: ${err.message}`, 'error')
+                btn.innerText = 'REINTENTAR'
+                btn.disabled = false
+                btn.classList.remove('opacity-50')
+            }
+        }
+    </script>
+</body>
+
+</html>
