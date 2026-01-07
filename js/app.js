@@ -436,10 +436,56 @@ function renderWizardStep(step) {
     }
 
     if (step === 3) {
-        finalBtn.innerHTML = '<span>RESERVAR AHORA</span><i class="ri-shopping-cart-2-line border-l border-white/20 pl-2"></i>';
-        finalBtn.className = 'w-full bg-emerald-500 text-white py-6 rounded-3xl font-black uppercase tracking-widest shadow-xl shadow-emerald-500/20 hover:bg-emerald-600 transition-all flex items-center justify-center gap-3';
+        // Renderizar Formulario de Contacto + Botón Final
+        const finalBtnContainer = document.getElementById('step-3-actions'); // Necesitamos un contenedor específico o inyectarlo
+
+        // Vamos a inyectar el formulario DENTRO del contenido del paso 3, antes del botón
+        const step3Content = document.getElementById('booking-step-3');
+        if (step3Content) {
+            step3Content.innerHTML = `
+                <div class="space-y-4 mb-6">
+                    <h5 class="font-black text-sm uppercase text-slate-400">Tus Datos de Comandante</h5>
+                    <div class="grid grid-cols-1 gap-4">
+                        <input type="text" id="contact-name" placeholder="Nombre Completo" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-bold focus:border-primary outline-none">
+                        <div class="grid grid-cols-2 gap-4">
+                            <input type="email" id="contact-email" placeholder="Email" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-bold focus:border-primary outline-none">
+                            <input type="tel" id="contact-phone" placeholder="WhatsApp" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-bold focus:border-primary outline-none">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-primary/5 p-4 rounded-2xl border border-primary/10 mb-6">
+                    <div id="review-tour-title" class="font-black italic text-lg text-slate-800 mb-1">...</div>
+                    <div class="flex justify-between text-xs font-bold text-slate-500">
+                        <span id="review-date">...</span>
+                        <span id="review-pax">...</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        finalBtn.innerHTML = '<span>CONFIRMAR & PAGAR</span><i class="ri-whatsapp-line text-xl pl-2"></i>';
+        finalBtn.className = 'w-full bg-emerald-500 text-white py-6 rounded-3xl font-black uppercase tracking-widest shadow-xl shadow-emerald-500/20 hover:bg-emerald-600 transition-all flex items-center justify-center gap-3 animate-pulse';
+        finalBtn.setAttribute('onclick', 'validateAndBook()'); // Cambiamos la función onclick
+
         renderStep3Summary();
     }
+}
+
+// Nueva función intermedia para validar antes de enviar
+window.validateAndBook = function () {
+    const name = document.getElementById('contact-name').value;
+    const email = document.getElementById('contact-email').value;
+    const phone = document.getElementById('contact-phone').value;
+
+    if (!name || !email || !phone) {
+        alert('⚠️ Por favor completa tus datos para coordinar el despliegue.');
+        return;
+    }
+
+    // Guardar temporalmente en el objeto activeTour o global para usarlo en addToCartFinal
+    window.currentContact = { name, email, phone };
+    addToCartFinal();
 }
 
 function renderStep3Summary() {
@@ -502,16 +548,17 @@ function addToCartFinal() {
         window.LifextremeAnalytics.trackAddToCart(item);
     }
 
-    // 2. ☁️ Sincronizar con Supabase (Fire & Forget por ahora para no bloquear UI)
+    // 2. ☁️ Sincronizar con Supabase
     if (window.processBookingCusco) {
         window.processBookingCusco({
             tourId: activeTour.id,
             date: fullDate,
             pax: participants,
             price: item.price,
-            contact: {
-                name: "Usuario Web", // Idealmente vendría de un form de checkout
-                email: "pendiente@checkout.com"
+            contact: window.currentContact || { // Usar datos capturados o fallback
+                name: "Usuario Web",
+                email: "pendiente@checkout.com",
+                phone: "000000000"
             }
         });
     }
@@ -519,9 +566,18 @@ function addToCartFinal() {
     closeModal();
     updateCart();
 
+    // 3. 📲 REDIRECCIÓN A WHATSAPP (CIERRE DE VENTA)
+    const contact = window.currentContact || { name: 'Viajero' };
+    const waMessage = `Hola Lifextreme! 🏔️ Soy *${contact.name}*.\nQuiero confirmar mi reserva:\n\n📍 *Tour:* ${activeTour.title}\n📅 *Fecha:* ${fullDate}\n👥 *Pax:* ${participants}\n💰 *Total:* S/ ${item.price}\n\nQuedo atento para realizar el pago. 🚀`;
+    const waUrl = `https://wa.me/51999999999?text=${encodeURIComponent(waMessage)}`; // Reemplaza con tu número real
+
+    // Abrir WhatsApp en nueva pestaña
+    window.open(waUrl, '_blank');
+
     // Toast Feedback
-    const msg = currentLang === 'es' ? `${activeTour.title} añadido a la mochila` : `${activeTour.title} added to backpack`;
-    showToast('Mochila Táctica', msg, 'ri-shopping-bag-3-fill');
+    const msg = currentLang === 'es' ? `¡Solicitud enviada! Finaliza en WhatsApp` : `Request sent! Finish on WhatsApp`;
+    showToast('Mochila Táctica', msg, 'ri-whatsapp-fill');
+
 
     // FOMO Real-time Emission
     if (window.FOMOEngine) FOMOEngine.emitEvent(activeTour.title);
