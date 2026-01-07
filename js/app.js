@@ -849,7 +849,8 @@ function renderGuides() {
     `).join('');
 }
 
-function openGuideHireModal(name, id) {
+// Expose function globally for onclick event
+window.openGuideHireModal = function (name, id) {
     const modal = document.getElementById('guide-hire-modal');
     if (modal) {
         modal.classList.remove('hidden');
