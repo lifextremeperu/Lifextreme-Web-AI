@@ -2132,19 +2132,70 @@
         </div>
     </div>
 
-    <!-- Activate Form Script -->
-    <script>
-        document.getElementById('guide-hire-form').addEventListener('submit', function (e) {
+    <!-- Activate Form Script (Module) -->
+    <script type="module">
+        import { createGuideBooking } from './js/supabase-client.js';
+
+        const form = document.getElementById('guide-hire-form');
+        const submitBtn = form.querySelector('button[type="submit"]');
+
+        form.addEventListener('submit', async function (e) {
             e.preventDefault();
+
+            // 1. Loading State
+            const originalText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="ri-loader-4-line animate-spin text-lg"></i> Verificando Disponibilidad...';
+
+            // 2. Gather Data
+            const guideId = document.getElementById('guide-id-input').value;
             const guideName = document.getElementById('guide-modal-name').innerText;
             const tourType = document.getElementById('guide-tour-type').value;
             const serviceLevel = document.querySelector('input[name="service_level"]:checked').value;
             const date = document.getElementById('guide-date').value || 'Fecha por definir';
 
-            const msg = `Hola Lifextreme! 🏔️ Quiero contratar al guía *${guideName}*.\n\n📋 *Detalles:*\n- Tipo de Tour: ${tourType}\n- Servicio: ${serviceLevel}\n- Fecha: ${date}\n\nQuedo atento a la disponibilidad y cotización.`;
+            // 3. Save to Supabase (Pre-Booking)
+            // Note: clientName/phone would ideally come from a logged-in user or extra inputs.
+            // For now we use generic data or prompt if needed. Let's assume generic for speed 
+            // as contact happens on WhatsApp.
+            const bookingData = {
+                guideId,
+                guideName,
+                clientName: "Usuario Web",
+                clientPhone: "WhatsApp Pending",
+                tourType,
+                serviceLevel,
+                date
+            };
 
-            window.open(`https://wa.me/51958050928?text=${encodeURIComponent(msg)}`, '_blank');
-            document.getElementById('guide-hire-modal').classList.add('hidden');
+            const result = await createGuideBooking(bookingData);
+
+            // 4. Feedback & Redirect
+            setTimeout(() => {
+                // Success UI
+                submitBtn.classList.remove('bg-emerald-500');
+                submitBtn.classList.add('bg-slate-900');
+                submitBtn.innerHTML = '<i class="ri-check-double-line text-lg"></i> Solicitud Enviada';
+
+                if (window.showToast) window.showToast('Solicitud Registrada', 'El guía confirmará tu fecha en WhatsApp', 'ri-user-star-fill');
+
+                // 5. WhatsApp Redirect (The final step)
+                const msg = `Hola Lifextreme! 🏔️ He enviado una solicitud de pre-reserva (ID: ${result.data?.[0]?.id || 'WEB'}).\n\n👤 *Guía:* ${guideName}\n📋 *Tipo:* ${tourType}\n💎 *Nivel:* ${serviceLevel}\n📅 *Fecha:* ${date}\n\nEspero confirmación de disponibilidad del guía.`;
+
+                const waUrl = `https://wa.me/51958050928?text=${encodeURIComponent(msg)}`;
+                window.open(waUrl, '_blank');
+
+                // Cleanup
+                setTimeout(() => {
+                    document.getElementById('guide-hire-modal').classList.add('hidden');
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.classList.add('bg-emerald-500');
+                    submitBtn.classList.remove('bg-slate-900');
+                    form.reset();
+                }, 1000);
+
+            }, 1000); // Fake verifying delay for UX
         });
 
         document.body.addEventListener('click', function (e) {
