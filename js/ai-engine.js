@@ -20,6 +20,9 @@ class AIPersonalizationEngine {
         if (this.userProfile) {
             this.activatePersonalization();
         }
+
+        // Init Floating Chatbot
+        this.initChatbot();
     }
 
     loadUserProfile() {
@@ -354,6 +357,184 @@ class AIPersonalizationEngine {
         }
 
         return 'Explorador Versátil';
+    }
+
+    // ==========================================
+    // 6. LIFE AI CHATBOT CONTROLLER (FLOATING)
+    // ==========================================
+
+    initChatbot() {
+        this.chatOpen = false;
+        this.chatInitialized = false;
+
+        // Timeout para invitar a la interacción si no hya actividad
+        setTimeout(() => {
+            if (!this.chatOpen) {
+                this.showChatNotification();
+            }
+        }, 8000);
+    }
+
+    toggleChat() {
+        this.chatOpen = !this.chatOpen;
+        const windowEl = document.getElementById('life-window');
+        const badge = document.getElementById('life-badge');
+
+        if (this.chatOpen) {
+            // OPEN
+            windowEl.classList.remove('hidden');
+            // Small delay to allow display:block to apply before opacity transition
+            setTimeout(() => {
+                windowEl.classList.remove('opacity-0', 'scale-75', 'translate-y-4');
+            }, 10);
+
+            // Hide badge
+            if (badge) badge.style.transform = 'scale(0)';
+
+            // Init conversation if empty
+            if (!this.chatInitialized) {
+                this.addBotMessage(`¡Hola! Soy Life, tu asesor de aventuras. 🏔️\n¿Buscas algo extremo o relajante para hoy?`);
+                this.chatInitialized = true;
+            }
+        } else {
+            // CLOSE
+            windowEl.classList.add('opacity-0', 'scale-75', 'translate-y-4');
+            setTimeout(() => {
+                windowEl.classList.add('hidden');
+            }, 500); // Wait for transition
+        }
+    }
+
+    showChatNotification() {
+        const badge = document.getElementById('life-badge');
+        if (badge) {
+            badge.style.transform = 'scale(1)';
+            badge.classList.add('animate-bounce');
+            // Optional: sound effect could go here
+        }
+    }
+
+    sendChatFromInput() {
+        const input = document.getElementById('life-input');
+        const msg = input.value.trim();
+        if (!msg) return;
+
+        // User Message
+        this.addUserMessage(msg);
+        input.value = '';
+
+        // Simulate thinking and reply
+        this.showTypingIndicator();
+
+        setTimeout(() => {
+            this.processUserMessage(msg);
+        }, 1500);
+    }
+
+    addUserMessage(text) {
+        const container = document.getElementById('life-messages');
+        const msgHtml = `
+            <div class="flex justify-end animate-slideUp">
+                <div class="bg-slate-900 text-white p-3 rounded-2xl rounded-tr-sm max-w-[85%] text-xs font-medium shadow-md">
+                    ${text}
+                </div>
+            </div>
+        `;
+        container.insertAdjacentHTML('beforeend', msgHtml);
+        this.scrollToBottom();
+    }
+
+    addBotMessage(text, actions = []) {
+        this.hideTypingIndicator();
+        const container = document.getElementById('life-messages');
+
+        let actionsHtml = '';
+        if (actions.length > 0) {
+            actionsHtml = `<div class="flex flex-wrap gap-2 mt-2">
+                ${actions.map(act => `<button onclick="window.AIEngine.handleAction('${act.val}')" class="bg-indigo-50 text-indigo-700 hover:bg-indigo-100 px-3 py-2 rounded-xl text-[10px] font-bold transition-colors">${act.label}</button>`).join('')}
+            </div>`;
+        }
+
+        const msgHtml = `
+            <div class="flex gap-3 animate-slideUp">
+                <div class="w-8 h-8 rounded-xl bg-white flex items-center justify-center border border-slate-100 shadow-sm flex-shrink-0">
+                    <i class="ri-flashlight-fill text-primary text-sm"></i>
+                </div>
+                <div class="flex flex-col gap-1 max-w-[85%]">
+                    <div class="bg-white p-3 rounded-2xl rounded-tl-sm text-slate-700 text-xs font-medium shadow-sm border border-slate-100">
+                        ${text.replace(/\n/g, '<br>')}
+                    </div>
+                    ${actionsHtml}
+                </div>
+            </div>
+        `;
+        container.insertAdjacentHTML('beforeend', msgHtml);
+        this.scrollToBottom();
+    }
+
+    showTypingIndicator() {
+        const container = document.getElementById('life-messages');
+        const typingHtml = `
+            <div id="typing-indicator" class="flex gap-3 animate-slideUp">
+                <div class="w-8 h-8 rounded-xl bg-white flex items-center justify-center border border-slate-100 shadow-sm flex-shrink-0">
+                    <i class="ri-flashlight-fill text-primary text-sm"></i>
+                </div>
+                <div class="bg-white p-3 rounded-2xl rounded-tl-sm text-slate-400 text-xs font-medium shadow-sm border border-slate-100 flex gap-1 items-center">
+                    <span class="w-1.5 h-1.5 bg-slate-300 rounded-full animate-bounce"></span>
+                    <span class="w-1.5 h-1.5 bg-slate-300 rounded-full animate-bounce" style="animation-delay: 0.2s"></span>
+                    <span class="w-1.5 h-1.5 bg-slate-300 rounded-full animate-bounce" style="animation-delay: 0.4s"></span>
+                </div>
+            </div>
+        `;
+        container.insertAdjacentHTML('beforeend', typingHtml);
+        this.scrollToBottom();
+    }
+
+    hideTypingIndicator() {
+        const indicator = document.getElementById('typing-indicator');
+        if (indicator) indicator.remove();
+    }
+
+    scrollToBottom() {
+        const container = document.getElementById('life-messages');
+        container.scrollTop = container.scrollHeight;
+    }
+
+    // Logic to process intent (Mock NLP)
+    processUserMessage(msg) {
+        msg = msg.toLowerCase();
+
+        let reply = "Interesante... Cuéntame más sobre qué tipo de experiencia buscas.";
+        let actions = [];
+
+        if (msg.includes('hola') || msg.includes('buen')) {
+            reply = "¡Hola viajero! 👋 Estoy analizando las condiciones actuales en Cusco. ¿Te interesa montaña 🏔️, selva 🌴 o cultura 🏺?";
+            actions = [
+                { label: 'Montaña', val: 'montaña' },
+                { label: 'Selva', val: 'selva' },
+                { label: 'Cultura', val: 'cultura' }
+            ];
+        } else if (msg.includes('precio') || msg.includes('costo')) {
+            reply = "Los precios varían según la complejidad de la expedición. Tengo opciones desde S/ 150 para fulldays hasta expediciones premium de varios días. ¿Cuál es tu presupuesto aproximado?";
+        } else if (msg.includes('montaña') || msg.includes('trek')) {
+            reply = "¡Excelente elección! 🏔️ Para montaña, el Salkantay Trek y la Montaña de 7 Colores están en condiciones óptimas esta semana. ¿Prefieres un reto físico alto o algo más moderado?";
+            actions = [
+                { label: 'Alto (Reto)', val: 'alto' },
+                { label: 'Moderado (Disfrute)', val: 'moderado' }
+            ];
+        } else if (msg.includes('selva')) {
+            reply = "La selva es mágica. 🌴 Te recomiendo Manu o Tambopata. Manu es más salvaje y biodiversa, Tambopata es más accesible. ¿Cuál te suena mejor?";
+        } else {
+            reply = "Entiendo. Puedo ayudarte a armar un itinerario a medida. ¿Cuántos días planeas quedarte en Cusco?";
+        }
+
+        this.addBotMessage(reply, actions);
+    }
+
+    handleAction(val) {
+        this.addUserMessage(val); // Treat button click as user message
+        this.showTypingIndicator();
+        setTimeout(() => this.processUserMessage(val), 1000);
     }
 
     suggestNextAction() {
