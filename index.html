@@ -434,7 +434,97 @@
                         </button>
                     </div>
 
-                    <!-- REMOVED STATIC CHAT - REPLACED BY FLOATING LIFE AI -->
+                    <!-- HERO CAROUSEL -->
+                    <div class="hero-carousel-container group relative">
+                        <!-- Slides -->
+                        <div class="hero-slide active">
+                            <img src="https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?q=80&w=1000"
+                                alt="Trekking Cusco">
+                            <div class="hero-slide-overlay"></div>
+                            <div class="hero-slide-content">
+                                <span
+                                    class="bg-primary/20 backdrop-blur-md text-white px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest border border-white/20 mb-2 inline-block">Cusco</span>
+                                <h3 class="text-3xl font-black italic text-white leading-none">Ausangate Trek</h3>
+                                <p class="text-xs font-bold text-slate-300 mt-2">La ruta de las 7 lagunas</p>
+                            </div>
+                        </div>
+                        <div class="hero-slide">
+                            <img src="https://images.unsplash.com/photo-1522661067900-ab829854a57f?q=80&w=1000"
+                                alt="Climbing Peru">
+                            <div class="hero-slide-overlay"></div>
+                            <div class="hero-slide-content">
+                                <span
+                                    class="bg-secondary/20 backdrop-blur-md text-white px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest border border-white/20 mb-2 inline-block">Valle
+                                    Sagrado</span>
+                                <h3 class="text-3xl font-black italic text-white leading-none">Vía Ferrata Pro</h3>
+                                <p class="text-xs font-bold text-slate-300 mt-2">Escalada vertical 400m</p>
+                            </div>
+                        </div>
+                        <div class="hero-slide">
+                            <img src="https://images.unsplash.com/photo-1530866495561-507c9faab9f5?q=80&w=1000"
+                                alt="Rafting Apurimac">
+                            <div class="hero-slide-overlay"></div>
+                            <div class="hero-slide-content">
+                                <span
+                                    class="bg-accent/20 backdrop-blur-md text-white px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest border border-white/20 mb-2 inline-block">Apurímac</span>
+                                <h3 class="text-3xl font-black italic text-white leading-none">Rafting Nivel IV</h3>
+                                <p class="text-xs font-bold text-slate-300 mt-2">Aguas bravas extremas</p>
+                            </div>
+                        </div>
+                        <div class="hero-slide">
+                            <img src="https://images.unsplash.com/photo-1599401738722-1d5b349079a0?q=80&w=1000"
+                                alt="ATV Maras">
+                            <div class="hero-slide-overlay"></div>
+                            <div class="hero-slide-content">
+                                <span
+                                    class="bg-purple-500/20 backdrop-blur-md text-white px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest border border-white/20 mb-2 inline-block">Maras
+                                    & Moray</span>
+                                <h3 class="text-3xl font-black italic text-white leading-none">ATV Expedition</h3>
+                                <p class="text-xs font-bold text-slate-300 mt-2">Ruta off-road técnica</p>
+                            </div>
+                        </div>
+
+                        <!-- Indicators -->
+                        <div class="carousel-indicators">
+                            <div class="carousel-dot active" onclick="setSlide(0)"></div>
+                            <div class="carousel-dot" onclick="setSlide(1)"></div>
+                            <div class="carousel-dot" onclick="setSlide(2)"></div>
+                            <div class="carousel-dot" onclick="setSlide(3)"></div>
+                        </div>
+                    </div>
+
+                    <!-- CAROUSEL LOGIC -->
+                    <script>
+                        let currentSlide = 0;
+                        const slides = document.querySelectorAll('.hero-slide');
+                        const dots = document.querySelectorAll('.carousel-dot');
+
+                        function nextSlide() {
+                            currentSlide = (currentSlide + 1) % slides.length;
+                            updateCarousel();
+                        }
+
+                        function setSlide(index) {
+                            currentSlide = index;
+                            updateCarousel();
+                            resetInterval();
+                        }
+
+                        function updateCarousel() {
+                            slides.forEach(s => s.classList.remove('active'));
+                            dots.forEach(d => d.classList.remove('active'));
+
+                            slides[currentSlide].classList.add('active');
+                            dots[currentSlide].classList.add('active');
+                        }
+
+                        let slideInterval = setInterval(nextSlide, 5000);
+
+                        function resetInterval() {
+                            clearInterval(slideInterval);
+                            slideInterval = setInterval(nextSlide, 5000);
+                        }
+                    </script>
                 </div>
 
                 <!-- MEMBERSHIP LOSS AVERSION BANNER -->
