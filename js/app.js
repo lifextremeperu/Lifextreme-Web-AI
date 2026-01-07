@@ -569,7 +569,7 @@ function addToCartFinal() {
     // 3. 📲 REDIRECCIÓN A WHATSAPP (CIERRE DE VENTA)
     const contact = window.currentContact || { name: 'Viajero' };
     const waMessage = `Hola Lifextreme! 🏔️ Soy *${contact.name}*.\nQuiero confirmar mi reserva:\n\n📍 *Tour:* ${activeTour.title}\n📅 *Fecha:* ${fullDate}\n👥 *Pax:* ${participants}\n💰 *Total:* S/ ${item.price}\n\nQuedo atento para realizar el pago. 🚀`;
-    const waUrl = `https://wa.me/51999999999?text=${encodeURIComponent(waMessage)}`; // Reemplaza con tu número real
+    const waUrl = `https://wa.me/51958050928?text=${encodeURIComponent(waMessage)}`; // ✅ Número actualizado del Ceo
 
     // Abrir WhatsApp en nueva pestaña
     window.open(waUrl, '_blank');
