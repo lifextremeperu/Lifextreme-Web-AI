@@ -1627,3 +1627,76 @@ function handleLiveSearch(query) {
         dropdown.classList.remove('opacity-0', 'translate-y-2');
     });
 }
+
+// --- MEMBERSHIP COUNTDOWN LOGIC ---
+function startMembershipCountdown() {
+    // 1. Set End Time (36 Hours from now or stored)
+    const STORAGE_KEY = 'lifextreme_offer_end_time';
+    let endTime = localStorage.getItem(STORAGE_KEY);
+
+    if (!endTime) {
+        const now = new Date();
+        now.setHours(now.getHours() + 36);
+        endTime = now.getTime();
+        localStorage.setItem(STORAGE_KEY, endTime);
+    }
+
+    // 2. Timer Interval
+    const timerInterval = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = endTime - now;
+
+        if (distance < 0) {
+            clearInterval(timerInterval);
+            document.getElementById('m-hours').innerText = "00";
+            document.getElementById('m-minutes').innerText = "00";
+            document.getElementById('m-seconds').innerText = "00";
+            // Optional: Disable button or show "Expired"
+            return;
+        }
+
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 48)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        const hElem = document.getElementById('m-hours');
+        if (hElem) hElem.innerText = hours < 10 ? "0" + hours : hours;
+
+        const mElem = document.getElementById('m-minutes');
+        if (mElem) mElem.innerText = minutes < 10 ? "0" + minutes : minutes;
+
+        const sElem = document.getElementById('m-seconds');
+        if (sElem) sElem.innerText = seconds < 10 ? "0" + seconds : seconds;
+
+    }, 1000);
+
+
+    // 3. Spots Counter (Simulate drops)
+    // Decrement spots occasionally to create urgency
+    let spots = 70;
+    const spotsElem = document.getElementById('spots-counter');
+    const spotsBar = document.getElementById('spots-bar');
+
+    if (!spotsElem) return;
+
+    // Retrieve stored spots if needed, but for visual effect lets restart or keep simple
+    // A simple logic: drop 1 spot every X seconds randomly
+
+    function updateSpots() {
+        if (spots <= 12) return; // Stop at 12 to maintain scarcity but not 0
+
+        spots--;
+        spotsElem.innerText = spots;
+        if (spotsBar) spotsBar.style.width = `${spots}%`;
+
+        // Random next update between 10s and 40s
+        setTimeout(updateSpots, Math.random() * 30000 + 10000);
+    }
+
+    setTimeout(updateSpots, 5000);
+}
+
+// Start everything
+document.addEventListener('DOMContentLoaded', () => {
+    startMembershipCountdown();
+});
