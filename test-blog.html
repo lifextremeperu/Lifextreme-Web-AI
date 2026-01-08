@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifextreme Blog Engine - Demo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f0f2f5;
+            color: #333;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            gap: 20px;
+        }
+
+        .card img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .content {
+            flex: 1;
+        }
+
+        h1 {
+            color: #2c3e50;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #e67e22;
+        }
+
+        .badge {
+            background: #e67e22;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            text-transform: uppercase;
+        }
+
+        .meta {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+
+        button {
+            background: #2ecc71;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto 20px;
+        }
+
+        button:hover {
+            background: #27ae60;
+        }
+
+        #status {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>🚀 Motor de Blog Automatizado</h1>
+        <p>Estos artículos han sido generados automáticamente y guardados en Supabase</p>
+    </div>
+
+    <button onclick="loadPosts()">🔄 Refrescar Lista de Artículos</button>
+    <div id="status">Cargando...</div>
+    <div id="blog-list"></div>
+
+    <script type="module">
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm'
+
+        // Configuración Pública (Safe for Demo)
+        const supabaseUrl = 'https://zobpkmiqrvhbepqnjshr.supabase.co'
+        const supabaseKey = 'sb_publishable_pBMaD6Mm-6Pi5cwwp3UUsw_Pndjw-mo'
+        const supabase = createClient(supabaseUrl, supabaseKey)
+
+        window.loadPosts = async function () {
+            const list = document.getElementById('blog-list');
+            const status = document.getElementById('status');
+
+            status.textContent = "Consultando base de datos...";
+            list.innerHTML = '';
+
+            const { data, error } = await supabase
+                .from('blog_posts')
+                .select('*')
+                .eq('published', true)
+                .order('created_at', { ascending: false });
+
+            if (error) {
+                status.textContent = "❌ Error: " + error.message;
+                return;
+            }
+
+            if (data.length === 0) {
+                status.textContent = "📭 No hay artículos todavía. ¡Ejecuta el script 'blog-engine.js' para crear uno!";
+                return;
+            }
+
+            status.textContent = `✅ ${data.length} Artículos encontrados en la nube`;
+
+            data.forEach(post => {
+                const date = new Date(post.created_at).toLocaleDateString();
+                const card = `
+                    <div class="card">
+                        <img src="${post.cover_image || 'https://via.placeholder.com/200'}" alt="Cover">
+                        <div class="content">
+                            <div><span class="badge">${post.category || 'General'}</span></div>
+                            <h2>${post.title}</h2>
+                            <p>${post.excerpt}</p>
+                            <div class="meta">📅 ${date} • 👁️ ${post.views} vistas • ✍️ ${post.author}</div>
+                        </div>
+                    </div>
+                `;
+                list.innerHTML += card;
+            });
+        }
+
+        // Cargar al inicio
+        loadPosts();
+    </script>
+</body>
+
+</html>

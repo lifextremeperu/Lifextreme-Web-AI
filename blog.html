@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Same Head as Index for consistency -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KW625TWP91"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-KW625TWP91');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifextreme Blog - Guías y Consejos de Aventura</title>
+
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4338ca',
+                        secondary: '#f43f5e',
+                        accent: '#ffbf00',
+                        slate: { 900: '#0f172a', 910: '#020617' }
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-[#fcfdff] min-h-screen">
+
+    <!-- HEADER (Simplified for Subpage) -->
+    <header class="bg-white/90 backdrop-blur-md shadow-sm fixed top-0 w-full z-50 border-b border-slate-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center group">
+                <div
+                    class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white shadow-lg group-hover:rotate-12 transition-all">
+                    <i class="ri-flashlight-fill text-xl"></i>
+                </div>
+                <div class="ml-3 leading-none">
+                    <span class="text-slate-900 font-normal text-xl tracking-tight">LIFE</span><span
+                        class="text-primary font-black text-xl tracking-tighter italic">XTREME</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html"
+                    class="text-xs font-bold text-slate-500 uppercase tracking-widest hover:text-primary transition-colors">Volver
+                    al Inicio</a>
+                <a href="#" class="text-xs font-bold text-primary uppercase tracking-widest">Blog & Guías</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-20">
+        <!-- Hero Section -->
+        <div class="container mx-auto px-6 mb-16 text-center">
+            <span
+                class="bg-indigo-50 text-primary px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-6 inline-block">Knowledge
+                Base</span>
+            <h1 class="text-4xl md:text-6xl font-black text-slate-900 mb-6 italic tracking-tight">
+                Aventura <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Inteligente</span>
+            </h1>
+            <p class="text-slate-500 max-w-2xl mx-auto text-lg leading-relaxed">
+                Guías generadas por expertos y nuestra IA para que domines cada ruta, clima y equipo antes de salir de
+                casa.
+            </p>
+        </div>
+
+        <!-- Filters -->
+        <div class="container mx-auto px-6 mb-12">
+            <div class="flex flex-wrap justify-center gap-4">
+                <button onclick="filterPosts('all')"
+                    class="px-6 py-2 rounded-full bg-slate-900 text-white text-xs font-bold uppercase tracking-widest hover:bg-primary transition-colors">Todos</button>
+                <button onclick="filterPosts('Guías')"
+                    class="px-6 py-2 rounded-full bg-white border border-slate-200 text-slate-500 text-xs font-bold uppercase tracking-widest hover:border-primary hover:text-primary transition-colors">Guías</button>
+                <button onclick="filterPosts('Consejos')"
+                    class="px-6 py-2 rounded-full bg-white border border-slate-200 text-slate-500 text-xs font-bold uppercase tracking-widest hover:border-primary hover:text-primary transition-colors">Consejos</button>
+                <button onclick="filterPosts('Planificación')"
+                    class="px-6 py-2 rounded-full bg-white border border-slate-200 text-slate-500 text-xs font-bold uppercase tracking-widest hover:border-primary hover:text-primary transition-colors">Planificación</button>
+            </div>
+        </div>
+
+        <!-- Blog Grid -->
+        <div class="container mx-auto px-6">
+            <div id="blog-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Loading State -->
+                <div class="col-span-full text-center py-20">
+                    <div
+                        class="inline-block w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin">
+                    </div>
+                    <p class="mt-4 text-slate-400 font-bold text-xs uppercase tracking-widest">Cargando Artículos...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Simple -->
+    <footer class="bg-slate-900 text-white py-12 border-t border-slate-800">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-slate-500 text-xs font-bold uppercase tracking-widest">© 2026 Lifextreme. Power by Supabase &
+                AI.</p>
+        </div>
+    </footer>
+
+    <!-- LOGIC -->
+    <script type="module">
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm'
+
+        // Configuración Pública
+        const supabaseUrl = 'https://zobpkmiqrvhbepqnjshr.supabase.co'
+        const supabaseKey = 'sb_publishable_pBMaD6Mm-6Pi5cwwp3UUsw_Pndjw-mo'
+        const supabase = createClient(supabaseUrl, supabaseKey)
+
+        let allPosts = [];
+
+        async function loadBlog() {
+            const grid = document.getElementById('blog-grid');
+
+            const { data, error } = await supabase
+                .from('blog_posts')
+                .select('*')
+                .eq('published', true)
+                .order('created_at', { ascending: false });
+
+            if (error) {
+                grid.innerHTML = `<div class="col-span-full text-center text-red-500">Error al cargar: ${error.message}</div>`;
+                return;
+            }
+
+            allPosts = data;
+            renderPosts(allPosts);
+        }
+
+        function renderPosts(posts) {
+            const grid = document.getElementById('blog-grid');
+
+            if (posts.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-10 bg-slate-50 rounded-3xl border border-dashed border-slate-300">
+                        <i class="ri-article-line text-4xl text-slate-300 mb-4"></i>
+                        <p class="text-slate-500 font-bold">No hay artículos disponibles aún.</p>
+                        <p class="text-xs text-slate-400 mt-2">Ejecuta el 'Motor de Blog' para generar contenido.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = posts.map(post => `
+                <article class="group bg-white rounded-3xl shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col h-full">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="${post.cover_image || 'https://via.placeholder.com/800x600'}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur text-primary px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest border border-slate-100 shadow-sm">
+                            ${post.category || 'General'}
+                        </div>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <h3 class="text-xl font-black text-slate-900 mb-3 leading-tight group-hover:text-primary transition-colors italic">
+                            ${post.title}
+                        </h3>
+                        <p class="text-slate-500 text-sm mb-6 line-clamp-3 leading-relaxed flex-1">
+                            ${post.excerpt}
+                        </p>
+                        
+                        <div class="flex items-center justify-between mt-auto pt-6 border-t border-slate-50">
+                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                                <i class="ri-calendar-line mr-1"></i> ${new Date(post.created_at).toLocaleDateString()}
+                            </span>
+                            <button class="w-8 h-8 rounded-full bg-slate-50 text-slate-900 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
+                                <i class="ri-arrow-right-line"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        window.filterPosts = (category) => {
+            if (category === 'all') {
+                renderPosts(allPosts);
+            } else {
+                const filtered = allPosts.filter(p => p.category === category);
+                renderPosts(filtered);
+            }
+        }
+
+        // Init
+        loadBlog();
+    </script>
+</body>
+
+</html>
