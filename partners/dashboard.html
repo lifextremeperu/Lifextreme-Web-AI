@@ -58,6 +58,10 @@
                 <i data-lucide="bar-chart-3"></i>
                 <span>Analytics</span>
             </a>
+            <a href="#" class="nav-item" data-section="sostenibilidad">
+                <i data-lucide="leaf"></i>
+                <span>Sostenibilidad</span>
+            </a>
             <a href="#" class="nav-item" data-section="mensajes">
                 <i data-lucide="message-square"></i>
                 <span>Mensajes</span>
@@ -429,7 +433,7 @@
                 </div>
             </section>
 
-            <section id="section-mensajes" class="dashboard-section">
+            <section id="section-mensajes" class="dashboard-section hidden">
                 <div class="section-header">
                     <h2 class="section-title">Centro de Mensajes</h2>
                 </div>
@@ -440,6 +444,265 @@
                             <h3 class="text-lg font-bold">No tienes mensajes nuevos</h3>
                             <p class="text-sm text-slate-500 max-w-xs">Los mensajes de tus clientes y del soporte
                                 técnico aparecerán aquí.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SOSTENIBILIDAD & CAPACITACIÓN -->
+            <section id="section-sostenibilidad" class="dashboard-section hidden">
+                <div class="section-header flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                        <h2 class="section-title">Impacto & Capacitación</h2>
+                        <p class="text-sm text-slate-500">Gestiona tu huella y certifícate en estándares globales.</p>
+                    </div>
+                    <div class="flex bg-white p-1 rounded-xl shadow-sm border border-slate-200">
+                        <button
+                            class="px-6 py-2 text-sm font-bold rounded-lg bg-emerald-50 text-emerald-700 transition-all"
+                            id="btn-tab-impact" onclick="switchSusTab('impact')">
+                            <i data-lucide="bar-chart-2" class="inline w-4 h-4 mr-2"></i>Reporte
+                        </button>
+                        <button
+                            class="px-6 py-2 text-sm font-bold rounded-lg text-slate-500 hover:bg-slate-50 transition-all"
+                            id="btn-tab-academy" onclick="switchSusTab('academy')">
+                            <i data-lucide="graduation-cap" class="inline w-4 h-4 mr-2"></i>Academia
+                        </button>
+                    </div>
+                </div>
+
+                <!-- IMPACT DASHBOARD -->
+                <div id="tab-impact" class="space-y-8 animate-fade-in">
+                    <!-- KPI Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div
+                            class="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-3xl p-6 text-white shadow-lg shadow-emerald-500/20 relative overflow-hidden">
+                            <i data-lucide="trash-2" class="absolute -bottom-4 -right-4 w-32 h-32 opacity-20"></i>
+                            <p class="text-emerald-100 text-xs font-bold uppercase tracking-widest mb-1">Residuos
+                                Retirados</p>
+                            <p class="text-4xl font-black mb-2">128.5 <span class="text-lg opacity-80">kg</span></p>
+                            <div
+                                class="inline-flex items-center gap-1 bg-white/20 px-2 py-1 rounded text-[10px] font-bold">
+                                <i data-lucide="trending-up" class="w-3 h-3"></i> +12% este mes
+                            </div>
+                        </div>
+
+                        <div
+                            class="bg-white rounded-3xl p-6 border border-slate-100 shadow-sm relative overflow-hidden">
+                            <div class="absolute top-0 right-0 p-4 opacity-10">
+                                <i data-lucide="tree-pine" class="w-16 h-16 text-emerald-600"></i>
+                            </div>
+                            <p class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Huella Compensada
+                            </p>
+                            <p class="text-4xl font-black text-slate-800 mb-2">4.2 <span
+                                    class="text-lg text-slate-400">tCO2e</span></p>
+                            <p class="text-xs text-slate-500">Equivalente a 210 árboles plantados.</p>
+                        </div>
+
+                        <div class="bg-white rounded-3xl p-6 border border-slate-100 shadow-sm">
+                            <p class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Score de
+                                Sostenibilidad</p>
+                            <div class="flex items-end gap-2 mb-2">
+                                <p class="text-4xl font-black text-emerald-600">92</p>
+                                <p class="text-lg text-slate-400 font-bold mb-1">/ 100</p>
+                            </div>
+                            <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                                <div class="bg-emerald-500 w-[92%] h-full rounded-full"></div>
+                            </div>
+                            <p class="text-[10px] text-emerald-600 font-bold mt-2">Nivel: Guardián de Montaña</p>
+                        </div>
+                    </div>
+
+                    <!-- Reporting Form -->
+                    <div class="dashboard-card border border-slate-200 shadow-none">
+                        <div class="card-header border-b border-slate-100 p-6">
+                            <div>
+                                <h3 class="font-bold text-lg flex items-center gap-2">
+                                    <i data-lucide="file-plus" class="text-emerald-500"></i> Nueva Bitácora de Campo
+                                </h3>
+                                <p class="text-sm text-slate-500">Registra el impacto positivo o negativo
+                                    post-expedición.</p>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <label class="text-xs font-bold uppercase text-slate-500">Expedición/Tour</label>
+                                    <select
+                                        class="form-input w-full bg-slate-50 border-slate-200 rounded-xl p-3 text-sm font-medium">
+                                        <option>Ausangate Circuit 4D (15 Ene)</option>
+                                        <option>Salkantay Trek (12 Ene)</option>
+                                    </select>
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="text-xs font-bold uppercase text-slate-500">Residuos Propios
+                                        (Retornados)</label>
+                                    <div class="relative">
+                                        <input type="number"
+                                            class="form-input w-full bg-slate-50 border-slate-200 rounded-xl p-3 pl-4 pr-12 text-sm font-medium"
+                                            placeholder="0.0">
+                                        <span class="absolute right-4 top-3 text-gray-400 text-xs font-bold">KG</span>
+                                    </div>
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="text-xs font-bold uppercase text-emerald-600">Residuos Ajenos
+                                        (Limpieza)</label>
+                                    <div class="relative">
+                                        <input type="number"
+                                            class="form-input w-full bg-emerald-50 border-emerald-200 rounded-xl p-3 pl-4 pr-12 text-sm font-medium text-emerald-700"
+                                            placeholder="0.0">
+                                        <span
+                                            class="absolute right-4 top-3 text-emerald-600 text-xs font-bold">KG</span>
+                                    </div>
+                                    <p class="text-[10px] text-emerald-600 font-bold">* Suma puntos dobles para
+                                        certificación.</p>
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="text-xs font-bold uppercase text-slate-500">Incidencias
+                                        Ambientales</label>
+                                    <textarea
+                                        class="form-input w-full bg-slate-50 border-slate-200 rounded-xl p-3 text-sm font-medium"
+                                        rows="1"
+                                        placeholder="Ej: Erosión en km 4, Fauna silvestre avistada..."></textarea>
+                                </div>
+                                <div class="md:col-span-2 flex justify-end">
+                                    <button type="button"
+                                        class="bg-slate-900 text-white px-8 py-3 rounded-xl font-bold text-sm hover:scale-[1.02] transition-transform">
+                                        Registrar Informe
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ACADEMY DASHBOARD -->
+                <div id="tab-academy" class="hidden space-y-8 animate-fade-in">
+                    <!-- Featured Course -->
+                    <div
+                        class="relative rounded-3xl overflow-hidden bg-slate-900 text-white min-h-[300px] flex items-center">
+                        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200"
+                            class="absolute inset-0 w-full h-full object-cover opacity-40">
+                        <div class="relative z-10 p-10 max-w-2xl">
+                            <span
+                                class="bg-emerald-500 text-white px-3 py-1 rounded text-[10px] font-black uppercase tracking-widest mb-4 inline-block">Certificación
+                                Oficial</span>
+                            <h3 class="text-4xl font-black mb-4">Gestión de Riesgos y Primeros Auxilios Outdoor</h3>
+                            <p class="text-slate-300 text-lg mb-8 leading-relaxed">Domina los protocolos internacionales
+                                ISO 21101 de seguridad en turismo de aventura. Curso obligatorio para el sello "Safe
+                                Operator".</p>
+                            <div class="flex gap-4">
+                                <button
+                                    class="bg-white text-slate-900 px-8 py-3 rounded-xl font-black uppercase text-xs tracking-widest hover:bg-emerald-400 transition-colors">
+                                    Comenzar Curso
+                                </button>
+                                <button
+                                    class="backdrop-blur bg-white/10 text-white px-8 py-3 rounded-xl font-black uppercase text-xs tracking-widest hover:bg-white/20 transition-colors flex items-center gap-2">
+                                    <i data-lucide="play-circle"></i> Ver Trailer
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course Grid -->
+                    <h3 class="font-bold text-xl text-slate-800">Cursos Recomendados</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Card 1 -->
+                        <div
+                            class="group bg-white rounded-2xl border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer overflow-hidden">
+                            <div class="h-48 relative overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1533240332313-0db49b459ad6?w=400"
+                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                <div
+                                    class="absolute top-4 left-4 bg-white/90 backdrop-blur px-2 py-1 rounded-md text-[10px] font-black uppercase tracking-widest flex items-center gap-1">
+                                    <i data-lucide="clock" class="w-3 h-3"></i> 2h 30m
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h4
+                                    class="font-bold text-lg leading-tight mb-2 group-hover:text-emerald-600 transition-colors">
+                                    Leave No Trace: Principios Avanzados</h4>
+                                <p class="text-xs text-slate-500 mb-4 line-clamp-2">Aprende a educar a tus turistas
+                                    sobre cómo minimizar su impacto sin afectar su experiencia.</p>
+
+                                <div class="flex items-center justify-between mt-auto">
+                                    <div class="flex -space-x-2">
+                                        <div class="w-6 h-6 rounded-full bg-slate-200 border-2 border-white"></div>
+                                        <div class="w-6 h-6 rounded-full bg-slate-300 border-2 border-white"></div>
+                                        <div
+                                            class="w-6 h-6 bg-slate-100 rounded-full border-2 border-white flex items-center justify-center text-[8px] font-bold text-slate-500">
+                                            +48</div>
+                                    </div>
+                                    <span class="text-emerald-600 text-xs font-black uppercase">Gratis</span>
+                                </div>
+                            </div>
+                            <div class="px-6 pb-6">
+                                <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+                                    <div class="bg-emerald-500 h-full w-[0%]"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div
+                            class="group bg-white rounded-2xl border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer overflow-hidden">
+                            <div class="h-48 relative overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1626262846282-53b064c91357?w=400"
+                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                <div
+                                    class="absolute top-4 left-4 bg-white/90 backdrop-blur px-2 py-1 rounded-md text-[10px] font-black uppercase tracking-widest flex items-center gap-1">
+                                    <i data-lucide="clock" class="w-3 h-3"></i> 45m
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h4
+                                    class="font-bold text-lg leading-tight mb-2 group-hover:text-emerald-600 transition-colors">
+                                    Fotografía de Aventura Responsable</h4>
+                                <p class="text-xs text-slate-500 mb-4 line-clamp-2">Cómo capturar la mejor toma sin
+                                    perturbar la fauna ni dañar la flora local.</p>
+
+                                <div class="flex items-center justify-between mt-auto">
+                                    <div class="flex -space-x-2">
+                                        <div class="w-6 h-6 rounded-full bg-slate-200 border-2 border-white"></div>
+                                        <div class="w-6 h-6 rounded-full bg-slate-300 border-2 border-white"></div>
+                                    </div>
+                                    <span class="text-emerald-600 text-xs font-black uppercase">Gratis</span>
+                                </div>
+                            </div>
+                            <div class="px-6 pb-6">
+                                <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+                                    <div class="bg-emerald-500 h-full w-[0%]"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div
+                            class="group bg-white rounded-2xl border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer overflow-hidden">
+                            <div class="h-48 relative overflow-hidden">
+                                <img src="https://plus.unsplash.com/premium_photo-1663047716627-e0b6c243263c?w=400"
+                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                <div
+                                    class="absolute top-0 right-0 bg-amber-400 text-white px-3 py-1 text-[10px] font-black uppercase rounded-bl-xl z-10">
+                                    Premium</div>
+                            </div>
+                            <div class="p-6">
+                                <h4
+                                    class="font-bold text-lg leading-tight mb-2 group-hover:text-emerald-600 transition-colors">
+                                    Marketing para Ecoturismo</h4>
+                                <p class="text-xs text-slate-500 mb-4 line-clamp-2">Vende más conectando con los valores
+                                    ecológicos de tus clientes.</p>
+
+                                <div class="flex items-center justify-between mt-auto">
+                                    <div class="flex items-center gap-1">
+                                        <i data-lucide="star" class="w-3 h-3 text-amber-400 fill-amber-400"></i>
+                                        <span class="text-xs font-bold text-slate-700">4.9</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="px-6 pb-6">
+                                <button
+                                    class="w-full py-2 rounded-lg bg-slate-50 text-slate-400 text-xs font-bold uppercase hover:bg-slate-900 hover:text-white transition-colors">Desbloquear</button>
+                            </div>
                         </div>
                     </div>
                 </div>

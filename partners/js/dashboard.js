@@ -143,45 +143,80 @@ function initNavigation() {
         // Update links
         links.forEach(l => {
             l.classList.remove('active');
-            if (l.dataset.target === targetId) l.classList.add('active');
+            if (l.dataset.section === targetId) l.classList.add('active');
         });
 
         // Update sections
         sections.forEach(s => {
             s.classList.add('hidden');
-            if (s.id === targetId) s.classList.remove('hidden');
+            if (s.id === `section-${targetId}`) s.classList.remove('hidden');
         });
 
         // Update title
         if (pageTitle) {
-            const activeLink = document.querySelector(`.sidebar-nav a[data-target="${targetId}"]`);
+            const activeLink = document.querySelector(`.sidebar-nav a[data-section="${targetId}"]`);
             if (activeLink) {
                 const titleText = activeLink.querySelector('span').textContent;
-                pageTitle.textContent = titleText;
+                pageTitle.innerText = titleText;
             }
         }
 
         currentSection = targetId;
 
-        // Cargar datos específicos de la sección si es necesario
-        if (targetId === 'bookings') loadBookings();
-        if (targetId === 'activities') loadActivities();
+        // Custom Loaders
+        if (targetId === 'reservas') loadBookings();
+        if (targetId === 'actividades') loadActivities();
+
+        // Re-init icons for new section
+        if (window.lucide) window.lucide.createIcons();
     }
 
     links.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
-            const target = link.dataset.target;
+            const target = link.dataset.section;
             if (target) navigateTo(target);
         });
     });
 
     // Handle initial hash routing
-    const hash = window.location.hash.substring(1);
-    if (hash && document.getElementById(hash)) {
-        navigateTo(hash);
-    }
+    // const hash = window.location.hash.substring(1);
+    // if (hash) navigateTo(hash);
 }
+
+// ============================================
+// SUSTAINABILITY TABS
+// ============================================
+window.switchSusTab = function (tab) {
+    const btnImpact = document.getElementById('btn-tab-impact');
+    const btnAcademy = document.getElementById('btn-tab-academy');
+    const viewImpact = document.getElementById('tab-impact');
+    const viewAcademy = document.getElementById('tab-academy');
+
+    if (tab === 'impact') {
+        // UI
+        btnImpact.classList.remove('text-slate-500', 'hover:bg-slate-50');
+        btnImpact.classList.add('bg-emerald-50', 'text-emerald-700');
+
+        btnAcademy.classList.add('text-slate-500', 'hover:bg-slate-50');
+        btnAcademy.classList.remove('bg-emerald-50', 'text-emerald-700');
+
+        // Views
+        viewImpact.classList.remove('hidden');
+        viewAcademy.classList.add('hidden');
+    } else {
+        // UI
+        btnAcademy.classList.remove('text-slate-500', 'hover:bg-slate-50');
+        btnAcademy.classList.add('bg-emerald-50', 'text-emerald-700');
+
+        btnImpact.classList.add('text-slate-500', 'hover:bg-slate-50');
+        btnImpact.classList.remove('bg-emerald-50', 'text-emerald-700');
+
+        // Views
+        viewAcademy.classList.remove('hidden');
+        viewImpact.classList.add('hidden');
+    }
+};
 
 // ============================================
 // STATS ANIMATION

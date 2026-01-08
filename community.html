@@ -289,6 +289,17 @@
                 return { score: 99, label: "Premium (Conductores pelearán por ti)", color: "text-purple-500", icon: "ri-vip-diamond-fill" };
             }
 
+            function calculateLeaderReward(pax, budget) {
+                // Neuro-Marketing Reward System:
+                // 1. Base: 100 Coins per recruited person
+                // 2. Bonus: Discount scales with group size (5% per 2 people)
+
+                const coins = pax * 100;
+                const discount = Math.min(100, Math.floor((pax - 1) / 2) * 10); // Starts from 2nd person, cap at 100%
+
+                return { coins, discount };
+            }
+
             // --- UI LIVE FEEDBACK ---
 
             // Listeners for Smart Form
@@ -358,6 +369,19 @@
                         </div>
 
                         <div class="space-y-4 mb-6">
+                            <!-- Leader Reward Badge -->
+                            <div class="bg-gradient-to-r from-amber-500/10 to-transparent p-3 rounded-xl border border-amber-500/20 flex items-center gap-3">
+                                <div class="bg-amber-500 text-slate-900 w-8 h-8 rounded-lg flex items-center justify-center font-black text-xs">
+                                    <i class="ri-vip-crown-2-fill"></i>
+                                </div>
+                                <div>
+                                    <p class="text-[9px] font-black text-amber-500 uppercase">Recompensa del Líder</p>
+                                    <p class="text-xs text-white font-bold leading-none mt-0.5">
+                                        Ganando: <span class="text-amber-400">${calculateLeaderReward(e.currentPax, e.budget).coins} Coins</span> + ${calculateLeaderReward(e.currentPax, e.budget).discount}% OFF
+                                    </p>
+                                </div>
+                            </div>
+
                              <div class="flex justify-between items-center text-sm p-3 bg-slate-900 rounded-xl border border-slate-700">
                                 <span class="text-slate-400 text-xs uppercase font-bold">Oferta al Operador</span>
                                 <div class="text-right">
@@ -536,7 +560,10 @@
                     if (confirmJoin) {
                         exp.currentPax++;
                         if (exp.currentPax >= exp.minPax) exp.status = 'ready'; // Upgrade status if quorum met
-                        alert('¡Te has unido al equipo! Prepara tu mochila.');
+
+                        const rewards = calculateLeaderReward(exp.currentPax, exp.budget);
+                        alert(`¡Te has unido al equipo! \n\n🎉 NOTIFICACIÓN AL LÍDER:\n"¡Nuevo miembro! Tu recompensa aumentó a ${rewards.coins} Coins y ${rewards.discount}% de descuento total."`);
+
                         renderLobby();
                     }
                 }

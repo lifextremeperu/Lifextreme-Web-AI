@@ -24,9 +24,9 @@ window.processBookingCusco = async function (bookingData) {
         pax: bookingData.pax || 1,
         totalPrice: bookingData.price || 0,
         contact: {
-            name: "Invitado Web", // Por ahora hardcodeado o tomar de inputs si existieran
-            email: "invitado@web.com",
-            phone: "000000000"
+            name: bookingData.contact?.name || "Invitado Web",
+            email: bookingData.contact?.email || "invitado@web.com",
+            phone: bookingData.contact?.phone || "000000000"
         }
     });
 

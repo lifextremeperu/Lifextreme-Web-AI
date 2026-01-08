@@ -222,6 +222,49 @@ function selDay(d) {
     selectedDay = d;
     document.querySelectorAll('.day-box').forEach(b => b.classList.remove('selected'));
     event.target.classList.add('selected');
+
+    // Trigger Prediction
+    updatePredictionWidget(d);
+}
+
+async function updatePredictionWidget(day) {
+    const widget = document.getElementById('prediction-widget');
+    if (!widget) return;
+
+    // Show loading state
+    widget.classList.remove('hidden');
+    widget.innerHTML = `<div class="flex items-center gap-3 text-slate-400"><i class="ri-loader-4-line animate-spin"></i> <span class="text-xs font-bold">Analizando condiciones satelitales...</span></div>`;
+
+    // 1. Get Demand Prediction (Instant)
+    const demand = PredictorEngine.getDemandPrediction(currentMonthIndex);
+
+    // 2. Get Weather Forecast (Async) - Cusco Coordinates default
+    // In a real app, use activeTour.lat/lon
+    const weather = await PredictorEngine.getWeatherForecast(-13.5319, -71.9675, null);
+
+    // Render Widget
+    widget.innerHTML = `
+        <div class="flex items-start gap-4">
+            <div class="bg-white p-3 rounded-xl shadow-sm text-center min-w-[60px]">
+                <i class="${weather.icon} text-2xl text-slate-700 mb-1 block"></i>
+                <span class="text-[10px] font-black block">${weather.temp}°C</span>
+            </div>
+            <div class="flex-1">
+                <div class="flex justify-between items-start mb-1">
+                    <h6 class="text-[10px] font-black uppercase text-slate-500 tracking-widest">Pronóstico de Misión</h6>
+                    ${demand.scarcity ? `<span class="bg-red-100 text-red-600 px-2 py-0.5 rounded text-[9px] font-bold animate-pulse">🔥 Alta Demanda</span>` : ''}
+                </div>
+                <p class="text-xs font-bold text-slate-800 leading-tight mb-2">"${weather.desc}. ${weather.advice}"</p>
+                
+                <div class="flex gap-2 text-[9px] font-bold text-slate-500 bg-white/50 p-2 rounded-lg">
+                    <i class="ri-radar-line"></i>
+                    <span>Riesgo Clima: <b class="${weather.risk === 'Alto' ? 'text-red-500' : 'text-emerald-500'}">${weather.risk}</b></span>
+                    <span class="mx-1">|</span>
+                    <span>Ocupación: <b class="${demand.color}">${demand.level}</b></span>
+                </div>
+            </div>
+        </div>
+    `;
 }
 
 // --- WISHLIST ---
@@ -1699,4 +1742,28 @@ function startMembershipCountdown() {
 // Start everything
 document.addEventListener('DOMContentLoaded', () => {
     startMembershipCountdown();
+});
+// --- FILTER & URL HANDLING ---
+function filterDestinations(region) {
+    renderAll(region);
+    const destSection = document.getElementById('destinos');
+    if (destSection) {
+        destSection.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
+// Check URL params on load
+document.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const region = params.get('region');
+    // If region exists, capitalize first letter to match data (Cusco, Huaraz, etc if needed, or update renderAll to be case-insensitive)
+    if (region) {
+        // Simple capitalization
+        const formattedRegion = region.charAt(0).toUpperCase() + region.slice(1).toLowerCase();
+        // Wait a bit for data to load if needed, or call immediately if data is static
+        // Assuming 'tours' data is available globally from data.js
+        setTimeout(() => {
+            filterDestinations(formattedRegion);
+        }, 300); // Small delay to ensure renderAll is ready and DOM is parsed
+    }
 });
