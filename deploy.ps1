@@ -40,7 +40,7 @@ Write-Host ""
 Write-Host "✅ ¡Deploy completado exitosamente!" -ForegroundColor Green
 Write-Host ""
 Write-Host "🌐 Tu sitio se está actualizando en:" -ForegroundColor Cyan
-Write-Host "   https://lifextreme-v29-pro.netlify.app" -ForegroundColor White
+Write-Host "   https://www.lifextreme.store" -ForegroundColor White
 Write-Host ""
 Write-Host "📊 GitHub:" -ForegroundColor Cyan
 Write-Host "   https://github.com/lifextremeperu/Lifextreme-Web-AI" -ForegroundColor White
