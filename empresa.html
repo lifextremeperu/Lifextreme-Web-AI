@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empresa - Lifextreme</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap"
+        rel="stylesheet">
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4338ca',
+                        secondary: '#f43f5e',
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+
+<body class="bg-slate-50">
+
+    <!-- Navbar Minimal -->
+    <nav class="bg-slate-900 text-white p-6 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2 text-2xl font-black italic">
+                <i class="ri-flashlight-fill text-yellow-400"></i>
+                Lifextreme
+            </a>
+            <a href="index.html"
+                class="text-sm font-bold uppercase tracking-widest hover:text-yellow-400 transition-colors">Volver al
+                Inicio</a>
+        </div>
+    </nav>
+
+    <!-- SECTION 1: SOBRE NOSOTROS -->
+    <section id="sobre-nosotros" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-16 items-center">
+                <!-- Content -->
+                <div class="flex-1">
+                    <span class="text-primary font-black uppercase tracking-widest text-xs mb-2 block">Nuestra
+                        Historia</span>
+                    <h1 class="text-4xl lg:text-5xl font-black italic text-slate-900 mb-8 leading-tight">
+                        Transformando el Turismo <br> <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Una
+                            Aventura a la Vez</span>
+                    </h1>
+                    <p class="text-slate-600 text-lg mb-6 leading-relaxed">
+                        Nacimos en el corazón de los Andes con una misión clara: democratizar el acceso a experiencias
+                        extremas de alta calidad.
+                        Lo que comenzó como un grupo de amigos explorando rutas inexploradas en Cusco se ha convertido
+                        en la comunidad de aventureros más grande de la región.
+                    </p>
+                    <p class="text-slate-600 text-lg mb-8 leading-relaxed">
+                        No vendemos tours; facilitamos historias épicas. Creemos que la verdadera conexión ocurre cuando
+                        sales de tu zona de confort y te enfrentas a la majestuosidad de la naturaleza.
+                    </p>
+                    <div class="grid grid-cols-3 gap-6 text-center">
+                        <div>
+                            <div class="text-3xl font-black text-slate-900">2024</div>
+                            <div class="text-xs uppercase font-bold text-slate-400">Fundación</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-black text-slate-900">+500</div>
+                            <div class="text-xs uppercase font-bold text-slate-400">Expediciones</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-black text-slate-900">100%</div>
+                            <div class="text-xs uppercase font-bold text-slate-400">Adrenalina</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Images Grid -->
+                <div class="flex-1 grid grid-cols-2 gap-4">
+                    <img src="https://images.unsplash.com/photo-1533692328991-08159ff19fca?q=80&w=800" alt="Team"
+                        class="rounded-3xl shadow-xl w-full h-64 object-cover transform translate-y-8">
+                    <img src="https://images.unsplash.com/photo-1544367563-12123d8296a6?q=80&w=800" alt="Adventure"
+                        class="rounded-3xl shadow-xl w-full h-64 object-cover">
+                    <img src="https://images.unsplash.com/photo-1528642474493-1df434720f9d?q=80&w=800" alt="Mountain"
+                        class="rounded-3xl shadow-xl w-full h-64 object-cover col-span-2">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: PRENSA (Ganadores) -->
+    <section id="prensa" class="py-20 bg-slate-900 text-white overflow-hidden relative">
+        <!-- Background Decor -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[100px]"></div>
+
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <h2 class="text-3xl lg:text-4xl font-black italic mb-12">Reconocimientos</h2>
+
+            <div
+                class="max-w-4xl mx-auto bg-gradient-to-br from-white/10 to-transparent border border-white/10 p-12 rounded-[48px] backdrop-blur-md relative group hover:border-yellow-400/50 transition-colors">
+                <!-- Badge -->
+                <div
+                    class="absolute -top-6 left-1/2 -translate-x-1/2 bg-yellow-400 text-slate-900 px-6 py-2 rounded-full font-black uppercase tracking-widest shadow-[0_0_20px_rgba(250,204,21,0.5)]">
+                    🏆 Primer Lugar
+                </div>
+
+                <div class="mb-8">
+                    <i class="ri-award-fill text-6xl text-yellow-400 mb-4 inline-block"></i>
+                    <h3 class="text-3xl font-black uppercase italic mb-2">Incubadora de Empresas</h3>
+                    <p class="text-xl text-slate-300 font-bold">Universidad Andina del Cusco 2024</p>
+                </div>
+
+                <p class="text-slate-400 leading-relaxed mb-8 max-w-2xl mx-auto">
+                    Reconocidos por nuestra innovación tecnológica en el sector turismo, integrando Inteligencia
+                    Artificial para la personalización de itinerarios y seguridad en montaña.
+                </p>
+
+                <div
+                    class="flex justify-center gap-4 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+                    <!-- Logos placeholders -->
+                    <div class="h-12 w-32 bg-white/20 rounded flex items-center justify-center font-bold text-xs">UAC
+                        INCUBADORA</div>
+                    <div class="h-12 w-32 bg-white/20 rounded flex items-center justify-center font-bold text-xs">
+                        MINCETUR</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: TRABAJA CON NOSOTROS -->
+    <section id="trabaja-con-nosotros" class="py-20 bg-slate-50">
+        <div class="container mx-auto px-6 max-w-2xl">
+            <div class="text-center mb-12">
+                <span class="text-secondary font-black uppercase tracking-widest text-xs mb-2 block">Únete al
+                    Equipo</span>
+                <h2 class="text-3xl lg:text-4xl font-black italic text-slate-900">¿Tienes Espíritu Lifextreme?</h2>
+                <p class="text-slate-500 mt-4">Buscamos guías, creadores de contenido y ninjas de operaciones.</p>
+            </div>
+
+            <form class="bg-white p-8 rounded-[32px] shadow-2xl space-y-6 border border-slate-100">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="text-xs font-black uppercase text-slate-400">Nombre</label>
+                        <input type="text"
+                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-primary">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-xs font-black uppercase text-slate-400">Email</label>
+                        <input type="email"
+                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-primary">
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="text-xs font-black uppercase text-slate-400">Posición de Interés</label>
+                    <select
+                        class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-primary text-slate-600">
+                        <option>Guía de Montaña (UIAGM)</option>
+                        <option>Creador de Contenido / Fotógrafo</option>
+                        <option>Atención al Cliente</option>
+                        <option>Desarrollo & Tecnología</option>
+                    </select>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="text-xs font-black uppercase text-slate-400">Tu Pitch (¿Por qué tú?)</label>
+                    <textarea rows="4"
+                        class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-primary resize-none"></textarea>
+                </div>
+
+                <div class="space-y-2">
+                    <label
+                        class="flex items-center justify-center w-full h-32 px-4 transition bg-white border-2 border-slate-200 border-dashed rounded-xl appearance-none cursor-pointer hover:border-gray-400 focus:outline-none">
+                        <span class="flex flex-col items-center space-y-2">
+                            <i class="ri-upload-cloud-2-line text-2xl text-slate-400"></i>
+                            <span class="font-medium text-slate-500 text-xs text-center">Sube tu CV (PDF) <br>o Link a
+                                Portfolio</span>
+                        </span>
+                        <input type="file" name="file_upload" class="hidden">
+                    </label>
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-slate-900 text-white py-4 rounded-xl font-black uppercase tracking-widest text-xs hover:bg-primary transition-colors">
+                    Enviar Aplicación
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer Simple -->
+    <footer class="bg-slate-900 text-white py-8 text-center border-t border-white/10">
+        <p class="text-xs text-slate-500">© 2026 Lifextreme. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+
+</html>

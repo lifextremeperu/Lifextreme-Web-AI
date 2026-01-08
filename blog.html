@@ -120,89 +120,139 @@
     </footer>
 
     <!-- LOGIC -->
-    <script type="module">
-        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm'
+    // Datos Simulados "Pro SEO" (Bypass Supabase backend for immediate frontend polish)
+    const mockPosts = [
+    {
+    id: 'rainy-season-gear',
+    title: "Rainy Season Peru: Complete Waterproof Gear Guide",
+    category: "Guías",
+    excerpt: "Don't let the rain stop you. The ultimate tested gear list for trekking Cusco in January.",
+    cover_image: "https://images.unsplash.com/photo-1517999588663-150277524953?q=80&w=800&auto=format&fit=crop",
+    created_at: "2026-01-08T10:00:00Z"
+    },
+    {
+    id: 'machu-picchu-rain',
+    title: "Machu Picchu en Temporada de Lluvias: Guía Completa 2026",
+    category: "Guías",
+    excerpt: "¿Miedo a la lluvia? La verdad sobre viajar en enero y los precios bajos. Descubre por qué es la época
+    secreta de los fotógrafos.",
+    cover_image: "https://images.unsplash.com/photo-1587595431973-160d0d94add1?q=80&w=800&auto=format&fit=crop",
+    created_at: "2026-01-08T09:30:00Z"
+    },
+    {
+    id: 'best-time-machu-picchu',
+    title: "Mejor Época para Viajar a Machupicchu",
+    category: "Planificación",
+    excerpt: "¿Planeando tu viaje? No puedes perderte estos consejos sobre clima Cusco que transformarán tu experiencia
+    y tu presupuesto.",
+    cover_image: "https://images.unsplash.com/photo-1526392060635-9d6019884377?q=80&w=800&auto=format&fit=crop",
+    created_at: "2026-01-08T08:15:00Z"
+    },
+    {
+    id: 'training-rainbow-mountain',
+    title: "Cómo Entrenar para la Montaña de 7 Colores",
+    category: "Consejos",
+    excerpt: "La altura no es chiste. Rutina de 4 semanas para llegar a los 5,200 msnm sin morir en el intento. Guía de
+    aclimatación incluida.",
+    cover_image: "https://images.unsplash.com/photo-1533130061792-649d44e7855e?q=80&w=800&auto=format&fit=crop",
+    created_at: "2026-01-07T14:20:00Z"
+    },
+    {
+    id: 'packing-list-inca-trail',
+    title: "Packing List Definitivo: Camino Inca 4 Días",
+    category: "Planificación",
+    excerpt: "Menos es más, pero olvidar esto puede arruinar tu viaje. La lista de verificación que usan nuestros guías
+    expertos.",
+    cover_image: "https://images.unsplash.com/photo-1621682372775-533449e5502d?q=80&w=800&auto=format&fit=crop",
+    created_at: "2026-01-06T11:00:00Z"
+    },
+    {
+    id: 'altitude-sickness-hacks',
+    title: "Soroche: 5 Hacks Reales que Funcionan",
+    category: "Consejos",
+    excerpt: "Olvida las pastillas de farmacia. Remedios naturales y técnicas de respiración para conquistar la altura
+    de los Andes.",
+    cover_image: "https://images.unsplash.com/photo-1518709568911-37299a4c528f?q=80&w=800&auto=format&fit=crop",
+    created_at: "2026-01-05T09:45:00Z"
+    }
+    ];
 
-        // Configuración Pública
-        const supabaseUrl = 'https://zobpkmiqrvhbepqnjshr.supabase.co'
-        const supabaseKey = 'sb_publishable_pBMaD6Mm-6Pi5cwwp3UUsw_Pndjw-mo'
-        const supabase = createClient(supabaseUrl, supabaseKey)
+    let allPosts = mockPosts;
 
-        let allPosts = [];
+    function renderPosts(posts) {
+    const grid = document.getElementById('blog-grid');
 
-        async function loadBlog() {
-            const grid = document.getElementById('blog-grid');
+    if (posts.length === 0) {
+    grid.innerHTML = `
+    <div class="col-span-full text-center py-10 bg-slate-50 rounded-3xl border border-dashed border-slate-300">
+        <i class="ri-article-line text-4xl text-slate-300 mb-4"></i>
+        <p class="text-slate-500 font-bold">No hay artículos disponibles en esta categoría.</p>
+    </div>
+    `;
+    return;
+    }
 
-            const { data, error } = await supabase
-                .from('blog_posts')
-                .select('*')
-                .eq('published', true)
-                .order('created_at', { ascending: false });
+    grid.innerHTML = posts.map(post => `
+    <article onclick="window.location.href='blog-article.html?id=${post.id}'"
+        class="group bg-white rounded-3xl shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col h-full cursor-pointer">
+        <div class="relative h-56 overflow-hidden">
+            <img src="${post.cover_image}"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div
+                class="absolute top-4 left-4 bg-white/90 backdrop-blur text-primary px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest border border-slate-100 shadow-sm">
+                ${post.category}
+            </div>
+            <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+        </div>
+        <div class="p-8 flex-1 flex flex-col">
+            <h3
+                class="text-xl font-black text-slate-900 mb-3 leading-tight group-hover:text-primary transition-colors italic">
+                ${post.title}
+            </h3>
+            <p class="text-slate-500 text-sm mb-6 line-clamp-3 leading-relaxed flex-1">
+                ${post.excerpt}
+            </p>
 
-            if (error) {
-                grid.innerHTML = `<div class="col-span-full text-center text-red-500">Error al cargar: ${error.message}</div>`;
-                return;
-            }
+            <div class="flex items-center justify-between mt-auto pt-6 border-t border-slate-50">
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1">
+                    <i class="ri-calendar-line"></i> ${new Date(post.created_at).toLocaleDateString()}
+                </span>
+                <button
+                    class="w-10 h-10 rounded-full bg-slate-50 text-slate-900 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
+                    <i class="ri-arrow-right-line text-lg"></i>
+                </button>
+            </div>
+        </div>
+    </article>
+    `).join('');
+    }
 
-            allPosts = data;
-            renderPosts(allPosts);
-        }
+    window.filterPosts = (category) => {
+    // Update active button style
+    const buttons = document.querySelectorAll('button[onclick^="filterPosts"]');
+    buttons.forEach(btn => {
+    if ((category === 'all' && btn.innerText === 'TODOS') || btn.innerText === category.toUpperCase()) {
+    btn.classList.remove('bg-white', 'text-slate-500', 'border-slate-200');
+    btn.classList.add('bg-slate-900', 'text-white', 'border-transparent');
+    } else {
+    btn.classList.add('bg-white', 'text-slate-500', 'border-slate-200');
+    btn.classList.remove('bg-slate-900', 'text-white', 'border-transparent');
+    }
+    });
 
-        function renderPosts(posts) {
-            const grid = document.getElementById('blog-grid');
+    if (category === 'all') {
+    renderPosts(allPosts);
+    } else {
+    const filtered = allPosts.filter(p => p.category === category);
+    renderPosts(filtered);
+    }
+    }
 
-            if (posts.length === 0) {
-                grid.innerHTML = `
-                    <div class="col-span-full text-center py-10 bg-slate-50 rounded-3xl border border-dashed border-slate-300">
-                        <i class="ri-article-line text-4xl text-slate-300 mb-4"></i>
-                        <p class="text-slate-500 font-bold">No hay artículos disponibles aún.</p>
-                        <p class="text-xs text-slate-400 mt-2">Ejecuta el 'Motor de Blog' para generar contenido.</p>
-                    </div>
-                `;
-                return;
-            }
+    // Init with all posts
+    renderPosts(allPosts);
 
-            grid.innerHTML = posts.map(post => `
-                <article class="group bg-white rounded-3xl shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col h-full">
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="${post.cover_image || 'https://via.placeholder.com/800x600'}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur text-primary px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest border border-slate-100 shadow-sm">
-                            ${post.category || 'General'}
-                        </div>
-                    </div>
-                    <div class="p-8 flex-1 flex flex-col">
-                        <h3 class="text-xl font-black text-slate-900 mb-3 leading-tight group-hover:text-primary transition-colors italic">
-                            ${post.title}
-                        </h3>
-                        <p class="text-slate-500 text-sm mb-6 line-clamp-3 leading-relaxed flex-1">
-                            ${post.excerpt}
-                        </p>
-                        
-                        <div class="flex items-center justify-between mt-auto pt-6 border-t border-slate-50">
-                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
-                                <i class="ri-calendar-line mr-1"></i> ${new Date(post.created_at).toLocaleDateString()}
-                            </span>
-                            <button class="w-8 h-8 rounded-full bg-slate-50 text-slate-900 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
-                                <i class="ri-arrow-right-line"></i>
-                            </button>
-                        </div>
-                    </div>
-                </article>
-            `).join('');
-        }
-
-        window.filterPosts = (category) => {
-            if (category === 'all') {
-                renderPosts(allPosts);
-            } else {
-                const filtered = allPosts.filter(p => p.category === category);
-                renderPosts(filtered);
-            }
-        }
-
-        // Init
-        loadBlog();
-    </script>
+    // Initial button state fix
+    filterPosts('all');
 </body>
 
 </html>

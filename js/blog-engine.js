@@ -1,157 +1,202 @@
-import { createClient } from '@supabase/supabase-js';
-import dotenv from 'dotenv';
-dotenv.config({ path: '.env.local' });
+/**
+ * Motor de Blog Frontend (Browser-Compatible)
+ * "Pro SEO" Content Generator
+ */
 
-// ─── CONFIGURACIÓN SUPABASE (AUDITOR CONFIDENTIAL) ───
-const supabaseUrl = 'https://zobpkmiqrvhbepqnjshr.supabase.co';
-const supabaseKey = 'sb_secret_7d_j2u37-hVXO_2VkvCc8A_tEaP_LDS'; // Service Role Key for Admin Access
-
-const supabase = createClient(supabaseUrl, supabaseKey);
-
-// ─── 1. COLA DE CONTENIDO (AUDIT SECTION 4.3 & 7) ───
-const contentQueue = {
-    // 🇺🇸 Mercado USA (40%)
-    us: [
-        {
-            title: "Rainy Season Peru: Complete Waterproof Gear Guide",
-            slug: "rainy-season-peru-gear-guide",
-            keywords: ["rain gear peru trekking", "what to pack peru january"],
-            type: "Guide",
-            excerpt: "Don't let the rain stop you. The ultimate tested gear list for trekking Cusco in January.",
-            market: "us",
-            lang: "en"
-        }
-    ],
-    // 🇪🇺 Mercado Europa (30%)
-    eu: [
-        {
-            title: "Sustainable Trekking: How to Leave No Trace in the Andes",
-            slug: "sustainable-trekking-peru-guide",
-            keywords: ["sustainable travel peru", "eco friendly trekking cusco"],
-            type: "Culture",
-            excerpt: "Explore the Sacred Valley while protecting its ancient heritage.",
-            market: "eu",
-            lang: "en"
-        }
-    ],
-    // 🇵🇪 Mercado Perú (30%)
-    pe: [
-        {
-            title: "Machu Picchu en Temporada de Lluvias: Guía Completa 2026",
-            slug: "machu-picchu-temporada-lluvias-2026",
-            keywords: ["machu picchu enero lluvia", "viajar cusco enero"],
-            type: "Guía",
-            excerpt: "¿Miedo a la lluvia? La verdad sobre viajar en enero y los precios bajos.",
-            market: "pe",
-            lang: "es"
-        },
-        {
-            title: "Ofertas Última Hora: Tours Cusco Enero desde S/ 899",
-            slug: "ofertas-cusco-enero-2026",
-            keywords: ["paquetes cusco baratos"],
-            type: "Oferta",
-            excerpt: "Paquetes todo incluido para nacionales con DNI.",
-            market: "pe",
-            lang: "es"
-        }
-    ]
-};
-
-// ─── 2. GENERADOR DE PROMPTS ───
-function generateContent(templateItem) {
-    const market = templateItem.market;
-    let contentBody = "";
-
-    // Contenido Simulado basado en Auditoria
-    if (market === 'us') {
-        contentBody = `
-            <p class="lead"><strong>So, you're planning to hit Cusco in ${new Date().toLocaleString('default', { month: 'long' })}? Good choice. While the crowds are fighting for tickets in July, you'll have the misty Andes all to yourself. But there is a catch: The Rain.</strong></p>
-            <h2>The Reality of wet Season (It's not that bad)</h2>
-            <p>Data shows that it only rains about 2-3 hours a day, usually in the afternoon. This means your mornings are crisp, green, and empty.</p>
-            <h2>Quick Gear Checklist</h2>
-            <ul class="list-disc pl-5 mb-4">
-                <li><strong>Gore-Tex Shell:</strong> Don't bring a poncho. Bring a real shell.</li>
-                <li><strong>Waterproof Boots:</strong> Mud is real. Converses are a bad idea.</li>
-            </ul>
-        `;
-    } else if (market === 'pe') {
-        contentBody = `
-            <p class="lead"><strong>¡Causita! ¿Pensando en mandarte a Cusco este finde? No dejes que te metan miedo con la lluvia. Enero es el mes secreto de los que saben viajar.</strong></p>
-            <h2>¿Por qué viajar ahora?</h2>
-            <p>Mira, la cosa es simple: <strong>Precios al suelo</strong>. Hoteles, vuelos y tours bajan hasta un 40%. Con tu DNI, la experiencia te sale regalada comparada con julio.</p>
-            <h2>El Pack Salvador</h2>
-            <ul>
-                <li>Una buena casaca (nada de chompas que absorben agua).</li>
-                <li>Zapatillas con cocada (para no patinar en las piedras).</li>
-            </ul>
-            <div class="bg-yellow-50 p-4 border-l-4 border-yellow-500 rounded my-4">
-                <h3 class="font-bold">💰 Dato Caleta</h3>
-                <p>Reserva con 2 semanas de anticipación y ahorras un 15% extra.</p>
-            </div>
-        `;
-    }
-
-    // JSON-LD Schema
-    const schema = `
-    <script type="application/ld+json">
+const postsDB = [
     {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "${templateItem.keywords[0]}?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Best time depends on priority. For low crowds and low prices, January is ideal despite the rain."
-        }
-      }]
+        id: 'rainy-season-gear',
+        title: "Rainy Season Peru: Complete Waterproof Gear Guide",
+        category: "Guías",
+        cover_image: "https://images.unsplash.com/photo-1517999588663-150277524953?q=80&w=1200&auto=format&fit=crop",
+        author: "Sarah 'La Lince' Jenkins",
+        date: "8 de Enero, 2026",
+        readTime: "8 min",
+        intro: `
+            <p><strong>So, you're planning to hit Cusco in January? Good choice.</strong> While the crowds are fighting for tickets in July, you'll have the misty Andes all to yourself. But there is a catch: The Rain.</p>
+            <p>Don't let the weather forecast scare you. With the right gear, the rainy season is arguably the most photogenic time to visit. The mountains are lush green, the clouds add drama to every shot, and the trails are empty.</p>
+            <h3>The Reality of Wet Season</h3>
+            <p>Data shows that it only rains about 2-3 hours a day, usually in the afternoon. This means your mornings are crisp, green, and perfect for hiking.</p>
+        `,
+        content: `
+            <h2>1. The Non-Negotiables (Base Layer)</h2>
+            <p>Cotton is your enemy. Repeat after me: <em>Cotton kills</em>. When wet, it loses all insulating properties.</p>
+            <ul class="list-disc pl-5 mb-6">
+                <li><strong>Merino Wool Base:</strong> It doesn't stink after 4 days and keeps you warm even when wet.</li>
+                <li><strong>Synthetic Mid-layer:</strong> A fleece or light puffer that dries fast.</li>
+            </ul>
+
+            <h2>2. The Outer Shell (Your Shield)</h2>
+            <p>Forget the $5 plastic ponchos sold at the corner store. If you are serious about the Inca Trail in January, you need a <strong>Gore-Tex (or equivalent) hard shell</strong>.</p>
+            <div class="bg-blue-50 p-6 rounded-2xl border-l-4 border-primary my-6">
+                <h4 class="text-primary font-bold mb-2">Pro Tip: Pit Zips</h4>
+                <p class="text-sm">Ensure your jacket has underarm vents (pit zips). You will sweat hiking uphill, and if that moisture can't escape, you'll get wet from the inside out.</p>
+            </div>
+
+            <h2>3. Footwear: The Mud Struggle</h2>
+            <p>The trails will be muddy. Low-cut trail runners might result in wet socks if you step deep. Mid-cut waterproof boots with good lugs (Vibram equivalent) are your best bet.</p>
+        `,
+        faqs: [
+            { q: "Is the Inca Trail open in January?", a: "Yes, it is open all of January. It only closes in February for maintenance." },
+            { q: "Do I need gaiters?", a: "Highly recommended for January. They keep mud and water out of your boots." },
+            { q: "Is it cold?", a: "Not freezing, but damp. Temperatures range from 10°C to 20°C during the day, dropping to 5°C at night." }
+        ]
+    },
+    {
+        id: 'machu-picchu-rain',
+        title: "Machu Picchu en Temporada de Lluvias: Guía Completa 2026",
+        category: "Guías",
+        cover_image: "https://images.unsplash.com/photo-1587595431973-160d0d94add1?q=80&w=1200&auto=format&fit=crop",
+        author: "Marco 'Condor' Quispe",
+        date: "8 de Enero, 2026",
+        readTime: "10 min",
+        intro: `
+            <p class="lead text-xl text-slate-600 mb-6"><strong>¿Miedo a mojarte? Te estás perdiendo el secreto mejor guardado de los Andes.</strong></p>
+            <p>Enero en Machu Picchu es sinónimo de misticismo. Las nubes bajas abrazando el Huayna Picchu crean una atmósfera que ningún día soleado de julio puede igualar. Y lo mejor: tendrás la ciudadela (casi) para ti solo.</p>
+        `,
+        content: `
+            <h2>¿Por qué viajar en Enero?</h2>
+            <p>Aparte de las fotos espectaculares, hay una razón de peso: <strong>El Presupuesto</strong>. Hoteles de lujo como el Sanctuary Lodge o Inkaterra suelen tener tarifas especiales, y los vuelos a Cusco bajan considerablemente.</p>
+            
+            <img src="https://images.unsplash.com/photo-1526392060635-9d6019884377?w=800" class="w-full rounded-2xl my-8 shadow-lg" alt="Llamas in Machu Picchu">
+
+            <h2>La Estrategia del Horario</h2>
+            <p>En temporada de lluvias, el clima sigue un patrón predecible:</p>
+            <ul class="list-disc pl-5 mb-6">
+                <li><strong>6:00 AM - 11:00 AM:</strong> Probabilidad de neblina matutina que se despeja espectacularmente.</li>
+                <li><strong>11:00 AM - 2:00 PM:</strong> Generalmente soleado o nublado parcial.</li>
+                <li><strong>2:00 PM en adelante:</strong> Probabilidad alta de lluvias fuertes.</li>
+            </ul>
+            <p><strong>Conclusión:</strong> Reserva el turno de la mañana sin falta.</p>
+        `,
+        faqs: [
+            { q: "¿Se cierran los trenes por lluvia?", a: "Rara vez. PeruRail y IncaRail operan con normalidad, aunque pueden haber retrasos menores por seguridad." },
+            { q: "¿Se ve Machu Picchu si llueve?", a: "Sí, y las nubes suelen moverse rápido. Es raro tener niebla cerrada todo el día." }
+        ]
+    },
+    {
+        id: 'best-time-machu-picchu',
+        title: "Mejor Época para Viajar a Machupicchu",
+        category: "Planificación",
+        cover_image: "https://images.unsplash.com/photo-1526392060635-9d6019884377?q=80&w=1200&auto=format&fit=crop",
+        author: "Elena 'River' Tuanama",
+        date: "8 de Enero, 2026",
+        readTime: "6 min",
+        intro: `
+            <p>La eterna pregunta de todo viajero. La respuesta corta es: <strong>Depende de qué buscas.</strong> ¿Cielos azules perfectos para Instagram? ¿O soledad y conexión espiritual?</p>
+        `,
+        content: `
+            <h2>Temporada Seca (Mayo - Octubre)</h2>
+            <p>Es la temporada alta. Cielos azules garantizados casi todos los días. Noches frías, días soleados.</p>
+            <ul class="list-disc pl-5 mb-6">
+                <li><strong>Pros:</strong> Vistas perfectas, cero lluvia.</li>
+                <li><strong>Contras:</strong> Multitudes, precios altos, difícil conseguir entradas (reservar 6 meses antes).</li>
+            </ul>
+
+            <h2>Temporada de Lluvias (Noviembre - Abril)</h2>
+            <p>Todo es verde. Orquídeas en flor. Arcoíris frecuentes.</p>
+            <ul class="list-disc pl-5 mb-6">
+                <li><strong>Pros:</strong> Paisajes verdes, menos gente, mejores precios.</li>
+                <li><strong>Contras:</strong> Lluvia, caminos con barro.</li>
+            </ul>
+
+            <div class="bg-emerald-50 p-6 rounded-2xl my-6">
+                <h4 class="text-emerald-700 font-bold mb-2">Recomendación del Experto</h4>
+                <p class="text-sm text-emerald-800">Si puedes elegir, ven en <strong>Abril u Octubre</strong>. Son los meses "hombro" (shoulder season). Tienes lo mejor de los dos mundos: poco riesgo de lluvia y menos multitudes que en Julio.</p>
+            </div>
+        `,
+        faqs: [
+            { q: "¿Cuándo se agotan las entradas?", a: "Para Junio-Agosto, debes comprar en Enero o Febrero. Para otros meses, 2 meses antes es suficiente." },
+            { q: "¿Hace mucho frío?", a: "En Machu Picchu (Selva Alta) es templado. En Cusco ciudad sí hace frío de noche." }
+        ]
+    },
+    {
+        id: 'default',
+        title: "Artículo no encontrado",
+        category: "Error",
+        cover_image: "https://images.unsplash.com/photo-1594322436404-5a0526db4d13?w=1200",
+        author: "Sistema",
+        date: "--",
+        readTime: "--",
+        intro: "<p>Lo sentimos, no pudimos encontrar el artículo que buscas.</p>",
+        content: "",
+        faqs: []
     }
-    </script>`;
+];
 
-    return contentBody + schema;
-}
+// Main Logic to Populate Article Page
+function initArticlePage() {
+    // 1. Get ID from URL
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
 
-// ─── 3. SCHEDULER ───
-async function runAuditorEngine() {
-    console.log("🦾 Iniciando Motor SEO (Compliance: Auditoria Enero 2026)...");
+    // 2. Find Post
+    const post = postsDB.find(p => p.id === id) || postsDB.find(p => p.id === 'default');
 
-    // Temporada Baja: Prioridad PE > US
-    const primeMarket = 'pe';
-    const secondaryMarket = 'us';
+    // 3. Populate DOM Elements
+    document.title = `${post.title} | Lifextreme Blog`;
 
-    // Tomamos 1 de PE y 1 de US
-    const tasks = [
-        contentQueue[primeMarket][0],
-        contentQueue[secondaryMarket][0]
-    ];
+    // Header
+    const heroImg = document.getElementById('article-hero-img');
+    const titleEl = document.getElementById('article-title');
+    const catEl = document.getElementById('article-category');
 
-    for (const task of tasks) {
-        if (!task) continue;
-        console.log(`\n🚀 Procesando para Mercado [${task.market.toUpperCase()}]: ${task.title}`);
+    if (heroImg) heroImg.src = post.cover_image;
+    if (titleEl) titleEl.innerText = post.title;
+    if (catEl) catEl.innerText = `Blog / ${post.category}`;
 
-        const content = generateContent(task);
+    // Body
+    const introEl = document.getElementById('article-intro');
+    if (introEl) {
+        introEl.innerHTML = `
+            ${post.intro}
+            ${post.content || ''}
+        `;
+    }
 
-        const { data, error } = await supabase
-            .from('blog_posts')
-            .upsert([
-                {
-                    slug: task.slug,
-                    title: task.title,
-                    content: content,
-                    excerpt: task.excerpt,
-                    category: task.type,
-                    cover_image: `https://source.unsplash.com/800x600/?${task.keywords[0].replace(/ /g, ',')}`,
-                    published: true
+    // FAQs
+    const faqsEl = document.getElementById('article-faqs');
+    if (faqsEl && post.faqs.length > 0) {
+        faqsEl.innerHTML = post.faqs.map(faq => `
+            <div class="border border-gray-200 rounded-xl p-4 hover:border-primary transition-colors cursor-pointer bg-white">
+                <h4 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+                    <i class="ri-question-line text-primary"></i> ${faq.q}
+                </h4>
+                <p class="text-sm text-gray-500">${faq.a}</p>
+            </div>
+        `).join('');
+    } else if (faqsEl) {
+        // Hide FAQ section if empty
+        faqsEl.parentElement.style.display = 'none';
+    }
+
+    // JSON-LD Update (Advanced SEO)
+    const schemaScript = document.getElementById('json-ld-faq');
+    if (schemaScript) {
+        const schema = {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": post.title,
+            "image": [post.cover_image],
+            "author": {
+                "@type": "Person",
+                "name": post.author
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "Lifextreme",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.lifextreme.store/logo.png"
                 }
-            ], { onConflict: 'slug' })
-            .select();
-
-        if (error) {
-            console.error("❌ Error Supabase:", error.message);
-        } else {
-            console.log("✅ Publicado Exitosamente.");
-        }
+            },
+            "datePublished": "2026-01-08"
+        };
+        schemaScript.text = JSON.stringify(schema);
     }
 }
 
-runAuditorEngine();
+// Auto-run if on article page
+if (document.getElementById('article-title')) {
+    document.addEventListener('DOMContentLoaded', initArticlePage);
+}

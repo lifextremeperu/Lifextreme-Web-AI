@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embajadores Lifextreme | Viaja, Escribe y Gana</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Outfit:wght@300;400;700;900&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4338ca',
+                        secondary: '#f43f5e',
+                        accent: '#ffbf00',
+                        slate: { 900: '#0f172a' }
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-slate-50 min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-100">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2 font-black italic text-2xl">
+                <i class="ri-flashlight-fill text-primary"></i>
+                Lifextreme
+            </a>
+            <a href="blog.html" class="text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-primary">
+                Volver al Blog
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="relative bg-slate-900 text-white pt-20 pb-32 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1501555088652-021faa106b9b?q=80&w=1600"
+                class="w-full h-full object-cover opacity-30">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10 text-center max-w-4xl">
+            <span
+                class="bg-accent text-slate-900 px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest inline-block mb-6 animate-pulse">
+                Nuevo Programa 2026
+            </span>
+            <h1 class="text-5xl md:text-7xl font-black italic mb-6 leading-tight">
+                Viaja. Escribe. <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Monetiza tu
+                    Aventura.</span>
+            </h1>
+            <p class="text-xl text-slate-300 mb-10 leading-relaxed max-w-2xl mx-auto">
+                Conviértete en Embajador Lifextreme. Nuestra IA pule tus historias para que se vuelvan virales. Tú pones
+                la experiencia, nosotros ponemos la tecnología y el tráfico.
+            </p>
+            <button onclick="document.getElementById('editor-section').scrollIntoView({behavior: 'smooth'})"
+                class="bg-white text-slate-900 px-8 py-4 rounded-full font-black uppercase tracking-widest hover:bg-accent transition-all transform hover:scale-105 shadow-xl">
+                Empezar a Escribir
+            </button>
+        </div>
+    </section>
+
+    <!-- Stats / Benefits -->
+    <section class="py-16 -mt-16 relative z-20">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Card 1: Traffic Payment -->
+                <div
+                    class="bg-white p-8 rounded-3xl shadow-xl border border-slate-100 group hover:-translate-y-2 transition-transform">
+                    <div
+                        class="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center text-green-600 text-2xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="ri-money-dollar-circle-line"></i>
+                    </div>
+                    <h3 class="font-black text-xl mb-2">Pago por Tráfico (RPM)</h3>
+                    <p class="text-sm text-slate-500">Recibe <strong class="text-green-600">$5.00 USD</strong> por cada
+                        1,000 lectores únicos. 3x más que YouTube.</p>
+                </div>
+                <!-- Card 2: Commission -->
+                <div
+                    class="bg-white p-8 rounded-3xl shadow-xl border border-slate-100 group hover:-translate-y-2 transition-transform">
+                    <div
+                        class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center text-yellow-600 text-2xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="ri-shake-hands-line"></i>
+                    </div>
+                    <h3 class="font-black text-xl mb-2">5% de Comisión</h3>
+                    <p class="text-sm text-slate-500">Gana hasta <strong class="text-yellow-600">$30 USD</strong> extra
+                        por cada tour vendido desde tu enlace.</p>
+                </div>
+                <!-- Card 3: AI Editor -->
+                <div
+                    class="bg-white p-8 rounded-3xl shadow-xl border border-slate-100 group hover:-translate-y-2 transition-transform">
+                    <div
+                        class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-primary text-2xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="ri-magic-line"></i>
+                    </div>
+                    <h3 class="font-black text-xl mb-2">Neuro-Editor IA</h3>
+                    <p class="text-sm text-slate-500">Tú pones la historia, nosotros la pulimos. Corrección y SEO
+                        automático al instante.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDITOR SECTION -->
+    <section id="editor-section" class="py-20">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-black italic text-slate-900">Editor Inteligente</h2>
+                <p class="text-slate-500">Escribe tu borrador abajo. No te preocupes por el formato.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+
+                <!-- INPUT COLUMN -->
+                <div class="space-y-6">
+                    <div class="bg-white p-8 rounded-[32px] shadow-lg border border-slate-200">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="font-black text-lg uppercase tracking-widest text-slate-400">Tu Borrador</h3>
+                            <button class="text-xs text-primary font-bold hover:underline">
+                                <i class="ri-upload-cloud-line"></i> Cargar Word/Doc
+                            </button>
+                        </div>
+
+                        <div class="space-y-4">
+                            <input type="text" id="input-title" placeholder="Título de tu historia..."
+                                class="w-full text-xl font-bold border-b-2 border-slate-100 pb-2 focus:outline-none focus:border-primary placeholder:text-slate-300 bg-transparent transition-colors">
+
+                            <textarea id="input-body" rows="12"
+                                placeholder="Empieza a escribir aquí... Cuéntanos qué pasó, qué comiste, cómo llegaste. Sé natural."
+                                class="w-full p-4 bg-slate-50 rounded-xl border border-transparent focus:bg-white focus:border-slate-200 focus:outline-none resize-none text-slate-600 leading-relaxed text-sm"></textarea>
+
+                            <div class="flex gap-4">
+                                <label
+                                    class="flex-1 cursor-pointer bg-slate-50 hover:bg-slate-100 border-2 border-dashed border-slate-200 rounded-xl p-4 flex flex-col items-center justify-center transition-colors">
+                                    <i class="ri-image-add-line text-2xl text-slate-400 mb-1"></i>
+                                    <span class="text-[10px] font-bold text-slate-400 uppercase">Subir Fotos</span>
+                                    <input type="file" multiple class="hidden">
+                                </label>
+                            </div>
+
+                            <!-- Terms Checkbox -->
+                            <div class="flex items-start gap-3 p-4 bg-slate-50 rounded-xl border border-slate-100">
+                                <input type="checkbox" id="terms-check"
+                                    class="mt-1 w-4 h-4 text-primary rounded border-gray-300 focus:ring-primary">
+                                <label for="terms-check" class="text-xs text-slate-500 leading-snug">
+                                    Acepto los <strong class="text-slate-700">Términos de Socio</strong>: Pagos
+                                    mensuales (mínimo acumulado $50), exclusividad de contenido en Lifextreme y derechos
+                                    de optimización SEO.
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 pt-6 border-t border-slate-100">
+                            <button id="btn-analyze"
+                                class="w-full bg-slate-900 text-white py-4 rounded-xl font-black uppercase tracking-widest hover:bg-primary transition-all flex items-center justify-center gap-2 shadow-lg group">
+                                <i class="ri-flashlight-line group-hover:animate-pulse"></i>
+                                Optimizar con IA
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- OUTPUT COLUMN (PREVIEW) -->
+                <div class="relative">
+                    <!-- LOADING OVERLAY -->
+                    <div id="ai-loading"
+                        class="hidden absolute inset-0 bg-white/90 backdrop-blur-sm z-50 rounded-[32px] flex items-center justify-center flex-col">
+                        <div
+                            class="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin mb-4">
+                        </div>
+                        <h4 class="font-black text-xl italic text-slate-900 animate-pulse">Analizando Historia...</h4>
+                        <div id="ai-status" class="text-xs font-bold uppercase tracking-widest text-slate-500 mt-2">
+                            Detectando Keywords...</div>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-[32px] shadow-2xl border border-slate-200 h-full flex flex-col">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3
+                                class="font-black text-lg uppercase tracking-widest text-secondary flex items-center gap-2">
+                                <i class="ri-magic-line"></i> Resultado
+                            </h3>
+                            <div class="flex gap-2">
+                                <span class="bg-green-100 text-green-700 px-2 py-1 rounded text-[10px] font-bold">SEO:
+                                    98/100</span>
+                                <span
+                                    class="bg-blue-100 text-blue-700 px-2 py-1 rounded text-[10px] font-bold">Readability:
+                                    A+</span>
+                            </div>
+                        </div>
+
+                        <!-- PREVIEW CONTAINER -->
+                        <div id="preview-container"
+                            class="flex-1 overflow-y-auto pr-2 space-y-4 opacity-50 pointer-events-none select-none filter blur-[1px] transition-all duration-700">
+                            <!-- Placeholder Content -->
+                            <div class="h-48 bg-slate-100 rounded-xl mb-4 w-full"></div>
+                            <div class="h-8 bg-slate-100 rounded w-3/4 mb-2"></div>
+                            <div class="h-4 bg-slate-50 rounded w-full mb-2"></div>
+                            <div class="h-4 bg-slate-50 rounded w-full mb-2"></div>
+                            <div class="h-4 bg-slate-50 rounded w-5/6 mb-6"></div>
+
+                            <div class="border-l-4 border-slate-200 pl-4 py-2 my-4">
+                                <div class="h-4 bg-slate-100 rounded w-full"></div>
+                            </div>
+                        </div>
+
+                        <!-- ACTIONS -->
+                        <div class="mt-8 pt-6 border-t border-slate-100 hidden" id="preview-actions">
+                            <button onclick="alert('¡Artículo Publicado! Tu panel de embajador se activará pronto.')"
+                                class="w-full bg-green-500 text-white py-4 rounded-xl font-black uppercase tracking-widest hover:scale-[1.02] transition-all shadow-xl shadow-green-500/20">
+                                Publicar y Ganar <i class="ri-rocket-line ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script type="module" src="js/ai-editor.js"></script>
+
+</body>
+
+</html>

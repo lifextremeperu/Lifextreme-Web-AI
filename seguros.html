@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguro de Aventura Instantáneo | Lifextreme Protect</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Outfit:wght@300;400;700;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="bg-gray-50 font-sans">
+
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-100 sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2 font-black italic text-2xl text-slate-900">
+                <i class="ri-shield-cross-fill text-green-500"></i>
+                Lifextreme Protect
+            </a>
+            <a href="index.html"
+                class="text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-green-600">
+                Volver
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Grid -->
+    <main class="container mx-auto px-6 py-12">
+        <div class="grid lg:grid-cols-2 gap-16 items-start">
+
+            <!-- Left: Value Prop -->
+            <div class="space-y-8">
+                <span
+                    class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">
+                    Cobertura 2026
+                </span>
+                <h1 class="text-4xl lg:text-5xl font-black italic text-slate-900 leading-tight">
+                    La Montaña es Impredecible. <br>
+                    <span class="text-green-500">Tu Seguridad No.</span>
+                </h1>
+                <p class="text-lg text-slate-600 leading-relaxed">
+                    El único seguro diseñado específicamente para deportes extremos en los Andes. Cubrimos rescate en
+                    helicóptero, evacuación médica y pérdida de equipo.
+                </p>
+
+                <!-- Features -->
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                        <i class="ri-helicopter-line text-3xl text-primary mb-3"></i>
+                        <h3 class="font-bold text-slate-900">Rescate SAR</h3>
+                        <p class="text-xs text-slate-500">Búsqueda y rescate hasta 6,000 msnm.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                        <i class="ri-hospital-line text-3xl text-secondary mb-3"></i>
+                        <h3 class="font-bold text-slate-900">Gastos Médicos</h3>
+                        <p class="text-xs text-slate-500">Cobertura ilimitada en clínicas afiliadas.</p>
+                    </div>
+                </div>
+
+                <!-- Trust Badges -->
+                <div class="border-t border-slate-200 pt-8">
+                    <p class="text-xs font-bold uppercase text-slate-400 mb-4 tracking-widest">Respaldado Por:</p>
+                    <div class="flex gap-8 opacity-50 grayscale hover:grayscale-0 transition-all">
+                        <div class="h-8 font-black text-xl italic text-slate-700">MAPFRE</div>
+                        <div class="h-8 font-black text-xl italic text-slate-700">PACIFICO</div>
+                        <div class="h-8 font-black text-xl italic text-slate-700">RIMAC</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Calculator Card -->
+            <div
+                class="bg-white p-8 lg:p-10 rounded-[40px] shadow-2xl border border-slate-100 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-green-500/10 rounded-bl-[100px]"></div>
+
+                <h2 class="text-2xl font-black italic text-slate-900 mb-6 flex items-center gap-2">
+                    Cotizador Express <i class="ri-flashlight-line text-green-500"></i>
+                </h2>
+
+                <form id="quote-form" class="space-y-6">
+                    <div class="space-y-2">
+                        <label class="text-xs font-black uppercase text-slate-400">Tipo de Actividad</label>
+                        <div class="grid grid-cols-2 gap-3">
+                            <label class="cursor-pointer">
+                                <input type="radio" name="activity" value="standard" checked class="peer hidden">
+                                <div
+                                    class="p-4 rounded-xl border-2 border-slate-100 peer-checked:border-green-500 peer-checked:bg-green-50 transition-all hover:bg-slate-50 text-center">
+                                    <i
+                                        class="ri-walk-line text-2xl mb-1 block text-slate-400 peer-checked:text-green-600"></i>
+                                    <span class="text-xs font-bold text-slate-700">Trekking</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="activity" value="extreme" class="peer hidden">
+                                <div
+                                    class="p-4 rounded-xl border-2 border-slate-100 peer-checked:border-secondary peer-checked:bg-red-50 transition-all hover:bg-slate-50 text-center">
+                                    <i
+                                        class="ri-upload-cloud-line text-2xl mb-1 block text-slate-400 peer-checked:text-secondary"></i>
+                                    <span class="text-xs font-bold text-slate-700">Escalada/Extremo</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-xs font-black uppercase text-slate-400">Duración del Viaje</label>
+                        <select id="days-select"
+                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 font-bold text-slate-700 outline-none focus:border-green-500">
+                            <option value="1">1 Día</option>
+                            <option value="3">3 Días</option>
+                            <option value="5">5 Días</option>
+                            <option value="7" selected>1 Semana (Recomendado)</option>
+                            <option value="10">10 Días</option>
+                        </select>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-xs font-black uppercase text-slate-400">Edad del Viajero</label>
+                        <input type="number" value="28"
+                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 font-bold text-slate-700 outline-none focus:border-green-500">
+                    </div>
+
+                    <!-- Price Display -->
+                    <div class="bg-slate-900 rounded-2xl p-6 text-white flex justify-between items-center group cursor-pointer hover:bg-slate-800 transition-colors mt-8"
+                        id="price-box">
+                        <div>
+                            <p class="text-[10px] uppercase font-bold text-slate-400 mb-1">Total a Pagar</p>
+                            <div class="text-3xl font-black text-green-400 tracking-tight" id="total-price">$35.00</div>
+                        </div>
+                        <button type="button" onclick="alert('Redirigiendo a Pasarela de Pago Segura...')"
+                            class="bg-white text-slate-900 px-6 py-3 rounded-xl font-black uppercase text-[10px] tracking-widest hover:scale-105 transition-transform">
+                            Contratar
+                        </button>
+                    </div>
+                </form>
+
+                <p class="text-center text-[10px] text-slate-400 mt-6 font-medium">
+                    <i class="ri-lock-2-line"></i> Póliza emitida al instante por email.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Calculation Script -->
+    <script>
+        const form = document.getElementById('quote-form');
+        const priceDisplay = document.getElementById('total-price');
+        const daysSelect = document.getElementById('days-select');
+        const activityInputs = document.querySelectorAll('input[name="activity"]');
+
+        function calculate() {
+            const days = parseInt(daysSelect.value);
+            const type = document.querySelector('input[name="activity"]:checked').value;
+
+            // Base Rates
+            let dailyRate = 5; // Standard
+            if (type === 'extreme') dailyRate = 12; // Extreme risk
+
+            const total = days * dailyRate;
+
+            // Animate Price
+            priceDisplay.innerText = `$${total}.00`;
+
+            // Add animation class
+            priceDisplay.parentElement.parentElement.classList.add('scale-[1.02]');
+            setTimeout(() => priceDisplay.parentElement.parentElement.classList.remove('scale-[1.02]'), 200);
+        }
+
+        form.addEventListener('change', calculate);
+
+        // Init
+        calculate();
+    </script>
+
+</body>
+
+</html>

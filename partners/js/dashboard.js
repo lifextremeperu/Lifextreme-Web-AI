@@ -4,8 +4,8 @@
 
 import { supabase } from '../../js/supabase-client.js';
 
-// 🔒 PROTECCIÓN DE RUTA
-// Verificar sesión antes de cargar nada
+// 🔒 PROTECCIÓN DE RUTA (DESHABILITADA PARA SIMULACIÓN)
+/**
 (async function protectRoute() {
     const { data: { session }, error } = await supabase.auth.getSession();
 
@@ -19,6 +19,8 @@ import { supabase } from '../../js/supabase-client.js';
         updateUserProfile(session.user);
     }
 })();
+**/
+console.log("🔓 MODO SIMULACIÓN ACTIVO: Protección de ruta deshabilitada.");
 
 document.addEventListener('DOMContentLoaded', () => {
     // Si llegamos aquí, asumimos que protectRoute está corriendo, 

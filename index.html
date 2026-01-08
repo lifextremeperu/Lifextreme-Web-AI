@@ -572,45 +572,61 @@
                     </button>
 
                     <!-- Benefits List -->
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-left w-full max-w-4xl">
-                        <div class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors">
-                            <div
-                                class="w-8 h-8 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center">
-                                <i class="ri-store-2-fill"></i>
+                    <!-- POWER BENEFITS GRID (NEW HOOKS) -->
+                    <div class="w-full max-w-5xl">
+                        <!-- Hook Principal: Lifextreme Fest -->
+                        <div
+                            class="bg-gradient-to-r from-amber-500/10 to-orange-600/10 border border-amber-500/20 rounded-2xl p-4 mb-4 flex items-center justify-between group hover:border-amber-500/40 transition-all cursor-pointer">
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="w-12 h-12 bg-gradient-to-br from-amber-400 to-orange-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-amber-500/20 group-hover:scale-110 transition-transform">
+                                    <i class="ri-ticket-2-fill text-2xl"></i>
+                                </div>
+                                <div class="text-left">
+                                    <h4 class="text-white font-black italic uppercase tracking-wider text-sm">Entrada
+                                        VIP Lifextreme Fest 2026</h4>
+                                    <p class="text-amber-200/80 text-xs font-medium">Incluye acceso a zona de atletas y
+                                        after-party</p>
+                                </div>
                             </div>
-                            <div>
-                                <h4 class="text-white text-xs font-bold">Tiendas & Rentas</h4>
-                                <p class="text-slate-500 text-[10px]">Descuentos exclusivos</p>
-                            </div>
+                            <span
+                                class="bg-amber-500 text-slate-900 text-[10px] font-black px-2 py-1 rounded uppercase tracking-widest hidden sm:block">Valor:
+                                $150</span>
                         </div>
-                        <div class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors">
+
+                        <!-- Secondary Benefits Grid -->
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                            <!-- Gear Rental -->
                             <div
-                                class="w-8 h-8 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center">
-                                <i class="ri-hotel-bed-fill"></i>
+                                class="bg-slate-800/50 border border-white/5 p-4 rounded-2xl flex flex-col items-center text-center hover:bg-slate-800 transition-colors">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-blue-500/10 text-blue-400 flex items-center justify-center mb-3">
+                                    <i class="ri-t-shirt-air-fill text-xl"></i>
+                                </div>
+                                <h4 class="text-slate-200 text-xs font-bold uppercase mb-1">Renta de Equipos</h4>
+                                <p class="text-slate-500 text-[10px]">-50% en GoPro y Carpas</p>
                             </div>
-                            <div>
-                                <h4 class="text-white text-xs font-bold">Hospedajes</h4>
-                                <p class="text-slate-500 text-[10px]">Tarifas preferenciales</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors">
+
+                            <!-- Hotels -->
                             <div
-                                class="w-8 h-8 rounded-full bg-orange-500/20 text-orange-400 flex items-center justify-center">
-                                <i class="ri-restaurant-2-fill"></i>
+                                class="bg-slate-800/50 border border-white/5 p-4 rounded-2xl flex flex-col items-center text-center hover:bg-slate-800 transition-colors">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-3">
+                                    <i class="ri-hotel-bed-fill text-xl"></i>
+                                </div>
+                                <h4 class="text-slate-200 text-xs font-bold uppercase mb-1">Red de Hoteles</h4>
+                                <p class="text-slate-500 text-[10px]">Upgrades de Habitación</p>
                             </div>
-                            <div>
-                                <h4 class="text-white text-xs font-bold">Restaurantes</h4>
-                                <p class="text-slate-500 text-[10px]">Bebidas o postres free</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors">
+
+                            <!-- AI Assistant -->
                             <div
-                                class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
-                                <i class="ri-robot-2-fill"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-white text-xs font-bold">Chat Asesor IA</h4>
-                                <p class="text-slate-500 text-[10px]">Tu guía experto 24/7</p>
+                                class="bg-slate-800/50 border border-white/5 p-4 rounded-2xl flex flex-col items-center text-center hover:bg-slate-800 transition-colors col-span-2 md:col-span-1">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-purple-500/10 text-purple-400 flex items-center justify-center mb-3">
+                                    <i class="ri-openai-fill text-xl"></i>
+                                </div>
+                                <h4 class="text-slate-200 text-xs font-bold uppercase mb-1">Asesor IA Ilimitado</h4>
+                                <p class="text-slate-500 text-[10px]">Planner 24/7</p>
                             </div>
                         </div>
                     </div>
@@ -795,6 +811,25 @@
                 <h2 class="text-4xl font-black mb-16 italic"><span data-i18n="section_guias">Staff de Guías Elite</span>
                 </h2>
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8" id="guides-grid"></div>
+
+                <div class="mt-16 flex justify-center">
+                    <div
+                        class="bg-indigo-50 border border-indigo-100 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-8 max-w-2xl">
+                        <div
+                            class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-md text-primary text-2xl">
+                            <i class="ri-user-add-line"></i>
+                        </div>
+                        <div class="text-left">
+                            <h4 class="text-xl font-black italic text-slate-900">¿Eres Guía Profesional?</h4>
+                            <p class="text-sm text-slate-500 font-medium">Únete a la plataforma más exclusiva y gestiona
+                                tus propios clientes.</p>
+                        </div>
+                        <a href="registro-guia.html" target="_blank"
+                            class="bg-slate-900 text-white px-6 py-3 rounded-xl font-black uppercase text-[10px] tracking-widest hover:bg-primary transition-colors whitespace-nowrap">
+                            Crear Perfil Pro
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -1800,20 +1835,20 @@
                     <p class="text-slate-400 text-sm mb-6">Transformando aventureros en experiencias únicas desde 2024.
                     </p>
                     <div class="flex gap-4">
-                        <a href="#"
-                            class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center hover:bg-primary transition-all">
+                        <a href="https://www.facebook.com/Lifextremeperu" target="_blank"
+                            class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center hover:bg-blue-600 transition-all">
                             <i class="ri-facebook-fill"></i>
                         </a>
-                        <a href="#"
-                            class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center hover:bg-primary transition-all">
+                        <a href="https://www.instagram.com/lifextremeperu/" target="_blank"
+                            class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center hover:bg-pink-600 transition-all">
                             <i class="ri-instagram-line"></i>
                         </a>
-                        <a href="#"
-                            class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center hover:bg-primary transition-all">
+                        <a href="https://www.youtube.com/@lifextremeperu2780" target="_blank"
+                            class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center hover:bg-red-600 transition-all">
                             <i class="ri-youtube-line"></i>
                         </a>
-                        <a href="#"
-                            class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center hover:bg-primary transition-all">
+                        <a href="https://tiktok.com/@lifextremeperu" target="_blank"
+                            class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center hover:bg-black transition-all">
                             <i class="ri-tiktok-line"></i>
                         </a>
                     </div>
@@ -1834,12 +1869,21 @@
                 <!-- Columna 3: Empresa -->
                 <div>
                     <h4 class="text-sm font-black uppercase tracking-widest mb-4">Empresa</h4>
-                    <ul class="space-y-3 =text-sm text-slate-400">
-                        <li><a href="#" class="hover:text-white transition-colors">Sobre Nosotros</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Nuestros Guías</a></li>
+                    <ul class="space-y-3 text-sm text-slate-400">
+                        <li><a href="empresa.html#sobre-nosotros" class="hover:text-white transition-colors">Sobre
+                                Nosotros</a></li>
+                        <li><a href="index.html#guides" class="hover:text-white transition-colors">Nuestros Guías</a>
+                        </li>
                         <li><a href="blog.html" class="hover:text-primary transition-colors">Blog & Guías</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Trabaja con Nosotros</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Prensa</a></li>
+                        <li><a href="empresa.html#trabaja-con-nosotros"
+                                class="hover:text-white transition-colors">Trabaja con Nosotros</a></li>
+                        <li><a href="embajadores.html"
+                                class="hover:text-white transition-colors font-bold text-accent">Programa Embajadores
+                                <span class="text-[10px] ml-1 bg-accent text-slate-900 px-1 rounded">NEW</span></a></li>
+                        <li><a href="seguros.html"
+                                class="hover:text-white transition-colors font-bold text-green-400">Seguro de
+                                Aventura</a></li>
+                        <li><a href="empresa.html#prensa" class="hover:text-white transition-colors">Prensa</a></li>
                     </ul>
                 </div>
 
@@ -1849,17 +1893,19 @@
                     <ul class="space-y-3 text-sm text-slate-400">
                         <li class="flex items-center gap-2">
                             <i class="ri-whatsapp-line text-emerald-400"></i>
-                            <a href="https://wa.me/51XXXXXXXXX" class="hover:text-white transition-colors">+51 XXX XXX
-                                XXX</a>
+                            <a href="https://wa.me/51958050928" target="_blank"
+                                class="hover:text-white transition-colors">
+                                +51 958 050 928 <span class="text-xs ml-1">🇵🇪</span>
+                            </a>
                         </li>
                         <li class="flex items-center gap-2">
                             <i class="ri-mail-line text-primary"></i>
-                            <a href="mailto:info@lifextreme.com"
-                                class="hover:text-white transition-colors">info@lifextreme.com</a>
+                            <a href="mailto:lifextremeperu@gmail.com"
+                                class="hover:text-white transition-colors">lifextremeperu@gmail.com</a>
                         </li>
                         <li class="flex items-start gap-2">
                             <i class="ri-map-pin-line text-secondary mt-1"></i>
-                            <span>Av. El Sol 123, Cusco, Perú</span>
+                            <span>Calle Chiwuampata 543, Cusco</span>
                         </li>
                         <li class="flex items-center gap-2">
                             <i class="ri-time-line text-accent"></i>
@@ -1883,7 +1929,8 @@
                             Condiciones</a>
                         <a href="privacidad.html" target="_blank" class="hover:text-white transition-colors">Política de
                             Privacidad</a>
-                        <a href="#" class="hover:text-white transition-colors">Política de Cookies</a>
+                        <a href="cookies.html" target="_blank" class="hover:text-white transition-colors">Política de
+                            Cookies</a>
                     </div>
 
                     <!-- Certificaciones -->
@@ -1901,8 +1948,9 @@
             <!-- Nota legal adicional -->
             <div class="mt-6 pt-6 border-t border-white/10">
                 <p class="text-xs text-slate-500 text-center max-w-4xl mx-auto">
-                    Lifextreme es una agencia de turismo de aventura registrada en Perú. RUC: XXXXXXXXXXX.
-                    Todos nuestros tours cuentan con seguro de accidentes y guías certificados por UIAGM.
+                    Lifextreme es una agencia de turismo de aventura registrada en Perú. RUC: 10416419545.
+                    Nuestros guías están certificados por UIAGM. Ofrecemos seguro de accidentes opcional para mayor
+                    seguridad del pasajero.
                     Las fotografías mostradas son referenciales. Los precios están sujetos a disponibilidad y pueden
                     variar según temporada.
                 </p>
@@ -2054,6 +2102,29 @@
                 <input type="hidden" id="guide-id-input">
 
                 <div class="space-y-2">
+                    <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Nombre
+                        Completo</label>
+                    <input type="text" id="guide-client-name" required
+                        class="w-full bg-slate-50 border border-slate-100 rounded-2xl px-4 py-3 text-xs font-bold focus:outline-none focus:border-primary transition-colors text-slate-800"
+                        placeholder="Tu nombre">
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-2">
+                        <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest">WhatsApp</label>
+                        <input type="tel" id="guide-client-phone" required
+                            class="w-full bg-slate-50 border border-slate-100 rounded-2xl px-4 py-3 text-xs font-bold focus:outline-none focus:border-primary transition-colors text-slate-800"
+                            placeholder="+51...">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Email</label>
+                        <input type="email" id="guide-client-email" required
+                            class="w-full bg-slate-50 border border-slate-100 rounded-2xl px-4 py-3 text-xs font-bold focus:outline-none focus:border-primary transition-colors text-slate-800"
+                            placeholder="correo@...">
+                    </div>
+                </div>
+
+                <div class="space-y-2">
                     <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Tipo de Tour</label>
                     <select id="guide-tour-type"
                         class="w-full bg-slate-50 border border-slate-100 rounded-2xl px-4 py-3 text-xs font-bold focus:outline-none focus:border-primary transition-colors cursor-pointer">
@@ -2121,19 +2192,20 @@
             // 2. Gather Data
             const guideId = document.getElementById('guide-id-input').value;
             const guideName = document.getElementById('guide-modal-name').innerText;
+            const clientName = document.getElementById('guide-client-name').value;
+            const clientPhone = document.getElementById('guide-client-phone').value;
+            const clientEmail = document.getElementById('guide-client-email').value;
             const tourType = document.getElementById('guide-tour-type').value;
             const serviceLevel = document.querySelector('input[name="service_level"]:checked').value;
             const date = document.getElementById('guide-date').value || 'Fecha por definir';
 
             // 3. Save to Supabase (Pre-Booking)
-            // Note: clientName/phone would ideally come from a logged-in user or extra inputs.
-            // For now we use generic data or prompt if needed. Let's assume generic for speed 
-            // as contact happens on WhatsApp.
             const bookingData = {
                 guideId,
                 guideName,
-                clientName: "Usuario Web",
-                clientPhone: "WhatsApp Pending",
+                clientName,
+                clientPhone,
+                clientEmail,
                 tourType,
                 serviceLevel,
                 date
@@ -2151,7 +2223,7 @@
                 if (window.showToast) window.showToast('Solicitud Registrada', 'El guía confirmará tu fecha en WhatsApp', 'ri-user-star-fill');
 
                 // 5. WhatsApp Redirect (The final step)
-                const msg = `Hola Lifextreme! 🏔️ He enviado una solicitud de pre-reserva (ID: ${result.data?.[0]?.id || 'WEB'}).\n\n👤 *Guía:* ${guideName}\n📋 *Tipo:* ${tourType}\n💎 *Nivel:* ${serviceLevel}\n📅 *Fecha:* ${date}\n\nEspero confirmación de disponibilidad del guía.`;
+                const msg = `Hola ${guideName}! 🏔️ Soy ${clientName}. He enviado una solicitud de reserva (ID: ${result.data?.[0]?.id || 'WEB'}).\n\n📋 *Tipo:* ${tourType}\n💎 *Nivel:* ${serviceLevel}\n📅 *Fecha:* ${date}\n📞 *Contacto:* ${clientPhone}\n\nEspero confirmación de disponibilidad para proceder.`;
 
                 const waUrl = `https://wa.me/51958050928?text=${encodeURIComponent(msg)}`;
                 window.open(waUrl, '_blank');
