@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Google Analytics 4 (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KW625TWP91"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-KW625TWP91');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifextreme Social | La Revolución del Viaje</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4338ca',
+                        secondary: '#f43f5e',
+                        accent: '#ffbf00',
+                        dark: '#0f172a'
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-slate-900 text-white selection:bg-primary selection:text-white">
+
+    <!-- HEADER SIMPLE -->
+    <header class="fixed top-0 w-full z-50 bg-slate-900/80 backdrop-blur-md border-b border-white/5">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center group">
+                <div
+                    class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center text-white border border-white/20 group-hover:bg-primary transition-all">
+                    <i class="ri-arrow-left-line text-xl"></i>
+                </div>
+            </a>
+            <div class="text-center">
+                <p class="text-[10px] font-black uppercase tracking-[0.3em] text-primary">Project Launch</p>
+                <h1 class="font-black italic text-xl">SOCIAL <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">EXPEDITIONS</span>
+                </h1>
+            </div>
+            <div class="w-10"></div> <!-- Spacer -->
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section class="relative pt-32 pb-20 overflow-hidden">
+            <!-- Background Elements -->
+            <div
+                class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary/20 rounded-full blur-[120px] -z-10">
+            </div>
+
+            <div class="container mx-auto px-6 text-center relative z-10">
+                <span
+                    class="inline-block py-1 px-3 rounded-full bg-white/5 border border-white/10 text-[10px] font-black uppercase tracking-widest mb-6 animate-pulse text-accent">
+                    🚀 Próximamente - Beta Access
+                </span>
+                <h2 class="text-5xl md:text-7xl font-black italic leading-[0.9] mb-8">
+                    Viaja Más.<br>
+                    <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent">Paga
+                        Menos.</span>
+                </h2>
+                <p class="text-slate-400 max-w-2xl mx-auto text-lg mb-12 font-medium">
+                    La plataforma que democratiza la aventura. Crea grupos, divide gastos y accede a logística
+                    profesional sin intermediarios caros.
+                </p>
+            </div>
+        </section>
+
+        <!-- MODULES PRESENTATION -->
+        <div class="container mx-auto px-6 pb-32 space-y-24">
+
+            <!-- MODULE 1: LOBBY -->
+            <div class="grid lg:grid-cols-2 gap-12 items-center group">
+                <div class="relative order-2 lg:order-1">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-tr from-primary to-purple-600 rounded-[40px] rotate-3 opacity-20 group-hover:rotate-6 transition-transform">
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1526772662000-3f88f107f6d8?w=800"
+                        class="relative rounded-[40px] shadow-2xl border border-white/10 w-full object-cover h-[400px]">
+
+                    <!-- Floating UI Card Mockup -->
+                    <div
+                        class="absolute -bottom-6 -right-6 bg-white p-4 rounded-2xl shadow-xl max-w-xs text-slate-900 transform group-hover:translate-y-2 transition-transform">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div
+                                class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-primary font-bold">
+                                A</div>
+                            <div class="text-xs">
+                                <p class="font-bold">Alejandro (Líder)</p>
+                                <p class="text-slate-500">Creó "Ausangate 4D"</p>
+                            </div>
+                        </div>
+                        <div class="w-full bg-slate-100 rounded-full h-1.5 mb-1">
+                            <div class="bg-green-500 w-3/4 h-1.5 rounded-full"></div>
+                        </div>
+                        <p class="text-[10px] font-black text-green-600 uppercase">3/4 Cupos - Faltan 1</p>
+                    </div>
+                </div>
+
+                <div class="order-1 lg:order-2">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="text-6xl font-black text-white/5">01</span>
+                        <h3 class="text-2xl font-black italic text-primary">LOBBY DE EXPEDICIONES</h3>
+                    </div>
+                    <h4 class="text-3xl font-bold mb-6">Tu Tribu, Tus Reglas</h4>
+                    <p class="text-slate-400 leading-relaxed mb-6">
+                        Olvídate de buscar amigos rogando que te acompañen. Sé el <strong>Líder de Expedición</strong>:
+                        crea tu salida, define la fecha y deja que la comunidad llene los cupos.
+                    </p>
+                    <ul class="space-y-3 text-sm text-slate-300 mb-8">
+                        <li class="flex gap-3"><i class="ri-check-line text-green-500"></i> Define tu presupuesto meta
+                        </li>
+                        <li class="flex gap-3"><i class="ri-check-line text-green-500"></i> Link de invitación directo a
+                            WhatsApp</li>
+                        <li class="flex gap-3"><i class="ri-check-line text-green-500"></i> Filtra compañeros por nivel
+                            de experiencia</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- MODULE 2: CONNECTION -->
+            <div class="grid lg:grid-cols-2 gap-12 items-center group">
+                <div class="lg:pl-10">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="text-6xl font-black text-white/5">02</span>
+                        <h3 class="text-2xl font-black italic text-secondary">CONEXIÓN OPERATIVA</h3>
+                    </div>
+                    <h4 class="text-3xl font-bold mb-6">Logística "On-Demand"</h4>
+                    <p class="text-slate-400 leading-relaxed mb-6">
+                        Cuando tu grupo se completa, el sistema despierta. Conectamos automáticamente tu grupo con
+                        nuestra red de operadores verificados para cubrir solo lo que necesitas.
+                    </p>
+                    <div class="bg-white/5 p-6 rounded-2xl border border-white/5 mb-8">
+                        <p class="text-xs font-black uppercase text-secondary mb-2">Ejemplo de Ahorro:</p>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-slate-400">Tour Agencia Tradicional:</span>
+                            <span class="line-through text-slate-500">S/ 1800</span>
+                        </div>
+                        <div class="flex justify-between items-center text-lg font-bold text-white mt-1">
+                            <span>Pack Logístico Lifextreme:</span>
+                            <span class="text-green-400">S/ 850</span>
+                        </div>
+                        <p class="text-[10px] text-slate-500 mt-2">*Incluye Guía Pro + Transporte Privado + Mulas</p>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-tl from-secondary to-orange-600 rounded-[40px] -rotate-3 opacity-20 group-hover:-rotate-6 transition-transform">
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800"
+                        class="relative rounded-[40px] shadow-2xl border border-white/10 w-full object-cover h-[400px]">
+                </div>
+            </div>
+
+            <!-- MODULE 3: RENTALS -->
+            <div class="grid lg:grid-cols-2 gap-12 items-center group">
+                <div class="relative order-2 lg:order-1">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-tr from-accent to-yellow-600 rounded-[40px] rotate-3 opacity-20 group-hover:rotate-6 transition-transform">
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1541829628003-8d62637951e1?w=800"
+                        class="relative rounded-[40px] shadow-2xl border border-white/10 w-full object-cover h-[400px]">
+                    <!-- AI Label -->
+                    <div
+                        class="absolute top-6 left-6 bg-black/80 backdrop-blur text-accent px-4 py-2 rounded-full text-xs font-black uppercase border border-accent/50 flex items-center gap-2">
+                        <i class="ri-robot-2-fill"></i> AI Gear Match
+                    </div>
+                </div>
+
+                <div class="order-1 lg:order-2 lg:pl-10">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="text-6xl font-black text-white/5">03</span>
+                        <h3 class="text-2xl font-black italic text-accent">RENTALS & SOLO</h3>
+                    </div>
+                    <h4 class="text-3xl font-bold mb-6">Equipamiento de Elite</h4>
+                    <p class="text-slate-400 leading-relaxed mb-6">
+                        ¿Prefieres ir solo? No compres equipo que usarás una vez. Nuestra IA analiza tu ruta y te arma
+                        la mochila perfecta para alquilar.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="bg-white/5 p-4 rounded-xl flex items-center gap-4">
+                            <img src="https://images.unsplash.com/photo-1582921017967-79d1cb6702ee?w=100"
+                                class="w-12 h-12 rounded-lg object-cover">
+                            <div>
+                                <p class="text-xs font-bold text-white">Kit Ausangate Pro</p>
+                                <p class="text-[10px] text-slate-400">Piolets, Crampones, Carpa 4 Estaciones</p>
+                            </div>
+                            <span class="ml-auto font-black text-accent">S/ 250</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- CTA FINAL -->
+        <section class="container mx-auto px-6 pb-20 text-center">
+            <div
+                class="bg-gradient-to-b from-white/10 to-transparent p-12 rounded-[3rem] border border-white/10 relative overflow-hidden">
+                <div class="relative z-10">
+                    <h2 class="text-4xl font-black italic mb-6">¿Listo para unirte?</h2>
+                    <p class="text-slate-400 mb-8 max-w-lg mx-auto">Sé parte de los pioneros que están cambiando la
+                        forma de explorar los Andes.</p>
+                    <form class="max-w-md mx-auto flex gap-2">
+                        <input type="email" placeholder="Tu correo electrónico"
+                            class="flex-1 bg-slate-900 border border-slate-700 rounded-xl px-6 py-4 text-sm focus:border-primary outline-none">
+                        <button type="button"
+                            class="bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-widest px-8 py-4 rounded-xl transition-all">
+                            Entrar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+</body>
+
+</html>
