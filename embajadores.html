@@ -56,173 +56,485 @@
         <div class="container mx-auto px-6 relative z-10 text-center max-w-4xl">
             <span
                 class="bg-accent text-slate-900 px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest inline-block mb-6 animate-pulse">
-                Nuevo Programa 2026
+                Creators Hub 2026
             </span>
             <h1 class="text-5xl md:text-7xl font-black italic mb-6 leading-tight">
-                Viaja. Escribe. <br>
+                Viaja. Crea. <br>
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Monetiza tu
-                    Aventura.</span>
+                    Arte.</span>
             </h1>
             <p class="text-xl text-slate-300 mb-10 leading-relaxed max-w-2xl mx-auto">
-                Conviértete en Embajador Lifextreme. Nuestra IA pule tus historias para que se vuelvan virales. Tú pones
-                la experiencia, nosotros ponemos la tecnología y el tráfico.
+                La plataforma descentralizada para creadores de aventura. Escritores, fotógrafos, artistas VR e
+                Influencers unidos para documentar lo extremo.
             </p>
-            <button onclick="document.getElementById('editor-section').scrollIntoView({behavior: 'smooth'})"
+            <button onclick="document.getElementById('creators-hub').scrollIntoView({behavior: 'smooth'})"
                 class="bg-white text-slate-900 px-8 py-4 rounded-full font-black uppercase tracking-widest hover:bg-accent transition-all transform hover:scale-105 shadow-xl">
-                Empezar a Escribir
+                Empezar a Crear
             </button>
         </div>
     </section>
 
-    <!-- Stats / Benefits -->
-    <section class="py-16 -mt-16 relative z-20">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-3 gap-6">
-                <!-- Card 1: Traffic Payment -->
-                <div
-                    class="bg-white p-8 rounded-3xl shadow-xl border border-slate-100 group hover:-translate-y-2 transition-transform">
-                    <div
-                        class="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center text-green-600 text-2xl mb-4 group-hover:scale-110 transition-transform">
-                        <i class="ri-money-dollar-circle-line"></i>
-                    </div>
-                    <h3 class="font-black text-xl mb-2">Pago por Tráfico (RPM)</h3>
-                    <p class="text-sm text-slate-500">Recibe <strong class="text-green-600">$5.00 USD</strong> por cada
-                        1,000 lectores únicos. 3x más que YouTube.</p>
-                </div>
-                <!-- Card 2: Commission -->
-                <div
-                    class="bg-white p-8 rounded-3xl shadow-xl border border-slate-100 group hover:-translate-y-2 transition-transform">
-                    <div
-                        class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center text-yellow-600 text-2xl mb-4 group-hover:scale-110 transition-transform">
-                        <i class="ri-shake-hands-line"></i>
-                    </div>
-                    <h3 class="font-black text-xl mb-2">5% de Comisión</h3>
-                    <p class="text-sm text-slate-500">Gana hasta <strong class="text-yellow-600">$30 USD</strong> extra
-                        por cada tour vendido desde tu enlace.</p>
-                </div>
-                <!-- Card 3: AI Editor -->
-                <div
-                    class="bg-white p-8 rounded-3xl shadow-xl border border-slate-100 group hover:-translate-y-2 transition-transform">
-                    <div
-                        class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-primary text-2xl mb-4 group-hover:scale-110 transition-transform">
-                        <i class="ri-magic-line"></i>
-                    </div>
-                    <h3 class="font-black text-xl mb-2">Neuro-Editor IA</h3>
-                    <p class="text-sm text-slate-500">Tú pones la historia, nosotros la pulimos. Corrección y SEO
-                        automático al instante.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Creators Hub Section -->
+    <section id="creators-hub" class="py-12 -mt-16 relative z-20">
+        <div class="container mx-auto px-6 max-w-6xl">
 
-    <!-- EDITOR SECTION -->
-    <section id="editor-section" class="py-20">
-        <div class="container mx-auto px-6 max-w-5xl">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-black italic text-slate-900">Editor Inteligente</h2>
-                <p class="text-slate-500">Escribe tu borrador abajo. No te preocupes por el formato.</p>
+            <!-- Role Selector (Tabs) -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button
+                    class="role-tab bg-slate-900 text-white shadow-lg px-8 py-4 rounded-2xl font-black uppercase tracking-widest text-sm flex items-center gap-3 transition-all hover:-translate-y-1"
+                    data-target="workspace-writer">
+                    <i class="ri-edit-2-line text-xl"></i> Escritores
+                </button>
+                <button
+                    class="role-tab bg-white text-slate-500 hover:bg-slate-50 px-8 py-4 rounded-2xl font-black uppercase tracking-widest text-sm flex items-center gap-3 transition-all hover:-translate-y-1"
+                    data-target="workspace-photographer">
+                    <i class="ri-camera-lens-line text-xl"></i> Fotógrafos
+                </button>
+                <button
+                    class="role-tab bg-white text-slate-500 hover:bg-slate-50 px-8 py-4 rounded-2xl font-black uppercase tracking-widest text-sm flex items-center gap-3 transition-all hover:-translate-y-1"
+                    data-target="workspace-vr">
+                    <i class="ri-goggles-line text-xl"></i> VR & 360°
+                </button>
+                <button
+                    class="role-tab bg-white text-slate-500 hover:bg-slate-50 px-8 py-4 rounded-2xl font-black uppercase tracking-widest text-sm flex items-center gap-3 transition-all hover:-translate-y-1"
+                    data-target="workspace-influencer">
+                    <i class="ri-smartphone-line text-xl"></i> Influencers
+                </button>
+                <button
+                    class="role-tab bg-white text-slate-500 hover:bg-slate-50 px-8 py-4 rounded-2xl font-black uppercase tracking-widest text-sm flex items-center gap-3 transition-all hover:-translate-y-1"
+                    data-target="workspace-events">
+                    <i class="ri-calendar-event-fill text-xl"></i> Organizadores
+                </button>
             </div>
 
-            <div class="grid lg:grid-cols-2 gap-12">
+            <!-- Dynamic Workspace Container -->
+            <div class="bg-white rounded-[40px] shadow-2xl border border-slate-100 overflow-hidden min-h-[600px]">
 
-                <!-- INPUT COLUMN -->
-                <div class="space-y-6">
-                    <div class="bg-white p-8 rounded-[32px] shadow-lg border border-slate-200">
-                        <div class="flex justify-between items-center mb-6">
-                            <h3 class="font-black text-lg uppercase tracking-widest text-slate-400">Tu Borrador</h3>
-                            <button class="text-xs text-primary font-bold hover:underline">
-                                <i class="ri-upload-cloud-line"></i> Cargar Word/Doc
-                            </button>
-                        </div>
-
-                        <div class="space-y-4">
-                            <input type="text" id="input-title" placeholder="Título de tu historia..."
-                                class="w-full text-xl font-bold border-b-2 border-slate-100 pb-2 focus:outline-none focus:border-primary placeholder:text-slate-300 bg-transparent transition-colors">
-
-                            <textarea id="input-body" rows="12"
-                                placeholder="Empieza a escribir aquí... Cuéntanos qué pasó, qué comiste, cómo llegaste. Sé natural."
-                                class="w-full p-4 bg-slate-50 rounded-xl border border-transparent focus:bg-white focus:border-slate-200 focus:outline-none resize-none text-slate-600 leading-relaxed text-sm"></textarea>
-
-                            <div class="flex gap-4">
-                                <label
-                                    class="flex-1 cursor-pointer bg-slate-50 hover:bg-slate-100 border-2 border-dashed border-slate-200 rounded-xl p-4 flex flex-col items-center justify-center transition-colors">
-                                    <i class="ri-image-add-line text-2xl text-slate-400 mb-1"></i>
-                                    <span class="text-[10px] font-bold text-slate-400 uppercase">Subir Fotos</span>
-                                    <input type="file" multiple class="hidden">
-                                </label>
+                <!-- ============================ -->
+                <!-- WORKSPACE 1: WRITER (Editor) -->
+                <!-- ============================ -->
+                <div id="workspace-writer" class="role-content p-8 lg:p-12">
+                    <div class="grid lg:grid-cols-2 gap-12 h-full">
+                        <!-- Input -->
+                        <div class="flex flex-col h-full">
+                            <div class="flex justify-between items-center mb-6">
+                                <h3 class="font-black text-xl italic text-slate-900">Neuro-Editor de Texto</h3>
+                                <span class="bg-green-100 text-green-700 px-2 py-1 rounded text-[10px] font-bold">RPM:
+                                    $5.00</span>
                             </div>
-
-                            <!-- Terms Checkbox -->
-                            <div class="flex items-start gap-3 p-4 bg-slate-50 rounded-xl border border-slate-100">
-                                <input type="checkbox" id="terms-check"
-                                    class="mt-1 w-4 h-4 text-primary rounded border-gray-300 focus:ring-primary">
-                                <label for="terms-check" class="text-xs text-slate-500 leading-snug">
-                                    Acepto los <strong class="text-slate-700">Términos de Socio</strong>: Pagos
-                                    mensuales (mínimo acumulado $50), exclusividad de contenido en Lifextreme y derechos
-                                    de optimización SEO.
-                                </label>
+                            <div class="flex-1 space-y-4">
+                                <input type="text" id="input-title" placeholder="Título de tu historia..."
+                                    class="w-full text-2xl font-bold border-b-2 border-slate-100 pb-2 focus:outline-none focus:border-primary placeholder:text-slate-300 bg-transparent transition-colors">
+                                <textarea id="input-body"
+                                    placeholder="Empieza a escribir aquí... Cuéntanos qué pasó, qué comiste, cómo llegaste. Sé natural."
+                                    class="w-full h-[400px] p-4 bg-slate-50 rounded-xl border border-transparent focus:bg-white focus:border-slate-200 focus:outline-none resize-none text-slate-600 leading-relaxed text-sm"></textarea>
+                            </div>
+                            <div class="mt-6 pt-6 border-t border-slate-100">
+                                <button id="btn-analyze-writer"
+                                    class="w-full bg-slate-900 text-white py-4 rounded-xl font-black uppercase tracking-widest hover:bg-primary transition-all flex items-center justify-center gap-2 shadow-lg group">
+                                    <i class="ri-flashlight-line group-hover:animate-pulse"></i>
+                                    Optimizar Texto
+                                </button>
                             </div>
                         </div>
 
-                        <div class="mt-8 pt-6 border-t border-slate-100">
-                            <button id="btn-analyze"
-                                class="w-full bg-slate-900 text-white py-4 rounded-xl font-black uppercase tracking-widest hover:bg-primary transition-all flex items-center justify-center gap-2 shadow-lg group">
-                                <i class="ri-flashlight-line group-hover:animate-pulse"></i>
-                                Optimizar con IA
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                        <!-- Output -->
+                        <div class="relative bg-slate-50 rounded-3xl p-8 border border-slate-200">
+                            <!-- Loading Overlay -->
+                            <div id="ai-loading-writer"
+                                class="hidden absolute inset-0 bg-white/95 backdrop-blur z-20 rounded-3xl flex items-center justify-center flex-col">
+                                <div
+                                    class="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin mb-4">
+                                </div>
+                                <h4 class="font-black text-lg text-slate-900 animate-pulse">Editor AI Trabajando...</h4>
+                                <div id="ai-status-writer"
+                                    class="text-xs font-bold uppercase tracking-widest text-slate-400 mt-2">Iniciando...
+                                </div>
+                            </div>
 
-                <!-- OUTPUT COLUMN (PREVIEW) -->
-                <div class="relative">
-                    <!-- LOADING OVERLAY -->
-                    <div id="ai-loading"
-                        class="hidden absolute inset-0 bg-white/90 backdrop-blur-sm z-50 rounded-[32px] flex items-center justify-center flex-col">
-                        <div
-                            class="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin mb-4">
-                        </div>
-                        <h4 class="font-black text-xl italic text-slate-900 animate-pulse">Analizando Historia...</h4>
-                        <div id="ai-status" class="text-xs font-bold uppercase tracking-widest text-slate-500 mt-2">
-                            Detectando Keywords...</div>
-                    </div>
-
-                    <div class="bg-white p-8 rounded-[32px] shadow-2xl border border-slate-200 h-full flex flex-col">
-                        <div class="flex justify-between items-center mb-6">
-                            <h3
-                                class="font-black text-lg uppercase tracking-widest text-secondary flex items-center gap-2">
-                                <i class="ri-magic-line"></i> Resultado
+                            <h3 class="font-black text-xs uppercase tracking-widest text-slate-400 mb-6">Vista Previa
                             </h3>
-                            <div class="flex gap-2">
-                                <span class="bg-green-100 text-green-700 px-2 py-1 rounded text-[10px] font-bold">SEO:
-                                    98/100</span>
+
+                            <div id="preview-container-writer"
+                                class="opacity-30 blur-[1px] pointer-events-none transition-all duration-500">
+                                <div class="h-48 bg-slate-200 rounded-xl mb-4 w-full"></div>
+                                <div class="h-8 bg-slate-200 rounded w-3/4 mb-2"></div>
+                                <div class="h-4 bg-slate-100 rounded w-full mb-2"></div>
+                                <div class="h-4 bg-slate-100 rounded w-full mb-2"></div>
+                                <div class="h-4 bg-slate-100 rounded w-5/6 mb-6"></div>
+                            </div>
+
+                            <div class="mt-8 pt-6 border-t border-slate-200 hidden" id="preview-actions-writer">
+                                <button onclick="alert('¡Artículo Enviado a Revisión!')"
+                                    class="w-full bg-green-500 text-white py-3 rounded-xl font-black uppercase tracking-widest hover:scale-[1.02] transition-all shadow-xl shadow-green-500/20">
+                                    Publicar Artículo
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================ -->
+                <!-- WORKSPACE 2: PHOTOGRAPHER    -->
+                <!-- ============================ -->
+                <div id="workspace-photographer" class="role-content hidden p-8 lg:p-12">
+                    <div class="grid lg:grid-cols-2 gap-12 h-full">
+                        <!-- Upload Zone -->
+                        <div class="flex flex-col h-full">
+                            <div class="flex justify-between items-center mb-6">
+                                <h3 class="font-black text-xl italic text-slate-900">Baúl Multimedia</h3>
                                 <span
-                                    class="bg-blue-100 text-blue-700 px-2 py-1 rounded text-[10px] font-bold">Readability:
-                                    A+</span>
+                                    class="bg-indigo-100 text-indigo-700 px-2 py-1 rounded text-[10px] font-bold">Comisión:
+                                    50%</span>
+                            </div>
+
+                            <div id="photo-dropzone"
+                                class="flex-1 bg-slate-50 border-2 border-dashed border-slate-300 rounded-3xl flex items-center justify-center cursor-pointer hover:bg-slate-100 hover:border-primary transition-all p-8 group relative overflow-hidden">
+                                <div
+                                    class="text-center group-hover:scale-105 transition-transform z-10 pointer-events-none">
+                                    <div
+                                        class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm text-primary text-3xl">
+                                        <i class="ri-image-add-line"></i>
+                                    </div>
+                                    <h4 class="font-bold text-slate-700">Arrastra tus fotos RAW/JPG aquí</h4>
+                                    <p class="text-xs text-slate-400 mt-2">Máximo 50MB por lote</p>
+                                </div>
+                            </div>
+
+                            <div class="mt-6 pt-6 border-t border-slate-100">
+                                <button id="btn-analyze-photo" disabled
+                                    class="w-full bg-slate-900 text-white py-4 rounded-xl font-black uppercase tracking-widest hover:bg-primary transition-all flex items-center justify-center gap-2 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed">
+                                    <i class="ri-price-tag-3-line"></i>
+                                    Analizar y Etiquetar
+                                </button>
                             </div>
                         </div>
 
-                        <!-- PREVIEW CONTAINER -->
-                        <div id="preview-container"
-                            class="flex-1 overflow-y-auto pr-2 space-y-4 opacity-50 pointer-events-none select-none filter blur-[1px] transition-all duration-700">
-                            <!-- Placeholder Content -->
-                            <div class="h-48 bg-slate-100 rounded-xl mb-4 w-full"></div>
-                            <div class="h-8 bg-slate-100 rounded w-3/4 mb-2"></div>
-                            <div class="h-4 bg-slate-50 rounded w-full mb-2"></div>
-                            <div class="h-4 bg-slate-50 rounded w-full mb-2"></div>
-                            <div class="h-4 bg-slate-50 rounded w-5/6 mb-6"></div>
+                        <!-- Results -->
+                        <div class="relative bg-slate-50 rounded-3xl p-8 border border-slate-200">
+                            <!-- Loading Overlay -->
+                            <div id="ai-loading-photo"
+                                class="hidden absolute inset-0 bg-white/95 backdrop-blur z-20 rounded-3xl flex items-center justify-center flex-col">
+                                <div
+                                    class="w-12 h-12 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin mb-4">
+                                </div>
+                                <h4 class="font-black text-lg text-slate-900 animate-pulse">Vision IA Analizando...</h4>
+                                <div id="ai-status-photo"
+                                    class="text-xs font-bold uppercase tracking-widest text-slate-400 mt-2">Escaneando
+                                    píxeles...</div>
+                            </div>
 
-                            <div class="border-l-4 border-slate-200 pl-4 py-2 my-4">
-                                <div class="h-4 bg-slate-100 rounded w-full"></div>
+                            <h3 class="font-black text-xs uppercase tracking-widest text-slate-400 mb-6">Marketplace
+                                Preview</h3>
+
+                            <div id="photo-gallery-preview"
+                                class="opacity-30 blur-[1px] pointer-events-none transition-all duration-500">
+                                <!-- Placeholder Empty State -->
+                                <div
+                                    class="flex items-center justify-center h-64 text-slate-300 flex-col border-2 border-dashed border-slate-200 rounded-xl">
+                                    <i class="ri-gallery-line text-4xl mb-2"></i>
+                                    <span class="text-xs font-bold uppercase">Esperando fotos...</span>
+                                </div>
                             </div>
                         </div>
+                    </div>
+                </div>
 
-                        <!-- ACTIONS -->
-                        <div class="mt-8 pt-6 border-t border-slate-100 hidden" id="preview-actions">
-                            <button onclick="alert('¡Artículo Publicado! Tu panel de embajador se activará pronto.')"
-                                class="w-full bg-green-500 text-white py-4 rounded-xl font-black uppercase tracking-widest hover:scale-[1.02] transition-all shadow-xl shadow-green-500/20">
-                                Publicar y Ganar <i class="ri-rocket-line ml-2"></i>
+                <!-- ============================ -->
+                <!-- WORKSPACE 3: VR CREATOR      -->
+                <!-- ============================ -->
+                <div id="workspace-vr" class="role-content hidden p-8 lg:p-12">
+                    <div class="flex flex-col items-center justify-center text-center max-w-3xl mx-auto">
+                        <div
+                            class="w-24 h-24 bg-gradient-to-br from-purple-600 to-blue-600 rounded-[30px] flex items-center justify-center text-white text-5xl shadow-2xl shadow-purple-500/30 mb-8 animate-bounce">
+                            <i class="ri-goggles-fill"></i>
+                        </div>
+                        <h2 class="text-4xl font-black italic text-slate-900 mb-4">Estudio de Realidad Inmersiva</h2>
+                        <p class="text-slate-500 text-lg mb-12">
+                            Sube tus experiencias 360° o videos espaciales. Nosotros nos encargamos del bitrate
+                            adaptativo para Meta Quest y Vision Pro.
+                        </p>
+
+                        <div
+                            class="w-full bg-slate-50 p-8 rounded-3xl border border-slate-200 text-left relative overflow-hidden">
+                            <!-- Loading Overlay -->
+                            <div id="ai-loading-vr"
+                                class="hidden absolute inset-0 bg-white/95 backdrop-blur z-20 flex items-center justify-center flex-col">
+                                <div
+                                    class="w-12 h-12 border-4 border-purple-600 border-t-transparent rounded-full animate-spin mb-4">
+                                </div>
+                                <h4 class="font-black text-lg text-slate-900 animate-pulse">Procesando Espacio 3D...
+                                </h4>
+                                <div id="ai-status-vr"
+                                    class="text-xs font-bold uppercase tracking-widest text-slate-400 mt-2">Calculando
+                                    geometria...</div>
+                            </div>
+
+                            <div id="vr-upload-zone" class="mb-8">
+                                <label
+                                    class="block text-xs font-black uppercase tracking-widest text-slate-400 mb-2">Enlace
+                                    de archivo (Dropbox/Drive/WeTransfer)</label>
+                                <div class="flex gap-4">
+                                    <input type="url" placeholder="https://..."
+                                        class="flex-1 bg-white border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-purple-500 transition-colors">
+                                    <button
+                                        class="bg-slate-200 text-slate-500 px-6 py-3 rounded-xl font-bold hover:bg-slate-300 transition-colors"><i
+                                            class="ri-folder-open-line"></i></button>
+                                </div>
+                                <p class="text-[10px] text-slate-400 mt-2">* Archivos .mp4, .insv, .vr180 aceptados. Máx
+                                    50GB.</p>
+                            </div>
+
+                            <div id="vr-result-preview"
+                                class="opacity-30 blur-[1px] pointer-events-none transition-all duration-500">
+                                <div class="h-48 bg-slate-200 rounded-xl mb-4 flex items-center justify-center">
+                                    <i class="ri-video-line text-4xl text-slate-300"></i>
+                                </div>
+                            </div>
+
+                            <button id="btn-analyze-vr" disabled
+                                class="w-full bg-slate-900 text-white py-4 rounded-xl font-black uppercase tracking-widest hover:bg-purple-600 transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed mt-4">
+                                Validar Experiencia VR
                             </button>
+
+                            <div class="hidden mt-4 pt-4 border-t border-slate-200" id="vr-publish-actions">
+                                <button onclick="alert('¡Contenido VR en Cola de Renderizado!')"
+                                    class="w-full bg-green-500 text-white py-3 rounded-xl font-black uppercase tracking-widest">
+                                    Finalizar y Publicar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================ -->
+                <!-- WORKSPACE 4: INFLUENCERS     -->
+                <!-- ============================ -->
+                <div id="workspace-influencer" class="role-content hidden p-8 lg:p-12">
+                    <div class="grid lg:grid-cols-2 gap-16 items-start">
+                        <!-- Left: Value Proposition -->
+                        <div class="space-y-6">
+                            <div>
+                                <span
+                                    class="bg-secondary/10 text-secondary px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest mb-4 inline-block">Club
+                                    Lifextreme</span>
+                                <h3 class="text-3xl font-black italic text-slate-900 mb-4">Promueve la Aventura,<br>Vive
+                                    los Beneficios.</h3>
+                                <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                                    Lifextreme es una plataforma de marketing digital dedicada a más de 25 deportes de
+                                    aventura. Nuestro objetivo es integrar comunidades y potenciar el turismo interno.
+                                </p>
+                            </div>
+
+                            <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-6">
+                                <h4 class="font-bold text-slate-900 mb-4 flex items-center gap-2">
+                                    <i class="ri-vip-crown-fill text-accent"></i> Beneficios Exclusivos Influencers
+                                </h4>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start gap-3 text-xs text-slate-600">
+                                        <i class="ri-check-line text-green-500 font-bold"></i>
+                                        <span>Descuentos en actividades Outdoor nacionales e internacionales.</span>
+                                    </li>
+                                    <li class="flex items-start gap-3 text-xs text-slate-600">
+                                        <i class="ri-check-line text-green-500 font-bold"></i>
+                                        <span>Préstamo de equipos especializados (Carpas, cuerdas, cascos).</span>
+                                    </li>
+                                    <!-- Reduced list for brevity in this view, typically you'd keep them all -->
+                                    <li class="flex items-start gap-3 text-xs text-slate-600">
+                                        <i class="ri-check-line text-green-500 font-bold"></i>
+                                        <span>Red de contactos y guías locales.</span>
+                                    </li>
+                                    <li class="flex items-start gap-3 text-xs text-slate-600">
+                                        <i class="ri-check-line text-green-500 font-bold"></i>
+                                        <span>Acceso a red de convenios: Hoteles y Restaurantes. (*)</span>
+                                    </li>
+                                </ul>
+                                <p class="text-[10px] text-slate-400 mt-4 italic">(*) Sujeto a disponibilidad y gestión
+                                    de alianzas.</p>
+                            </div>
+                        </div>
+
+                        <!-- Right: Application Form -->
+                        <div class="bg-white p-8 rounded-[32px] shadow-xl border border-slate-200">
+                            <div class="text-center mb-8">
+                                <h3 class="font-black text-xl text-slate-900">Postula al Club</h3>
+                                <p class="text-xs text-slate-500 mt-1">Evaluamos tu perfil y métricas para asignarte una
+                                    categoría.</p>
+                            </div>
+
+                            <form class="space-y-4"
+                                onsubmit="event.preventDefault(); alert('¡Postulación Enviada! Nuestro equipo evaluará tu perfil.');">
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="space-y-1">
+                                        <label class="text-[10px] font-bold uppercase text-slate-400">Nombre</label>
+                                        <input type="text" required
+                                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm outline-none focus:border-secondary">
+                                    </div>
+                                    <div class="space-y-1">
+                                        <label class="text-[10px] font-bold uppercase text-slate-400">Email</label>
+                                        <input type="email" required
+                                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm outline-none focus:border-secondary">
+                                    </div>
+                                </div>
+
+                                <div class="space-y-1">
+                                    <label class="text-[10px] font-bold uppercase text-slate-400">Red Social
+                                        Principal</label>
+                                    <input type="url" placeholder="instagram.com/tu_usuario" required
+                                        class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm outline-none focus:border-secondary">
+                                </div>
+
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="space-y-1">
+                                        <label class="text-[10px] font-bold uppercase text-slate-400">Seguidores</label>
+                                        <select
+                                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm outline-none focus:border-secondary">
+                                            <option>1k - 10k</option>
+                                            <option>10k - 50k</option>
+                                            <option>+50k</option>
+                                        </select>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <label class="text-[10px] font-bold uppercase text-slate-400">Nicho</label>
+                                        <select
+                                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm outline-none focus:border-secondary">
+                                            <option>Viajes</option>
+                                            <option>Deportes</option>
+                                            <option>Fotografía</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <button type="submit"
+                                    class="w-full bg-slate-900 text-white font-black uppercase tracking-widest py-4 rounded-xl hover:bg-secondary transition-colors shadow-lg mt-2">
+                                    Enviar Postulación
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================ -->
+                <!-- WORKSPACE 5: EVENTS / ORG    -->
+                <!-- ============================ -->
+                <div id="workspace-events" class="role-content hidden p-8 lg:p-12">
+                    <div class="grid lg:grid-cols-2 gap-16 items-center">
+                        <!-- Content -->
+                        <div>
+                            <span
+                                class="bg-primary/10 text-primary px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest mb-4 inline-block">Ticketera
+                                Lifextreme</span>
+                            <h3 class="text-3xl font-black italic text-slate-900 mb-6">Gestiona tus Eventos de Aventura
+                            </h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-8">
+                                Olvida las plataformas genéricas. Publica tus competencias de Trail Running, Festivales
+                                de Montaña o Talleres de Escalada directamente para la comunidad más apasionada de
+                                Cusco.
+                            </p>
+
+                            <div class="space-y-6">
+                                <div class="flex items-start gap-4">
+                                    <div
+                                        class="w-12 h-12 bg-white border border-slate-100 rounded-2xl flex items-center justify-center text-secondary text-2xl shadow-sm">
+                                        <i class="ri-qr-scan-2-line"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-900">Entradas Digitales & QR</h4>
+                                        <p class="text-xs text-slate-500 mt-1">Generamos códigos QR únicos para cada
+                                            participante. Escanea y controla el acceso con nuestra app.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div
+                                        class="w-12 h-12 bg-white border border-slate-100 rounded-2xl flex items-center justify-center text-secondary text-2xl shadow-sm">
+                                        <i class="ri-money-dollar-circle-line"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-900">Pagos Seguros y Rápidos</h4>
+                                        <p class="text-xs text-slate-500 mt-1">Recibe tus ganancias semanalmente.
+                                            Comisión baja del 5% por entrada vendida.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="mt-8 text-primary font-bold hover:underline text-sm flex items-center gap-2">
+                                <i class="ri-file-list-3-line"></i> Ver mis eventos activos
+                            </button>
+                        </div>
+
+                        <!-- Form -->
+                        <div
+                            class="bg-white p-8 rounded-[32px] shadow-xl border border-slate-200 relative overflow-hidden">
+                            <div
+                                class="absolute top-0 right-0 bg-secondary text-white text-[10px] font-black px-4 py-2 rounded-bl-2xl">
+                                BETA</div>
+                            <h4 class="font-bold text-slate-900 mb-6 flex items-center gap-2">
+                                <i class="ri-calendar-add-fill text-slate-300"></i> Crear Nuevo Evento
+                            </h4>
+
+                            <form class="space-y-4"
+                                onsubmit="event.preventDefault(); alert('¡Evento Creado! Estará visible en la agenda tras validación rápida.');">
+                                <div class="space-y-1">
+                                    <label class="text-[10px] font-bold uppercase text-slate-400">Nombre del
+                                        Evento</label>
+                                    <input type="text" placeholder="Ej: V Trail Running Valle Sagrado"
+                                        class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm outline-none focus:border-secondary">
+                                </div>
+
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="space-y-1">
+                                        <label class="text-[10px] font-bold uppercase text-slate-400">Categoría</label>
+                                        <select
+                                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm outline-none focus:border-secondary">
+                                            <option>Competencia</option>
+                                            <option>Festival / Social</option>
+                                            <option>Taller / Workshop</option>
+                                            <option>Proyección Cine</option>
+                                        </select>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <label class="text-[10px] font-bold uppercase text-slate-400">Fecha</label>
+                                        <input type="date"
+                                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm outline-none focus:border-secondary">
+                                    </div>
+                                </div>
+
+                                <div class="space-y-1">
+                                    <label class="text-[10px] font-bold uppercase text-slate-400">Ubicación (Google Maps
+                                        Link)</label>
+                                    <input type="url" placeholder="https://maps.app.goo.gl/..."
+                                        class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm outline-none focus:border-secondary">
+                                </div>
+
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="space-y-1">
+                                        <label class="text-[10px] font-bold uppercase text-slate-400">Precio Entrada
+                                            (S/)</label>
+                                        <input type="number" placeholder="0.00"
+                                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm outline-none focus:border-secondary">
+                                    </div>
+                                    <div class="space-y-1">
+                                        <label class="text-[10px] font-bold uppercase text-slate-400">Aforo Máx</label>
+                                        <input type="number" placeholder="100"
+                                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm outline-none focus:border-secondary">
+                                    </div>
+                                </div>
+
+                                <label
+                                    class="flex items-center gap-3 p-3 bg-slate-50 rounded-xl cursor-pointer hover:bg-slate-100 transition-colors border border-dashed border-slate-300">
+                                    <div
+                                        class="w-8 h-8 rounded-full bg-white flex items-center justify-center text-slate-400 border border-slate-200 shadow-sm">
+                                        <i class="ri-image-add-line"></i>
+                                    </div>
+                                    <span class="text-xs font-bold text-slate-500">Subir Banner Oficial (16:9)</span>
+                                    <input type="file" class="hidden">
+                                </label>
+
+                                <button type="submit"
+                                    class="w-full bg-slate-900 text-white font-black uppercase tracking-widest py-4 rounded-xl hover:bg-secondary transition-colors shadow-lg mt-2">
+                                    Publicar y Vender
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -231,7 +543,7 @@
         </div>
     </section>
 
-    <script type="module" src="js/ai-editor.js"></script>
+    <script type="module" src="js/creators-hub.js"></script>
 
 </body>
 

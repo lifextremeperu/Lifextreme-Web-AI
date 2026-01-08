@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Recompensas | Lifecoins</title>
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4338ca',
+                        secondary: '#f43f5e',
+                        gold: '#F59E0B',
+                        coin: '#FFD700'
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Outfit:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+
+<body class="bg-slate-900 text-white min-h-screen pb-20">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur border-b border-white/10">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2 font-black italic text-xl">
+                <i class="ri-flashlight-fill text-yellow-400"></i>
+                Lifextreme
+            </a>
+            <div class="flex items-center gap-3 bg-white/10 px-4 py-2 rounded-full cursor-pointer hover:bg-white/20 transition-all border border-white/10"
+                id="coin-wallet-nav">
+                <i class="ri-coin-fill text-yellow-400 animate-pulse"></i>
+                <span class="font-black text-yellow-400" id="nav-coin-balance">Loading...</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Hero -->
+    <header class="relative pt-12 pb-20 overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-primary/30 rounded-full blur-[100px] -z-10"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-secondary/30 rounded-full blur-[100px] -z-10"></div>
+
+        <div class="container mx-auto px-6 text-center">
+            <!-- Level Badge -->
+            <div class="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-red-600 px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg mb-6 transform hover:scale-105 transition-transform cursor-help"
+                title="Gana 500XP más para subir de nivel">
+                <i class="ri-medal-fill"></i>
+                <span id="user-level">Nivel 1: Mochilero</span>
+            </div>
+
+            <h1 class="text-4xl md:text-6xl font-black italic mb-2">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-600"
+                    id="hero-balance">0</span>
+                <span class="text-2xl text-white not-italic">Lifecoins</span>
+            </h1>
+            <p class="text-slate-400 text-sm font-medium mb-8">
+                Valor estimado: <span class="text-green-400 font-bold" id="usd-value">$0.00 USD</span>
+            </p>
+
+            <!-- Progress Bar -->
+            <div class="max-w-md mx-auto bg-white/10 rounded-full h-2 mb-2 overflow-hidden">
+                <div class="bg-gradient-to-r from-primary to-secondary w-[20%] h-full rounded-full transition-all duration-1000"
+                    id="xp-progress"></div>
+            </div>
+            <p class="text-[10px] text-slate-500 uppercase tracking-widest">A 800 XP del Nivel Explorador</p>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <div class="container mx-auto px-6 -mt-10 relative z-10">
+
+        <!-- Tabs -->
+        <div class="flex justify-center mb-8 gap-4">
+            <button onclick="switchTab('earn')" id="tab-earn"
+                class="bg-white text-slate-900 px-6 py-2 rounded-full font-black uppercase text-xs tracking-widest shadow-xl transform scale-105 transition-all">
+                Ganar Coins
+            </button>
+            <button onclick="switchTab('burn')" id="tab-burn"
+                class="bg-slate-800 text-slate-400 px-6 py-2 rounded-full font-black uppercase text-xs tracking-widest hover:bg-slate-700 transition-all">
+                Canjear
+            </button>
+        </div>
+
+        <!-- Section: EARN -->
+        <div id="section-earn" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in">
+
+            <!-- Action Card 1 -->
+            <div
+                class="bg-slate-800 hover:bg-slate-750 border border-white/5 rounded-2xl p-6 relative overflow-hidden group transition-all hover:border-yellow-500/30">
+                <div
+                    class="absolute top-0 right-0 bg-yellow-400 text-slate-900 text-[10px] font-black px-2 py-1 rounded-bl-xl shadow-lg">
+                    +50 LC
+                </div>
+                <div
+                    class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-green-400 text-2xl mb-4 group-hover:scale-110 transition-transform">
+                    <i class="ri-whatsapp-line"></i>
+                </div>
+                <h3 class="font-bold text-lg mb-1">Compartir en WhatsApp</h3>
+                <p class="text-xs text-slate-400 mb-4">Envía nuestro catálogo a tus grupos de aventura.</p>
+                <button onclick="Lifecoins.earn('share_whatsapp')"
+                    class="w-full bg-white/10 hover:bg-white/20 text-white py-2 rounded-lg font-bold text-xs uppercase tracking-wider transition-colors">
+                    Realizar Misión
+                </button>
+            </div>
+
+            <!-- Action Card 2 -->
+            <div
+                class="bg-slate-800 hover:bg-slate-750 border border-white/5 rounded-2xl p-6 relative overflow-hidden group transition-all hover:border-yellow-500/30">
+                <div
+                    class="absolute top-0 right-0 bg-yellow-400 text-slate-900 text-[10px] font-black px-2 py-1 rounded-bl-xl shadow-lg">
+                    +200 LC
+                </div>
+                <div
+                    class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-blue-400 text-2xl mb-4 group-hover:scale-110 transition-transform">
+                    <i class="ri-user-add-line"></i>
+                </div>
+                <h3 class="font-bold text-lg mb-1">Referir a un Amigo</h3>
+                <p class="text-xs text-slate-400 mb-4">Si se registran, ambos ganan coins.</p>
+                <button onclick="Lifecoins.earn('refer_friend')"
+                    class="w-full bg-white/10 hover:bg-white/20 text-white py-2 rounded-lg font-bold text-xs uppercase tracking-wider transition-colors">
+                    Copiar Link
+                </button>
+            </div>
+
+            <!-- Action Card 3 -->
+            <div
+                class="bg-slate-800 hover:bg-slate-750 border border-white/5 rounded-2xl p-6 relative overflow-hidden group transition-all hover:border-yellow-500/30">
+                <div
+                    class="absolute top-0 right-0 bg-yellow-400 text-slate-900 text-[10px] font-black px-2 py-1 rounded-bl-xl shadow-lg">
+                    +100 LC
+                </div>
+                <div
+                    class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-yellow-400 text-2xl mb-4 group-hover:scale-110 transition-transform">
+                    <i class="ri-star-smile-line"></i>
+                </div>
+                <h3 class="font-bold text-lg mb-1">Dejar una Reseña</h3>
+                <p class="text-xs text-slate-400 mb-4">Califícanos en Google Maps con 5 estrellas.</p>
+                <button onclick="Lifecoins.earn('review_google')"
+                    class="w-full bg-white/10 hover:bg-white/20 text-white py-2 rounded-lg font-bold text-xs uppercase tracking-wider transition-colors">
+                    Ir a Maps
+                </button>
+            </div>
+
+        </div>
+
+        <!-- Section: BURN (Hidden by default) -->
+        <div id="section-burn" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 hidden animate-fade-in">
+
+            <!-- Reward 1 -->
+            <div
+                class="bg-gradient-to-br from-slate-800 to-slate-900 border border-white/5 rounded-2xl p-6 flex flex-col items-center text-center relative overflow-hidden">
+                <div
+                    class="absolute top-0 left-0 bg-secondary text-white text-[9px] font-black px-3 py-1 uppercase tracking-widest">
+                    Popular
+                </div>
+                <div
+                    class="w-20 h-20 bg-white rounded-full flex items-center justify-center mb-4 shadow-lg shadow-white/10">
+                    <span class="text-slate-900 font-black text-2xl">- $10</span>
+                </div>
+                <h3 class="font-bold text-lg mb-2">Descuento Trekking</h3>
+                <p class="text-xs text-slate-400 mb-6">Válido para cualquier ruta de +4 días.</p>
+                <button onclick="Lifecoins.redeem('coupon_10', 1000)"
+                    class="mt-auto bg-yellow-500 hover:bg-yellow-400 text-slate-900 px-6 py-2 rounded-full font-black text-xs uppercase tracking-widest transition-all">
+                    Canjear x 1000 LC
+                </button>
+            </div>
+
+            <!-- Reward 2 -->
+            <div
+                class="bg-gradient-to-br from-slate-800 to-slate-900 border border-white/5 rounded-2xl p-6 flex flex-col items-center text-center relative overflow-hidden grayscale opacity-70">
+                <div
+                    class="absolute top-0 left-0 bg-slate-700 text-white text-[9px] font-black px-3 py-1 uppercase tracking-widest">
+                    Nivel Explorador
+                </div>
+                <div class="w-20 h-20 bg-slate-700 rounded-full flex items-center justify-center mb-4">
+                    <i class="ri-t-shirt-2-line text-3xl"></i>
+                </div>
+                <h3 class="font-bold text-lg mb-2">Polo Oficial 2026</h3>
+                <p class="text-xs text-slate-400 mb-6">Edición limitada Lifextreme Team.</p>
+                <button disabled
+                    class="mt-auto bg-slate-700 text-slate-400 px-6 py-2 rounded-full font-black text-xs uppercase tracking-widest cursor-not-allowed">
+                    Bloqueado
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast"
+        class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-white text-slate-900 px-6 py-4 rounded-xl shadow-2xl flex items-center gap-4 transition-all duration-500 translate-y-24 opacity-0 z-50 min-w-[300px]">
+        <div
+            class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600 text-xl font-bold">
+            <i class="ri-check-line"></i>
+        </div>
+        <div>
+            <h4 class="font-black text-sm" id="toast-title">¡Acción Completada!</h4>
+            <p class="text-xs text-slate-500" id="toast-msg">Has ganado 50 Lifecoins</p>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="js/gamification.js"></script>
+    <script>
+        // Simple Tab Switcher
+        function switchTab(tab) {
+            document.querySelectorAll('[id^="section-"]').forEach(el => el.classList.add('hidden'));
+            document.getElementById('section-' + tab).classList.remove('hidden');
+
+            // Button Styles
+            const btnEarn = document.getElementById('tab-earn');
+            const btnBurn = document.getElementById('tab-burn');
+
+            if (tab === 'earn') {
+                btnEarn.classList.add('bg-white', 'text-slate-900', 'scale-105', 'shadow-xl');
+                btnEarn.classList.remove('bg-slate-800', 'text-slate-400');
+                btnBurn.classList.add('bg-slate-800', 'text-slate-400');
+                btnBurn.classList.remove('bg-white', 'text-slate-900', 'scale-105', 'shadow-xl');
+            } else {
+                btnBurn.classList.add('bg-white', 'text-slate-900', 'scale-105', 'shadow-xl');
+                btnBurn.classList.remove('bg-slate-800', 'text-slate-400');
+                btnEarn.classList.add('bg-slate-800', 'text-slate-400');
+                btnEarn.classList.remove('bg-white', 'text-slate-900', 'scale-105', 'shadow-xl');
+            }
+        }
+    </script>
+</body>
+
+</html>
