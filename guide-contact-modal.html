@@ -1,0 +1,312 @@
+<!-- GUIDE CONTACT MODAL -->
+<div id="guide-contact-modal" class="fixed inset-0 z-[9999] hidden">
+    <!-- Backdrop -->
+    <div id="guide-modal-backdrop"
+        class="absolute inset-0 bg-black/70 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+
+    <!-- Modal Panel -->
+    <div class="relative z-10 flex items-center justify-center min-h-screen p-4">
+        <div id="guide-modal-panel"
+            class="bg-white rounded-[40px] max-w-2xl w-full shadow-2xl transform translate-y-full opacity-0 transition-all duration-500 overflow-hidden">
+
+            <!-- Header -->
+            <div class="bg-gradient-to-r from-slate-900 to-slate-800 p-8 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-[100px]"></div>
+                <button onclick="closeGuideContactModal()"
+                    class="absolute top-6 right-6 w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white transition-all z-10">
+                    <i class="ri-close-line text-xl"></i>
+                </button>
+
+                <div class="relative z-10">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img id="modal-guide-avatar" src="" alt="Guide"
+                            class="w-16 h-16 rounded-full border-4 border-white/20 object-cover">
+                        <div>
+                            <h3 id="modal-guide-name" class="text-2xl font-black italic text-white">Nombre del Guía</h3>
+                            <p id="modal-guide-specialty"
+                                class="text-sm text-slate-300 font-bold uppercase tracking-widest">Especialidad</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 text-sm font-medium">Completa el formulario y nos pondremos en contacto
+                        contigo en menos de 2 horas.</p>
+                </div>
+            </div>
+
+            <!-- Form Content -->
+            <form id="guide-contact-form" onsubmit="submitGuideContactForm(event)" class="p-8 space-y-6">
+
+                <!-- Personal Info -->
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="space-y-2">
+                        <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Tu Nombre
+                            Completo</label>
+                        <input type="text" name="client_name" required
+                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-primary transition-colors"
+                            placeholder="Ej: Juan Pérez">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest">WhatsApp</label>
+                        <input type="tel" name="client_phone" required
+                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-primary transition-colors"
+                            placeholder="+51 999 999 999">
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Email</label>
+                    <input type="email" name="client_email" required
+                        class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-primary transition-colors"
+                        placeholder="tu@email.com">
+                </div>
+
+                <!-- Service Details -->
+                <div class="border-t border-slate-100 pt-6">
+                    <h4 class="text-xs font-black uppercase text-slate-600 mb-4 tracking-widest">Detalles del Servicio
+                    </h4>
+
+                    <div class="grid md:grid-cols-2 gap-4 mb-4">
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Tipo de
+                                Actividad</label>
+                            <select name="activity_type" required
+                                class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-primary transition-colors appearance-none cursor-pointer">
+                                <option value="">Selecciona...</option>
+                                <option value="trekking">Trekking / Senderismo</option>
+                                <option value="escalada">Escalada en Roca</option>
+                                <option value="montanismo">Montañismo / Alta Montaña</option>
+                                <option value="rafting">Rafting / Kayak</option>
+                                <option value="ciclismo">Ciclismo de Montaña</option>
+                                <option value="parapente">Parapente</option>
+                                <option value="expedicion">Expedición Personalizada</option>
+                                <option value="otro">Otro (especificar)</option>
+                            </select>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Destino /
+                                Ruta</label>
+                            <input type="text" name="destination" required
+                                class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-primary transition-colors"
+                                placeholder="Ej: Camino Inca, Huascarán">
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-4 mb-4">
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Fecha
+                                Preferida</label>
+                            <input type="date" name="preferred_date" required
+                                class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-primary transition-colors">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Duración
+                                (días)</label>
+                            <input type="number" name="duration" min="1" required
+                                class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-primary transition-colors"
+                                placeholder="1">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest">N°
+                                Personas</label>
+                            <input type="number" name="group_size" min="1" required
+                                class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-primary transition-colors"
+                                placeholder="1">
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Nivel de
+                            Experiencia del Grupo</label>
+                        <div class="grid grid-cols-3 gap-3">
+                            <label
+                                class="relative flex items-center justify-center p-3 bg-slate-50 border-2 border-slate-200 rounded-xl cursor-pointer hover:border-primary transition-all">
+                                <input type="radio" name="experience_level" value="principiante" required
+                                    class="absolute opacity-0">
+                                <span class="text-xs font-bold text-slate-600">🌱 Principiante</span>
+                            </label>
+                            <label
+                                class="relative flex items-center justify-center p-3 bg-slate-50 border-2 border-slate-200 rounded-xl cursor-pointer hover:border-primary transition-all">
+                                <input type="radio" name="experience_level" value="intermedio"
+                                    class="absolute opacity-0">
+                                <span class="text-xs font-bold text-slate-600">⚡ Intermedio</span>
+                            </label>
+                            <label
+                                class="relative flex items-center justify-center p-3 bg-slate-50 border-2 border-slate-200 rounded-xl cursor-pointer hover:border-primary transition-all">
+                                <input type="radio" name="experience_level" value="avanzado" class="absolute opacity-0">
+                                <span class="text-xs font-bold text-slate-600">🔥 Avanzado</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Requerimientos
+                            Especiales / Comentarios</label>
+                        <textarea name="special_requirements" rows="4"
+                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-medium focus:outline-none focus:border-primary transition-colors resize-none"
+                            placeholder="Ej: Necesitamos equipo de camping, tenemos restricciones alimentarias, etc."></textarea>
+                    </div>
+                </div>
+
+                <!-- Hidden field for guide info -->
+                <input type="hidden" name="guide_name" id="form-guide-name">
+                <input type="hidden" name="guide_specialty" id="form-guide-specialty">
+
+                <!-- Submit Button -->
+                <button type="submit"
+                    class="w-full bg-slate-900 hover:bg-slate-800 text-white py-4 rounded-2xl font-black uppercase tracking-widest transition-all shadow-xl shadow-slate-900/20 flex items-center justify-center gap-3 group">
+                    <i class="ri-send-plane-fill text-xl group-hover:translate-x-1 transition-transform"></i>
+                    Enviar Solicitud
+                </button>
+
+                <p class="text-center text-xs text-slate-400 font-medium">
+                    Al enviar, aceptas que el guía se contacte contigo vía WhatsApp o email.
+                </p>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    // Guide Contact Modal Functions
+    let currentGuideData = {};
+
+    function openGuideContactModal(guideName, guideSpecialty, guideAvatar) {
+        currentGuideData = { name: guideName, specialty: guideSpecialty, avatar: guideAvatar };
+
+        const modal = document.getElementById('guide-contact-modal');
+        const backdrop = document.getElementById('guide-modal-backdrop');
+        const panel = document.getElementById('guide-modal-panel');
+
+        // Update modal content
+        document.getElementById('modal-guide-name').innerText = guideName;
+        document.getElementById('modal-guide-specialty').innerText = guideSpecialty;
+        document.getElementById('modal-guide-avatar').src = guideAvatar;
+        document.getElementById('form-guide-name').value = guideName;
+        document.getElementById('form-guide-specialty').value = guideSpecialty;
+
+        // Show modal
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+
+        // Animate
+        requestAnimationFrame(() => {
+            backdrop.classList.remove('opacity-0');
+            panel.classList.remove('translate-y-full', 'opacity-0');
+        });
+    }
+
+    function closeGuideContactModal() {
+        const modal = document.getElementById('guide-contact-modal');
+        const backdrop = document.getElementById('guide-modal-backdrop');
+        const panel = document.getElementById('guide-modal-panel');
+
+        backdrop.classList.add('opacity-0');
+        panel.classList.add('translate-y-full', 'opacity-0');
+
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+            document.getElementById('guide-contact-form').reset();
+        }, 300);
+    }
+
+    function submitGuideContactForm(event) {
+        event.preventDefault();
+
+        const form = event.target;
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
+        // Show loading state
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalHTML = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="ri-loader-4-line animate-spin text-xl"></i> Enviando...';
+
+        // Simulate sending (replace with actual API call)
+        setTimeout(() => {
+            // Build WhatsApp message
+            const phone = "51984266102"; // Lifextreme WhatsApp
+            const message = `🏔️ *SOLICITUD DE GUÍA*\n\n` +
+                `👤 *Cliente:* ${data.client_name}\n` +
+                `📱 *WhatsApp:* ${data.client_phone}\n` +
+                `📧 *Email:* ${data.client_email}\n\n` +
+                `🎯 *Guía Solicitado:* ${data.guide_name}\n` +
+                `⚡ *Especialidad:* ${data.guide_specialty}\n\n` +
+                `📋 *DETALLES DEL SERVICIO:*\n` +
+                `🏃 Actividad: ${data.activity_type}\n` +
+                `📍 Destino: ${data.destination}\n` +
+                `📅 Fecha: ${data.preferred_date}\n` +
+                `⏱️ Duración: ${data.duration} día(s)\n` +
+                `👥 Personas: ${data.group_size}\n` +
+                `📊 Nivel: ${data.experience_level}\n\n` +
+                `💬 *Comentarios:*\n${data.special_requirements || 'Ninguno'}`;
+
+            const whatsappURL = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+            // Open WhatsApp
+            window.open(whatsappURL, '_blank');
+
+            // Show success message
+            submitBtn.innerHTML = '<i class="ri-check-line text-xl"></i> ¡Enviado! Redirigiendo...';
+            submitBtn.classList.replace('bg-slate-900', 'bg-emerald-500');
+
+            setTimeout(() => {
+                closeGuideContactModal();
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalHTML;
+                submitBtn.classList.replace('bg-emerald-500', 'bg-slate-900');
+            }, 2000);
+        }, 1500);
+    }
+
+    // Close modal on ESC key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            const modal = document.getElementById('guide-contact-modal');
+            if (modal && !modal.classList.contains('hidden')) {
+                closeGuideContactModal();
+            }
+        }
+    });
+
+    // Close modal on backdrop click
+    document.getElementById('guide-contact-modal')?.addEventListener('click', (e) => {
+        if (e.target.id === 'guide-contact-modal') {
+            closeGuideContactModal();
+        }
+    });
+
+    // Style radio buttons when selected
+    document.addEventListener('DOMContentLoaded', () => {
+        const radioLabels = document.querySelectorAll('input[type="radio"]');
+        radioLabels.forEach(radio => {
+            radio.addEventListener('change', function () {
+                // Remove selected style from all labels in this group
+                const group = document.querySelectorAll(`input[name="${this.name}"]`);
+                group.forEach(r => {
+                    r.parentElement.classList.remove('border-primary', 'bg-primary/5');
+                    r.parentElement.classList.add('border-slate-200');
+                });
+                // Add selected style to this label
+                if (this.checked) {
+                    this.parentElement.classList.add('border-primary', 'bg-primary/5');
+                    this.parentElement.classList.remove('border-slate-200');
+                }
+            });
+        });
+    });
+</script>
+
+<style>
+    /* Custom styling for date input */
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        cursor: pointer;
+        filter: opacity(0.5);
+    }
+
+    input[type="date"]:hover::-webkit-calendar-picker-indicator {
+        filter: opacity(1);
+    }
+</style>
