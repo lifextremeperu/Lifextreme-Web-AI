@@ -111,6 +111,88 @@ const postsDB = [
         ]
     },
     {
+        id: 'training-rainbow-mountain',
+        title: "Cómo Entrenar para la Montaña de 7 Colores",
+        category: "Consejos",
+        cover_image: "https://images.unsplash.com/photo-1533130061792-649d44e7855e?q=80&w=1200&auto=format&fit=crop",
+        author: "Carlos 'Chasqui' Mendoza",
+        date: "7 de Enero, 2026",
+        readTime: "7 min",
+        intro: `
+            <p>La Montaña de los 7 Colores (Vinicunca) se encuentra a 5,200 msnm. Eso es más alto que el Campo Base del Everest. No es una caminata cualquiera.</p>
+            <p>Muchos turistas subestiman la altitud y terminan usando el "caballo de emergencia". Pero con la preparación correcta, puedes conquistar esta cima por tu cuenta.</p>
+        `,
+        content: `
+            <h2>1. Cardio, Cardio, Cardio</h2>
+            <p>No necesitas ser un maratonista, pero tu corazón debe estar acostumbrado al esfuerzo. Enfócate en ejercicios de resistencia cardiovascular de baja intensidad pero larga duración.</p>
+            
+            <h2>2. La Regla de la Escalera</h2>
+            <p>Si vives en un edificio, olvida el ascensor. Sube escaleras. Es el mejor simulador para lo que enfrentarás en los Andes.</p>
+
+            <h2>3. Aclimatación en Cusco</h2>
+            <p>No intentes Vinicunca en tu primer día. Necesitas al menos 2 días previos en Cusco para que tu cuerpo produzca más glóbulos rojos.</p>
+        `,
+        faqs: [
+            { q: "¿Es muy difícil la caminata?", a: "Es corta (1.5 horas) pero intensa por la falta de oxígeno." },
+            { q: "¿Hace frío arriba?", a: "Sí, mucho viento y frío. Lleva guantes y gorro." }
+        ]
+    },
+    {
+        id: 'packing-list-inca-trail',
+        title: "Packing List Definitivo: Camino Inca 4 Días",
+        category: "Planificación",
+        cover_image: "https://images.unsplash.com/photo-1621682372775-533449e5502d?q=80&w=1200&auto=format&fit=crop",
+        author: "Sofia 'Trekker' Lopez",
+        date: "6 de Enero, 2026",
+        readTime: "12 min",
+        intro: `
+            <p>Empacar para 4 días de caminata donde tienes que cargar tus cosas (o limitar el peso para el porteador) es un arte.</p>
+            <p>Después de cientos de rutas, hemos perfeccionado la lista definitiva. Ni un gramo más, ni un gramo menos.</p>
+        `,
+        content: `
+            <h2>Lo Esencial</h2>
+            <ul class="list-disc pl-5 mb-6">
+                <li><strong>Pasaporte Original:</strong> Sin esto no entras. Punto.</li>
+                <li><strong>Botas de Trekking:</strong> Ya "domadas". No estrenes botas aquí.</li>
+                <li><strong>Linterna de Cabeza:</strong> Impresindible para el campamento.</li>
+            </ul>
+
+            <h2>Ropa</h2>
+            <p>Capas, capas, capas. El clima cambia cada hora. Camisetas sintéticas, fleece, casaca impermeable.</p>
+        `,
+        faqs: [
+            { q: "¿Cuánto peso llevan los porteadores?", a: "Máximo 7kg de tus cosas personales, incluyendo el sleeping." },
+            { q: "¿Hay duchas?", a: "Solo agua fría en la mayoría de campamentos. Recomendamos toallitas húmedas." }
+        ]
+    },
+    {
+        id: 'altitude-sickness-hacks',
+        title: "Soroche: 5 Hacks Reales que Funcionan",
+        category: "Consejos",
+        cover_image: "https://images.unsplash.com/photo-1518709568911-37299a4c528f?q=80&w=1200&auto=format&fit=crop",
+        author: "Dr. Jorge 'Andino' Vega",
+        date: "5 de Enero, 2026",
+        readTime: "5 min",
+        intro: `
+            <p>El mal de altura o Soroche puede arruinar tus vacaciones. Dolor de cabeza, náuseas, fatiga extrema.</p>
+            <p>Pero no es una lotería. Hay ciencia detrás de cómo prevenirlo y tratarlo.</p>
+        `,
+        content: `
+            <h2>1. Hidratación Extrema</h2>
+            <p>En altura te deshidratas más rápido al respirar aire seco. Bebe 3-4 litros de agua al día.</p>
+            
+            <h2>2. Comida Ligera</h2>
+            <p>Tu digestión se ralentiza. Evita carnes rojas y alcohol los primeros días.</p>
+
+            <h2>3. Mate de Coca</h2>
+            <p>No es un mito. Es un estimulante natural que ayuda a la oxigenación. Tómalo en el desayuno.</p>
+        `,
+        faqs: [
+            { q: "¿Las pastillas de soroche funcionan?", a: "Sí (diamox/acetazolamida), pero consulta a tu médico antes." },
+            { q: "¿El oxígeno en lata sirve?", a: "Ayuda momentáneamente, pero no cura. Bajar de altura es la única cura real." }
+        ]
+    },
+    {
         id: 'default',
         title: "Artículo no encontrado",
         category: "Error",

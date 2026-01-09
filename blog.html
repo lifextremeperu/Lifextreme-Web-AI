@@ -120,79 +120,75 @@
     </footer>
 
     <!-- LOGIC -->
-    // Datos Simulados "Pro SEO" (Bypass Supabase backend for immediate frontend polish)
-    const mockPosts = [
-    {
-    id: 'rainy-season-gear',
-    title: "Rainy Season Peru: Complete Waterproof Gear Guide",
-    category: "Guías",
-    excerpt: "Don't let the rain stop you. The ultimate tested gear list for trekking Cusco in January.",
-    cover_image: "https://images.unsplash.com/photo-1517999588663-150277524953?q=80&w=800&auto=format&fit=crop",
-    created_at: "2026-01-08T10:00:00Z"
-    },
-    {
-    id: 'machu-picchu-rain',
-    title: "Machu Picchu en Temporada de Lluvias: Guía Completa 2026",
-    category: "Guías",
-    excerpt: "¿Miedo a la lluvia? La verdad sobre viajar en enero y los precios bajos. Descubre por qué es la época
-    secreta de los fotógrafos.",
-    cover_image: "https://images.unsplash.com/photo-1587595431973-160d0d94add1?q=80&w=800&auto=format&fit=crop",
-    created_at: "2026-01-08T09:30:00Z"
-    },
-    {
-    id: 'best-time-machu-picchu',
-    title: "Mejor Época para Viajar a Machupicchu",
-    category: "Planificación",
-    excerpt: "¿Planeando tu viaje? No puedes perderte estos consejos sobre clima Cusco que transformarán tu experiencia
-    y tu presupuesto.",
-    cover_image: "https://images.unsplash.com/photo-1526392060635-9d6019884377?q=80&w=800&auto=format&fit=crop",
-    created_at: "2026-01-08T08:15:00Z"
-    },
-    {
-    id: 'training-rainbow-mountain',
-    title: "Cómo Entrenar para la Montaña de 7 Colores",
-    category: "Consejos",
-    excerpt: "La altura no es chiste. Rutina de 4 semanas para llegar a los 5,200 msnm sin morir en el intento. Guía de
-    aclimatación incluida.",
-    cover_image: "https://images.unsplash.com/photo-1533130061792-649d44e7855e?q=80&w=800&auto=format&fit=crop",
-    created_at: "2026-01-07T14:20:00Z"
-    },
-    {
-    id: 'packing-list-inca-trail',
-    title: "Packing List Definitivo: Camino Inca 4 Días",
-    category: "Planificación",
-    excerpt: "Menos es más, pero olvidar esto puede arruinar tu viaje. La lista de verificación que usan nuestros guías
-    expertos.",
-    cover_image: "https://images.unsplash.com/photo-1621682372775-533449e5502d?q=80&w=800&auto=format&fit=crop",
-    created_at: "2026-01-06T11:00:00Z"
-    },
-    {
-    id: 'altitude-sickness-hacks',
-    title: "Soroche: 5 Hacks Reales que Funcionan",
-    category: "Consejos",
-    excerpt: "Olvida las pastillas de farmacia. Remedios naturales y técnicas de respiración para conquistar la altura
-    de los Andes.",
-    cover_image: "https://images.unsplash.com/photo-1518709568911-37299a4c528f?q=80&w=800&auto=format&fit=crop",
-    created_at: "2026-01-05T09:45:00Z"
-    }
-    ];
+    <script>
+        // Datos Simulados "Pro SEO" (Bypass Supabase backend for immediate frontend polish)
+        const mockPosts = [
+            {
+                id: 'rainy-season-gear',
+                title: "Rainy Season Peru: Complete Waterproof Gear Guide",
+                category: "Guías",
+                excerpt: "Don't let the rain stop you. The ultimate tested gear list for trekking Cusco in January.",
+                cover_image: "https://images.unsplash.com/photo-1517999588663-150277524953?q=80&w=800&auto=format&fit=crop",
+                created_at: "2026-01-08T10:00:00Z"
+            },
+            {
+                id: 'machu-picchu-rain',
+                title: "Machu Picchu en Temporada de Lluvias: Guía Completa 2026",
+                category: "Guías",
+                excerpt: "¿Miedo a la lluvia? La verdad sobre viajar en enero y los precios bajos. Descubre por qué es la época secreta de los fotógrafos.",
+                cover_image: "https://images.unsplash.com/photo-1587595431973-160d0d94add1?q=80&w=800&auto=format&fit=crop",
+                created_at: "2026-01-08T09:30:00Z"
+            },
+            {
+                id: 'best-time-machu-picchu',
+                title: "Mejor Época para Viajar a Machupicchu",
+                category: "Planificación",
+                excerpt: "¿Planeando tu viaje? No puedes perderte estos consejos sobre clima Cusco que transformarán tu experiencia y tu presupuesto.",
+                cover_image: "https://images.unsplash.com/photo-1526392060635-9d6019884377?q=80&w=800&auto=format&fit=crop",
+                created_at: "2026-01-08T08:15:00Z"
+            },
+            {
+                id: 'training-rainbow-mountain',
+                title: "Cómo Entrenar para la Montaña de 7 Colores",
+                category: "Consejos",
+                excerpt: "La altura no es chiste. Rutina de 4 semanas para llegar a los 5,200 msnm sin morir en el intento. Guía de aclimatación incluida.",
+                cover_image: "https://images.unsplash.com/photo-1533130061792-649d44e7855e?q=80&w=800&auto=format&fit=crop",
+                created_at: "2026-01-07T14:20:00Z"
+            },
+            {
+                id: 'packing-list-inca-trail',
+                title: "Packing List Definitivo: Camino Inca 4 Días",
+                category: "Planificación",
+                excerpt: "Menos es más, pero olvidar esto puede arruinar tu viaje. La lista de verificación que usan nuestros guías expertos.",
+                cover_image: "https://images.unsplash.com/photo-1621682372775-533449e5502d?q=80&w=800&auto=format&fit=crop",
+                created_at: "2026-01-06T11:00:00Z"
+            },
+            {
+                id: 'altitude-sickness-hacks',
+                title: "Soroche: 5 Hacks Reales que Funcionan",
+                category: "Consejos",
+                excerpt: "Olvida las pastillas de farmacia. Remedios naturales y técnicas de respiración para conquistar la altura de los Andes.",
+                cover_image: "https://images.unsplash.com/photo-1518709568911-37299a4c528f?q=80&w=800&auto=format&fit=crop",
+                created_at: "2026-01-05T09:45:00Z"
+            }
+        ];
 
-    let allPosts = mockPosts;
+        let allPosts = mockPosts;
 
-    function renderPosts(posts) {
-    const grid = document.getElementById('blog-grid');
+        function renderPosts(posts) {
+            const grid = document.getElementById('blog-grid');
 
-    if (posts.length === 0) {
-    grid.innerHTML = `
+            if (posts.length === 0) {
+                grid.innerHTML = `
     <div class="col-span-full text-center py-10 bg-slate-50 rounded-3xl border border-dashed border-slate-300">
         <i class="ri-article-line text-4xl text-slate-300 mb-4"></i>
         <p class="text-slate-500 font-bold">No hay artículos disponibles en esta categoría.</p>
     </div>
     `;
-    return;
-    }
+                return;
+            }
 
-    grid.innerHTML = posts.map(post => `
+            grid.innerHTML = posts.map(post => `
     <article onclick="window.location.href='blog-article.html?id=${post.id}'"
         class="group bg-white rounded-3xl shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col h-full cursor-pointer">
         <div class="relative h-56 overflow-hidden">
@@ -225,34 +221,35 @@
         </div>
     </article>
     `).join('');
-    }
+        }
 
-    window.filterPosts = (category) => {
-    // Update active button style
-    const buttons = document.querySelectorAll('button[onclick^="filterPosts"]');
-    buttons.forEach(btn => {
-    if ((category === 'all' && btn.innerText === 'TODOS') || btn.innerText === category.toUpperCase()) {
-    btn.classList.remove('bg-white', 'text-slate-500', 'border-slate-200');
-    btn.classList.add('bg-slate-900', 'text-white', 'border-transparent');
-    } else {
-    btn.classList.add('bg-white', 'text-slate-500', 'border-slate-200');
-    btn.classList.remove('bg-slate-900', 'text-white', 'border-transparent');
-    }
-    });
+        window.filterPosts = (category) => {
+            // Update active button style
+            const buttons = document.querySelectorAll('button[onclick^="filterPosts"]');
+            buttons.forEach(btn => {
+                if ((category === 'all' && btn.innerText.toUpperCase() === 'TODOS') || btn.innerText.toUpperCase() === category.toUpperCase()) {
+                    btn.classList.remove('bg-white', 'text-slate-500', 'border-slate-200');
+                    btn.classList.add('bg-slate-900', 'text-white', 'border-transparent');
+                } else {
+                    btn.classList.add('bg-white', 'text-slate-500', 'border-slate-200');
+                    btn.classList.remove('bg-slate-900', 'text-white', 'border-transparent');
+                }
+            });
 
-    if (category === 'all') {
-    renderPosts(allPosts);
-    } else {
-    const filtered = allPosts.filter(p => p.category === category);
-    renderPosts(filtered);
-    }
-    }
+            if (category === 'all') {
+                renderPosts(allPosts);
+            } else {
+                const filtered = allPosts.filter(p => p.category === category);
+                renderPosts(filtered);
+            }
+        }
 
-    // Init with all posts
-    renderPosts(allPosts);
+        // Init with all posts
+        renderPosts(allPosts);
 
-    // Initial button state fix
-    filterPosts('all');
+        // Initial button state fix (optional, but ensures UI sync)
+        // filterPosts('all'); 
+    </script>
 </body>
 
 </html>
