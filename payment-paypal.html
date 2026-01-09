@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago con PayPal - Lifextreme Presale</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Outfit:wght@400;700;900&display=swap"
+        rel="stylesheet">
+    <!-- PayPal SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=USD"></script>
+</head>
+
+<body class="bg-slate-900 text-white min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-white/10">
+        <div class="container mx-auto px-6 py-4">
+            <a href="presale.html" class="flex items-center gap-2 text-xl font-black italic">
+                <i class="ri-arrow-left-line"></i>
+                <i class="ri-flashlight-fill text-yellow-400"></i>
+                Lifextreme
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-6 pt-24 pb-12">
+        <div class="max-w-2xl mx-auto">
+
+            <!-- Header -->
+            <div class="text-center mb-12">
+                <div
+                    class="inline-flex items-center gap-2 bg-blue-500/20 border border-blue-500/50 px-4 py-2 rounded-full text-blue-300 text-xs font-black uppercase tracking-widest mb-6">
+                    <i class="ri-paypal-line"></i>
+                    Pago con PayPal
+                </div>
+                <h1 class="text-4xl md:text-6xl font-black italic mb-4">
+                    Pago <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">Seguro</span>
+                </h1>
+                <p class="text-slate-400 text-lg" id="package-info">Paquete seleccionado</p>
+            </div>
+
+            <!-- Payment Summary -->
+            <div class="bg-slate-800 rounded-3xl p-8 border border-white/10 mb-8">
+                <h2 class="text-xl font-black mb-6 flex items-center gap-3">
+                    <div class="w-10 h-10 bg-blue-500/20 rounded-xl flex items-center justify-center text-blue-400">
+                        <i class="ri-file-list-line"></i>
+                    </div>
+                    Resumen de tu Inversión
+                </h2>
+
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center pb-4 border-b border-white/10">
+                        <span class="text-slate-400">Paquete:</span>
+                        <span class="font-bold" id="package-name">Aventurero</span>
+                    </div>
+                    <div class="flex justify-between items-center pb-4 border-b border-white/10">
+                        <span class="text-slate-400">Lifecoins:</span>
+                        <span class="font-bold text-yellow-400" id="lifecoins-amount">10,000 LC</span>
+                    </div>
+                    <div class="flex justify-between items-center pb-4 border-b border-white/10">
+                        <span class="text-slate-400">Valor regular:</span>
+                        <span class="line-through text-slate-500" id="regular-price">$1,000</span>
+                    </div>
+                    <div class="flex justify-between items-center pb-4 border-b border-white/10">
+                        <span class="text-slate-400">Descuento fundador:</span>
+                        <span class="text-emerald-400 font-bold">50%</span>
+                    </div>
+                    <div class="flex justify-between items-center pt-2">
+                        <span class="text-xl font-black">Total a pagar:</span>
+                        <span class="text-3xl font-black text-blue-400" id="total-amount">$500</span>
+                    </div>
+                </div>
+
+                <!-- Benefits Reminder -->
+                <div class="mt-6 bg-yellow-500/10 border border-yellow-500/30 rounded-2xl p-4">
+                    <h3 class="text-sm font-black text-yellow-400 mb-2 flex items-center gap-2">
+                        <i class="ri-vip-crown-fill"></i>
+                        Beneficios Incluidos:
+                    </h3>
+                    <ul class="text-xs text-slate-300 space-y-1">
+                        <li>✓ 50% descuento vitalicio en todos los tours</li>
+                        <li>✓ Badge exclusivo de fundador</li>
+                        <li>✓ Acceso prioritario a nuevas rutas</li>
+                        <li>✓ Invitaciones a eventos privados</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- PayPal Button Container -->
+            <div class="bg-slate-800 rounded-3xl p-8 border border-white/10 mb-8">
+                <h2 class="text-xl font-black mb-6 text-center">Completa tu Pago</h2>
+
+                <!-- PayPal Buttons will be rendered here -->
+                <div id="paypal-button-container" class="min-h-[200px] flex items-center justify-center">
+                    <div class="text-center">
+                        <i class="ri-loader-4-line animate-spin text-4xl text-blue-400 mb-4"></i>
+                        <p class="text-sm text-slate-400">Cargando PayPal...</p>
+                    </div>
+                </div>
+
+                <!-- Security Info -->
+                <div class="mt-6 flex items-center justify-center gap-2 text-xs text-slate-500">
+                    <i class="ri-shield-check-line text-green-400"></i>
+                    <span>Pago 100% seguro procesado por PayPal</span>
+                </div>
+            </div>
+
+            <!-- Alternative Payment -->
+            <div class="text-center">
+                <p class="text-sm text-slate-400 mb-4">¿Prefieres pagar con Yape?</p>
+                <a href="payment-yape.html?amount=${amount}&package=${packageName}"
+                    class="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 font-bold text-sm transition-colors">
+                    <i class="ri-smartphone-line"></i>
+                    Cambiar a Yape
+                </a>
+            </div>
+
+            <!-- Help Section -->
+            <div class="mt-8 bg-slate-800/50 rounded-2xl p-6 border border-white/10">
+                <div class="flex items-start gap-4">
+                    <i class="ri-customer-service-line text-3xl text-blue-400"></i>
+                    <div>
+                        <h3 class="font-black mb-2">¿Necesitas ayuda?</h3>
+                        <p class="text-sm text-slate-400 mb-3">Si tienes problemas con el pago, contáctanos:</p>
+                        <a href="https://wa.me/51984266102?text=Hola,%20necesito%20ayuda%20con%20mi%20inversión%20en%20Lifecoins%20(PayPal)"
+                            target="_blank"
+                            class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-xl text-sm font-bold transition-all">
+                            <i class="ri-whatsapp-line"></i>
+                            WhatsApp: +51 984 266 102
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const amount = urlParams.get('amount') || '500';
+        const packageName = urlParams.get('package') || 'aventurero';
+
+        // Package data
+        const packages = {
+            'explorador': { lifecoins: '2,000', regular: '$200' },
+            'aventurero': { lifecoins: '10,000', regular: '$1,000' },
+            'pionero': { lifecoins: '25,000', regular: '$2,500' }
+        };
+
+        const pkg = packages[packageName] || packages['aventurero'];
+
+        // Display info
+        document.getElementById('package-info').innerText = `Paquete ${packageName.charAt(0).toUpperCase() + packageName.slice(1)} - $${amount} USD`;
+        document.getElementById('package-name').innerText = packageName.charAt(0).toUpperCase() + packageName.slice(1);
+        document.getElementById('lifecoins-amount').innerText = `${pkg.lifecoins} LC`;
+        document.getElementById('regular-price').innerText = pkg.regular;
+        document.getElementById('total-amount').innerText = `$${amount}`;
+
+        // PayPal Integration
+        paypal.Buttons({
+            style: {
+                layout: 'vertical',
+                color: 'blue',
+                shape: 'rect',
+                label: 'paypal',
+                height: 50
+            },
+
+            createOrder: function (data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        description: `Lifextreme Lifecoins - Paquete ${packageName.charAt(0).toUpperCase() + packageName.slice(1)}`,
+                        amount: {
+                            currency_code: 'USD',
+                            value: amount
+                        }
+                    }]
+                });
+            },
+
+            onApprove: function (data, actions) {
+                return actions.order.capture().then(function (details) {
+                    // Payment successful
+                    console.log('Payment completed by ' + details.payer.name.given_name);
+
+                    // Save to Supabase (implement this)
+                    savePaymentToDatabase(details, packageName, amount);
+
+                    // Redirect to confirmation
+                    window.location.href = `payment-confirmation.html?method=paypal&amount=${amount}&package=${packageName}&transaction_id=${details.id}`;
+                });
+            },
+
+            onError: function (err) {
+                console.error('PayPal error:', err);
+                alert('Hubo un error al procesar el pago. Por favor intenta nuevamente o contacta a soporte.');
+            }
+        }).render('#paypal-button-container');
+
+        // Save payment to database (implement with Supabase)
+        async function savePaymentToDatabase(paypalDetails, packageName, amount) {
+            // TODO: Implement Supabase integration
+            console.log('Saving payment:', {
+                transaction_id: paypalDetails.id,
+                payer_email: paypalDetails.payer.email_address,
+                payer_name: paypalDetails.payer.name.given_name + ' ' + paypalDetails.payer.name.surname,
+                amount: amount,
+                package: packageName,
+                status: 'completed',
+                payment_method: 'paypal'
+            });
+
+            // Example Supabase call:
+            /*
+            const { data, error } = await supabase
+                .from('presale_investors')
+                .insert([{
+                    email: paypalDetails.payer.email_address,
+                    full_name: paypalDetails.payer.name.given_name + ' ' + paypalDetails.payer.name.surname,
+                    package_name: packageName,
+                    amount_usd: amount,
+                    payment_method: 'paypal',
+                    transaction_reference: paypalDetails.id,
+                    payment_status: 'verified'
+                }]);
+            */
+        }
+    </script>
+</body>
+
+</html>

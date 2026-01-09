@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Pago Recibido! - Lifextreme</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Outfit:wght@400;700;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="bg-slate-900 text-white min-h-screen">
+
+    <div class="container mx-auto px-6 py-12">
+        <div class="max-w-3xl mx-auto">
+
+            <!-- Success Animation -->
+            <div class="text-center mb-12">
+                <div
+                    class="inline-flex items-center justify-center w-32 h-32 bg-emerald-500/20 border-4 border-emerald-500 rounded-full mb-8 animate-bounce">
+                    <i class="ri-check-line text-6xl text-emerald-400"></i>
+                </div>
+                <h1 class="text-4xl md:text-6xl font-black italic mb-4">
+                    ¡Pago <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-green-500">Recibido</span>!
+                </h1>
+                <p class="text-xl text-slate-300">Bienvenido al club de fundadores de Lifextreme</p>
+            </div>
+
+            <!-- Payment Details -->
+            <div class="bg-slate-800 rounded-3xl p-8 border border-white/10 mb-8">
+                <h2 class="text-2xl font-black mb-6 flex items-center gap-3">
+                    <div
+                        class="w-10 h-10 bg-emerald-500/20 rounded-xl flex items-center justify-center text-emerald-400">
+                        <i class="ri-file-list-3-line"></i>
+                    </div>
+                    Detalles de tu Inversión
+                </h2>
+
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center pb-4 border-b border-white/10">
+                        <span class="text-slate-400">Método de pago:</span>
+                        <span class="font-bold capitalize" id="payment-method">PayPal</span>
+                    </div>
+                    <div class="flex justify-between items-center pb-4 border-b border-white/10">
+                        <span class="text-slate-400">Paquete:</span>
+                        <span class="font-bold" id="package-name">Aventurero</span>
+                    </div>
+                    <div class="flex justify-between items-center pb-4 border-b border-white/10">
+                        <span class="text-slate-400">Monto:</span>
+                        <span class="font-bold text-emerald-400" id="amount">$500</span>
+                    </div>
+                    <div class="flex justify-between items-center pb-4 border-b border-white/10">
+                        <span class="text-slate-400">ID de transacción:</span>
+                        <span class="font-mono text-sm" id="transaction-id">-</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-slate-400">Estado:</span>
+                        <span
+                            class="inline-flex items-center gap-2 bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full text-sm font-bold">
+                            <i class="ri-time-line"></i>
+                            <span id="status">Pendiente de verificación</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Next Steps -->
+            <div
+                class="bg-gradient-to-br from-blue-500/10 to-purple-500/10 border-2 border-blue-500/30 rounded-3xl p-8 mb-8">
+                <h2 class="text-2xl font-black mb-6 flex items-center gap-3">
+                    <div class="w-10 h-10 bg-blue-500/20 rounded-xl flex items-center justify-center text-blue-400">
+                        <i class="ri-roadmap-line"></i>
+                    </div>
+                    Próximos Pasos
+                </h2>
+
+                <div class="space-y-6">
+                    <!-- Step 1 -->
+                    <div class="flex gap-4">
+                        <div
+                            class="flex-shrink-0 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-sm font-black">
+                            1</div>
+                        <div>
+                            <h3 class="font-bold mb-2">Verificación del pago</h3>
+                            <p class="text-sm text-slate-400">
+                                <span id="verification-message">
+                                    Nuestro equipo verificará tu pago en las próximas 24 horas.
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="flex gap-4">
+                        <div
+                            class="flex-shrink-0 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-sm font-black">
+                            2</div>
+                        <div>
+                            <h3 class="font-bold mb-2">Recibe tu confirmación</h3>
+                            <p class="text-sm text-slate-400">Te enviaremos un email con tus Lifecoins y badge de
+                                fundador.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="flex gap-4">
+                        <div
+                            class="flex-shrink-0 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-sm font-black">
+                            3</div>
+                        <div>
+                            <h3 class="font-bold mb-2">Empieza a usar tus Lifecoins</h3>
+                            <p class="text-sm text-slate-400">Reserva tours con tu 50% de descuento y disfruta de tus
+                                beneficios exclusivos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Founder Benefits -->
+            <div class="bg-slate-800 rounded-3xl p-8 border border-white/10 mb-8">
+                <h2 class="text-2xl font-black mb-6 flex items-center gap-3">
+                    <div class="w-10 h-10 bg-yellow-500/20 rounded-xl flex items-center justify-center text-yellow-400">
+                        <i class="ri-vip-crown-fill"></i>
+                    </div>
+                    Tus Beneficios de Fundador
+                </h2>
+
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="bg-slate-900 rounded-2xl p-4 flex items-start gap-3">
+                        <i class="ri-percent-fill text-2xl text-emerald-400"></i>
+                        <div>
+                            <h3 class="font-bold mb-1">50% Descuento Vitalicio</h3>
+                            <p class="text-xs text-slate-400">En todos los tours, para siempre</p>
+                        </div>
+                    </div>
+                    <div class="bg-slate-900 rounded-2xl p-4 flex items-start gap-3">
+                        <i class="ri-vip-diamond-fill text-2xl text-yellow-400"></i>
+                        <div>
+                            <h3 class="font-bold mb-1">Badge Exclusivo</h3>
+                            <p class="text-xs text-slate-400">Insignia dorada en tu perfil</p>
+                        </div>
+                    </div>
+                    <div class="bg-slate-900 rounded-2xl p-4 flex items-start gap-3">
+                        <i class="ri-map-pin-add-fill text-2xl text-blue-400"></i>
+                        <div>
+                            <h3 class="font-bold mb-1">Acceso Prioritario</h3>
+                            <p class="text-xs text-slate-400">A nuevas rutas y experiencias</p>
+                        </div>
+                    </div>
+                    <div class="bg-slate-900 rounded-2xl p-4 flex items-start gap-3">
+                        <i class="ri-calendar-event-fill text-2xl text-purple-400"></i>
+                        <div>
+                            <h3 class="font-bold mb-1">Eventos Privados</h3>
+                            <p class="text-xs text-slate-400">Expediciones solo para fundadores</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="index.html"
+                    class="flex-1 bg-gradient-to-r from-yellow-500 to-orange-500 text-slate-900 py-4 rounded-2xl font-black uppercase tracking-widest hover:scale-105 transition-all shadow-xl text-center">
+                    Volver al Inicio
+                </a>
+                <a href="https://wa.me/51984266102?text=Hola,%20acabo%20de%20completar%20mi%20inversión%20en%20Lifecoins"
+                    target="_blank"
+                    class="flex-1 bg-green-500 hover:bg-green-600 text-white py-4 rounded-2xl font-black uppercase tracking-widest transition-all text-center flex items-center justify-center gap-2">
+                    <i class="ri-whatsapp-line text-xl"></i>
+                    Contactar Soporte
+                </a>
+            </div>
+
+            <!-- Social Share -->
+            <div class="mt-8 text-center">
+                <p class="text-sm text-slate-400 mb-4">¡Comparte que eres fundador de Lifextreme!</p>
+                <div class="flex justify-center gap-4">
+                    <a href="#"
+                        class="w-12 h-12 bg-slate-800 hover:bg-blue-500 rounded-full flex items-center justify-center transition-all">
+                        <i class="ri-facebook-fill text-xl"></i>
+                    </a>
+                    <a href="#"
+                        class="w-12 h-12 bg-slate-800 hover:bg-blue-400 rounded-full flex items-center justify-center transition-all">
+                        <i class="ri-twitter-fill text-xl"></i>
+                    </a>
+                    <a href="#"
+                        class="w-12 h-12 bg-slate-800 hover:bg-pink-500 rounded-full flex items-center justify-center transition-all">
+                        <i class="ri-instagram-line text-xl"></i>
+                    </a>
+                    <a href="#"
+                        class="w-12 h-12 bg-slate-800 hover:bg-blue-600 rounded-full flex items-center justify-center transition-all">
+                        <i class="ri-linkedin-fill text-xl"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const method = urlParams.get('method') || 'paypal';
+        const amount = urlParams.get('amount') || '0';
+        const packageName = urlParams.get('package') || 'aventurero';
+        const transactionId = urlParams.get('transaction_id') || 'Pendiente';
+
+        // Display info
+        document.getElementById('payment-method').innerText = method.toUpperCase();
+        document.getElementById('package-name').innerText = packageName.charAt(0).toUpperCase() + packageName.slice(1);
+        document.getElementById('amount').innerText = `$${amount}`;
+        document.getElementById('transaction-id').innerText = transactionId;
+
+        // Update verification message based on payment method
+        if (method === 'paypal') {
+            document.getElementById('status').innerText = 'Verificado ✓';
+            document.getElementById('status').parentElement.className = 'inline-flex items-center gap-2 bg-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full text-sm font-bold';
+            document.getElementById('verification-message').innerText = 'Tu pago ha sido verificado automáticamente por PayPal.';
+        } else {
+            document.getElementById('verification-message').innerText = 'Nuestro equipo verificará tu comprobante de Yape en las próximas 24 horas.';
+        }
+
+        // Confetti animation (optional)
+        setTimeout(() => {
+            // Add confetti library if desired
+        }, 500);
+    </script>
+</body>
+
+</html>
