@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preventa Lifecoins - Sé Fundador de Lifextreme</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4338ca',
+                        secondary: '#f43f5e',
+                        gold: '#F59E0B'
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Outfit:wght@400;700;900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+
+<body class="bg-slate-900 text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-white/10">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2 text-xl font-black italic">
+                <i class="ri-flashlight-fill text-yellow-400"></i>
+                Lifextreme
+            </a>
+            <div class="flex items-center gap-4">
+                <span class="text-xs font-bold text-slate-400">
+                    <span id="spots-remaining">100</span> cupos restantes
+                </span>
+                <a href="#packages"
+                    class="bg-secondary hover:bg-secondary/90 text-white px-6 py-2 rounded-full font-black uppercase text-xs tracking-widest transition-all">
+                    Invertir Ahora
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <!-- Background -->
+        <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-primary/20 to-slate-900"></div>
+        <div
+            class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920')] bg-cover bg-center opacity-10">
+        </div>
+
+        <!-- Content -->
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <!-- Badge -->
+            <div
+                class="inline-flex items-center gap-2 bg-gold/20 border border-gold/50 px-4 py-2 rounded-full text-gold text-xs font-black uppercase tracking-widest mb-8 animate-pulse">
+                <i class="ri-vip-crown-fill"></i>
+                Preventa Exclusiva - Solo 100 Fundadores
+            </div>
+
+            <!-- Title -->
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-black italic mb-6 leading-none">
+                Sé <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-gold to-yellow-500">Fundador</span><br>
+                de Lifextreme
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="text-xl md:text-2xl text-slate-300 font-medium max-w-3xl mx-auto mb-12">
+                Invierte desde <span class="text-gold font-black">$100 USD</span> y obtén Lifecoins con
+                <span class="text-gold font-black">50% de descuento</span> + beneficios exclusivos de por vida.
+            </p>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-3 gap-8 max-w-3xl mx-auto mb-12">
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+                    <div class="text-3xl font-black text-gold mb-2">50%</div>
+                    <div class="text-xs uppercase tracking-widest text-slate-400 font-bold">Descuento</div>
+                </div>
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+                    <div class="text-3xl font-black text-gold mb-2" id="total-raised">$0</div>
+                    <div class="text-xs uppercase tracking-widest text-slate-400 font-bold">Recaudado</div>
+                </div>
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+                    <div class="text-3xl font-black text-gold mb-2" id="investor-count">0</div>
+                    <div class="text-xs uppercase tracking-widest text-slate-400 font-bold">Fundadores</div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <a href="#packages"
+                class="inline-flex items-center gap-3 bg-gradient-to-r from-gold to-yellow-600 text-slate-900 px-10 py-5 rounded-2xl font-black uppercase tracking-widest hover:scale-105 transition-all shadow-2xl shadow-gold/20">
+                <i class="ri-rocket-fill text-2xl"></i>
+                Asegurar Mi Cupo
+                <i class="ri-arrow-right-line text-2xl"></i>
+            </a>
+
+            <!-- Countdown -->
+            <div
+                class="mt-12 inline-flex items-center gap-6 bg-red-500/20 border border-red-500/50 px-8 py-4 rounded-2xl">
+                <span class="text-sm font-bold uppercase tracking-widest">Preventa termina en:</span>
+                <div class="flex gap-4">
+                    <div class="text-center">
+                        <div class="text-3xl font-black" id="days">14</div>
+                        <div class="text-[10px] uppercase tracking-widest text-slate-400">Días</div>
+                    </div>
+                    <div class="text-3xl font-black">:</div>
+                    <div class="text-center">
+                        <div class="text-3xl font-black" id="hours">00</div>
+                        <div class="text-[10px] uppercase tracking-widest text-slate-400">Horas</div>
+                    </div>
+                    <div class="text-3xl font-black">:</div>
+                    <div class="text-center">
+                        <div class="text-3xl font-black" id="minutes">00</div>
+                        <div class="text-[10px] uppercase tracking-widest text-slate-400">Min</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-20 bg-slate-800/50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-5xl font-black italic text-center mb-16">
+                Beneficios <span class="text-gold">Exclusivos</span> de Fundador
+            </h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Benefit 1 -->
+                <div class="bg-slate-900 border border-white/10 rounded-3xl p-8 hover:border-gold/50 transition-all">
+                    <div
+                        class="w-16 h-16 bg-gold/20 rounded-2xl flex items-center justify-center text-gold text-3xl mb-6">
+                        <i class="ri-percent-fill"></i>
+                    </div>
+                    <h3 class="text-xl font-black mb-3">50% Descuento Vitalicio</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Todos tus tours con 50% de descuento. Para siempre. Sin excepciones.
+                    </p>
+                </div>
+
+                <!-- Benefit 2 -->
+                <div class="bg-slate-900 border border-white/10 rounded-3xl p-8 hover:border-gold/50 transition-all">
+                    <div
+                        class="w-16 h-16 bg-gold/20 rounded-2xl flex items-center justify-center text-gold text-3xl mb-6">
+                        <i class="ri-vip-crown-fill"></i>
+                    </div>
+                    <h3 class="text-xl font-black mb-3">Badge "Fundador"</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Insignia dorada en tu perfil que te identifica como fundador original.
+                    </p>
+                </div>
+
+                <!-- Benefit 3 -->
+                <div class="bg-slate-900 border border-white/10 rounded-3xl p-8 hover:border-gold/50 transition-all">
+                    <div
+                        class="w-16 h-16 bg-gold/20 rounded-2xl flex items-center justify-center text-gold text-3xl mb-6">
+                        <i class="ri-map-pin-add-fill"></i>
+                    </div>
+                    <h3 class="text-xl font-black mb-3">Rutas Exclusivas</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Acceso prioritario a nuevas rutas antes que el público general.
+                    </p>
+                </div>
+
+                <!-- Benefit 4 -->
+                <div class="bg-slate-900 border border-white/10 rounded-3xl p-8 hover:border-gold/50 transition-all">
+                    <div
+                        class="w-16 h-16 bg-gold/20 rounded-2xl flex items-center justify-center text-gold text-3xl mb-6">
+                        <i class="ri-calendar-event-fill"></i>
+                    </div>
+                    <h3 class="text-xl font-black mb-3">Eventos Privados</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Invitaciones a expediciones exclusivas solo para fundadores.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="py-20 bg-slate-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-5xl font-black italic text-center mb-4">
+                Elige Tu <span class="text-gold">Paquete</span>
+            </h2>
+            <p class="text-center text-slate-400 mb-16 max-w-2xl mx-auto">
+                Todos los paquetes incluyen los mismos beneficios. La diferencia es la cantidad de Lifecoins que
+                recibes.
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Package 1: Explorador -->
+                <div
+                    class="bg-slate-800 border-2 border-white/10 rounded-[40px] p-8 hover:border-gold/50 transition-all relative">
+                    <div class="text-center mb-8">
+                        <div class="text-6xl mb-4">🏕️</div>
+                        <h3 class="text-2xl font-black mb-2">Explorador</h3>
+                        <div class="text-5xl font-black text-gold mb-2">$100</div>
+                        <div class="text-sm text-slate-400 line-through">Valor: $200</div>
+                    </div>
+
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center gap-3">
+                            <i class="ri-check-line text-emerald-500 text-xl"></i>
+                            <span class="text-sm font-bold">2,000 Lifecoins</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="ri-check-line text-emerald-500 text-xl"></i>
+                            <span class="text-sm font-bold">50% descuento vitalicio</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="ri-check-line text-emerald-500 text-xl"></i>
+                            <span class="text-sm font-bold">Badge Fundador</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="ri-check-line text-emerald-500 text-xl"></i>
+                            <span class="text-sm font-bold">Eventos exclusivos</span>
+                        </div>
+                    </div>
+
+                    <button onclick="selectPackage('explorador', 100, 2000)"
+                        class="w-full bg-white/10 hover:bg-gold hover:text-slate-900 text-white py-4 rounded-2xl font-black uppercase tracking-widest transition-all">
+                        Seleccionar
+                    </button>
+                </div>
+
+                <!-- Package 2: Aventurero (Popular) -->
+                <div
+                    class="bg-gradient-to-br from-gold/20 to-yellow-600/20 border-2 border-gold rounded-[40px] p-8 relative transform scale-105 shadow-2xl shadow-gold/20">
+                    <div
+                        class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gold text-slate-900 px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest">
+                        Más Popular
+                    </div>
+
+                    <div class="text-center mb-8">
+                        <div class="text-6xl mb-4">⛰️</div>
+                        <h3 class="text-2xl font-black mb-2">Aventurero</h3>
+                        <div class="text-5xl font-black text-gold mb-2">$500</div>
+                        <div class="text-sm text-slate-400 line-through">Valor: $1,000</div>
+                    </div>
+
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center gap-3">
+                            <i class="ri-check-line text-emerald-500 text-xl"></i>
+                            <span class="text-sm font-bold">10,000 Lifecoins</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="ri-check-line text-emerald-500 text-xl"></i>
+                            <span class="text-sm font-bold">50% descuento vitalicio</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="ri-check-line text-emerald-500 text-xl"></i>
+                            <span class="text-sm font-bold">Badge Fundador Oro</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="ri-check-line text-emerald-500 text-xl"></i>
+                            <span class="text-sm font-bold">Eventos + Expedición gratis</span>
+                        </div>
+                    </div>
+
+                    <button onclick="selectPackage('aventurero', 500, 10000)"
+                        class="w-full bg-gold hover:bg-yellow-600 text-slate-900 py-4 rounded-2xl font-black uppercase tracking-widest transition-all shadow-lg">
+                        Seleccionar
+                    </button>
+                </div>
+
+                <!-- Package 3: Pionero -->
+                <div
+                    class="bg-slate-800 border-2 border-white/10 rounded-[40px] p-8 hover:border-gold/50 transition-all relative">
+                    <div class="text-center mb-8">
+                        <div class="text-6xl mb-4">🏔️</div>
+                        <h3 class="text-2xl font-black mb-2">Pionero</h3>
+                        <div class="text-5xl font-black text-gold mb-2">$1,000</div>
+                        <div class="text-sm text-slate-400 line-through">Valor: $2,500</div>
+                    </div>
+
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center gap-3">
+                            <i class="ri-check-line text-emerald-500 text-xl"></i>
+                            <span class="text-sm font-bold">25,000 Lifecoins</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="ri-check-line text-emerald-500 text-xl"></i>
+                            <span class="text-sm font-bold">50% descuento vitalicio</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="ri-check-line text-emerald-500 text-xl"></i>
+                            <span class="text-sm font-bold">Badge Fundador Platino</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="ri-check-line text-emerald-500 text-xl"></i>
+                            <span class="text-sm font-bold">Todo + Llamada con CEO</span>
+                        </div>
+                    </div>
+
+                    <button onclick="selectPackage('pionero', 1000, 25000)"
+                        class="w-full bg-white/10 hover:bg-gold hover:text-slate-900 text-white py-4 rounded-2xl font-black uppercase tracking-widest transition-all">
+                        Seleccionar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Modal -->
+    <div id="payment-modal" class="fixed inset-0 z-[9999] hidden">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closePaymentModal()"></div>
+        <div class="relative z-10 flex items-center justify-center min-h-screen p-4">
+            <div class="bg-slate-900 rounded-[40px] max-w-2xl w-full shadow-2xl border border-white/10 overflow-hidden">
+                <!-- Header -->
+                <div class="bg-gradient-to-r from-gold to-yellow-600 p-8 relative">
+                    <button onclick="closePaymentModal()"
+                        class="absolute top-6 right-6 w-10 h-10 bg-black/20 hover:bg-black/40 rounded-full flex items-center justify-center transition-all">
+                        <i class="ri-close-line text-2xl"></i>
+                    </button>
+                    <h3 class="text-3xl font-black text-slate-900">Finalizar Inversión</h3>
+                    <p class="text-slate-800 font-bold mt-2">Paquete: <span id="modal-package"></span></p>
+                </div>
+
+                <!-- Form -->
+                <form id="investment-form" onsubmit="submitInvestment(event)" class="p-8 space-y-6">
+                    <!-- Personal Info -->
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="space-y-2">
+                            <label class="text-xs font-black uppercase text-slate-400 tracking-widest">Nombre
+                                Completo</label>
+                            <input type="text" name="full_name" required
+                                class="w-full bg-slate-800 border border-white/10 rounded-xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-gold transition-colors">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs font-black uppercase text-slate-400 tracking-widest">Email</label>
+                            <input type="email" name="email" required
+                                class="w-full bg-slate-800 border border-white/10 rounded-xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-gold transition-colors">
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="space-y-2">
+                            <label class="text-xs font-black uppercase text-slate-400 tracking-widest">WhatsApp</label>
+                            <input type="tel" name="phone" required
+                                class="w-full bg-slate-800 border border-white/10 rounded-xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-gold transition-colors"
+                                placeholder="+51 999 999 999">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs font-black uppercase text-slate-400 tracking-widest">País</label>
+                            <input type="text" name="country" required
+                                class="w-full bg-slate-800 border border-white/10 rounded-xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-gold transition-colors"
+                                placeholder="Perú">
+                        </div>
+                    </div>
+
+                    <!-- Payment Method -->
+                    <div class="space-y-2">
+                        <label class="text-xs font-black uppercase text-slate-400 tracking-widest">Método de
+                            Pago</label>
+                        <div class="grid grid-cols-2 gap-4">
+                            <label
+                                class="relative flex items-center justify-center p-4 bg-slate-800 border-2 border-white/10 rounded-xl cursor-pointer hover:border-gold transition-all">
+                                <input type="radio" name="payment_method" value="yape" required
+                                    class="absolute opacity-0">
+                                <div class="text-center">
+                                    <div class="text-3xl mb-2">📱</div>
+                                    <span class="text-sm font-bold">Yape</span>
+                                </div>
+                            </label>
+                            <label
+                                class="relative flex items-center justify-center p-4 bg-slate-800 border-2 border-white/10 rounded-xl cursor-pointer hover:border-gold transition-all">
+                                <input type="radio" name="payment_method" value="paypal" class="absolute opacity-0">
+                                <div class="text-center">
+                                    <div class="text-3xl mb-2">💳</div>
+                                    <span class="text-sm font-bold">PayPal</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Hidden fields -->
+                    <input type="hidden" name="package_name" id="form-package">
+                    <input type="hidden" name="amount_usd" id="form-amount">
+                    <input type="hidden" name="lifecoins" id="form-lifecoins">
+
+                    <!-- Terms -->
+                    <label class="flex items-start gap-3 cursor-pointer">
+                        <input type="checkbox" required class="mt-1">
+                        <span class="text-xs text-slate-400">
+                            Acepto los <a href="#" class="text-gold hover:underline">términos y condiciones</a> y
+                            entiendo que los Lifecoins son créditos prepagados no reembolsables para uso en la
+                            plataforma Lifextreme.
+                        </span>
+                    </label>
+
+                    <!-- Submit -->
+                    <button type="submit"
+                        class="w-full bg-gradient-to-r from-gold to-yellow-600 text-slate-900 py-4 rounded-2xl font-black uppercase tracking-widest hover:scale-105 transition-all shadow-xl">
+                        Proceder al Pago
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 py-12 border-t border-white/10">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-slate-500 text-sm">
+                © 2026 Lifextreme. Preventa de créditos prepagados. No constituye oferta de valores.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown Timer
+        const endDate = new Date();
+        endDate.setDate(endDate.getDate() + 14);
+
+        function updateCountdown() {
+            const now = new Date();
+            const diff = endDate - now;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+            document.getElementById('days').innerText = days;
+            document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Package Selection
+        function selectPackage(name, amount, lifecoins) {
+            document.getElementById('modal-package').innerText = name.charAt(0).toUpperCase() + name.slice(1);
+            document.getElementById('form-package').value = name;
+            document.getElementById('form-amount').value = amount;
+            document.getElementById('form-lifecoins').value = lifecoins;
+
+            document.getElementById('payment-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePaymentModal() {
+            document.getElementById('payment-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Form Submission
+        function submitInvestment(event) {
+            event.preventDefault();
+
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData.entries());
+
+            // Show loading
+            const submitBtn = event.target.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="ri-loader-4-line animate-spin"></i> Procesando...';
+
+            // Simulate API call (replace with actual Supabase integration)
+            setTimeout(() => {
+                if (data.payment_method === 'yape') {
+                    // Redirect to Yape instructions
+                    window.location.href = `payment-yape.html?amount=${data.amount_usd}&package=${data.package_name}`;
+                } else {
+                    // Redirect to PayPal
+                    window.location.href = `payment-paypal.html?amount=${data.amount_usd}&package=${data.package_name}`;
+                }
+            }, 1500);
+        }
+
+        // Radio button styling
+        document.querySelectorAll('input[type="radio"]').forEach(radio => {
+            radio.addEventListener('change', function () {
+                const group = document.querySelectorAll(`input[name="${this.name}"]`);
+                group.forEach(r => {
+                    r.parentElement.classList.remove('border-gold', 'bg-gold/10');
+                    r.parentElement.classList.add('border-white/10');
+                });
+                if (this.checked) {
+                    this.parentElement.classList.add('border-gold', 'bg-gold/10');
+                    this.parentElement.classList.remove('border-white/10');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
