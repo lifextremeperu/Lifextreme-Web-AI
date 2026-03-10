@@ -1,4 +1,3 @@
-import { GoogleGenerativeAI } from '@google/generative-ai';
 
 // Helper: Fetch Real-time Weather from Open-Meteo
 async function getWeatherContext() {
@@ -78,22 +77,12 @@ export default async function handler(request, response) {
     }
 
     // 2. Auth Check (Server-side)
-    const apiKey = process.env.GEMINI_API_KEY;
-
-    // Fallback for demo if no key (remove in production)
-    if (!apiKey) {
-        console.warn("⚠️ GEMINI_API_KEY missing. Returning mock response for testing.");
-        const { message } = request.body || {};
-        // Mock simple response if no API key
-        return response.status(200).json({
-            reply: `(Modo Demo - Sin API Key) He recibido tu mensaje: "${message}". En producción, aquí te respondería Alex con datos reales del clima en Cusco.`,
-            timestamp: new Date().toISOString()
-        });
-    }
+    const difyApiKey = process.env.DIFY_API_KEY || 'app-WXQvLfYuqOFNGEh7q4V8dtak';
+    const difyBaseUrl = process.env.DIFY_BASE_URL || 'https://api.dify.ai/v1';
 
     try {
         // 3. Parse Request
-        const { message, history = [], context = {} } = request.body || {};
+        const { message, context = {} } = request.body || {};
 
         if (!message) {
             return response.status(400).json({ error: 'Message is required' });
@@ -102,64 +91,39 @@ export default async function handler(request, response) {
         // 4. Fetch Weather Data (Intelligence)
         const weatherContext = await getWeatherContext();
 
-        // 5. Initialize Gemini
-        const genAI = new GoogleGenerativeAI(apiKey);
-        const model = genAI.getGenerativeModel({
-            model: "gemini-1.5-flash",
-            systemInstruction: `
-                Actúa como "Alex", el Guía Principal de Lifextreme y Analista de Aventuras.
-                
-                *** INFO DE INTELIGENCIA DE NEGOCIOS (CLIMA REAL) ***
-                ${weatherContext}
-                *****************************************************
-
-                **Tu Misión:**
-                1. Recomendar tours basados en el clima ACTUAL y la temporada. Si llueve mucho hoy, sugiere museos o tours gastronómicos, no montaña.
-                2. Si el usuario pregunta por fechas futuras, usa la "Seasonal Intelligence".
-                3. Proteger al usuario: Si hay ALERTA ROJA, advierte sobre seguridad.
-
-                **Tu Personalidad:**
-                - **Experto pero Cool:** Sabes de meteorología andina pero lo explicas fácil.
-                - **Vendedor Sutil:** "Viendo que hace sol, es el día perfecto para cuatrimotos. ¿Te reservo?"
-                - **Breve y Directo.**
-
-                **Reglas:**
-                - NUNCA menciones "API" o "Open-Meteo". Di "mis reportes dicen..." o "veo en el radar...".
-                - Si el clima es malo, ofrece alternativas (Plan B).
-                
-                **Contexto del Viajero:** ${JSON.stringify(context)}
-            `
+        // 5. Call Dify API
+        const difyResponse = await fetch(`${difyBaseUrl}/chat-messages`, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${difyApiKey}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                query: message,
+                inputs: {
+                    weather_context: weatherContext,
+                    user_profile: JSON.stringify(context)
+                },
+                response_mode: "blocking",
+                user: context.personal?.fullName || "anonymous-web-user"
+            })
         });
 
-        // 6. Build Chat Session
-        let validHistory = [];
-        if (Array.isArray(history)) {
-            validHistory = history.map(h => ({
-                role: h.role === 'ai' ? 'model' : 'user',
-                parts: [{ text: h.text }]
-            }));
+        if (!difyResponse.ok) {
+            const errorData = await difyResponse.json().catch(() => ({}));
+            throw new Error(errorData.message || `Dify API error: ${difyResponse.status}`);
         }
 
-        const chat = model.startChat({
-            history: validHistory,
-            generationConfig: {
-                maxOutputTokens: 600,
-                temperature: 0.7,
-            },
-        });
+        const data = await difyResponse.json();
 
-        // 7. Generate Response
-        const result = await chat.sendMessage(message);
-        const responseText = result.response.text();
-
-        // 8. Success Response
+        // 6. Success Response
         return response.status(200).json({
-            reply: responseText,
+            reply: data.answer || 'Lo siento, no pude procesar tu solicitud en este momento.',
             timestamp: new Date().toISOString()
         });
 
     } catch (error) {
-        console.error('❌ Gemini API Error:', error);
+        console.error('❌ Dify API Error:', error);
         return response.status(500).json({
             error: 'AI Engine Error',
             message: 'Life AI is currently rebooting systems. Please try again.',

@@ -503,7 +503,7 @@ class AIPersonalizationEngine {
         }
 
         try {
-            // 1. Call Gemini API via Vercel Function
+            // 1. Call Dify Engine via Vercel Function
             const response = await fetch('/api/chat', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -517,11 +517,11 @@ class AIPersonalizationEngine {
 
             const data = await response.json();
 
-            // 2. Display AI Response
+            // 2. Display AI Response (Dify answer)
             this.addBotMessage(data.reply);
 
         } catch (error) {
-            console.warn('⚠️ Gemini API not active or unreachable. Using fallback logic.', error);
+            console.warn('⚠️ Dify Engine not active or unreachable. Using fallback logic.', error);
 
             // 3. Fallback to Local Logic (Mock)
             this.processOfflineIntent(msg);
