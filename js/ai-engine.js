@@ -376,36 +376,6 @@ class AIPersonalizationEngine {
     }
 
     toggleChat() {
-        this.chatOpen = !this.chatOpen;
-        const windowEl = document.getElementById('life-window');
-        const badge = document.getElementById('life-badge');
-
-        if (this.chatOpen) {
-            // OPEN
-            windowEl.classList.remove('hidden');
-            // Small delay to allow display:block to apply before opacity transition
-            setTimeout(() => {
-                windowEl.classList.remove('opacity-0', 'scale-75', 'translate-y-4');
-            }, 10);
-
-            // Hide badge
-            if (badge) badge.style.transform = 'scale(0)';
-
-            // Init conversation if empty
-            if (!this.chatInitialized) {
-                this.addBotMessage(`¡Hola! Soy Life, tu asesor de aventuras. 🏔️\n¿Buscas algo extremo o relajante para hoy?`);
-                this.chatInitialized = true;
-            }
-        } else {
-            // CLOSE
-            windowEl.classList.add('opacity-0', 'scale-75', 'translate-y-4');
-            setTimeout(() => {
-                windowEl.classList.add('hidden');
-            }, 500); // Wait for transition
-        }
-    }
-
-    toggleChat() {
         const windowEl = document.getElementById('life-chat-window');
         if (!windowEl) return;
 
@@ -604,3 +574,5 @@ window.AIEngine = new AIPersonalizationEngine();
 window.getAIInsights = () => window.AIEngine.getUserInsights();
 
 console.log('🤖 Lifextreme AI Personalization Engine v1.0 Cargado');
+
+document.addEventListener('DOMContentLoaded', () => { window.lifeAI = new AIPersonalizationEngine(); });
