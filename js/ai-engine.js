@@ -502,9 +502,8 @@ class AIPersonalizationEngine {
             this.showTypingIndicator();
         }
 
-        try {
-            // 1. Call Dify Engine via Vercel Function
-            const response = await fetch('/api/chat', {
+            // 1. Call HUB Cusco via Tailscale Tunnel
+            const response = await fetch('http://100.102.164.43:8000/webhook/lifextreme', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
