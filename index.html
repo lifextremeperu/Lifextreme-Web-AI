@@ -3278,6 +3278,64 @@
         }
     </style>
 
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <!-- HUB CUSCO 2026 - CHATBOT UI COMPONENT -->
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <div id="life-chat-window" class="fixed bottom-24 right-6 w-[90vw] md:w-[380px] h-[70vh] md:h-[600px] bg-white rounded-[40px] shadow-3xl z-[9000] hidden flex-col overflow-hidden border border-slate-100 animate-in slide-in-from-bottom-5 duration-300">
+        <!-- Header -->
+        <div class="bg-primary p-6 text-white flex justify-between items-center bg-gradient-to-r from-primary to-indigo-900">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-white/20 rounded-2xl flex items-center justify-center">
+                    <i class="ri-flashlight-fill text-xl"></i>
+                </div>
+                <div>
+                    <p class="text-[10px] font-black uppercase tracking-[0.3em] opacity-70">Búnker Cusco</p>
+                    <h3 class="font-black text-lg leading-none italic uppercase">Life Chat AI</h3>
+                </div>
+            </div>
+            <button onclick="window.AIEngine.toggleChat()" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all">
+                <i class="ri-close-line text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Messages Area -->
+        <div id="life-messages" class="flex-1 overflow-y-auto p-6 space-y-4 no-scrollbar bg-[#fcfdff]">
+            <div class="bg-slate-50 p-4 rounded-[24px] rounded-tl-none border border-slate-100 max-w-[90%] shadow-sm">
+                <p class="text-sm font-medium text-slate-700 leading-relaxed">¡Hola! Soy <b>Life</b>, tu guía de inteligencia conectada al HUB Cusco. ¿Qué aventura quieres explorar hoy?</p>
+            </div>
+        </div>
+
+        <!-- Typing Indicator -->
+        <div id="typing-indicator" class="hidden px-6 py-2">
+            <div class="flex gap-1">
+                <span class="w-2 h-2 bg-primary/20 rounded-full animate-bounce"></span>
+                <span class="w-2 h-2 bg-primary/40 rounded-full animate-bounce [animation-delay:0.2s]"></span>
+                <span class="w-2 h-2 bg-primary/60 rounded-full animate-bounce [animation-delay:0.4s]"></span>
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="p-6 pt-2 bg-white border-t border-slate-50">
+            <div class="relative group">
+                <input type="text" id="life-input" placeholder="Escribe tu duda aquí..." class="w-full bg-slate-50 border border-slate-200 rounded-[20px] pl-5 pr-14 py-4 text-xs font-bold outline-none group-hover:border-primary transition-all focus:border-primary focus:ring-4 focus:ring-primary/5">
+                <button id="send-btn" onclick="window.AIEngine.sendChatFromInput()" class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-primary text-white rounded-xl flex items-center justify-center hover:bg-slate-900 transition-all shadow-lg hover:rotate-12">
+                    <i class="ri-send-plane-2-fill"></i>
+                </button>
+            </div>
+            <p class="text-[8px] text-center text-slate-400 mt-4 font-black uppercase tracking-widest opacity-50">Powered by Hub Cusco 2026 | Groq & Qdrant</p>
+        </div>
+    </div>
+
+    <!-- Trigger Button -->
+    <button id="life-trigger" onclick="window.AIEngine.toggleChat()" class="fixed bottom-6 right-6 w-16 h-16 bg-primary text-white rounded-[24px] shadow-[0_20px_50px_rgba(67,56,202,0.4)] z-[9001] flex items-center justify-center hover:scale-110 active:scale-95 hover:rotate-6 transition-all group">
+        <i class="ri-chat-smile-3-fill text-3xl group-hover:animate-pulse"></i>
+        <div id="life-badge" class="absolute -top-1 -right-1 w-4 h-4 bg-secondary rounded-full border-2 border-white animate-bounce hidden"></div>
+    </button>
+
+    <!-- Connection Script -->
+    <script src="js/ai-engine.js"></script>
+
 </body>
+
 
 </html>

@@ -405,6 +405,29 @@ class AIPersonalizationEngine {
         }
     }
 
+    toggleChat() {
+        const windowEl = document.getElementById('life-chat-window');
+        if (!windowEl) return;
+
+        if (windowEl.classList.contains('hidden')) {
+            windowEl.classList.remove('hidden');
+            setTimeout(() => {
+                windowEl.classList.remove('opacity-0', 'scale-75', 'translate-y-4');
+                windowEl.classList.add('opacity-100', 'scale-100', 'translate-y-0');
+            }, 10);
+            
+            // Focus input auto
+            const input = document.getElementById('life-input');
+            if (input) input.focus();
+        } else {
+            windowEl.classList.remove('opacity-100', 'scale-100', 'translate-y-0');
+            windowEl.classList.add('opacity-0', 'scale-75', 'translate-y-4');
+            setTimeout(() => {
+                windowEl.classList.add('hidden');
+            }, 300);
+        }
+    }
+
     showChatNotification() {
         const badge = document.getElementById('life-badge');
         if (badge) {
