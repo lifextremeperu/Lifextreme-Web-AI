@@ -502,8 +502,8 @@ class AIPersonalizationEngine {
             this.showTypingIndicator();
         }
 
-            // 1. Call HUB Cusco via Tailscale Tunnel
-            const response = await fetch('http://100.102.164.43:8000/webhook/lifextreme', {
+            // 1. Call Secure HUB Cusco via Tailscale Funnel
+            const response = await fetch('https://desktop-sedhoop.tail883d62.ts.net/webhook/lifextreme', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
