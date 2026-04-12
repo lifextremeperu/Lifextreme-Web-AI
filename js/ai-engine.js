@@ -495,7 +495,8 @@ class AIPersonalizationEngine {
             this.showTypingIndicator();
         }
 
-            // 1. Call Secure HUB Cusco via Tailscale Funnel
+        try {
+            // 1. Call Secure HUB Cusco via Tailscale
             const response = await fetch('https://desktop-sedhoop.tail883d62.ts.net/webhook/lifextreme', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -509,11 +510,11 @@ class AIPersonalizationEngine {
 
             const data = await response.json();
 
-            // 2. Display AI Response (Dify answer)
-            this.addBotMessage(data.reply);
+            // 2. Display AI Response (Agent answer)
+            this.addBotMessage(data.response);
 
         } catch (error) {
-            console.warn('⚠️ Dify Engine not active or unreachable. Using fallback logic.', error);
+            console.warn('⚠️ HUB Engine not active or unreachable. Using fallback logic.', error);
 
             // 3. Fallback to Local Logic (Mock)
             this.processOfflineIntent(msg);
