@@ -424,7 +424,7 @@ class AIPersonalizationEngine {
         const container = document.getElementById('life-messages');
         const msgHtml = `
             <div class="flex justify-end animate-slideUp">
-                <div class="bg-slate-900 text-white p-3 rounded-2xl rounded-tr-sm max-w-[85%] text-xs font-medium shadow-md">
+                <div class="bg-slate-900 text-white p-3 rounded-2xl rounded-tr-sm max-w-[85%] text-xs font-medium shadow-md break-words whitespace-pre-wrap overflow-hidden">
                     ${text}
                 </div>
             </div>
@@ -450,7 +450,7 @@ class AIPersonalizationEngine {
                     <i class="ri-flashlight-fill text-primary text-sm"></i>
                 </div>
                 <div class="flex flex-col gap-1 max-w-[85%]">
-                    <div class="bg-white p-3 rounded-2xl rounded-tl-sm text-slate-700 text-xs font-medium shadow-sm border border-slate-100">
+                    <div class="bg-white p-3 rounded-2xl rounded-tl-sm text-slate-700 text-xs font-medium shadow-sm border border-slate-100 break-words whitespace-pre-wrap max-w-full overflow-hidden">
                         ${text.replace(/\n/g, '<br>')}
                     </div>
                     ${actionsHtml}
