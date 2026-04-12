@@ -11,9 +11,9 @@ const FOMOEngine = {
      */
     async init() {
         try {
-            const resp = await fetch('http://ip-api.com/json/?fields=status,city,country');
+            const resp = await fetch('https://ipapi.co/json/');
             const data = await resp.json();
-            if (data.status === 'success') {
+            if (data && data.city) {
                 this.userCity = data.city;
             }
         } catch (e) {
