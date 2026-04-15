@@ -8,10 +8,14 @@
 
 class AIPersonalizationEngine {
     constructor() {
-        this.userProfile = null;
-        this.recommendations = [];
-        this.personalizedContent = {};
+        this.identity = {
+            name: "MAX",
+            origin: "Asesor Maestro de Aventura (Lifextreme PRO)",
+            traits: ["Exciting", "Expert", "Safety-oriented", "Direct"]
+        };
+        this.commercialBrain = null;
         this.knowledgeBase = null;
+        this.salesDNA = null;
         this.init();
     }
 
@@ -26,6 +30,10 @@ class AIPersonalizationEngine {
 
         // Init Floating Chatbot
         this.initChatbot();
+        
+        // Cargar Inteligencia Comercial
+        this.loadCommercialBrain();
+        this.loadSalesDNA();
     }
 
     loadUserProfile() {
@@ -200,7 +208,48 @@ class AIPersonalizationEngine {
 
     initChatbot() {
         this.chatOpen = false;
+        this.checkWelcomeBonus();
         setTimeout(() => { if (!this.chatOpen) this.showChatNotification(); }, 8000);
+    }
+
+    async loadCommercialBrain() {
+        try {
+            const response = await fetch('data/knowledge/max_commercial_brain.json');
+            this.commercialBrain = await response.json();
+            console.log('🧠 MAX: Cerebro comercial cargado', this.commercialBrain.identity.full_name);
+        } catch (e) {
+            console.warn('⚠️ MAX: No se pudo cargar el cerebro comercial', e);
+        }
+    }
+
+    async loadSalesDNA() {
+        try {
+            const response = await fetch('data/knowledge/max_sales_dna.json');
+            this.salesDNA = await response.json();
+            console.log(`🧬 MAX: ADN de ventas cargado (${this.salesDNA.length} patrones)`);
+        } catch (e) {
+            console.warn('⚠️ MAX: No se pudo cargar el ADN de ventas', e);
+        }
+    }
+
+    checkWelcomeBonus() {
+        if (!localStorage.getItem('max_welcome_bonus_granted')) {
+            this.pendingBonus = 30;
+        }
+    }
+
+    grantWelcomeBonus() {
+        if (this.pendingBonus) {
+            localStorage.setItem('max_welcome_bonus_granted', 'true');
+            // Simular actualización de LifeCoins en el perfil local si existe
+            if (this.userProfile) {
+                this.userProfile.rewards = (this.userProfile.rewards || 0) + 30;
+                localStorage.setItem('lifextreme_ai_profile', JSON.stringify(this.userProfile));
+            }
+            this.pendingBonus = 0;
+            return true;
+        }
+        return false;
     }
 
     toggleChat() {
@@ -243,14 +292,53 @@ class AIPersonalizationEngine {
         this.scrollToBottom();
     }
 
+    personalizeResponse(text) {
+        if (!text) return "";
+        // No personalizar si es una respuesta estructurada (JSON) o ya tiene emojis de aventura
+        if (text.startsWith('{') || text.includes('🏔️') || text.includes('🧗')) return text;
+
+        const prefixes = [
+            "¡Escucha esto, aventurero! ",
+            "Desde las rutas más extremas del Cusco: ",
+            "¡Esa es la actitud! Mi consejo es: ",
+            "Como tu asesor en Lifextreme, te digo: "
+        ];
+        const suffixes = [
+            " ¡La adrenalina te espera! 🏔️⚡",
+            " ¿Listo para el siguiente nivel? 🚀",
+            " ¡Nos vemos en la cima! 🧗",
+            " ¡Vive la experiencia real! 🔥"
+        ];
+        
+        const prefix = prefixes[Math.floor(Math.random() * prefixes.length)];
+        const suffix = suffixes[Math.floor(Math.random() * suffixes.length)];
+        
+        return `${prefix}${text}${suffix}`;
+    }
+
     addBotMessage(text, actions = []) {
         this.hideTypingIndicator();
         const container = document.getElementById('life-messages');
+        const botName = this.identity.name;
+        
+        // Aplicar la personalidad de MAX
+        const stylizedText = this.personalizeResponse(text);
+
         let actionsHtml = '';
         if (actions.length > 0) {
             actionsHtml = `<div class="flex flex-wrap gap-2 mt-2">${actions.map(act => `<button onclick="window.AIEngine.handleAction('${act.val}')" class="bg-primary/10 text-primary hover:bg-primary hover:text-white px-4 py-2 rounded-xl text-[10px] font-black transition-all border border-primary/20">${act.label}</button>`).join('')}</div>`;
         }
-        const msgHtml = `<div class="flex gap-3 animate-slideUp"><div class="w-10 h-10 rounded-2xl bg-white flex items-center justify-center border border-slate-100 shadow-sm flex-shrink-0"><i class="ri-flashlight-fill text-primary text-xl"></i></div><div class="flex flex-col gap-2 max-w-[85%]"><div class="chat-bubble-bot p-4 text-slate-700 text-xs font-medium leading-relaxed break-words">${text.replace(/\n/g, '<br>')}</div>${actionsHtml}</div></div>`;
+        const msgHtml = `
+            <div class="flex gap-3 animate-slideUp">
+                <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg flex-shrink-0">
+                    <i class="ri-flashlight-fill text-white text-xl"></i>
+                </div>
+                <div class="flex flex-col gap-1 max-w-[85%]">
+                    <span class="text-[9px] font-black uppercase tracking-widest text-slate-400 ml-1">${botName}</span>
+                    <div class="chat-bubble-bot p-4 text-slate-700 text-xs font-medium leading-relaxed break-words shadow-sm border border-slate-100">${stylizedText.replace(/\n/g, '<br>')}</div>
+                    ${actionsHtml}
+                </div>
+            </div>`;
         container.insertAdjacentHTML('beforeend', msgHtml);
         this.scrollToBottom();
     }
@@ -316,17 +404,65 @@ class AIPersonalizationEngine {
         return (bestMatch && bestScore >= 2) ? bestMatch : null;
     }
 
+    searchSalesDNA(query) {
+        if (!this.salesDNA || this.salesDNA.length === 0) return null;
+        const normalizedQuery = query.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        
+        let bestMatch = null; let bestScore = 0;
+        for (const pattern of this.salesDNA) {
+            const contextText = pattern.context.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+            if (!contextText) continue;
+
+            // Búsqueda por similitud básica (palabras clave compartidas)
+            const queryWords = normalizedQuery.split(/\s+/).filter(w => w.length > 3);
+            let matched = 0;
+            for (const word of queryWords) {
+                if (contextText.includes(word)) matched++;
+            }
+            
+            const score = matched / (queryWords.length || 1);
+            if (score > 0.6 && score > bestScore) {
+                bestScore = score;
+                bestMatch = pattern;
+            }
+        }
+        return bestMatch;
+    }
+
     async processUserMessage(msg) {
         if (!document.getElementById('typing-indicator')) this.showTypingIndicator();
-        await this.loadKnowledgeBase();
+        
+        // Carga diferida de conocimientos si no existen
+        await Promise.all([this.loadKnowledgeBase(), this.loadSalesDNA()]);
 
-        // CAPA 1: Local KB
+        const lowerMsg = msg.toLowerCase();
+
+        // FILTRO DE PERSONALIDAD: Evitar respuestas puramente académicas
+        const academicKeywords = ['libro', 'historia', 'arqueologia', 'enciclopedia', 'articulo'];
+        if (academicKeywords.some(word => lowerMsg.includes(word)) && !lowerMsg.includes('tour') && !lowerMsg.includes('ruta')) {
+            const redirectMsg = "¡Interesante dato! Pero en Lifextreme preferimos vivir la historia en lugar de solo leerla. Lugares como Tipón son brutales para una caminata de aclimatación. ¿Quieres que te muestre rutas extremas por esa zona? 🧗🏔️";
+            setTimeout(() => {
+                this.addBotMessage(redirectMsg, [{ label: '🏔️ Ver Rutas', val: 'Cusco' }]);
+            }, 600);
+            return;
+        }
+
+        // CAPA 1.1: FAQ Local
         const kbResult = this.searchKnowledgeBase(msg);
         if (kbResult) {
             setTimeout(() => {
                 const actions = [{ label: '📋 Ver Tours', val: 'quiero ver tours disponibles' }, { label: '💬 WhatsApp', val: 'contactar whatsapp' }];
                 this.addBotMessage(kbResult.answer, actions);
             }, 600);
+            return;
+        }
+
+        // CAPA 1.2: ADN Comercial (Paolo Sales Style)
+        const dnaResult = this.searchSalesDNA(msg);
+        if (dnaResult) {
+            setTimeout(() => {
+                this.addBotMessage(dnaResult.response, [{ label: '📱 Más info por WhatsApp', val: 'OPEN_WHATSAPP' }]);
+            }, 800);
             return;
         }
 
@@ -356,25 +492,85 @@ class AIPersonalizationEngine {
 
     processContextualFallback(msg) {
         const lower = msg.toLowerCase();
-        let reply = 'Esa es una buena pregunta. Para darte la mejor respuesta, te recomiendo contactar a nuestro equipo directamente por WhatsApp. ¿Deseas que te conecte ahora?';
+        
+        // GESTIÓN DE TRIGGERS COMERCIALES (Cerebro MAX)
+        if (this.commercialBrain) {
+            const units = this.commercialBrain.business_units;
+            
+            // 1. Inversionistas (VIP)
+            if (units.partners.triggers.some(t => lower.includes(t)) && (lower.includes('invertir') || lower.includes('dinero'))) {
+                const reply = `¡Excelente! Para temas de inversión y alianzas estratégicas, Paolo atiende estas consultas personalmente. ¿Te gustaría que te conecte a su WhatsApp personal ahora mismo?`;
+                const actions = [{ label: '📞 Contactar a Paolo', val: 'CONNECT_PAOLO_INVESTOR' }, { label: '🏢 Ver Portal Partners', val: 'ver portal partners' }];
+                this.addBotMessage(reply, actions);
+                return;
+            }
+
+            // 2. Comunidad (Pagos/Ahorro)
+            if (units.community.triggers.some(t => lower.includes(t))) {
+                const reply = `En Lifextreme creemos en democratizar la aventura. Con nuestra "Comunidad Social", puedes unirte a expediciones existentes y dividir gastos. ¡Viaja más, paga menos! 🏔️`;
+                const actions = [{ label: '👥 Ver Expediciones Sociales', val: 'quiero ver expediciones sociales' }];
+                this.addBotMessage(reply, actions);
+                return;
+            }
+
+            // 3. Recompensas (LifeCoins)
+            if (units.rewards.triggers.some(t => lower.includes(t))) {
+                const reply = `Nuestro sistema de LifeCoins premia tu fidelidad. ¡Recuerda que 1,000 LC equivalen a un descuento de $10! Puedes ganarlos refiriendo amigos o con check-ins diarios. 🚀`;
+                const actions = [{ label: '💰 Ver mis Recompensas', val: 'recompensas' }];
+                this.addBotMessage(reply, actions);
+                return;
+            }
+
+            // 4. Regalos (Gift Cards)
+            if (units.gifts.triggers.some(t => lower.includes(t))) {
+                const reply = `¡Qué gran detalle! Nuestras Gift Cards digitales son perfectas para cumpleaños o aniversarios. Tú eliges el monto y el cumpleañero elige el destino. 🎁`;
+                const actions = [{ label: '🎨 Diseñar Regalo', val: 'openGiftModal()' }];
+                this.addBotMessage(reply, actions);
+                return;
+            }
+        }
+
+        let reply = 'Esa es una buena pregunta. He aprendido mucho de Paolo sobre el terreno, pero para detalles muy específicos, lo mejor es que hablemos por WhatsApp. ¿Te conecto?';
         let actions = [{ label: '📱 WhatsApp', val: 'OPEN_WHATSAPP' }, { label: '🏔️ Ver Tours', val: 'qué tours tienen' }];
         
         if (lower.match(/hola|buenos|buenas/)) {
-            reply = '¡Hola! 👋 Soy Life, tu asistente de Lifextreme. ¿En qué aventura puedo ayudarte hoy?';
-            actions = [{ label: '🏔️ Tours', val: 'tours disponibles' }, { label: '💰 Precios', val: 'cuánto cuestan' }];
+            let welcome = `Hola! Soy **${this.identity.name}**, tu Asesor de Aventuras! 🏔️⚡`;
+            if (this.pendingBonus) {
+                welcome += `\n\n¡Por ser tu primera vez, te he acreditado **30 LifeCoins** de regalo! 🎁`;
+                this.grantWelcomeBonus();
+            }
+            welcome += `\n\n¿Qué destino quieres explorar hoy?`;
+            
+            reply = welcome;
+            actions = [{ label: '🏔️ Tours', val: 'tours disponibles' }, { label: '👥 Comunidad', val: 'qué es la comunidad' }, { label: '🎁 Regalar', val: 'quiero hacer un regalo' }];
         }
         
         if (msg === 'OPEN_WHATSAPP') {
-            window.open('https://wa.me/51958050928?text=Hola%20Lifextreme!%20Quisiera%20información', '_blank');
+            window.open('https://wa.me/51958050928?text=Hola%20Lifextreme!%20Vengo%20del%20chat%20con%20MAX', '_blank');
             reply = '¡Listo! WhatsApp abierto. 🚀';
             actions = [];
         }
+
+        if (msg === 'CONNECT_PAOLO_INVESTOR') {
+            window.open('https://wa.me/51958050928?text=Hola%20Paolo,%20vengo%20del%20chat%20con%20MAX.%20Me%20interesa%20invertir%20en%20Lifextreme.', '_blank');
+            reply = 'Te he conectado con el canal VIP de Paolo. 💼';
+            actions = [];
+        }
+
         this.addBotMessage(reply, actions);
     }
 
     handleAction(val) {
         if (val === 'OPEN_WHATSAPP') {
             window.open('https://wa.me/51958050928?text=Hola%20Lifextreme!', '_blank');
+            return;
+        }
+        if (val === 'CONNECT_PAOLO_INVESTOR') {
+            window.open('https://wa.me/51958050928?text=Hola%20Paolo,%20quiero%20invertir%20en%20Lifextreme', '_blank');
+            return;
+        }
+        if (val.includes('()')) {
+            try { eval(val); } catch(e) { console.error('Error executing action:', val); }
             return;
         }
         this.addUserMessage(val);
@@ -387,5 +583,5 @@ class AIPersonalizationEngine {
 // INICIALIZACIÓN
 document.addEventListener('DOMContentLoaded', () => {
     window.AIEngine = new AIPersonalizationEngine();
-    console.log('🤖 Lifextreme AI Engine v2.0 (Always Active) Cargado');
+    console.log('🤖 MAX: Asesor Maestro de Lifextreme (v3.0) Cargado');
 });
