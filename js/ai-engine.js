@@ -254,36 +254,40 @@ class AIPersonalizationEngine {
     async addBotMessage(text) {
         this.chatHistory.push({ role: 'bot', content: text, time: Date.now() });
         this.saveChatHistory();
+        this.detectTopic(text);
         
-        this.isTyping = true;
-        this.hideTypingIndicator();
-        const container = document.getElementById('life-messages');
-        const stylized = this.personalizeResponse(text);
-        const msgId = 'bot-' + Date.now();
-        
-        const html = `
-            <div class="flex gap-3 animate-slideUp mb-4">
-                <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg flex-shrink-0">
-                    <i class="ri-flashlight-fill text-white text-xl"></i>
-                </div>
-                <div class="flex flex-col gap-1 max-w-[85%]">
-                    <span class="text-[9px] font-black uppercase tracking-widest text-slate-400 ml-1">${this.identity.name}</span>
-                    <div id="${msgId}" class="chat-bubble-bot p-4 text-slate-700 text-xs font-medium leading-relaxed break-words shadow-sm border border-slate-100 bg-[#f8fafc] rounded-2xl rounded-tl-none"></div>
-                </div>
-            </div>`;
-        container.insertAdjacentHTML('beforeend', html);
-        
-        const bubble = document.getElementById(msgId);
-        const chars = stylized.split('');
-        let current = '';
-        for (let i = 0; i < chars.length; i++) {
-            current += chars[i];
-            bubble.innerHTML = current.replace(/\n/g, '<br>');
-            if (i % 8 === 0) this.scrollToBottom();
-            await new Promise(r => setTimeout(r, 1)); 
+        try {
+            this.isTyping = true;
+            this.hideTypingIndicator();
+            const container = document.getElementById('life-messages');
+            const stylized = this.personalizeResponse(text);
+            const msgId = 'bot-' + Date.now();
+            
+            const html = `
+                <div class="flex gap-3 animate-slideUp mb-4">
+                    <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg flex-shrink-0">
+                        <i class="ri-flashlight-fill text-white text-xl"></i>
+                    </div>
+                    <div class="flex flex-col gap-1 max-w-[85%]">
+                        <span class="text-[9px] font-black uppercase tracking-widest text-slate-400 ml-1">${this.identity.name}</span>
+                        <div id="${msgId}" class="chat-bubble-bot p-4 text-slate-700 text-xs font-medium leading-relaxed break-words shadow-sm border border-slate-100 bg-[#f8fafc] rounded-2xl rounded-tl-none"></div>
+                    </div>
+                </div>`;
+            container.insertAdjacentHTML('beforeend', html);
+            
+            const bubble = document.getElementById(msgId);
+            const chars = stylized.split('');
+            let current = '';
+            for (let i = 0; i < chars.length; i++) {
+                current += chars[i];
+                bubble.innerHTML = current.replace(/\n/g, '<br>');
+                if (i % 10 === 0) this.scrollToBottom();
+                await new Promise(r => setTimeout(r, 1)); 
+            }
+        } finally {
+            this.isTyping = false;
+            this.scrollToBottom();
         }
-        this.isTyping = false;
-        this.scrollToBottom();
     }
 
     personalizeResponse(text) {
