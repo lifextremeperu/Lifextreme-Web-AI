@@ -298,17 +298,24 @@ body {
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-    background: rgba(0,0,0,0.03);
+    background: #f8fafc;
     border-radius: 10px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
+    background: #4338ca; /* Color primario para mayor visibilidad */
     border-radius: 10px;
+    border: 2px solid #f8fafc; /* Efecto flotante */
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
+    background: #3730a3;
+}
+
+/* Soporte para Firefox */
+.custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #4338ca #f8fafc;
 }
 
 .backpack-icon.filled {
