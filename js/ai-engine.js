@@ -437,12 +437,24 @@ class AIPersonalizationEngine {
 
         const lowerMsg = msg.toLowerCase();
 
-        // FILTRO DE PERSONALIDAD: Evitar respuestas puramente académicas
+        // FILTRO DE PERSONALIDAD: Evitar respuestas puramente académicas o de bajo valor comercial
         const academicKeywords = ['libro', 'historia', 'arqueologia', 'enciclopedia', 'articulo'];
         if (academicKeywords.some(word => lowerMsg.includes(word)) && !lowerMsg.includes('tour') && !lowerMsg.includes('ruta')) {
             const redirectMsg = "¡Interesante dato! Pero en Lifextreme preferimos vivir la historia en lugar de solo leerla. Lugares como Tipón son brutales para una caminata de aclimatación. ¿Quieres que te muestre rutas extremas por esa zona? 🧗🏔️";
             setTimeout(() => {
                 this.addBotMessage(redirectMsg, [{ label: '🏔️ Ver Rutas', val: 'Cusco' }]);
+            }, 600);
+            return;
+        }
+
+        // DISPARADORES DE AVENTURA (Prioridad sobre FAQ genérico)
+        if (lowerMsg.includes('trekking') || lowerMsg.includes('caminata') || lowerMsg.includes('treking')) {
+            const trekMsg = "¡El trekking es el corazón de Lifextreme! 🏔️ Desde el místico Camino Inca hasta la imponente ruta al Ausangate, tenemos expediciones para cada nivel de adrenalina. ¿Te gustaría ver nuestros tours de trekking más populares o prefieres una asesoría personalizada? 🧗⚡";
+            setTimeout(() => {
+                this.addBotMessage(trekMsg, [
+                    { label: '🏆 Tours de Trekking', val: 'Cusco trekking' },
+                    { label: '📱 Asesoría WhatsApp', val: 'OPEN_WHATSAPP' }
+                ]);
             }, 600);
             return;
         }
