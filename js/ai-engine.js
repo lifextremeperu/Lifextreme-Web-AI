@@ -221,7 +221,7 @@ class AIPersonalizationEngine {
         }
 
         if (intent === 'EQUIPMENT_RENTAL') {
-            return `¡Inteligente decisión! ${units.equipment.value_prop}. Tenemos cámaras GoPro, carpas térmicas y carpas de alta montaña listas. Al ser Socio Elite, tienes un **50% de descuento** en renta. ¿Deseas ver el catálogo? 📦`;
+            return `¡Inteligente decisión! ${units.equipment.value_prop}. Tenemos cámaras GoPro, carpas térmicas y carpas de alta montaña listas. Al ser Socio Elite, tienes un **15% de descuento** en renta. ¿Deseas ver el catálogo? 📦`;
         }
 
         if (intent === 'MEMBERSHIP_UPGRADE') {
