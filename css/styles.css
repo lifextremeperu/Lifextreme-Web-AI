@@ -293,7 +293,7 @@ body {
     transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-/* --- CHATBOT SCROLLBAR ULTIMATE (FORCE VISIBLE) --- */
+/* --- CHATBOT SCROLLBAR ULTIMATE (FORCE VISIBLE & UNCLIPPED) --- */
 #life-messages {
     overflow-y: auto !important;
     scrollbar-width: thin !important;
@@ -302,6 +302,7 @@ body {
     position: relative !important;
     pointer-events: auto !important;
     -webkit-overflow-scrolling: touch !important;
+    padding-right: 20px !important; /* Move content left to reveal scrollbar */
 }
 
 #life-messages::-webkit-scrollbar {
@@ -310,24 +311,20 @@ body {
 }
 
 #life-messages::-webkit-scrollbar-track {
-    background: #fdf2f0 !important; /* Soft orange tint */
+    background: #fdf2f0 !important;
     border-left: 1px solid #fee2e2 !important;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+    border-radius: 10px !important;
 }
 
 #life-messages::-webkit-scrollbar-thumb {
-    background: #0f172a !important; /* Deep Navy/Black for max contrast */
+    background: #0f172a !important; 
     border-radius: 20px !important;
     border: 3px solid #fdf2f0 !important;
     cursor: grab !important;
 }
 
-#life-messages::-webkit-scrollbar-thumb:hover {
-    background: #1e293b !important;
-}
-
-#life-messages::-webkit-scrollbar-thumb:active {
-    cursor: grabbing !important;
-}
 
 .backpack-icon.filled {
     color: #4338ca;
