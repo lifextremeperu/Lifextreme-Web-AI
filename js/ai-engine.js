@@ -1,5 +1,5 @@
 // ========================================
-// LIFEXTREME AI PERSONALIZATION ENGINE (v5.0 - MASTER ADVISOR)
+// LIFEXTREME AI PERSONALIZATION ENGINE (v5.5 - SUPER ADVISOR)
 // ========================================
 
 class AIPersonalizationEngine {
@@ -46,7 +46,7 @@ class AIPersonalizationEngine {
             this.salesDNA = dna;
             this.commercialBrain = comm;
             
-            console.log(`🚀 MAX v5.0: Master Advisor Initialized | ${this.knowledgeBase.length} Expert Nodes`);
+            console.log(`🚀 MAX v5.5: Super Advisor | Knowledge Nodes: ${this.knowledgeBase.length}`);
         } catch (e) {
             console.error('❌ AI Hub Load Error:', e);
         }
@@ -98,93 +98,79 @@ class AIPersonalizationEngine {
     }
 
     addUserMessage(text) {
+        this.chatHistory.push({ role: 'user', content: text, time: Date.now() });
+        this.detectTopic(text);
+        this.saveChatHistory();
+
         const container = document.getElementById('life-messages');
         const msgHtml = `<div class="flex justify-end animate-slideUp mb-4"><div class="chat-bubble-user p-4 max-w-[85%] text-xs font-medium shadow-md break-words bg-primary text-white rounded-2xl rounded-tr-none">${text}</div></div>`;
         container.insertAdjacentHTML('beforeend', msgHtml);
         this.scrollToBottom();
     }
 
-    // --- INTENT ROUTER (LANGCHAIN INSPIRED) ---
+    // --- INTENT ROUTER & TOPIC DETECTION ---
     analyzeIntent(query) {
         const lower = query.toLowerCase();
         
-        const intentFlows = {
-            'ADVENTURE_BOOKING': ['reserva', 'ir a', 'tour', 'expedicion', 'vuelo', 'rafting', 'trekking', 'entrada'],
-            'EQUIPMENT_RENTAL': ['alquiler', 'renta', 'equipo', 'carpa', 'gopro', 'ropas', 'bolsa', 'mochila'],
-            'MEMBERSHIP_UPGRADE': ['elite', 'socio', 'membresia', 'beneficios exclusive', 'vip'],
-            'GIFT_EXPERIENCE': ['regalo', 'gift card', 'sorpresa', 'comprar para alguien'],
-            'LOYALTY_QUERY': ['lifecoins', 'puntos', 'ganar', 'recompensas', 'canje']
-        };
+        // Priority Mapping
+        const mapping = [
+            { id: 'ADVENTURE_BOOKING', keywords: ['reserva', 'ir a', 'salkantay', 'choquequirao', 'tour', 'machu picchu', 'caminata'] },
+            { id: 'EQUIPMENT_RENTAL', keywords: ['equipo', 'alquilar', 'renta', 'gopro', 'carpa', 'mochila', 'bolsa'] },
+            { id: 'GIFT_EXPERIENCE', keywords: ['regalo', 'gift card', 'sorpresa', 'dar', 'obsequio'] },
+            { id: 'MEMBERSHIP_UPGRADE', keywords: ['elite', 'socio', 'membresia', 'club', 'exclusive'] },
+            { id: 'LOYALTY_QUERY', keywords: ['puntos', 'lifecoins', 'ganar', 'canje'] }
+        ];
 
-        for (const [intent, keywords] of Object.entries(intentFlows)) {
-            if (keywords.some(k => lower.includes(k))) {
-                this.lastIntent = intent;
-                return intent;
-            }
+        for (const m of mapping) {
+            if (m.keywords.some(k => lower.includes(k))) return m.id;
         }
         return 'GENERAL_INFO';
     }
 
     detectTopic(msg) {
         const lower = msg.toLowerCase();
-        const keywords = ['salkantay', 'choquequirao', 'machu picchu', 'incas', 'canotaje', 'escalada'];
-        for (const k of keywords) {
-            if (lower.includes(k)) {
-                this.currentTopic = k;
-                return k;
+        const mainRoutes = ['salkantay', 'choquequirao', 'machu picchu', 'vinicunca', 'laguna humantay', 'ausangate'];
+        for (const r of mainRoutes) {
+            if (lower.includes(r)) { 
+                this.currentTopic = r; 
+                return r; 
             }
         }
         return null;
     }
 
-    // --- SALES HOOKS (CREWAI INSPIRED) ---
-    getStrategicSalesHook(intent, topic) {
-        if (!this.commercialBrain) return null;
-        
-        const units = this.commercialBrain.business_units;
-        
-        switch (intent) {
-            case 'ADVENTURE_BOOKING':
-                return `🚀 **Sugerencia Experta:** Sabías que en nuestra **Comunidad Social** para ${topic ? topic.toUpperCase() : 'esta ruta'} estamos armando grupos para compartir gastos? ¡Podrías ahorrar hasta un 25%!`;
-            case 'EQUIPMENT_RENTAL':
-                return `📦 **Dato Pro:** Al ser socio Elite, tu renta de GoPro y Carpas es a mitad de precio. ¿Quieres que veamos el catálogo completo?`;
-            case 'LOYALTY_QUERY':
-                return `🪙 **Info:** Recuerda que 1,000 LifeCoins = $10 de descuento real en cualquier expedición.`;
-            case 'GIFT_EXPERIENCE':
-                return `🎁 **Tip:** Las Gift Cards no vencen y son el mejor regalo para un explorador.`;
-            default:
-                if (topic) return `🏔️ **¿Listo para el siguiente paso?** Tenemos expediciones abiertas para ${topic.toUpperCase()} con guías certificados Lifextreme.`;
-                return null;
-        }
-    }
-
+    // --- STRATEGIC ENGINE (THE AMBASSADOR'S VOICE) ---
     async processUserMessage(msg) {
         if (this.isTyping) return;
         this.showTypingIndicator();
         
         const intent = this.analyzeIntent(msg);
-        this.detectTopic(msg);
-        
-        this.chatHistory.push({ role: 'user', content: msg, time: Date.now() });
-        this.saveChatHistory();
+        const topic = this.detectTopic(msg);
+        this.lastIntent = intent;
 
         // 1. GREETING FLOW
         if (msg.toLowerCase().match(/hola|buenos|buenas|que tal/)) {
             let welcome = `¡Hola! Soy **${this.identity.name}**, tu ${this.identity.full_name}! 🏔️⚡`;
             if (this.pendingBonus) {
-                welcome += `\n\n🎁 **BONO ACTIVADO:** Te he acreditado **30 LifeCoins** por iniciar nuestra charla.`;
+                welcome += `\n\n🎁 **30 LifeCoins** otorgados de bofetada por tu curiosidad!`;
                 this.pendingBonus = 0;
             }
-            welcome += `\n\n¿Buscas alguna ruta técnica, alquilar equipo de alta montaña o unirte a la Comunidad Social hoy?`;
+            welcome += `\n\n¿Buscas conquistar el **Salkantay**, alquilar equipo **Pro** o comprar una **Gift Card** de aventura hoy?`;
             await this.addBotMessage(welcome);
             return;
         }
 
-        // 2. BACKEND ROUTING (PYDANTIC AI HUB)
+        // 2. COMMERCIAL OVERRIDE (COMMERCIAL BRAIN FIRST)
+        const commResult = this.getCommercialResponse(intent, topic, msg);
+        if (commResult) {
+            await this.addBotMessage(commResult);
+            return;
+        }
+
+        // 3. AGENTE HUB (Advanced RAG)
         try {
             const controller = new AbortController();
-            const timeout = setTimeout(() => controller.abort(), 9000);
-            
+            const timeout = setTimeout(() => controller.abort(), 8000);
             const response = await fetch(this.hubUrl, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -192,41 +178,57 @@ class AIPersonalizationEngine {
                 body: JSON.stringify({ 
                     message: msg, 
                     intent: intent,
-                    topic: this.currentTopic,
-                    history: this.chatHistory.slice(-5),
-                    profile: this.userProfile
+                    topic: topic || this.currentTopic,
+                    history: this.chatHistory.slice(-4),
+                    context: "Lifextreme Sales Ambassador"
                 }),
                 signal: controller.signal
             });
             clearTimeout(timeout);
-            
             if (response.ok) {
                 const data = await response.json();
                 if (data.response || data.reply) {
-                    let agentResp = data.response || data.reply;
-                    const hook = this.getStrategicSalesHook(intent, this.currentTopic);
-                    if (hook) agentResp += `\n\n---\n${hook}`;
-                    await this.addBotMessage(agentResp);
+                    await this.addBotMessage(data.response || data.reply);
                     return;
                 }
             }
-        } catch (e) {
-            console.warn('⚠️ HUB Offline. Saltando a RAG Local Experto.');
-        }
+        } catch (e) { console.warn('⚠️ HUB offline'); }
 
-        // 3. LOCAL EXPERT RAG
+        // 4. KNOWLEDGE BASE EXPERT
         const kbResult = this.searchKnowledgeBase(msg);
         if (kbResult) {
-            let expertMsg = kbResult.answer;
-            const hook = this.getStrategicSalesHook(intent, this.currentTopic);
-            if (hook) expertMsg += `\n\n---\n${hook}`;
-            await this.addBotMessage(expertMsg);
+            await this.addBotMessage(kbResult.answer);
             return;
         }
 
-        // 4. FINAL FALLBACK (PERSUASIVE CLOSER)
-        const fallback = `Esa es una consulta de alta montaña. Como tu **${this.identity.full_name}**, te conectaré con nuestro Jefe de Logística por WhatsApp para garantizar que tu aventura a ${this.currentTopic ? this.currentTopic.toUpperCase() : 'el destino deseado'} sea perfecta. 🧗⚡`;
+        // 5. SMART FALLBACK
+        const fallback = topic 
+            ? `Sobre **${topic.toUpperCase()}**, soy un experto pero para darte la logística exacta prefiero conectarte con nuestro búnker por WhatsApp. ¿Quieres el link directo? 🧗⚡`
+            : "¿Quieres que revisemos el inventario de equipos o prefieres ver la disponibilidad de la Comunidad Social para bajar costos? 🚀";
         await this.addBotMessage(fallback);
+    }
+
+    getCommercialResponse(intent, topic, msg) {
+        if (!this.commercialBrain) return null;
+        const units = this.commercialBrain.business_units;
+
+        if (intent === 'GIFT_EXPERIENCE') {
+            return `¡Qué gran detalle! ${units.gifts.concept}. Nuestras **Gift Cards de Aventura** son el regalo perfecto: tú eliges el monto y ellos eligen entre trekking, rafting o escalada. ¡No vencen nunca! 🎁`;
+        }
+
+        if (intent === 'ADVENTURE_BOOKING' && (topic === 'salkantay' || topic === 'choquequirao')) {
+            return `¡Esa es una ruta ÉPICA! Como tu Master Advisor te digo: En la **Comunidad Social** para ${topic.toUpperCase()} estamos armando el grupo para este fin de semana. Si te unes, compartimos los costos de guía y equipo y ahorras hasta un 25%. ¿Te reservo un cupo preventivo? 🏔️⚡`;
+        }
+
+        if (intent === 'EQUIPMENT_RENTAL') {
+            return `¡Inteligente decisión! ${units.equipment.value_prop}. Tenemos cámaras GoPro, carpas térmicas y carpas de alta montaña listas. Al ser Socio Elite, tienes un **50% de descuento** en renta. ¿Deseas ver el catálogo? 📦`;
+        }
+
+        if (intent === 'MEMBERSHIP_UPGRADE') {
+            return `¡Bienvenido al Club! Ser **Socio Elite** es la única forma de viajar al costo en Perú. Recuperas tu inversión en tu primer tour. ¿Quieres los detalles del Pase Anual Exclusive? 🏆`;
+        }
+
+        return null;
     }
 
     searchKnowledgeBase(query) {
@@ -235,17 +237,15 @@ class AIPersonalizationEngine {
         if (query.length < 15 && this.currentTopic) target = `${this.currentTopic} ${query}`;
         
         const norm = target.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[¿?¡!.,;:]/g, '');
-        const queryWords = norm.split(/\s+/).filter(w => w.length > 2);
+        const words = norm.split(/\s+/).filter(w => w.length > 2 && !['para', 'donde', 'como', 'quiero'].includes(w));
         
         let best = null, maxScore = 0;
         for (const faq of this.knowledgeBase) {
             const qNorm = faq.question.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
             let score = 0, matches = 0;
-            for (const w of queryWords) { 
-                if (qNorm.includes(w)) { score += 20; matches++; }
-            }
-            if (qNorm.includes(norm)) score += 100;
-            if (matches / (queryWords.length || 1) < 0.45) score = 0;
+            for (const w of words) { if (qNorm.includes(w)) { score += 20; matches++; } }
+            if (qNorm.includes(norm)) score += 80;
+            if (matches / (words.length || 1) < 0.6) score = 0; // Strict matching
             if (score > maxScore) { maxScore = score; best = faq; }
         }
         return (best && maxScore >= 40) ? best : null;
@@ -254,7 +254,6 @@ class AIPersonalizationEngine {
     async addBotMessage(text) {
         this.chatHistory.push({ role: 'bot', content: text, time: Date.now() });
         this.saveChatHistory();
-        this.detectTopic(text);
         
         this.isTyping = true;
         this.hideTypingIndicator();
@@ -288,7 +287,7 @@ class AIPersonalizationEngine {
     }
 
     personalizeResponse(text) {
-        if (text.includes('🏔️') || text.includes('⚡')) return text;
+        if (text.includes('🏔️')) return text;
         const suffixes = ["🏔️⚡", "🚀", "🧗", "🔥"];
         return `${text} ${suffixes[Math.floor(Math.random() * suffixes.length)]}`;
     }
