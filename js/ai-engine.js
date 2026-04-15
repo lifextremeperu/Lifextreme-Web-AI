@@ -424,7 +424,7 @@ class AIPersonalizationEngine {
         const container = document.getElementById('life-messages');
         const msgHtml = `
             <div class="flex justify-end animate-slideUp">
-                <div class="bg-slate-900 text-white p-3 rounded-2xl rounded-tr-sm max-w-[85%] text-xs font-medium shadow-md break-words whitespace-pre-wrap overflow-hidden">
+                <div class="chat-bubble-user p-4 max-w-[85%] text-xs font-medium shadow-md break-words whitespace-pre-wrap overflow-hidden">
                     ${text}
                 </div>
             </div>
@@ -440,17 +440,17 @@ class AIPersonalizationEngine {
         let actionsHtml = '';
         if (actions.length > 0) {
             actionsHtml = `<div class="flex flex-wrap gap-2 mt-2">
-                ${actions.map(act => `<button onclick="window.AIEngine.handleAction('${act.val}')" class="bg-indigo-50 text-indigo-700 hover:bg-indigo-100 px-3 py-2 rounded-xl text-[10px] font-bold transition-colors">${act.label}</button>`).join('')}
+                ${actions.map(act => `<button onclick="window.AIEngine.handleAction('${act.val}')" class="bg-primary/10 text-primary hover:bg-primary hover:text-white px-4 py-2 rounded-xl text-[10px] font-black transition-all border border-primary/20">${act.label}</button>`).join('')}
             </div>`;
         }
 
         const msgHtml = `
             <div class="flex gap-3 animate-slideUp">
-                <div class="w-8 h-8 rounded-xl bg-white flex items-center justify-center border border-slate-100 shadow-sm flex-shrink-0">
-                    <i class="ri-flashlight-fill text-primary text-sm"></i>
+                <div class="w-10 h-10 rounded-2xl bg-white flex items-center justify-center border border-slate-100 shadow-sm flex-shrink-0">
+                    <i class="ri-flashlight-fill text-primary text-xl"></i>
                 </div>
-                <div class="flex flex-col gap-1 max-w-[85%]">
-                    <div class="bg-white p-3 rounded-2xl rounded-tl-sm text-slate-700 text-xs font-medium shadow-sm border border-slate-100 break-words whitespace-pre-wrap max-w-full overflow-hidden">
+                <div class="flex flex-col gap-2 max-w-[85%]">
+                    <div class="chat-bubble-bot p-4 text-slate-700 text-xs font-medium leading-relaxed break-words whitespace-pre-wrap max-w-full overflow-hidden">
                         ${text.replace(/\n/g, '<br>')}
                     </div>
                     ${actionsHtml}
@@ -495,30 +495,36 @@ class AIPersonalizationEngine {
             this.showTypingIndicator();
         }
 
-        try {
-            // 1. Call Secure HUB Cusco via Tailscale
-            const response = await fetch('https://desktop-sedhoop.tail883d62.ts.net/webhook/lifextreme', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    message: msg,
-                    context: this.userProfile || {}
-                })
-            });
+        // CONFIGURACIÓN DEL BACKEND HUB
+        // Para activar el backend real, cambia HUB_ACTIVE a true
+        // y actualiza HUB_URL con tu URL de Tailscale o ngrok
+        const HUB_ACTIVE = false; // ← cambiar a true cuando el HUB esté expuesto
+        const HUB_URL = 'https://tu-hub.tailscale.net/webhook/lifextreme'; // ← actualizar
 
-            if (!response.ok) throw new Error('API request failed');
+        if (HUB_ACTIVE) {
+            try {
+                console.log('🤖 Conectando con HUB:', HUB_URL);
+                const response = await fetch(HUB_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        message: msg,
+                        context: this.userProfile || {}
+                    })
+                });
 
-            const data = await response.json();
-
-            // 2. Display AI Response (Agent answer)
-            this.addBotMessage(data.response);
-
-        } catch (error) {
-            console.warn('⚠️ HUB Engine not active or unreachable. Using fallback logic.', error);
-
-            // 3. Fallback to Local Logic (Mock)
-            this.processOfflineIntent(msg);
+                if (!response.ok) throw new Error('HUB Offline');
+                const data = await response.json();
+                this.addBotMessage(data.response);
+                return;
+            } catch (error) {
+                console.warn('⚠️ HUB connection failed. Using offline intelligence.', error);
+            }
         }
+
+        // MODO OFFLINE INTELIGENTE (siempre activo como fallback)
+        console.log('💬 Respondiendo en modo offline inteligente');
+        setTimeout(() => this.processOfflineIntent(msg), 800);
     }
 
     processOfflineIntent(msg) {
