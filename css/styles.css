@@ -293,13 +293,33 @@ body {
     transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-/* --- NATIVE CHATBOT SCROLLBAR (STABLE) --- */
+/* --- CHATBOT SCROLLBAR ULTIMATE (FORCE VISIBLE) --- */
 #life-messages {
     overflow-y: auto !important;
+    scrollbar-width: auto !important;
+    scrollbar-color: #f85640 #f1f5f9 !important;
+    z-index: 100 !important;
+}
+
+#life-messages::-webkit-scrollbar {
+    width: 14px !important;
     display: block !important;
-    position: relative !important;
-    padding-right: 10px !important;
-    z-index: 10 !important;
+}
+
+#life-messages::-webkit-scrollbar-track {
+    background: #fdf2f0 !important;
+    border-radius: 0px !important;
+}
+
+#life-messages::-webkit-scrollbar-thumb {
+    background: #f85640 !important; 
+    border-radius: 10px !important;
+    border: 3px solid #fdf2f0 !important;
+    cursor: pointer !important;
+}
+
+#life-messages::-webkit-scrollbar-thumb:hover {
+    background: #ea580c !important;
 }
 
 
