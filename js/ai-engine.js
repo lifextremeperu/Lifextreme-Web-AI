@@ -70,6 +70,33 @@ class AIPersonalizationEngine {
         sessionStorage.setItem('lifextreme_chat_history', JSON.stringify(this.chatHistory.slice(-10)));
     }
 
+    toggleChat() {
+        const windowEl = document.getElementById('life-chat-window');
+        if (!windowEl) return;
+        if (windowEl.classList.contains('hidden')) {
+            windowEl.classList.remove('hidden');
+            setTimeout(() => {
+                windowEl.classList.remove('opacity-0', 'scale-75', 'translate-y-4');
+                windowEl.classList.add('opacity-100', 'scale-100', 'translate-y-0');
+            }, 10);
+            document.getElementById('life-input')?.focus();
+        } else {
+            windowEl.classList.remove('opacity-100', 'scale-100', 'translate-y-0');
+            windowEl.classList.add('opacity-0', 'scale-75', 'translate-y-4');
+            setTimeout(() => { windowEl.classList.add('hidden'); }, 300);
+        }
+    }
+
+    sendChatFromInput() {
+        const input = document.getElementById('life-input');
+        const msg = input.value.trim();
+        if (!msg || this.isTyping) return;
+        
+        this.addUserMessage(msg);
+        input.value = '';
+        this.processUserMessage(msg);
+    }
+
     // --- INTENT ROUTER (LANGCHAIN INSPIRED) ---
     analyzeIntent(query) {
         const lower = query.toLowerCase();
