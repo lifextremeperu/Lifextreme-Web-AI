@@ -1,5 +1,5 @@
 // ========================================
-// LIFEXTREME AI PERSONALIZATION ENGINE (v3.0)
+// LIFEXTREME AI PERSONALIZATION ENGINE (v3.2)
 // ========================================
 
 class AIPersonalizationEngine {
@@ -100,9 +100,19 @@ class AIPersonalizationEngine {
         }
     }
 
+    sendChatFromInput() {
+        const input = document.getElementById('life-input');
+        const msg = input.value.trim();
+        if (!msg || this.isTyping) return;
+        
+        this.addUserMessage(msg);
+        input.value = '';
+        this.processUserMessage(msg);
+    }
+
     addUserMessage(text) {
         const container = document.getElementById('life-messages');
-        const msgHtml = `<div class="flex justify-end animate-slideUp"><div class="chat-bubble-user p-4 max-w-[85%] text-xs font-medium shadow-md break-words">${text}</div></div>`;
+        const msgHtml = `<div class="flex justify-end animate-slideUp mb-4"><div class="chat-bubble-user p-4 max-w-[85%] text-xs font-medium shadow-md break-words bg-primary text-white rounded-2xl rounded-tr-none">${text}</div></div>`;
         container.insertAdjacentHTML('beforeend', msgHtml);
         this.scrollToBottom();
     }
@@ -140,13 +150,13 @@ class AIPersonalizationEngine {
         
         const msgId = 'bot-' + Date.now();
         const msgHtml = `
-            <div class="flex gap-3 animate-slideUp">
+            <div class="flex gap-3 animate-slideUp mb-4">
                 <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg flex-shrink-0">
                     <i class="ri-flashlight-fill text-white text-xl"></i>
                 </div>
                 <div class="flex flex-col gap-1 max-w-[85%]">
                     <span class="text-[9px] font-black uppercase tracking-widest text-slate-400 ml-1">${botName}</span>
-                    <div id="${msgId}" class="chat-bubble-bot p-4 text-slate-700 text-xs font-medium leading-relaxed break-words shadow-sm border border-slate-100"></div>
+                    <div id="${msgId}" class="chat-bubble-bot p-4 text-slate-700 text-xs font-medium leading-relaxed break-words shadow-sm border border-slate-100 bg-[#f8fafc] rounded-2xl rounded-tl-none"></div>
                 </div>
             </div>`;
         container.insertAdjacentHTML('beforeend', msgHtml);
@@ -159,7 +169,7 @@ class AIPersonalizationEngine {
             currentText += chars[i];
             bubble.innerHTML = currentText.replace(/\n/g, '<br>');
             if (i % 5 === 0) this.scrollToBottom();
-            await new Promise(r => setTimeout(r, Math.random() * 15 + 5));
+            await new Promise(r => setTimeout(r, Math.random() * 10 + 2));
         }
         
         this.isTyping = false;
@@ -168,7 +178,7 @@ class AIPersonalizationEngine {
 
     showTypingIndicator() {
         const container = document.getElementById('life-messages');
-        const typingHtml = `<div id="typing-indicator" class="flex gap-3 animate-slideUp"><div class="p-3 bg-white rounded-2xl shadow-sm border border-slate-100 flex gap-1"><span class="w-1.5 h-1.5 bg-slate-300 rounded-full animate-bounce"></span><span class="w-1.5 h-1.5 bg-slate-300 rounded-full animate-bounce" style="animation-delay: 0.2s"></span><span class="w-1.5 h-1.5 bg-slate-300 rounded-full animate-bounce" style="animation-delay: 0.4s"></span></div></div>`;
+        const typingHtml = `<div id="typing-indicator" class="flex gap-3 animate-slideUp mb-4"><div class="p-3 bg-white rounded-2xl shadow-sm border border-slate-100 flex gap-1"><span class="w-1.5 h-1.5 bg-slate-300 rounded-full animate-bounce"></span><span class="w-1.5 h-1.5 bg-slate-300 rounded-full animate-bounce" style="animation-delay: 0.2s"></span><span class="w-1.5 h-1.5 bg-slate-300 rounded-full animate-bounce" style="animation-delay: 0.4s"></span></div></div>`;
         container.insertAdjacentHTML('beforeend', typingHtml);
         this.scrollToBottom();
     }
@@ -203,7 +213,7 @@ class AIPersonalizationEngine {
 
             for (const word of meaningfulWords) {
                 if (questionNormalized.includes(word)) {
-                    score += 15; // Mayor peso a la pregunta
+                    score += 15;
                     matches++;
                 }
                 if (answerNormalized.includes(word)) {
@@ -211,11 +221,10 @@ class AIPersonalizationEngine {
                 }
             }
 
-            // Bono por frase exacta
             if (questionNormalized.includes(normalizedQuery)) score += 50;
 
             const hitRatio = matches / (meaningfulWords.length || 1);
-            if (hitRatio < 0.5) score = 0; // Umbral de rigurosidad
+            if (hitRatio < 0.5) score = 0;
 
             if (score > maxScore) {
                 maxScore = score;
@@ -254,7 +263,7 @@ class AIPersonalizationEngine {
         
         const lowerMsg = msg.toLowerCase();
 
-        // 1. ESPECIALISTA HARDCODED (Filtros de ADRENALINA)
+        // 1. ESPECIALISTA HARDCODED
         if (lowerMsg.includes('libro') || lowerMsg.includes('arqueologia')) {
             await this.addBotMessage("¡Interesante! Pero mi especialidad es la acción. Tipón es sublime para un trekking de aclimatación. ¡Olvida la teoría y vamos a la práctica! 🧗🏔️");
             return;
@@ -272,7 +281,7 @@ class AIPersonalizationEngine {
             return;
         }
 
-        // 3. AGENTE HUB (Remote RAG) - Con control de CORS
+        // 3. AGENTE HUB
         const HUB_URL = 'https://hub-cusco-2026.tail883d62.ts.net/webhook/lifextreme';
         try {
             const controller = new AbortController();
@@ -293,7 +302,7 @@ class AIPersonalizationEngine {
                 }
             }
         } catch (e) {
-            console.warn('⚠️ HUB Offline / CORS Blocked. Falling back to DNA.');
+            console.warn('⚠️ HUB Offline / CORS Blocked.');
         }
 
         // 4. SALES DNA
@@ -320,7 +329,7 @@ class AIPersonalizationEngine {
             return;
         }
 
-        await this.addBotMessage("Esa es una excelente consulta. He recorrido muchas rutas con el equipo, pero para darte la asesoría técnica exacta que garantice tu seguridad, lo mejor es hablar por WhatsApp con un guía humano. ¿Pasamos a WhatsApp? 🚀");
+        await this.addBotMessage("Esa es una excelente consulta. He recorrido muchas rutas con el equipo, pero para darte la asesoría técnica exacta que garantice tu seguridad, lo mejor es hablar por WhatsApp con un guía humano. ¿Te gustaría que te conecte vía WhatsApp? 🚀");
     }
 
     handleAction(val) {
