@@ -97,6 +97,13 @@ class AIPersonalizationEngine {
         this.processUserMessage(msg);
     }
 
+    addUserMessage(text) {
+        const container = document.getElementById('life-messages');
+        const msgHtml = `<div class="flex justify-end animate-slideUp mb-4"><div class="chat-bubble-user p-4 max-w-[85%] text-xs font-medium shadow-md break-words bg-primary text-white rounded-2xl rounded-tr-none">${text}</div></div>`;
+        container.insertAdjacentHTML('beforeend', msgHtml);
+        this.scrollToBottom();
+    }
+
     // --- INTENT ROUTER (LANGCHAIN INSPIRED) ---
     analyzeIntent(query) {
         const lower = query.toLowerCase();
