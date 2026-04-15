@@ -293,29 +293,32 @@ body {
     transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-.custom-scrollbar::-webkit-scrollbar {
-    width: 6px;
+/* --- CHATBOT SCROLLBAR EXTREME --- */
+#life-messages::-webkit-scrollbar {
+    width: 8px !important;
+    display: block !important;
 }
 
-.custom-scrollbar::-webkit-scrollbar-track {
-    background: #f8fafc;
-    border-radius: 10px;
+#life-messages::-webkit-scrollbar-track {
+    background: #f1f5f9 !important;
+    border-radius: 10px !important;
 }
 
-.custom-scrollbar::-webkit-scrollbar-thumb {
-    background: #4338ca; /* Color primario para mayor visibilidad */
-    border-radius: 10px;
-    border: 2px solid #f8fafc; /* Efecto flotante */
+#life-messages::-webkit-scrollbar-thumb {
+    background: #2563eb !important; /* Blue-600 for max contrast */
+    border-radius: 10px !important;
+    border: 2px solid #f1f5f9 !important;
 }
 
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #3730a3;
+#life-messages::-webkit-scrollbar-thumb:hover {
+    background: #1d4ed8 !important;
 }
 
-/* Soporte para Firefox */
-.custom-scrollbar {
-    scrollbar-width: thin;
-    scrollbar-color: #4338ca #f8fafc;
+/* For Firefox */
+#life-messages {
+    scrollbar-width: auto !important;
+    scrollbar-color: #2563eb #f1f5f9 !important;
+    overflow-y: scroll !important; /* Force scroll visibility */
 }
 
 .backpack-icon.filled {
