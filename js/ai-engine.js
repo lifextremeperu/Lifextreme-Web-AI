@@ -1,5 +1,5 @@
 // ========================================
-// LIFEXTREME AI PERSONALIZATION ENGINE (v3.5 - AMBASSADOR MODE)
+// LIFEXTREME AI PERSONALIZATION ENGINE (v4.0 - EVOLUTIONARY MEMORY)
 // ========================================
 
 class AIPersonalizationEngine {
@@ -21,11 +21,17 @@ class AIPersonalizationEngine {
         this.isTyping = false;
         this.pendingBonus = 30; 
         
+        // --- EVOLUTIONARY MEMORY ---
+        this.chatHistory = [];
+        this.currentTopic = null;
+        this.lastTopicTime = 0;
+        
         this.init();
     }
 
     async init() {
         this.loadUserProfile();
+        this.loadChatHistory();
         try {
             const [kb, dna, comm] = await Promise.all([
                 fetch(this.kbPath).then(r => r.json()).catch(() => ({ data: [] })),
@@ -37,7 +43,7 @@ class AIPersonalizationEngine {
             this.salesDNA = dna;
             this.commercialBrain = comm;
             
-            console.log(`🧠 MAX: Embajador Cargado (${this.knowledgeBase.length} FAQs)`);
+            console.log(`🧠 MAX v4: Memoria Evolutiva activa (${this.knowledgeBase.length} FAQs)`);
         } catch (e) {
             console.error('❌ Error en motores de IA:', e);
         }
@@ -49,6 +55,41 @@ class AIPersonalizationEngine {
             this.userProfile = JSON.parse(profileData);
         } else {
             this.userProfile = { rewards: 0, interactions: 0 };
+        }
+    }
+
+    loadChatHistory() {
+        const history = sessionStorage.getItem('lifextreme_chat_history');
+        if (history) {
+            this.chatHistory = JSON.parse(history);
+            // Re-infer topic from last bot message if possible
+            const lastBotMsg = this.chatHistory.filter(m => m.role === 'bot').pop();
+            if (lastBotMsg) this.updateCurrentTopic(lastBotMsg.content);
+        }
+    }
+
+    saveChatHistory() {
+        sessionStorage.setItem('lifextreme_chat_history', JSON.stringify(this.chatHistory.slice(-10)));
+    }
+
+    updateCurrentTopic(msg) {
+        const topics = {
+            'salkantay': ['salkantay', 'nevado', 'trek'],
+            'choquequirao': ['choquequirao', 'cuna de oro', 'hermana'],
+            'machu picchu': ['machu picchu', 'ciudadela', 'llaqta'],
+            'canotaje': ['rio', 'rafting', 'canotaje', 'urubamba', 'apurimac'],
+            'escalada': ['roca', 'escalada', 'climbing', 'vias'],
+            'precios': ['cuanto', 'precio', 'costo', '$', 's/'],
+            'comunidad': ['grupo', 'comunidad', 'social', 'compartido']
+        };
+        
+        const lower = msg.toLowerCase();
+        for (const [topic, keywords] of Object.entries(topics)) {
+            if (keywords.some(k => lower.includes(k))) {
+                this.currentTopic = topic;
+                this.lastTopicTime = Date.now();
+                break;
+            }
         }
     }
 
@@ -80,6 +121,10 @@ class AIPersonalizationEngine {
     }
 
     addUserMessage(text) {
+        this.chatHistory.push({ role: 'user', content: text, time: Date.now() });
+        this.updateCurrentTopic(text);
+        this.saveChatHistory();
+
         const container = document.getElementById('life-messages');
         const msgHtml = `<div class="flex justify-end animate-slideUp mb-4"><div class="chat-bubble-user p-4 max-w-[85%] text-xs font-medium shadow-md break-words bg-primary text-white rounded-2xl rounded-tr-none">${text}</div></div>`;
         container.insertAdjacentHTML('beforeend', msgHtml);
@@ -88,28 +133,19 @@ class AIPersonalizationEngine {
 
     personalizeResponse(text) {
         if (!text) return "";
-        // Don't double-wrap if already processed
-        if (text.includes('🏔️') || text.includes('🧗') || text.includes('⚡')) return text;
+        if (text.includes('🏔️') || text.includes('🧗')) return text;
 
-        const prefixes = [
-            "¡Escucha esto, aventurero! ",
-            "Como especialista en las rutas del Cusco, te cuento: ",
-            "¡Esa es la actitud de un explorador! Mi consejo experto es: ",
-            "Desde mi experiencia técnica en Lifextreme: "
-        ];
-        const suffixes = [
-            " ¡La montaña nos espera! 🏔️⚡",
-            " ¿Listo para subir de nivel con Lifextreme? 🚀",
-            " ¡Nos vemos en la ruta! 🧗",
-            " ¡Adrenalina segura garantizada! 🔥"
-        ];
-        
+        const prefixes = ["¡Aventurero!", "Atento:", "Mi consejo experto:", "Dato PRO:"];
+        const suffixes = ["🏔️⚡", "🚀", "🧗", "🔥"];
         const prefix = prefixes[Math.floor(Math.random() * prefixes.length)];
         const suffix = suffixes[Math.floor(Math.random() * suffixes.length)];
-        return `${prefix}${text}${suffix}`;
+        return `${prefix} ${text} ${suffix}`;
     }
 
     async addBotMessage(text) {
+        this.chatHistory.push({ role: 'bot', content: text, time: Date.now() });
+        this.saveChatHistory();
+
         this.isTyping = true;
         this.hideTypingIndicator();
         
@@ -138,7 +174,7 @@ class AIPersonalizationEngine {
             currentText += chars[i];
             bubble.innerHTML = currentText.replace(/\n/g, '<br>');
             if (i % 5 === 0) this.scrollToBottom();
-            await new Promise(r => setTimeout(r, Math.random() * 5 + 2)); 
+            await new Promise(r => setTimeout(r, 2)); 
         }
         
         this.isTyping = false;
@@ -183,7 +219,13 @@ class AIPersonalizationEngine {
     searchKnowledgeBase(query) {
         if (!this.knowledgeBase || this.knowledgeBase.length === 0) return null;
         
-        const normalizedQuery = query.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[¿?¡!.,;:]/g, '');
+        let targetQuery = query;
+        // CONTEXTUAL MEMORY: If query is vague, inject current topic
+        if (query.length < 15 && this.currentTopic) {
+            targetQuery = `${this.currentTopic} ${query}`;
+        }
+
+        const normalizedQuery = targetQuery.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[¿?¡!.,;:]/g, '');
         const queryWords = normalizedQuery.split(/\s+/).filter(w => w.length > 2);
         
         let bestMatch = null; 
@@ -191,7 +233,6 @@ class AIPersonalizationEngine {
 
         for (const faq of this.knowledgeBase) {
             const questionNorm = faq.question.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-            
             let score = 0;
             let matches = 0;
 
@@ -202,7 +243,6 @@ class AIPersonalizationEngine {
                 }
             }
 
-            // Exatc match bonus
             if (questionNorm.includes(normalizedQuery)) score += 100;
 
             const hitRatio = matches / (queryWords.length || 1);
@@ -227,7 +267,7 @@ class AIPersonalizationEngine {
         if (lowerMsg.match(/hola|buenos|buenas|que tal/)) {
             let welcome = `¡Hola! Soy **${this.identity.name}**, tu ${this.identity.full_name}! 🏔️⚡`;
             if (this.pendingBonus) {
-                welcome += `\n\n¡Es tu día de suerte! Te he acreditado **30 LifeCoins** de regalo por tu interés en Lifextreme! 🎁`;
+                welcome += `\n\n¡Te he acreditado **30 LifeCoins** por tu interés! 🎁`;
                 this.pendingBonus = 0;
             }
             welcome += `\n\n¿Qué ruta o actividad extrema te gustaría conquistar hoy?`;
@@ -240,15 +280,11 @@ class AIPersonalizationEngine {
         if (commUnit) {
             let response = "";
             if (commUnit.key === 'community') {
-                response = `¡Buena pregunta! En Lifextreme aplicamos el mantra: **"${commUnit.mantra}"**. ${commUnit.value_prop} En lugar de un precio fijo alto, ¿te gustaría que te busque un grupo social para esta ruta y dividimos los gastos? 🚀`;
-            } else if (commUnit.key === 'gifts') {
-                response = `¡Qué gran detalle! ${commUnit.concept}. Con nuestra Lifextreme Gift Card tú diseñas la adrenalina y ellos eligen la fecha. ¿Quieres que te ayude a configurar una ahora? 🎁`;
-            } else if (commUnit.key === 'rewards') {
-                response = `¡Así se habla! El sistema de LifeCoins premia tu lealtad. 1,000 LC equivalen a $10 de descuento real. ¿Quieres saber cómo ganar más hoy mismo? 🪙`;
-            } else if (commUnit.key === 'partners') {
-                response = `¡Amo esa mentalidad! Buscamos socios, no solo clientes. Tenemos planes desde comisiones del 22%. ¿Prefieres que te pase el contacto del WhatsApp VIP de Inversiones? 🤝`;
+                const topicText = this.currentTopic ? ` para ${this.currentTopic.toUpperCase()}` : "";
+                response = `¡Gran consulta! En nuestra **Comunidad Social${topicText}** aplicamos: **"${commUnit.mantra}"**. ${commUnit.value_prop} ¿Quieres que te busque compañeros de ruta para bajar el precio? 🚀`;
+            } else {
+                response = commUnit.value_prop || commUnit.concept || "¡Interesante! Cuéntame más.";
             }
-            
             if (response) {
                 await this.addBotMessage(response);
                 return;
@@ -262,16 +298,25 @@ class AIPersonalizationEngine {
             return;
         }
 
-        // 4. AGENTE HUB (Advanced RAG)
+        // 4. AGENTE HUB (Advanced RAG with History Buffer)
         const HUB_URL = 'https://hub-cusco-2026.tail883d62.ts.net/webhook/lifextreme';
         try {
             const controller = new AbortController();
             const timeout = setTimeout(() => controller.abort(), 8000);
+            
+            // Sending last 3 interactions for context
+            const historyBuffer = this.chatHistory.slice(-4); 
+            
             const response = await fetch(HUB_URL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 mode: 'cors',
-                body: JSON.stringify({ message: msg, context: this.userProfile || {} }),
+                body: JSON.stringify({ 
+                    message: msg, 
+                    history: historyBuffer,
+                    topic: this.currentTopic,
+                    context: this.userProfile || {} 
+                }),
                 signal: controller.signal
             });
             clearTimeout(timeout);
@@ -283,16 +328,14 @@ class AIPersonalizationEngine {
                 }
             }
         } catch (e) {
-            console.warn('⚠️ HUB Offline / Fallback Local.');
+            console.warn('⚠️ HUB Offline / Fallback Local Activo.');
         }
 
         // 5. FALLBACK SPECIALIST
-        await this.addBotMessage("Esa es una consulta muy técnica sobre seguridad y logística. Como Asesor, mi prioridad es que vuelvas a casa con una gran historia. ¿Prefieres que te conecte con nuestro Jefe de Expediciones por WhatsApp para darte el dato exacto? 🧗⚡");
-    }
-
-    scrollToBottom() {
-        const container = document.getElementById('life-messages');
-        if (container) container.scrollTop = container.scrollHeight;
+        const fallbackText = this.currentTopic 
+            ? `Sobre **${this.currentTopic.toUpperCase()}**, tengo datos muy técnicos. Para tu seguridad, ¿prefieres que hablemos por WhatsApp con un guía o vemos cupos en la Comunidad?`
+            : "Esa consulta requiere precisión técnica. ¿Prefieres contactar a un guía experto o revisamos la comunidad social?";
+        await this.addBotMessage(fallbackText);
     }
 }
 
