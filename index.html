@@ -176,6 +176,7 @@
 
     <!-- Modularized CSS -->
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/premium-2026.css">
 
     <script>
         tailwind.config = {
@@ -260,7 +261,7 @@
 <body class="bg-[#fcfdff] min-h-screen">
 
     <!-- HEADER MASTER -->
-    <header class="bg-white/90 backdrop-blur-2xl shadow-sm fixed top-0 w-full z-[1000] border-b border-slate-50">
+    <header class="glass-header shadow-sm fixed top-0 w-full z-[1000]">
         <div class="container mx-auto px-4 lg:px-6 py-4 flex justify-between items-center">
             <a href="#" onclick="navigateTo('home')" class="flex items-center group">
                 <div
@@ -435,7 +436,7 @@
                             class="bg-indigo-50 text-primary px-4 py-2 rounded-full text-[9px] font-black uppercase tracking-[0.4em] mb-8 inline-block italic">Aventura
                             de Alta Gama</span>
                         <h1
-                            class="text-4xl lg:text-7xl font-black text-slate-900 leading-[0.9] mb-8 tracking-tighter italic">
+                            class="text-4xl lg:text-7xl font-black text-slate-900 leading-[0.9] mb-8 tracking-tighter italic reveal-on-scroll">
                             <span data-i18n="hero_title_1">Explora. Vive.</span><br><span class="logo-gradient"
                                 data-i18n="hero_title_2">Viaja.</span>
                         </h1>
@@ -2597,21 +2598,6 @@
     }
     </script>
     <!-- Removed blocking scripts that are now loaded as modules -->
-    <script src="js/config.js"></script>
-    <script src="js/store.js"></script>
-    <script src="js/data.js"></script>
-    <script src="js/cms-service.js"></script>
-    <script src="js/price-engine.js"></script>
-    <script src="js/fomo-engine.js"></script>
-    <script src="js/sensory-engine.js"></script>
-    <script src="js/ai-personalization.js"></script>
-    <script src="js/ai-engine.js"></script>
-    <script src="js/predictor-engine.js"></script>
-    <script src="js/analytics-service.js"></script>
-    <script src="js/share-engine.js"></script>
-    <script type="module" src="js/booking-service.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/gamification.js"></script>
 
     <!-- Supabase Integration -->
     <script type="module">
@@ -3250,8 +3236,37 @@
         <div id="life-badge" class="absolute -top-1 -right-1 w-4 h-4 bg-secondary rounded-full border-2 border-white animate-bounce hidden"></div>
     </button>
 
-    <!-- Connection Script Removed (Already imported in head/body) -->
+    <script>
+        // Reveal on scroll observer
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
 
+            document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+        });
+    </script>
+
+    <!-- JS Modularized (Links) -->
+    <script src="js/config.js"></script>
+    <script src="js/store.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/cms-service.js"></script>
+    <script src="js/price-engine.js"></script>
+    <script src="js/fomo-engine.js"></script>
+    <script src="js/sensory-engine.js"></script>
+    <script src="js/ai-personalization.js"></script>
+    <script src="js/ai-engine.js"></script>
+    <script src="js/predictor-engine.js"></script>
+    <script src="js/analytics-service.js"></script>
+    <script src="js/share-engine.js"></script>
+    <script type="module" src="js/booking-service.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/gamification.js"></script>
 </body>
 
 

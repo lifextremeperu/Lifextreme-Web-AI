@@ -1,0 +1,141 @@
+/* 
+    ═══════════════════════════════════════════════════════════════
+    LIFEXTREME PREMIUM DESIGN SYSTEM 2026
+    ═══════════════════════════════════════════════════════════════
+    Inspiración: Cyber-Mountain, Glassmorphism, Premium Dark UI.
+*/
+
+:root {
+    /* Color Palette - HSL Precision */
+    --p-indigo: 243, 75%, 59%;
+    --p-rose: 341, 90%, 61%;
+    --p-emerald: 160, 84%, 39%;
+    --p-slate-900: 222, 47%, 11%;
+    --p-slate-910: 222, 47%, 5%;
+    --p-accent: 45, 100%, 50%; /* Golden Amber */
+
+    /* Glassmorphism Variables */
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.3);
+    --glass-blur: 20px;
+
+    /* Shadows */
+    --shadow-premium: 0 20px 50px rgba(0, 0, 0, 0.1);
+    --shadow-neon: 0 0 20px rgba(67, 56, 202, 0.3);
+}
+
+/* 1. TYPOGRAPHY & SMOOTHING */
+body {
+    font-family: 'Outfit', 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+    color: #1e293b;
+}
+
+/* 2. PREMIUM GLASS COMPONENTS */
+.glass-header {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: var(--shadow-premium);
+}
+
+/* 3. NEON & GRADIENTS */
+.text-neon {
+    color: hsl(var(--p-indigo));
+    text-shadow: 0 0 10px hsla(var(--p-indigo), 0.5);
+}
+
+.logo-gradient {
+    background: linear-gradient(135deg, #4338ca 0%, #f43f5e 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.btn-premium {
+    background: linear-gradient(135deg, #4338ca 0%, #312e81 100%);
+    box-shadow: 0 10px 30px rgba(67, 56, 202, 0.4);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-premium:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(67, 56, 202, 0.6);
+}
+
+/* 4. CUSTOM SCROLLBAR (PREMIUM) */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #4338ca;
+}
+
+/* 5. ANIMATIONS */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-neon {
+    0% { box-shadow: 0 0 5px rgba(67, 56, 202, 0.4); }
+    50% { box-shadow: 0 0 25px rgba(67, 56, 202, 0.8); }
+    100% { box-shadow: 0 0 5px rgba(67, 56, 202, 0.4); }
+}
+
+.neon-border {
+    border: 2px solid rgba(67, 56, 202, 0.3);
+    animation: pulse-neon 3s infinite;
+}
+
+/* 6. CHATBOT ENHANCEMENTS */
+#life-chat-window {
+    border-radius: 40px;
+    box-shadow: 0 30px 100px rgba(0, 0, 0, 0.2);
+}
+
+.chat-bubble-user {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: white;
+    border-radius: 20px 4px 20px 20px;
+}
+
+.chat-bubble-bot {
+    background: white;
+    border: 1px solid #f1f5f9;
+    border-radius: 4px 20px 20px 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* 7. CARD REVEAL EFFECTS */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
