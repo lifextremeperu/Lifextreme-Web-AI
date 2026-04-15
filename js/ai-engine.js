@@ -498,8 +498,8 @@ class AIPersonalizationEngine {
         // CONFIGURACIÓN DEL BACKEND HUB
         // Para activar el backend real, cambia HUB_ACTIVE a true
         // y actualiza HUB_URL con tu URL de Tailscale o ngrok
-        const HUB_ACTIVE = false; // ← cambiar a true cuando el HUB esté expuesto
-        const HUB_URL = 'https://tu-hub.tailscale.net/webhook/lifextreme'; // ← actualizar
+        const HUB_ACTIVE = true; // ✅ CEREBRO REAL ACTIVO via Tailscale Funnel
+        const HUB_URL = 'https://hub-cusco-2026.tail883d62.ts.net/chat/lifextreme'; // ✅ URL REAL
 
         if (HUB_ACTIVE) {
             try {
