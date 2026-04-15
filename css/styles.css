@@ -293,32 +293,36 @@ body {
     transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-/* --- CHATBOT SCROLLBAR EXTREME --- */
+/* --- CHATBOT SCROLLBAR ULTIMATE (HIGH VISIBILITY) --- */
+#life-messages {
+    overflow-y: scroll !important;
+    scrollbar-width: auto !important;
+    scrollbar-color: #f85640 #f1f5f9 !important;
+    z-index: 10 !important;
+    position: relative !important;
+    pointer-events: all !important;
+    -webkit-overflow-scrolling: touch !important;
+}
+
 #life-messages::-webkit-scrollbar {
-    width: 8px !important;
+    width: 12px !important;
     display: block !important;
 }
 
 #life-messages::-webkit-scrollbar-track {
-    background: #f1f5f9 !important;
-    border-radius: 10px !important;
+    background: #f8fafc !important;
+    border-radius: 0px !important;
 }
 
 #life-messages::-webkit-scrollbar-thumb {
-    background: #2563eb !important; /* Blue-600 for max contrast */
+    background: #f85640 !important; /* Orange-Red for extreme visibility */
     border-radius: 10px !important;
-    border: 2px solid #f1f5f9 !important;
+    border: 3px solid #f8fafc !important;
+    cursor: pointer !important;
 }
 
 #life-messages::-webkit-scrollbar-thumb:hover {
-    background: #1d4ed8 !important;
-}
-
-/* For Firefox */
-#life-messages {
-    scrollbar-width: auto !important;
-    scrollbar-color: #2563eb #f1f5f9 !important;
-    overflow-y: scroll !important; /* Force scroll visibility */
+    background: #ea580c !important;
 }
 
 .backpack-icon.filled {
