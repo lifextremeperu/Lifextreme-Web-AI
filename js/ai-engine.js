@@ -1,5 +1,5 @@
 // ========================================
-// LIFEXTREME AI PERSONALIZATION ENGINE (v3.2)
+// LIFEXTREME AI PERSONALIZATION ENGINE (v3.5 - AMBASSADOR MODE)
 // ========================================
 
 class AIPersonalizationEngine {
@@ -7,80 +7,49 @@ class AIPersonalizationEngine {
         this.identity = {
             name: "MAX",
             origin: "Asesor Maestro de Aventura (Lifextreme PRO)",
+            full_name: "Asesor de Aventura en Perú",
             traits: ["Exciting", "Expert", "Safety-oriented", "Direct"]
         };
-        this.commercialBrain = null;
+        
+        this.kbPath = 'data/knowledge/lifextreme/knowledge_base.json';
+        this.salesDnaPath = 'data/knowledge/max_sales_dna.json';
+        this.commercialPath = 'data/knowledge/max_commercial_brain.json';
+        
         this.knowledgeBase = null;
         this.salesDNA = null;
+        this.commercialBrain = null;
         this.isTyping = false;
+        this.pendingBonus = 30; 
+        
         this.init();
     }
 
-    init() {
+    async init() {
         this.loadUserProfile();
-        this.initChatbot();
-        this.loadCommercialBrain();
-        this.loadSalesDNA();
-        this.loadKnowledgeBase();
+        try {
+            const [kb, dna, comm] = await Promise.all([
+                fetch(this.kbPath).then(r => r.json()).catch(() => ({ data: [] })),
+                fetch(this.salesDnaPath).then(r => r.json()).catch(() => []),
+                fetch(this.commercialPath).then(r => r.json()).catch(() => null)
+            ]);
+            
+            this.knowledgeBase = kb.data || [];
+            this.salesDNA = dna;
+            this.commercialBrain = comm;
+            
+            console.log(`🧠 MAX: Embajador Cargado (${this.knowledgeBase.length} FAQs)`);
+        } catch (e) {
+            console.error('❌ Error en motores de IA:', e);
+        }
     }
 
     loadUserProfile() {
         const profileData = localStorage.getItem('lifextreme_ai_profile');
         if (profileData) {
             this.userProfile = JSON.parse(profileData);
+        } else {
+            this.userProfile = { rewards: 0, interactions: 0 };
         }
-    }
-
-    initChatbot() {
-        this.chatOpen = false;
-        this.checkWelcomeBonus();
-    }
-
-    async loadCommercialBrain() {
-        try {
-            const response = await fetch('data/knowledge/max_commercial_brain.json');
-            this.commercialBrain = await response.json();
-        } catch (e) {
-            console.warn('⚠️ MAX: Error loading commercial brain');
-        }
-    }
-
-    async loadSalesDNA() {
-        try {
-            const response = await fetch('data/knowledge/max_sales_dna.json');
-            this.salesDNA = await response.json();
-        } catch (e) {
-            console.warn('⚠️ MAX: Error loading sales DNA');
-        }
-    }
-
-    async loadKnowledgeBase() {
-        try {
-            const response = await fetch('js/knowledge_base.json');
-            const data = await response.json();
-            this.knowledgeBase = data.data || [];
-        } catch (e) {
-            console.warn('⚠️ MAX: Error loading knowledge base');
-        }
-    }
-
-    checkWelcomeBonus() {
-        if (!localStorage.getItem('max_welcome_bonus_granted')) {
-            this.pendingBonus = 30;
-        }
-    }
-
-    grantWelcomeBonus() {
-        if (this.pendingBonus) {
-            localStorage.setItem('max_welcome_bonus_granted', 'true');
-            if (this.userProfile) {
-                this.userProfile.rewards = (this.userProfile.rewards || 0) + 30;
-                localStorage.setItem('lifextreme_ai_profile', JSON.stringify(this.userProfile));
-            }
-            this.pendingBonus = 0;
-            return true;
-        }
-        return false;
     }
 
     toggleChat() {
@@ -119,7 +88,8 @@ class AIPersonalizationEngine {
 
     personalizeResponse(text) {
         if (!text) return "";
-        if (text.startsWith('{') || text.includes('🏔️') || text.includes('🧗')) return text;
+        // Don't double-wrap if already processed
+        if (text.includes('🏔️') || text.includes('🧗') || text.includes('⚡')) return text;
 
         const prefixes = [
             "¡Escucha esto, aventurero! ",
@@ -140,7 +110,6 @@ class AIPersonalizationEngine {
     }
 
     async addBotMessage(text) {
-        if (this.isTyping) return;
         this.isTyping = true;
         this.hideTypingIndicator();
         
@@ -169,7 +138,7 @@ class AIPersonalizationEngine {
             currentText += chars[i];
             bubble.innerHTML = currentText.replace(/\n/g, '<br>');
             if (i % 5 === 0) this.scrollToBottom();
-            await new Promise(r => setTimeout(r, Math.random() * 10 + 2));
+            await new Promise(r => setTimeout(r, Math.random() * 5 + 2)); 
         }
         
         this.isTyping = false;
@@ -192,39 +161,52 @@ class AIPersonalizationEngine {
         if (container) container.scrollTop = container.scrollHeight;
     }
 
+    searchCommercialTriggers(query) {
+        if (!this.commercialBrain) return null;
+        const normalized = query.toLowerCase();
+        
+        const triggers = {
+            community: ["barato", "descuento", "precio", "cuanto cuesta", "economico", "grupo"],
+            rewards: ["ganar", "puntos", "lifecoins", "beneficio", "gratis"],
+            gifts: ["regalo", "cumpleaños", "sorpresa", "gift card"],
+            partners: ["socio", "agencia", "negocio", "invertir", "trabajar"]
+        };
+
+        for (const [key, patterns] of Object.entries(triggers)) {
+            if (patterns.some(p => normalized.includes(p))) {
+                return { key, ...this.commercialBrain.business_units[key] };
+            }
+        }
+        return null;
+    }
+
     searchKnowledgeBase(query) {
-        if (!this.knowledgeBase) return null;
+        if (!this.knowledgeBase || this.knowledgeBase.length === 0) return null;
+        
         const normalizedQuery = query.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[¿?¡!.,;:]/g, '');
         const queryWords = normalizedQuery.split(/\s+/).filter(w => w.length > 2);
-        if (queryWords.length === 0) return null;
-
-        const stopwords = new Set(['que', 'como', 'para', 'por', 'con', 'del', 'los', 'las', 'una', 'uno', 'quisiera', 'quiero', 'informacion']);
-        const meaningfulWords = queryWords.filter(w => !stopwords.has(w));
         
         let bestMatch = null; 
         let maxScore = 0;
 
         for (const faq of this.knowledgeBase) {
-            const questionNormalized = faq.question.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-            const answerNormalized = faq.answer.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+            const questionNorm = faq.question.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
             
             let score = 0;
             let matches = 0;
 
-            for (const word of meaningfulWords) {
-                if (questionNormalized.includes(word)) {
-                    score += 15;
+            for (const word of queryWords) {
+                if (questionNorm.includes(word)) {
+                    score += 20;
                     matches++;
-                }
-                if (answerNormalized.includes(word)) {
-                    score += 2;
                 }
             }
 
-            if (questionNormalized.includes(normalizedQuery)) score += 50;
+            // Exatc match bonus
+            if (questionNorm.includes(normalizedQuery)) score += 100;
 
-            const hitRatio = matches / (meaningfulWords.length || 1);
-            if (hitRatio < 0.5) score = 0;
+            const hitRatio = matches / (queryWords.length || 1);
+            if (hitRatio < 0.45) score = 0;
 
             if (score > maxScore) {
                 maxScore = score;
@@ -232,29 +214,7 @@ class AIPersonalizationEngine {
             }
         }
 
-        return (bestMatch && maxScore >= 20) ? bestMatch : null;
-    }
-
-    searchSalesDNA(query) {
-        if (!this.salesDNA) return null;
-        const normalizedQuery = query.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-        let bestMatch = null;
-        let bestScore = 0;
-
-        for (const pattern of this.salesDNA) {
-            const contextText = pattern.context.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-            const queryWords = normalizedQuery.split(/\s+/).filter(w => w.length > 3);
-            let matched = 0;
-            for (const word of queryWords) {
-                if (contextText.includes(word)) matched++;
-            }
-            const score = matched / (queryWords.length || 1);
-            if (score > 0.7 && score > bestScore) {
-                bestScore = score;
-                bestMatch = pattern;
-            }
-        }
-        return bestMatch;
+        return (bestMatch && maxScore >= 40) ? bestMatch : null;
     }
 
     async processUserMessage(msg) {
@@ -263,25 +223,46 @@ class AIPersonalizationEngine {
         
         const lowerMsg = msg.toLowerCase();
 
-        // 1. ESPECIALISTA HARDCODED
-        if (lowerMsg.includes('libro') || lowerMsg.includes('arqueologia')) {
-            await this.addBotMessage("¡Interesante! Pero mi especialidad es la acción. Tipón es sublime para un trekking de aclimatación. ¡Olvida la teoría y vamos a la práctica! 🧗🏔️");
+        // 1. GREETING
+        if (lowerMsg.match(/hola|buenos|buenas|que tal/)) {
+            let welcome = `¡Hola! Soy **${this.identity.name}**, tu ${this.identity.full_name}! 🏔️⚡`;
+            if (this.pendingBonus) {
+                welcome += `\n\n¡Es tu día de suerte! Te he acreditado **30 LifeCoins** de regalo por tu interés en Lifextreme! 🎁`;
+                this.pendingBonus = 0;
+            }
+            welcome += `\n\n¿Qué ruta o actividad extrema te gustaría conquistar hoy?`;
+            await this.addBotMessage(welcome);
             return;
         }
 
-        if (lowerMsg.includes('trekking') || lowerMsg.includes('caminata')) {
-            await this.addBotMessage("Como experto en rutas de Cusco, te digo que el trekking es nuestra religión. Tenemos desde rutas clásicas hasta expediciones nivel PRO. ¿Buscas un reto de un día o una expedición total? 🏔️⚡");
-            return;
+        // 2. COMMERCIAL AMBASSADOR
+        const commUnit = this.searchCommercialTriggers(msg);
+        if (commUnit) {
+            let response = "";
+            if (commUnit.key === 'community') {
+                response = `¡Buena pregunta! En Lifextreme aplicamos el mantra: **"${commUnit.mantra}"**. ${commUnit.value_prop} En lugar de un precio fijo alto, ¿te gustaría que te busque un grupo social para esta ruta y dividimos los gastos? 🚀`;
+            } else if (commUnit.key === 'gifts') {
+                response = `¡Qué gran detalle! ${commUnit.concept}. Con nuestra Lifextreme Gift Card tú diseñas la adrenalina y ellos eligen la fecha. ¿Quieres que te ayude a configurar una ahora? 🎁`;
+            } else if (commUnit.key === 'rewards') {
+                response = `¡Así se habla! El sistema de LifeCoins premia tu lealtad. 1,000 LC equivalen a $10 de descuento real. ¿Quieres saber cómo ganar más hoy mismo? 🪙`;
+            } else if (commUnit.key === 'partners') {
+                response = `¡Amo esa mentalidad! Buscamos socios, no solo clientes. Tenemos planes desde comisiones del 22%. ¿Prefieres que te pase el contacto del WhatsApp VIP de Inversiones? 🤝`;
+            }
+            
+            if (response) {
+                await this.addBotMessage(response);
+                return;
+            }
         }
 
-        // 2. KNOWLEDGE BASE
+        // 3. KNOWLEDGE BASE (Expert)
         const kbResult = this.searchKnowledgeBase(msg);
         if (kbResult) {
             await this.addBotMessage(kbResult.answer);
             return;
         }
 
-        // 3. AGENTE HUB
+        // 4. AGENTE HUB (Advanced RAG)
         const HUB_URL = 'https://hub-cusco-2026.tail883d62.ts.net/webhook/lifextreme';
         try {
             const controller = new AbortController();
@@ -302,42 +283,16 @@ class AIPersonalizationEngine {
                 }
             }
         } catch (e) {
-            console.warn('⚠️ HUB Offline / CORS Blocked.');
+            console.warn('⚠️ HUB Offline / Fallback Local.');
         }
 
-        // 4. SALES DNA
-        const dnaResult = this.searchSalesDNA(msg);
-        if (dnaResult) {
-            await this.addBotMessage(dnaResult.response);
-            return;
-        }
-
-        // 5. FALLBACK
-        await this.processContextualFallback(msg);
+        // 5. FALLBACK SPECIALIST
+        await this.addBotMessage("Esa es una consulta muy técnica sobre seguridad y logística. Como Asesor, mi prioridad es que vuelvas a casa con una gran historia. ¿Prefieres que te conecte con nuestro Jefe de Expediciones por WhatsApp para darte el dato exacto? 🧗⚡");
     }
 
-    async processContextualFallback(msg) {
-        const lower = msg.toLowerCase();
-        if (lower.match(/hola|buenos|buenas/)) {
-            let welcome = `Hola! Soy **${this.identity.name}**, tu Asesor de Aventuras! 🏔️⚡`;
-            if (this.pendingBonus) {
-                welcome += `\n\n¡Te he acreditado **30 LifeCoins** de regalo por tu interés en Lifextreme! 🎁`;
-                this.grantWelcomeBonus();
-            }
-            welcome += `\n\n¿Qué ruta o actividad extrema te gustaría conquistar hoy?`;
-            await this.addBotMessage(welcome);
-            return;
-        }
-
-        await this.addBotMessage("Esa es una excelente consulta. He recorrido muchas rutas con el equipo, pero para darte la asesoría técnica exacta que garantice tu seguridad, lo mejor es hablar por WhatsApp con un guía humano. ¿Te gustaría que te conecte vía WhatsApp? 🚀");
-    }
-
-    handleAction(val) {
-        if (val.includes('WHATSAPP') || val.includes('PAOLO')) {
-            window.open('https://wa.me/51958050928?text=Hola%20Lifextreme!%20Vengo%20del%20chat%20con%20MAX', '_blank');
-        } else {
-            this.processUserMessage(val);
-        }
+    scrollToBottom() {
+        const container = document.getElementById('life-messages');
+        if (container) container.scrollTop = container.scrollHeight;
     }
 }
 
