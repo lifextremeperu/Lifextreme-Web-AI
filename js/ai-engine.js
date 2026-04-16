@@ -209,23 +209,23 @@ class AIPersonalizationEngine {
     }
 
     getCommercialResponse(intent, topic, msg) {
-        if (!this.commercialBrain) return null;
+        if (!this.commercialBrain || !this.commercialBrain.business_units) return null;
         const units = this.commercialBrain.business_units;
 
-        if (intent === 'GIFT_EXPERIENCE') {
-            return `¡Qué gran detalle! ${units.gifts.concept}. Nuestras **Gift Cards de Aventura** son el regalo perfecto: tú eliges el monto y ellos eligen entre trekking, rafting o escalada. ¡No vencen nunca! 🎁`;
+        if (intent === 'GIFT_EXPERIENCE' && units.gifts) {
+            return `¡Qué gran detalle! ${units.gifts.concept || 'Regala Experiencias, No Cosas'}. Nuestras **Gift Cards de Aventura** son el regalo perfecto: tú eliges el monto y ellos eligen entre trekking, rafting o escalada. ¡No vencen nunca! 🎁`;
         }
 
         if (intent === 'ADVENTURE_BOOKING' && (topic === 'salkantay' || topic === 'choquequirao')) {
             return `¡Esa es una ruta ÉPICA! Como tu Master Advisor te digo: En la **Comunidad Social** para ${topic.toUpperCase()} estamos armando el grupo para este fin de semana. Si te unes, compartimos los costos de guía y equipo y ahorras hasta un 25%. ¿Te reservo un cupo preventivo? 🏔️⚡`;
         }
 
-        if (intent === 'EQUIPMENT_RENTAL') {
-            return `¡Inteligente decisión! ${units.equipment.value_prop}. Tenemos cámaras GoPro, carpas térmicas y carpas de alta montaña listas. Al ser Socio Elite, tienes un **15% de descuento** en renta. ¿Deseas ver el catálogo? 📦`;
+        if (intent === 'EQUIPMENT_RENTAL' && units.equipment) {
+            return `¡Inteligente decisión! ${units.equipment.value_prop || 'Alquiler de equipo pro'}. Tenemos cámaras GoPro, carpas térmicas y carpas de alta montaña listas. Al ser Socio Elite, tienes un **15% de descuento** en renta. ¿Deseas ver el catálogo? 📦`;
         }
 
-        if (intent === 'MEMBERSHIP_UPGRADE') {
-            return `¡Bienvenido al Club! Ser **Socio Elite** es la única forma de viajar al costo en Perú. Recuperas tu inversión en tu primer tour. ¿Quieres los detalles del Pase Anual Exclusive? 🏆`;
+        if (intent === 'MEMBERSHIP_UPGRADE' && units.membership) {
+            return `¡Bienvenido al Club! ${units.membership.value_prop || 'Viaja al costo con nosotros'}. Recuperas tu inversión en tu primer tour. ¿Quieres los detalles del Pase Anual Exclusive? 🏆`;
         }
 
         return null;

@@ -13,6 +13,17 @@
             "action": "Invitar a unirse a una expedición social o crear un grupo nuevo.",
             "triggers": ["pagar menos", "barato", "descuento", "precio alto", "grupo"]
         },
+        "equipment": {
+            "mantra": "Equipo Táctico de Nivel Pro",
+            "value_prop": "Alquiler de equipo de alta montaña certificado, cámaras GoPro y drones para exploradores.",
+            "discount": "15% para Socios Elite",
+            "triggers": ["carpas", "gopro", "alquiler", "renta", "bastones", "mochilas"]
+        },
+        "membership": {
+            "mantra": "Viaja al Costo con Exclusive",
+            "value_prop": "El Pase Anual Exclusive te permite acceder a todas nuestras expediciones sin margen de ganancia de agencia.",
+            "triggers": ["elite", "socio", "membresia", "exclusive", "puntos"]
+        },
         "rewards": {
             "system": "LifeCoins (LC)",
             "conversion": "1,000 LC = $10 de descuento (o S/ 40 aprox)",
