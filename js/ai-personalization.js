@@ -67,8 +67,15 @@ function submitAIProfile(formData) {
     // Log for analytics/AI backend integration
     console.log('AI Profile Created:', userProfile);
 
-    // TODO: Send to backend API for AI processing
-    // fetch('/api/ai-profile', { method: 'POST', body: JSON.stringify(userProfile) });
+    // Send Welcome Email via custom API
+    fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            tipo: 'elite_welcome',
+            ...userProfile
+        })
+    }).catch(err => console.error('Error enviando email de bienvenida Elite:', err));
 }
 
 // Initialize AI Profile Form Handler

@@ -204,6 +204,96 @@ function buildInternalAlert(data) {
     };
 }
 
+// ── Bienvenida ELITE (Activación de Cuenta Socio) ───────────────────────────
+function buildEliteWelcomeEmail(data) {
+    return {
+        from: `"Lifextreme Elite" <${process.env.ZOHO_USER}>`,
+        to: data.personal.email,
+        subject: `🚀 BIENVENIDO AL CLUB ELITE: ${data.personal.fullName}`,
+        html: `
+        <div style="font-family:sans-serif;max-width:600px;margin:0 auto;background:#0f172a;border-radius:24px;overflow:hidden;color:#ffffff;">
+            <div style="padding:48px 32px;text-align:center;background:linear-gradient(135deg, #1e293b 0%, #0f172a 100%);">
+                <div style="font-size:12px;font-weight:900;letter-spacing:4px;color:#f59e0b;margin-bottom:16px;text-transform:uppercase;">Membership Activated</div>
+                <h1 style="font-size:32px;font-weight:900;font-style:italic;margin:0;line-height:1.2;">BIENVENIDO A<br><span style="color:#f59e0b;">LIFE</span>XTREME ELITE</h1>
+            </div>
+            <div style="padding:40px 32px;background:#ffffff;color:#1e293b;">
+                <p style="font-size:16px;line-height:1.6;margin-bottom:24px;">
+                    ¡Hola <b>${data.personal.fullName}</b>!<br><br>
+                    Has dado el paso definitivo. Tu cuenta ha sido elevada al estatus <b>Elite</b>. Nuestra Inteligencia Artificial ya está analizando tus preferencias de <b>${data.adventure.experienceLevel}</b> para diseñar tu próxima gran expedición.
+                </p>
+                
+                <div style="background:#f8fafc;border-radius:16px;padding:24px;margin-bottom:32px;border:1px solid #e2e8f0;">
+                    <h3 style="margin-top:0;font-size:14px;text-transform:uppercase;color:#64748b;">Tu Perfil de Aventurero</h3>
+                    <div style="font-size:14px;color:#1e293b;margin-top:10px;">
+                        • <b>Nivel:</b> ${data.adventure.experienceLevel}<br>
+                        • <b>Intereses:</b> ${data.adventure.interests.join(', ')}<br>
+                        • <b>Motivación:</b> ${data.preferences.motivation}
+                    </div>
+                </div>
+
+                <div style="text-align:center;">
+                    <a href="https://www.lifextreme.store" style="display:inline-block;background:#f59e0b;color:#ffffff;padding:18px 36px;border-radius:12px;font-weight:900;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:14px;">Explorar Beneficios Elite</a>
+                </div>
+            </div>
+            <div style="padding:32px;text-align:center;color:#64748b;font-size:12px;">
+                Cusco, Perú · Safe and Bold Adventures
+            </div>
+        </div>`
+    };
+}
+
+function buildEliteInternalAlert(data) {
+    return {
+        from: `"Lifextreme Elite" <${process.env.ZOHO_USER}>`,
+        to: process.env.ZOHO_USER,
+        subject: `💎 NUEVO SOCIO ELITE: ${data.personal.fullName}`,
+        html: `
+        <div style="font-family:sans-serif;padding:24px;background:#f8fafc;">
+            <div style="background:#fff;padding:24px;border-radius:12px;border:1px solid #e2e8f0;">
+                <h2 style="color:#1e293b;margin-top:0;">Nuevo Socio Elite Activado</h2>
+                <hr style="border:0;border-top:1px solid #e2e8f0;margin:20px 0;">
+                <p><b>Nombre:</b> ${data.personal.fullName}</p>
+                <p><b>Email:</b> ${data.personal.email}</p>
+                <p><b>Teléfono:</b> ${data.personal.phone}</p>
+                <p><b>Intereses:</b> ${data.adventure.interests.join(', ')}</p>
+                <p><b>Motivación:</b> ${data.preferences.motivation}</p>
+                <p><b>Regiones:</b> ${data.preferences.regions.join(', ')}</p>
+            </div>
+        </div>`
+    };
+}
+
+// ── Confirmación PARA el SOCIO (Confirmación de cambios) ────────────────────
+function buildSocioConfirmationEmail(data) {
+    return {
+        from: `"Lifextreme" <${process.env.ZOHO_USER}>`,
+        to: data.email,
+        subject: `✅ Perfil Actualizado - Lifextreme Member`,
+        html: `
+        <div style="font-family:sans-serif;max-width:600px;margin:0 auto;background:#ffffff;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.05);border:1px solid #e2e8f0;">
+            <div style="background:#1e293b;padding:32px;text-align:center;">
+                <div style="font-size:24px;font-weight:900;font-style:italic;color:#ffffff;">LIFE<span style="color:#f59e0b;">XTREME</span></div>
+            </div>
+            <div style="padding:40px 32px;text-align:center;">
+                <div style="font-size:48px;margin-bottom:16px;">👤</div>
+                <h1 style="font-size:20px;font-weight:900;color:#1e293b;margin:0 0 16px;">¡Hola, ${data.name}!</h1>
+                <p style="color:#64748b;font-size:15px;line-height:1.6;margin:0 0 24px;">
+                    Te confirmamos que hemos actualizado tus datos de socio correctamente en nuestra plataforma. 
+                    Ahora tu perfil está al día para recibir beneficios exclusivos.
+                </p>
+                <div style="background:#f8fafc;border-radius:12px;padding:20px;display:inline-block;margin-bottom:24px;text-align:left;">
+                    <div style="font-size:11px;color:#94a3b8;font-weight:700;margin-bottom:4px;">INTERÉS PRINCIPAL ACTUALIZADO:</div>
+                    <div style="color:#1e293b;font-weight:900;text-transform:uppercase;">🏔️ ${data.interest}</div>
+                </div>
+                <p style="color:#94a3b8;font-size:12px;">Si no realizaste este cambio, por favor contáctanos de inmediato.</p>
+            </div>
+            <div style="background:#f1f5f9;padding:20px;text-align:center;font-size:11px;color:#94a3b8;">
+                © 2026 Lifextreme Adventures · Cusco, Perú
+            </div>
+        </div>`
+    };
+}
+
 // ── Alerta interna: Actualización de datos de SOCIO ─────────────────────────
 function buildSocioUpdateAlert(data) {
     return {
@@ -273,9 +363,28 @@ export default async function handler(req, res) {
         } 
         
         else if (data.tipo === 'socio_update') {
-            // Solo alerta interna para actualización de socios
+            // ... (código para socios)
+            try {
+                await transporter.sendMail(buildSocioConfirmationEmail(data));
+                results.welcome = 'sent';
+            } catch (err) { results.welcome = 'failed'; }
+
             try {
                 await transporter.sendMail(buildSocioUpdateAlert(data));
+                results.internal = 'sent';
+            } catch (err) { results.internal = 'failed'; }
+        }
+
+        else if (data.tipo === 'elite_welcome') {
+            // 1. Email de bienvenida ELITE al usuario
+            try {
+                await transporter.sendMail(buildEliteWelcomeEmail(data));
+                results.welcome = 'sent';
+            } catch (err) { results.welcome = 'failed'; }
+
+            // 2. Alerta interna al equipo
+            try {
+                await transporter.sendMail(buildEliteInternalAlert(data));
                 results.internal = 'sent';
             } catch (err) { results.internal = 'failed'; }
         }
