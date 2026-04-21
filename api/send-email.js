@@ -204,6 +204,54 @@ function buildInternalAlert(data) {
     };
 }
 
+// ── Bienvenida GUÍA (Welcome to the Crew) ───────────────────────────
+function buildGuideWelcomeEmail(data) {
+    return {
+        from: `"Lifextreme Operations" <${process.env.ZOHO_USER}>`,
+        to: data.email,
+        subject: `🏔️ BIENVENIDO AL EQUIPO: ${data.fullName}`,
+        html: `
+        <div style="font-family:sans-serif;max-width:600px;margin:0 auto;background:#ffffff;border-radius:16px;overflow:hidden;border:1px solid #e2e8f0;">
+            <div style="background:#4338ca;padding:40px;text-align:center;color:#ffffff;">
+                <h1 style="font-size:24px;font-weight:900;margin:0;text-transform:uppercase;letter-spacing:2px;">Welcome to the Crew</h1>
+            </div>
+            <div style="padding:40px 32px;">
+                <h2 style="color:#1e293b;font-size:20px;margin:0 0 16px;">¡Hola, ${data.fullName}!</h2>
+                <p style="color:#64748b;line-height:1.6;font-size:15px;margin:0 0 24px;">
+                    Gracias por postular al equipo de guías de <b>Lifextreme</b>. Hemos recibido tu ficha técnica y estamos muy emocionados por la posibilidad de colaborar contigo.
+                </p>
+                <div style="background:#f1f5f9;border-radius:12px;padding:20px;margin-bottom:24px;">
+                    <p style="margin:0;font-size:13px;color:#1e293b;"><b>Próximo Paso:</b> Nuestro equipo de operaciones revisará tus certificaciones (<b>${data.certs.join(', ')}</b>) y especialidades. Te contactaremos vía WhatsApp para una breve entrevista técnica.</p>
+                </div>
+                <p style="color:#64748b;font-size:14px;margin:0;">Atentamente,<br><b>Equipo de Operaciones de Lifextreme</b></p>
+            </div>
+        </div>`
+    };
+}
+
+function buildGuideInternalAlert(data) {
+    return {
+        from: `"Lifextreme Ops" <${process.env.ZOHO_USER}>`,
+        to: process.env.ZOHO_USER,
+        subject: `🚩 NUEVA POSTULACIÓN DE GUÍA: ${data.fullName}`,
+        html: `
+        <div style="font-family:sans-serif;padding:24px;background:#fefce8;">
+            <div style="background:#fff;padding:24px;border-radius:12px;border:1px solid #fef08a;">
+                <h2 style="color:#854d0e;margin-top:0;">Ficha Técnica de Guía</h2>
+                <hr style="border:0;border-top:1px solid #fef08a;margin:20px 0;">
+                <table style="width:100%;font-size:14px;">
+                    <tr><td style="color:#a1a1aa;padding:5px 0;">GUÍA</td><td style="font-weight:700;">${data.fullName}</td></tr>
+                    <tr><td style="color:#a1a1aa;padding:5px 0;">DNI/PASS</td><td style="font-weight:700;">${data.dni}</td></tr>
+                    <tr><td style="color:#a1a1aa;padding:5px 0;">EXP</td><td style="font-weight:700;">${data.experience}</td></tr>
+                    <tr><td style="color:#a1a1aa;padding:5px 0;">CERTIFICADOS</td><td style="font-weight:700;color:#4338ca;">${data.certs.join(', ')}</td></tr>
+                    <tr><td style="color:#a1a1aa;padding:5px 0;">ESPECIALIDADES</td><td style="font-weight:700;">${data.specialties.join(', ')}</td></tr>
+                    <tr><td style="color:#a1a1aa;padding:5px 0;">WHATSAPP</td><td style="font-weight:700;">${data.phone}</td></tr>
+                </table>
+            </div>
+        </div>`
+    };
+}
+
 // ── Bienvenida ELITE (Activación de Cuenta Socio) ───────────────────────────
 function buildEliteWelcomeEmail(data) {
     return {
@@ -379,15 +427,28 @@ export default async function handler(req, res) {
         }
 
         else if (data.tipo === 'elite_welcome') {
-            // 1. Email de bienvenida ELITE al usuario
+            // ... (código para elite)
             try {
                 await transporter.sendMail(buildEliteWelcomeEmail(data));
                 results.welcome = 'sent';
             } catch (err) { results.welcome = 'failed'; }
 
-            // 2. Alerta interna al equipo
             try {
                 await transporter.sendMail(buildEliteInternalAlert(data));
+                results.internal = 'sent';
+            } catch (err) { results.internal = 'failed'; }
+        }
+
+        else if (data.tipo === 'guide_registration') {
+            // 1. Email de bienvenida al GUÍA
+            try {
+                await transporter.sendMail(buildGuideWelcomeEmail(data));
+                results.welcome = 'sent';
+            } catch (err) { results.welcome = 'failed'; }
+
+            // 2. Alerta interna al equipo de operaciones
+            try {
+                await transporter.sendMail(buildGuideInternalAlert(data));
                 results.internal = 'sent';
             } catch (err) { results.internal = 'failed'; }
         }

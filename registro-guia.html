@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -172,24 +172,28 @@
                         </div>
 
                         <div class="space-y-2">
-                            <label class="text-xs font-bold text-slate-700 uppercase">Especialidades</label>
-                            <div class="flex flex-wrap gap-2">
-                                <span
-                                    class="bg-indigo-50 text-primary px-3 py-1 rounded-full text-xs font-bold border border-indigo-100 cursor-pointer hover:bg-indigo-100 select-none"
-                                    onclick="this.classList.toggle('bg-primary'); this.classList.toggle('text-white')">Trekking</span>
-                                <span
-                                    class="bg-indigo-50 text-primary px-3 py-1 rounded-full text-xs font-bold border border-indigo-100 cursor-pointer hover:bg-indigo-100 select-none"
-                                    onclick="this.classList.toggle('bg-primary'); this.classList.toggle('text-white')">Montañismo</span>
-                                <span
-                                    class="bg-indigo-50 text-primary px-3 py-1 rounded-full text-xs font-bold border border-indigo-100 cursor-pointer hover:bg-indigo-100 select-none"
-                                    onclick="this.classList.toggle('bg-primary'); this.classList.toggle('text-white')">Escalada
-                                    Roca</span>
-                                <span
-                                    class="bg-indigo-50 text-primary px-3 py-1 rounded-full text-xs font-bold border border-indigo-100 cursor-pointer hover:bg-indigo-100 select-none"
-                                    onclick="this.classList.toggle('bg-primary'); this.classList.toggle('text-white')">Selva/Amazonas</span>
-                                <span
-                                    class="bg-indigo-50 text-primary px-3 py-1 rounded-full text-xs font-bold border border-indigo-100 cursor-pointer hover:bg-indigo-100 select-none"
-                                    onclick="this.classList.toggle('bg-primary'); this.classList.toggle('text-white')">Fotografía</span>
+                            <label class="text-xs font-bold text-slate-700 uppercase">Especialidades (Selecciona tus fuertes)</label>
+                            <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                                <label class="flex items-center gap-2 p-3 border border-slate-100 rounded-xl cursor-pointer hover:bg-slate-50 peer-checked:bg-primary">
+                                    <input type="checkbox" name="specialties" value="trekking" class="w-4 h-4 accent-primary">
+                                    <span class="text-xs font-medium">Trekking</span>
+                                </label>
+                                <label class="flex items-center gap-2 p-3 border border-slate-100 rounded-xl cursor-pointer hover:bg-slate-50">
+                                    <input type="checkbox" name="specialties" value="climbing" class="w-4 h-4 accent-primary">
+                                    <span class="text-xs font-medium">Montañismo</span>
+                                </label>
+                                <label class="flex items-center gap-2 p-3 border border-slate-100 rounded-xl cursor-pointer hover:bg-slate-50">
+                                    <input type="checkbox" name="specialties" value="rock" class="w-4 h-4 accent-primary">
+                                    <span class="text-xs font-medium">Escalada Roca</span>
+                                </label>
+                                <label class="flex items-center gap-2 p-3 border border-slate-100 rounded-xl cursor-pointer hover:bg-slate-50">
+                                    <input type="checkbox" name="specialties" value="jungle" class="w-4 h-4 accent-primary">
+                                    <span class="text-xs font-medium">Selva/Amazonas</span>
+                                </label>
+                                <label class="flex items-center gap-2 p-3 border border-slate-100 rounded-xl cursor-pointer hover:bg-slate-50">
+                                    <input type="checkbox" name="specialties" value="photo" class="w-4 h-4 accent-primary">
+                                    <span class="text-xs font-medium">Fotografía</span>
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -224,25 +228,7 @@
         </div>
     </div>
 
-    <!-- Script: Simple Mock Registration -->
-    <script>
-        document.getElementById('guide-register-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            // UI Feedback
-            const btn = this.querySelector('button[type="submit"]');
-            const originalContent = btn.innerHTML;
-            btn.innerHTML = '<i class="ri-loader-4-line animate-spin text-xl"></i> Procesando...';
-            btn.disabled = true;
-
-            // Simulate API Call
-            setTimeout(() => {
-                alert('¡Solicitud Recibida! \n\nGracias por registrarte en Lifextreme. Tu perfil ha sido creado y está en proceso de validación. Te contactaremos en las próximas 24 horas para verificar tus credenciales.');
-                window.location.href = 'index.html';
-            }, 1500);
-        });
-    </script>
-
+    <!-- Scripts -->
+    <script src="js/forms-handler.js"></script>
 </body>
-
 </html>
