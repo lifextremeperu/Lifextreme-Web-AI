@@ -335,7 +335,10 @@ export default async function handler(req, res) {
     try {
         const data = req.body;
 
-        if (!data || !data.email || !data.tipo) {
+        // Validación flexible: el email puede estar en la raíz o en data.personal.email (Elite)
+        const userEmail = data.email || (data.personal && data.personal.email);
+
+        if (!data || !userEmail || !data.tipo) {
             return res.status(400).json({ error: 'Faltan campos requeridos: email, tipo' });
         }
 
