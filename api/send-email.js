@@ -608,12 +608,13 @@ export default async function handler(req, res) {
         return res.status(200).json({ 
             success: true, 
             results,
-            debug: { tipoRecibido },
-            message: 'Emails procesados'
+            debug: { tipoRecibido, version: "2026-04-21-Táctico-Final" },
+            message: 'SISTEMA DE MISIÓN ALPHA-1 ACTIVADO'
         });
-
     } catch (error) {
         console.error('❌ Email handler error:', error);
-        return res.status(500).json({ error: 'Error interno del servidor' });
+        return res.status(500).json({ error: 'Error interno del servidor [DEBUG V1]' });
     }
 }
+
+// Last Update: 2026-04-21 18:43 (Forced Deploy)
