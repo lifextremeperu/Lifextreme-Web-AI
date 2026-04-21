@@ -204,6 +204,83 @@ function buildInternalAlert(data) {
     };
 }
 
+// ── Pase de Abordaje TÁCTICO (Confirmación de Reserva) ─────────────────────
+function buildBookingConfirmationEmail(data) {
+    const bookingId = Math.random().toString(36).substr(2, 9).toUpperCase();
+    return {
+        from: `"Lifextreme Command" <${process.env.ZOHO_USER}>`,
+        to: data.email,
+        subject: `🎫 BOARDING PASS: ${data.tourName} - ${data.date}`,
+        html: `
+        <div style="font-family:'Courier New', Courier, monospace;max-width:600px;margin:0 auto;background:#000000;color:#00ff00;border:2px solid #00ff00;padding:0;overflow:hidden;">
+            <div style="background:#00ff00;color:#000000;padding:15px;text-align:center;font-weight:900;letter-spacing:5px;">
+                CONFIRMED EXPEDITION
+            </div>
+            
+            <div style="padding:30px;">
+                <div style="border-bottom:1px dashed #00ff00;padding-bottom:20px;margin-bottom:20px;display:flex;justify-content:space-between;align-items:center;">
+                    <div>
+                        <div style="font-size:10px;text-transform:uppercase;">Explorador Principal</div>
+                        <div style="font-size:18px;font-weight:bold;">${data.fullName}</div>
+                    </div>
+                    <div style="text-align:right;">
+                        <div style="font-size:10px;text-transform:uppercase;">ID de Misión</div>
+                        <div style="font-size:18px;font-weight:bold;">${bookingId}</div>
+                    </div>
+                </div>
+
+                <div style="display:grid;margin-bottom:30px;">
+                    <div style="margin-bottom:15px;">
+                        <div style="font-size:10px;text-transform:uppercase;">Objetivo / Tour</div>
+                        <div style="font-size:22px;font-weight:900;font-style:italic;">${data.tourName}</div>
+                    </div>
+                    
+                    <div style="background:rgba(0,255,0,0.1);padding:15px;border-left:4px solid #00ff00;">
+                        <div style="font-size:14px;margin-bottom:5px;">📅 DEPLOYMENT: <b>${data.date}</b></div>
+                        <div style="font-size:14px;margin-bottom:5px;">👥 EXPLORADORES: <b>${data.pax}</b></div>
+                        <div style="font-size:14px;">📍 STATUS: <b>PRE-ALPHA ACTIVATED</b></div>
+                    </div>
+                </div>
+
+                <!-- QR MOCK -->
+                <div style="text-align:center;margin:30px 0;">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=${bookingId}&color=00ff00&bgcolor=000000" style="border:1px solid #00ff00;padding:10px;" alt="Tactical QR">
+                    <div style="font-size:10px;margin-top:10px;letter-spacing:2px;">SECURE CHECK-IN CODE</div>
+                </div>
+
+                <div style="font-size:12px;line-height:1.4;border-top:1px dashed #00ff00;padding-top:20px;">
+                    <p><b>NOTAS DE CAMPO:</b> Presenta este pase digital a tu guía asignado. Asegúrate de llevar equipo táctico recomendado y estar en el punto de extracción 15 min antes.</p>
+                </div>
+            </div>
+            
+            <div style="background:#111;padding:10px;text-align:center;font-size:9px;color:#008800;letter-spacing:1px;">
+                SYSTEM GENERATED · NO SIGNATURE REQUIRED · ENCRYPTED DATA
+            </div>
+        </div>`
+    };
+}
+
+function buildBookingInternalAlert(data) {
+    return {
+        from: `"Command Center" <${process.env.ZOHO_USER}>`,
+        to: process.env.ZOHO_USER,
+        subject: `🚀 NUEVA OPERACIÓN ACTIVADA: ${data.tourName}`,
+        html: `
+        <div style="font-family:sans-serif;padding:20px;background:#000;">
+            <div style="background:#111;color:#fff;padding:24px;border:1px solid #333;border-radius:12px;">
+                <h2 style="color:#0f0;">Nueva Reserva de Tour</h2>
+                <hr style="border-color:#333;">
+                <p><b>Cliente:</b> ${data.fullName}</p>
+                <p><b>Email:</b> ${data.email}</p>
+                <p><b>Tour:</b> ${data.tourName}</p>
+                <p><b>Fecha:</b> ${data.date}</p>
+                <p><b>Pax:</b> ${data.pax}</p>
+                <p><b>WhatsApp:</b> ${data.phone}</p>
+            </div>
+        </div>`
+    };
+}
+
 // ── Bienvenida INVERSIONISTA (Preventa Lifecoins) ───────────────────────────
 function buildPresaleWelcomeEmail(data) {
     return {
@@ -447,86 +524,83 @@ export default async function handler(req, res) {
 
     try {
         const data = req.body;
+        const tipoRecibido = (data.tipo || '').trim();
 
         // Validación flexible: el email puede estar en la raíz o en data.personal.email (Elite)
         const userEmail = data.email || (data.personal && data.personal.email);
 
-        if (!data || !userEmail || !data.tipo) {
+        if (!data || !userEmail || !tipoRecibido) {
             return res.status(400).json({ error: 'Faltan campos requeridos: email, tipo' });
-        }
-
-        // Verificar credenciales SMTP configuradas
-        if (!process.env.ZOHO_USER || !process.env.ZOHO_PASS) {
-            console.error('❌ ZOHO_USER o ZOHO_PASS no configurados en env vars');
-            return res.status(500).json({ error: 'Configuración de email incompleta' });
         }
 
         const results = { welcome: null, internal: null };
 
-        if (data.tipo === 'partner_registration') {
-            // ... (código existente para partners)
-            // 1. Email de bienvenida al partner
+        // ── FLOW: BOOKING CONFIRMATION ──
+        if (tipoRecibido === 'booking_confirmation') {
+            try {
+                await transporter.sendMail(buildBookingConfirmationEmail(data));
+                results.welcome = 'sent';
+            } catch (err) { results.welcome = 'failed'; }
+
+            try {
+                await transporter.sendMail(buildBookingInternalAlert(data));
+                results.internal = 'sent';
+            } catch (err) { results.internal = 'failed'; }
+        }
+
+        else if (tipoRecibido === 'partner_registration') {
+            // ... (código existente)
             try {
                 await transporter.sendMail(buildWelcomeEmail(data));
                 results.welcome = 'sent';
             } catch (err) { results.welcome = 'failed'; }
-
-            // 2. Alerta interna al equipo
             try {
                 await transporter.sendMail(buildInternalAlert(data));
                 results.internal = 'sent';
             } catch (err) { results.internal = 'failed'; }
-        } 
-        
-        else if (data.tipo === 'socio_update') {
-            // ... (código para socios)
+        }
+
+        else if (tipoRecibido === 'socio_update') {
+            // ...
             try {
                 await transporter.sendMail(buildSocioConfirmationEmail(data));
                 results.welcome = 'sent';
             } catch (err) { results.welcome = 'failed'; }
-
             try {
                 await transporter.sendMail(buildSocioUpdateAlert(data));
                 results.internal = 'sent';
             } catch (err) { results.internal = 'failed'; }
         }
 
-        else if (data.tipo === 'elite_welcome') {
-            // ... (código para elite)
+        else if (tipoRecibido === 'elite_welcome') {
             try {
                 await transporter.sendMail(buildEliteWelcomeEmail(data));
                 results.welcome = 'sent';
             } catch (err) { results.welcome = 'failed'; }
-
             try {
                 await transporter.sendMail(buildEliteInternalAlert(data));
                 results.internal = 'sent';
             } catch (err) { results.internal = 'failed'; }
         }
 
-        else if (data.tipo === 'guide_registration') {
-            // ... (código para guías)
-            try {
-                await transporter.sendMail(buildGuideWelcomeEmail(data));
-                results.welcome = 'sent';
-            } catch (err) { results.welcome = 'failed'; }
-
-            try {
-                await transporter.sendMail(buildGuideInternalAlert(data));
-                results.internal = 'sent';
-            } catch (err) { results.internal = 'failed'; }
-        }
-
-        else if (data.tipo === 'presale_welcome') {
-            // 1. Email de bienvenida FUNDADOR al usuario
+        else if (tipoRecibido === 'presale_welcome') {
             try {
                 await transporter.sendMail(buildPresaleWelcomeEmail(data));
                 results.welcome = 'sent';
             } catch (err) { results.welcome = 'failed'; }
-
-            // 2. Alerta interna al equipo de ventas/finanzas
             try {
                 await transporter.sendMail(buildPresaleInternalAlert(data));
+                results.internal = 'sent';
+            } catch (err) { results.internal = 'failed'; }
+        }
+
+        else if (tipoRecibido === 'guide_registration') {
+            try {
+                await transporter.sendMail(buildGuideWelcomeEmail(data));
+                results.welcome = 'sent';
+            } catch (err) { results.welcome = 'failed'; }
+            try {
+                await transporter.sendMail(buildGuideInternalAlert(data));
                 results.internal = 'sent';
             } catch (err) { results.internal = 'failed'; }
         }
@@ -534,6 +608,7 @@ export default async function handler(req, res) {
         return res.status(200).json({ 
             success: true, 
             results,
+            debug: { tipoRecibido },
             message: 'Emails procesados'
         });
 
