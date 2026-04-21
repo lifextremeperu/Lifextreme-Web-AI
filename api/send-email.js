@@ -573,7 +573,8 @@ export default async function handler(req, res) {
 
     try {
         const data = req.body;
-        const tipoRecibido = (data.tipo || '').trim();
+        // Limpieza atómica: solo letras y guiones bajos, en minúsculas.
+        const tipoRecibido = (data.tipo || '').toLowerCase().replace(/[^a-z_]/g, '').trim();
 
         // Validación flexible: el email puede estar en la raíz o en data.personal.email (Elite)
         const userEmail = data.email || (data.personal && data.personal.email);
@@ -584,8 +585,21 @@ export default async function handler(req, res) {
 
         const results = { welcome: null, internal: null };
 
-        // ── FLOW: BOOKING CONFIRMATION ──
-        if (tipoRecibido.includes('booking_confirmation')) {
+        // ── PRIORIDAD 1: RECLUTAMIENTO ──
+        if (tipoRecibido.includes('job_application')) {
+            try {
+                await transporter.sendMail(buildJobApplicationEmail(data));
+                results.welcome = 'sent';
+            } catch (err) { results.welcome = 'failed'; results.errorW = err.message; }
+
+            try {
+                await transporter.sendMail(buildJobInternalAlert(data));
+                results.internal = 'sent';
+            } catch (err) { results.internal = 'failed'; results.errorI = err.message; }
+        }
+
+        // ── PRIORIDAD 2: RESERVAS ──
+        else if (tipoRecibido.includes('booking_confirmation')) {
             try {
                 await transporter.sendMail(buildBookingConfirmationEmail(data));
                 results.welcome = 'sent';
@@ -595,25 +609,6 @@ export default async function handler(req, res) {
                 await transporter.sendMail(buildBookingInternalAlert(data));
                 results.internal = 'sent';
             } catch (err) { results.internal = 'failed'; results.errorI = err.message; }
-        }
-
-        else if (tipoRecibido.includes('job_application')) {
-            try {
-                const mailOptions = buildJobApplicationEmail(data);
-                await transporter.sendMail(mailOptions);
-                results.welcome = 'sent';
-            } catch (err) { 
-                results.welcome = 'failed'; 
-                results.errorW = err.message;
-            }
-
-            try {
-                await transporter.sendMail(buildJobInternalAlert(data));
-                results.internal = 'sent';
-            } catch (err) { 
-                results.internal = 'failed'; 
-                results.errorI = err.message;
-            }
         }
 
         else if (tipoRecibido === 'partner_registration') {
