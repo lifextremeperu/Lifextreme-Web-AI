@@ -121,20 +121,37 @@ function initRegistroForm() {
             e.preventDefault();
 
             const formData = new FormData(registroForm);
-            const nombre = formData.get('nombre'); // Nombre de la empresa o persona
-            const email = formData.get('email');
-            const password = formData.get('password');
-            const confirmPassword = formData.get('confirm_password');
-            const terms = formData.get('terms');
 
-            // Validaciones básicas
-            if (password !== confirmPassword) {
+            // Extraer todos los campos del formulario
+            const nombre        = formData.get('nombre') || '';
+            const apellido      = formData.get('apellido') || '';
+            const email         = formData.get('email');
+            const password      = formData.get('password');
+            const confirmPass   = formData.get('password_confirm');
+            const telefono      = formData.get('telefono') || '';
+            const pais          = formData.get('pais') || '';
+            const empresa       = formData.get('empresa') || '';
+            const tipo_actividad = formData.get('tipo_actividad') || '';
+            const ruc           = formData.get('ruc') || '';
+            const website       = formData.get('website') || '';
+            const descripcion   = formData.get('descripcion') || '';
+            const cert_uiagm    = formData.get('cert_uiagm') || '';
+            const cert_iso      = formData.get('cert_iso') || '';
+            const cert_cpr      = formData.get('cert_cpr') || '';
+            const cert_govt     = formData.get('cert_govt') || '';
+            const terms         = formData.get('terms');
+
+            // Validaciones
+            if (password !== confirmPass) {
                 showMessage('error', 'Las contraseñas no coinciden');
                 return;
             }
-
             if (!terms) {
                 showMessage('error', 'Debes aceptar los términos y condiciones');
+                return;
+            }
+            if (!empresa) {
+                showMessage('error', 'El nombre de empresa es obligatorio');
                 return;
             }
 
@@ -145,13 +162,14 @@ function initRegistroForm() {
             submitBtn.disabled = true;
 
             try {
-                // 1. Crear usuario en Auth de Supabase
+                // 1. Crear usuario en Supabase Auth
                 const { data: authData, error: authError } = await supabase.auth.signUp({
                     email: email,
                     password: password,
                     options: {
                         data: {
-                            full_name: nombre // Metadata en Auth
+                            full_name: `${nombre} ${apellido}`.trim(),
+                            company: empresa
                         }
                     }
                 });
@@ -159,31 +177,69 @@ function initRegistroForm() {
                 if (authError) throw authError;
 
                 if (authData.user) {
-                    // 2. Crear entrada en tabla 'partners'
-                    // Nota: Asegúrate de que las políticas RLS permitan insertar aquí o usa una función RPC segura
+                    // 2. Guardar TODOS los campos en la tabla partners
+                    const certsList = [
+                        cert_uiagm === 'on' ? 'UIAGM/IFMGA' : null,
+                        cert_iso   === 'on' ? 'ISO 21101'   : null,
+                        cert_cpr   === 'on' ? 'CPR/Primeros Auxilios' : null,
+                        cert_govt  === 'on' ? 'Licencia Gubernamental' : null
+                    ].filter(Boolean);
+
                     const { error: partnerError } = await supabase
                         .from('partners')
-                        .insert([
-                            {
-                                user_id: authData.user.id, // ID generado por Auth
-                                company_name: nombre,
-                                company_email: email,
-                                status: 'pending' // Estado inicial
-                            }
-                        ]);
+                        .insert([{
+                            user_id:          authData.user.id,
+                            company_name:     empresa,           // ✅ Nombre de empresa (corregido)
+                            company_email:    email,
+                            contact_name:     `${nombre} ${apellido}`.trim(), // ✅ Nombre del contacto
+                            phone:            telefono,          // ✅ Antes se perdía
+                            country:          pais,              // ✅ Antes se perdía
+                            activity_type:    tipo_actividad,    // ✅ Antes se perdía
+                            tax_id:           ruc,               // ✅ Antes se perdía
+                            website:          website,           // ✅ Antes se perdía
+                            certifications:   certsList,         // ✅ Antes se perdía
+                            description:      descripcion,       // ✅ Antes se perdía
+                            status:           'pending'
+                        }]);
 
                     if (partnerError) {
-                        // Si falla crear el partner pero el usuario se creó, podríamos querer borrar el usuario o manejarlo
-                        console.error('Error creando perfil de partner:', partnerError);
-                        // Continuamos aunque falle esto para no bloquear al usuario, pero mostramos advertencia
+                        // Si falla el insert extra, logueamos pero no bloqueamos al usuario
+                        console.warn('⚠️ Error guardando datos completos de partner:', partnerError.message);
                     }
 
-                    showMessage('success', '¡Cuenta creada con éxito! Por favor verifica tu correo para confirmar.');
+                    // 3. Enviar emails vía /api/send-email
+                    try {
+                        await fetch('/api/send-email', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                tipo:          'partner_registration',
+                                nombre,
+                                apellido,
+                                email,
+                                telefono,
+                                pais,
+                                empresa,
+                                tipo_actividad,
+                                ruc,
+                                website,
+                                descripcion,
+                                cert_uiagm,
+                                cert_iso,
+                                cert_cpr,
+                                cert_govt
+                            })
+                        });
+                    } catch (emailErr) {
+                        // Email falla silenciosamente — no bloquea el flujo del usuario
+                        console.warn('⚠️ Email no enviado (no bloquea registro):', emailErr.message);
+                    }
 
-                    // Opcional: Auto-login o redirigir a login
+                    showMessage('success', '¡Cuenta creada! Revisa tu email para confirmar y espera activación en 24 horas.');
+
                     setTimeout(() => {
                         window.location.href = 'index.html?registered=true';
-                    }, 2000);
+                    }, 2500);
                 }
 
             } catch (error) {
