@@ -507,6 +507,55 @@ function buildSocioUpdateAlert(data) {
     };
 }
 
+// ── Reclutamiento (Trabaja con Nosotros) ──────────────────────────────────
+function buildJobApplicationEmail(data) {
+    return {
+        from: `"Lifextreme Careers" <${process.env.ZOHO_USER}>`,
+        to: data.email,
+        subject: `🚀 Tu aplicación a Lifextreme: ${data.position}`,
+        html: `
+        <div style="font-family:sans-serif;max-width:600px;margin:0 auto;background:#f8fafc;border-radius:24px;overflow:hidden;border:1px solid #e2e8f0;">
+            <div style="background:#0f172a;padding:48px 32px;text-align:center;">
+                <h1 style="color:#ffffff;font-size:24px;font-weight:900;margin:0;letter-spacing:2px;text-transform:uppercase;">Join the Elite Squad</h1>
+            </div>
+            <div style="padding:40px 32px;background:#ffffff;">
+                <h2 style="color:#1e293b;font-size:20px;margin:0 0 16px;">¡Hola, ${data.fullName}!</h2>
+                <p style="color:#64748b;line-height:1.6;font-size:15px;margin:0 0 24px;">
+                    Hemos recibido tu aplicación para la posición de <b>${data.position}</b>. En Lifextreme no buscamos empleados, buscamos pioneros dispuestos a redefinir los límites de la aventura.
+                </p>
+                <div style="background:#f1f5f9;border-radius:12px;padding:20px;margin-bottom:24px;border-left:4px solid #4338ca;">
+                    <p style="margin:0;font-size:13px;color:#1e293b;"><b>Estado de Aplicación:</b> Recibida y en revisión por el equipo de operaciones.</p>
+                </div>
+                <p style="color:#64748b;font-size:14px;margin-bottom:32px;">Si tu perfil encaja con nuestro ADN, nos pondremos en contacto contigo para una entrevista táctica en los próximos días.</p>
+                <div style="text-align:center;">
+                    <span style="font-size:11px;color:#94a3b8;text-transform:uppercase;letter-spacing:2px;">Safe and Bold · Since 2024</span>
+                </div>
+            </div>
+        </div>`
+    };
+}
+
+function buildJobInternalAlert(data) {
+    return {
+        from: `"Lifextreme Careers" <${process.env.ZOHO_USER}>`,
+        to: process.env.ZOHO_USER,
+        replyTo: data.email,
+        subject: `👤 NUEVO TALENTO: ${data.fullName} (${data.position})`,
+        html: `
+        <div style="font-family:sans-serif;padding:24px;background:#f8fafc;">
+            <div style="background:#fff;padding:24px;border-radius:12px;border:1px solid #e2e8f0;">
+                <h2 style="color:#4338ca;margin-top:0;">Ficha de Postulante</h2>
+                <hr style="border:0;border-top:1px solid #e2e8f0;margin:20px 0;">
+                <p><b>Candidato:</b> ${data.fullName}</p>
+                <p><b>Email:</b> ${data.email}</p>
+                <p><b>Posición:</b> ${data.position}</p>
+                <p><b>Pitch:</b> ${data.pitch}</p>
+                <p style="font-size:11px;color:#94a3b8;margin-top:20px;">Revisar CV adjunto en el sistema o contactar vía email.</p>
+            </div>
+        </div>`
+    };
+}
+
 // ── Handler Principal ────────────────────────────────────────────────────────
 export default async function handler(req, res) {
     // Solo POST
@@ -536,16 +585,35 @@ export default async function handler(req, res) {
         const results = { welcome: null, internal: null };
 
         // ── FLOW: BOOKING CONFIRMATION ──
-        if (tipoRecibido === 'booking_confirmation') {
+        if (tipoRecibido.includes('booking_confirmation')) {
             try {
                 await transporter.sendMail(buildBookingConfirmationEmail(data));
                 results.welcome = 'sent';
-            } catch (err) { results.welcome = 'failed'; }
+            } catch (err) { results.welcome = 'failed'; results.errorW = err.message; }
 
             try {
                 await transporter.sendMail(buildBookingInternalAlert(data));
                 results.internal = 'sent';
-            } catch (err) { results.internal = 'failed'; }
+            } catch (err) { results.internal = 'failed'; results.errorI = err.message; }
+        }
+
+        else if (tipoRecibido.includes('job_application')) {
+            try {
+                const mailOptions = buildJobApplicationEmail(data);
+                await transporter.sendMail(mailOptions);
+                results.welcome = 'sent';
+            } catch (err) { 
+                results.welcome = 'failed'; 
+                results.errorW = err.message;
+            }
+
+            try {
+                await transporter.sendMail(buildJobInternalAlert(data));
+                results.internal = 'sent';
+            } catch (err) { 
+                results.internal = 'failed'; 
+                results.errorI = err.message;
+            }
         }
 
         else if (tipoRecibido === 'partner_registration') {
