@@ -17,6 +17,89 @@ const transporter = nodemailer.createTransport({
     }
 });
 
+// ── Digital Gift Card (Para el DESTINATARIO) ─────────────────────────────────
+function buildGiftCardEmail(data) {
+    const giftCode = `LXG-${Math.random().toString(36).substr(2, 6).toUpperCase()}`;
+    const themes = {
+        bday: { bg: 'linear-gradient(135deg, #ec4899 0%, #d946ef 100%)', title: '¡Feliz Cumpleaños!' },
+        love: { bg: 'linear-gradient(135deg, #ef4444 0%, #f43f5e 100%)', title: '¡Feliz Aniversario!' },
+        xmas: { bg: 'linear-gradient(135deg, #059669 0%, #047857 100%)', title: '¡Feliz Navidad!' },
+        surprise: { bg: 'linear-gradient(135deg, #4338ca 0%, #4f46e5 100%)', title: '¡Sorpresa Adventure!' }
+    };
+    const theme = themes[data.theme] || themes.surprise;
+
+    return {
+        from: `"Lifextreme Gifts" <${process.env.ZOHO_USER}>`,
+        to: data.recipientEmail,
+        subject: `🎁 ¡${data.buyerName} te ha enviado una Adventure Card de Lifextreme!`,
+        html: `
+        <!DOCTYPE html>
+        <html lang="es">
+        <head><meta charset="UTF-8"></head>
+        <body style="margin:0;padding:40px 20px;background:#0f172a;font-family:'Outfit',Arial,sans-serif;color:#ffffff;text-align:center;">
+          <div style="max-width:400px;margin:0 auto;background:#ffffff;border-radius:32px;overflow:hidden;box-shadow:0 25px 50px -12px rgba(0,0,0,0.5);">
+            <!-- Card Visual -->
+            <div style="background:${theme.bg};padding:48px 32px;color:#ffffff;position:relative;">
+              <div style="font-size:10px;font-weight:900;letter-spacing:4px;text-transform:uppercase;opacity:0.8;margin-bottom:20px;">Adventure Card</div>
+              <div style="font-size:18px;font-weight:900;font-style:italic;margin-bottom:40px;">LIFE<span style="opacity:0.7;">XTREME</span></div>
+              
+              <h1 style="font-size:32px;font-weight:900;margin:0 0 8px;font-style:italic;">${theme.title}</h1>
+              <div style="font-size:48px;font-weight:900;margin:16px 0;">S/ ${data.amount}</div>
+              
+              <p style="font-size:14px;font-style:italic;opacity:0.9;line-height:1.6;margin:24px 0;">"${data.message || 'Prepárate para la aventura de tu vida.'}"</p>
+              
+              <div style="margin-top:40px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.2);font-size:12px;opacity:0.8;">
+                De: <strong style="color:#ffffff;">${data.buyerName}</strong>
+              </div>
+            </div>
+            
+            <!-- Redención Info -->
+            <div style="padding:40px 32px;background:#ffffff;color:#1e293b;">
+              <div style="background:#f8fafc;border-radius:16px;padding:20px;margin-bottom:24px;border:1px dashed #cbd5e1;">
+                <p style="font-size:10px;font-weight:900;color:#94a3b8;margin:0 0 8px;text-transform:uppercase;">Tu Código de Canje</p>
+                <div style="font-size:24px;font-weight:900;color:#1e293b;letter-spacing:2px;font-family:monospace;">${giftCode}</div>
+              </div>
+              
+              <h2 style="font-size:18px;font-weight:900;margin:0 0 12px;">¿Cómo usar tu regalo?</h2>
+              <p style="font-size:13px;color:#64748b;line-height:1.6;margin-bottom:28px;">
+                Cualquier aventura que veas en <strong>lifextreme.store</strong> puede ser tuya. Al reservar, solo presenta este código o contáctanos directamente.
+              </p>
+              
+              <a href="https://www.lifextreme.store" style="display:inline-block;background:#1e293b;color:#ffffff;text-decoration:none;padding:14px 28px;border-radius:12px;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:1px;">Explorar Rutas →</a>
+            </div>
+          </div>
+          <p style="color:#475569;font-size:11px;margin-top:32px;">© 2026 Lifextreme Adventures · El regalo de la libertad.</p>
+        </body>
+        </html>
+        `
+    };
+}
+
+// ── Confirmación de Compra de Gift Card (Para el COMPRADOR) ─────────────────
+function buildGiftBuyerConfirmationEmail(data) {
+    return {
+        from: `"Lifextreme Payments" <${process.env.ZOHO_USER}>`,
+        to: data.buyerEmail,
+        subject: `✅ Tu regalo para ${data.recipientName} ha sido enviado`,
+        html: `
+        <div style="font-family:sans-serif;max-width:500px;margin:0 auto;background:#f8fafc;padding:40px 20px;border-radius:24px;">
+            <div style="background:#ffffff;border-radius:20px;padding:32px;border:1px solid #e2e8f0;text-align:center;">
+                <div style="font-size:40px;margin-bottom:20px;">🤘</div>
+                <h1 style="font-size:20px;font-weight:900;color:#1e293b;margin:0 0 12px;">¡Gracias, ${data.buyerName}!</h1>
+                <p style="color:#64748b;font-size:14px;line-height:1.6;margin-bottom:24px;">
+                    Has enviado un regalo increíble. La Adventure Card por <strong>S/ ${data.amount}</strong> ya está en la bandeja de entrada de <strong>${data.recipientName}</strong>.
+                </p>
+                <div style="background:#f1f5f9;border-radius:12px;padding:16px;margin-bottom:24px;">
+                    <p style="font-size:11px;color:#94a3b8;margin:0 0 4px;text-transform:uppercase;">Destinatario:</p>
+                    <p style="font-size:14px;color:#1e293b;font-weight:700;margin:0;">${data.recipientEmail}</p>
+                </div>
+                <p style="color:#94a3b8;font-size:11px;">Te hemos enviado una copia del recibo de esta transacción.</p>
+            </div>
+        </div>
+        `
+    };
+}
+
 // ── Email de bienvenida al PARTNER ──────────────────────────────────────────
 function buildWelcomeEmail(data) {
     return {
@@ -598,20 +681,22 @@ export default async function handler(req, res) {
             } catch (err) { results.internal = 'failed'; results.errorI = err.message; }
         }
 
-        // ── PRIORIDAD 2: RESERVAS ──
-        else if (tipoRecibido.includes('booking_confirmation')) {
+        // ── PRIORIDAD 3: GIFT CARDS ──
+        else if (tipoRecibido.includes('gift_card_confirmation')) {
             try {
-                await transporter.sendMail(buildBookingConfirmationEmail(data));
+                // Al Destinatario
+                await transporter.sendMail(buildGiftCardEmail(data));
                 results.welcome = 'sent';
             } catch (err) { results.welcome = 'failed'; results.errorW = err.message; }
 
             try {
-                await transporter.sendMail(buildBookingInternalAlert(data));
+                // Al Comprador (Confirmación)
+                await transporter.sendMail(buildGiftBuyerConfirmationEmail(data));
                 results.internal = 'sent';
             } catch (err) { results.internal = 'failed'; results.errorI = err.message; }
         }
 
-        else if (tipoRecibido === 'partner_registration') {
+        // ── PRIORIDAD 4: PARTNERS Y OTROS ──
             // ... (código existente)
             try {
                 await transporter.sendMail(buildWelcomeEmail(data));

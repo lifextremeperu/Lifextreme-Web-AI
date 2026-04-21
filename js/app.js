@@ -595,10 +595,11 @@ function addToCartFinal() {
     if (window.processBookingCusco) {
         window.processBookingCusco({
             tourId: activeTour.id,
+            tourName: activeTour.title,
             date: fullDate,
             pax: participants,
             price: item.price,
-            contact: window.currentContact || { // Usar datos capturados o fallback
+            contact: window.currentContact || {
                 name: "Usuario Web",
                 email: "pendiente@checkout.com",
                 phone: "000000000"

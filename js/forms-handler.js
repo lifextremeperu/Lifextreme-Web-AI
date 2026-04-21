@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSocioUpdateForm();
     initGuideRegisterForm();
     initInvestmentForm();
+    initJobForm();
     // Aquí agregaremos otros handlers (contacto, etc.)
 });
 
@@ -177,6 +178,55 @@ function initSocioUpdateForm() {
         } finally {
             submitBtn.disabled = false;
             submitBtn.textContent = originalText;
+        }
+    });
+}
+/**
+ * Handler para Trabaja con nosotros (Recruitment)
+ */
+function initJobForm() {
+    const jobForm = document.getElementById('job-form');
+    if (!jobForm) return;
+
+    jobForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const submitBtn = jobForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="ri-loader-4-line animate-spin text-xl"></i> ENVIANDO A HR...';
+
+        const data = {
+            tipo: 'job_application',
+            fullName: document.getElementById('job-name').value,
+            email: document.getElementById('job-email').value,
+            position: document.getElementById('job-position').value,
+            pitch: document.getElementById('job-pitch').value
+        };
+
+        try {
+            const response = await fetch('/api/send-email', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                showToast('✅ ¡Aplicación recibida! Bienvenido al proceso.');
+                jobForm.reset();
+                submitBtn.innerHTML = '<i class="ri-checkbox-circle-line"></i> APLICACIÓN EN REVISIÓN';
+                submitBtn.className = "w-full bg-emerald-500 text-white py-4 rounded-xl font-black uppercase tracking-widest text-xs transition-colors";
+            } else {
+                throw new Error(result.error || 'Error en el servidor');
+            }
+        } catch (error) {
+            console.error('Error en aplicación de trabajo:', error);
+            showToast('❌ Error al enviar. Intenta de nuevo.', 'error');
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalText;
         }
     });
 }

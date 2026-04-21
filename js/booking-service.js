@@ -31,8 +31,29 @@ window.processBookingCusco = async function (bookingData) {
     });
 
     if (result.success) {
-        // Notificación visual extra si se desea
+        // Notificación visual extra
         if (window.showToast) window.showToast('Sistema Central', 'Reserva sincronizada con la nube', 'ri-cloud-check-fill');
+
+        // 🎫 DISPARAR TACTICAL PASSBOARD (Email Confirmation)
+        try {
+            console.log('🚀 Generando Tactical Passboard para:', bookingData.contact.email);
+            fetch('/api/send-email', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    tipo: 'booking_confirmation',
+                    fullName: bookingData.contact.name,
+                    email: bookingData.contact.email,
+                    phone: bookingData.contact.phone,
+                    tourName: bookingData.tourName || "Expedición Lifextreme",
+                    date: bookingData.date,
+                    pax: bookingData.pax
+                })
+            });
+            // Nota: No esperamos el await del email para no bloquear el UI del cliente
+        } catch (e) {
+            console.error('Error al disparar Passboard:', e);
+        }
     }
 
     return result;

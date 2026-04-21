@@ -95,9 +95,17 @@
         }, 30000);
     </script>
 
-    <script src="https://static.readdy.ai/static/e.js"></script>
+    <script src="https://static.readdy.ai/static/e.js" async></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 🔒 CONTENT SECURITY POLICY (HARDENING) -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; 
+        script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://www.googletagmanager.com https://js.stripe.com https://static.readdy.ai; 
+        style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdn.jsdelivr.net https://fonts.googleapis.com; 
+        img-src 'self' data: https://images.unsplash.com https://www.googletagmanager.com https://*.supabase.co https://static.readdy.ai; 
+        connect-src 'self' https://*.supabase.co https://www.google-analytics.com https://stats.g.doubleclick.net https://*.readdy.ai;
+        font-src 'self' https://cdn.jsdelivr.net https://fonts.gstatic.com;
+        frame-src 'self' https://js.stripe.com;">
     <title>Turismo de Aventura en Peru | Lifextreme</title>
 
     <!-- ═══════════════════════════════════════════════════════════════ -->
@@ -170,12 +178,12 @@
     <link rel="alternate" hreflang="x-default" href="https://www.lifextreme.store/">
 
     <!-- External Dependencies -->
-    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
-    <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://cdn.tailwindcss.com/3.4.16" defer></script>
+    <script src="https://js.stripe.com/v3/" defer></script>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" integrity="sha384-L/vw44MdBs/7hovWr2rBVSRKqdti4Vw077yuSGQ2PO3tQARRLiLuMh8xhVmVrR0I" crossorigin="anonymous">
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" media="print" onload="this.media='all'">
 
     <!-- Modularized CSS -->
     <link rel="stylesheet" href="css/styles.css">
@@ -354,7 +362,8 @@
                         <p class="text-xs font-black">Alex R.</p>
                     </div>
                     <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100"
-                        class="w-10 h-10 rounded-xl object-cover border border-slate-100">
+                        alt="Avatar Alex R." width="40" height="40"
+                        class="w-10 h-10 rounded-xl object-cover border border-slate-100" loading="lazy">
                 </div>
 
                 <div class="flex items-center gap-2 bg-slate-50 rounded-xl p-1">
@@ -480,8 +489,10 @@
                         <!-- Image -->
                         <div class="absolute inset-0">
                             <img src="https://images.unsplash.com/photo-1528543666838-56ccac0f7193?q=80&w=1200"
-                                alt="Social Expeditions"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000">
+                                alt="Equipo de Expedición Social de Lifextreme en la montaña" width="1200" height="600"
+                                fetchpriority="high"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                                loading="eager">
                         </div>
 
                         <!-- Gradient Overlays -->
@@ -1128,7 +1139,9 @@
                                 class="bg-slate-900 text-white rounded-[40px] p-8 aspect-[1.6/1] flex flex-col justify-between relative overflow-hidden shadow-2xl">
                                 <!-- Background Image (Overlay) -->
                                 <img src="https://images.unsplash.com/photo-1502444330042-d1a1ddf9bb5b?w=600"
-                                    class="absolute inset-0 w-full h-full object-cover opacity-50 mix-blend-overlay">
+                                    alt="Fondo de Gift Card - Aventura Lifextreme" width="600" height="375"
+                                    class="absolute inset-0 w-full h-full object-cover opacity-50 mix-blend-overlay"
+                                    loading="lazy">
 
                                 <div class="relative z-20 flex justify-between items-start">
                                     <div class="bg-white/10 backdrop-blur border border-white/20 p-3 rounded-2xl">
@@ -1231,48 +1244,61 @@
 
                         <!-- Details -->
                         <div class="grid grid-cols-2 gap-4">
-                            <div class="space-y-2">
-                                <label class="text-[10px] font-black uppercase text-slate-400">De parte de:</label>
-                                <input type="text" id="gift-from" placeholder="Tu nombre"
-                                    class="w-full bg-slate-50 border-none rounded-xl px-4 py-3 text-sm font-bold focus:ring-2 focus:ring-secondary/50 outline-none"
+                            <div class="space-y-1">
+                                <label class="text-[9px] font-black uppercase text-slate-400">De parte de:</label>
+                                <input type="text" id="gift-from" required placeholder="Tu nombre"
+                                    class="w-full bg-slate-50 border-none rounded-xl px-4 py-3 text-xs font-bold focus:ring-2 focus:ring-secondary/50 outline-none"
                                     oninput="updateGiftPreview()">
                             </div>
-                            <div class="space-y-2">
-                                <label class="text-[10px] font-black uppercase text-slate-400">Para:</label>
-                                <input type="text" id="gift-to" placeholder="Nombre afortunad@"
-                                    class="w-full bg-slate-50 border-none rounded-xl px-4 py-3 text-sm font-bold focus:ring-2 focus:ring-secondary/50 outline-none"
+                            <div class="space-y-1">
+                                <label class="text-[9px] font-black uppercase text-slate-400">Para:</label>
+                                <input type="text" id="gift-to" required placeholder="Nombre afortunad@"
+                                    class="w-full bg-slate-50 border-none rounded-xl px-4 py-3 text-xs font-bold focus:ring-2 focus:ring-secondary/50 outline-none"
                                     oninput="updateGiftPreview()">
                             </div>
                         </div>
 
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="space-y-1">
+                                <label class="text-[9px] font-black uppercase text-slate-400">Tu Email</label>
+                                <input type="email" id="gift-buyer-email" required placeholder="tu@email.com"
+                                    class="w-full bg-slate-50 border-none rounded-xl px-4 py-3 text-xs font-bold focus:ring-2 focus:ring-secondary/50 outline-none">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-[9px] font-black uppercase text-slate-400">Email Destinatario</label>
+                                <input type="email" id="gift-recipient-email" required placeholder="amigo@email.com"
+                                    class="w-full bg-slate-50 border-none rounded-xl px-4 py-3 text-xs font-bold focus:ring-2 focus:ring-secondary/50 outline-none">
+                            </div>
+                        </div>
+
                         <div class="space-y-2">
-                            <label class="text-[10px] font-black uppercase text-slate-400">Monto del Regalo (S/)</label>
+                            <label class="text-[9px] font-black uppercase text-slate-400">Monto del Regalo (S/)</label>
                             <div class="relative">
                                 <span
                                     class="absolute left-4 top-1/2 -translate-y-1/2 font-black text-slate-400">S/</span>
                                 <input type="number" id="gift-amount" value="300" min="50" step="50"
-                                    class="w-full bg-slate-50 border-none rounded-xl pl-10 pr-4 py-4 text-xl font-black focus:ring-2 focus:ring-secondary/50 outline-none"
+                                    class="w-full bg-slate-50 border-none rounded-xl pl-10 pr-4 py-3 text-lg font-black focus:ring-2 focus:ring-secondary/50 outline-none"
                                     oninput="updateGiftPreview()">
                             </div>
                             <div class="flex gap-2 justify-end">
                                 <button type="button"
-                                    class="text-[10px] font-bold bg-slate-100 px-2 py-1 rounded hover:bg-slate-200"
+                                    class="text-[9px] font-bold bg-slate-100 px-2 py-1 rounded hover:bg-slate-200"
                                     onclick="setGiftAmount(150)">S/ 150</button>
                                 <button type="button"
-                                    class="text-[10px] font-bold bg-slate-100 px-2 py-1 rounded hover:bg-slate-200"
+                                    class="text-[9px] font-bold bg-slate-100 px-2 py-1 rounded hover:bg-slate-200"
                                     onclick="setGiftAmount(300)">S/ 300</button>
                                 <button type="button"
-                                    class="text-[10px] font-bold bg-slate-100 px-2 py-1 rounded hover:bg-slate-200"
+                                    class="text-[9px] font-bold bg-slate-100 px-2 py-1 rounded hover:bg-slate-200"
                                     onclick="setGiftAmount(500)">S/ 500</button>
                             </div>
                         </div>
 
-                        <div class="space-y-2">
-                            <label class="text-[10px] font-black uppercase text-slate-400">Dedicatoria Personal</label>
+                        <div class="space-y-1">
+                            <label class="text-[9px] font-black uppercase text-slate-400">Dedicatoria Personal</label>
                             <textarea id="gift-msg" rows="3" placeholder="Escribe algo bonito..." maxlength="80"
-                                class="w-full bg-slate-50 border-none rounded-xl px-4 py-3 text-sm font-medium focus:ring-2 focus:ring-secondary/50 outline-none resize-none"
+                                class="w-full bg-slate-50 border-none rounded-xl px-4 py-3 text-xs font-medium focus:ring-2 focus:ring-secondary/50 outline-none resize-none"
                                 oninput="updateGiftPreview()"></textarea>
-                            <p class="text-[9px] text-right text-slate-400"><span id="char-count">0</span>/80</p>
+                            <p class="text-[8px] text-right text-slate-400"><span id="char-count">0</span>/80</p>
                         </div>
 
                         <button type="submit"
@@ -1405,25 +1431,58 @@
                 }
             }
 
-            function processGiftPurchase() {
+            async function processGiftPurchase() {
                 const btn = document.querySelector('#gift-modal form button[type="submit"]');
                 const originalText = btn.innerHTML;
 
-                btn.disabled = true;
-                btn.innerHTML = '<i class="ri-loader-4-line animate-spin"></i> Procesando...';
+                // c) Validar campos (HTML5 required ya hace el trabajo, pero por seguridad)
+                const data = {
+                    tipo: 'gift_card_confirmation',
+                    buyerName: document.getElementById('gift-from').value,
+                    buyerEmail: document.getElementById('gift-buyer-email').value,
+                    recipientName: document.getElementById('gift-to').value,
+                    recipientEmail: document.getElementById('gift-recipient-email').value,
+                    amount: document.getElementById('gift-amount').value,
+                    message: document.getElementById('gift-msg').value,
+                    theme: document.querySelector('input[name="gift-theme"]:checked').value
+                };
 
-                setTimeout(() => {
-                    const amount = document.getElementById('gift-amount').value;
-                    const from = document.getElementById('gift-from').value;
-                    const phone = "51984266102"; // Lifextreme Whatsapp
-                    const msg = `Hola Lifextreme, quiero comprar una GIFT CARD de *S/ ${amount}* de parte de *${from}*.`;
+                try {
+                    btn.disabled = true;
+                    btn.innerHTML = '<i class="ri-loader-4-line animate-spin text-lg"></i> Procesando Orden...';
 
-                    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+                    const response = await fetch('/api/send-email', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data)
+                    });
 
+                    const result = await response.json();
+
+                    if (result.success) {
+                        btn.innerHTML = '<i class="ri-checkbox-circle-fill text-lg"></i> ¡GIFT CARD ENVIADA!';
+                        btn.classList.replace('bg-slate-900', 'bg-emerald-500');
+
+                        if (window.showToast) window.showToast('¡Éxito!', 'La Gift Card ha sido enviada al destinatario.', 'ri-gift-fill');
+
+                        setTimeout(() => {
+                            // Reset & Close
+                            closeGiftModal();
+                            btn.disabled = false;
+                            btn.innerHTML = originalText;
+                            btn.classList.replace('bg-emerald-500', 'bg-slate-900');
+                            document.getElementById('gift-form').reset();
+                            updateGiftPreview();
+                        }, 2500);
+                    } else {
+                        throw new Error(result.error);
+                    }
+                } catch (error) {
+                    console.error('Gift Purchase Error:', error);
+                    alert('Error al procesar la Gift Card. Intenta de nuevo.');
                     btn.disabled = false;
                     btn.innerHTML = originalText;
-                    closeGiftModal();
-                }, 1500);
+                }
             }
         </script>
 
@@ -3051,6 +3110,7 @@
             document.getElementById('modal-guide-name').innerText = guideName;
             document.getElementById('modal-guide-specialty').innerText = guideSpecialty;
             document.getElementById('modal-guide-avatar').src = guideAvatar;
+            document.getElementById('modal-guide-avatar').alt = "Guía " + guideName;
             document.getElementById('form-guide-name').value = guideName;
             document.getElementById('form-guide-specialty').value = guideSpecialty;
 
@@ -3240,22 +3300,22 @@
     </script>
 
     <!-- JS Modularized (Links) -->
-    <script src="js/config.js"></script>
-    <script src="js/store.js"></script>
-    <script src="js/data.js"></script>
-    <script src="js/cms-service.js"></script>
-    <script src="js/price-engine.js"></script>
-    <script src="js/fomo-engine.js"></script>
-    <script src="js/sensory-engine.js"></script>
-    <script src="js/ai-personalization.js"></script>
-    <script src="js/ai-engine.js"></script>
-    <script src="js/predictor-engine.js"></script>
-    <script src="js/analytics-service.js"></script>
-    <script src="js/share-engine.js"></script>
-    <script type="module" src="js/booking-service.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/gamification.js"></script>
-    <script src="js/forms-handler.js"></script>
+    <script src="js/config.js" defer></script>
+    <script src="js/store.js" defer></script>
+    <script src="js/data.js" defer></script>
+    <script src="js/cms-service.js" defer></script>
+    <script src="js/price-engine.js" defer></script>
+    <script src="js/fomo-engine.js" defer></script>
+    <script src="js/sensory-engine.js" defer></script>
+    <script src="js/ai-personalization.js" defer></script>
+    <script src="js/ai-engine.js" defer></script>
+    <script src="js/predictor-engine.js" defer></script>
+    <script src="js/analytics-service.js" defer></script>
+    <script src="js/share-engine.js" defer></script>
+    <script type="module" src="js/booking-service.js" defer></script>
+    <script src="js/app.js" defer></script>
+    <script src="js/gamification.js" defer></script>
+    <script src="js/forms-handler.js" defer></script>
 </body>
 
 
