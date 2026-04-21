@@ -204,6 +204,29 @@ function buildInternalAlert(data) {
     };
 }
 
+// ── Alerta interna: Actualización de datos de SOCIO ─────────────────────────
+function buildSocioUpdateAlert(data) {
+    return {
+        from: `"Lifextreme Web" <${process.env.ZOHO_USER}>`,
+        to: process.env.ZOHO_USER,
+        replyTo: data.email,
+        subject: `👤 ACTUALIZACIÓN DE SOCIO: ${data.name}`,
+        html: `
+        <div style="font-family:sans-serif;padding:24px;background:#f8fafc;">
+            <div style="background:#fff;padding:24px;border-radius:12px;border:1px solid #e2e8f0;">
+                <h2 style="color:#1e293b;margin-top:0;">Actualización de Perfil de Socio</h2>
+                <p style="color:#64748b;">Un socio ha actualizado sus datos desde el sitio web:</p>
+                <hr style="border:0;border-top:1px solid #e2e8f0;margin:20px 0;">
+                <table style="width:100%;">
+                    <tr><td style="color:#94a3b8;font-size:12px;">NOMBRE</td><td style="font-weight:700;">${data.name}</td></tr>
+                    <tr><td style="color:#94a3b8;font-size:12px;padding-top:10px;">EMAIL</td><td style="font-weight:700;padding-top:10px;">${data.email}</td></tr>
+                    <tr><td style="color:#94a3b8;font-size:12px;padding-top:10px;">INTERESES</td><td style="font-weight:700;padding-top:10px;text-transform:uppercase;">${data.interest}</td></tr>
+                </table>
+            </div>
+        </div>`
+    };
+}
+
 // ── Handler Principal ────────────────────────────────────────────────────────
 export default async function handler(req, res) {
     // Solo POST
@@ -211,8 +234,11 @@ export default async function handler(req, res) {
         return res.status(405).json({ error: 'Method not allowed' });
     }
 
-    // CORS — solo desde lifextreme.store
-    res.setHeader('Access-Control-Allow-Origin', 'https://www.lifextreme.store');
+    // CORS — permitir desde cualquier subdominio de lifextreme si es necesario
+    const origin = req.headers.origin;
+    if (origin && (origin.includes('lifextreme.store') || origin.includes('vercel.app'))) {
+        res.setHeader('Access-Control-Allow-Origin', origin);
+    }
     res.setHeader('Access-Control-Allow-Methods', 'POST');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
@@ -232,25 +258,26 @@ export default async function handler(req, res) {
         const results = { welcome: null, internal: null };
 
         if (data.tipo === 'partner_registration') {
+            // ... (código existente para partners)
             // 1. Email de bienvenida al partner
             try {
                 await transporter.sendMail(buildWelcomeEmail(data));
                 results.welcome = 'sent';
-                console.log(`✅ Welcome email enviado a: ${data.email}`);
-            } catch (err) {
-                console.error('❌ Error sending welcome email:', err.message);
-                results.welcome = 'failed';
-            }
+            } catch (err) { results.welcome = 'failed'; }
 
             // 2. Alerta interna al equipo
             try {
                 await transporter.sendMail(buildInternalAlert(data));
                 results.internal = 'sent';
-                console.log(`✅ Internal alert enviado a: ${process.env.ZOHO_USER}`);
-            } catch (err) {
-                console.error('❌ Error sending internal alert:', err.message);
-                results.internal = 'failed';
-            }
+            } catch (err) { results.internal = 'failed'; }
+        } 
+        
+        else if (data.tipo === 'socio_update') {
+            // Solo alerta interna para actualización de socios
+            try {
+                await transporter.sendMail(buildSocioUpdateAlert(data));
+                results.internal = 'sent';
+            } catch (err) { results.internal = 'failed'; }
         }
 
         return res.status(200).json({ 

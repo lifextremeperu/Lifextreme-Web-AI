@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -1481,20 +1481,14 @@
                         </button>
                     </div>
                     <div class="w-full lg:w-2/3 space-y-8">
-                        <div class="bg-slate-900 rounded-[48px] p-12 text-white">
-                            <h3 class="text-2xl font-black italic mb-8">Mis Próximos Desafíos</h3>
-                            <div id="wishlist-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
-                        </div>
-
-                        <!-- REGISTRATION FORM -->
-                        <div
+                             <div
                             class="bg-white rounded-[48px] p-12 border border-slate-100 shadow-sm relative overflow-hidden">
                             <div class="absolute top-0 right-0 w-32 h-32 bg-secondary/5 rounded-bl-[100px]"></div>
                             <h3 class="text-2xl font-black italic mb-2">Actualizar Datos de Socio</h3>
                             <p class="text-xs font-bold text-slate-400 mb-8">Mantén tu perfil al día para recibir
                                 beneficios exclusivos.</p>
 
-                            <form name="socio-update" method="POST" data-netlify="true" class="space-y-6">
+                            <form id="form-socio-update" class="space-y-6">
                                 <div class="grid md:grid-cols-2 gap-6">
                                     <div class="space-y-2">
                                         <label class="text-[10px] font-black uppercase text-slate-400">Nombre
@@ -3261,6 +3255,7 @@
     <script type="module" src="js/booking-service.js"></script>
     <script src="js/app.js"></script>
     <script src="js/gamification.js"></script>
+    <script src="js/forms-handler.js"></script>
 </body>
 
 
