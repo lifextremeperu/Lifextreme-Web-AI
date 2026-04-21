@@ -204,6 +204,71 @@ function buildInternalAlert(data) {
     };
 }
 
+// ── Bienvenida INVERSIONISTA (Preventa Lifecoins) ───────────────────────────
+function buildPresaleWelcomeEmail(data) {
+    return {
+        from: `"Lifextreme Finance" <${process.env.ZOHO_USER}>`,
+        to: data.email,
+        subject: `📀 CERTIFICADO DE FUNDADOR: ${data.full_name}`,
+        html: `
+        <div style="font-family:sans-serif;max-width:600px;margin:0 auto;background:#0f172a;border-radius:24px;overflow:hidden;color:#ffffff;border:1px solid #f59e0b;">
+            <div style="padding:48px 32px;text-align:center;background:linear-gradient(135deg, #f59e0b 0%, #d97706 100%);color:#0f172a;">
+                <div style="font-size:12px;font-weight:900;letter-spacing:4px;margin-bottom:16px;text-transform:uppercase;">Intención de Inversión Registrada</div>
+                <h1 style="font-size:32px;font-weight:900;font-style:italic;margin:0;line-height:1.2;">BIENVENIDO,<br>FUNDADOR</h1>
+            </div>
+            <div style="padding:40px 32px;background:#0f172a;color:#ffffff;">
+                <p style="font-size:16px;line-height:1.6;margin-bottom:24px;">
+                    ¡Felicidades <b>${data.full_name}</b>!<br><br>
+                    Has tomado una posición estratégica en el futuro de la aventura en los Andes. Hemos registrado tu intención de inversión para el paquete <b>${data.package_name.toUpperCase()}</b>.
+                </p>
+                
+                <div style="background:rgba(245,158,11,0.1);border-radius:16px;padding:24px;margin-bottom:32px;border:1px solid rgba(245,158,11,0.3);">
+                    <h3 style="margin-top:0;font-size:14px;text-transform:uppercase;color:#f59e0b;">Detalles del Paquete</h3>
+                    <div style="font-size:14px;margin-top:10px;">
+                        • <b>Créditos:</b> ${data.lifecoins} Lifecoins<br>
+                        • <b>Inversión:</b> $${data.amount_usd} USD<br>
+                        • <b>Método:</b> ${data.payment_method.toUpperCase()}
+                    </div>
+                </div>
+
+                <div style="background:#1e293b;border-radius:12px;padding:20px;text-align:center;margin-bottom:32px;">
+                    <p style="margin:0;font-size:14px;color:#cbd5e1;"><b>¿Qué sigue?</b> Una vez validado tu pago, tus Lifecoins serán cargados a tu cuenta y recibirás tu <b>Badge de Fundador</b> digital.</p>
+                </div>
+
+                <div style="text-align:center;">
+                    <p style="font-size:12px;color:#94a3b8;margin-bottom:16px;">Si aún no completaste el pago vía ${data.payment_method}, puedes contactar a soporte:</p>
+                    <a href="https://wa.me/51999999999" style="display:inline-block;background:#22c55e;color:#ffffff;padding:14px 28px;border-radius:12px;font-weight:900;text-decoration:none;text-transform:uppercase;font-size:12px;">Hablar con un Asesor</a>
+                </div>
+            </div>
+            <div style="padding:32px;text-align:center;color:#475569;font-size:11px;">
+                © 2026 Lifextreme Founders Program · Safe and Bold
+            </div>
+        </div>`
+    };
+}
+
+function buildPresaleInternalAlert(data) {
+    return {
+        from: `"Lifextreme Sales" <${process.env.ZOHO_USER}>`,
+        to: process.env.ZOHO_USER,
+        subject: `💰 NUEVA INTENCIÓN DE COMPRA: $${data.amount_usd} USD`,
+        html: `
+        <div style="font-family:sans-serif;padding:24px;background:#f8fafc;">
+            <div style="background:#fff;padding:24px;border-radius:12px;border:1px solid #e2e8f0;">
+                <h2 style="color:#1e293b;margin-top:0;">Nueva Intención de Inversión</h2>
+                <hr style="border:0;border-top:1px solid #e2e8f0;margin:20px 0;">
+                <p><b>Inversor:</b> ${data.full_name}</p>
+                <p><b>Email:</b> ${data.email}</p>
+                <p><b>WhatsApp:</b> ${data.phone}</p>
+                <p><b>País:</b> ${data.country}</p>
+                <p><b>Paquete:</b> ${data.package_name}</p>
+                <p><b>Monto:</b> $${data.amount_usd} USD</p>
+                <p><b>Método:</b> ${data.payment_method}</p>
+            </div>
+        </div>`
+    };
+}
+
 // ── Bienvenida GUÍA (Welcome to the Crew) ───────────────────────────
 function buildGuideWelcomeEmail(data) {
     return {
@@ -440,15 +505,28 @@ export default async function handler(req, res) {
         }
 
         else if (data.tipo === 'guide_registration') {
-            // 1. Email de bienvenida al GUÍA
+            // ... (código para guías)
             try {
                 await transporter.sendMail(buildGuideWelcomeEmail(data));
                 results.welcome = 'sent';
             } catch (err) { results.welcome = 'failed'; }
 
-            // 2. Alerta interna al equipo de operaciones
             try {
                 await transporter.sendMail(buildGuideInternalAlert(data));
+                results.internal = 'sent';
+            } catch (err) { results.internal = 'failed'; }
+        }
+
+        else if (data.tipo === 'presale_welcome') {
+            // 1. Email de bienvenida FUNDADOR al usuario
+            try {
+                await transporter.sendMail(buildPresaleWelcomeEmail(data));
+                results.welcome = 'sent';
+            } catch (err) { results.welcome = 'failed'; }
+
+            // 2. Alerta interna al equipo de ventas/finanzas
+            try {
+                await transporter.sendMail(buildPresaleInternalAlert(data));
                 results.internal = 'sent';
             } catch (err) { results.internal = 'failed'; }
         }

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -418,6 +418,7 @@
         </div>
     </footer>
 
+    <script src="js/forms-handler.js"></script>
     <script>
         // Countdown Timer
         const endDate = new Date();
@@ -453,30 +454,6 @@
         function closePaymentModal() {
             document.getElementById('payment-modal').classList.add('hidden');
             document.body.style.overflow = 'auto';
-        }
-
-        // Form Submission
-        function submitInvestment(event) {
-            event.preventDefault();
-
-            const formData = new FormData(event.target);
-            const data = Object.fromEntries(formData.entries());
-
-            // Show loading
-            const submitBtn = event.target.querySelector('button[type="submit"]');
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="ri-loader-4-line animate-spin"></i> Procesando...';
-
-            // Simulate API call (replace with actual Supabase integration)
-            setTimeout(() => {
-                if (data.payment_method === 'yape') {
-                    // Redirect to Yape instructions
-                    window.location.href = `payment-yape.html?amount=${data.amount_usd}&package=${data.package_name}`;
-                } else {
-                    // Redirect to PayPal
-                    window.location.href = `payment-paypal.html?amount=${data.amount_usd}&package=${data.package_name}`;
-                }
-            }, 1500);
         }
 
         // Radio button styling

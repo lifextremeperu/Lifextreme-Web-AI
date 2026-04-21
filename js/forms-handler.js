@@ -6,8 +6,73 @@
 document.addEventListener('DOMContentLoaded', () => {
     initSocioUpdateForm();
     initGuideRegisterForm();
+    initInvestmentForm();
     // Aquí agregaremos otros handlers (contacto, etc.)
 });
+
+/**
+ * Handler para Preventa de Lifecoins
+ */
+function initInvestmentForm() {
+    const invForm = document.getElementById('investment-form');
+    if (!invForm) return;
+
+    invForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const submitBtn = invForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="ri-loader-4-line animate-spin text-xl"></i> PROCESANDO...';
+
+        const formData = new FormData(invForm);
+        const data = {
+            tipo: 'presale_welcome',
+            full_name: formData.get('full_name'),
+            email: formData.get('email'),
+            phone: formData.get('phone'),
+            country: formData.get('country'),
+            payment_method: formData.get('payment_method'),
+            package_name: formData.get('package_name'),
+            amount_usd: formData.get('amount_usd'),
+            lifecoins: formData.get('lifecoins')
+        };
+
+        try {
+            const response = await fetch('/api/send-email', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                showToast('✅ Intención registrada. Redirigiendo al pago...', 'success');
+                
+                // Redirigir según el método de pago (manteniendo la lógica original de presale.html)
+                setTimeout(() => {
+                    const method = data.payment_method;
+                    if (method === 'yape') {
+                        window.location.href = `payment-yape.html?amount=${data.amount_usd}&package=${data.package_name}`;
+                    } else {
+                        window.location.href = `payment-paypal.html?amount=${data.amount_usd}&package=${data.package_name}`;
+                    }
+                }, 1500);
+            } else {
+                throw new Error(result.error || 'Error en el servidor');
+            }
+        } catch (error) {
+            console.error('Error en la preventa:', error);
+            showToast('❌ Error al procesar. Contacta a soporte.', 'error');
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalText;
+        }
+    });
+}
+
 
 /**
  * Handler para Registro de Guía Profesional
