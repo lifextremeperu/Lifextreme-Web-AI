@@ -3,10 +3,20 @@
     "version": "1.0.0",
     "private": true,
     "type": "module",
+    "scripts": {
+        "build": "tailwindcss -i ./css/input.css -o ./css/output.css --minify",
+        "dev": "tailwindcss -i ./css/input.css -o ./css/output.css --watch"
+    },
     "dependencies": {
         "@google/generative-ai": "^0.21.0",
         "@supabase/supabase-js": "^2.90.1",
         "dotenv": "^17.2.3",
         "nodemailer": "^6.9.16"
+    },
+    "devDependencies": {
+        "@tailwindcss/cli": "^4.2.4",
+        "autoprefixer": "^10.5.0",
+        "postcss": "^8.5.10",
+        "tailwindcss": "^4.2.4"
     }
 }

@@ -27,10 +27,15 @@ class AIPersonalizationEngine {
 
     async init() {
         this.loadChatHistory();
+        console.log(`🚀 MAX v7.0 Standby | Connected to Hub Cusco`);
+    }
+
+    async loadKnowledgeBase() {
+        if (this.knowledgeBase !== null) return; // Already loaded
         try {
             const kb = await fetch(this.kbPath).then(r => r.json()).catch(() => ({ data: [] }));
             this.knowledgeBase = kb.data || [];
-            console.log(`🚀 MAX v7.0 Ready | Connected to Hub Cusco`);
+            console.log(`🧠 Local KB Loaded`);
         } catch (e) {
             console.error('❌ Local KB Fail');
         }
@@ -48,6 +53,10 @@ class AIPersonalizationEngine {
     toggleChat() {
         const windowEl = document.getElementById('life-chat-window');
         if (!windowEl) return;
+        
+        // Carga diferida de KB (Lazy Loading) al abrir el chat
+        this.loadKnowledgeBase();
+
         if (windowEl.classList.contains('hidden')) {
             windowEl.classList.remove('hidden');
             setTimeout(() => {
