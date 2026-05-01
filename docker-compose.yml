@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  # 🤖 MAX AI Backend — El cerebro de Lifextreme
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: lifextreme_backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - OPENAI_BASE_URL=${OPENAI_BASE_URL}
+      - PYTHONUNBUFFERED=1
+    restart: always
+    networks:
+      - lifextreme-net
+
+networks:
+  lifextreme-net:
+    driver: bridge
