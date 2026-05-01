@@ -13,7 +13,7 @@ class AIPersonalizationEngine {
         
         // Paths & Cloud Config
         this.kbPath = 'data/knowledge/lifextreme/knowledge_base.json';
-        this.hubUrl = 'https://hub-cusco-2026.tail883d62.ts.net/webhook/lifextreme';
+        this.hubUrl = 'https://desktop-sedhoop.tail883d62.ts.net/webhook/lifextreme';
         
         // Data State
         this.knowledgeBase = null;
