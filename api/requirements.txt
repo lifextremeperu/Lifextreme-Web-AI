@@ -1,0 +1,10 @@
+fastapi==0.115.0
+uvicorn==0.31.0
+pydantic-ai[google]==0.1.80
+google-genai==1.75.0
+langchain-google-vertexai
+langchain-community
+chromadb
+pydantic==2.12.5
+google-auth
+httpx

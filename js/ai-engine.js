@@ -93,7 +93,30 @@ class AIPersonalizationEngine {
         if (this.isTyping) return;
         this.showTypingIndicator();
         
-        // 1. BACKEND HUB (MASTER CORE)
+        // 1. NUEVA CONEXIÓN AL CEREBRO MAESTRO (Vertex AI + Pydantic AI)
+        const localApiUrl = 'http://localhost:8000/chat';
+        try {
+            const response = await fetch(localApiUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: msg })
+            });
+            
+            if (response.ok) {
+                const data = await response.json();
+                // Mostramos el mensaje principal y opcionalmente las fuentes para dar autoridad
+                let responseText = data.mensaje_principal;
+                if (data.fuentes_utilizadas && data.fuentes_utilizadas.length > 0) {
+                    responseText += `\n\n📖 *Basado en: ${data.fuentes_utilizadas.join(', ')}*`;
+                }
+                await this.addBotMessage(responseText);
+                return;
+            }
+        } catch (e) { 
+            console.warn('⚠️ Agente Maestro Offline -> Intentando Hub Secundario'); 
+        }
+
+        // 2. BACKEND HUB (FALLBACK)
         try {
             const response = await fetch(this.hubUrl, {
                 method: 'POST',
