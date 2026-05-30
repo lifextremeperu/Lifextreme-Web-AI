@@ -1,0 +1,168 @@
+<diagnostico>
+PERFIL: Ancash es la región que alberga la Cordillera Blanca, la cadena montañosa tropical más alta del mundo, con 27 picos que superan los 6,000 msnm. Su capital, Huaraz, es el epicentro del turismo de aventura en Perú. La región es hogar del Parque Nacional Huascarán (Patrimonio UNESCO) y de la cultura Chavín, una de las civilizaciones más antiguas de América. El turismo, principalmente de aventura y cultural, atrajo a aproximadamente 320,000 visitantes en 2019.
+MACROREGION: Combinado
+MADUREZ_TURISTICA: ALTA
+VISITANTES_ANUALES_EST: 320000 (2019)
+PESO_CATEGORIAS:
+  - Destinos y patrimonio: 20%
+  - Aventura y deportes: 40%
+  - Gastronomía y cultura: 15%
+  - Naturaleza y ecosistemas: 15%
+  - Misticismo y festividades: 5%
+  - Logística y servicios: 3%
+  - Otros: 2%
+  TOTAL: 100%
+PERFIL_VISITANTE_DOMINANTE: Aventurero, culturalmente interesado, con preferencia por la naturaleza y la alta montaña, edad 25-45.
+MERCADOS_INTERNACIONALES: USA, Francia, Alemania
+VENTANA_OPTIMA: Mayo a Septiembre (temporada seca, ideal para trekking, andinismo y cielos despejados).
+PROBLEMA_NO_RESUELTO: Descentralización y diversificación de la oferta turística más allá del Callejón de Huaylas, incluyendo la zona costa y el Callejón de Conchucos.
+DESTINOS_CANONICOS_COMPARTIDOS: ninguno
+</diagnostico>
+<modulos_generados>
+---
+ID: C-16
+MÓDULO: Rafting en el Río Santa: Adrenalina Fluvial
+SUBTÍTULO: Descubre la emoción de los rápidos en el corazón de Ancash.
+SEGMENTO_PRINCIPAL: Aventura
+SEGMENTO_SECUNDARIO: Mochilero
+TIPO_DE_DATO: Experiencial
+VENTANA_TEMPORAL: Mayo a Septiembre
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Estás listo para domar las aguas bravas del Santa?
+CANONICAL_REF: propio
+HUMAN_REVIEW: false
+---
+ID: C-17
+MÓDULO: Ciclismo de Montaña en Ancash: Rutas Escénicas
+SUBTÍTULO: Exploración en dos ruedas por senderos andinos y paisajes únicos.
+SEGMENTO_PRINCIPAL: Aventura
+SEGMENTO_SECUNDARIO: Digital_Nomad
+TIPO_DE_DATO: Experiencial
+VENTANA_TEMPORAL: Mayo a Octubre
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Qué cumbre conquistarás en bicicleta hoy?
+CANONICAL_REF: propio
+HUMAN_REVIEW: false
+---
+ID: C-18
+MÓDULO: Escalada en Roca en Hatun Machay: El Bosque de Piedras
+SUBTÍTULO: Un paraíso para escaladores con formaciones rocosas únicas.
+SEGMENTO_PRINCIPAL: Aventura
+SEGMENTO_SECUNDARIO: Mochilero
+TIPO_DE_DATO: Experiencial
+VENTANA_TEMPORAL: Mayo a Octubre
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Podrás descifrar los secretos de Hatun Machay con tus manos?
+CANONICAL_REF: propio
+HUMAN_REVIEW: false
+---
+ID: C-19
+MÓDULO: Trekking en Cordillera Huayhuash (Ancash): Rutas de Acceso
+SUBTÍTULO: Puntos de entrada y circuitos cortos desde la vertiente Ancashina.
+SEGMENTO_PRINCIPAL: Aventura
+SEGMENTO_SECUNDARIO: Mochilero
+TIPO_DE_DATO: Logístico
+VENTANA_TEMPORAL: Junio a Septiembre
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Cómo llegar a la mítica Huayhuash desde Ancash?
+CANONICAL_REF: propio
+HUMAN_REVIEW: false
+---
+ID: C-20
+MÓDULO: Parapente y Ala Delta en el Callejón: Vistas Aéreas
+SUBTÍTULO: Experimenta la Cordillera Blanca desde una perspectiva de pájaro.
+SEGMENTO_PRINCIPAL: Aventura
+SEGMENTO_SECUNDARIO: Lujo
+TIPO_DE_DATO: Experiencial
+VENTANA_TEMPORAL: Mayo a Septiembre
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Te atreves a volar sobre los Andes peruanos?
+CANONICAL_REF: propio
+HUMAN_REVIEW: false
+---
+ID: C-21
+MÓDULO: Exploración de Cuevas y Cañones: Espeleología en Ancash
+SUBTÍTULO: Descubre el mundo subterráneo y las formaciones geológicas ocultas.
+SEGMENTO_PRINCIPAL: Aventura
+SEGMENTO_SECUNDARIO: Científico
+TIPO_DE_DATO: Experiencial
+VENTANA_TEMPORAL: todo el año
+VERIFICABILIDAD: MEDIA
+GANCHO_EMOCIONAL: ¿Qué misterios aguardan en las profundidades de Ancash?
+CANONICAL_REF: propio
+HUMAN_REVIEW: false
+---
+ID: A-22
+MÓDULO: Sitios Arqueológicos del Callejón de Conchucos: Legado
+SUBTÍTULO: Exploración de Honcopampa, Pashash y otros centros preincaicos.
+SEGMENTO_PRINCIPAL: Cultural
+SEGMENTO_SECUNDARIO: Científico
+TIPO_DE_DATO: Experiencial
+VENTANA_TEMPORAL: todo el año
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Qué civilizaciones florecieron antes de los Incas en Ancash?
+CANONICAL_REF: propio
+HUMAN_REVIEW: false
+---
+ID: A-23
+MÓDULO: Pueblos Tradicionales de la Zona de Conchucos: Cultura Viva
+SUBTÍTULO: Descubre la autenticidad de pueblos como San Luis, Pomabamba, Piscobamba.
+SEGMENTO_PRINCIPAL: Cultural
+SEGMENTO_SECUNDARIO: Mochilero
+TIPO_DE_DATO: Experiencial
+VENTANA_TEMPORAL: todo el año
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Cómo es la vida en los Andes más allá de las rutas turísticas?
+CANONICAL_REF: propio
+HUMAN_REVIEW: false
+---
+ID: A-24
+MÓDULO: Museos Regionales de Ancash: Custodios de la Historia
+SUBTÍTULO: Recorrido por colecciones arqueológicas y etnográficas locales.
+SEGMENTO_PRINCIPAL: Cultural
+SEGMENTO_SECUNDARIO: Familia
+TIPO_DE_DATO: Experiencial
+VENTANA_TEMPORAL: todo el año
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Dónde se guarda el alma milenaria de Ancash?
+CANONICAL_REF: propio
+HUMAN_REVIEW: false
+---
+ID: D-25
+MÓDULO: Ruta del Queso y Lácteos Ancashinos: Sabores de la Sierra
+SUBTÍTULO: Experiencia culinaria por productores artesanales de quesos y derivados.
+SEGMENTO_PRINCIPAL: Gastronómico
+SEGMENTO_SECUNDARIO: Familia
+TIPO_DE_DATO: Gastronómico
+VENTANA_TEMPORAL: todo el año
+VERIFICABILIDAD: MEDIA
+GANCHO_EMOCIONAL: ¿Cuál es el secreto del sabor andino en un buen queso?
+CANONICAL_REF: propio
+HUMAN_REVIEW: false
+---
+ID: D-26
+MÓDULO: Mercados Locales de Ancash: Experiencia Culinaria
+SUBTÍTULO: Inmersión en los mercados de Huaraz, Caraz y Yungay, sabores auténticos.
+SEGMENTO_PRINCIPAL: Gastronómico
+SEGMENTO_SECUNDARIO: Mochilero
+TIPO_DE_DATO: Gastronómico
+VENTANA_TEMPORAL: todo el año
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Dónde se encuentran los verdaderos sabores de Ancash?
+CANONICAL_REF: propio
+HUMAN_REVIEW: false
+---
+ID: B-27
+MÓDULO: Lagunas Escondidas de la Cordillera Negra: Belleza Solitaria
+SUBTÍTULO: Descubre espejos de agua menos transitados con vistas panorámicas.
+SEGMENTO_PRINCIPAL: Aventura
+SEGMENTO_SECUNDARIO: Digital_Nomad
+TIPO_DE_DATO: Experiencial
+VENTANA_TEMPORAL: Mayo a Octubre
+VERIFICABILIDAD: MEDIA
+GANCHO_EMOCIONAL: ¿Existe un paraíso andino que pocos conocen?
+CANONICAL_REF: propio
+HUMAN_REVIEW: false
+---
+ID: B-28
+MÓDULO: Bosques de Queñuales y Puya

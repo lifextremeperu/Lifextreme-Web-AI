@@ -1,0 +1,49 @@
+<diagnostico>
+PERFIL: Huánuco, ubicado en la sierra central y selva alta de Perú, es un departamento con una población de aproximadamente 750,000 habitantes, conocido por su capital, Huánuco, la "Ciudad del Mejor Clima del Mundo". Alberga el sitio arqueológico de Kotosh (4000 a.C.), el Templo de las Manos Cruzadas, y el Parque Nacional Tingo María con su icónica "Bella Durmiente". La región ofrece una rica biodiversidad, desde valles interandinos hasta paisajes amazónicos, y una vibrante cultura expresada en su gastronomía y festividades. A pesar de su potencial, el desarrollo turístico es incipiente, con un enfoque predominante en el turismo interno.
+MACROREGION: Combinado
+MADUREZ_TURISTICA: EMERGENTE
+VISITANTES_ANUALES_EST: 180,000 (2023)
+PESO_CATEGORIAS:
+  - Destinos y patrimonio: 30%
+  - Aventura y deportes: 15%
+  - Gastronomía y cultura: 25%
+  - Naturaleza y ecosistemas: 20%
+  - Misticismo y festividades: 5%
+  - Logística y servicios: 3%
+  - Otros: 2%
+  TOTAL: 100%
+PERFIL_VISITANTE_DOMINANTE: Turista nacional (familias y grupos de amigos) de nivel socioeconómico medio-bajo, buscando experiencias culturales, gastronómicas y de naturaleza accesible, con interés en historia preínca y paisajes de selva alta.
+MERCADOS_INTERNACIONALES: 1. España, 2. Alemania, 3. Francia
+VENTANA_OPTIMA: Mayo a Octubre (Estación seca en la sierra, menor pluviosidad en la selva alta, ideal para actividades al aire libre y visitas arqueológicas).
+PROBLEMA_NO_RESUELTO: La falta de una marca turística regional consolidada y una estrategia de promoción integrada que articule sus diversos atractivos en rutas coherentes y accesibles, sumado a desafíos en conectividad aérea y terrestre.
+DESTINOS_CANONICOS_COMPARTIDOS: Cordillera Huayhuash
+</diagnostico>
+
+<modulos_generados>
+---
+ID: A-01
+MÓDULO: Kotosh: El Templo de las Manos Cruzadas
+SUBTÍTULO: Exploración del sitio arqueológico pre-cerámico más antiguo de América.
+SEGMENTO_PRINCIPAL: Científico
+SEGMENTO_SECUNDARIO: Familia
+TIPO_DE_DATO: Cultural
+VENTANA_TEMPORAL: todo el año
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Qué secretos guardan las manos cruzadas de la civilización más antigua de América?
+CANONICAL_REF: propio
+HUMAN_REVIEW: false
+---
+ID: A-02
+MÓDULO: Tingo María: La Bella Durmiente y sus Misterios
+SUBTÍTULO: Descubre el perfil de la montaña y las leyendas de la selva alta.
+SEGMENTO_PRINCIPAL: Familia
+SEGMENTO_SECUNDARIO: Aventura
+TIPO_DE_DATO: Experiencial
+VENTANA_TEMPORAL: todo el año
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Podrás desentrañar los mitos de la Bella Durmiente en la selva huanuqueña?
+CANONICAL_REF: propio
+HUMAN_REVIEW: false
+---
+ID: A-03
+MÓ

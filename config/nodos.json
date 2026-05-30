@@ -1,0 +1,34 @@
+{
+  "capas": {
+    "0": {
+      "descripcion": "Crítica - Cada 30 minutos",
+      "nodos": ["SERNANP", "CONSETTUR", "PERURAIL", "INCARAIL"]
+    },
+    "1": {
+      "descripcion": "Operativa - Cada 2 horas",
+      "nodos": ["AVIATION_STACK", "AMADEUS"]
+    }
+  },
+  "endpoints": {
+    "SERNANP": {
+      "tipo": "Gobierno",
+      "url": "https://www.sernanp.gob.pe/",
+      "metodo": "scraping"
+    },
+    "CONSETTUR": {
+      "tipo": "Privada",
+      "url": "https://consettur.com/",
+      "metodo": "scraping"
+    },
+    "PERURAIL": {
+      "tipo": "Privada",
+      "url": "https://www.perurail.com/",
+      "metodo": "scraping"
+    },
+    "INCARAIL": {
+      "tipo": "Privada",
+      "url": "https://incarail.com/",
+      "metodo": "scraping"
+    }
+  }
+}

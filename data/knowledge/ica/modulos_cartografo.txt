@@ -1,0 +1,67 @@
+<diagnostico>
+PERFIL: Ica es un departamento costero del sur de Perú, reconocido por sus vastos desiertos, oasis como Huacachina, y la enigmática cultura Nazca. Es el epicentro de la producción de pisco y vinos peruanos, atrayendo anualmente a 1.8 millones de visitantes (2019) entre turistas nacionales e internacionales. Su oferta turística combina aventura, patrimonio cultural y una rica gastronomía marina y vitivinícola.
+MACROREGION: Costa
+MADUREZ_TURISTICA: ALTA
+VISITANTES_ANUALES_EST: 1,800,000 (2019)
+PESO_CATEGORIAS:
+  - Destinos y patrimonio: 30%
+  - Aventura y deportes: 15%
+  - Gastronomía y cultura: 20%
+  - Naturaleza y ecosistemas: 25%
+  - Misticismo y festividades: 5%
+  - Logística y servicios: 5%
+  - Otros: 0%
+  TOTAL: 100%
+PERFIL_VISITANTE_DOMINANTE: Joven-Adulto, buscador de experiencias culturales y de aventura, con interés en la historia precolombina y la gastronomía local. También atrae a familias y viajeros de fin de semana desde Lima.
+MERCADOS_INTERNACIONALES: USA, Francia, Chile
+VENTANA_OPTIMA: Abril a Noviembre (clima seco, cielos claros para Nazca, menos calor extremo) y Diciembre a Marzo (playa, Huacachina, vendimia).
+PROBLEMA_NO_RESUELTO: Integración de circuitos alternativos y gestión sostenible de destinos masificados (ej. Huacachina), así como la diversificación de la oferta más allá de los íconos principales.
+DESTINOS_CANONICOS_COMPARTIDOS: Nazca Lines, Reserva Nacional de Paracas, Tambo Colorado
+</diagnostico>
+
+<modulos_generados>
+---
+ID: A-01
+MÓDULO: Líneas y Geoglifos de Nazca: Misterios del Desierto
+SUBTÍTULO: Origen, significado, mejores puntos de observación (mirador, sobrevuelo) y su conservación.
+SEGMENTO_PRINCIPAL: Cultural
+SEGMENTO_SECUNDARIO: Científico
+TIPO_DE_DATO: Experiencial
+VENTANA_TEMPORAL: todo el año (mejor con cielos despejados)
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Qué secretos ancestrales esconde el desierto de Nazca y cómo puedo desvelarlos?
+CANONICAL_REF: Nazca Lines
+HUMAN_REVIEW: false
+---
+ID: A-02
+MÓDULO: Reserva Nacional de Paracas: Biodiversidad Costera
+SUBTÍTULO: Biodiversidad marina, formaciones geológicas, playas, Islas Ballestas y actividades de ecoturismo.
+SEGMENTO_PRINCIPAL: Naturaleza
+SEGMENTO_SECUNDARIO: Familia
+TIPO_DE_DATO: Experiencial
+VENTANA_TEMPORAL: todo el año
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Cómo puedo conectar con la vida salvaje y los paisajes únicos del Pacífico peruano?
+CANONICAL_REF: Reserva Nacional de Paracas
+HUMAN_REVIEW: false
+---
+ID: A-03
+MÓDULO: Oasis de Huacachina: Aventura y Relax en el Desierto
+SUBTÍTULO: Alojamiento, restaurantes, vida nocturna y actividades de aventura como sandboarding y buggies.
+SEGMENTO_PRINCIPAL: Aventura
+SEGMENTO_SECUNDARIO: Mochilero
+TIPO_DE_DATO: Experiencial
+VENTANA_TEMPORAL: todo el año
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Es posible encontrar un oasis vibrante y lleno de aventura en medio del desierto peruano?
+CANONICAL_REF: propio
+HUMAN_REVIEW: false
+---
+ID: D-01
+MÓDULO: Ruta del Pisco y Vino de Ica: Tradición Vitivinícola
+SUBTÍTULO: Bodegas artesanales e industriales, catas, historia y proceso de elaboración del pisco y vino.
+SEGMENTO_PRINCIPAL: Gastronómico
+SEGMENTO_SECUNDARIO: Cultural
+TIPO_DE_DATO: Experiencial
+VENTANA_TEMPORAL: todo el año (vendimia en marzo)
+VERIFICABILIDAD: AL

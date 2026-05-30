@@ -1,0 +1,66 @@
+<diagnostico>
+PERFIL: Moquegua es un departamento del sur de Perú, conocido por sus valles fértiles que producen pisco y olivos, y por su costa en Ilo. Con una población de aproximadamente 190,000 habitantes, su economía se basa en la minería, agricultura y pesca. Su capital, Moquegua, conserva un valioso patrimonio arquitectónico colonial y republicano. La región recibe un estimado de 220,000 visitantes anuales, principalmente nacionales, atraídos por su gastronomía, historia y paisajes.
+MACROREGION: Combinado
+MADUREZ_TURISTICA: EMERGENTE
+VISITANTES_ANUALES_EST: 220,000 (2019)
+PESO_CATEGORIAS:
+  - Destinos y patrimonio: 30%
+  - Aventura y deportes: 8%
+  - Gastronomía y cultura: 25%
+  - Naturaleza y ecosistemas: 15%
+  - Misticismo y festividades: 10%
+  - Logística y servicios: 10%
+  - Otros: 2%
+  TOTAL: 100%
+PERFIL_VISITANTE_DOMINANTE: Turista nacional (familiar y cultural), regional (negocios y ocio corto), y un incipiente segmento internacional interesado en rutas gastronómicas y patrimonio histórico menos explorado.
+MERCADOS_INTERNACIONALES: Chile, Bolivia, USA
+VENTANA_OPTIMA: Abril a Noviembre. La sierra goza de clima seco y soleado, ideal para actividades al aire libre, mientras que la costa mantiene temperaturas agradables sin la densa neblina invernal.
+PROBLEMA_NO_RESUELTO: Falta de señalización y rutas turísticas integradas para los sitios arqueológicos pre-Incas y petroglifos, así como información consolidada sobre su accesibilidad y servicios básicos.
+DESTINOS_CANONICOS_COMPARTIDOS: Volcán Ubinas (Arequipa), Ruta del Pisco (Tacna/Arequipa), Lomas Costeras (Arequipa)
+</diagnostico>
+
+
+[... MÓDULOS OMITIDOS AQUÍ ...]
+
+
+<inteligencia_cierre>
+TOP_5_TRAFICO_MASIVO:
+  - A-01: Centro Histórico de Moquegua — Es el punto de llegada y principal atractivo cultural urbano.
+  - D-02: Ruta del Pisco y Olivo Moqueguano — Atractivo gastronómico y cultural de alto interés, fácil de integrar.
+  - A-03: Puerto de Ilo y sus Playas — Destino de sol y playa popular para el turismo regional y nacional.
+  - D-05: Gastronomía Moqueguana Tradicional — La comida es un motor clave para el turismo nacional.
+  - F-06: Conectividad y Rutas Terrestres — Esencial para la planificación y accesibilidad de cualquier visitante.
+
+TOP_5_DIAMANTES_EN_BRUTO:
+  - A-04: Cerro Baúl y Wari-Tiwanaku — Gran potencial arqueológico y paisajístico, poco difundido.
+  - C-08: Trekking y Aventura en Omate — Ofrece paisajes andinos y aventura para un nicho creciente.
+  - N-09: Lomas de Ilo y su Biodiversidad — Ecosistema único y estacional, ideal para ecoturismo y fotografía.
+  - B-14: Petroglifos de Cuchumbaya y Carumas — Alto valor histórico y cultural, requiere desarrollo de infraestructura y señalización.
+  - J-15: Aguas Termales de Cuchumbaya — Potencial para turismo de bienestar y rural, poco conocido.
+
+MODULOS_MERCADO_INTERNACIONAL:
+  - USA: A-04 (Cerro Baúl), D-02 (Ruta Pisco/Olivo), N-09 (Lomas de Ilo), C-08 (Trekking Omate), B-14 (Petroglifos).
+  - Europa: A-01 (Centro Histórico), D-02 (Ruta Pisco/Olivo), A-04 (Cerro Baúl), N-09 (Lomas de Ilo), A-11 (Torata).
+  - Asia: D-05 (Gastronomía), A-01 (Centro Histórico), A-03 (Ilo), E-07 (Festividades), M-13 (Seguridad).
+
+ALERTAS_VERIFICACION_CAMPO:
+  - A-04: Cerro Baúl y Wari-Tiwanaku ⚠️ (Necesidad de verificar estado de accesos y servicios in situ).
+  - C-08: Trekking y Aventura en Omate ⚠️ (Rutas no estandarizadas, requiere verificación de guías locales y seguridad).
+  - N-09: Lomas de Ilo y su Biodiversidad ⚠️ (Condiciones estacionales, accesibilidad y presencia de guías especializados).
+  - B-14: Petroglifos de Cuchumbaya y Carumas ⚠️ (Accesibilidad, señalización y estado de conservación de los sitios).
+  - J-15: Aguas Termales de Cuchumbaya ⚠️ (Infraestructura, servicios y calidad del agua, acceso).
+
+MAPA_CALOR_CATEGORIAS:
+  Categoría                      | Módulos | % del total | Prioridad para Fase 2
+  -------------------------------|---------|-------------|----------------------
+  Destinos y patrimonio          | 5       | 33.3%       | ALTA
+  Gastronomía y cultura          | 3       | 20.0%       | ALTA
+  Naturaleza y ecosistemas       | 1       | 6.7%        | MEDIA
+  Aventura y deportes técnicos   | 2       | 13.3%       | MEDIA
+  Misticismo y festividades      | 1       | 6.7%        | MEDIA
+  Logística y servicios          | 2       | 13.3%       | ALTA
+  Economía del viaje             | 1       | 6.7%        | MEDIA
+  Bienestar y medicina tradicional| 1       | 6.7%        | BAJA
+  Seguridad y gestión de riesgo  | 1       | 6.7%        | ALTA
+  Rutas Off The Beaten Path      | 1       | 6.7%        | MEDIA
+</inteligencia_cierre>

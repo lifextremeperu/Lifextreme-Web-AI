@@ -1,0 +1,55 @@
+<diagnostico>
+PERFIL: Piura es una región costera del norte de Perú, reconocida por sus playas de renombre internacional como Máncora y Vichayito, que atraen a más de 1.8 millones de visitantes anualmente (2019). Su clima cálido y soleado la posiciona como un destino líder de sol y playa, complementado por una rica herencia cultural Tallán y una gastronomía distintiva. La región se beneficia de su cercanía con Ecuador, siendo un punto clave para el turismo transfronterizo y de surf.
+MACROREGION: Costa
+MADUREZ_TURISTICA: MEDIA
+VISITANTES_ANUALES_EST: 1,800,000 (2019)
+PESO_CATEGORIAS:
+  - Destinos y patrimonio: 30%
+  - Aventura y deportes: 15%
+  - Gastronomía y cultura: 25%
+  - Naturaleza y ecosistemas: 15%
+  - Misticismo y festividades: 10%
+  - Logística y servicios: 5%
+  - Otros: 0%
+  TOTAL: 100%
+PERFIL_VISITANTE_DOMINANTE: Turista nacional de sol y playa, familias y jóvenes en busca de relax y deportes acuáticos. También turistas ecuatorianos por cercanía.
+MERCADOS_INTERNACIONALES: Ecuador, Chile, USA
+VENTANA_OPTIMA: Diciembre a Mayo (Clima cálido y soleado, ideal para playas y deportes acuáticos, menor probabilidad de lluvias intensas).
+PROBLEMA_NO_RESUELTO: Falta de diversificación de la oferta turística más allá del sol y playa, y la integración de circuitos culturales y de naturaleza del interior de la región con la costa.
+DESTINOS_CANONICOS_COMPARTIDOS: Parque Nacional Cerros de Amotape
+</diagnostico>
+
+
+[... MÓDULOS OMITIDOS AQUÍ ...]
+
+
+<inteligencia_cierre>
+TOP_5_TRAFICO_MASIVO:
+  - ID: A-01 (Máncora y Playas del Norte) — Principal destino de sol y playa, atrae a la mayoría de visitantes nacionales e internacionales.
+  - ID: D-01 (Ruta del Ceviche Piurano) — La gastronomía es un motor clave del turismo en Perú, y el ceviche piurano es un ícono.
+  - ID: A-02 (Catacaos: Cuna de Artesanía) — Centro cultural y de compras muy visitado por su artesanía única.
+  - ID: C-01 (Surf y Kitesurf en Máncora y Lobitos) — Atrae a un segmento joven y aventurero, generando alto flujo en temporadas.
+  - ID: A-05 (Centro Histórico de Piura) — Punto de llegada y paso obligado para muchos turistas, ofrece un primer contacto cultural.
+TOP_5_DIAMANTES_EN_BRUTO:
+  - ID: A-03 (Ruta de la Cultura Tallán) — Ofrece un patrimonio arqueológico significativo y poco explorado, con potencial para turismo cultural especializado.
+  - ID: A-04 (Playas del Sur de Piura) — Playas con gran belleza natural y menor masificación, ideales para un turismo más tranquilo y sostenible.
+  - ID: E-01 (Curanderismo de Huancabamba y Lagunas) — Un nicho de turismo místico y de bienestar con alto valor cultural y potencial de diferenciación.
+  - ID: N-02 (Bosque Seco Ecuatorial) — Ecosistema único y de gran biodiversidad, subestimado en la oferta turística de naturaleza.
+  - ID: D-03 (Picanterías y Chicherías) — Representa la gastronomía local más auténtica y tradicional, con gran potencial para experiencias inmersivas.
+MODULOS_MERCADO_INTERNACIONAL:
+  - USA: A-01, C-01, N-01, D-01 (Interés en playas, deportes acuáticos, naturaleza y gastronomía de alto nivel).
+  - Europa: A-01, C-01, N-01, E-01, A-02 (Buscan experiencias auténticas, naturaleza, aventura, cultura y misticismo).
+  - Asia: A-01, D-01, A-02 (Enfoque en destinos icónicos, gastronomía reconocida y artesanía de calidad).
+ALERTAS_VERIFICACION_CAMPO:
+  - ID: E-01 (Curanderismo de Huancabamba y Lagunas) ⚠️ — La sensibilidad cultural y la naturaleza de las prácticas requieren verificación in situ para asegurar la autenticidad, el respeto y la infraestructura adecuada para visitantes.
+  - ID: A-03 (Ruta de la Cultura Tallán) ⚠️ — La accesibilidad, señalización y conservación de los sitios arqueológicos pueden variar, requiriendo verificación de estado actual e infraestructura turística.
+  - ID: N-02 (Bosque Seco Ecuatorial) ⚠️ — La logística de acceso, disponibilidad de guías especializados y la infraestructura para el turismo de naturaleza pueden ser limitadas y necesitan confirmación.
+MAPA_CALOR_CATEGORIAS:
+  - Categoría | Módulos | % del total | Prioridad para Fase 2
+  - Destinos y patrimonio | 5 | 33.3% | ALTA
+  - Gastronomía y cultura | 4 | 26.7% | ALTA
+  - Aventura y deportes | 2 | 13.3% | MEDIA
+  - Naturaleza y ecosistemas | 2 | 13.3% | MEDIA
+  - Misticismo y festividades | 1 | 6.7% | BAJA
+  - Logística y servicios | 1 | 6.7% | BAJA
+</inteligencia_cierre>

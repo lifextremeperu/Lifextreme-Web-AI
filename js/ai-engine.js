@@ -94,9 +94,13 @@ class AIPersonalizationEngine {
         this.showTypingIndicator();
         
         // 1. NUEVA CONEXIÓN AL CEREBRO MAESTRO (Vertex AI + Pydantic AI)
-        const localApiUrl = 'http://localhost:8000/chat';
+        // Usa la ruta relativa para producción (redireccionada por Firebase) o localhost para dev puro.
+        const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+            ? 'http://localhost:8000/chat' 
+            : '/api/chat';
+
         try {
-            const response = await fetch(localApiUrl, {
+            const response = await fetch(apiUrl, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ message: msg })

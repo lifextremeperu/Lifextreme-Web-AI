@@ -1,0 +1,426 @@
+{
+    "destino_id": "F-01",
+    "modulo_contexto": "Conectividad y Transporte Regional",
+    "fqsas": {
+        "1_Precios_Presupuestos_Moneda": [
+            {
+                "pregunta": "¿Cuál es el precio promedio de un pasaje aéreo de Lima a Tarapoto, Sanmartin, para un mochilero en temporada baja?",
+                "respuesta": "Un pasaje aéreo de Lima a Tarapoto (Aeropuerto Guillermo del Castillo Paredes) para un mochilero en temporada baja (marzo-mayo, octubre-noviembre) puede costar entre S/ 100 y S/ 250 por tramo, dependiendo de la anticipación y aerolínea como Latam o Sky Airline."
+            },
+            {
+                "pregunta": "¿Cuánto cuesta un boleto de bus de Lima a Tarapoto, Sanmartin, y qué empresas ofrecen ese servicio?",
+                "respuesta": "Un boleto de bus de Lima a Tarapoto, Sanmartin, tiene un precio que oscila entre S/ 90 y S/ 180 para un servicio semi-cama o cama, con empresas como Movil Bus, Civa o Tepsa. El viaje dura aproximadamente 24 horas."
+            },
+            {
+                "pregunta": "¿Qué presupuesto diario debo considerar para transporte en mototaxi en Tarapoto, Sanmartin, si viajo en familia?",
+                "respuesta": "Para una familia, un presupuesto diario realista para transporte en mototaxi dentro de Tarapoto, Sanmartin, sería de S/ 20 a S/ 40. Los trayectos cortos dentro de la ciudad suelen costar entre S/ 3 y S/ 7 por viaje."
+            },
+            {
+                "pregunta": "¿Cuánto cuesta el transporte fluvial en 'peke-peke' para ir a la Laguna Azul desde Sauce, Sanmartin?",
+                "respuesta": "El transporte fluvial en 'peke-peke' para cruzar la Laguna Azul desde Sauce, Sanmartin, hacia la otra orilla o para un paseo, tiene un costo aproximado de S/ 5 a S/ 10 por persona para un cruce, o S/ 30 a S/ 50 por hora para un tour privado por la laguna."
+            },
+            {
+                "pregunta": "¿Cuál es el precio de alquiler de un auto por día en Tarapoto, Sanmartin, para una familia que quiere explorar?",
+                "respuesta": "El precio de alquiler de un auto estándar (tipo sedán o SUV pequeño) por día en Tarapoto, Sanmartin, para una familia, puede variar entre S/ 120 y S/ 200, dependiendo de la agencia y el modelo. Se requiere licencia de conducir y tarjeta de crédito."
+            },
+            {
+                "pregunta": "¿Cuánto vale un pasaje en colectivo o combi desde Tarapoto a Lamas, Sanmartin?",
+                "respuesta": "Un pasaje en colectivo o combi desde Tarapoto a Lamas, Sanmartin, cuesta entre S/ 5 y S/ 7 por persona. Estos vehículos salen regularmente desde el paradero en la calle San Martín, cerca del mercado de Tarapoto."
+            },
+            {
+                "pregunta": "¿Dónde puedo cambiar dólares a soles peruanos en Tarapoto, Sanmartin, y cuál es el tipo de cambio aproximado?",
+                "respuesta": "Puedes cambiar dólares a soles peruanos en casas de cambio autorizadas en el centro de Tarapoto, Sanmartin, o en bancos como BCP o BBVA. El tipo de cambio aproximado suele ser S/ 3.70 - S/ 3.80 por dólar, pero puede variar diariamente."
+            },
+            {
+                "pregunta": "¿Cuál es el presupuesto estimado para el transporte terrestre de un mochilero por una semana en Sanmartin, visitando los principales atractivos?",
+                "respuesta": "Un mochilero debería estimar un presupuesto de S/ 100 a S/ 150 para transporte terrestre por una semana en Sanmartin, cubriendo colectivos a Lamas, Juanjui, mototaxis en Tarapoto y pasajes a Sauce, si se mueve de forma económica."
+            },
+            {
+                "pregunta": "¿Cuánto cuesta un taxi o mototaxi desde el aeropuerto de Tarapoto al centro de la ciudad en Sanmartin?",
+                "respuesta": "Un mototaxi desde el aeropuerto Guillermo del Castillo Paredes de Tarapoto al centro de la ciudad en Sanmartin cuesta entre S/ 5 y S/ 8. Un taxi (auto) puede costar entre S/ 10 y S/ 15, dependiendo de la hora y el regateo."
+            },
+            {
+                "pregunta": "¿Cuál es el precio de un tour organizado con transporte incluido a las Cataratas de Ahuashiyacu desde Tarapoto, Sanmartin?",
+                "respuesta": "Un tour organizado de medio día con transporte incluido a las Cataratas de Ahuashiyacu desde Tarapoto, Sanmartin, tiene un precio que va de S/ 30 a S/ 50 por persona, incluyendo la entrada y guía. Las agencias suelen salir de la Plaza de Armas."
+            }
+        ],
+        "2_Logistica_Transporte_Como_Llegar": [
+            {
+                "pregunta": "¿Cuál es el aeropuerto principal para llegar a Sanmartin y qué aerolíneas vuelan allí desde Lima?",
+                "respuesta": "El aeropuerto principal es el Aeropuerto Cadete FAP Guillermo del Castillo Paredes en Tarapoto (TPP). Las aerolíneas que operan vuelos directos desde Lima son LATAM, Sky Airline y JetSMART, con precios que varían desde 50 a 150 dólares americanos por tramo, dependiendo de la anticipación de la compra."
+            },
+            {
+                "pregunta": "¿Cómo puedo viajar en bus desde Lima a Tarapoto, Sanmartin, y cuánto tiempo dura el viaje?",
+                "respuesta": "Puedes tomar buses desde los terminales de Lima con empresas como Movil Bus, Civa o Excluciva. El viaje es largo, aproximadamente 24 a 28 horas, y los precios de los pasajes oscilan entre 90 y 180 Soles peruanos, dependiendo del servicio (económico, semi-cama, cama)."
+            },
+            {
+                "pregunta": "¿Cuál es la forma más económica de ir de Tarapoto a Lamas en Sanmartin y cuánto cuesta el pasaje?",
+                "respuesta": "La forma más económica es tomar un colectivo o una mototaxi. Los colectivos salen de la Avenida Alfonso Ugarte en Tarapoto y cuestan aproximadamente 5 a 7 Soles por persona. Una mototaxi privada puede costar entre 15 y 20 Soles. El trayecto dura unos 25-30 minutos."
+            },
+            {
+                "pregunta": "¿Cómo llegar a la Laguna Azul en Sauce desde Tarapoto, Sanmartin, y qué opciones de transporte hay para mochileros?",
+                "respuesta": "Para llegar a la Laguna Azul, puedes tomar una combi o colectivo desde el paradero en el Jirón Gregorio Delgado en Tarapoto. El pasaje cuesta entre 10 y 15 Soles hasta el puerto de La Banda de Shilcayo, donde cruzarás el río Cumbaza en balsa (2 Soles) y luego tomarás otra combi o mototaxi hasta Sauce (5-7 Soles adicionales). El viaje total toma alrededor de 1.5 a 2 horas."
+            },
+            {
+                "pregunta": "¿Qué empresas de transporte terrestre cubren la ruta Tarapoto - Moyobamba en Sanmartin y cuál es el costo aproximado?",
+                "respuesta": "Varias empresas de colectivos y minivans cubren esta ruta, como Turismo Selva o Transmar. Salen frecuentemente desde el terminal terrestre de Tarapoto. El costo del pasaje es de aproximadamente 20 a 25 Soles por persona y el viaje dura unas 2.5 a 3 horas."
+            },
+            {
+                "pregunta": "¿Es seguro usar mototaxis en Tarapoto, Sanmartin, y cuánto debería pagar por un viaje corto dentro de la ciudad?",
+                "respuesta": "Las mototaxis son el transporte principal y generalmente seguro dentro de Tarapoto. Es recomendable usar las que tienen distintivos de empresas o cooperativas. Para viajes cortos dentro del centro, el costo oscila entre 3 y 5 Soles. Siempre acuerda el precio antes de subir."
+            },
+            {
+                "pregunta": "¿Dónde puedo alquilar una motocicleta o un coche en Tarapoto, Sanmartin, y cuáles son los requisitos?",
+                "respuesta": "Puedes encontrar agencias de alquiler de motocicletas en el centro de Tarapoto, cerca de la Plaza de Armas, con precios desde 40 a 60 Soles por día. Para coches, hay agencias como Hertz o locales en el aeropuerto. Los requisitos suelen ser licencia de conducir vigente, DNI/pasaporte y una garantía o tarjeta de crédito."
+            },
+            {
+                "pregunta": "¿Hay transporte fluvial para visitar las Cataratas de Ahuashiyacu desde Tarapoto, Sanmartin, o es solo terrestre?",
+                "respuesta": "Para las Cataratas de Ahuashiyacu, el acceso es principalmente terrestre. Se llega en mototaxi o colectivo desde Tarapoto (aproximadamente 20 minutos de viaje, 10-15 Soles en mototaxi). No hay transporte fluvial directo para esta atracción. El transporte fluvial es más común para lagunas o ríos específicos como el Mayo o el Huallaga."
+            },
+            {
+                "pregunta": "¿Cuál es la mejor época del año para viajar por carretera en Sanmartin y evitar problemas por lluvias?",
+                "respuesta": "La mejor época para viajar por carretera en Sanmartin y evitar las lluvias intensas es durante la estación seca, que va de mayo a octubre. Durante la temporada de lluvias (noviembre a abril), algunas carreteras pueden presentar deslizamientos o estar en peores condiciones, aunque las rutas principales suelen mantenerse transitables."
+            },
+            {
+                "pregunta": "¿Cómo puedo ir del aeropuerto de Tarapoto al centro de la ciudad de Sanmartin en transporte público o económico?",
+                "respuesta": "Desde el aeropuerto de Tarapoto, la opción más común y económica es tomar una mototaxi. El viaje al centro de la ciudad dura unos 10-15 minutos y el costo es de aproximadamente 5 a 7 Soles. También hay taxis convencionales que pueden cobrar entre 10 y 15 Soles."
+            }
+        ],
+        "3_Seguridad_Riesgos_Salud": [
+            {
+                "pregunta": "¿Qué vacunas son obligatorias o recomendadas para viajar a Sanmartin, Perú, y prevenir enfermedades como la fiebre amarilla?",
+                "respuesta": "Para viajar a Sanmartin, la vacuna contra la Fiebre Amarilla es altamente recomendada, especialmente si planeas visitar zonas rurales o selváticas. Debe aplicarse al menos 10 días antes del viaje. También se aconseja tener al día las vacunas contra el Tétanos, Hepatitis A y B, y Tifoidea. Consulta a tu médico con antelación para un plan personalizado."
+            },
+            {
+                "pregunta": "¿Es seguro beber agua del grifo en Sanmartin o debo comprar agua embotellada para evitar problemas de salud?",
+                "respuesta": "En Sanmartin, no es seguro beber agua directamente del grifo. Se recomienda encarecidamente consumir siempre agua embotellada sellada o agua previamente hervida y filtrada para evitar enfermedades gastrointestinales. Los restaurantes y hoteles suelen ofrecer opciones seguras."
+            },
+            {
+                "pregunta": "¿Cuáles son los riesgos de seguridad más comunes para mochileros en Sanmartin y cómo puedo evitarlos?",
+                "respuesta": "Para mochileros en Sanmartin, los riesgos más comunes incluyen pequeños robos (carteristas en mercados o terminales), estafas menores y accidentes en transporte informal. Para evitarlos, no exhibas objetos de valor, usa taxis o mototaxis de empresas reconocidas, evita caminar solo por zonas poco iluminadas de noche y mantén tus pertenencias siempre vigiladas, especialmente en buses interprovinciales."
+            },
+            {
+                "pregunta": "¿Qué precauciones debo tomar contra mosquitos y enfermedades como el dengue o la malaria en Sanmartin?",
+                "respuesta": "En Sanmartin, la prevención de picaduras de mosquitos es crucial debido al riesgo de dengue, zika y chikungunya. Usa repelente con DEET o picaridina, viste ropa de manga larga y pantalones, especialmente al amanecer y anochecer, y duerme bajo mosquiteros si tu alojamiento no tiene aire acondicionado o mallas en las ventanas. La malaria es menos común pero existe en zonas muy remotas."
+            },
+            {
+                "pregunta": "¿Hay hospitales o clínicas confiables en Sanmartin en caso de una emergencia médica para turistas?",
+                "respuesta": "Sí, en Tarapoto, la ciudad principal de Sanmartin, hay hospitales y clínicas con servicios básicos. El Hospital Regional de Tarapoto 'Rafael Belaúnde Terry' es el principal centro de atención pública. También existen clínicas privadas como la Clínica San Martín o la Clínica Adventista, que suelen ofrecer mejor infraestructura y atención para turistas. Es recomendable contar con un seguro de viaje."
+            },
+            {
+                "pregunta": "¿Qué tan seguras son las carreteras y el transporte terrestre entre ciudades como Tarapoto y Moyobamba en Sanmartin?",
+                "respuesta": "Las carreteras principales en Sanmartin, como la que conecta Tarapoto con Moyobamba (parte de la Marginal de la Selva), suelen estar en buen estado. Sin embargo, los riesgos incluyen curvas pronunciadas, posibles deslizamientos en época de lluvias intensas (diciembre a marzo) y la conducción imprudente de algunos choferes. Opta por empresas de bus formales y evita viajar de noche en rutas menos transitadas."
+            },
+            {
+                "pregunta": "¿Existen riesgos al nadar en ríos o cascadas de Sanmartin y cómo puedo mantenerme seguro?",
+                "respuesta": "Al nadar en ríos o cascadas de Sanmartin, los riesgos incluyen corrientes fuertes, rocas resbaladizas y la presencia de fauna local. Siempre pregunta a los lugareños o a tu guía sobre la seguridad del lugar. Evita saltar desde alturas desconocidas, no te alejes de las zonas designadas para bañistas y ten especial cuidado con los niños. Nunca nades solo en lugares remotos."
+            },
+            {
+                "pregunta": "¿Qué debo hacer si sufro una intoxicación alimentaria en Sanmartin y dónde puedo buscar ayuda?",
+                "respuesta": "Si sufres una intoxicación alimentaria en Sanmartin, busca atención médica de inmediato. Puedes acudir a una farmacia para medicamentos básicos contra la diarrea y deshidratación, pero si los síntomas son severos (fiebre alta, vómitos persistentes, deshidratación), dirígete a una clínica privada como la Clínica San Martín en Tarapoto o al Hospital Regional. Evita comer en puestos callejeros con poca higiene."
+            },
+            {
+                "pregunta": "¿Cómo puedo protegerme del sol y el calor extremo en Sanmartin para evitar golpes de calor o quemaduras?",
+                "respuesta": "El clima en Sanmartin es tropical, con altas temperaturas y humedad. Para protegerte del sol y el calor, usa protector solar de alto factor (SPF 50+) y reaplícalo frecuentemente, viste ropa ligera de colores claros, un sombrero de ala ancha y gafas de sol. Mantente hidratado bebiendo mucha agua embotellada y evita la exposición directa al sol durante las horas pico (10:00 AM a 4:00 PM)."
+            },
+            {
+                "pregunta": "¿Es seguro hacer senderismo o trekking en la selva de Sanmartin sin un guía local experimentado?",
+                "respuesta": "No es seguro hacer senderismo o trekking en la selva de Sanmartin sin un guía local experimentado, especialmente en rutas no señalizadas o remotas. Los riesgos incluyen perderse, encontrarse con fauna peligrosa (serpientes, insectos venenosos), caídas en terrenos irregulares o resbaladizos, y no saber cómo reaccionar ante cambios climáticos repentinos. Siempre contrata un guía certificado y sigue sus indicaciones."
+            }
+        ],
+        "4_Clima_Temporadas_Horarios": [
+            {
+                "pregunta": "¿Cuál es la mejor época del año para viajar a Sanmartin y disfrutar de buen clima sin lluvias intensas?",
+                "respuesta": "La mejor época para visitar Sanmartin y disfrutar de un clima más seco y soleado es durante la estación seca, que va de mayo a octubre. Durante estos meses, las precipitaciones son significativamente menores y las temperaturas son cálidas, ideales para explorar."
+            },
+            {
+                "pregunta": "¿Cuándo es la temporada de lluvias en Sanmartin y cómo afecta mi viaje a las cataratas o rutas de senderismo?",
+                "respuesta": "La temporada de lluvias en Sanmartin se extiende de noviembre a abril. Durante este periodo, las lluvias pueden ser intensas, lo que puede provocar crecidas en ríos, hacer los caminos resbaladizos y dificultar el acceso a cataratas como Ahuashiyacu o a ciertas rutas de senderismo, por lo que se recomienda precaución y consultar a guías locales."
+            },
+            {
+                "pregunta": "¿Qué temperaturas promedio puedo esperar en Sanmartin durante el día y la noche en la estación seca?",
+                "respuesta": "En la estación seca (mayo a octubre), las temperaturas diurnas en Sanmartin suelen oscilar entre 28°C y 34°C. Por las noches, descienden a un promedio de 20°C a 24°C, manteniendo un ambiente cálido y húmedo, por lo que la ropa ligera es esencial."
+            },
+            {
+                "pregunta": "¿Cómo es la humedad en Sanmartin durante todo el año y qué tipo de ropa debo empacar para mi comodidad?",
+                "respuesta": "Sanmartin mantiene una humedad relativa alta durante todo el año, generalmente entre el 70% y 90%. Se recomienda empacar ropa ligera, de tejidos transpirables como algodón o lino, que se seque rápidamente, para mayor comodidad en el clima tropical."
+            },
+            {
+                "pregunta": "¿La temporada de lluvias en Sanmartin afecta los horarios o la disponibilidad de las embarcaciones para tours fluviales por el río Mayo?",
+                "respuesta": "Sí, durante la temporada de lluvias (noviembre a abril), el nivel del río Mayo puede subir considerablemente. Esto puede alterar los horarios de los tours fluviales, causar suspensiones temporales por seguridad o modificar las rutas habituales. Es crucial confirmar con los operadores locales antes de planificar."
+            },
+            {
+                "pregunta": "¿Cuál es el mejor mes para visitar las Cataratas de Ahuashiyacu en Sanmartin y verlas con buen caudal pero sin riesgo de lluvias fuertes?",
+                "respuesta": "Los meses de mayo y junio son ideales para visitar las Cataratas de Ahuashiyacu en Sanmartin. En este periodo, las cataratas aún presentan un caudal impresionante debido a las lluvias recientes, pero el clima ya es más seco y soleado, minimizando el riesgo de precipitaciones intensas durante tu visita."
+            },
+            {
+                "pregunta": "¿Hay alguna restricción de horarios para visitar el Lago Azul en Sanmartin debido al clima o la visibilidad?",
+                "respuesta": "Generalmente no hay restricciones estrictas por clima para el Lago Azul, pero se recomienda visitarlo entre las 8:00 AM y las 4:00 PM para aprovechar la mejor luz solar y evitar la mayor actividad de mosquitos al amanecer y atardecer. Los botes suelen operar dentro de ese rango horario."
+            },
+            {
+                "pregunta": "¿Qué tipo de ropa debo empacar para un viaje a Sanmartin en la estación seca versus la estación húmeda?",
+                "respuesta": "Para la estación seca (mayo-octubre) en Sanmartin, empaca ropa ligera, protector solar, sombrero y repelente. Para la estación húmeda (noviembre-abril), añade un impermeable ligero, calzado antideslizante y bolsas impermeables para proteger tus pertenencias. Siempre prioriza ropa transpirable."
+            },
+            {
+                "pregunta": "¿Hay horas del día en Sanmartin que deba evitar para hacer actividades al aire libre debido al calor extremo o la radiación solar?",
+                "respuesta": "Sí, se aconseja evitar las horas pico de sol en Sanmartin, entre las 11:00 AM y las 3:00 PM, para actividades al aire libre intensas. La radiación UV es muy alta y el calor puede ser sofocante. Es mejor planificar actividades al aire libre temprano por la mañana o al final de la tarde."
+            },
+            {
+                "pregunta": "¿Cómo influyen las lluvias en las condiciones de las carreteras y caminos rurales en Sanmartin, especialmente hacia destinos como Lamas o Chazuta?",
+                "respuesta": "Las lluvias intensas en Sanmartin pueden deteriorar rápidamente los caminos rurales no asfaltados, volviéndolos resbaladizos, con barro o incluso intransitables por deslizamientos menores. Es común que los tiempos de viaje se alarguen y se recomiende el uso de vehículos 4x4 o mototaxis experimentados para destinos como Lamas o Chazuta."
+            }
+        ],
+        "5_Historia_Cultura_Curiosidades": [
+            {
+                "pregunta": "¿Cuál es la historia del 'Pueblo de los Tres Pisos' en Lamas, Sanmartin y cómo se relaciona con sus habitantes?",
+                "respuesta": "Lamas, conocida como la 'Ciudad de los Tres Pisos', tiene una historia fascinante. El primer piso es el barrio nativo Wayku, habitado por descendientes de los Chancas que migraron aquí. El segundo piso es la parte mestiza, y el tercer piso es el castillo de Lamas. La historia de los Chancas en Wayku es de resistencia cultural, manteniendo sus tradiciones y lengua Quechua Lamista."
+            },
+            {
+                "pregunta": "¿Qué leyendas amazónicas famosas de Sanmartin puedo conocer en Tarapoto y dónde las cuentan?",
+                "respuesta": "En Tarapoto, Sanmartin, puedes escuchar leyendas como la del 'Chullachaqui' (duende de la selva) o la 'Sirena de la Laguna Azul'. Muchos guías locales en tours a la Laguna Azul o en el centro de Tarapoto, especialmente en el 'Museo Regional de San Martín' (Jr. San Martín 300), suelen compartir estas historias. También hay narradores orales en el Mercado N°2."
+            },
+            {
+                "pregunta": "¿Qué vestigios arqueológicos pre-incas se pueden visitar cerca de Moyobamba, Sanmartin y cómo llegar?",
+                "respuesta": "Cerca de Moyobamba, Sanmartin, puedes visitar los Petroglifos de Polish, ubicados en el distrito de Jepelacio. Son grabados en piedra de la cultura Chachapoyas. Para llegar, se toma un mototaxi desde Moyobamba hasta Jepelacio (aprox. 20-30 minutos, S/5-7) y luego una caminata corta o un mototaxi adicional hasta el sitio."
+            },
+            {
+                "pregunta": "¿Cuáles son las festividades culturales más importantes de Sanmartin y en qué meses se celebran?",
+                "respuesta": "Las festividades culturales más importantes de Sanmartin incluyen la 'Fiesta de San Juan' (24 de junio, celebrada en toda la región con bailes y comida típica), la 'Semana Turística de Moyobamba' (primera semana de junio, con el Festival de la Orquídea y desfiles), y la 'Semana Turística de Tarapoto' (segunda quincena de julio, con ferias y eventos culturales)."
+            },
+            {
+                "pregunta": "¿Por qué a Tarapoto, Sanmartin, se le conoce como la 'Ciudad de las Palmeras' y cuál es su origen?",
+                "respuesta": "Tarapoto, Sanmartin, es conocida como la 'Ciudad de las Palmeras' debido a la abundancia de estas plantas en la región, especialmente la palma aceitera y otras variedades nativas que formaban parte del paisaje original. El nombre 'Tarapoto' proviene de la palmera 'Taraputus', muy común en la zona cuando fue fundada en 1782 por el obispo Baltazar Jaime Martínez de Compañón."
+            },
+            {
+                "pregunta": "¿Qué papel jugó la cultura Chachapoyas en la historia de Sanmartin y dónde se ven sus influencias?",
+                "respuesta": "La cultura Chachapoyas tuvo una presencia significativa en el norte de Sanmartin, especialmente en la provincia de Rioja y Moyobamba. Sus influencias se ven en sitios arqueológicos como los Petroglifos de Polish (Moyobamba) y en la cerámica y tejidos encontrados en excavaciones. Aunque su centro estuvo más al oeste, su expansión llegó a estas zonas, dejando un legado cultural en la región."
+            },
+            {
+                "pregunta": "¿Dónde puedo comprar artesanía auténtica de la cultura Lamista en Sanmartin y qué tipo de productos ofrecen?",
+                "respuesta": "Puedes comprar artesanía auténtica de la cultura Lamista directamente en el barrio Wayku de Lamas, Sanmartin. Las mujeres artesanas venden sus productos en sus propias casas o en pequeños puestos. Ofrecen cerámica utilitaria y decorativa (cántaros, ollas), tejidos de algodón con diseños geométricos, y bisutería elaborada con semillas y fibras naturales."
+            },
+            {
+                "pregunta": "¿Existe alguna creencia popular o ritual ancestral en Sanmartin relacionado con la selva o los ríos?",
+                "respuesta": "Sí, en Sanmartin existen muchas creencias populares y rituales ancestrales. Uno muy extendido es el respeto a la 'Pachamama' (Madre Tierra) y a los 'Apús' (espíritus de las montañas y ríos). Antes de ingresar a la selva o pescar, es común realizar pequeñas ofrendas simbólicas (como dejar hojas de coca o un poco de aguardiente) para pedir permiso y protección a los espíritus de la naturaleza."
+            },
+            {
+                "pregunta": "¿Quién fue el obispo Baltazar Jaime Martínez de Compañón y cuál fue su impacto en la fundación de ciudades en Sanmartin?",
+                "respuesta": "Baltazar Jaime Martínez de Compañón y Bujanda fue un obispo español que realizó una extensa visita pastoral al Virreinato del Perú entre 1782 y 1790. Tuvo un impacto crucial en Sanmartin al fundar o refundar varias ciudades, incluyendo Tarapoto (1782), Lamas y Moyobamba, con el objetivo de evangelizar y organizar el territorio. Sus expediciones documentaron la flora, fauna y culturas locales."
+            },
+            {
+                "pregunta": "¿Qué es el 'Quechua Lamista' y dónde se habla actualmente en Sanmartin?",
+                "respuesta": "El 'Quechua Lamista' (también conocido como Kichwa Lamas) es una variante del quechua amazónico que se habla principalmente en el barrio Wayku de Lamas, Sanmartin. Es una lengua viva y un elemento central de la identidad cultural del pueblo Lamista. Aunque el español es predominante, en Wayku aún se escucha y se enseña a las nuevas generaciones, siendo un atractivo cultural único."
+            }
+        ],
+        "6_Tips_Locales_Secretos": [
+            {
+                "pregunta": "¿Cuál es el 'secreto' para conseguir transporte fluvial barato y seguro a la Laguna Azul en Sanmartin sin tour organizado?",
+                "respuesta": "El truco es ir al Puerto López en Tarapoto, Sanmartin, y negociar directamente con los lancheros que ofrecen viajes 'ida y vuelta' por unos 15-20 Soles por persona si llenan la lancha. Evita los intermediarios en la carretera para obtener el mejor precio."
+            },
+            {
+                "pregunta": "¿Hay alguna ruta de colectivo 'secreta' o menos conocida para llegar a las Cataratas de Ahuashiyacu desde Tarapoto, Sanmartin, evitando taxis caros?",
+                "respuesta": "Sí, toma un colectivo desde el paradero informal en la esquina de Jr. San Martín con Jr. Bolognesi en Tarapoto. Pregunta por los que van a 'Ahuashiyacu'. El pasaje cuesta 3-4 Soles por persona y te dejan en la entrada de las cataratas."
+            },
+            {
+                "pregunta": "¿Cómo puedo alquilar una moto confiable y a buen precio en Tarapoto, Sanmartin, para explorar por mi cuenta, y qué debo saber?",
+                "respuesta": "Busca locales pequeños en Jr. Bolognesi o Jr. San Pablo. Un 'secreto' es negociar por 24 horas, no por día. Puedes conseguir una moto lineal por 30-40 Soles al día. Siempre revisa frenos y luces antes de aceptar y pide el casco."
+            },
+            {
+                "pregunta": "Para familias con niños, ¿cuál es el mejor 'tip local' para viajar de Tarapoto a Moyobamba, Sanmartin, de forma cómoda y segura sin gastar mucho?",
+                "respuesta": "El 'secreto' es usar las combis o minivans que salen del Terminal Terrestre de Tarapoto. Busca las empresas 'Moyobamba Express' o 'Transportes Selva'. Salen cada 30-45 minutos, cuestan 15-20 Soles por persona y son más seguras que los colectivos informales."
+            },
+            {
+                "pregunta": "¿Existe algún horario 'secreto' o menos concurrido para tomar un mototaxi en Tarapoto, Sanmartin, y evitar los picos de tráfico?",
+                "respuesta": "El 'tip' es evitar las horas punta de 7-9 AM y 5-7 PM. Si necesitas moverte rápido, sal antes de las 6:30 AM o después de las 7:30 PM. Los mototaxistas son más flexibles con las tarifas fuera de esos horarios en Tarapoto."
+            },
+            {
+                "pregunta": "¿Cuál es el 'secreto' para encontrar un guía local de confianza para rutas de trekking menos exploradas en la selva de Sanmartin, cerca de Lamas o Chazuta?",
+                "respuesta": "No busques en agencias grandes. El 'secreto' es preguntar en los hospedajes pequeños o restaurantes familiares en Lamas o Chazuta. Ellos suelen conocer a guías locales que ofrecen tours personalizados por 50-80 Soles al día, incluyendo transporte básico."
+            },
+            {
+                "pregunta": "¿Cómo puedo evitar que me cobren de más por el transporte de mi mochila grande o equipaje familiar en colectivos de Sanmartin? ¿Hay algún 'tip' local?",
+                "respuesta": "El 'secreto' es siempre preguntar '¿Cuánto por persona con equipaje?' antes de subir. Si te quieren cobrar extra por una mochila razonable, busca otro colectivo. Generalmente, no deberían cobrar más de 5 Soles adicionales por bulto grande en rutas interurbanas cortas."
+            },
+            {
+                "pregunta": "¿Hay alguna forma 'secreta' de llegar a la Cueva de los Tayos en Sanmartin desde Rioja o Moyobamba sin depender de tours caros?",
+                "respuesta": "El 'tip' es tomar un colectivo desde Moyobamba hasta el desvío de 'Palestina' (unos 10 Soles). Desde allí, negocia un mototaxi hasta la entrada de la cueva (otros 5-7 Soles). Necesitarás un guía local para la cueva, que puedes contratar en el mismo lugar por unos 20-30 Soles."
+            },
+            {
+                "pregunta": "¿Cuál es el 'secreto' para conseguir un taxi seguro y con precio justo en Tarapoto, Sanmartin, especialmente de noche?",
+                "respuesta": "El 'secreto' es usar los taxis de empresas formales como 'Taxi Express' o 'Radio Taxi Tarapoto'. Llama por teléfono o busca sus paraderos oficiales. Evita los taxis 'piratas' en la calle de noche. Una carrera dentro de la ciudad no debería exceder los 8-10 Soles."
+            },
+            {
+                "pregunta": "¿Existe alguna conexión de transporte 'secreta' o poco conocida para ir de la zona de San Roque de Cumbaza a Tarapoto, Sanmartin, sin esperar mucho tiempo?",
+                "respuesta": "Sí, el 'tip' es no esperar el colectivo grande. Busca los mototaxis que hacen la ruta. Aunque son un poco más caros (5-7 Soles por persona), son más frecuentes y te llevan directamente. Salen constantemente desde el centro de San Roque de Cumbaza."
+            }
+        ],
+        "7_Gastronomia_Alimentos_Supervivencia": [
+            {
+                "pregunta": "¿Cuáles son los platos más económicos y nutritivos para un mochilero en Sanmartin que busca subsistencia?",
+                "respuesta": "Para subsistir económicamente en Sanmartin, busca 'juane' (arroz con gallina o huevo, envuelto en hoja de bijao) que cuesta entre S/7 y S/12 en mercados como el Mercado N°1 de Tarapoto, o 'tacacho con cecina' (plátano verde machacado con carne de cerdo ahumada) por S/10-S/18. También las 'sopas de gallina' en los 'comedores populares' son muy rendidoras por S/5-S/8."
+            },
+            {
+                "pregunta": "¿Qué alimentos no perecederos recomiendan llevar para una caminata larga en la selva de Sanmartin si necesito provisiones de supervivencia?",
+                "respuesta": "Para caminatas largas en Sanmartin, lleva galletas de soda, barras energéticas, frutos secos (maní, pasas), chocolate, atún enlatado o sardinas, y sobres de sopa instantánea. Puedes comprarlos en supermercados como Plaza Vea o en bodegas grandes en Tarapoto o Moyobamba. Un paquete de galletas cuesta S/2-S/4, una lata de atún S/5-S/7."
+            },
+            {
+                "pregunta": "¿Cómo puedo asegurar agua potable segura para beber en zonas rurales o remotas de Sanmartin durante una emergencia?",
+                "respuesta": "En zonas rurales de Sanmartin, la forma más segura es hervir el agua por al menos 3 minutos. También puedes usar pastillas potabilizadoras (disponibles en farmacias de Tarapoto por S/15-S/25 el paquete de 50) o un filtro de agua portátil. Evita beber directamente de ríos o quebradas sin tratar."
+            },
+            {
+                "pregunta": "¿Qué tipo de alimentos básicos puedo esperar encontrar en las bodegas de pueblos pequeños de Sanmartin como Lamas o Chazuta si me quedo sin provisiones?",
+                "respuesta": "En pueblos pequeños de Sanmartin como Lamas o Chazuta, las bodegas suelen tener arroz, azúcar, aceite, fideos, huevos, galletas, enlatados básicos (atún, leche evaporada), y algunas frutas de estación. La variedad es limitada y los precios pueden ser ligeramente más altos que en Tarapoto. No esperes productos especializados."
+            },
+            {
+                "pregunta": "¿Hay ingredientes locales en Sanmartin que pueda usar para cocinar de forma básica si estoy acampando o en un albergue rústico?",
+                "respuesta": "Sí, en Sanmartin puedes encontrar plátano verde (para tacacho), yuca, arroz, huevos, y diversas frutas como cocona, camu camu o aguaje. En mercados locales de pueblos pequeños puedes comprar pescado fresco de río (tilapia, paiche) a precios accesibles, desde S/10-S/20 el kilo, para cocinar a la brasa o en sopa."
+            },
+            {
+                "pregunta": "¿Qué debo hacer si me quedo sin comida en una zona remota de la selva de Sanmartin y necesito ayuda de supervivencia?",
+                "respuesta": "Si te quedas sin comida en una zona remota de Sanmartin, lo primero es mantener la calma. Intenta ubicar la comunidad más cercana; los pobladores locales suelen ser muy solidarios y pueden ofrecerte alimentos básicos como yuca, plátano o arroz. Siempre lleva un silbato y un botiquín de emergencia. Evita adentrarte más en la selva sin guía."
+            },
+            {
+                "pregunta": "¿Qué frutas silvestres o plantas comestibles son seguras de consumir en la selva de Sanmartin si estoy en una situación de supervivencia?",
+                "respuesta": "En Sanmartin, algunas frutas silvestres seguras y comunes son el aguaje, ungurahui, cocona y taperibá. Sin embargo, es CRÍTICO no consumir plantas o frutos desconocidos sin la guía de un experto local, ya que muchos pueden ser tóxicos. Limítate a lo que reconozcas o te ofrezcan los lugareños."
+            },
+            {
+                "pregunta": "¿Dónde puedo comprar provisiones de alimentos básicos y económicos en Tarapoto, Sanmartin, para una expedición de varios días?",
+                "respuesta": "En Tarapoto, Sanmartin, el Mercado N°1 (ubicado en Jr. San Martín 150) y el Mercado N°2 (en Jr. Alfonso Ugarte 100) son los mejores lugares para comprar alimentos básicos, frutas, verduras, carne y pescado a precios locales. También hay supermercados como Plaza Vea (Av. Salaverry 150) para productos envasados."
+            },
+            {
+                "pregunta": "¿Cómo puedo manejar alergias alimentarias o restricciones dietéticas (ej. vegetariano) en zonas rurales de Sanmartin donde las opciones son limitadas?",
+                "respuesta": "En zonas rurales de Sanmartin, la mejor estrategia es comunicar tus restricciones claramente a los anfitriones o cocineros. Lleva tus propios snacks y alimentos no perecederos específicos para tu dieta (ej. barras de proteína veganas, galletas sin gluten). Los platos suelen basarse en arroz, yuca, plátano y pescado/pollo, por lo que ser vegetariano puede ser un desafío sin planificación."
+            },
+            {
+                "pregunta": "¿Cuál es el costo aproximado diario de alimentos básicos para la supervivencia de una persona en Sanmartin, fuera de las ciudades principales?",
+                "respuesta": "Fuera de las ciudades principales de Sanmartin, el costo diario de alimentos básicos para una persona puede oscilar entre S/15 y S/25. Esto incluiría arroz, yuca, plátano, huevos, quizás algo de pescado o pollo local, y agua. Comprar en mercados locales y cocinar uno mismo reduce significativamente los gastos."
+            }
+        ],
+        "8_Accesibilidad_Infraestructura": [
+            {
+                "pregunta": "¿Cuáles son las aerolíneas que vuelan de Lima a Tarapoto, Sanmartin, y cuánto cuesta un pasaje ida y vuelta en temporada baja 2024?",
+                "respuesta": "Las principales aerolíneas que operan vuelos directos de Lima al Aeropuerto Guillermo del Castillo Paredes de Tarapoto son LATAM, Sky Airline y JetSMART. Un pasaje ida y vuelta en temporada baja (marzo-mayo, septiembre-noviembre) puede costar entre S/ 200 y S/ 400, aunque los precios varían según la anticipación de la compra y promociones. El vuelo dura aproximadamente 1 hora y 15 minutos."
+            },
+            {
+                "pregunta": "¿Cómo puedo ir del Aeropuerto Guillermo del Castillo Paredes de Tarapoto al centro de la ciudad de Sanmartin de forma segura para una familia?",
+                "respuesta": "La opción más segura y cómoda para una familia es tomar un taxi oficial del aeropuerto. Estos taxis tienen tarifas fijas que oscilan entre S/ 15 y S/ 20 para llegar al centro de Tarapoto. También hay mototaxis disponibles fuera del aeropuerto por S/ 5 a S/ 8, pero para familias con equipaje o niños, el taxi es preferible por espacio y seguridad."
+            },
+            {
+                "pregunta": "¿Qué opciones de transporte terrestre económico hay para viajar de Tarapoto a Moyobamba en Sanmartin para mochileros en 2024?",
+                "respuesta": "Para mochileros con presupuesto limitado, la opción más económica son los colectivos o vans que salen del Terminal Terrestre de Tarapoto (ubicado en la Vía de Evitamiento). El pasaje cuesta entre S/ 15 y S/ 25 por persona y el viaje dura aproximadamente 2 horas y media. También hay buses de empresas como Civa o Movil Bus con tarifas similares."
+            },
+            {
+                "pregunta": "¿Cómo es el estado de la carretera para llegar a la Laguna Azul desde Tarapoto en Sanmartin y es apta para vehículos particulares todo el año?",
+                "respuesta": "La carretera que conecta Tarapoto con la Laguna Azul (Sauce) está mayormente asfaltada hasta el desvío a Puerto López, donde se cruza el río Mayo en una balsa cautiva. El tramo final después de la balsa es afirmado (trocha). Es apta para vehículos particulares todo el año, aunque en época de lluvias (diciembre-marzo) algunos tramos afirmados pueden presentar baches. La balsa tiene un costo de S/ 2 por persona y S/ 20 por vehículo."
+            },
+            {
+                "pregunta": "¿Existen rutas de transporte fluvial regulares desde Tarapoto o Yurimaguas para visitar comunidades nativas en Sanmartin?",
+                "respuesta": "Desde Tarapoto ciudad no hay rutas fluviales directas a comunidades nativas. Sin embargo, desde Yurimaguas, que es un puerto fluvial importante en la región Sanmartin (a unas 2 horas de Tarapoto en bus/colectivo, S/ 10-15), sí existen embarcaciones (lanchas y 'peque-peques') que viajan a diversas comunidades a lo largo del río Huallaga y sus afluentes. Los horarios y destinos varían, por lo que es mejor consultar directamente en el puerto de Yurimaguas."
+            },
+            {
+                "pregunta": "¿Cuánto cuesta un viaje en mototaxi dentro de la ciudad de Moyobamba en Sanmartin y cómo sé si es un servicio seguro?",
+                "respuesta": "Un viaje en mototaxi dentro de la ciudad de Moyobamba generalmente cuesta entre S/ 3 y S/ 5, dependiendo de la distancia. Para identificar un servicio seguro, busca mototaxis con chaleco y casco identificados con el nombre de una empresa o asociación, que tengan su placa visible y que el conductor no parezca estar bajo la influencia de alcohol u otras sustancias."
+            },
+            {
+                "pregunta": "¿Qué tan accesible es el camino a las Cataratas de Ahuashiyacu desde Tarapoto, Sanmartin, para personas con movilidad reducida o adultos mayores?",
+                "respuesta": "El acceso a las Cataratas de Ahuashiyacu es relativamente fácil. Desde la carretera Fernando Belaúnde Terry, hay un sendero de escaleras y pasamanos bien mantenido que lleva directamente a la base de la catarata. Sin embargo, para personas con movilidad muy reducida o adultos mayores con dificultades para subir y bajar escaleras, el trayecto podría ser un desafío. Hay estacionamiento y servicios básicos en la entrada."
+            },
+            {
+                "pregunta": "¿Dónde se ubican los principales terminales terrestres en Tarapoto, Sanmartin, para viajar a otras regiones del Perú?",
+                "respuesta": "Tarapoto no cuenta con un único terminal terrestre centralizado. Las principales empresas de bus interprovincial como Civa, Movil Bus, y Cruz del Sur tienen sus propios terminales ubicados en diferentes puntos de la ciudad. Generalmente se encuentran en avenidas principales como la Vía de Evitamiento, Alfonso Ugarte o Circunvalación. Es recomendable verificar la dirección exacta del terminal de la empresa de bus elegida al momento de comprar el pasaje."
+            },
+            {
+                "pregunta": "¿Es factible alquilar un coche 4x4 en Tarapoto, Sanmartin, para explorar rutas menos transitadas en la selva en 2024?",
+                "respuesta": "Sí, es factible alquilar un coche, incluyendo vehículos 4x4, en Tarapoto. Empresas locales como 'Tarapoto Rent a Car' o 'Selva Car Rental' ofrecen este servicio. Un 4x4 es altamente recomendable si planeas explorar rutas menos transitadas o viajar en época de lluvias (diciembre a marzo), ya que muchas carreteras secundarias son afirmadas y pueden volverse difíciles. El costo diario de un 4x4 puede variar entre S/ 150 y S/ 300."
+            },
+            {
+                "pregunta": "¿Qué tan seguras son las carreteras principales de Sanmartin para viajar en bus interprovincial de noche, por ejemplo, de Tarapoto a Chachapoyas?",
+                "respuesta": "Las carreteras principales de Sanmartin, como la que conecta Tarapoto con Chachapoyas (vía Pedro Ruiz Gallo), son generalmente seguras para viajar en bus interprovincial de noche con empresas reconocidas y formales. Los buses suelen ser modernos y los conductores experimentados. Sin embargo, como mochilero, siempre es preferible viajar de día si es posible, no solo por mayor tranquilidad, sino también para apreciar los paisajes de la ruta. Siempre elige empresas con buena reputación."
+            }
+        ],
+        "9_Reglas_Prohibiciones_Tramites": [
+            {
+                "pregunta": "¿Se necesita algún permiso especial para ingresar a la Reserva Ecológica de Tingana en Sanmartin si voy por mi cuenta?",
+                "respuesta": "Sí, el ingreso a la Reserva Ecológica de Tingana en Sanmartin requiere la contratación obligatoria de un guía local autorizado y el pago de una tarifa de entrada que varía entre 10 y 20 Soles por persona, gestionada directamente en el embarcadero de 20 de Mayo o a través de operadores turísticos registrados. No se permite el acceso sin guía por motivos de conservación y seguridad."
+            },
+            {
+                "pregunta": "¿Cuáles son las reglas de seguridad obligatorias para usar mototaxis en Tarapoto, Sanmartin, especialmente con niños?",
+                "respuesta": "En Tarapoto, Sanmartin, es obligatorio que el conductor de mototaxi use casco. Para los pasajeros, aunque no siempre se exige casco, se recomienda elegir unidades con cinturones de seguridad y verificar que el vehículo tenga placa y el conductor chaleco de identificación. La capacidad máxima es de tres pasajeros adultos; con niños pequeños, se debe priorizar su seguridad y no exceder la capacidad."
+            },
+            {
+                "pregunta": "¿Existen prohibiciones para el transporte fluvial de pasajeros en el río Mayo o Huallaga en Sanmartin durante la temporada de lluvias?",
+                "respuesta": "Durante la temporada de lluvias intensas (generalmente de noviembre a marzo), las autoridades de la Capitanía de Puerto de Yurimaguas o Pucallpa (con jurisdicción en Sanmartin) pueden emitir alertas o prohibiciones temporales para la navegación fluvial en los ríos Mayo y Huallaga, especialmente para embarcaciones menores, debido al aumento del caudal y la corriente. Siempre consulte con los embarcaderos oficiales antes de planificar su viaje."
+            },
+            {
+                "pregunta": "¿Está permitido volar drones en las cataratas de Ahuashiyacu o en la Laguna Azul en Sanmartin sin un permiso previo?",
+                "respuesta": "No, volar drones en áreas naturales protegidas o de alto flujo turístico como las Cataratas de Ahuashiyacu o la Laguna Azul en Sanmartin requiere un permiso previo de las autoridades locales (como DIRCETUR o la administración del área). El uso no autorizado puede resultar en multas o la confiscación del equipo, especialmente si es para fines comerciales o si interfiere con la fauna o la privacidad de otros visitantes."
+            },
+            {
+                "pregunta": "¿Hay alguna restricción de peso o tamaño para el equipaje en los buses interprovinciales que van a Tarapoto, Sanmartin?",
+                "respuesta": "Sí, la mayoría de las empresas de buses interprovinciales que operan hacia Tarapoto, Sanmartin, permiten un equipaje de mano (hasta 5-8 kg) y una maleta en bodega (hasta 20-25 kg) sin costo adicional. Exceder estos límites suele implicar un cargo extra por cada kilogramo adicional, que puede variar entre 1 y 3 Soles por kilo, dependiendo de la empresa."
+            },
+            {
+                "pregunta": "¿Qué documentos de identificación son obligatorios para viajar en bus o avión dentro de la región Sanmartin para turistas nacionales y extranjeros?",
+                "respuesta": "Para turistas nacionales, es obligatorio presentar el Documento Nacional de Identidad (DNI) vigente. Para turistas extranjeros, se requiere el pasaporte o carné de extranjería vigente. Estos documentos son indispensables para la compra de boletos y el embarque en cualquier medio de transporte formal dentro de la región Sanmartin."
+            },
+            {
+                "pregunta": "¿Qué trámites o permisos se requieren para que un menor de edad viaje solo o con un solo padre en transporte terrestre desde o hacia Sanmartin?",
+                "respuesta": "Si un menor de edad viaja solo o con uno de los padres desde o hacia Sanmartin, se requiere una autorización de viaje notarial. Si viaja con un solo padre, necesita la autorización notarial del padre ausente. Si viaja solo, necesita la autorización de ambos padres. Este trámite se realiza en una notaría y es indispensable para el embarque en buses interprovinciales."
+            },
+            {
+                "pregunta": "¿Cuáles son las normas de tránsito específicas o prohibiciones para conducir vehículos particulares en las zonas rurales de Sanmartin, como la ruta a Lamas?",
+                "respuesta": "Al conducir vehículos particulares en zonas rurales de Sanmartin, como la ruta a Lamas, es crucial respetar los límites de velocidad (generalmente 35-60 km/h), evitar conducir bajo los efectos del alcohol (tolerancia cero), y estar atento a la presencia de animales en la vía. Muchas carreteras son de una sola vía o con curvas pronunciadas, por lo que se prohíbe adelantar en zonas no permitidas y se exige el uso de luces bajas en todo momento."
+            },
+            {
+                "pregunta": "¿Cómo puedo verificar si una empresa de transporte turístico en Sanmartin está legalmente autorizada y cumple con las regulaciones de seguridad?",
+                "respuesta": "Para verificar la legalidad y seguridad de una empresa de transporte turístico en Sanmartin, puede consultar el Registro Nacional de Prestadores de Servicios Turísticos (RNPS) del MINCETUR o la Dirección Regional de Comercio Exterior y Turismo (DIRCETUR Sanmartin). Las empresas autorizadas deben exhibir sus licencias y seguros, y sus vehículos deben pasar revisiones técnicas periódicas."
+            },
+            {
+                "pregunta": "¿Qué reglas ambientales debo seguir para el manejo de residuos durante excursiones a sitios naturales como la Laguna Azul en Sanmartin?",
+                "respuesta": "Durante excursiones a sitios naturales como la Laguna Azul en Sanmartin, la regla principal es 'No dejar rastro'. Esto significa que toda la basura generada (envases, plásticos, restos de comida) debe ser guardada y llevada de regreso a los centros poblados para su correcta disposición. Está estrictamente prohibido arrojar residuos en el agua o en el entorno natural, así como extraer flora o fauna."
+            }
+        ],
+        "10_Alternativas_Plan_B": [
+            {
+                "pregunta": "¿Qué 'Plan B' de transporte terrestre existe si la carretera Fernando Belaúnde Terry entre Tarapoto y Moyobamba, Sanmartin, está bloqueada por un derrumbe para un mochilero?",
+                "respuesta": "Si la carretera principal está bloqueada, una alternativa es buscar rutas secundarias que conecten pueblos cercanos, aunque suelen ser más largas y con peor estado. Otra opción es regresar a Tarapoto y evaluar un vuelo alternativo desde el Aeropuerto Guillermo del Castillo Paredes a otro destino cercano o esperar la rehabilitación de la vía, que suele ser rápida en Sanmartin. Para distancias cortas, a veces se puede negociar con mototaxis para tramos específicos si el bloqueo no es total."
+            },
+            {
+                "pregunta": "Mi vuelo a Tarapoto, Sanmartin, fue cancelado. ¿Cuál es el mejor 'Plan B' para una familia con niños pequeños para llegar desde Lima por tierra de forma segura?",
+                "respuesta": "El 'Plan B' más seguro y cómodo para una familia es tomar un bus interprovincial directo desde Lima. Empresas como Movil Bus, Civa o Cruz del Sur ofrecen servicios 'cama' o 'semi-cama' con destino a Tarapoto. El viaje dura aproximadamente 24 horas y los precios varían entre S/ 120 y S/ 200 por persona, dependiendo de la temporada y el tipo de servicio. Salen del Terminal Terrestre de Plaza Norte o Atocongo en Lima."
+            },
+            {
+                "pregunta": "Si el servicio de bote colectivo desde Yurimaguas a Lagunas, Sanmartin, está suspendido por bajo caudal del río, ¿qué 'Plan B' tiene un mochilero para llegar a Lagunas?",
+                "respuesta": "Si el bote colectivo está suspendido, el 'Plan B' es buscar botes 'rápido' o 'peque-peques' privados que, aunque más caros (negociar desde S/ 80-150), podrían operar si el caudal permite. Otra opción es preguntar en el puerto por botes de carga que a veces llevan pasajeros. Si la situación persiste, la única alternativa terrestre sería regresar a Tarapoto y evaluar un vuelo a Iquitos, desde donde se podría buscar una ruta fluvial alternativa."
+            },
+            {
+                "pregunta": "¿Qué 'Plan B' de movilidad interna tengo en Tarapoto, Sanmartin, si hay una huelga de mototaxis y colectivos y necesito ir al aeropuerto?",
+                "respuesta": "En caso de huelga, tu 'Plan B' principal es contactar a tu hotel para solicitar un taxi privado o un servicio de movilidad particular. Empresas como 'Taxi Seguro Tarapoto' o 'Radio Taxi Tarapoto' (buscar sus números locales) suelen operar incluso en huelgas, aunque con tarifas más altas (esperar S/ 20-30 al aeropuerto). También puedes intentar negociar con vehículos particulares que ofrezcan el servicio de forma informal."
+            },
+            {
+                "pregunta": "Perdí el último colectivo de Tarapoto a Lamas, Sanmartin, a las 7 PM. ¿Qué 'Plan B' tengo para llegar a Lamas esa misma noche?",
+                "respuesta": "Tu 'Plan B' es tomar un taxi privado desde el paradero de colectivos a Lamas (cerca del óvalo del Periodista en Tarapoto). El costo será más elevado que un colectivo (aproximadamente S/ 25-35, negociable). Otra opción es buscar un mototaxi que acepte hacer el viaje completo, aunque es menos común y puede ser menos seguro de noche por la carretera. Si no encuentras, la alternativa es pasar la noche en Tarapoto y tomar el primer colectivo a Lamas a la mañana siguiente (desde las 5:00 AM)."
+            },
+            {
+                "pregunta": "Necesito viajar de emergencia de Moyobamba a Rioja, Sanmartin, a las 11 PM. ¿Qué 'Plan B' de transporte nocturno existe si no hay colectivos regulares?",
+                "respuesta": "Para un viaje de emergencia nocturno, tu 'Plan B' es contratar un taxi privado. Puedes encontrar taxis en la Plaza de Armas de Moyobamba o pedir en tu alojamiento que te contacten con uno de confianza. El costo será mayor que en el día (aproximadamente S/ 15-25). Asegúrate de negociar el precio antes de subir. No se recomienda usar mototaxis para viajes interurbanos de noche por seguridad."
+            },
+            {
+                "pregunta": "Quiero visitar las Cataratas de Ahuashiyacu en Sanmartin pero no encuentro un tour disponible. ¿Cuál es mi 'Plan B' para llegar desde Tarapoto por mi cuenta?",
+                "respuesta": "Tu 'Plan B' es tomar un colectivo o mototaxi desde Tarapoto (paradero en la Av. Circunvalación, cerca del óvalo del Periodista) en dirección a Yurimaguas. Pide que te dejen en la entrada de las Cataratas de Ahuashiyacu (está a unos 14 km de Tarapoto). El costo del colectivo es de S/ 3-5 y el mototaxi S/ 8-12. Desde la carretera, es una caminata corta y señalizada hasta la boletería y las cataratas."
+            },
+            {
+                "pregunta": "El bus directo de Tarapoto a Chachapoyas es muy caro para mi presupuesto de mochilero. ¿Qué 'Plan B' más económico tengo para ir desde Sanmartin a Chachapoyas?",
+                "respuesta": "Tu 'Plan B' más económico es viajar por tramos. Primero, toma un colectivo o minivan de Tarapoto a Moyobamba (S/ 15-20). Desde Moyobamba, busca un colectivo o bus a Pedro Ruiz Gallo (S/ 25-35). Finalmente, desde Pedro Ruiz Gallo, toma otro colectivo o minivan a Chachapoyas (S/ 10-15). Este 'Plan B' te ahorrará dinero pero aumentará el tiempo de viaje y la cantidad de transbordos."
+            },
+            {
+                "pregunta": "Tengo una maleta grande que no cabe en un mototaxi para ir de Tarapoto a la Laguna Azul, Sanmartin. ¿Qué 'Plan B' de transporte tengo para mi equipaje?",
+                "respuesta": "Tu 'Plan B' es tomar un colectivo o minivan desde Tarapoto (paradero en el Jr. Alfonso Ugarte) que vaya directamente a Puerto López (donde se cruza el río Mayo para llegar a la Laguna Azul). Estos vehículos tienen más espacio para equipaje (costo S/ 10-15). Una vez en Puerto López, cruzas en balsa (S/ 3-5 por persona y vehículo) y al otro lado puedes tomar un mototaxi o taxi que sí tenga espacio para tu maleta hasta tu alojamiento en la Laguna Azul."
+            },
+            {
+                "pregunta": "¿Qué 'Plan B' de transporte puedo usar si el puente sobre el río Mayo en San José de Sisa, Sanmartin, está inhabilitado y necesito cruzar con mi vehículo?",
+                "respuesta": "Si el puente está inhabilitado, tu 'Plan B' es buscar un servicio de balsa o 'ferry' improvisado que opere en las cercanías. En Sanmartin, es común que en estos casos se habiliten balsas de carga para vehículos, aunque el tiempo de espera y el costo (negociable, puede ser S/ 30-80 por vehículo) serán mayores. Es crucial preguntar a los locales sobre la ubicación exacta de estas balsas y su seguridad antes de utilizarlas."
+            }
+        ]
+    }
+}

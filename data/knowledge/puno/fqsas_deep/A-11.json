@@ -1,0 +1,426 @@
+{
+    "destino_id": "A-11",
+    "modulo_contexto": "Juli: La \"Roma de América\"",
+    "fqsas": {
+        "1_Precios_Presupuestos_Moneda": [
+            {
+                "pregunta": "¿Cuánto cuesta el pasaje en bus o combi de Puno a Juli, Perú, en 2024?",
+                "respuesta": "El pasaje en bus o combi desde el Terminal Zonal de Puno hasta Juli cuesta aproximadamente entre 8 y 12 Soles peruanos por trayecto. Los vehículos salen con frecuencia durante el día, usualmente cada 20-30 minutos."
+            },
+            {
+                "pregunta": "¿Hay que pagar entrada para visitar las iglesias coloniales de Juli, Puno, y cuál es el precio?",
+                "respuesta": "Sí, algunas de las iglesias principales como San Pedro y Asunción de Juli pueden tener una pequeña tarifa de ingreso para mantenimiento, que suele ser de 5 a 10 Soles por persona. La entrada a la iglesia de San Juan y Santa Cruz es generalmente gratuita, pero se aceptan donaciones."
+            },
+            {
+                "pregunta": "¿Cuál es el presupuesto promedio para comer en Juli, Puno, para un almuerzo típico?",
+                "respuesta": "Un almuerzo típico en un restaurante local o 'menú' en Juli, Puno, puede costar entre 10 y 25 Soles peruanos, incluyendo una sopa, plato principal y una bebida. Los restaurantes más turísticos o con opciones a la carta pueden ser un poco más caros."
+            },
+            {
+                "pregunta": "¿Qué moneda se usa en Juli, Puno, y se aceptan tarjetas de crédito en todos los lugares?",
+                "respuesta": "La moneda oficial en Juli, Puno, es el Sol peruano (PEN). Es recomendable llevar suficiente efectivo, ya que muchos pequeños comercios, mercados y restaurantes locales no aceptan tarjetas de crédito o débito. Solo algunos establecimientos más grandes o turísticos podrían tener POS."
+            },
+            {
+                "pregunta": "¿Cuánto cuesta un tour guiado de un día a Juli desde la ciudad de Puno, Perú?",
+                "respuesta": "Un tour guiado de un día a Juli desde Puno, que incluye transporte y a veces un guía local, puede costar entre 80 y 150 Soles peruanos por persona, dependiendo de la agencia, el tamaño del grupo y si incluye almuerzo o entradas a los sitios."
+            },
+            {
+                "pregunta": "¿Hay cajeros automáticos (ATMs) disponibles en Juli, Puno, para retirar dinero?",
+                "respuesta": "Sí, hay algunos cajeros automáticos en Juli, Puno, principalmente cerca de la plaza principal. Sin embargo, su disponibilidad puede ser limitada y a veces pueden quedarse sin efectivo, por lo que es aconsejable retirar suficiente dinero en Puno antes de viajar."
+            },
+            {
+                "pregunta": "¿Cuánto debería presupuestar para souvenirs y artesanías en Juli, Puno?",
+                "respuesta": "Para souvenirs y artesanías en Juli, Puno, puedes presupuestar desde 10 Soles por pequeños recuerdos hasta 50-100 Soles o más por piezas de artesanía más elaboradas, como textiles o cerámicas. Los precios en el mercado local suelen ser negociables."
+            },
+            {
+                "pregunta": "¿Cuál es el costo de un taxi o mototaxi para moverse dentro de Juli, Puno?",
+                "respuesta": "Moverse en mototaxi dentro de Juli, Puno, es bastante económico, con tarifas que van desde 2 a 5 Soles peruanos por trayecto corto dentro del pueblo. Los taxis son menos comunes pero pueden costar un poco más dependiendo de la distancia."
+            },
+            {
+                "pregunta": "¿Cuál es un presupuesto diario recomendado para un viajero individual en Juli, Puno, incluyendo transporte, comida y entradas?",
+                "respuesta": "Para un viajero individual en Juli, Puno, un presupuesto diario recomendado, incluyendo transporte desde y hacia Puno, almuerzo, entradas a iglesias y algún pequeño gasto extra, podría ser de 50 a 80 Soles peruanos, asumiendo opciones económicas."
+            },
+            {
+                "pregunta": "¿Dónde puedo cambiar dólares o euros a Soles peruanos en Juli, Puno, y es mejor hacerlo allí o en Puno ciudad?",
+                "respuesta": "Es mucho más recomendable cambiar dólares o euros a Soles peruanos en la ciudad de Puno, donde encontrarás casas de cambio formales con mejores tasas y mayor seguridad. En Juli, Puno, las opciones son muy limitadas y las tasas de cambio pueden ser desfavorables o inexistentes."
+            }
+        ],
+        "2_Logistica_Transporte_Como_Llegar": [
+            {
+                "pregunta": "¿Cómo puedo llegar a Juli desde la ciudad de Puno en transporte público y cuánto cuesta el pasaje?",
+                "respuesta": "Para llegar a Juli desde Puno, la opción más común y económica es tomar una combi o minivan. Salen del Terminal Zonal Sur de Puno, ubicado en la Av. Simón Bolívar, cerca del mercado Laykakota. El pasaje cuesta entre 7 y 10 Soles peruanos y el viaje dura aproximadamente 1 hora y 15 minutos."
+            },
+            {
+                "pregunta": "¿Desde qué terminal o punto específico salen las minivans hacia Juli en Puno?",
+                "respuesta": "Las minivans y colectivos con destino a Juli parten principalmente del Terminal Zonal Sur de Puno, en la Av. Simón Bolívar. También puedes encontrar algunas en las inmediaciones del Mercado Laykakota, que está muy cerca de dicho terminal."
+            },
+            {
+                "pregunta": "¿Cuál es el tiempo de viaje estimado en bus o combi desde la ciudad de Puno hasta Juli?",
+                "respuesta": "El tiempo de viaje estimado en combi o minivan desde la ciudad de Puno hasta Juli es de aproximadamente 1 hora y 15 minutos a 1 hora y 30 minutos, dependiendo del tráfico y las paradas intermedias que realice el vehículo."
+            },
+            {
+                "pregunta": "¿Hay buses directos desde Arequipa o Cusco que lleguen a Juli, Puno, o debo hacer transbordo?",
+                "respuesta": "No, generalmente no hay buses directos desde Arequipa o Cusco que lleguen directamente a Juli. La ruta habitual es tomar un bus a la ciudad de Puno y, una vez allí, hacer el transbordo a una combi o colectivo que se dirija a Juli."
+            },
+            {
+                "pregunta": "¿Es seguro viajar en transporte público a Juli, Puno, especialmente si regreso por la tarde o noche?",
+                "respuesta": "Sí, viajar en transporte público (combis o minivans) a Juli desde Puno es generalmente seguro durante el día y hasta las primeras horas de la noche. Se recomienda evitar viajar muy tarde, después de las 7:00 PM u 8:00 PM, por precaución general."
+            },
+            {
+                "pregunta": "¿Con qué frecuencia salen las combis o colectivos de Puno a Juli y hasta qué hora operan diariamente?",
+                "respuesta": "Las combis y colectivos de Puno a Juli son bastante frecuentes, saliendo cada 15 a 30 minutos durante el día. Operan desde aproximadamente las 6:00 AM hasta las 7:00 PM o 8:00 PM, aunque la frecuencia disminuye considerablemente al anochecer."
+            },
+            {
+                "pregunta": "¿Puedo contratar un taxi privado para ir de Puno a Juli y cuánto costaría aproximadamente este servicio?",
+                "respuesta": "Sí, puedes contratar un taxi privado para ir de Puno a Juli. El costo puede variar entre 60 y 90 Soles peruanos por un viaje de ida, dependiendo de tu capacidad de negociación, la temporada y el tipo de vehículo. Es una opción más cómoda y directa."
+            },
+            {
+                "pregunta": "¿Cómo puedo llegar a Juli si vengo desde Desaguadero (frontera con Bolivia) en Puno?",
+                "respuesta": "Si vienes desde Desaguadero (frontera con Bolivia), puedes tomar un colectivo o una combi directamente hacia Puno. Estos vehículos pasan por Juli en el camino. El pasaje a Juli desde Desaguadero cuesta entre 5 y 7 Soles y el viaje dura unos 30 a 40 minutos."
+            },
+            {
+                "pregunta": "¿Existen opciones de transporte turístico organizado para visitar Juli y sus iglesias coloniales desde Puno?",
+                "respuesta": "Sí, varias agencias de turismo en Puno ofrecen tours organizados a Juli, a menudo combinados con otros destinos cercanos como Chucuito o Aramu Muru. Estos tours incluyen transporte, guía y a veces entradas, con precios que varían entre 80 y 150 Soles por persona."
+            },
+            {
+                "pregunta": "¿Qué tipo de condiciones de carretera debo esperar al viajar en bus o combi a Juli, Puno?",
+                "respuesta": "La carretera que conecta Puno con Juli es parte de la vía Panamericana Sur (Ruta 3S), la cual está asfaltada y en buenas condiciones generales. El viaje es relativamente suave, aunque puede haber tramos con baches ocasionales, típicos de las carreteras interprovinciales."
+            }
+        ],
+        "3_Seguridad_Riesgos_Salud": [
+            {
+                "pregunta": "¿Qué precauciones debo tomar para el mal de altura o soroche al visitar Juli en Puno?",
+                "respuesta": "Para el soroche en Juli, Puno, a 3860 msnm, aclimátese gradualmente, beba mucha agua embotellada, evite alcohol y comidas pesadas. Considere masticar hojas de coca o tomar mate de coca. Descanse bien el primer día y camine despacio. Si los síntomas persisten, consulte en el Centro de Salud de Juli."
+            },
+            {
+                "pregunta": "¿Hay hospitales o centros de salud adecuados en Juli, Puno, para emergencias médicas de turistas?",
+                "respuesta": "Juli cuenta con un Centro de Salud que puede atender emergencias básicas y primeros auxilios. Para casos más complejos o que requieran hospitalización, la derivación se realiza al Hospital Regional Manuel Núñez Butrón en la ciudad de Puno, a aproximadamente 1 hora de distancia. Es crucial tener un seguro de viaje."
+            },
+            {
+                "pregunta": "¿Es seguro caminar por las calles de Juli, Puno, durante el día y la noche para los turistas?",
+                "respuesta": "Durante el día, Juli es generalmente segura para los turistas, especialmente en las zonas céntricas y alrededor de las iglesias coloniales. Por la noche, se recomienda evitar caminar solo por calles poco iluminadas o alejadas del centro. Siempre esté atento a sus pertenencias y evite exhibir objetos de valor."
+            },
+            {
+                "pregunta": "¿Es segura la carretera de Puno a Juli y qué tan confiable es el transporte público para llegar?",
+                "respuesta": "La carretera Puno-Juli (parte de la Panamericana Sur) está asfaltada y es segura. El transporte público más confiable son las minivans o colectivos formales que salen del Terminal Terrestre de Puno. Asegúrese de usar servicios autorizados y evite vehículos informales para mayor seguridad."
+            },
+            {
+                "pregunta": "¿Es seguro beber agua del grifo en Juli, Puno, y qué recomendaciones hay sobre la comida callejera para evitar problemas de salud?",
+                "respuesta": "No se recomienda beber agua del grifo en Juli, Puno; siempre consuma agua embotellada sellada. Respecto a la comida callejera, elija puestos con alta rotación de clientes, observe la higiene en la preparación y prefiera alimentos cocidos al momento y calientes para minimizar riesgos gastrointestinales."
+            },
+            {
+                "pregunta": "¿Dónde puedo conseguir medicamentos para el soroche o acceso a oxígeno en Juli, Puno, si lo necesito?",
+                "respuesta": "En Juli, Puno, encontrará farmacias o 'boticas' donde puede adquirir medicamentos comunes para el soroche como pastillas de 'Sorojchi Pill' o analgésicos. Para acceso a oxígeno en caso de una emergencia más severa, debe dirigirse al Centro de Salud local. Es prudente llevar sus propios medicamentos recetados."
+            },
+            {
+                "pregunta": "¿Existen estafas comunes o riesgos específicos para turistas en Juli, Puno, que deba conocer para mi seguridad personal?",
+                "respuesta": "Juli es un destino relativamente tranquilo. Los riesgos de estafas son bajos, pero siempre esté alerta. Evite aceptar bebidas o alimentos de extraños, no cambie dinero en la calle y confirme los precios de servicios o productos antes de consumirlos. Use solo guías turísticos acreditados si contrata uno."
+            },
+            {
+                "pregunta": "¿Cuáles son los números de emergencia importantes para turistas en Juli, Puno, en caso de necesitar policía o asistencia médica?",
+                "respuesta": "Los números de emergencia generales en Perú son 105 para la Policía Nacional y 116 para los Bomberos (emergencias médicas y rescate). Para asistencia médica directa en Juli, puede acudir al Centro de Salud local. Tenga siempre a mano el número de su embajada o consulado."
+            },
+            {
+                "pregunta": "¿Qué riesgos climáticos debo considerar al visitar Juli, Puno, especialmente durante la temporada de lluvias o invierno altiplánico?",
+                "respuesta": "En Juli, Puno, el clima altiplánico presenta riesgos como la intensa radiación solar durante el día (use protector solar y sombrero), y temperaturas muy bajas por la noche, especialmente en invierno (junio-agosto). La temporada de lluvias (diciembre-marzo) puede causar interrupciones menores en carreteras secundarias, aunque la principal a Juli suele estar bien."
+            },
+            {
+                "pregunta": "¿Es recomendable contratar un seguro de viaje con cobertura médica para visitar Juli y la región de Puno?",
+                "respuesta": "Sí, es altamente recomendable contratar un seguro de viaje con cobertura médica completa al visitar Juli y la región de Puno. Esto es crucial para cubrir eventualidades como el mal de altura, accidentes, o la necesidad de evacuación médica a un centro de mayor complejidad en Puno o incluso a Lima."
+            }
+        ],
+        "4_Clima_Temporadas_Horarios": [
+            {
+                "pregunta": "¿Cuál es el clima típico en Juli, Puno, durante el día y la noche y qué ropa debo llevar?",
+                "respuesta": "El clima en Juli, Puno, es altiplánico, con días soleados y temperaturas que oscilan entre 15°C y 20°C. Sin embargo, las noches son frías, bajando a 0°C o menos, especialmente entre mayo y agosto. Se recomienda llevar ropa de abrigo en capas, incluyendo gorro, guantes y una buena chaqueta cortavientos."
+            },
+            {
+                "pregunta": "¿Cuál es la mejor época del año para visitar las iglesias coloniales de Juli, Puno, y evitar las lluvias?",
+                "respuesta": "La mejor época para visitar Juli, Puno, es la estación seca, que va de mayo a octubre. Durante estos meses, los días son predominantemente soleados y hay menos probabilidades de lluvia, lo que facilita la exploración de las iglesias como San Pedro y La Asunción."
+            },
+            {
+                "pregunta": "¿Cuáles son los horarios de apertura de las principales iglesias en Juli, Puno, como San Pedro y La Asunción para turistas?",
+                "respuesta": "Generalmente, las iglesias principales de Juli, Puno, como San Pedro y La Asunción, abren de martes a domingo, en dos turnos: de 9:00 a 12:00 y de 14:00 a 17:00. Es recomendable confirmar localmente ya que los horarios pueden variar por festividades o servicios religiosos."
+            },
+            {
+                "pregunta": "¿Cuándo es la temporada de lluvias en Juli, Puno, y cómo podría afectar mi visita a la 'Roma de América'?",
+                "respuesta": "La temporada de lluvias en Juli, Puno, va de noviembre a abril, siendo enero y febrero los meses más lluviosos. Esto puede generar interrupciones en el transporte y la movilidad entre las iglesias, aunque las lluvias suelen ser intermitentes y no continuas durante todo el día."
+            },
+            {
+                "pregunta": "¿Hay alguna temporada específica con festividades importantes en Juli, Puno, que afecte los horarios o la afluencia de turistas?",
+                "respuesta": "Sí, festividades como la Semana Santa o la Fiesta de la Virgen de la Candelaria en febrero (en Puno, pero influye en la región) pueden aumentar significativamente la afluencia de visitantes en Juli, Puno, y alterar los horarios de los servicios religiosos o el transporte local."
+            },
+            {
+                "pregunta": "¿Hasta qué hora funcionan los colectivos o buses desde Puno a Juli y viceversa para regresar el mismo día?",
+                "respuesta": "Los colectivos y buses que conectan Juli con Puno suelen operar desde las 5:00 hasta las 18:00 o 19:00. Es crucial planificar el regreso con antelación, especialmente si se visita en temporada baja, para no quedarse sin opciones de transporte."
+            },
+            {
+                "pregunta": "¿Qué precauciones debo tomar por el clima de altura al visitar Juli, Puno, especialmente en qué meses?",
+                "respuesta": "Al visitar Juli, Puno, a 3,860 m.s.n.m., es vital aclimatarse para evitar el soroche. El frío intenso de mayo a agosto requiere más capas de ropa y protección solar alta por la radiación UV, que es fuerte en cualquier mes debido a la altitud."
+            },
+            {
+                "pregunta": "¿En qué meses hay más horas de sol y menos nubes para tomar fotos de las iglesias de Juli, Puno, con buena luz?",
+                "respuesta": "Los meses con más horas de sol y cielos despejados en Juli, Puno, son de junio a septiembre. Esta es la temporada ideal para la fotografía de las iglesias coloniales, ya que se beneficia de una excelente luz natural y vistas claras del altiplano."
+            },
+            {
+                "pregunta": "¿Cuáles son los horarios habituales de los comercios y restaurantes en Juli, Puno, para los turistas?",
+                "respuesta": "En Juli, Puno, los comercios y restaurantes suelen abrir de 8:00 a 20:00, aunque muchos cierran al mediodía (aproximadamente de 13:00 a 15:00) para el almuerzo y reabren por la tarde. Los domingos y feriados pueden tener horarios reducidos."
+            },
+            {
+                "pregunta": "¿Es Juli, Puno, un lugar ventoso y en qué temporada se siente más el viento altiplánico?",
+                "respuesta": "Sí, Juli, Puno, puede ser un lugar ventoso, especialmente en la estación seca, que va de mayo a octubre. Los vientos altiplánicos pueden ser fríos, por lo que es recomendable llevar un cortavientos o chaqueta rompevientos incluso en días soleados para mayor confort."
+            }
+        ],
+        "5_Historia_Cultura_Curiosidades": [
+            {
+                "pregunta": "¿Por qué se conoce a Juli, Puno, como la 'Roma de América' y cuál es su origen histórico?",
+                "respuesta": "Juli es apodada la 'Roma de América' debido a la impresionante concentración de cuatro grandes iglesias coloniales construidas por órdenes religiosas (Dominicos y Jesuitas) en los siglos XVI y XVII: San Pedro, Santa Cruz, Asunción y San Juan. Su origen se remonta a la evangelización y el establecimiento de un importante centro jesuita en el altiplano."
+            },
+            {
+                "pregunta": "¿Cuáles son las iglesias coloniales más importantes para visitar en Juli, Puno, y qué detalles históricos las hacen únicas?",
+                "respuesta": "Las cuatro iglesias principales son San Pedro, Santa Cruz, Asunción y San Juan. San Pedro destaca por su fachada barroca mestiza y su campanario. Santa Cruz, ahora un museo, exhibe arte colonial y detalles arquitectónicos. Asunción es conocida por su estilo renacentista y San Juan por sus murales interiores que fusionan iconografía cristiana con elementos andinos, a veces llamada la 'Capilla Sixtina Andina'."
+            },
+            {
+                "pregunta": "¿Qué papel fundamental jugó la orden jesuita en la historia y el desarrollo cultural de Juli, Puno, durante la colonia?",
+                "respuesta": "Los jesuitas establecieron en Juli un centro misional y educativo de gran relevancia en el siglo XVII. Fundaron la famosa 'Escuela de Juli', donde se imprimieron los primeros textos en Aymara y Quechua, convirtiendo a la ciudad en un epicentro para la evangelización, la educación y la difusión de la cultura andina y europea."
+            },
+            {
+                "pregunta": "¿Existen curiosidades arquitectónicas o símbolos ocultos en las iglesias coloniales de Juli, Puno, que los turistas deberían buscar?",
+                "respuesta": "Sí, en la Iglesia de San Juan, busca los murales que combinan escenas bíblicas con flora y fauna andina, así como personajes indígenas. En la Iglesia de Santa Cruz, observa los detalles de la piedra tallada que a menudo incorporan motivos precolombinos. Estos detalles reflejan el sincretismo cultural de la época."
+            },
+            {
+                "pregunta": "¿Qué festividades tradicionales o eventos culturales se celebran en Juli, Puno, que muestren su rica herencia histórica?",
+                "respuesta": "La festividad más importante es la de la Inmaculada Concepción, el 8 de diciembre, que incluye procesiones, danzas folclóricas como la Diablada y la Morenada, y música tradicional. La Semana Santa también es celebrada con gran fervor, mostrando rituales que mezclan tradiciones católicas y andinas."
+            },
+            {
+                "pregunta": "¿Cómo se convirtió Juli, Puno, en un centro clave para el estudio y la difusión del idioma Aymara durante el Virreinato?",
+                "respuesta": "Gracias a la imprenta jesuita establecida en Juli a finales del siglo XVI, se publicaron gramáticas, diccionarios y catecismos en Aymara y Quechua. Esto fue crucial para la estandarización y enseñanza de estas lenguas, consolidando a Juli como un punto neurálgico para el conocimiento lingüístico y la evangelización en el altiplano."
+            },
+            {
+                "pregunta": "¿Hay alguna leyenda o mito local interesante sobre la fundación o las iglesias de Juli, Puno, que se cuente entre sus habitantes?",
+                "respuesta": "Una leyenda popular cuenta que las piedras para la construcción de las iglesias fueron traídas de canteras lejanas por miles de indígenas, quienes las transportaban con gran esfuerzo y fe. También se murmura sobre túneles secretos y tesoros escondidos bajo las iglesias, aunque estos relatos son parte del folclore local sin confirmación histórica."
+            },
+            {
+                "pregunta": "¿Cuál fue el impacto de la 'Escuela de Juli' en el arte y la educación colonial en la región de Puno y el sur andino?",
+                "respuesta": "La 'Escuela de Juli', impulsada por los jesuitas, fue fundamental para la formación de artesanos y pintores indígenas. Estos artistas desarrollaron un estilo propio, conocido como 'Escuela de Juli', que fusionó técnicas europeas con iconografía y cosmovisión andina, dejando un legado visible en los retablos, lienzos y esculturas de la región."
+            },
+            {
+                "pregunta": "¿Qué tipo de artesanía tradicional se puede encontrar en Juli, Puno, que refleje su historia y cultura colonial y precolombina?",
+                "respuesta": "En Juli, Puno, se puede encontrar artesanía textil con diseños andinos ancestrales, cerámica utilitaria y decorativa que a menudo incorpora motivos coloniales y precolombinos, y trabajos en piedra que replican detalles arquitectónicos de las iglesias. Los mercados locales y talleres son los mejores lugares para adquirir estas piezas auténticas."
+            },
+            {
+                "pregunta": "¿Cómo influyó la arquitectura monumental de Juli, Puno, en otras construcciones religiosas coloniales del altiplano peruano y boliviano?",
+                "respuesta": "La arquitectura de Juli, con la grandiosidad y el estilo mestizo de sus iglesias, sirvió como un modelo e inspiración para muchas otras construcciones religiosas en el altiplano. La calidad de su diseño y construcción la convirtió en un referente, demostrando la capacidad de síntesis cultural y artística que caracterizó al arte colonial andino."
+            }
+        ],
+        "6_Tips_Locales_Secretos": [
+            {
+                "pregunta": "¿Cuál es el mejor horario secreto para visitar las iglesias coloniales de Juli, Puno y evitar aglomeraciones?",
+                "respuesta": "Para una experiencia más íntima y con la mejor luz para fotografías, los locales recomiendan visitar la Iglesia de San Pedro Mártir o la de Santa Cruz de Jerusalén temprano por la mañana, entre las 8:00 y 9:30 AM, o al final de la tarde, después de las 4:00 PM, especialmente fuera de los fines de semana."
+            },
+            {
+                "pregunta": "¿Dónde puedo probar la comida puneña auténtica y poco conocida en Juli, Puno, según los lugareños?",
+                "respuesta": "Busca el 'Mercado Central de Abastos de Juli'. En la sección de comidas, hay pequeños puestos donde las 'caseras' preparan platos como el 'Chairo' o 'Pesq’e de quinua' a precios muy económicos, entre 8 y 15 Soles. Pregunta por el puesto de 'Doña Rosa', es muy popular entre los julieños."
+            },
+            {
+                "pregunta": "¿Existe algún taller artesanal secreto en Juli, Puno, para comprar recuerdos auténticos y apoyar a la comunidad local?",
+                "respuesta": "Sí, en la calle Puno, cerca de la Plaza de Armas, hay pequeños talleres familiares que trabajan la piedra y la madera. Pregunta por el taller de la familia Quispe, suelen tener piezas únicas de arte sacro y miniaturas de las iglesias, con precios desde 20 Soles."
+            },
+            {
+                "pregunta": "¿Qué festividad local poco conocida en Juli, Puno, me recomendarían los habitantes para vivir una experiencia cultural genuina?",
+                "respuesta": "Si visitas en agosto, busca la celebración de la 'Virgen de la Asunción' el 15 de agosto. Es una fiesta patronal con danzas autóctonas y procesiones que, aunque concurrida, mantiene un fuerte arraigo local y es menos comercial que otras festividades grandes de Puno."
+            },
+            {
+                "pregunta": "¿Cuál es el mejor punto de vista secreto en Juli, Puno, para tomar fotos panorámicas de las iglesias coloniales y el lago Titicaca?",
+                "respuesta": "Sube al 'Mirador de la Cruz del Calvario'. Aunque no es un secreto total, la mayoría de los turistas no se quedan hasta el atardecer. La vista de Juli con el lago Titicaca de fondo y las iglesias iluminadas por la luz dorada es espectacular. La subida es empinada pero corta."
+            },
+            {
+                "pregunta": "¿Cómo puedo llegar a Juli, Puno, desde Puno capital de forma económica y con un 'tip' local para el transporte?",
+                "respuesta": "Desde el Terminal Zonal Sur de Puno (no el principal), salen colectivos y combis hacia Juli con mayor frecuencia y a veces un Sol más barato, entre 7 y 9 Soles. Pregunta por los que van 'directo a Juli' para evitar paradas excesivas. El viaje dura aproximadamente 1.5 a 2 horas."
+            },
+            {
+                "pregunta": "¿Hay alguna costumbre local importante que deba conocer para interactuar respetuosamente con los habitantes de Juli, Puno?",
+                "respuesta": "Al entrar a las iglesias, es costumbre que las mujeres se cubran los hombros y los hombres se quiten la gorra. Si te ofrecen 'mate de coca' o alguna bebida, es de buena educación aceptar un poco. Un saludo cordial como 'Buenos días' o 'Buenas tardes' en español o 'Allinllachu' en quechua siempre es bien recibido."
+            },
+            {
+                "pregunta": "¿Existe algún sitio arqueológico o natural poco conocido cerca de Juli, Puno, que valga la pena visitar?",
+                "respuesta": "Los locales a veces sugieren explorar las 'Chullpas de K’ana' en el distrito de Pomata, a unos 20 minutos en colectivo desde Juli (3-5 Soles). Son tumbas pre-incas menos conocidas que las de Sillustani, pero igualmente impresionantes y con vistas espectaculares del lago Titicaca, sin las multitudes."
+            },
+            {
+                "pregunta": "¿Qué producto local auténtico y poco común debería buscar para comprar como recuerdo en Juli, Puno?",
+                "respuesta": "Además de la artesanía en piedra, busca los textiles de alpaca y lana de oveja teñidos con tintes naturales. En el mercado local, pregunta por los puestos que venden 'mantas de aguayo' o 'chullos' hechos a mano por las comunidades aledañas. Los precios varían desde 30 Soles por un chullo hasta 150 Soles por una manta grande."
+            },
+            {
+                "pregunta": "¿Cuál es el mes 'secreto' para visitar Juli, Puno, y disfrutar de un clima más agradable o eventos especiales menos conocidos?",
+                "respuesta": "Los locales sugieren mayo o septiembre. Mayo ofrece un clima soleado y seco, ideal para explorar, y es antes de la temporada alta de invierno. Septiembre, después de las fiestas patrias, también tiene buen clima y menos turistas, permitiendo una experiencia más tranquila en las iglesias y el pueblo."
+            }
+        ],
+        "7_Gastronomia_Alimentos_Supervivencia": [
+            {
+                "pregunta": "¿Qué platos típicos de Juli, Puno, son imprescindibles probar para una experiencia gastronómica auténtica?",
+                "respuesta": "En Juli, Puno, no puedes dejar de probar el 'Chairo', una sopa sustanciosa ideal para el frío, y la 'Trucha Frita' fresca del Lago Titicaca, que se encuentra en la mayoría de los restaurantes locales cerca de la Plaza de Armas, con precios que oscilan entre 20 y 35 Soles por plato."
+            },
+            {
+                "pregunta": "¿Dónde puedo comprar agua embotellada segura y alimentos básicos para mi estancia en Juli, Puno?",
+                "respuesta": "Puedes encontrar agua embotellada y alimentos básicos en las bodegas y pequeñas tiendas de abarrotes ubicadas alrededor de la Plaza de Armas de Juli. También hay un mercado local, el Mercado Central de Juli, donde puedes adquirir frutas, verduras y pan fresco a precios económicos."
+            },
+            {
+                "pregunta": "¿Hay opciones de comida vegetariana o vegana disponibles en los restaurantes de Juli, Puno, para turistas?",
+                "respuesta": "Las opciones vegetarianas o veganas en Juli, Puno, son limitadas pero posibles. Puedes pedir platos como 'Sopa de Quinua' sin carne o 'Papas a la Huancaína' sin queso si lo especificas. Algunos restaurantes pequeños pueden preparar ensaladas o guisos de verduras a pedido, pero es mejor preguntar directamente al personal."
+            },
+            {
+                "pregunta": "¿Cuánto cuesta una comida promedio en un restaurante local de Juli, Puno, para un turista?",
+                "respuesta": "Una comida promedio en un restaurante local de Juli, Puno, puede costar entre 15 y 35 Soles. Un 'menú del día' (almuerzo) suele incluir entrada, plato principal y bebida por 15 a 25 Soles, mientras que un plato a la carta, como la trucha, puede llegar a 35 Soles."
+            },
+            {
+                "pregunta": "¿Qué bebidas tradicionales o infusiones locales me recomiendan para el mal de altura en Juli, Puno?",
+                "respuesta": "Para el mal de altura en Juli, Puno, es altamente recomendable el 'Mate de Coca', que se ofrece en casi todos los alojamientos y restaurantes. También puedes probar el 'Muña', otra infusión andina que ayuda a la digestión y la aclimatación. Ambas son fáciles de conseguir y muy efectivas."
+            },
+            {
+                "pregunta": "¿Es seguro beber el agua del grifo en Juli, Puno, o debo consumir solo agua embotellada?",
+                "respuesta": "Se recomienda encarecidamente NO beber el agua del grifo en Juli, Puno. Para evitar problemas de salud, consume siempre agua embotellada sellada. Puedes comprarla en cualquier tienda o bodega, con precios que rondan los 3 a 5 Soles por una botella de litro y medio."
+            },
+            {
+                "pregunta": "¿Dónde puedo encontrar un mercado de abastos o feria para comprar productos frescos en Juli, Puno?",
+                "respuesta": "El principal lugar para comprar productos frescos en Juli, Puno, es el Mercado Central de Juli, ubicado a pocas cuadras de la Plaza de Armas. Abre temprano por la mañana y ofrece una variedad de frutas, verduras, quesos y panes locales, ideal para abastecerse."
+            },
+            {
+                "pregunta": "¿Qué precauciones de higiene alimentaria debo tomar al comer en puestos callejeros o mercados de Juli, Puno?",
+                "respuesta": "Al comer en puestos callejeros o mercados en Juli, Puno, prioriza alimentos cocidos y calientes. Evita ensaladas crudas o frutas sin pelar. Asegúrate de que los utensilios estén limpios y que el puesto tenga un buen flujo de clientes, lo que indica frescura. Lava tus manos o usa gel antibacterial antes de comer."
+            },
+            {
+                "pregunta": "¿Hay alguna panadería o lugar en Juli, Puno, donde pueda comprar pan fresco para el desayuno o meriendas?",
+                "respuesta": "Sí, en Juli, Puno, encontrarás panaderías artesanales, especialmente cerca del Mercado Central y en las calles aledañas a la Plaza de Armas. Ofrecen pan fresco, como 'pan de piso' o 'pan chuta', ideal para el desayuno. Pregunta por 'panaderías' o 'panaderías artesanales' a los locales."
+            },
+            {
+                "pregunta": "¿Qué tipo de snacks o provisiones puedo llevar para una excursión de un día desde Juli, Puno, y dónde comprarlos?",
+                "respuesta": "Para una excursión desde Juli, Puno, lleva snacks energéticos como galletas, barras de cereal, frutos secos (maní, pasas) y frutas como manzanas o plátanos. Puedes comprarlos en las bodegas o en el Mercado Central de Juli. No olvides llevar suficiente agua embotellada."
+            }
+        ],
+        "8_Accesibilidad_Infraestructura": [
+            {
+                "pregunta": "¿Cómo llegar a Juli, la 'Roma de América', desde la ciudad de Puno en transporte público y cuánto cuesta el pasaje?",
+                "respuesta": "Para ir de Puno a Juli, puedes tomar minivanes o buses desde el Terminal Terrestre de Puno. Las minivanes salen con alta frecuencia, cada 15-20 minutos, y el viaje dura aproximadamente 1 hora y 15 minutos. El costo del pasaje oscila entre 8 y 12 Soles peruanos por persona, dependiendo de la empresa y si es feriado."
+            },
+            {
+                "pregunta": "¿Cuál es el estado actual de la carretera que conecta Puno con Juli y es segura para viajar en auto particular?",
+                "respuesta": "La carretera Puno-Juli (parte de la Ruta 3S) está completamente asfaltada y en buen estado general, lo que permite un viaje cómodo y seguro. Se recomienda precaución durante la temporada de lluvias (diciembre a marzo) por posibles deslizamientos menores o neblina, pero en general es una vía bien mantenida y de fácil tránsito."
+            },
+            {
+                "pregunta": "¿Qué tan accesible es la infraestructura de las iglesias coloniales en Juli, Puno, para personas con movilidad reducida o en silla de ruedas?",
+                "respuesta": "La mayoría de las iglesias coloniales en Juli, como San Pedro y La Asunción, presentan desafíos de accesibilidad para personas con movilidad reducida. Tienen escalones en las entradas y sus interiores no están adaptados con rampas o ascensores. Las calles empedradas del centro histórico también dificultan el desplazamiento en silla de ruedas."
+            },
+            {
+                "pregunta": "¿Hay cajeros automáticos o bancos disponibles en Juli, Puno, para retirar dinero en efectivo?",
+                "respuesta": "Sí, en Juli encontrarás algunos cajeros automáticos, principalmente de la red Global Net y Visa, ubicados cerca de la Plaza de Armas. También hay agencias de bancos como el Banco de la Nación y Caja Arequipa. Sin embargo, es recomendable llevar algo de efectivo, especialmente si planeas comprar artesanías o en mercados locales."
+            },
+            {
+                "pregunta": "¿Cómo es la cobertura de señal celular e internet (Wi-Fi) en Juli, Puno, para los turistas?",
+                "respuesta": "La cobertura de señal celular en Juli es generalmente buena en el centro de la ciudad, con operadores como Claro, Movistar y Entel. Muchos alojamientos y algunos restaurantes ofrecen Wi-Fi gratuito, aunque la velocidad puede variar. En zonas más rurales o alejadas de la Plaza de Armas, la señal puede ser intermitente."
+            },
+            {
+                "pregunta": "¿Existen opciones de estacionamiento seguro para vehículos particulares cerca de las principales iglesias coloniales en Juli, Puno?",
+                "respuesta": "Sí, puedes encontrar estacionamiento en las calles aledañas a la Plaza de Armas y cerca de las iglesias principales, aunque no siempre son zonas vigiladas. Hay algunos parqueos privados pequeños o playas de estacionamiento informales que ofrecen mayor seguridad por un costo diario que ronda los 5-10 Soles. Siempre es mejor preguntar a los locales."
+            },
+            {
+                "pregunta": "¿Qué tipo de infraestructura de alojamiento se puede encontrar en Juli, Puno, y cuál es la calidad promedio para turistas?",
+                "respuesta": "Juli ofrece principalmente hospedajes sencillos y hostales familiares. No esperes hoteles de lujo; la oferta se centra en opciones básicas y limpias con servicios esenciales. La calidad es generalmente aceptable para estancias cortas, con precios que van desde 40 a 80 Soles por noche. Es recomendable reservar con antelación en temporada alta."
+            },
+            {
+                "pregunta": "¿Qué tipo de servicios médicos y de emergencia están disponibles para turistas en Juli, Puno?",
+                "respuesta": "Juli cuenta con un centro de salud o posta médica que puede atender emergencias básicas y consultas generales. Para casos más complejos o graves, los pacientes son referidos al Hospital Regional Manuel Núñez Butrón en Puno, que está a aproximadamente 1 hora y 15 minutos. Es crucial viajar con un seguro médico que cubra evacuaciones."
+            },
+            {
+                "pregunta": "¿Hay disponibilidad de baños públicos o servicios higiénicos accesibles para turistas en el centro de Juli, Puno?",
+                "respuesta": "La disponibilidad de baños públicos dedicados en Juli es limitada. Generalmente, los turistas pueden usar los servicios higiénicos de restaurantes, cafés o algunos hospedajes, a menudo con un pequeño costo (1-2 Soles) o si consumes algo. Es aconsejable aprovechar cuando se encuentren disponibles."
+            },
+            {
+                "pregunta": "¿Cuál es la mejor forma de viajar desde La Paz, Bolivia, hasta Juli, Puno, considerando la infraestructura de transporte transfronterizo?",
+                "respuesta": "Desde La Paz, Bolivia, puedes tomar un bus hacia Desaguadero (la frontera con Perú), que tarda unas 3-4 horas. Después de cruzar la frontera a pie y realizar los trámites migratorios, en el lado peruano de Desaguadero encontrarás minivanes o colectivos que te llevarán directamente a Juli en aproximadamente 30-40 minutos. El costo total del transporte puede rondar los 30-50 Soles peruanos o su equivalente en Bolivianos."
+            }
+        ],
+        "9_Reglas_Prohibiciones_Tramites": [
+            {
+                "pregunta": "¿Cuál es la vestimenta adecuada para visitar las iglesias coloniales de Juli, Puno?",
+                "respuesta": "Para visitar las iglesias históricas de Juli, Puno, como San Pedro Mártir o San Juan de Letrán, se recomienda una vestimenta respetuosa. Esto implica evitar shorts, faldas muy cortas, camisetas sin mangas o escotes pronunciados. En algunos templos, se puede solicitar cubrir hombros y rodillas, especialmente durante servicios religiosos."
+            },
+            {
+                "pregunta": "¿Está permitido tomar fotografías o videos con flash dentro de las iglesias de Juli, Puno?",
+                "respuesta": "Generalmente, la fotografía sin flash está permitida en la mayoría de las iglesias coloniales de Juli, Puno, para uso personal. Sin embargo, el uso de flash está estrictamente prohibido para proteger las pinturas y retablos antiguos. En áreas específicas o durante ceremonias, la filmación y fotografía pueden estar completamente restringidas."
+            },
+            {
+                "pregunta": "¿Hay que pagar alguna tarifa de entrada para acceder a las iglesias principales en Juli, Puno?",
+                "respuesta": "Sí, la mayoría de las iglesias coloniales más importantes de Juli, Puno, como la Iglesia de la Asunción o San Pedro Mártir, solicitan una tarifa de ingreso simbólica. Esta suele oscilar entre 5 y 10 Soles por persona y se destina al mantenimiento y conservación del patrimonio. Los niños menores de 12 años a menudo tienen entrada gratuita."
+            },
+            {
+                "pregunta": "¿Se necesita algún permiso especial para volar drones en el área histórica de Juli, Puno?",
+                "respuesta": "Sí, está estrictamente prohibido volar drones sobre o cerca de las iglesias y sitios históricos de Juli, Puno, sin un permiso previo. Es necesario tramitar una autorización con la Dirección Desconcentrada de Cultura de Puno y, en algunos casos, con las autoridades eclesiásticas locales, debido a la protección del patrimonio y la seguridad."
+            },
+            {
+                "pregunta": "¿Está prohibido tocar las obras de arte o retablos dentro de las iglesias de Juli, Puno?",
+                "respuesta": "Absolutamente. Está terminantemente prohibido tocar cualquier retablo, escultura, pintura, muro o artefacto histórico dentro de las iglesias coloniales de Juli, Puno. Esta regla es fundamental para preservar la integridad de estas valiosas piezas y evitar su deterioro."
+            },
+            {
+                "pregunta": "¿Hay alguna restricción para visitar las iglesias de Juli, Puno, durante las misas o servicios religiosos?",
+                "respuesta": "Sí, durante las misas y otros servicios religiosos, la visita turística a las iglesias de Juli, Puno, está restringida o completamente prohibida para no interrumpir las ceremonias. Se aconseja a los turistas consultar los horarios de visita específicos para no interferir con las actividades religiosas, los cuales suelen estar indicados en la entrada de cada templo."
+            },
+            {
+                "pregunta": "¿Qué prohibiciones existen sobre el consumo de alimentos y bebidas dentro de las iglesias de Juli, Puno?",
+                "respuesta": "Está estrictamente prohibido ingresar con alimentos o bebidas a las iglesias coloniales de Juli, Puno. Esta norma busca mantener la limpieza de los recintos sagrados y proteger el patrimonio de posibles derrames o daños. Se solicita a los visitantes consumir cualquier alimento o bebida fuera de las instalaciones."
+            },
+            {
+                "pregunta": "¿Se requiere algún permiso para realizar filmaciones o sesiones fotográficas comerciales en las iglesias de Juli, Puno?",
+                "respuesta": "Sí, para cualquier tipo de filmación o sesión fotográfica con fines comerciales o profesionales dentro o en los exteriores de las iglesias coloniales de Juli, Puno, es indispensable obtener un permiso previo. Este trámite debe realizarse con la Diócesis de Puno y, en algunos casos, con la Dirección Desconcentrada de Cultura, con suficiente antelación."
+            },
+            {
+                "pregunta": "¿Existen multas por arrojar basura o realizar grafitis en los sitios históricos de Juli, Puno?",
+                "respuesta": "Sí, está terminantemente prohibido arrojar basura, realizar grafitis o cualquier tipo de vandalismo en las iglesias, plazas y calles históricas de Juli, Puno. Las autoridades locales aplican multas a quienes infrinjan estas normas, las cuales buscan preservar la limpieza y el patrimonio cultural de la ciudad."
+            },
+            {
+                "pregunta": "¿Hay alguna regulación sobre el ruido o el comportamiento en el interior de las iglesias coloniales de Juli, Puno?",
+                "respuesta": "Sí, se espera que los visitantes mantengan un comportamiento respetuoso y un tono de voz bajo dentro de las iglesias coloniales de Juli, Puno. Está prohibido hacer ruido excesivo, correr o realizar actividades que puedan perturbar la tranquilidad del lugar o a otros visitantes y fieles, especialmente en templos como San Juan de Letrán."
+            }
+        ],
+        "10_Alternativas_Plan_B": [
+            {
+                "pregunta": "¿Si las iglesias principales de Juli, Puno, están cerradas, qué otra joya colonial puedo visitar como alternativa?",
+                "respuesta": "Como Plan B, puedes explorar la Iglesia de Santa Cruz de Jerusalén, menos concurrida y con detalles arquitectónicos únicos. A menudo está abierta cuando las otras tienen horarios restringidos, o puedes preguntar a los pobladores locales por el sacristán para una visita guiada informal por una propina de 5 a 10 Soles."
+            },
+            {
+                "pregunta": "¿Después de ver las iglesias en Juli, Puno, qué actividades alternativas hay para aprovechar el resto del día?",
+                "respuesta": "Si te sobra tiempo, un Plan B excelente es visitar el Mirador de Juli, que ofrece vistas panorámicas del lago Titicaca y la ciudad. También puedes recorrer el mercado local para interactuar con los pobladores y probar la gastronomía andina, como la trucha frita, por unos 15 a 25 Soles el plato."
+            },
+            {
+                "pregunta": "¿Qué puedo hacer en Juli, Puno, si el clima no acompaña y llueve o hace mucho frío, como Plan B?",
+                "respuesta": "En caso de mal tiempo, un buen Plan B es buscar refugio en el Centro Artesanal de Juli, donde puedes ver a los artesanos trabajar y comprar recuerdos. También puedes visitar alguna de las casas coloniales restauradas que ofrecen venta de productos locales y bebidas calientes como el mate de coca, a 3 Soles."
+            },
+            {
+                "pregunta": "¿Si quiero una alternativa a Juli, Puno, para un día de excursión diferente, qué pueblo cercano recomiendan?",
+                "respuesta": "Como Plan B, te sugiero visitar Chucuito, la 'Ciudad de las Cajas Reales', a solo 18 km de Juli. Puedes tomar una combi desde el terminal de Juli por 3 Soles. Allí encontrarás el Templo de la Fertilidad (Inca Uyo) y la iglesia de Santo Domingo, ofreciendo una perspectiva histórica distinta."
+            },
+            {
+                "pregunta": "¿Existe alguna alternativa menos concurrida en Juli, Puno, para evitar aglomeraciones si las iglesias principales están llenas?",
+                "respuesta": "Aunque Juli rara vez está abarrotada, un Plan B para una experiencia más tranquila es explorar las calles secundarias y descubrir las fachadas de las antiguas casonas coloniales. También puedes visitar el pequeño museo local, a menudo vacío, que exhibe artefactos precolombinos y coloniales por una entrada simbólica de 2 Soles."
+            },
+            {
+                "pregunta": "¿Si no encuentro alojamiento adecuado en Juli, Puno, cuál sería una buena alternativa para pernoctar cerca?",
+                "respuesta": "Si Juli no ofrece lo que buscas, un Plan B es regresar a Puno, a unos 80 km, donde hay una mayor oferta hotelera para todos los presupuestos, desde hostales económicos por 40 Soles hasta hoteles de 3 estrellas por 150 Soles. Las combis a Puno salen hasta las 7 PM desde Juli por 10 Soles."
+            },
+            {
+                "pregunta": "¿Qué opciones de transporte alternativas hay para llegar a Juli, Puno, si las combis habituales no están disponibles?",
+                "respuesta": "En caso de problemas con las combis, un Plan B es tomar un taxi colectivo desde el Terminal Zonal de Puno, que te puede costar entre 15 y 20 Soles por asiento. Otra opción es negociar un taxi privado, que podría salir por 80 a 100 Soles, ideal si viajas en grupo."
+            },
+            {
+                "pregunta": "¿Si busco opciones de comida diferentes a los restaurantes turísticos en Juli, Puno, qué Plan B gastronómico hay?",
+                "respuesta": "Como Plan B gastronómico, te recomiendo visitar el mercado de abastos de Juli. Allí encontrarás puestos de comida casera donde los lugareños almuerzan, ofreciendo platos típicos como la sopa de quinua o el chairo por 8 a 12 Soles. Es una experiencia auténtica y económica."
+            },
+            {
+                "pregunta": "¿Desde Juli, Puno, existe alguna alternativa para cruzar la frontera y visitar algo interesante en Bolivia como Plan B?",
+                "respuesta": "Sí, un Plan B interesante es cruzar a Copacabana, Bolivia, que está a solo 30 km de Juli. Puedes tomar una combi desde Juli hasta la frontera de Kasani por 5 Soles, hacer los trámites migratorios y luego otra combi a Copacabana por 3 Bolivianos. Es una extensión popular para ver la Basílica de la Virgen de Copacabana."
+            },
+            {
+                "pregunta": "¿Si Juli, Puno, no cumple mis expectativas de arquitectura colonial, qué otra ciudad cercana ofrece una experiencia similar o mejor como Plan B?",
+                "respuesta": "Si buscas una alternativa con arquitectura colonial impresionante, un Plan B es Pomata, conocida como el 'Balcón Filosófico del Altiplano', a unos 20 km de Juli. Su iglesia de Santiago Apóstol es una obra maestra barroca y suele estar menos concurrida que las de Juli. Las combis desde Juli cuestan 2 Soles."
+            }
+        ]
+    }
+}

@@ -363,22 +363,31 @@
                     <div class="space-y-2">
                         <label class="text-xs font-black uppercase text-slate-400 tracking-widest">Método de
                             Pago</label>
-                        <div class="grid grid-cols-2 gap-4">
+                        <div class="grid grid-cols-3 gap-4">
                             <label
                                 class="relative flex items-center justify-center p-4 bg-slate-800 border-2 border-white/10 rounded-xl cursor-pointer hover:border-gold transition-all">
-                                <input type="radio" name="payment_method" value="yape" required
+                                <input type="radio" name="payment_method" value="niubiz" required
+                                    class="absolute opacity-0">
+                                <div class="text-center">
+                                    <div class="text-3xl mb-2">💳</div>
+                                    <span class="text-sm font-bold text-[#00B1A0]">Tarjeta</span>
+                                </div>
+                            </label>
+                            <label
+                                class="relative flex items-center justify-center p-4 bg-slate-800 border-2 border-white/10 rounded-xl cursor-pointer hover:border-gold transition-all">
+                                <input type="radio" name="payment_method" value="yape"
                                     class="absolute opacity-0">
                                 <div class="text-center">
                                     <div class="text-3xl mb-2">📱</div>
-                                    <span class="text-sm font-bold">Yape</span>
+                                    <span class="text-sm font-bold text-purple-400">Yape</span>
                                 </div>
                             </label>
                             <label
                                 class="relative flex items-center justify-center p-4 bg-slate-800 border-2 border-white/10 rounded-xl cursor-pointer hover:border-gold transition-all">
                                 <input type="radio" name="payment_method" value="paypal" class="absolute opacity-0">
                                 <div class="text-center">
-                                    <div class="text-3xl mb-2">💳</div>
-                                    <span class="text-sm font-bold">PayPal</span>
+                                    <div class="text-3xl mb-2">🌐</div>
+                                    <span class="text-sm font-bold text-blue-400">PayPal</span>
                                 </div>
                             </label>
                         </div>

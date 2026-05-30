@@ -11,6 +11,13 @@
     "trailingSlash": false,
     "rewrites": [
       {
+        "source": "/api/chat",
+        "run": {
+          "serviceId": "lifextreme-api",
+          "region": "us-central1"
+        }
+      },
+      {
         "source": "/api/send-email",
         "function": "sendEmail"
       },

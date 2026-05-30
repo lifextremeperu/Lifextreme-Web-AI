@@ -9,8 +9,7 @@ from pydantic_ai import Agent, RunContext
 from pydantic_ai.models.google import GoogleModel
 from pydantic_ai.providers.google import GoogleProvider
 from google.oauth2 import service_account
-from langchain_google_vertexai import VertexAIEmbeddings
-from langchain_community.vectorstores import Chroma
+from langchain_google_vertexai import VertexAIEmbeddings, VectorSearchVectorStore
 
 # Configuración de producción
 app = FastAPI(title="Lifextreme AI Master API")
@@ -18,7 +17,7 @@ app = FastAPI(title="Lifextreme AI Master API")
 # Habilitar CORS para que tu web pueda hablar con la API
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # En producción cambia esto a tu dominio
+    allow_origins=["https://lifextreme.store", "https://www.lifextreme.store", "http://localhost:5500", "http://127.0.0.1:5500"], # En producción cambia esto a tu dominio
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -49,13 +48,28 @@ master_agent = Agent(
 # 2. Herramienta de Búsqueda Semántica
 @master_agent.tool
 async def search_knowledge(ctx: RunContext[None], query: str) -> str:
-    # Usamos las credenciales por defecto del entorno (ADC)
     embeddings = VertexAIEmbeddings(
         model_name="text-embedding-004", 
         project=PROJECT_ID, 
         location=REGION
     )
-    vectorstore = Chroma(persist_directory=DB_DIR, embedding_function=embeddings)
+    
+    index_id = os.getenv("VECTOR_SEARCH_INDEX_ID")
+    endpoint_id = os.getenv("VECTOR_SEARCH_ENDPOINT_ID")
+    
+    if not index_id or not endpoint_id:
+        print("Advertencia: Vector Search no configurado en variables de entorno.")
+        return "El cerebro vectorial no está conectado aún."
+
+    vectorstore = VectorSearchVectorStore.from_components(
+        project_id=PROJECT_ID,
+        region=REGION,
+        gcs_bucket_name="lifextreme-knowledge-cusco",
+        gcp_credentials=None,
+        embedding=embeddings,
+        index_id=index_id,
+        endpoint_id=endpoint_id
+    )
     docs = vectorstore.similarity_search(query, k=3)
     return "\n---\n".join([d.page_content for d in docs])
 

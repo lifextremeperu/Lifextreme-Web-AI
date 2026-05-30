@@ -1,0 +1,390 @@
+{
+    "destino_id": "D-02",
+    "modulo_contexto": "Huariques y Mercados: Sabor Auténtico de Lima",
+    "fqsas": {
+        "1_Precios_Presupuestos_Moneda": [
+            {
+                "pregunta": "¿Cuál es el presupuesto promedio para comer en un 'huarique' o mercado tradicional en Lima para un mochilero?",
+                "respuesta": "Un mochilero puede esperar gastar entre 15 y 30 Soles peruanos por una comida completa en un 'huarique' o puesto de mercado en Lima, incluyendo una bebida. Por ejemplo, un buen ceviche en el Mercado de Surquillo puede costar entre 20 y 25 Soles."
+            },
+            {
+                "pregunta": "¿Cuánto cuestan los platos de comida callejera más populares en los mercados de Lima, como anticuchos o emoliente?",
+                "respuesta": "Los anticuchos en un puesto de mercado en Lima suelen costar entre 8 y 15 Soles por porción. Un vaso de emoliente, ideal para el frío, se encuentra por 2 a 4 Soles en casi cualquier esquina de los mercados limeños."
+            },
+            {
+                "pregunta": "¿Qué moneda se usa en los mercados y 'huariques' de Lima y es mejor pagar en efectivo o con tarjeta?",
+                "respuesta": "La moneda oficial es el Sol peruano (PEN). En la mayoría de 'huariques' y puestos de mercado en Lima, el efectivo es el método de pago preferido y a menudo el único aceptado. Lleva billetes de baja denominación (10, 20, 50 Soles) y monedas."
+            },
+            {
+                "pregunta": "¿Dónde puedo cambiar dólares o euros a Soles peruanos con buena tasa cerca de los mercados centrales de Lima?",
+                "respuesta": "Cerca del Mercado Central de Lima, encontrarás casas de cambio formales en la Avenida Abancay o en el Jirón Ocoña, con tasas competitivas. Evita cambiar dinero en la calle. También hay cajeros automáticos (ATMs) de bancos como BCP o BBVA cerca."
+            },
+            {
+                "pregunta": "¿Cuál es el costo de un 'menú del día' económico en un 'huarique' o restaurante de mercado en Lima para una familia?",
+                "respuesta": "Un 'menú del día' (almuerzo completo con entrada, plato principal y bebida) en un 'huarique' o mercado de Lima cuesta generalmente entre 12 y 25 Soles por persona. Es una opción muy económica y abundante para una familia."
+            },
+            {
+                "pregunta": "¿Cuánto debería presupuestar una familia para una experiencia gastronómica completa en los mercados de Lima, incluyendo degustaciones?",
+                "respuesta": "Para una familia de cuatro, un presupuesto de 100 a 150 Soles peruanos podría cubrir varias degustaciones y un almuerzo completo en un mercado como el de Surquillo o Lince, permitiendo probar diversas especialidades."
+            },
+            {
+                "pregunta": "¿Es costumbre dejar propina en los 'huariques' y puestos de comida en los mercados de Lima y cuánto se recomienda?",
+                "respuesta": "En 'huariques' y puestos de comida en mercados de Lima, la propina no es obligatoria ni tan esperada como en restaurantes formales. Sin embargo, si el servicio fue bueno, dejar un redondeo o 5-10% del total es un gesto apreciado."
+            },
+            {
+                "pregunta": "¿Cuánto cuesta el transporte público para llegar a mercados populares como el Mercado de Surquillo o Mercado Central desde Miraflores en Lima?",
+                "respuesta": "Desde Miraflores, un viaje en Metropolitano hasta el centro de Lima (para el Mercado Central) cuesta aproximadamente 3.20 Soles. Para el Mercado de Surquillo, un bus o combi cuesta entre 1.50 y 2.50 Soles. Un taxi o aplicación de movilidad puede costar entre 10 y 20 Soles."
+            },
+            {
+                "pregunta": "¿Cuáles son los precios aproximados de frutas exóticas o un ceviche fresco para llevar en los mercados de Lima?",
+                "respuesta": "Un kilo de frutas exóticas como la lúcuma o el aguaymanto puede variar entre 8 y 20 Soles en mercados de Lima, dependiendo de la temporada. Un buen ceviche para llevar en un puesto de mercado puede costar entre 18 y 28 Soles."
+            },
+            {
+                "pregunta": "¿Hay opciones de comida muy barata en los mercados de Lima para viajeros con un presupuesto extremadamente ajustado?",
+                "respuesta": "Sí, en los mercados de Lima siempre hay opciones muy económicas. Puedes encontrar sánguches (pan con relleno) por 5-8 Soles, caldos o sopas por 7-12 Soles, o porciones de papa rellena o causa por 4-7 Soles, ideales para un presupuesto ajustado."
+            }
+        ],
+        "2_Logistica_Transporte_Como_Llegar": [
+            {
+                "pregunta": "¿Cómo llegar al Mercado de Surquillo número 1 en Lima desde el Parque Kennedy de Miraflores usando transporte público?",
+                "respuesta": "Desde el Parque Kennedy en Miraflores, puedes tomar un bus de la línea 301 del Metropolitano en la Estación Ricardo Palma (Av. Ricardo Palma con Vía Expresa). Baja en la Estación Angamos y camina unas 4 cuadras por la Av. Angamos Este hasta el mercado. El pasaje cuesta S/3.20 y el trayecto dura unos 15-20 minutos dependiendo del tráfico."
+            },
+            {
+                "pregunta": "¿Cuál es la forma más segura y económica de ir al Mercado Central de Lima desde el distrito de Barranco?",
+                "respuesta": "La forma más segura y económica es usar el Metropolitano. Desde la Estación Bulevar en Barranco, toma un bus troncal hacia el norte y baja en la Estación Central. Desde allí, puedes caminar unos 10-15 minutos por el Jirón Cusco o el Jirón Puno hasta el Mercado Central. El pasaje cuesta S/3.20 y el viaje total es de aproximadamente 30-40 minutos."
+            },
+            {
+                "pregunta": "¿Qué opciones de transporte público hay para visitar huariques en el distrito de Lince desde San Isidro en Lima?",
+                "respuesta": "Desde San Isidro, puedes tomar varias líneas de bus o combi que recorren la Av. Arequipa o la Av. Petit Thouars en dirección sur. Busca las que pasen por la zona de Lince, especialmente cerca de la Av. Risso o el Mercado de Lince. El pasaje de bus suele costar entre S/1.50 y S/2.50. El trayecto puede durar 15-25 minutos dependiendo del punto de partida en San Isidro y el tráfico."
+            },
+            {
+                "pregunta": "¿Cuánto cuesta un taxi o app de transporte para ir a un huarique en La Victoria desde el centro histórico de Lima?",
+                "respuesta": "Un viaje en taxi o a través de aplicaciones como Uber, Cabify o Didi desde el Centro Histórico de Lima a un huarique en La Victoria (por ejemplo, cerca del Mercado de Frutas) puede costar entre S/10 y S/18, dependiendo de la hora del día y la demanda. El tiempo estimado de viaje es de 15 a 25 minutos."
+            },
+            {
+                "pregunta": "¿Es seguro usar los buses o combis para ir a los mercados de Lima como turista extranjero?",
+                "respuesta": "Sí, es generalmente seguro usar buses y combis en Lima, pero se recomienda precaución. Evita llevar objetos de valor a la vista, mantén tu mochila o bolso al frente y sé consciente de tu entorno. En rutas muy concurridas hacia mercados como el Mercado Central, es preferible usar el Metropolitano o taxis/apps de transporte para mayor comodidad y seguridad."
+            },
+            {
+                "pregunta": "¿Se puede caminar entre huariques en Barranco o Surquillo en Lima, o es mejor usar transporte para distancias cortas?",
+                "respuesta": "En distritos como Barranco y Surquillo, es perfectamente posible y recomendable caminar entre huariques, especialmente en zonas céntricas y turísticas. Por ejemplo, en Barranco, muchos huariques están a poca distancia a pie del Puente de los Suspiros. En Surquillo, los huariques cercanos al Mercado N°1 son accesibles caminando. Para distancias mayores o entre distritos, sí es mejor usar transporte."
+            },
+            {
+                "pregunta": "¿Cómo funciona el Metropolitano de Lima para ir a zonas de huariques y mercados y qué necesito para usarlo?",
+                "respuesta": "Para usar el Metropolitano, necesitas comprar una tarjeta recargable en cualquier estación (costo S/4.50) y cargarle saldo (mínimo S/3.20 por pasaje). Las estaciones clave para acceder a mercados y huariques son la Estación Central (para el Mercado Central), Estación 28 de Julio o Angamos (para el Mercado de Surquillo y huariques cercanos). Es un sistema rápido y eficiente para moverse por la Vía Expresa."
+            },
+            {
+                "pregunta": "¿Cuál es la mejor hora para usar el transporte público e ir a los mercados de Lima y evitar el tráfico intenso?",
+                "respuesta": "La mejor hora para usar el transporte público e ir a los mercados de Lima y evitar el tráfico intenso es entre las 9:30 AM y las 12:00 PM, y después de las 2:30 PM hasta las 4:30 PM. Evita las horas punta de la mañana (7:00 AM - 9:00 AM) y de la tarde (5:00 PM - 8:00 PM), cuando el tráfico es más denso y los vehículos están más llenos."
+            },
+            {
+                "pregunta": "¿Cuánto cuesta un pasaje de bus o Metropolitano en Lima para ir a los mercados y huariques en promedio?",
+                "respuesta": "Un pasaje de bus o combi en Lima para rutas urbanas cortas suele costar entre S/1.50 y S/2.50. Para el Metropolitano, el pasaje troncal (que cubre la mayoría de rutas a mercados y huariques) tiene un costo fijo de S/3.20. Si usas alimentadores del Metropolitano, el costo adicional es de S/1.00."
+            },
+            {
+                "pregunta": "¿Hay alguna línea de bus específica que conecte Miraflores con varios mercados tradicionales de Lima?",
+                "respuesta": "Sí, la línea 301 del Metropolitano es muy útil. Conecta Miraflores (Estación Ricardo Palma) con la Estación Central (cerca del Mercado Central) y con la Estación Angamos (cerca del Mercado de Surquillo N°1). Además, varias líneas de buses 'corredor' (como el Corredor Azul o Rojo) recorren avenidas principales como Arequipa, conectando Miraflores con distritos que albergan huariques y mercados, con tarifas de S/2.20 a S/2.50."
+            }
+        ],
+        "3_Seguridad_Riesgos_Salud": [
+            {
+                "pregunta": "¿Es seguro llevar mi mochila o cámara en los mercados de Lima como Surquillo o La Parada al buscar huariques?",
+                "respuesta": "En mercados concurridos de Lima como Surquillo N°1 o La Parada, es recomendable llevar solo lo esencial y mantener tus pertenencias, como mochilas y cámaras, siempre a la vista y bien sujetas para evitar robos al paso. Evita exhibir objetos de valor y usa una mochila frontal si es posible."
+            },
+            {
+                "pregunta": "¿Qué precauciones de salud debo tomar al comer en huariques o puestos de mercado en Lima para evitar problemas estomacales?",
+                "respuesta": "Para evitar problemas estomacales en huariques y mercados de Lima, elige lugares con alta rotación de clientes, observa la higiene del personal y del local, y prefiere alimentos cocidos al momento. Evita ensaladas crudas o jugos con hielo de dudosa procedencia. Siempre lleva gel antibacterial y lávate las manos."
+            },
+            {
+                "pregunta": "¿Hay zonas de Lima con huariques famosos que sean menos seguras para turistas, especialmente de noche?",
+                "respuesta": "Sí, algunos huariques muy auténticos en zonas como Barrios Altos, La Victoria o el Cercado de Lima pueden ser menos seguros, especialmente de noche. Es mejor visitarlos de día, preferiblemente en grupo o con un guía local, y usar taxis de aplicación seguros para el transporte directo a la puerta del local."
+            },
+            {
+                "pregunta": "¿Es seguro beber agua del grifo en Lima si estoy visitando mercados y huariques, o debo comprar agua embotellada?",
+                "respuesta": "No es recomendable beber agua del grifo en Lima. Siempre opta por agua embotellada sellada al visitar mercados y huariques para evitar riesgos de salud. Asegúrate también de que el hielo en tus bebidas sea de agua purificada o evita el hielo si tienes dudas sobre su procedencia."
+            },
+            {
+                "pregunta": "¿Cómo puedo evitar ser estafado o que me cobren de más en los mercados de Lima al comprar productos o comer en huariques?",
+                "respuesta": "Para evitar estafas o sobreprecios en mercados y huariques de Lima, pregunta siempre el precio antes de consumir o comprar. En mercados, puedes regatear amistosamente. Paga con sencillo y revisa tu vuelto. Observa lo que pagan los locales como referencia y desconfía de ofertas 'solo para turistas'."
+            },
+            {
+                "pregunta": "¿Cuál es el transporte más seguro para ir a huariques y mercados en distritos como Surquillo o Lince en Lima?",
+                "respuesta": "Para ir a huariques y mercados en distritos como Surquillo o Lince en Lima, el transporte más seguro son los taxis de aplicación como Uber, Cabify o Didi. Evita tomar taxis de la calle sin identificación o que no sean de una empresa conocida, especialmente de noche, y siempre comparte tu viaje."
+            },
+            {
+                "pregunta": "¿Necesito alguna vacuna especial antes de viajar a Lima para probar la comida de mercados y huariques?",
+                "respuesta": "Generalmente, no se requieren vacunas especiales para visitar Lima y probar su gastronomía. Sin embargo, es recomendable tener al día las vacunas básicas como Tétanos, Hepatitis A y B, y Sarampión. Consulta a tu médico al menos 4-6 semanas antes de viajar para recomendaciones personalizadas."
+            },
+            {
+                "pregunta": "¿Cómo puedo manejar alergias alimentarias al comer en huariques o mercados de Lima donde el idioma es una barrera?",
+                "respuesta": "Si tienes alergias alimentarias al comer en huariques o mercados de Lima, es crucial llevar una tarjeta con tus alergias escritas claramente en español. Muestra esta tarjeta al personal y pregunta '¿Contiene [ingrediente alérgeno]?' antes de ordenar. Por ejemplo: '¿Tiene maní?', '¿Tiene gluten?', '¿Tiene mariscos?'."
+            },
+            {
+                "pregunta": "¿Es más seguro comer en un huarique establecido que en un puesto de comida callejera en los alrededores de los mercados de Lima?",
+                "respuesta": "Generalmente, es más seguro comer en un huarique establecido con una cocina visible y condiciones de higiene controladas que en un puesto de comida callejera en los alrededores de los mercados de Lima. Los huariques suelen tener permisos municipales y mayor supervisión sanitaria, reduciendo el riesgo de enfermedades."
+            },
+            {
+                "pregunta": "¿Qué precauciones debo tomar contra el sol al visitar mercados al aire libre en Lima, especialmente en verano?",
+                "respuesta": "Al visitar mercados al aire libre en Lima, especialmente entre diciembre y abril (verano), es esencial usar protector solar de alto SPF (mínimo 30), sombrero de ala ancha y gafas de sol. Mantente hidratado bebiendo agua embotellada constantemente para evitar golpes de calor y quemaduras solares."
+            }
+        ],
+        "4_Clima_Temporadas_Horarios": [
+            {
+                "pregunta": "¿Cuál es el mejor clima para visitar los huariques y mercados de comida en Lima y disfrutar la experiencia gastronómica?",
+                "respuesta": "El clima más agradable para explorar los huariques y mercados de Lima es durante el verano, de diciembre a abril, con temperaturas cálidas que oscilan entre 25°C y 30°C y cielos mayormente soleados. El resto del año, de mayo a noviembre, es invierno, con temperaturas más frescas (15°C-20°C), cielos nublados, alta humedad y la famosa 'garúa' (llovizna fina), pero la mayoría de los puestos de comida están cubiertos."
+            },
+            {
+                "pregunta": "¿Hay alguna temporada de lluvias en Lima que afecte la visita a los mercados al aire libre o huariques callejeros?",
+                "respuesta": "Lima es conocida por su clima desértico costero y no tiene una temporada de lluvias torrenciales como otras ciudades. Sin embargo, durante el invierno (mayo a noviembre), es común la 'garúa' o llovizna fina y persistente. Esto no suele afectar gravemente la visita a mercados, ya que muchos puestos están techados o los huariques tienen áreas cubiertas, pero es recomendable llevar un paraguas pequeño o una chaqueta impermeable."
+            },
+            {
+                "pregunta": "¿A qué hora abren y cierran los mercados tradicionales como el Mercado Central o el Mercado de Surquillo en Lima para comer?",
+                "respuesta": "Los mercados tradicionales de Lima, como el Mercado Central o el de Surquillo N°1, suelen abrir sus puertas muy temprano, alrededor de las 6:00 AM o 7:00 AM, para la venta de productos frescos. Los puestos de comida y huariques dentro de ellos comienzan a servir desayunos desde las 7:00 AM y permanecen abiertos hasta las 5:00 PM o 6:00 PM, aunque algunos pueden cerrar antes si se agota la comida."
+            },
+            {
+                "pregunta": "¿Cuál es el mejor horario para ir a los huariques más populares de Lima y evitar las aglomeraciones de gente?",
+                "respuesta": "Para evitar las mayores aglomeraciones en los huariques más populares de Lima, es recomendable visitarlos antes de la 1:00 PM para el almuerzo o después de las 3:00 PM. El pico de afluencia suele ser entre la 1:00 PM y las 2:30 PM, especialmente de lunes a viernes. Para el desayuno, ir antes de las 9:00 AM es ideal."
+            },
+            {
+                "pregunta": "¿Existen temporadas específicas para probar frutas o mariscos frescos en los mercados de Lima con la mejor calidad?",
+                "respuesta": "Sí, en los mercados de Lima, la temporada de mangos es de diciembre a marzo, la de lúcuma de enero a mayo, y la de chirimoya de enero a abril. Los mariscos frescos se encuentran todo el año, pero su variedad y abundancia pueden ser mayores en los meses de verano, de diciembre a abril, cuando la pesca es más activa y el mar está más tranquilo, garantizando productos de mayor frescura y calidad."
+            },
+            {
+                "pregunta": "¿Qué tipo de ropa debo llevar para visitar los mercados de Lima en invierno o verano, considerando el clima y los horarios de visita?",
+                "respuesta": "En verano (diciembre a abril), lleva ropa ligera de algodón, sandalias o zapatillas cómodas y protector solar, ya que puede hacer mucho calor y sol. En invierno (mayo a noviembre), es esencial vestirse en capas: una camiseta, un suéter o chompa, y una chaqueta cortavientos o impermeable ligera debido a la humedad y la garúa. Siempre usa calzado cómodo para caminar por los mercados."
+            },
+            {
+                "pregunta": "¿Los mercados y huariques de comida en Lima abren en días feriados nacionales como Fiestas Patrias o Navidad?",
+                "respuesta": "Muchos mercados y huariques en Lima sí abren en días feriados nacionales, especialmente aquellos que son destinos turísticos o muy populares. Sin embargo, sus horarios pueden ser reducidos. En fechas como Navidad (25 de diciembre) o Año Nuevo (1 de enero), es común que cierren o abran solo medio día. Es recomendable verificar los horarios específicos con anticipación para el huarique o mercado deseado."
+            },
+            {
+                "pregunta": "¿Cuál es el mejor mes para visitar Lima y sus mercados gastronómicos con un clima soleado y agradable para un mochilero?",
+                "respuesta": "Para un mochilero que busca un clima soleado y agradable para explorar los mercados gastronómicos de Lima, los mejores meses son de enero a marzo. Durante este periodo, Lima experimenta su verano más intenso, con días soleados, temperaturas cálidas y poca humedad, lo que facilita caminar y disfrutar de la comida callejera y los mercados al aire libre sin la garúa invernal."
+            },
+            {
+                "pregunta": "¿Desde qué hora puedo encontrar opciones de desayuno o almuerzo en los puestos de comida de los mercados de Lima como el de Magdalena?",
+                "respuesta": "En mercados como el de Magdalena del Mar, puedes encontrar opciones de desayuno desde muy temprano, a partir de las 7:00 AM, con platos como caldos, jugos frescos y sánguches. Las opciones de almuerzo, que incluyen ceviches, anticuchos y otros platos criollos, suelen estar disponibles desde las 11:00 AM y se sirven hasta las 4:00 PM o 5:00 PM."
+            },
+            {
+                "pregunta": "¿Cómo afecta la garúa o la humedad de Lima la experiencia en los huariques al aire libre y qué precauciones tomar?",
+                "respuesta": "La garúa y la alta humedad de Lima, especialmente en invierno, pueden hacer que el ambiente en los huariques al aire libre se sienta más fresco de lo que indica la temperatura. La mayoría de los huariques tienen toldos o techos para proteger a los comensales. La precaución principal es llevar una chaqueta ligera o cortavientos y quizás un gorro para mayor comodidad, aunque la comida caliente siempre ayuda a contrarrestar el frío."
+            }
+        ],
+        "5_Historia_Cultura_Curiosidades": [
+            {
+                "pregunta": "¿Cuál es el origen histórico de la palabra 'huarique' y qué significa para los limeños hoy en día?",
+                "respuesta": "La palabra 'huarique' proviene del quechua 'wari' que significa 'escondite' o 'lugar oculto'. En Lima, se refiere a pequeños restaurantes o puestos de comida, a menudo familiares y discretos, conocidos por su excelente sazón y precios accesibles, transmitidos por recomendación boca a boca entre los locales."
+            },
+            {
+                "pregunta": "¿Qué curiosidades culturales se esconden detrás de los platos más populares que se encuentran en los huariques de Lima?",
+                "respuesta": "Muchos platos de huarique, como el ceviche o la causa, tienen orígenes prehispánicos o coloniales. Por ejemplo, el ceviche original se marinaba con tumbo o chicha de jora antes de la llegada del limón, y la causa limeña tiene raíces en la papa andina y se popularizó durante la Guerra del Pacífico para 'causa' de la patria."
+            },
+            {
+                "pregunta": "¿Cómo influyó la inmigración china en la cultura gastronómica de los mercados y huariques de Lima?",
+                "respuesta": "La inmigración china del siglo XIX introdujo ingredientes como el jengibre, la salsa de soya y técnicas de cocción que dieron origen a la cocina chifa, una fusión peruano-china. Muchos mercados de Lima tienen secciones dedicadas a insumos orientales y es común encontrar 'saltados' o 'aeropuertos' en huariques, reflejo de esta rica herencia."
+            },
+            {
+                "pregunta": "¿Qué tradiciones o rituales culturales se observan al visitar un mercado tradicional como el Mercado Central de Lima?",
+                "respuesta": "En el Mercado Central de Lima, es común regatear amistosamente los precios, especialmente al comprar en grandes cantidades. También es una tradición probar pequeñas muestras de frutas exóticas ofrecidas por los vendedores y observar la interacción social vibrante, que va más allá de la simple compra y venta, siendo un punto de encuentro comunitario."
+            },
+            {
+                "pregunta": "¿Existe alguna historia o leyenda particular asociada a los mercados de abastos más antiguos de Lima?",
+                "respuesta": "El Mercado de Surquillo N°1, por ejemplo, tiene una larga historia desde mediados del siglo XX, siendo un punto clave para la distribución de productos frescos. Se cuenta que muchos chefs reconocidos de Lima comenzaron sus carreras visitando este mercado para seleccionar personalmente sus insumos, forjando relaciones duraderas con los comerciantes."
+            },
+            {
+                "pregunta": "¿Qué papel cultural juegan los 'callejones de la comida' o pasajes gastronómicos en la identidad de los barrios tradicionales de Lima?",
+                "respuesta": "Los 'callejones de la comida', como los que se encuentran en Barrios Altos o La Victoria, son centros neurálgicos de la vida barrial. No solo ofrecen comida casera a precios módicos, sino que también son espacios de socialización donde se comparten noticias, se celebran eventos familiares y se mantiene viva la identidad cultural de la comunidad a través de la gastronomía."
+            },
+            {
+                "pregunta": "¿Cuáles son las curiosidades sobre los ingredientes autóctonos peruanos que se encuentran en los mercados de Lima y su uso cultural?",
+                "respuesta": "En mercados como el de Surquillo o el de Magdalena, se pueden encontrar más de 3,000 variedades de papa, ajíes como el rocoto o el ají amarillo, y frutas exóticas como el camu camu o el aguaymanto. Culturalmente, estos ingredientes no solo son alimentos, sino que también se usan en medicina tradicional, rituales andinos y como símbolos de identidad regional."
+            },
+            {
+                "pregunta": "¿Cómo ha evolucionado la cultura del 'desayuno de mercado' en Lima y qué lo hace tan especial?",
+                "respuesta": "El 'desayuno de mercado' es una tradición arraigada en Lima, donde los trabajadores y locales inician el día con platos contundentes como caldo de gallina, salchipapa o emoliente. Esta costumbre se originó por la necesidad de comidas nutritivas y económicas para quienes madrugaban, y hoy es un ritual cultural que ofrece una auténtica experiencia limeña."
+            },
+            {
+                "pregunta": "¿Qué influencia tuvo la cultura afroperuana en la creación de algunos platos emblemáticos que se venden en huariques de Lima?",
+                "respuesta": "La cultura afroperuana ha dejado una huella profunda en la gastronomía de Lima, especialmente en los huariques. Platos como los anticuchos (corazón de res a la parrilla) o el tacu tacu (arroz y frijoles refritos) tienen sus raíces en las cocinas de las haciendas coloniales, donde los esclavos africanos transformaban ingredientes modestos en delicias culinarias."
+            },
+            {
+                "pregunta": "¿Qué curiosidad histórica se relaciona con la venta de 'emoliente' en las calles y mercados de Lima?",
+                "respuesta": "El emoliente es una bebida tradicional peruana con siglos de historia, originada en la medicina herbolaria andina y colonial. Los 'emolienteros' ambulantes, que a menudo se encuentran cerca de mercados, son parte de un oficio ancestral que combina hierbas medicinales como la cola de caballo, cebada y linaza, ofreciendo no solo una bebida, sino también un remedio casero y una tradición cultural."
+            }
+        ],
+        "6_Tips_Locales_Secretos": [
+            {
+                "pregunta": "¿Cuál es el mejor mercado de Lima para probar comida callejera auténtica y segura como un local?",
+                "respuesta": "Para comida callejera auténtica y segura, te recomiendo el Mercado de Surquillo N°1, ubicado en la Av. Paseo de la República 5000, Surquillo. Busca los puestos con mayor rotación de clientes y donde preparen la comida al momento. Prueba los sánguches de chicharrón o el ceviche de carretilla."
+            },
+            {
+                "pregunta": "¿Dónde puedo encontrar los anticuchos más ricos y menos turísticos en Lima, según los propios limeños?",
+                "respuesta": "Los limeños te dirán que los anticuchos más auténticos están en 'Tía Grimanesa Vargas Anticuchos', aunque ya es conocida, mantiene su esencia local. Su puesto original está en la Calle Ignacio Merino 465, Miraflores. Otro secreto es buscar puestos en la Av. Angamos Este, cerca al Mercado de Surquillo, especialmente por las noches."
+            },
+            {
+                "pregunta": "¿Hay algún 'huarique' secreto en Lima donde los mochileros puedan comer ceviche fresco y barato sin caer en trampas para turistas?",
+                "respuesta": "Sí, para ceviche fresco y barato, busca 'El Cevichano' en el Mercado de Surquillo N°1. No tiene un local fijo, es un puesto dentro del mercado, pregunta por él. Un plato de ceviche cuesta entre 15 y 25 Soles. Otro es 'Pescados Capitales' en La Victoria, pero es más un restaurante, no tan 'huarique'. Mejor el puesto en Surquillo."
+            },
+            {
+                "pregunta": "¿Qué consejos debo seguir para identificar un verdadero 'huarique' limeño y no un restaurante disfrazado para turistas?",
+                "respuesta": "Un verdadero 'huarique' se identifica por la fila de locales esperando, la sencillez del local (a menudo sin mucha decoración), el menú limitado a pocas especialidades y el uso de mesas compartidas. Si ves muchos turistas o precios en dólares, probablemente no sea un 'huarique' auténtico."
+            },
+            {
+                "pregunta": "¿Cuál es el horario ideal para visitar el Mercado de Surquillo N°1 en Lima y encontrar los productos más frescos y menos gente?",
+                "respuesta": "El horario ideal para encontrar los productos más frescos y evitar las aglomeraciones es entre las 7:00 AM y las 9:00 AM. A esa hora llegan los proveedores y los puestos están recién surtidos. Después de las 10:00 AM, el mercado se llena más."
+            },
+            {
+                "pregunta": "¿Qué bebida tradicional peruana debo pedir en los mercados de Lima que no sea la Chicha Morada común?",
+                "respuesta": "Además de la Chicha Morada, debes probar el 'Emoliente'. Es una bebida caliente a base de hierbas medicinales, cebada y frutas, que se vende en carretillas por las mañanas y noches. Es muy popular entre los limeños y cuesta entre 2 y 4 Soles el vaso."
+            },
+            {
+                "pregunta": "¿Cómo puedo llegar a 'El Chinito' en el Centro de Lima para probar sus famosos sánguches sin perderme usando transporte público?",
+                "respuesta": "Para llegar a 'El Chinito' del Centro de Lima (Jr. Chancay 894), puedes tomar el Metropolitano hasta la Estación Jirón de la Unión y caminar unas 7 cuadras. También puedes usar cualquier bus que vaya por la Av. Tacna y bajarte cerca al cruce con el Jr. Chancay. Un sánguche de chicharrón cuesta alrededor de 18 Soles."
+            },
+            {
+                "pregunta": "¿Es seguro comer en los puestos de comida dentro de los mercados de Lima, y qué precauciones debo tomar como turista?",
+                "respuesta": "Generalmente es seguro, pero toma precauciones: elige puestos con alta rotación de clientes, donde la comida se prepare al momento y esté caliente. Evita alimentos crudos o que hayan estado expuestos por mucho tiempo. Siempre lleva gel antibacterial y prefiere agua embotellada."
+            },
+            {
+                "pregunta": "¿Existe algún 'huarique' de comida criolla casera en Lima que sea frecuentado por familias locales y no aparezca en guías turísticas?",
+                "respuesta": "Un excelente 'huarique' de comida criolla casera es 'El Rincón Que No Conoces' de Teresa Izquierdo (Av. Petit Thouars 3136, San Isidro), aunque ya es famoso, mantiene su esencia familiar. Para algo más 'secreto', busca 'La Sazón de la Tía Josefa' en Lince (Jr. Risso 200), conocido por su seco de res y ají de gallina."
+            },
+            {
+                "pregunta": "¿Qué plato de desayuno local y contundente recomiendan los limeños para empezar el día en un mercado o 'huarique' de Lima?",
+                "respuesta": "Para un desayuno contundente y local, los limeños recomiendan un 'Sánguche de Chicharrón' con camote frito y salsa criolla, acompañado de un café o jugo. Lo encuentras en casi cualquier mercado o en 'huariques' especializados en sánguches como 'El Chinito' o puestos en el Mercado de Surquillo desde las 7:00 AM."
+            }
+        ],
+        "7_Gastronomia_Alimentos_Supervivencia": [
+            {
+                "pregunta": "¿Dónde puedo comer un menú del día barato y auténtico en Lima sin gastar mucho dinero como mochilero?",
+                "respuesta": "Para un menú del día económico y sabroso en Lima, dirígete a los alrededores del Mercado Central o al Mercado de Surquillo N°1. Puedes encontrar opciones de S/10 a S/15 que incluyen entrada, plato principal y bebida. Busca los locales con mayor afluencia de gente local."
+            },
+            {
+                "pregunta": "¿Es seguro comer comida callejera o en huariques de mercado en Lima para evitar problemas estomacales?",
+                "respuesta": "Sí, es seguro si tomas precauciones. Elige puestos con alta rotación de clientes, donde la comida se prepare al momento y esté bien caliente. Evita ensaladas crudas y prefiere bebidas embotelladas. Observa la higiene del lugar y del personal. Si tienes dudas, opta por lugares más establecidos."
+            },
+            {
+                "pregunta": "¿Es seguro beber agua del grifo en Lima o debo comprar agua embotellada para mi viaje y cocinar?",
+                "respuesta": "No es recomendable beber agua directamente del grifo en Lima. Siempre compra agua embotellada para beber y para cocinar si no tienes un filtro. Puedes encontrar botellas grandes de 7 litros en supermercados como Plaza Vea o Wong por S/7-S/10, o botellas personales en bodegas por S/2-S/3."
+            },
+            {
+                "pregunta": "¿Cuál es el mejor mercado en Lima para comprar frutas frescas y productos locales a buen precio para cocinar en mi alojamiento?",
+                "respuesta": "El Mercado de Surquillo N°1 (Av. Paseo de la República 5050) es excelente para frutas frescas, verduras y productos locales a precios justos. También el Mercado de Lince (Av. Risso 115) es una buena opción. Un kilo de mango puede costar S/5-S/8 y un kilo de palta S/6-S/10, dependiendo de la estación."
+            },
+            {
+                "pregunta": "¿Dónde encontrar desayunos económicos y típicos peruanos en Lima para un mochilero con presupuesto limitado?",
+                "respuesta": "Para desayunos económicos y auténticos en Lima, busca panaderías locales que ofrecen pan con huevo o palta por S/3-S/5. También las carretillas de emoliente (bebida caliente de hierbas) en las esquinas, que suelen vender pan con queso o huevo por S/2-S/4. En los mercados, algunos puestos ofrecen desayunos completos por S/8-S/12."
+            },
+            {
+                "pregunta": "¿Qué snacks peruanos baratos y fáciles de llevar puedo comprar en Lima para mis excursiones de un día y viajes?",
+                "respuesta": "Para snacks económicos y prácticos en Lima, te recomiendo comprar chifles (plátano frito), canchita salada (maíz tostado), galletas de soda, o frutas de estación como plátanos, manzanas o mandarinas. Los encuentras en cualquier bodega o supermercado por S/1-S/5 por porción."
+            },
+            {
+                "pregunta": "¿Qué debo hacer si me siento mal del estómago por la comida en Lima y dónde puedo conseguir medicamentos básicos de supervivencia?",
+                "respuesta": "Si te sientes mal del estómago en Lima, busca una farmacia como Inkafarma o Mifarma, que están por toda la ciudad. Pide sales de rehidratación oral (suero) y carbón activado. Si los síntomas persisten o son graves, considera ir a una clínica. Un suero cuesta S/3-S/5 y el carbón activado S/10-S/15."
+            },
+            {
+                "pregunta": "¿Qué bebidas locales no alcohólicas y económicas son seguras para probar en Lima además del agua embotellada?",
+                "respuesta": "Además del agua embotellada, puedes probar el emoliente, una bebida caliente de hierbas que venden en carretillas por S/1.50-S/2. También la chicha morada, pero asegúrate de que sea de un lugar con buena higiene o compra la versión envasada en supermercados por S/5-S/8 el litro. Evita jugos de fruta hechos con agua del grifo."
+            },
+            {
+                "pregunta": "¿Me pueden recomendar un huarique específico en el centro de Lima para probar comida criolla auténtica y barata para un viajero?",
+                "respuesta": "En el centro de Lima, para comida criolla auténtica y a buen precio, te sugiero buscar los pequeños restaurantes en los alrededores del Jirón de la Unión o en el Barrio Chino. No hay un 'huarique' único, pero busca los que tienen menús escritos a mano y mucha gente local. Un plato principal puede costar S/15-S/25."
+            },
+            {
+                "pregunta": "¿Qué tipo de comida o provisiones debo llevar para un viaje largo en bus desde Lima para ahorrar dinero y comer bien?",
+                "respuesta": "Para un viaje largo en bus desde Lima, lleva sándwiches caseros (de queso, jamón o palta), frutas como manzanas o plátanos, galletas, y frutos secos. Compra agua embotellada grande. Esto te ahorrará dinero y te asegurará comida segura. Evita alimentos perecederos o con salsas que puedan estropearse con el calor."
+            }
+        ],
+        "8_Accesibilidad_Infraestructura": [
+            {
+                "pregunta": "¿Cómo puedo llegar a los mercados gastronómicos más auténticos de Lima, como el de Surquillo N°1, usando transporte público desde Miraflores?",
+                "respuesta": "Desde Miraflores, puedes tomar el Metropolitano en la Estación Ricardo Palma hasta la Estación Angamos, y desde allí caminar unas cuadras o tomar un taxi corto. Otra opción es un bus del Corredor Azul que vaya por la Av. Arequipa y bajarte cerca de la Av. Angamos. El costo del Metropolitano es de S/ 3.20 por viaje."
+            },
+            {
+                "pregunta": "¿Los huariques y mercados tradicionales de Lima, como los de Lince o Magdalena, son accesibles para personas en silla de ruedas?",
+                "respuesta": "Lamentablemente, la mayoría de los huariques y mercados tradicionales en Lima no están diseñados para ser accesibles en silla de ruedas. Suelen tener pasillos estrechos, pisos irregulares, escalones y falta de rampas. Es recomendable ir acompañado o considerar tours especializados que ofrezcan asistencia."
+            },
+            {
+                "pregunta": "¿Hay opciones de estacionamiento seguro cerca de los huariques más populares en Barranco o el Centro Histórico de Lima para turistas con auto?",
+                "respuesta": "En Barranco, encontrarás algunos estacionamientos privados de pago en calles principales como la Av. Grau o cerca del Puente de los Suspiros, con tarifas por hora de S/ 5 a S/ 10. En el Centro Histórico, hay playas de estacionamiento subterráneas como la de la Plaza San Martín o la del Parque de la Muralla, con precios similares, pero el tráfico puede ser denso."
+            },
+            {
+                "pregunta": "¿Qué métodos de pago son los más comunes en los puestos de comida de los mercados y huariques de Lima, efectivo o tarjeta de crédito?",
+                "respuesta": "En los mercados y huariques de Lima, el método de pago predominante es el efectivo en Soles peruanos. Muchos puestos pequeños no aceptan tarjetas de crédito o débito. Algunas fondas o huariques más establecidos pueden aceptar pagos con Yape o Plin (aplicaciones de pago móvil), pero siempre es mejor llevar efectivo."
+            },
+            {
+                "pregunta": "¿Cómo es la disponibilidad y limpieza de los baños públicos en los mercados gastronómicos de Lima, como el Mercado Central o el de Surquillo?",
+                "respuesta": "La disponibilidad de baños en los mercados de Lima es generalizada, pero su limpieza puede variar considerablemente. Suelen ser baños básicos y a menudo tienen un costo de S/ 0.50 a S/ 1.00 por uso. Es aconsejable llevar papel higiénico y desinfectante de manos."
+            },
+            {
+                "pregunta": "¿Es seguro caminar por las zonas de huariques en distritos como Lince o Surquillo en Lima durante la noche, y cómo es la iluminación de las calles?",
+                "respuesta": "Durante la noche, la seguridad en las zonas de huariques de Lince o Surquillo es generalmente aceptable en las calles principales y más transitadas, que suelen tener buena iluminación. Sin embargo, como en cualquier ciudad grande, se recomienda precaución, evitar calles poco iluminadas y no exhibir objetos de valor. Es preferible usar taxis de aplicaciones para desplazamientos nocturnos."
+            },
+            {
+                "pregunta": "¿Los huariques o los mercados de comida en Lima ofrecen conexión Wi-Fi gratuita para los turistas que los visitan?",
+                "respuesta": "Es muy raro encontrar Wi-Fi gratuito en los puestos de comida dentro de los mercados tradicionales de Lima. Algunos huariques o restaurantes más grandes y modernos pueden ofrecerlo, pero no es la norma. Se recomienda a los turistas contar con un plan de datos móviles para mantenerse conectados."
+            },
+            {
+                "pregunta": "¿Qué tan fácil es orientarse y encontrar huariques específicos en Lima sin un guía, hay buena señalización en las calles?",
+                "respuesta": "La señalización para huariques específicos en Lima es generalmente deficiente. Muchos de estos lugares son conocidos por el 'boca a boca' y no tienen grandes letreros. Es recomendable usar aplicaciones de mapas como Google Maps, preguntar a los locales o unirse a un tour gastronómico para una mejor experiencia de orientación."
+            },
+            {
+                "pregunta": "¿Cómo son las condiciones de las veredas y calles para peatones alrededor de mercados concurridos como el Mercado de Magdalena en Lima?",
+                "respuesta": "Las veredas y calles alrededor de mercados concurridos como el de Magdalena en Lima suelen ser bastante transitadas, con presencia de vendedores ambulantes, y pueden presentar irregularidades como baches, desniveles o obstáculos. Se requiere atención al caminar, especialmente para personas con movilidad reducida o familias con cochecitos de bebé."
+            },
+            {
+                "pregunta": "¿Existen tours gastronómicos en Lima que incluyan transporte privado y accesible a los huariques y mercados para grupos familiares?",
+                "respuesta": "Sí, varias agencias de turismo en Lima ofrecen tours gastronómicos privados que incluyen transporte. Al reservar, es crucial especificar que se requiere un vehículo accesible o adaptado para grupos familiares, especialmente si hay niños pequeños o personas con movilidad reducida. Estos tours suelen tener un costo más elevado, a partir de S/ 250 por persona, dependiendo de la duración y los lugares a visitar."
+            }
+        ],
+        "9_Reglas_Prohibiciones_Tramites": [
+            {
+                "pregunta": "Qué reglas de higiene alimentaria debo considerar al probar comida en huariques y mercados de Lima para evitar problemas estomacales?",
+                "respuesta": "Es crucial observar la limpieza del puesto, que los alimentos estén bien cocidos y calientes, y que el personal manipule el dinero y la comida por separado. Prefiere bebidas embotelladas y evita hielo si no estás seguro de su procedencia. En mercados como el de Surquillo, busca puestos con alta rotación de clientes."
+            },
+            {
+                "pregunta": "Es obligatorio pagar en efectivo en los mercados tradicionales y huariques de Lima o aceptan tarjetas de crédito?",
+                "respuesta": "En la gran mayoría de huariques y puestos de mercado en Lima, el pago es exclusivamente en efectivo (Soles peruanos). Es recomendable llevar billetes de baja denominación. Algunos mercados más grandes o huariques establecidos pueden aceptar Yape o Plin, pero las tarjetas de crédito son raras."
+            },
+            {
+                "pregunta": "Hay alguna prohibición o protocolo para tomar fotografías a los vendedores o productos en mercados como el Mercado Central de Lima?",
+                "respuesta": "No hay una prohibición estricta, pero es una regla de cortesía fundamental pedir permiso antes de fotografiar a las personas, especialmente a los vendedores. En algunos puestos, podrían preferir que no tomes fotos de sus productos por temas de competencia. Sé discreto y respetuoso."
+            },
+            {
+                "pregunta": "Se puede regatear los precios en los mercados de abastos de Lima o en los huariques de comida callejera?",
+                "respuesta": "En los mercados de abastos de Lima, el regateo es común y esperado para productos no alimenticios como artesanías o ropa. Sin embargo, para alimentos frescos, frutas, verduras y especialmente en los huariques de comida preparada, los precios suelen ser fijos y no se regatea."
+            },
+            {
+                "pregunta": "Existe alguna regla de vestimenta que deba seguir un turista al visitar huariques o mercados populares en distritos como La Victoria o Surquillo en Lima?",
+                "respuesta": "No hay un código de vestimenta formal. La regla es vestirse de manera cómoda, casual y discreta. Evita usar joyas llamativas o ropa muy ostentosa para no atraer atención innecesaria, especialmente en zonas concurridas como el Mercado de Frutas."
+            },
+            {
+                "pregunta": "Qué prohibiciones o recomendaciones de seguridad debo seguir para proteger mis objetos de valor en mercados concurridos de Lima?",
+                "respuesta": "La principal recomendación es evitar llevar objetos de valor innecesarios. Guarda tu dinero y documentos en un canguro o bolso cruzado pegado al cuerpo, nunca en bolsillos traseros. Evita exhibir tu teléfono móvil o cámara constantemente. En mercados como el de Caquetá, mantente siempre alerta."
+            },
+            {
+                "pregunta": "Es obligatorio dejar propina en los huariques y pequeños restaurantes de comida local en Lima y cuál es la cantidad usual?",
+                "respuesta": "No es estrictamente obligatorio en huariques muy informales, pero es una práctica común y muy apreciada si el servicio fue bueno. Una propina del 5% al 10% del total de la cuenta es lo usual. En algunos lugares más establecidos, podría haber un cargo por servicio incluido."
+            },
+            {
+                "pregunta": "Está permitido ingresar con mascotas a los mercados o huariques de comida en Lima, o hay alguna prohibición al respecto?",
+                "respuesta": "Generalmente, está prohibido el ingreso de mascotas a los mercados de abastos y huariques de comida en Lima por razones de higiene y salubridad. Solo se hacen excepciones para perros de asistencia debidamente identificados. Es mejor dejar a tu mascota en casa o en tu alojamiento."
+            },
+            {
+                "pregunta": "Qué trámites o permisos especiales necesito si quiero vender mis propios productos en un mercado de Lima como turista?",
+                "respuesta": "Como turista, no puedes vender productos en los mercados de Lima sin los permisos y licencias comerciales correspondientes, que son trámites complejos y exclusivos para residentes o empresas establecidas. No hay un 'permiso de turista' para vender en estos espacios."
+            },
+            {
+                "pregunta": "Cuáles son las reglas para desechar la basura o restos de comida al comer en la calle o en mercados de Lima?",
+                "respuesta": "La regla es siempre usar los tachos de basura designados que encontrarás en los mercados y en las calles principales. Evita dejar residuos en el suelo o en los puestos. Si no encuentras un tacho, guarda tu basura hasta que encuentres uno. Contribuir a la limpieza es una norma de convivencia básica."
+            }
+        ],
+        "10_Alternativas_Plan_B": [
+            {
+                "pregunta": "ERROR",
+                "respuesta": "Expecting ':' delimiter: line 35 column 7 (char 4348)"
+            }
+        ]
+    }
+}

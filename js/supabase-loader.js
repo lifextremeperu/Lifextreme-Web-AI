@@ -157,6 +157,12 @@ export async function initializeAppData() {
             // Asignar a window.tours para compatibilidad con el código existente
             window.tours = tours
             console.log(`✅ ${tours.length} tours cargados desde Supabase`)
+
+            // 🔥 SEO IA: Inject JSON-LD
+            import('./seo-manager.js').then(module => {
+                module.injectAllToursSEO(tours);
+            }).catch(e => console.error("Error loading SEO Manager:", e));
+
             return true
         } else {
             console.warn('⚠️ No se encontraron tours en Supabase')

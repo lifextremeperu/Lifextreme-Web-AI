@@ -1,0 +1,426 @@
+{
+    "destino_id": "A-02",
+    "modulo_contexto": "Santuario Arqueológico de Pachacámac",
+    "fqsas": {
+        "1_Precios_Presupuestos_Moneda": [
+            {
+                "pregunta": "¿Cuánto cuesta la entrada al Santuario de Pachacámac en Lima para turistas extranjeros en 2024?",
+                "respuesta": "La entrada general para turistas extranjeros al Santuario Arqueológico de Pachacámac en 2024 tiene un costo de 15 Soles peruanos por persona."
+            },
+            {
+                "pregunta": "¿Hay descuentos en el precio de la entrada a Pachacámac para estudiantes o adultos mayores peruanos?",
+                "respuesta": "Sí, los estudiantes universitarios peruanos y los adultos mayores de 60 años con DNI tienen un descuento, pagando 5 Soles. Los niños hasta 12 años pagan 2 Soles."
+            },
+            {
+                "pregunta": "¿Cuál es el costo aproximado de contratar un guía oficial en el Santuario de Pachacámac en Lima?",
+                "respuesta": "Contratar un guía oficial en Pachacámac puede costar entre 50 y 80 Soles por grupo (no por persona) para un recorrido de aproximadamente 1.5 a 2 horas, dependiendo de la disponibilidad y el acuerdo."
+            },
+            {
+                "pregunta": "¿Cuánto dinero necesito para ir en taxi o Uber desde Miraflores hasta Pachacámac en Lima?",
+                "respuesta": "Un viaje en taxi o a través de aplicaciones como Uber o Didi desde Miraflores hasta Pachacámac puede costar entre 40 y 60 Soles, dependiendo del tráfico y la hora del día."
+            },
+            {
+                "pregunta": "¿Es posible llegar a Pachacámac en transporte público desde Miraflores y cuánto cuesta el pasaje en Lima?",
+                "respuesta": "Sí, puedes tomar un bus 'Línea 8101' o 'Línea 8504' desde la Av. Arequipa en Miraflores. El pasaje cuesta entre 3 y 5 Soles, pero el viaje es largo y puede requerir transbordo."
+            },
+            {
+                "pregunta": "¿Qué moneda se usa en Pachacámac y puedo pagar con tarjeta de crédito en la entrada o en la tienda de souvenirs?",
+                "respuesta": "La moneda oficial es el Sol peruano (PEN). En la boletería de Pachacámac y en la tienda de souvenirs suelen aceptar tarjetas de crédito/débito (Visa, Mastercard), pero siempre es recomendable llevar algo de efectivo."
+            },
+            {
+                "pregunta": "¿Hay cajeros automáticos (ATMs) cerca del Santuario de Pachacámac en Lima para retirar efectivo?",
+                "respuesta": "No hay cajeros automáticos directamente en el santuario. Los más cercanos se encuentran en el pueblo de Pachacámac o en el distrito de Lurín, a varios kilómetros de distancia, por lo que es mejor ir con efectivo."
+            },
+            {
+                "pregunta": "¿Cuánto debo presupuestar para comer o beber algo cerca de Pachacámac en Lima?",
+                "respuesta": "Dentro del complejo no hay restaurantes, solo una pequeña cafetería con snacks. En el pueblo de Pachacámac o Lurín, un almuerzo sencillo puede costar entre 15 y 30 Soles por persona."
+            },
+            {
+                "pregunta": "¿Qué precios tienen los recuerdos o souvenirs en la tienda del museo de Pachacámac en Lima?",
+                "respuesta": "Los precios de los souvenirs en la tienda del museo de Pachacámac varían mucho. Puedes encontrar imanes desde 10 Soles, réplicas de cerámica desde 30 Soles y libros desde 50 Soles."
+            },
+            {
+                "pregunta": "¿Cuál sería un presupuesto estimado para una visita de medio día a Pachacámac desde Miraflores, incluyendo transporte y entrada?",
+                "respuesta": "Para una visita de medio día desde Miraflores, incluyendo transporte de ida y vuelta (taxi/app, 80-120 Soles), entrada (15 Soles) y un snack, podrías presupuestar entre 100 y 140 Soles por persona si viajas solo, o menos si compartes el taxi."
+            }
+        ],
+        "2_Logistica_Transporte_Como_Llegar": [
+            {
+                "pregunta": "¿Cuál es la mejor forma de llegar al Santuario de Pachacámac desde Miraflores, Lima, en transporte público?",
+                "respuesta": "Desde Miraflores, toma un bus o la Línea C del Metropolitano hasta la Estación Matellini en Chorrillos. Desde allí, busca los buses 'Chama' o 'San Bartolo' (rutas 8504, 8508) que van por la Antigua Panamericana Sur y te dejarán cerca del desvío a Pachacámac. El costo total es de aproximadamente 5-7 Soles."
+            },
+            {
+                "pregunta": "¿Cuánto cuesta un taxi o servicio de aplicación como Uber o Didi para ir de Lima al Santuario Arqueológico de Pachacámac?",
+                "respuesta": "Un viaje en taxi o aplicación desde distritos céntricos de Lima como Miraflores o San Isidro hasta Pachacámac puede costar entre 60 y 90 Soles, dependiendo del tráfico y la hora del día. Asegúrate de negociar el precio o confirmarlo en la app antes de iniciar el viaje."
+            },
+            {
+                "pregunta": "¿Existen tours organizados desde Lima que incluyan el transporte al Museo de Sitio y Santuario de Pachacámac?",
+                "respuesta": "Sí, la mayoría de las agencias de turismo en Lima ofrecen tours de medio día a Pachacámac que incluyen transporte de ida y vuelta desde tu hotel (generalmente en Miraflores, San Isidro o Barranco), guía bilingüe y entradas. Los precios suelen oscilar entre 40 y 70 USD por persona."
+            },
+            {
+                "pregunta": "¿Es seguro viajar en transporte público hasta Pachacámac desde el centro de Lima para turistas extranjeros?",
+                "respuesta": "Generalmente es seguro, pero requiere estar atento y conocer las rutas. Es recomendable usar el Metropolitano hasta Matellini y luego un bus formal. Evita llevar objetos de valor a la vista y mantente alerta. Para mayor comodidad y seguridad, un taxi o tour organizado es preferible."
+            },
+            {
+                "pregunta": "¿Dónde se toman los buses o colectivos que van hacia Pachacámac desde el sur de Lima?",
+                "respuesta": "Los buses y colectivos con destino a Pachacámac (o que pasan por el desvío) se toman principalmente en la Estación Matellini del Metropolitano en Chorrillos, o a lo largo de la Antigua Panamericana Sur. Busca las rutas que indican 'Lurín' o 'San Bartolo'."
+            },
+            {
+                "pregunta": "¿Hay estacionamiento disponible en el Santuario Arqueológico de Pachacámac si decido ir en mi propio auto desde Lima?",
+                "respuesta": "Sí, el Santuario de Pachacámac cuenta con un área de estacionamiento para vehículos particulares y buses turísticos, ubicado cerca de la entrada principal y el Museo de Sitio. Es un estacionamiento seguro y bien señalizado."
+            },
+            {
+                "pregunta": "¿Cuál es el tiempo estimado de viaje en auto desde el distrito de San Isidro, Lima, hasta el Santuario de Pachacámac?",
+                "respuesta": "El tiempo de viaje en auto desde San Isidro hasta Pachacámac es de aproximadamente 45 minutos a 1 hora y 15 minutos, dependiendo significativamente del tráfico en la Vía Expresa y la Panamericana Sur, especialmente en horas punta."
+            },
+            {
+                "pregunta": "¿Se puede llegar a Pachacámac en bicicleta desde Lima y qué tan recomendable es la ruta?",
+                "respuesta": "Sí, es posible llegar en bicicleta, pero no es la opción más recomendable para todos. La ruta es larga (aprox. 30-40 km desde Miraflores) y transcurre por carreteras con tráfico pesado como la Panamericana Sur. Se aconseja solo a ciclistas experimentados y con equipo adecuado."
+            },
+            {
+                "pregunta": "¿Existe alguna opción de transporte directo desde el Aeropuerto Jorge Chávez de Lima al Santuario de Pachacámac?",
+                "respuesta": "No existe transporte público directo desde el Aeropuerto Jorge Chávez a Pachacámac. Deberías tomar un taxi o un servicio de transporte privado desde el aeropuerto hasta Pachacámac (aproximadamente 1.5 a 2 horas de viaje y un costo elevado, entre 100 y 150 Soles)."
+            },
+            {
+                "pregunta": "¿Cuál es la ruta más económica para visitar el Santuario de Pachacámac desde el centro histórico de Lima?",
+                "respuesta": "La ruta más económica desde el Centro Histórico de Lima implica tomar el Metropolitano (Línea C o A) hasta la Estación Matellini en Chorrillos (aprox. 3.20 Soles). Luego, desde Matellini, tomar un bus o colectivo que vaya por la Antigua Panamericana Sur hacia Lurín o San Bartolo (aprox. 3-4 Soles), pidiendo bajar en el desvío a Pachacámac."
+            }
+        ],
+        "3_Seguridad_Riesgos_Salud": [
+            {
+                "pregunta": "¿Es seguro visitar el Santuario de Pachacámac en Lima para turistas extranjeros y qué riesgos de seguridad debo considerar?",
+                "respuesta": "El Santuario de Pachacámac es generalmente seguro durante el horario de visita. Se recomienda permanecer en los senderos señalizados, no alejarse de los grupos y seguir las indicaciones del personal. Los riesgos de seguridad son mínimos si se actúa con precaución y se evitan zonas no autorizadas."
+            },
+            {
+                "pregunta": "¿Es seguro el trayecto en transporte público o taxi desde el centro de Lima hasta Pachacámac y qué precauciones debo tomar?",
+                "respuesta": "Para el trayecto, se aconseja usar taxis de aplicaciones reconocidas como 'Uber' o 'Cabify', o taxis de empresas formales. Evite tomar taxis informales en la calle. Si usa transporte público (buses), mantenga sus pertenencias seguras y esté atento a su alrededor, especialmente en paradas concurridas como el 'Paradero Atocongo'."
+            },
+            {
+                "pregunta": "¿Qué precauciones de salud debo tomar contra el sol y el calor al visitar Pachacámac en Lima, especialmente en verano?",
+                "respuesta": "Pachacámac está en una zona costera abierta, con alta exposición solar. Es crucial usar protector solar de alto SPF (factor de protección solar), sombrero de ala ancha, gafas de sol y ropa ligera. Manténgase hidratado bebiendo suficiente agua, especialmente entre las 10 a.m. y las 4 p.m., que son las horas de mayor radiación."
+            },
+            {
+                "pregunta": "¿Hay puntos de venta de agua o alimentos seguros dentro del Santuario de Pachacámac para evitar deshidratación o problemas estomacales?",
+                "respuesta": "Sí, el museo de sitio cuenta con una pequeña cafetería donde se pueden adquirir bebidas embotelladas y algunos snacks. Se recomienda llevar su propia botella de agua recargable para mantenerse hidratado durante el recorrido, que puede durar varias horas bajo el sol. Los alimentos externos son permitidos para consumo personal."
+            },
+            {
+                "pregunta": "¿El terreno en Pachacámac presenta riesgos de caídas o dificultades para personas con movilidad reducida o niños pequeños?",
+                "respuesta": "El santuario tiene senderos de tierra y algunas pendientes suaves. Se recomienda usar calzado cómodo y cerrado. Para personas con movilidad reducida, algunas áreas pueden ser desafiantes, aunque el museo y partes del recorrido principal son accesibles. Supervise a los niños de cerca para evitar tropiezos o caídas en las estructuras arqueológicas."
+            },
+            {
+                "pregunta": "¿Qué servicios de primeros auxilios o asistencia médica de emergencia están disponibles en el Santuario de Pachacámac en Lima?",
+                "respuesta": "El museo de sitio cuenta con personal capacitado en primeros auxilios y un botiquín básico. En caso de una emergencia mayor, se coordinaría el traslado al centro de salud más cercano en el distrito de Lurín o a una clínica en Lima, como la 'Clínica San Pablo' o 'Clínica Ricardo Palma', dependiendo de la gravedad."
+            },
+            {
+                "pregunta": "¿Existen riesgos de robos o hurtos de pertenencias personales al visitar Pachacámac o en sus alrededores en Lima?",
+                "respuesta": "Como en cualquier sitio turístico, siempre existe un riesgo mínimo de hurtos. Se aconseja no exhibir objetos de valor (celulares, cámaras), mantener bolsos y mochilas cerrados y al frente, y no dejar objetos desatendidos. El santuario cuenta con vigilancia, pero la precaución personal es clave, especialmente en el transporte público."
+            },
+            {
+                "pregunta": "¿Hay insectos o animales peligrosos de los que deba protegerme al visitar el Santuario de Pachacámac en la costa de Lima?",
+                "respuesta": "En general, no hay animales peligrosos de gran tamaño. Podría haber mosquitos, especialmente en zonas con vegetación o cerca de cuerpos de agua, por lo que un repelente de insectos es recomendable, sobre todo al atardecer. Manténgase alejado de cualquier animal silvestre pequeño que pueda encontrar y no los alimente."
+            },
+            {
+                "pregunta": "¿La calidad del aire en Pachacámac, Lima, es un factor de riesgo para personas con problemas respiratorios?",
+                "respuesta": "Pachacámac se encuentra en una zona costera, generalmente con buena ventilación. Sin embargo, en días ventosos, puede haber polvo debido a los senderos de tierra. Para personas con asma o sensibilidades respiratorias, se recomienda llevar su medicación habitual y considerar el uso de una mascarilla ligera si el polvo es un problema."
+            },
+            {
+                "pregunta": "¿Es seguro visitar el Santuario de Pachacámac fuera del horario de atención o en tours nocturnos especiales en Lima?",
+                "respuesta": "Las visitas al Santuario de Pachacámac deben realizarse exclusivamente dentro del horario oficial de atención (generalmente de 9 a.m. a 5 p.m., cerrado los lunes). No se recomienda ni es seguro intentar ingresar fuera de este horario, ya que no hay vigilancia ni iluminación adecuadas, y el acceso está restringido por motivos de seguridad y conservación."
+            }
+        ],
+        "4_Clima_Temporadas_Horarios": [
+            {
+                "pregunta": "¿Cuál es el clima típico en el Santuario Arqueológico de Pachacámac en Lima durante el verano?",
+                "respuesta": "Durante el verano (diciembre a abril), el clima en Pachacámac es soleado, cálido y húmedo, con temperaturas que pueden superar los 30°C. Es esencial usar protector solar, sombrero y llevar agua para mantenerse hidratado."
+            },
+            {
+                "pregunta": "¿Cómo es el clima en Pachacámac, Lima, durante los meses de invierno y qué ropa debo llevar?",
+                "respuesta": "En invierno (junio a octubre), Pachacámac experimenta un clima fresco, nublado y húmedo, con la característica 'garúa' (neblina costera). Las temperaturas oscilan entre 15°C y 20°C. Se recomienda llevar ropa abrigadora, como casacas ligeras o cortavientos, y calzado cómodo."
+            },
+            {
+                "pregunta": "¿Cuál es la mejor época del año para visitar el Santuario de Pachacámac en Lima para evitar multitudes y disfrutar del buen tiempo?",
+                "respuesta": "La mejor época para visitar Pachacámac y disfrutar de un clima agradable con menos aglomeraciones es durante la primavera (septiembre a noviembre) o el otoño (abril a junio), cuando las temperaturas son moderadas y la neblina es menos densa que en invierno."
+            },
+            {
+                "pregunta": "¿Cuáles son los horarios de atención del Santuario Arqueológico de Pachacámac y su museo de sitio en Lima?",
+                "respuesta": "El Santuario Arqueológico de Pachacámac y su Museo de Sitio suelen abrir de martes a sábado de 9:00 a 17:00 horas, y los domingos de 9:00 a 16:00 horas. Los lunes y feriados específicos como el 1 de enero, Viernes Santo, 1 de mayo, 28 y 29 de julio, 25 de diciembre, suelen estar cerrados. Siempre es recomendable verificar en la web oficial del Ministerio de Cultura antes de la visita."
+            },
+            {
+                "pregunta": "¿Hay horarios especiales o cierres programados para Pachacámac en Lima durante feriados nacionales peruanos?",
+                "respuesta": "Sí, el Santuario de Pachacámac y su museo cierran en algunos feriados nacionales importantes como el 1 de enero, Viernes Santo, 1 de mayo, 28 y 29 de julio (Fiestas Patrias) y 25 de diciembre. Es crucial consultar el calendario oficial o la página del Ministerio de Cultura de Perú para confirmación, ya que pueden variar."
+            },
+            {
+                "pregunta": "¿Hasta qué hora se permite el último ingreso al complejo arqueológico de Pachacámac en Lima antes del cierre?",
+                "respuesta": "Generalmente, el último ingreso al Santuario Arqueológico de Pachacámac se permite una hora antes del cierre oficial. Esto significa hasta las 16:00 horas de martes a sábado y hasta las 15:00 horas los domingos. Planifique su llegada con tiempo suficiente."
+            },
+            {
+                "pregunta": "¿Cuánto tiempo se necesita para recorrer completamente el Santuario de Pachacámac y su museo en Lima?",
+                "respuesta": "Para una visita completa y enriquecedora al Santuario de Pachacámac, incluyendo el recorrido por el complejo arqueológico y el Museo de Sitio, se recomienda destinar entre 2.5 a 3.5 horas. Esto permite apreciar los templos, palacios y las exhibiciones del museo sin apuros."
+            },
+            {
+                "pregunta": "¿Cómo afecta la temporada de garúa (neblina) en Lima la experiencia de visitar Pachacámac?",
+                "respuesta": "La garúa, típica del invierno limeño (junio a octubre), puede reducir la visibilidad y hacer que el ambiente sea más fresco y húmedo en Pachacámac. Aunque no impide la visita, puede limitar las vistas panorámicas desde los templos más altos y se recomienda llevar un cortavientos."
+            },
+            {
+                "pregunta": "¿Es recomendable visitar Pachacámac en Lima durante la temporada de lluvias, si es que hay alguna?",
+                "respuesta": "La costa de Lima, incluyendo Pachacámac, es una zona desértica y prácticamente no tiene una temporada de lluvias significativas. Lo más parecido a 'lluvia' es la garúa invernal, que es una neblina fina. Por lo tanto, no hay una temporada de lluvias que deba preocupar a los visitantes."
+            },
+            {
+                "pregunta": "¿Qué precauciones debo tomar respecto al sol y el calor si visito Pachacámac en Lima durante la temporada de verano?",
+                "respuesta": "Durante el verano (diciembre a abril), el sol en Pachacámac es muy intenso. Es indispensable usar protector solar de alto factor, sombrero o gorra de ala ancha, gafas de sol y ropa ligera de colores claros. Mantenerse hidratado bebiendo suficiente agua es crucial para evitar golpes de calor."
+            }
+        ],
+        "5_Historia_Cultura_Curiosidades": [
+            {
+                "pregunta": "¿Qué culturas preincas habitaron el Santuario de Pachacámac en Lima antes de la llegada de los Incas?",
+                "respuesta": "El sitio fue ocupado sucesivamente por las culturas Lima (200-600 d.C.), Wari (600-1100 d.C.) e Ichma (1100-1450 d.C.), cada una dejando su huella arquitectónica y religiosa antes de la anexión Inca."
+            },
+            {
+                "pregunta": "¿Cuál era la función principal del Templo del Sol en el complejo arqueológico de Pachacámac en Lima?",
+                "respuesta": "El Templo del Sol, construido por los Incas, era el edificio más imponente y estaba dedicado al culto del Inti, el dios Sol. Desde allí se realizaban ceremonias importantes y se observaba el solsticio de invierno."
+            },
+            {
+                "pregunta": "¿Qué se sabe del ídolo original del dios Pachacámac y dónde puedo ver una representación en Lima?",
+                "respuesta": "El ídolo de madera original del dios Pachacámac fue destruido por Hernando Pizarro en 1533. Sin embargo, una réplica basada en descripciones históricas y hallazgos arqueológicos se exhibe en el Museo de Sitio de Pachacámac, en Lurín, Lima."
+            },
+            {
+                "pregunta": "¿Cómo eran las peregrinaciones y ofrendas que se hacían al oráculo de Pachacámac en la costa de Lima?",
+                "respuesta": "Miles de peregrinos llegaban desde diversas regiones andinas para consultar el oráculo y dejar ofrendas como cerámicas finas, textiles, alimentos y objetos de metal, buscando respuestas sobre el futuro o la prosperidad."
+            },
+            {
+                "pregunta": "¿Quién era el dios Pachacámac y por qué era tan venerado en el Perú antiguo, incluso en Lima?",
+                "respuesta": "Pachacámac era una deidad creadora y oracular, cuyo nombre significa 'el que anima la tierra'. Se le atribuía el poder de causar terremotos y se le consultaba para predecir el futuro, siendo venerado por múltiples culturas preincas y los Incas."
+            },
+            {
+                "pregunta": "¿Cuáles son las estructuras más importantes para entender la historia de Pachacámac en Lima?",
+                "respuesta": "Destacan las Pirámides con Rampa de la cultura Ichma (como la Pirámide N°1), el Templo del Sol y el Acllahuasi Incas, y el Templo Viejo, que muestran la superposición cultural y religiosa del sitio."
+            },
+            {
+                "pregunta": "¿Cuándo y quién inició las primeras excavaciones arqueológicas importantes en el Santuario de Pachacámac en Lima?",
+                "respuesta": "Las primeras excavaciones científicas de gran envergadura en Pachacámac fueron realizadas por el arqueólogo alemán Max Uhle a finales del siglo XIX, entre 1895 y 1896, revelando la riqueza histórica del sitio."
+            },
+            {
+                "pregunta": "¿Existe alguna leyenda o mito local interesante sobre el origen de Pachacámac en Lima que los guías cuenten?",
+                "respuesta": "Una leyenda popular cuenta que Pachacámac fue el dios creador del mundo andino y que su hijo, Vichama, fue quien castigó a los hombres por su mal comportamiento, transformándolos en piedras y animales."
+            },
+            {
+                "pregunta": "¿Qué función cumplía el Acllahuasi o 'Casa de las Escogidas' en el Santuario de Pachacámac durante el Imperio Inca en Lima?",
+                "respuesta": "El Acllahuasi era un centro de reclusión para mujeres jóvenes 'escogidas' que se dedicaban a la producción de textiles finos para el Inca y el culto, la preparación de chicha y el servicio religioso, bajo estricta supervisión."
+            },
+            {
+                "pregunta": "¿Por qué el Santuario de Pachacámac en Lima fue considerado un centro de peregrinación tan influyente en el Perú prehispánico?",
+                "respuesta": "Su oráculo, famoso por su precisión y poder, atraía a peregrinos de todo el Tahuantinsuyo y culturas anteriores. La creencia en el dios Pachacámac como creador y controlador de la tierra le otorgaba una autoridad espiritual inmensa."
+            }
+        ],
+        "6_Tips_Locales_Secretos": [
+            {
+                "pregunta": "¿Cuál es el mejor horario para visitar Pachacámac en Lima y evitar las multitudes de tours organizados?",
+                "respuesta": "Los locales recomiendan ir muy temprano, apenas abren a las 9:00 AM, o después de las 3:00 PM. A esas horas, el sol es menos intenso y los grandes grupos de turistas ya se han ido o aún no han llegado, permitiendo fotos más despejadas y una experiencia más tranquila en el Santuario de Pachacámac."
+            },
+            {
+                "pregunta": "¿Cómo puedo llegar al Santuario de Pachacámac en Lima usando transporte público local y económico?",
+                "respuesta": "Desde el centro de Lima, toma un bus 'Chosicano' o 'Lurín' en la Av. Abancay o Paseo Colón que vaya hacia el sur por la Antigua Panamericana Sur. Baja en el paradero 'Pachacámac' (cerca del desvío a la antigua carretera). Desde ahí, puedes tomar un mototaxi por unos S/3-S/5 hasta la entrada del museo. El costo total del pasaje en bus no debería exceder los S/5."
+            },
+            {
+                "pregunta": "¿Hay algún mirador o zona menos conocida en Pachacámac, Lima, que ofrezca vistas espectaculares del complejo?",
+                "respuesta": "Sí, muchos visitantes se quedan en la ruta principal. Busca el sendero que sube al 'Templo del Sol' y, en lugar de bajar directamente, explora un poco más hacia el sur-este. Hay un punto elevado natural, no señalizado como mirador oficial, desde donde se tiene una vista panorámica impresionante del complejo, el valle de Lurín y el océano, ideal al atardecer."
+            },
+            {
+                "pregunta": "¿Dónde comen los locales cerca del Santuario de Pachacámac en Lima para probar comida auténtica y a buen precio?",
+                "respuesta": "En el pueblo de Pachacámac, a unos 10-15 minutos en mototaxi desde el santuario, encontrarás varios 'huariques' (restaurantes pequeños y tradicionales). Busca el 'Mercado de Pachacámac' y sus alrededores. Hay puestos que venden 'chancho al palo' o 'caja china' los fines de semana, y cevicherías sencillas pero deliciosas. Un plato principal rara vez supera los S/20."
+            },
+            {
+                "pregunta": "¿Qué objetos específicos recomiendan los limeños llevar a Pachacámac para una visita más cómoda y provechosa?",
+                "respuesta": "Además de agua y sombrero, un tip local es llevar calzado cerrado y cómodo, ya que el terreno es irregular y arenoso. También, un pañuelo o bandana es útil para protegerse del polvo y el viento. Si vas en verano (diciembre a marzo), un buen repelente es clave por la cercanía al río Lurín."
+            },
+            {
+                "pregunta": "¿Cómo puedo encontrar un guía local independiente y conocedor en Pachacámac, Lima, que no sea parte de un tour masivo?",
+                "respuesta": "Al llegar al museo de sitio de Pachacámac, pregunta en la boletería por guías locales certificados que trabajen de forma independiente. A menudo hay algunos disponibles que ofrecen tours personalizados por un costo negociable (usualmente entre S/50 y S/80 por grupo pequeño, por una hora y media). Ellos suelen tener historias y detalles que no se encuentran en los paneles informativos."
+            },
+            {
+                "pregunta": "¿Qué actividad local secreta puedo combinar con la visita a Pachacámac en Lima para un día completo diferente?",
+                "respuesta": "Un tip es visitar la 'Laguna de Urpiwachaq' en el mismo valle de Lurín, a pocos kilómetros del santuario. Es un humedal poco conocido por turistas, ideal para observación de aves y un picnic tranquilo. Luego, puedes terminar el día en alguna de las playas de la zona sur como 'San Pedro' o 'El Silencio' (en verano), que están a unos 20-30 minutos en auto."
+            },
+            {
+                "pregunta": "¿Existen reglas de fotografía específicas o ángulos 'secretos' para tomar fotos impresionantes en el Santuario de Pachacámac en Lima?",
+                "respuesta": "La regla general es no usar flash dentro del museo y respetar las zonas restringidas. Para fotos espectaculares, los locales sugieren capturar el Templo del Sol al amanecer o atardecer, cuando la luz dorada resalta los colores de la arcilla. También, busca los cactus gigantes y las vistas del océano desde las partes altas, que ofrecen un contraste único."
+            },
+            {
+                "pregunta": "¿Dónde puedo comprar artesanías auténticas y no tan turísticas cerca del Santuario de Pachacámac en Lima?",
+                "respuesta": "En lugar de las tiendas de souvenirs del museo, te sugiero ir al 'Centro Artesanal de Pachacámac', que está en el pueblo. Allí encontrarás talleres de artesanos locales que venden cerámica, textiles y objetos de madera inspirados en la cultura preínca, a precios más justos y con mayor autenticidad. Pregunta por los talleres que hacen réplicas de la iconografía de Pachacámac."
+            },
+            {
+                "pregunta": "¿Hay algún consejo de seguridad o advertencia local específica para visitar el Santuario de Pachacámac en Lima?",
+                "respuesta": "Aunque la zona es generalmente segura, los locales recomiendan no aventurarse solo por senderos no señalizados fuera del complejo principal, especialmente al anochecer. Si usas mototaxis, asegúrate que sean los formales con chaleco y número de registro. Siempre ten tu celular cargado y lleva efectivo en soles para pequeños gastos, ya que no todos los lugares aceptan tarjeta."
+            }
+        ],
+        "7_Gastronomia_Alimentos_Supervivencia": [
+            {
+                "pregunta": "¿Hay opciones de comida y bebida dentro del Santuario Arqueológico de Pachacámac en Lima para turistas?",
+                "respuesta": "Sí, dentro del Santuario de Pachacámac hay una pequeña cafetería o kiosco cerca del museo de sitio donde puedes comprar bebidas embotelladas, snacks como galletas o papas fritas, y a veces sándwiches simples. Los precios suelen ser un poco más altos que fuera, por ejemplo, una botella de agua de 600ml puede costar entre S/ 3 y S/ 5. Es recomendable llevar tus propios snacks si tienes preferencias específicas o quieres ahorrar."
+            },
+            {
+                "pregunta": "¿Se puede llevar comida y agua al Santuario de Pachacámac en Lima para un picnic o hidratación?",
+                "respuesta": "Sí, está permitido llevar tu propia comida y bebidas no alcohólicas al Santuario de Pachacámac. De hecho, es muy recomendable llevar suficiente agua, especialmente en días soleados, ya que la caminata puede ser larga y expuesta. No hay áreas designadas para picnic, pero puedes encontrar bancos o zonas con sombra para un breve descanso."
+            },
+            {
+                "pregunta": "¿Dónde puedo comprar agua potable o bebidas frías cerca del Santuario Arqueológico de Pachacámac en Lima antes de entrar?",
+                "respuesta": "Antes de llegar a la entrada principal del Santuario de Pachacámac, en la carretera Panamericana Sur o en el pueblo de Pachacámac, encontrarás bodegas y pequeños mercados donde puedes comprar agua embotellada, gaseosas y jugos a precios más económicos que dentro del sitio. Es buena idea abastecerse allí."
+            },
+            {
+                "pregunta": "¿Qué tipo de restaurantes o lugares para comer hay cerca del Santuario de Pachacámac en Lima después de la visita?",
+                "respuesta": "En el pueblo de Pachacámac, a pocos kilómetros del Santuario, hay varios restaurantes campestres que ofrecen comida criolla peruana, especialmente platos como la pachamanca, carnes a la parrilla y sopas. Algunos populares son 'El Rancho de Robertín' o 'La Granja Azul' (este último un poco más alejado pero famoso por su pollo a la brasa). Los precios de un plato principal varían entre S/ 30 y S/ 70."
+            },
+            {
+                "pregunta": "¿Qué alimentos consumían los antiguos habitantes de Pachacámac en la costa de Lima y se pueden probar versiones modernas?",
+                "respuesta": "Los antiguos habitantes de Pachacámac basaban su dieta en productos marinos como pescado y mariscos, maíz, frijoles, calabazas y camotes. Aunque no hay restaurantes que ofrezcan una 'dieta preínca' auténtica, puedes encontrar muchos de estos ingredientes en la gastronomía criolla local. Por ejemplo, el cebiche (pescado y mariscos) o la causa rellena (papa, ají, limón) son platos que incorporan ingredientes ancestrales y se pueden disfrutar en los restaurantes cercanos al pueblo de Pachacámac."
+            },
+            {
+                "pregunta": "¿Existen opciones de comida para vegetarianos o veganos en los alrededores del Santuario de Pachacámac en Lima?",
+                "respuesta": "En los restaurantes campestres del pueblo de Pachacámac, las opciones vegetarianas o veganas pueden ser limitadas, pero es posible encontrar ensaladas, papas sancochadas, camotes fritos o pedir que preparen platos sin carne o productos lácteos. Siempre es mejor preguntar directamente al personal del restaurante. Dentro del Santuario, solo encontrarás snacks básicos."
+            },
+            {
+                "pregunta": "¿Es seguro comer en los puestos callejeros o mercados locales cerca de Pachacámac en Lima para evitar problemas estomacales?",
+                "respuesta": "Como en cualquier lugar, se recomienda precaución al comer en puestos callejeros. Si decides probar, busca lugares con alta rotación de clientes, buena higiene visible y donde la comida se prepare al momento. Es más seguro optar por restaurantes establecidos en el pueblo de Pachacámac para evitar riesgos de salud, especialmente si tienes un estómago sensible."
+            },
+            {
+                "pregunta": "¿Qué debo hacer si me deshidrato o necesito un snack de emergencia durante mi visita a Pachacámac en Lima?",
+                "respuesta": "La mejor prevención es llevar suficiente agua y algunos snacks energéticos como barras de cereal o frutas secas. Si sientes deshidratación o mareo, busca sombra inmediatamente. Hay personal de seguridad y guías en el sitio que pueden asistirte. La cafetería del museo es el único punto de venta de bebidas y snacks dentro del complejo."
+            },
+            {
+                "pregunta": "¿Hay mercados de productos frescos o agrícolas cerca del Santuario de Pachacámac en Lima donde pueda comprar alimentos locales?",
+                "respuesta": "Sí, en el pueblo de Pachacámac, especialmente los fines de semana, puedes encontrar pequeños mercados locales donde los agricultores venden productos frescos de la zona como frutas, verduras y hierbas. No es un mercado turístico grande, sino más bien un mercado para los residentes, pero es una buena oportunidad para ver productos locales."
+            },
+            {
+                "pregunta": "¿Cuál es la mejor estrategia para asegurar alimentos y bebidas si visito el Santuario de Pachacámac en Lima con niños pequeños?",
+                "respuesta": "Para visitar Pachacámac con niños, la mejor estrategia es ir bien preparado. Lleva una mochila con abundante agua, jugos, snacks saludables (frutas, galletas, sándwiches pequeños) y cualquier alimento específico que los niños puedan necesitar. La cafetería del sitio tiene opciones limitadas que quizás no gusten a todos los niños. Planifica tu visita para que coincida con las horas de comida fuera del complejo, en los restaurantes del pueblo de Pachacámac, para una experiencia más cómoda."
+            }
+        ],
+        "8_Accesibilidad_Infraestructura": [
+            {
+                "pregunta": "¿Cómo llegar al Santuario de Pachacámac desde Miraflores, Lima, en transporte público?",
+                "respuesta": "Desde Miraflores, toma un bus del Metropolitano hasta la Estación Matellini en Chorrillos. Desde allí, puedes tomar un bus de transporte público (como las líneas 8504 o 'El Chino') que vaya por la Antigua Panamericana Sur y te deje cerca de la entrada del Santuario de Pachacámac. El trayecto total puede durar entre 1.5 a 2 horas, dependiendo del tráfico."
+            },
+            {
+                "pregunta": "¿Hay estacionamiento seguro y gratuito en el Museo de Sitio de Pachacámac en Lima?",
+                "respuesta": "Sí, el Santuario de Pachacámac cuenta con un área de estacionamiento vigilado y gratuito para vehículos particulares y buses turísticos justo al lado del Museo de Sitio. Es bastante amplio y seguro durante el horario de visita."
+            },
+            {
+                "pregunta": "¿Es accesible el Santuario Arqueológico de Pachacámac en Lima para personas en silla de ruedas o con movilidad reducida?",
+                "respuesta": "El Museo de Sitio de Pachacámac es completamente accesible para sillas de ruedas, con rampas y ascensores. Sin embargo, el recorrido por las ruinas arqueológicas es más desafiante, con senderos de tierra, desniveles y escalinatas en algunas zonas, lo que limita la accesibilidad total para sillas de ruedas en el complejo exterior."
+            },
+            {
+                "pregunta": "¿Qué servicios higiénicos y facilidades básicas encuentro en el Santuario de Pachacámac, Lima?",
+                "respuesta": "El Santuario de Pachacámac cuenta con servicios higiénicos limpios y bien mantenidos ubicados en el área del Museo de Sitio y cerca de la entrada principal. También encontrarás una pequeña cafetería/tienda de souvenirs y áreas de descanso. No hay restaurantes grandes dentro del complejo."
+            },
+            {
+                "pregunta": "¿Está pavimentada la carretera para llegar al Santuario de Pachacámac desde Lima?",
+                "respuesta": "Sí, la ruta principal para llegar al Santuario de Pachacámac, ya sea por la Panamericana Sur o la Antigua Panamericana Sur, está completamente pavimentada y en buen estado. Los últimos metros hasta la entrada del complejo también son asfaltados."
+            },
+            {
+                "pregunta": "¿Hay cobertura de celular o Wi-Fi disponible en el Santuario Arqueológico de Pachacámac, Lima?",
+                "respuesta": "La cobertura de celular es generalmente buena en todo el Santuario de Pachacámac para las principales operadoras (Claro, Movistar, Entel). El Museo de Sitio suele ofrecer Wi-Fi gratuito para los visitantes, aunque la señal puede variar en las zonas más alejadas del complejo arqueológico."
+            },
+            {
+                "pregunta": "¿La señalización dentro del Santuario de Pachacámac en Lima es clara para los visitantes sin guía?",
+                "respuesta": "Sí, el Santuario de Pachacámac cuenta con una buena señalización bilingüe (español e inglés) a lo largo de los senderos principales, indicando los puntos de interés, rutas y la historia de cada sector. Esto facilita la visita autoguiada."
+            },
+            {
+                "pregunta": "¿Es seguro visitar el Santuario de Pachacámac en Lima por cuenta propia o es mejor ir en tour organizado?",
+                "respuesta": "El Santuario de Pachacámac es un sitio seguro para visitar por cuenta propia durante el horario de apertura. Cuenta con personal de seguridad y vigilancia. Sin embargo, como en cualquier lugar turístico, siempre se recomienda estar atento a sus pertenencias. Un tour organizado puede ofrecer mayor comodidad en el transporte y la explicación guiada."
+            },
+            {
+                "pregunta": "¿Se pueden contratar guías oficiales en la entrada del Santuario de Pachacámac en Lima?",
+                "respuesta": "Sí, en la entrada del Santuario de Pachacámac y en el área del Museo de Sitio, es posible contratar guías oficiales de turismo que ofrecen recorridos por el complejo arqueológico. Los precios varían según la duración y el idioma, y se negocian directamente con ellos."
+            },
+            {
+                "pregunta": "¿Con qué frecuencia pasan los buses de transporte público hacia Pachacámac desde el sur de Lima?",
+                "respuesta": "Los buses de transporte público que van hacia Pachacámac por la Antigua Panamericana Sur, como las líneas 8504 o 'El Chino', tienen una frecuencia relativamente alta, pasando cada 10 a 15 minutos en horas punta y cada 20 a 30 minutos en horas valle, especialmente desde paraderos importantes en Chorrillos o Lurín."
+            }
+        ],
+        "9_Reglas_Prohibiciones_Tramites": [
+            {
+                "pregunta": "¿Hay alguna prohibición sobre tomar fotos o videos dentro del Santuario de Pachacámac en Lima?",
+                "respuesta": "Sí, está permitido tomar fotografías y videos para uso personal en la mayoría de las áreas del Santuario de Pachacámac, pero el uso de drones requiere un permiso especial previo. No se permite el uso de flash en el museo de sitio para proteger las piezas."
+            },
+            {
+                "pregunta": "¿Puedo ingresar con alimentos o bebidas al complejo arqueológico de Pachacámac en Lima?",
+                "respuesta": "No, está prohibido ingresar con alimentos y bebidas alcohólicas al interior del complejo arqueológico de Pachacámac. Se permite el ingreso de agua embotellada y snacks ligeros, pero deben consumirse en áreas designadas o fuera de las zonas arqueológicas."
+            },
+            {
+                "pregunta": "¿Es obligatorio contratar un guía oficial para recorrer Pachacámac en Lima?",
+                "respuesta": "No es obligatorio contratar un guía para visitar Pachacámac en Lima, puedes recorrer el sitio por tu cuenta siguiendo la señalización. Sin embargo, se recomienda encarecidamente para una mejor comprensión histórica y cultural, y hay guías disponibles en la entrada."
+            },
+            {
+                "pregunta": "¿Está permitido tocar las estructuras antiguas o los muros en el Santuario de Pachacámac en Lima?",
+                "respuesta": "No, está estrictamente prohibido tocar las estructuras arqueológicas, muros, o cualquier elemento patrimonial dentro del Santuario de Pachacámac en Lima para preservar su integridad. Se pide a los visitantes mantener una distancia prudente y respetar las barreras."
+            },
+            {
+                "pregunta": "¿Cuáles son los trámites o reglas para usar drones en el Santuario Arqueológico de Pachacámac en Lima?",
+                "respuesta": "El uso de drones en el Santuario Arqueológico de Pachacámac está restringido y requiere una autorización previa del Ministerio de Cultura. Debes presentar una solicitud formal con anticipación especificando el propósito y las fechas de filmación."
+            },
+            {
+                "pregunta": "¿Se puede ingresar con mascotas al Santuario de Pachacámac en Lima?",
+                "respuesta": "No, el ingreso de mascotas al Santuario Arqueológico de Pachacámac en Lima está prohibido, con excepción de perros guía para personas con discapacidad, los cuales deben estar debidamente identificados y bajo control en todo momento."
+            },
+            {
+                "pregunta": "¿Cómo se compran las entradas para Pachacámac en Lima y hay opción de compra online?",
+                "respuesta": "Las entradas para Pachacámac en Lima se pueden comprar directamente en la boletería del sitio arqueológico al momento de tu visita. Actualmente, no hay un sistema de venta de entradas online oficial, por lo que la compra es presencial al llegar."
+            },
+            {
+                "pregunta": "¿Existen restricciones sobre el tamaño de las mochilas o hay servicio de guardarropa en Pachacámac, Lima?",
+                "respuesta": "No hay un servicio de guardarropa o lockers oficial en Pachacámac, Lima. Se recomienda llevar mochilas pequeñas y ligeras. Bolsos grandes o equipaje voluminoso pueden ser restringidos en ciertas áreas del museo o del complejo por seguridad y conservación."
+            },
+            {
+                "pregunta": "¿Qué reglas de accesibilidad existen para visitantes con movilidad reducida en el Santuario de Pachacámac en Lima?",
+                "respuesta": "El Santuario de Pachacámac en Lima cuenta con algunas facilidades para personas con movilidad reducida, especialmente en el museo de sitio que es accesible con rampas. Sin embargo, el recorrido por las ruinas presenta terrenos irregulares y pendientes, lo que puede dificultar el acceso en silla de ruedas a ciertas zonas."
+            },
+            {
+                "pregunta": "¿Qué objetos están prohibidos llevar al interior del complejo arqueológico de Pachacámac en Lima?",
+                "respuesta": "Está prohibido ingresar al complejo arqueológico de Pachacámac en Lima con armas, objetos punzocortantes, aerosoles, sustancias inflamables, bebidas alcohólicas, equipos de sonido de alto volumen, y cualquier objeto que pueda dañar el patrimonio o molestar a otros visitantes."
+            }
+        ],
+        "10_Alternativas_Plan_B": [
+            {
+                "pregunta": "Si el Santuario de Pachacámac en Lima está cerrado o no es accesible, ¿qué otra huaca preínca importante puedo visitar en la ciudad?",
+                "respuesta": "Una excelente alternativa es la Huaca Pucllana en Miraflores. Es un centro ceremonial de la cultura Lima, abierto de miércoles a lunes de 9:00 a 17:00. La entrada general cuesta S/15.00 y se puede llegar fácilmente en taxi o bus desde cualquier punto céntrico de Lima."
+            },
+            {
+                "pregunta": "¿Qué museo en Lima ofrece una experiencia cultural precolombina profunda y similar a la de Pachacámac si mi plan original falla?",
+                "respuesta": "El Museo Larco, ubicado en Pueblo Libre, es una alternativa excepcional. Alberga una impresionante colección de arte precolombino peruano. Abre todos los días de 10:00 a 19:00 y la entrada general es de S/35.00. Se recomienda reservar con anticipación en su web oficial."
+            },
+            {
+                "pregunta": "Para una alternativa más rápida y céntrica a Pachacámac en Lima, ¿qué sitio arqueológico preínca es fácil de visitar en medio día?",
+                "respuesta": "La Huaca Huallamarca en San Isidro es una excelente opción. Es una pirámide trunca de la cultura Lima, ideal para una visita de 1 a 2 horas. Abre de martes a domingo de 9:00 a 17:00 y la entrada cuesta S/5.00. Está a pocos minutos en taxi de Miraflores o San Isidro."
+            },
+            {
+                "pregunta": "Si busco una excursión arqueológica de día completo más allá de Pachacámac en Lima, ¿cuál es la mejor alternativa preínca de gran escala?",
+                "respuesta": "La Ciudad Sagrada de Caral, al norte de Lima, es la alternativa más impactante. Es la civilización más antigua de América. Requiere un viaje de 3-4 horas por trayecto desde Lima y se recomienda ir con un tour organizado, con precios que rondan los S/180-S/250 por persona incluyendo transporte y guía."
+            },
+            {
+                "pregunta": "¿Existe una alternativa cultural y arqueológica a Pachacámac en Lima que sea ideal para familias con niños pequeños y más interactiva?",
+                "respuesta": "El Complejo Arqueológico Puruchuco, en Ate Vitarte, es una buena opción. Cuenta con un palacio Inca restaurado y un museo de sitio interactivo. Abre de martes a domingo de 9:00 a 16:30. La entrada general es de S/10.00 y es accesible en taxi o transporte público desde el centro de Lima."
+            },
+            {
+                "pregunta": "Si mi interés principal es la cultura Inca y no puedo ir a Pachacámac, ¿qué sitio arqueológico Inca puedo visitar en Lima?",
+                "respuesta": "El Complejo Arqueológico Puruchuco, en el distrito de Ate Vitarte, es el principal sitio Inca en Lima. Ofrece una visión de la administración y vida cotidiana Inca en la costa. La entrada cuesta S/10.00 y está abierto de martes a domingo de 9:00 a 16:30."
+            },
+            {
+                "pregunta": "Para una alternativa cultural de medio día en Lima, si no puedo llegar a Pachacámac, ¿qué museo ofrece una visión amplia de la historia peruana?",
+                "respuesta": "El Museo Nacional de Arqueología, Antropología e Historia del Perú, en Pueblo Libre, es una excelente opción. Cubre desde las primeras culturas hasta la época republicana. Abre de martes a sábado de 9:00 a 16:30 y la entrada general es de S/10.00."
+            },
+            {
+                "pregunta": "¿Qué alternativa a Pachacámac en Lima ofrece vistas panorámicas de la costa y un contexto histórico, aunque no sea un sitio arqueológico?",
+                "respuesta": "El Morro Solar en Chorrillos es una opción. Ofrece vistas espectaculares de la bahía de Lima y es un sitio histórico clave de la Guerra del Pacífico. El acceso es libre, aunque se recomienda ir en taxi. No es un sitio arqueológico, pero tiene un gran valor histórico y paisajístico."
+            },
+            {
+                "pregunta": "Si busco una alternativa a Pachacámac en Lima que combine cultura con naturaleza costera, ¿qué opción cercana existe en la misma zona sur?",
+                "respuesta": "Los Pantanos de Villa, una reserva natural de humedales en Chorrillos, están relativamente cerca de la ruta a Pachacámac. Ofrecen observación de aves y senderos. La entrada cuesta S/10.00 y se puede combinar con una visita a la zona de playas de la Costa Verde sur."
+            },
+            {
+                "pregunta": "Si los tours a Pachacámac en Lima no están disponibles, ¿qué tour cultural guiado alternativo puedo tomar en el centro histórico de Lima?",
+                "respuesta": "Un tour guiado por el Centro Histórico de Lima es una excelente alternativa. Muchos operadores ofrecen recorridos que incluyen la Plaza Mayor, la Catedral, el Palacio de Gobierno y las Catacumbas del Convento de San Francisco. Los precios varían entre S/50 y S/100 por persona, con duraciones de 3 a 4 horas."
+            }
+        ]
+    }
+}

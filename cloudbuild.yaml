@@ -1,0 +1,30 @@
+steps:
+  # 1. Construir la imagen Docker de la API
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/lifextreme-repo/api-image:latest', './api']
+
+  # 2. Subir la imagen a Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'us-central1-docker.pkg.dev/$PROJECT_ID/lifextreme-repo/api-image:latest']
+
+  # 3. Desplegar en Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'lifextreme-api'
+      - '--image'
+      - 'us-central1-docker.pkg.dev/$PROJECT_ID/lifextreme-repo/api-image:latest'
+      - '--region'
+      - 'us-central1'
+      - '--allow-unauthenticated'
+      - '--service-account'
+      - 'lifextreme-api-sa@$PROJECT_ID.iam.gserviceaccount.com'
+      - '--set-secrets'
+      - 'GEMINI_API_KEY=gemini-api-key:latest'
+      - '--set-env-vars'
+      - 'VECTOR_SEARCH_INDEX_ID=$_VECTOR_INDEX_ID,VECTOR_SEARCH_ENDPOINT_ID=$_VECTOR_ENDPOINT_ID'
+
+options:
+  logging: CLOUD_LOGGING_ONLY

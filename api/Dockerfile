@@ -8,9 +8,8 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copiar el código de la API y la base de datos de conocimiento
+# Copiar el código de la API
 COPY main.py .
-COPY ../chroma_db ./chroma_db
 
 # Exponer el puerto 8000
 EXPOSE 8000

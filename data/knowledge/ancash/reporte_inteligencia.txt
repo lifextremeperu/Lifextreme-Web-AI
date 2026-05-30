@@ -1,0 +1,63 @@
+<diagnostico>
+PERFIL: Ancash, ubicado en la sierra norte de Perú, es el hogar de la Cordillera Blanca, la cadena montañosa tropical más alta del mundo, con 33 picos que superan los 6,000 msnm. Alberga el Parque Nacional Huascarán, declarado Patrimonio de la Humanidad por la UNESCO, y el sitio arqueológico de Chavín de Huántar. Es un epicentro global para el turismo de aventura (trekking, andinismo) y cultural, atrayendo a un estimado de 450,000 visitantes anuales (2019). Su capital, Huaraz, sirve como principal hub logístico y de servicios para la región.
+MACROREGION: Combinado
+MADUREZ_TURISTICA: MEDIA
+VISITANTES_ANUALES_EST: 450,000 (2019)
+PESO_CATEGORIAS:
+  - Destinos y patrimonio: 30%
+  - Aventura y deportes: 35%
+  - Gastronomía y cultura: 10%
+  - Naturaleza y ecosistemas: 15%
+  - Misticismo y festividades: 5%
+  - Logística y servicios: 3%
+  - Otros: 2%
+  TOTAL: 100%
+PERFIL_VISITANTE_DOMINANTE: Viajero de aventura y naturaleza (trekking, andinismo), cultural (arqueología), principalmente jóvenes y adultos jóvenes (25-45 años) con interés en actividades al aire libre, paisajes de alta montaña y cultura andina.
+MERCADOS_INTERNACIONALES: USA, Francia, Alemania
+VENTANA_OPTIMA: Mayo a Septiembre (temporada seca, ideal para trekking, andinismo y exploración de alta montaña).
+PROBLEMA_NO_RESUELTO: Diversificación de la oferta turística más allá del trekking de alta montaña y Chavín, y mejora de la infraestructura y servicios en zonas rurales para desestacionalizar el flujo de visitantes.
+DESTINOS_CANONICOS_COMPARTIDOS: ninguno
+</diagnostico>
+
+
+[... MÓDULOS OMITIDOS ...]
+
+
+<inteligencia_cierre>
+TOP_5_TRAFICO_MASIVO:
+  - A-01: Parque Nacional Huascarán — Es el principal atractivo natural y Patrimonio UNESCO, puerta de entrada a la Cordillera Blanca.
+  - A-04: Laguna 69: Ícono del Trekking de un Día — La caminata más popular y fotografiada, atrae a un gran número de visitantes diarios.
+  - A-02: Sitio Arqueológico Chavín de Huántar — Principal sitio cultural pre-incaico, fundamental para el turismo histórico y académico.
+  - C-01: Trekking en la Cordillera Blanca: Rutas Emblemáticas — Representa el core de la oferta turística de aventura, con rutas mundialmente conocidas.
+  - A-03: Callejón de Huaylas: Eje Turístico y Cultural — Es el valle principal y la vía de acceso a la mayoría de los atractivos, con Huaraz como centro.
+
+TOP_5_DIAMANTES_EN_BRUTO:
+  - B-01: Cañón del Pato y Caraz: Aventura Escénica y Auténtica — Ofrece paisajes espectaculares y una experiencia de aventura menos masificada que Huaraz.
+  - J-01: Baños Termales y Bienestar Andino: Relajo y Salud — Gran potencial para el turismo de bienestar y post-aventura, aún subexplotado.
+  - E-01: Festividades y Cosmovisión Andina en Ancash — Ofrece una inmersión cultural profunda y auténtica, a menudo eclipsada por la aventura.
+  - L-01: Turismo Comunitario y Sostenible en Ancash — Permite experiencias vivenciales únicas y contribuye al desarrollo local, con creciente demanda internacional.
+  - D-01: Gastronomía Ancashina: Sabores de la Sierra — La cocina local es rica y variada, pero no está tan posicionada como la de otras regiones peruanas.
+
+MODULOS_MERCADO_INTERNACIONAL:
+  - USA: C-01, C-02, A-01, M-01, L-01 (Aventura, seguridad, naturaleza, sostenibilidad)
+  - Europa (Francia, Alemania): C-01, A-01, A-02, M-01, L-01 (Aventura, cultura, seguridad, turismo responsable)
+  - Asia (Japón, Corea): A-02, A-04, D-01, E-01 (Cultura, paisajes icónicos, gastronomía, experiencias auténticas)
+
+ALERTAS_VERIFICACION_CAMPO:
+  - D-01: Gastronomía Ancashina: Sabores de la Sierra ⚠️ (La oferta de huariques y la calidad pueden variar, requiere verificación in situ de recomendaciones).
+  - G-01: Alojamiento en Huaraz y Callejón: Opciones para Cada Viajero ⚠️ (La disponibilidad y calidad de alojamientos, especialmente en segmentos específicos o zonas rurales, cambia rápidamente).
+  - B-01: Cañón del Pato y Caraz: Aventura Escénica y Auténtica ⚠️ (Condiciones de la carretera, servicios turísticos locales y seguridad en la ruta pueden requerir actualización constante).
+  - E-01: Festividades y Cosmovisión Andina en Ancash ⚠️ (Las fechas de festividades pueden variar anualmente y la información sobre rituales requiere contacto directo con comunidades).
+  - J-01: Baños Termales y Bienestar Andino: Relajo y Salud ⚠️ (La infraestructura y servicios de los baños termales pueden cambiar, y la información sobre medicina tradicional es muy local).
+  - L-01: Turismo Comunitario y Sostenible en Ancash ⚠️ (Los proyectos de turismo comunitario son dinámicos y requieren verificación directa con las comunidades para asegurar su vigencia y calidad).
+
+MAPA_CALOR_CATEGORIAS:
+  Categoría | Módulos | % del total | Prioridad para Fase 2
+  Destinos y patrimonio | A-01, A-02, A-03, A-04 | 26.67% | ALTA
+  Aventura y deportes | C-01, C-02 | 13.33% | ALTA
+  Naturaleza y ecosistemas | (Integrado en A-01, A-04) | 0.00% | ALTA (por su integración)
+  Gastronomía y cultura | D-01, E-01 | 13.33% | MEDIA
+  Logística y servicios | F-01, G-01 | 13.33% | ALTA
+  Misticismo y festividades | E-01 | (parte de Gastronomía y cultura) | MEDIA
+  Otros (B, I, J, L, M) | B-01, I-01, J-01, L-01, M-01 | 33.33% | ALTA (M-01), MEDIA (B-01, L-01), BAJA (I-01, J-01)
+</inteligencia_cierre>

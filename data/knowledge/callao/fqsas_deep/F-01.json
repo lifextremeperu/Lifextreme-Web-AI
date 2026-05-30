@@ -1,0 +1,426 @@
+{
+    "destino_id": "F-01",
+    "modulo_contexto": "Conectividad Aeroportuaria Jorge Chávez",
+    "fqsas": {
+        "1_Precios_Presupuestos_Moneda": [
+            {
+                "pregunta": "¿Cuánto cuesta un taxi seguro o un servicio de aplicación desde el Aeropuerto Jorge Chávez en Callao hasta Miraflores o San Isidro?",
+                "respuesta": "Un taxi oficial del aeropuerto puede costar entre S/60 y S/90 (aproximadamente USD 16-24) dependiendo del destino y la hora. Las aplicaciones como Uber o Cabify suelen ser un poco más económicas, entre S/45 y S/75, pero su disponibilidad y seguridad pueden variar."
+            },
+            {
+                "pregunta": "¿Cuál es la opción de transporte público más económica para ir del Aeropuerto Jorge Chávez en Callao al centro de Lima y cuánto cuesta?",
+                "respuesta": "La opción más económica es tomar un bus de transporte público desde las afueras del aeropuerto (caminando unos 10-15 minutos) hasta avenidas principales como Faucett o La Marina, y de ahí conectar con otras rutas. El pasaje de bus cuesta alrededor de S/2.50 a S/3.50 por tramo. No hay conexión directa con el Metropolitano desde el aeropuerto."
+            },
+            {
+                "pregunta": "¿Dónde puedo cambiar dólares estadounidenses o euros a Soles peruanos (PEN) en el Aeropuerto Jorge Chávez de Callao y qué tipo de cambio debo esperar?",
+                "respuesta": "Hay casas de cambio y bancos como BCP o BBVA dentro del aeropuerto, tanto en llegadas internacionales como en el área pública. Las tasas de cambio suelen ser menos favorables que en el centro de Lima o Miraflores, con una diferencia de S/0.05 a S/0.10 por dólar o euro. Es recomendable cambiar solo una pequeña cantidad para gastos iniciales."
+            },
+            {
+                "pregunta": "¿Cuál es el precio de una tarjeta SIM local para turistas en el Aeropuerto Jorge Chávez en Callao y qué operadores la ofrecen?",
+                "respuesta": "Puedes encontrar módulos de operadores como Claro, Movistar y Entel en el área de llegadas. Un paquete básico para turistas con datos y llamadas ilimitadas por 7-15 días suele costar entre S/30 y S/50 (aproximadamente USD 8-14)."
+            },
+            {
+                "pregunta": "¿Cuánto cuesta el servicio de consigna de equipaje o guardaequipaje en el Aeropuerto Jorge Chávez en Callao por unas horas o un día completo?",
+                "respuesta": "El servicio de guardaequipaje, operado por 'Left Luggage', se encuentra en el primer nivel del aeropuerto. El costo por maleta grande es de aproximadamente S/20-S/25 por las primeras 4 horas y S/35-S/40 por un día completo (24 horas). Las tarifas pueden variar ligeramente."
+            },
+            {
+                "pregunta": "¿Cuál es el costo de acceso a una sala VIP en el Aeropuerto Jorge Chávez en Callao si no tengo Priority Pass o un boleto de primera clase?",
+                "respuesta": "Las salas VIP como 'Caral VIP Lounge' o 'Hanaq VIP Lounge' ofrecen pases de un día. El costo de entrada directa para adultos suele oscilar entre USD 35 y USD 50 (aproximadamente S/130-S/185), dependiendo de la sala y la disponibilidad."
+            },
+            {
+                "pregunta": "¿Cuál es el precio estimado de un traslado privado de lujo desde el Aeropuerto Jorge Chávez en Callao a un hotel de alta gama en Miraflores o San Isidro?",
+                "respuesta": "Un servicio de traslado privado reservado con antelación a través de un hotel de lujo o una empresa especializada puede costar entre USD 40 y USD 70 (aproximadamente S/150-S/260), ofreciendo vehículos de alta gama y conductores profesionales."
+            },
+            {
+                "pregunta": "¿Cuánto se acostumbra dar de propina a los maleteros o taxistas en el Aeropuerto Jorge Chávez en Callao?",
+                "respuesta": "Para los maleteros, una propina de S/5 a S/10 por maleta es apropiada. Para los taxistas, no es obligatorio dar propina, pero muchos redondean la tarifa o dejan S/5-S/10 adicionales si el servicio fue excelente."
+            },
+            {
+                "pregunta": "¿Son los precios de los productos 'duty-free' como licores o perfumes en el Aeropuerto Jorge Chávez en Callao más baratos que en las tiendas de la ciudad?",
+                "respuesta": "Generalmente, los precios 'duty-free' en el aeropuerto pueden ser competitivos para ciertos licores importados o perfumes de marca. Sin embargo, para productos locales como el Pisco, a menudo se encuentran mejores ofertas en supermercados o tiendas especializadas en Lima o Callao."
+            },
+            {
+                "pregunta": "¿Qué presupuesto debo considerar para una comida o un snack en el Aeropuerto Jorge Chávez en Callao si soy un viajero con presupuesto limitado (mochilero)?",
+                "respuesta": "Para un viajero con presupuesto limitado, un snack o una comida rápida en el patio de comidas del aeropuerto puede costar entre S/15 y S/35 (aproximadamente USD 4-9). Hay opciones más económicas como sándwiches o empanadas en cafeterías pequeñas."
+            }
+        ],
+        "2_Logistica_Transporte_Como_Llegar": [
+            {
+                "pregunta": "¿Cuánto cuesta un taxi seguro desde el Aeropuerto Jorge Chávez en Callao hasta Miraflores para turistas?",
+                "respuesta": "Un taxi seguro y oficial desde el Aeropuerto Jorge Chávez en Callao hasta Miraflores puede costar entre 60 y 80 Soles peruanos (aproximadamente 16-22 USD) con empresas como 'Taxi Green' o 'Taxi Directo', que tienen módulos dentro del terminal. El viaje dura unos 45-60 minutos dependiendo del tráfico."
+            },
+            {
+                "pregunta": "¿Puedo usar Uber o Cabify para salir del Aeropuerto Jorge Chávez en Callao y es seguro para turistas?",
+                "respuesta": "Sí, puedes usar Uber o Cabify para salir del Aeropuerto Jorge Chávez en Callao. Es una opción popular y generalmente segura. Los puntos de recojo suelen estar en el estacionamiento o en un área designada fuera de la terminal principal, a menudo requiriendo una corta caminata. El costo a Miraflores puede ser de 40-60 Soles."
+            },
+            {
+                "pregunta": "¿Hay transporte público directo desde el Aeropuerto Jorge Chávez en Callao hasta Callao Monumental para turistas?",
+                "respuesta": "No hay una ruta de transporte público directo y conveniente para turistas desde el Aeropuerto Jorge Chávez hasta Callao Monumental. La opción más segura y recomendada es tomar un taxi o un servicio de transporte privado que te dejará directamente en la zona, con un costo aproximado de 20-30 Soles."
+            },
+            {
+                "pregunta": "¿Existe algún servicio de bus expreso o shuttle desde el Aeropuerto Jorge Chávez en Callao a distritos turísticos como Miraflores?",
+                "respuesta": "Sí, existe el servicio 'Airport Express Lima' que ofrece buses cómodos desde el Aeropuerto Jorge Chávez en Callao a varios puntos en Miraflores y San Isidro. El costo por trayecto es de aproximadamente 8 USD (unos 30 Soles) y operan con una frecuencia de 30-60 minutos."
+            },
+            {
+                "pregunta": "¿Cuál es la mejor opción de transporte desde el Aeropuerto Jorge Chávez en Callao si mi vuelo llega de madrugada o sale muy tarde?",
+                "respuesta": "Para llegadas de madrugada o salidas muy tarde desde el Aeropuerto Jorge Chávez en Callao, la opción más segura y confiable es reservar un taxi oficial con anticipación (como 'Taxi Green' o 'Taxi Directo') o usar servicios de apps como Uber o Cabify. El transporte público es limitado y menos seguro en esas horas."
+            },
+            {
+                "pregunta": "¿Cuánto tiempo se tarda en llegar del Aeropuerto Jorge Chávez en Callao al Centro Histórico de Lima en taxi?",
+                "respuesta": "El tiempo de viaje en taxi desde el Aeropuerto Jorge Chávez en Callao hasta el Centro Histórico de Lima puede variar significativamente. En condiciones de tráfico normal, toma entre 30 y 45 minutos. Sin embargo, en horas punta (7-9 AM y 5-8 PM), puede extenderse a 60-90 minutos."
+            },
+            {
+                "pregunta": "¿Qué precio tiene un taxi desde el Aeropuerto Jorge Chávez en Callao hasta el distrito de Barranco para un turista?",
+                "respuesta": "Un taxi oficial desde el Aeropuerto Jorge Chávez en Callao hasta Barranco para un turista suele costar entre 70 y 90 Soles peruanos (aproximadamente 19-25 USD) con empresas autorizadas. El trayecto puede durar entre 50 y 70 minutos, dependiendo del tráfico."
+            },
+            {
+                "pregunta": "¿Es recomendable usar el transporte público regular (buses) desde el Aeropuerto Jorge Chávez en Callao para llegar a otras zonas?",
+                "respuesta": "No es recomendable para turistas usar el transporte público regular (buses o 'combis') directamente desde el Aeropuerto Jorge Chávez en Callao. Las rutas son complejas, no están diseñadas para equipaje y pueden ser inseguras. Es preferible optar por taxis oficiales, apps de transporte o el 'Airport Express Lima'."
+            },
+            {
+                "pregunta": "¿Qué empresas de alquiler de coches operan en el Aeropuerto Jorge Chávez en Callao y qué necesito para rentar uno?",
+                "respuesta": "En el Aeropuerto Jorge Chávez en Callao operan varias empresas internacionales de alquiler de coches como 'Hertz', 'Avis', 'Budget' y 'Europcar'. Para rentar uno, generalmente necesitas una licencia de conducir válida de tu país, una tarjeta de crédito a tu nombre y ser mayor de 21 o 25 años, dependiendo de la empresa."
+            },
+            {
+                "pregunta": "¿Cómo puedo llegar al Aeropuerto Jorge Chávez desde el centro de la ciudad de Callao de forma segura y rápida?",
+                "respuesta": "Para llegar al Aeropuerto Jorge Chávez desde el centro de la ciudad de Callao de forma segura y rápida, lo más recomendable es tomar un taxi de una empresa de confianza o usar una aplicación como Uber o Cabify. El trayecto es corto, generalmente unos 15-25 minutos, y el costo puede rondar los 20-35 Soles."
+            }
+        ],
+        "3_Seguridad_Riesgos_Salud": [
+            {
+                "pregunta": "¿Es seguro tomar un taxi desde el aeropuerto Jorge Chávez en Callao por la noche para ir al centro de Lima?",
+                "respuesta": "Es altamente recomendable usar servicios de taxi oficiales como Taxi Green, Taxi Directo o Mitsui Remisse, cuyas casetas están dentro del terminal de llegadas. Evita taxis informales fuera del aeropuerto, especialmente de noche, para prevenir riesgos de seguridad. El costo a Miraflores, por ejemplo, ronda los 60-85 Soles."
+            },
+            {
+                "pregunta": "¿Hay servicios médicos de emergencia o farmacias disponibles en el aeropuerto Jorge Chávez de Callao para viajeros?",
+                "respuesta": "Sí, el aeropuerto Jorge Chávez cuenta con un servicio de atención médica de emergencia 24/7 ubicado en el primer piso del terminal, cerca de la zona de llegadas internacionales. También encontrarás farmacias como Inkafarma o Mifarma en la zona pública y de embarque para adquirir medicamentos básicos."
+            },
+            {
+                "pregunta": "¿Cuáles son las estafas o riesgos de seguridad comunes que los turistas deben evitar al llegar al aeropuerto de Callao?",
+                "respuesta": "Ten precaución con los 'jaladores' de taxis no oficiales que ofrecen precios muy bajos, ya que pueden ser inseguros o inflar el precio al final. También, evita a personas que se ofrecen a 'ayudarte' con tu equipaje sin identificación oficial, podrían intentar cobrarte de más o distraerte para robarte. Siempre usa servicios autorizados."
+            },
+            {
+                "pregunta": "¿Es seguro caminar fuera del perímetro del aeropuerto Jorge Chávez en Callao para buscar transporte más económico?",
+                "respuesta": "No es recomendable caminar fuera del perímetro del aeropuerto Jorge Chávez para buscar transporte. La zona circundante, como la Av. Faucett, puede ser peligrosa para peatones con equipaje, especialmente de noche. Utiliza siempre los servicios de transporte autorizados desde el terminal."
+            },
+            {
+                "pregunta": "¿Es seguro beber agua del grifo en el aeropuerto Jorge Chávez o en Callao en general para evitar problemas de salud?",
+                "respuesta": "No, no es seguro beber agua del grifo en el aeropuerto Jorge Chávez ni en Callao en general. Siempre consume agua embotellada sellada. Puedes comprarla fácilmente en las tiendas y restaurantes dentro del terminal para mantenerte hidratado de forma segura."
+            },
+            {
+                "pregunta": "¿Qué precauciones de seguridad debo tomar con mi equipaje en el aeropuerto de Callao para evitar robos o pérdidas?",
+                "respuesta": "Mantén siempre tu equipaje a la vista, especialmente en las zonas de recojo y espera. Considera usar candados TSA en tus maletas. Evita aceptar paquetes de extraños. Si viajas con objetos de valor, es preferible llevarlos en tu equipaje de mano y nunca perderlos de vista."
+            },
+            {
+                "pregunta": "¿Se requiere alguna vacuna específica para viajar a Callao o Perú, especialmente al llegar al aeropuerto Jorge Chávez?",
+                "respuesta": "Para la mayoría de los viajeros que solo visitan Lima y Callao, no se requieren vacunas obligatorias. Sin embargo, si planeas viajar a zonas de selva como Iquitos o Puerto Maldonado, se recomienda la vacuna contra la fiebre amarilla. Consulta a tu médico antes de viajar para una recomendación personalizada."
+            },
+            {
+                "pregunta": "¿Dónde puedo encontrar ayuda policial o de seguridad en el aeropuerto Jorge Chávez de Callao si tengo un problema o emergencia?",
+                "respuesta": "Hay presencia policial (PNP) y de seguridad aeroportuaria en todo el terminal del aeropuerto Jorge Chávez. Puedes dirigirte a los módulos de información o buscar a cualquier agente uniformado. También hay cámaras de seguridad monitoreando las 24 horas para tu protección."
+            },
+            {
+                "pregunta": "¿Es seguro cambiar dinero en efectivo en el aeropuerto Jorge Chávez de Callao o es mejor hacerlo en la ciudad?",
+                "respuesta": "Sí, es seguro cambiar dinero en las casas de cambio oficiales o bancos ubicados dentro del terminal del aeropuerto Jorge Chávez. Evita cambiar dinero con cambistas informales fuera del aeropuerto, ya que podrías ser víctima de estafas o robos. Las tasas pueden ser ligeramente menos favorables que en la ciudad, pero es más seguro."
+            },
+            {
+                "pregunta": "¿Es recomendable contratar un seguro de viaje con cobertura médica antes de llegar al aeropuerto de Callao, Perú?",
+                "respuesta": "Sí, es altamente recomendable contratar un seguro de viaje con cobertura médica antes de llegar a Callao. Aunque hay servicios médicos en el aeropuerto, un seguro te cubrirá ante emergencias médicas, hospitalización o evacuación, lo cual es crucial dado que los costos de atención médica pueden ser elevados en Perú para extranjeros."
+            }
+        ],
+        "4_Clima_Temporadas_Horarios": [
+            {
+                "pregunta": "¿Cuál es la mejor temporada del año para viajar a Callao y evitar la 'garúa' cerca del Aeropuerto Jorge Chávez?",
+                "respuesta": "La mejor temporada para visitar Callao y disfrutar de cielos despejados, evitando la persistente 'garúa' o neblina, es durante el verano austral, de diciembre a abril. En estos meses, las temperaturas son más cálidas, oscilando entre 25°C y 30°C, y la humedad es menor, lo que facilita la visibilidad y el tránsito desde y hacia el Aeropuerto Jorge Chávez."
+            },
+            {
+                "pregunta": "¿Cómo afecta la neblina o 'garúa' en Callao a los horarios de vuelos en el Aeropuerto Jorge Chávez, especialmente en invierno?",
+                "respuesta": "La densa neblina o 'garúa' que es común en Callao durante el invierno (mayo a noviembre) puede causar demoras y cancelaciones de vuelos en el Aeropuerto Jorge Chávez, especialmente en las primeras horas de la mañana y al anochecer, debido a la baja visibilidad. Se recomienda revisar el estado de su vuelo con la aerolínea antes de dirigirse al aeropuerto en estas temporadas."
+            },
+            {
+                "pregunta": "¿Hay temporadas específicas en las que el Aeropuerto Jorge Chávez en Callao está más concurrido y los tiempos de espera son mayores?",
+                "respuesta": "Sí, el Aeropuerto Jorge Chávez experimenta mayor afluencia de pasajeros durante las temporadas altas de turismo, que incluyen el verano (diciembre a marzo), Semana Santa (marzo/abril), Fiestas Patrias (julio) y las vacaciones de fin de año (diciembre). Durante estos periodos, los tiempos de espera en seguridad e inmigración pueden ser significativamente más largos."
+            },
+            {
+                "pregunta": "¿Cuál es el mejor horario del día para ir o venir del Aeropuerto Jorge Chávez en Callao y evitar el tráfico pesado?",
+                "respuesta": "Para evitar el tráfico más pesado en las rutas hacia y desde el Aeropuerto Jorge Chávez en Callao, se recomienda viajar fuera de las horas punta, que suelen ser de 7:00 a 9:00 y de 17:00 a 20:00 de lunes a viernes. Los fines de semana y las horas de la madrugada suelen tener un tráfico más fluido."
+            },
+            {
+                "pregunta": "¿Qué tipo de ropa debo empacar para un viaje a Callao si llego al Aeropuerto Jorge Chávez en invierno o verano?",
+                "respuesta": "Si llega en verano (diciembre a abril), empaque ropa ligera de algodón, shorts, camisetas y un sombrero. Para el invierno (mayo a noviembre), necesitará un abrigo o chaqueta, suéteres, pantalones largos y quizás un paraguas o impermeable ligero debido a la 'garúa' y la humedad, aunque las temperaturas rara vez bajan de los 13°C."
+            },
+            {
+                "pregunta": "¿Cuáles son los horarios de atención de las casas de cambio o servicios de taxi oficiales dentro del Aeropuerto Jorge Chávez en Callao?",
+                "respuesta": "Las casas de cambio y los módulos de taxi oficiales como Taxi Green o Taxi Directo en el Aeropuerto Jorge Chávez operan las 24 horas del día, los 7 días de la semana, para atender la llegada y salida de vuelos en cualquier momento. Sin embargo, las tarifas de taxi pueden ser ligeramente más altas durante la madrugada."
+            },
+            {
+                "pregunta": "¿Afectan los feriados nacionales en Perú, como Fiestas Patrias, los horarios de operación de tiendas o restaurantes en el Aeropuerto Jorge Chávez en Callao?",
+                "respuesta": "Generalmente, la mayoría de las tiendas, restaurantes y servicios esenciales dentro del Aeropuerto Jorge Chávez en Callao mantienen sus horarios de operación regulares o incluso extienden sus horas durante feriados nacionales como Fiestas Patrias (28 y 29 de julio) o Navidad, debido al aumento del flujo de pasajeros."
+            },
+            {
+                "pregunta": "¿Varían los precios de los taxis o servicios de transporte desde el Aeropuerto Jorge Chávez en Callao según la temporada del año?",
+                "respuesta": "Los precios de los taxis y servicios de transporte desde el Aeropuerto Jorge Chávez en Callao no suelen variar drásticamente por temporada climática. Sin embargo, pueden experimentar un ligero incremento durante temporadas de alta demanda como Fiestas Patrias, Semana Santa o fin de año, debido al mayor número de pasajeros y la demanda de vehículos."
+            },
+            {
+                "pregunta": "¿Hay algún horario o temporada específica para visitar el Real Felipe o el Callao Monumental desde el aeropuerto para evitar aglomeraciones o mal tiempo?",
+                "respuesta": "Para visitar el Real Felipe o el Callao Monumental desde el aeropuerto, la mejor temporada es el verano (diciembre a abril) para disfrutar de un clima soleado. En cuanto a horarios, ir por la mañana temprano (9:00-10:00) de lunes a viernes ayuda a evitar las mayores aglomeraciones de turistas y el tráfico, especialmente en el centro histórico."
+            },
+            {
+                "pregunta": "¿Con qué frecuencia hay problemas de visibilidad por niebla en el Aeropuerto Jorge Chávez de Callao y en qué meses son más comunes?",
+                "respuesta": "Los problemas de visibilidad por niebla o 'garúa' son más comunes en el Aeropuerto Jorge Chávez de Callao durante los meses de invierno, de mayo a noviembre. La niebla es más densa y frecuente en las primeras horas de la mañana (entre 4:00 y 8:00) y al anochecer (después de las 18:00), pudiendo afectar la puntualidad de los vuelos."
+            }
+        ],
+        "5_Historia_Cultura_Curiosidades": [
+            {
+                "pregunta": "¿Cuál es la historia detrás de la Fortaleza del Real Felipe en Callao y qué curiosidades se pueden encontrar al visitarla?",
+                "respuesta": "La Fortaleza del Real Felipe, construida en el siglo XVIII, fue clave en la defensa del Virreinato del Perú. Una curiosidad es que alberga la Casa del Gobernador y el Torreón del Rey, donde se cuentan leyendas de túneles secretos y fantasmas. La entrada general para adultos cuesta aproximadamente 12 soles peruanos."
+            },
+            {
+                "pregunta": "¿Qué hace especial al Barrio Monumental del Callao desde el punto de vista cultural y artístico para un turista?",
+                "respuesta": "El Barrio Monumental del Callao es un centro de revitalización cultural y artística. Destaca por sus galerías de arte, murales de street art y casonas republicanas restauradas, como la Casa Ronald, que ahora albergan talleres de artistas y cafés. Es un ejemplo de cómo el arte transforma un espacio histórico."
+            },
+            {
+                "pregunta": "¿Qué historia tiene el distrito de La Punta en Callao y qué curiosidades arquitectónicas se pueden observar allí?",
+                "respuesta": "La Punta, en Callao, tiene una rica historia como balneario aristocrático desde el siglo XIX. Sus curiosidades arquitectónicas incluyen casonas de estilo republicano y art déco con vistas al mar, muchas de ellas construidas con madera y con detalles ornamentales únicos que reflejan su pasado opulento."
+            },
+            {
+                "pregunta": "¿Dónde puedo aprender sobre la historia naval de Perú en Callao y qué curiosidades ofrece el Submarino Abtao como museo?",
+                "respuesta": "Puedes aprender sobre la historia naval en el Museo Naval del Perú y visitar el Submarino Abtao, ambos ubicados en Callao. El Abtao es un submarino real de la clase Balao que sirvió en la Marina de Guerra del Perú y ahora permite a los visitantes explorar sus compartimentos internos, ofreciendo una curiosa perspectiva de la vida a bordo."
+            },
+            {
+                "pregunta": "¿Cuáles son los platos más representativos de la cultura gastronómica chalaca en Callao y qué historia tienen?",
+                "respuesta": "La gastronomía chalaca en Callao es famosa por sus cebiches y jaleas. El 'Pescado a lo macho' es un plato emblemático con una historia ligada a la abundancia marina del puerto. Otra curiosidad es el 'Chicharrón de calamar', que refleja la creatividad culinaria local con los productos del mar."
+            },
+            {
+                "pregunta": "¿Qué papel histórico jugó el Puerto del Callao en el desarrollo de Perú y qué curiosidades se asocian a su pasado comercial?",
+                "respuesta": "El Puerto del Callao fue y sigue siendo el puerto más importante de Perú, con una historia que se remonta a la época virreinal como puerta de entrada y salida de mercancías y personas. Una curiosidad es que fue escenario de importantes batallas navales y punto de llegada de diversas corrientes migratorias que enriquecieron la cultura peruana."
+            },
+            {
+                "pregunta": "¿Existen leyendas o mitos populares de Callao que un turista pueda conocer para entender mejor su cultura local?",
+                "respuesta": "Sí, Callao está lleno de leyendas. Una muy conocida es la del 'Fantasma del Real Felipe', que se dice que deambula por los torreones de la fortaleza. Otra curiosidad son las historias de piratas y tesoros escondidos en las islas cercanas, que forman parte del folclore chalaco."
+            },
+            {
+                "pregunta": "¿Qué tipo de arquitectura histórica se puede apreciar en el centro de Callao y qué curiosidades revelan sus edificios?",
+                "respuesta": "El centro histórico de Callao exhibe una mezcla de arquitectura colonial y republicana, con casonas de balcones de madera y fachadas coloridas. Una curiosidad es que muchos de estos edificios, especialmente en la Plaza Grau y sus alrededores, fueron testigos de importantes eventos políticos y sociales del Perú."
+            },
+            {
+                "pregunta": "¿Cuál es la conexión cultural entre Callao y la música salsa, y qué curiosidades hay sobre este género en el puerto?",
+                "respuesta": "Callao es considerado la cuna de la salsa en Perú, con una profunda conexión cultural con este género. Una curiosidad es que muchos barrios chalacos, como Chucuito y La Victoria, vieron nacer a orquestas y bailarines que adaptaron y popularizaron la salsa, convirtiéndola en parte esencial de su identidad festiva."
+            },
+            {
+                "pregunta": "¿Qué personajes históricos importantes están asociados a Callao y qué curiosidades se conocen sobre su legado cultural?",
+                "respuesta": "Callao ha sido cuna y hogar de figuras históricas. Por ejemplo, el héroe naval Miguel Grau Seminario, aunque no nació allí, es una figura central en la historia chalaca por su defensa del puerto. Otra curiosidad es que muchos escritores y artistas peruanos se inspiraron en la vida portuaria y sus personajes para sus obras."
+            }
+        ],
+        "6_Tips_Locales_Secretos": [
+            {
+                "pregunta": "Cómo ir del aeropuerto Jorge Chávez en Callao a Miraflores o Barranco sin pagar tarifas de taxi para turistas?",
+                "respuesta": "Para ahorrar, sal del aeropuerto y camina unos metros hasta la avenida Faucett. Allí puedes tomar un taxi de aplicación como Uber o Cabify, que suelen ser 20-30% más baratos que los taxis oficiales del terminal. Un precio justo para Miraflores sería entre 45 y 60 Soles con app."
+            },
+            {
+                "pregunta": "Cuáles son los mejores huariques de comida marina cerca del aeropuerto Jorge Chávez en Callao que solo los locales conocen?",
+                "respuesta": "A unos 15 minutos en taxi, en La Perla, puedes encontrar 'El Escondite de la Nona' o 'Punto Azul' en la Av. La Paz. Un ceviche mixto cuesta entre 35 y 50 Soles. Para algo más auténtico y menos turístico, busca las carretillas de ceviche en el mercado de Ciudad Satélite, pero ve con precaución."
+            },
+            {
+                "pregunta": "Qué precauciones de seguridad debo tomar al salir del aeropuerto de Callao en taxi de madrugada, como lo haría un local?",
+                "respuesta": "Si sales entre las 11 p.m. y 5 a.m., siempre usa taxis de aplicaciones conocidas (Uber, Cabify, Didi) o los servicios de taxi autorizados dentro del aeropuerto (Taxi Green, Taxi Directo). Nunca tomes taxis informales en la calle a esas horas. Confirma la placa y el nombre del conductor. Un viaje a Miraflores puede costar entre 50 y 70 Soles en ese horario."
+            },
+            {
+                "pregunta": "Teniendo una escala larga en el aeropuerto de Callao, qué lugar cercano y seguro puedo visitar para conocer algo auténtico?",
+                "respuesta": "Si tienes al menos 4-5 horas, puedes tomar un taxi seguro (aprox. 20-25 Soles) a 'Monumental Callao'. Es un barrio histórico recuperado con galerías de arte, murales y restaurantes. Visita la Casa Ronald y el Centro Cultural. Regresa al aeropuerto con tiempo, el tráfico puede ser impredecible. Evita aventurarte por calles poco transitadas fuera de la zona monumental."
+            },
+            {
+                "pregunta": "Dónde cambiar dinero en Callao cerca del aeropuerto Jorge Chávez para obtener una mejor tasa que en el terminal?",
+                "respuesta": "Evita cambiar dinero dentro del aeropuerto. La mejor opción es usar un cajero automático de un banco reconocido (BCP, Interbank) para retirar soles. Si prefieres efectivo, en la Av. Faucett, a unos 10-15 minutos en taxi, hay casas de cambio con mejores tasas, pero siempre ve a establecimientos formales y con seguridad. Nunca cambies en la calle con 'cambistas' informales."
+            },
+            {
+                "pregunta": "Hay alguna opción económica para guardar equipaje por unas horas cerca del aeropuerto de Callao si quiero explorar la zona?",
+                "respuesta": "Dentro del aeropuerto Jorge Chávez hay un servicio de consigna de equipaje llamado 'Left Luggage' en el primer nivel, cerca de la zona de llegadas internacionales. Cuesta aproximadamente 25-35 Soles por maleta por 24 horas. Fuera del aeropuerto, no hay opciones seguras y económicas que los locales usen regularmente para este fin; es mejor usar el servicio oficial."
+            },
+            {
+                "pregunta": "Cuál es el mejor lugar para comprar una tarjeta SIM local barata y activarla rápidamente al llegar al aeropuerto de Callao?",
+                "respuesta": "Dentro del aeropuerto, encontrarás módulos de Claro o Movistar, pero los precios pueden ser más altos. Un tip local es comprarla en cualquier tienda oficial de Claro, Movistar o Entel en un centro comercial cercano (como Plaza San Miguel, a 20 minutos en taxi) o en una tienda de conveniencia como Tambo o Oxxo, donde venden chips prepago por unos 5-10 Soles, y luego recargar. Necesitarás tu pasaporte."
+            },
+            {
+                "pregunta": "Cómo puedo llegar del aeropuerto Jorge Chávez en Callao al centro de Lima usando transporte público como un local?",
+                "respuesta": "No hay una ruta directa de transporte público que sea cómoda o segura para turistas con equipaje. Los locales que no usan taxi suelen tomar 'combis' o 'micros' desde la Av. Faucett que van a San Miguel o La Marina, y desde allí transbordan a otras rutas hacia el centro. Esto es complejo, lento y no recomendado. La opción más 'local' y segura es usar un taxi de aplicación."
+            },
+            {
+                "pregunta": "Qué desayuno o snack típico de Callao puedo probar cerca del aeropuerto Jorge Chávez si tengo poco tiempo antes de mi vuelo?",
+                "respuesta": "Si tienes una hora, puedes pedir un 'pan con pejerrey' o 'pan con huevo' en alguna panadería local en la Av. Faucett, a pocos minutos del aeropuerto. También busca 'emolienteros' (vendedores de emoliente) que ofrecen bebidas calientes y panes con queso o palta por las mañanas. Son opciones rápidas y muy económicas, entre 5 y 10 Soles."
+            },
+            {
+                "pregunta": "Qué consejos de seguridad específicos me darías para evitar estafas con taxis o tours improvisados al salir del aeropuerto de Callao?",
+                "respuesta": "Siempre ignora a los taxistas o 'jaladores' que te aborden dentro o fuera del terminal. Utiliza solo los servicios de taxi autorizados dentro del aeropuerto o, mejor aún, pide un taxi a través de aplicaciones como Uber o Cabify una vez que estés fuera del terminal, en un punto de encuentro seguro. Nunca aceptes ofertas de tours de personas no identificadas o en vehículos sin distintivos oficiales."
+            }
+        ],
+        "7_Gastronomia_Alimentos_Supervivencia": [
+            {
+                "pregunta": "¿Dónde puedo comprar comida callejera segura y económica cerca del Aeropuerto Jorge Chávez en Callao para una parada rápida antes o después de un vuelo?",
+                "respuesta": "Cerca del aeropuerto, en la Av. Faucett, hay algunos puestos de comida rápida como 'salchipapas' o 'anticuchos' que operan hasta tarde. Para opciones más seguras y variadas, dirígete a los alrededores del Mercado Central de Callao, donde encontrarás 'emolienteros' y pequeños carritos con 'sánguches' a partir de S/5, pero siempre verifica la higiene del lugar."
+            },
+            {
+                "pregunta": "¿Cuáles son los supermercados o bodegas más económicos y confiables en Callao para comprar provisiones básicas de alimentos si estoy de paso o con presupuesto limitado?",
+                "respuesta": "En Callao, puedes encontrar supermercados como Plaza Vea o Tottus en avenidas principales como la Av. Sáenz Peña o la Av. Faucett, donde los precios son competitivos. Para compras más pequeñas y económicas, busca bodegas locales en cualquier barrio, donde puedes conseguir pan, agua y frutas a precios de barrio."
+            },
+            {
+                "pregunta": "¿Existen opciones de comida abiertas las 24 horas o tiendas de conveniencia en la zona del puerto de Callao para emergencias alimentarias nocturnas?",
+                "respuesta": "En la zona del puerto de Callao, las opciones 24 horas son limitadas. Dentro del Aeropuerto Jorge Chávez hay algunas tiendas de conveniencia y cafeterías que operan toda la noche. Fuera, algunas gasolineras con tiendas 'Listo!' o 'Tambos' en avenidas principales como la Av. Argentina o la Av. Faucett suelen estar abiertas hasta tarde o 24 horas, ofreciendo snacks y bebidas."
+            },
+            {
+                "pregunta": "¿Qué alimentos no perecederos o snacks locales de Callao son recomendables para llevar como provisiones de viaje de supervivencia?",
+                "respuesta": "Para provisiones de viaje en Callao, considera comprar 'chifles' (plátano frito), 'canchita serrana' (maíz tostado), galletas de soda, barras energéticas o frutos secos que puedes encontrar en cualquier supermercado o mercado local. También son populares los 'turrones' o 'alfajores' que aguantan bien el viaje."
+            },
+            {
+                "pregunta": "¿Dónde puedo conseguir agua potable segura o pastillas potabilizadoras en Callao si tengo un presupuesto ajustado o en una situación de emergencia?",
+                "respuesta": "Agua embotellada segura se puede comprar en cualquier supermercado, bodega o tienda de conveniencia en Callao, con precios desde S/2 por una botella de 600ml. Para pastillas potabilizadoras, es más difícil encontrarlas en tiendas comunes; lo ideal sería comprarlas en farmacias grandes como Inkafarma o Boticas y Salud, o en tiendas de camping en Lima antes de llegar a Callao."
+            },
+            {
+                "pregunta": "¿Hay servicios de entrega de comida a domicilio económicos y fiables que operen en Callao para turistas cerca del aeropuerto o puerto?",
+                "respuesta": "Sí, aplicaciones como Rappi, PedidosYa o Uber Eats operan en Callao y ofrecen una amplia variedad de restaurantes económicos, desde comida rápida hasta 'menús del día'. Puedes pedir desde tu alojamiento cerca del aeropuerto o puerto. Los costos de envío varían, pero suelen ser entre S/5 y S/10."
+            },
+            {
+                "pregunta": "¿Qué alergias alimentarias comunes debo tener en cuenta al probar la gastronomía local en Callao, Perú, para evitar problemas de salud?",
+                "respuesta": "En la gastronomía de Callao y Perú en general, las alergias más comunes a considerar son a los mariscos y pescados (presentes en 'ceviches', 'jaleas'), maní (usado en algunas salsas o postres), lácteos y gluten (en panes y frituras). Siempre pregunta por los ingredientes ('¿Tiene mariscos?', '¿Contiene maní?') antes de ordenar, especialmente en pequeños restaurantes."
+            },
+            {
+                "pregunta": "¿Cómo puedo encontrar un 'menú del día' (almuerzo completo) seguro y a buen precio en Callao para mi sustento diario como viajero?",
+                "respuesta": "Para encontrar un 'menú del día' seguro y económico en Callao, busca pequeños restaurantes o 'huariques' en zonas con oficinas o mercados, como los alrededores del Mercado Central o en la Av. Sáenz Peña. Un buen 'menú' (entrada, plato de fondo y refresco) cuesta entre S/10 y S/18. Observa que el lugar tenga buena afluencia de locales y que la cocina se vea limpia."
+            },
+            {
+                "pregunta": "¿Existen mercados en Callao donde pueda comprar frutas y verduras frescas y baratas directamente de agricultores para cocinar yo mismo?",
+                "respuesta": "Sí, el Mercado Central de Callao es el lugar ideal para comprar frutas y verduras frescas a precios muy económicos. También puedes visitar el Mercado de Sarita Colonia o el Mercado de Ciudad del Pescador. Allí encontrarás una gran variedad de productos directamente de proveedores, mucho más baratos que en supermercados."
+            },
+            {
+                "pregunta": "¿Cuáles son los precios típicos de una comida básica como 'arroz con pollo' o 'lomo saltado' en un restaurante local ('huarique') en Callao para viajeros con presupuesto?",
+                "respuesta": "En un 'huarique' o restaurante local en Callao, un plato básico como 'arroz con pollo', 'lomo saltado' o 'tallarines verdes' suele costar entre S/15 y S/25, dependiendo del tamaño de la porción y la ubicación. Si optas por un 'menú del día', el precio es aún menor, entre S/10 y S/18, incluyendo entrada y bebida."
+            }
+        ],
+        "8_Accesibilidad_Infraestructura": [
+            {
+                "pregunta": "¿Cuál es la forma más segura y recomendada para ir del Aeropuerto Jorge Chávez en Callao al centro de Miraflores por la noche?",
+                "respuesta": "Para ir del Aeropuerto Jorge Chávez en Callao a Miraflores por la noche, lo más seguro es usar los taxis oficiales del aeropuerto como 'Taxi Green' o 'Taxi Directo', con tarifas que rondan los S/60 a S/80. También puedes optar por el servicio de bus 'Airport Express Lima' que opera hasta tarde y te deja en puntos clave de Miraflores por S/25."
+            },
+            {
+                "pregunta": "¿El Aeropuerto Internacional Jorge Chávez en Callao tiene buena accesibilidad para sillas de ruedas y personas con discapacidad?",
+                "respuesta": "Sí, el Aeropuerto Jorge Chávez en Callao está diseñado para ser accesible. Cuenta con rampas, ascensores amplios, baños adaptados y señalización clara. Las aerolíneas también ofrecen asistencia con sillas de ruedas, la cual se debe solicitar con antelación."
+            },
+            {
+                "pregunta": "¿Cuándo se espera que la Línea 2 del Metro de Lima llegue al Aeropuerto Jorge Chávez en Callao y cómo beneficiará a los viajeros?",
+                "respuesta": "Se estima que la estación de la Línea 2 del Metro de Lima en el Aeropuerto Jorge Chávez, en Callao, estará operativa en su totalidad para el año 2028. Esto permitirá una conexión directa y económica con gran parte de Lima, reduciendo significativamente los tiempos y costos de traslado para los viajeros."
+            },
+            {
+                "pregunta": "¿Hay Wi-Fi gratuito ilimitado y suficientes puntos de carga para celulares en el Aeropuerto Jorge Chávez de Callao?",
+                "respuesta": "El Aeropuerto Jorge Chávez en Callao ofrece Wi-Fi gratuito por un tiempo limitado, generalmente 30 minutos. Después de eso, puedes pagar por un servicio premium. Hay numerosos puntos de carga USB y enchufes distribuidos por todo el terminal, especialmente en las salas de espera y áreas de comida."
+            },
+            {
+                "pregunta": "¿Qué opciones de transporte público existen para llegar al Aeropuerto Jorge Chávez en Callao desde el distrito de San Isidro?",
+                "respuesta": "Desde San Isidro, no hay una línea directa de transporte público masivo que llegue al Aeropuerto Jorge Chávez en Callao. Las opciones más prácticas son el bus 'Airport Express Lima' (con paradas en San Isidro), taxis oficiales o servicios de aplicaciones como Uber o Cabify, con tarifas que varían entre S/45 y S/65."
+            },
+            {
+                "pregunta": "¿Dónde puedo encontrar un servicio de guardaequipaje seguro en el Aeropuerto Jorge Chávez de Callao y cuánto cuesta aproximadamente?",
+                "respuesta": "Puedes encontrar un servicio de guardaequipaje seguro en el Aeropuerto Jorge Chávez de Callao, usualmente operado por 'Left Luggage' o similar, ubicado en el primer nivel del terminal, cerca de las llegadas internacionales. El costo por maleta puede variar desde S/20 por unas horas hasta S/40 por 24 horas, dependiendo del tamaño."
+            },
+            {
+                "pregunta": "¿Qué empresas de alquiler de coches tienen oficinas dentro del Aeropuerto Jorge Chávez en Callao y es recomendable reservar con antelación?",
+                "respuesta": "Dentro del Aeropuerto Jorge Chávez en Callao operan reconocidas empresas de alquiler de coches como Hertz, Avis, Budget, Sixt y Europcar. Es altamente recomendable reservar el vehículo con antelación, especialmente en temporada alta o si buscas un tipo de coche específico, para asegurar disponibilidad y mejores tarifas."
+            },
+            {
+                "pregunta": "¿Cómo está afectando la construcción del nuevo terminal y la segunda pista al acceso y la experiencia en el Aeropuerto Jorge Chávez de Callao?",
+                "respuesta": "La construcción del nuevo terminal y la segunda pista en el Aeropuerto Jorge Chávez de Callao implica cambios en el acceso y algunas zonas del terminal. Aunque la señalización es buena, los viajeros deben estar atentos a posibles desvíos y considerar un poco más de tiempo para moverse dentro y fuera del aeropuerto debido a las obras en curso."
+            },
+            {
+                "pregunta": "¿Hay hoteles conectados directamente al Aeropuerto Jorge Chávez en Callao para vuelos de conexión o escalas muy tempranas?",
+                "respuesta": "Sí, el hotel 'Wyndham Costa del Sol Lima Airport' está conectado directamente al terminal del Aeropuerto Jorge Chávez en Callao, lo que lo hace ideal para vuelos de conexión o escalas muy tempranas. Ofrece acceso directo sin necesidad de transporte adicional."
+            },
+            {
+                "pregunta": "¿Es fácil comprar una tarjeta SIM local para turistas en el Aeropuerto Jorge Chávez de Callao al llegar a Perú y qué documentos necesito?",
+                "respuesta": "Sí, es bastante fácil comprar una tarjeta SIM local para turistas en el Aeropuerto Jorge Chávez de Callao. En el área de llegadas internacionales, encontrarás módulos de operadores como Claro, Movistar y Entel. Solo necesitarás tu pasaporte para registrar la compra de la tarjeta SIM prepago."
+            }
+        ],
+        "9_Reglas_Prohibiciones_Tramites": [
+            {
+                "pregunta": "¿Qué documentos oficiales necesitan los turistas extranjeros para ingresar a Perú por el aeropuerto Jorge Chávez en Callao?",
+                "respuesta": "Los turistas extranjeros deben presentar un pasaporte válido con al menos seis meses de vigencia al momento de su llegada. Dependiendo de su nacionalidad, podrían requerir una visa. Al ingresar, se les otorgará una Tarjeta Andina de Migración (TAM) virtual que deben conservar durante su estadía."
+            },
+            {
+                "pregunta": "¿Cuáles son los artículos prohibidos de ingresar a Perú a través de la aduana del aeropuerto de Callao para evitar sanciones?",
+                "respuesta": "Está estrictamente prohibido ingresar productos perecibles sin registro sanitario, armas de fuego sin el permiso correspondiente, explosivos, drogas, material pornográfico y bienes culturales sin autorización del Ministerio de Cultura. Hay límites específicos para el ingreso de alcohol y tabaco."
+            },
+            {
+                "pregunta": "¿Qué restricciones de líquidos y geles aplican para el equipaje de mano al salir del aeropuerto Jorge Chávez en Callao?",
+                "respuesta": "Los líquidos, geles y aerosoles deben ir en envases individuales de no más de 100 ml cada uno. Todos estos envases deben caber cómodamente en una bolsa de plástico transparente con cierre hermético (tipo ziploc) de no más de un litro de capacidad total por pasajero."
+            },
+            {
+                "pregunta": "¿Cómo se debe reportar un objeto perdido dentro de las instalaciones del aeropuerto Jorge Chávez en Callao si ya se abandonó la terminal?",
+                "respuesta": "Para reportar un objeto perdido, debe contactar a la oficina de Objetos Perdidos y Encontrados de LAP (Lima Airport Partners) a través de su página web oficial o llamando al teléfono +51 1 5173501. Si el objeto se perdió a bordo de un avión, debe contactar directamente a su aerolínea."
+            },
+            {
+                "pregunta": "¿Existen reglas o procedimientos específicos para tomar taxis seguros desde el aeropuerto Jorge Chávez en Callao y evitar estafas?",
+                "respuesta": "Sí, se recomienda encarecidamente utilizar únicamente los servicios de taxis autorizados que operan dentro del aeropuerto, como Taxi Green o Taxi Directo. Sus módulos de atención se encuentran dentro de la terminal de llegadas. Evite a los taxistas informales que ofrecen servicios fuera de estas zonas."
+            },
+            {
+                "pregunta": "¿Está permitido fumar dentro de las instalaciones del aeropuerto Jorge Chávez en Callao o hay zonas designadas para ello?",
+                "respuesta": "No, está estrictamente prohibido fumar dentro de todas las instalaciones cerradas del aeropuerto Jorge Chávez en Callao. Existen zonas designadas para fumadores ubicadas fuera de la terminal, antes de ingresar a las áreas de seguridad y después de salir de las llegadas."
+            },
+            {
+                "pregunta": "¿Cuáles son los límites de compra en las tiendas duty-free al llegar al aeropuerto de Callao para no pagar impuestos adicionales?",
+                "respuesta": "Al llegar a Perú, los viajeros pueden ingresar artículos libres de impuestos hasta un valor total de US$500. Esto incluye un máximo de 3 litros de bebidas alcohólicas, 20 cajetillas de cigarrillos y 50 cigarros puros por persona."
+            },
+            {
+                "pregunta": "¿Qué trámites y documentos son necesarios para viajar con mi mascota desde o hacia el aeropuerto Jorge Chávez en Callao?",
+                "respuesta": "Para viajar con una mascota, necesitará un certificado de salud emitido por un veterinario autorizado, el carné de vacunación al día (incluyendo la vacuna antirrábica) y el permiso de importación o exportación del SENASA (Servicio Nacional de Sanidad Agraria) de Perú, el cual debe tramitarse con antelación."
+            },
+            {
+                "pregunta": "¿Está permitido llevar o volar drones cerca del aeropuerto Jorge Chávez en Callao y qué regulaciones aplican para su uso?",
+                "respuesta": "Sí, se puede llevar drones en el equipaje (siguiendo las regulaciones de baterías), pero está estrictamente prohibido volarlos en las inmediaciones del aeropuerto Jorge Chávez en Callao debido a las severas restricciones de espacio aéreo. Para vuelos recreativos en otras zonas de Perú, se requiere un permiso de la DGAC (Dirección General de Aeronáutica Civil)."
+            },
+            {
+                "pregunta": "¿Existe alguna tasa de salida o impuesto aeroportuario adicional que deba pagar al salir de Perú desde el aeropuerto de Callao?",
+                "respuesta": "No, la tasa de salida internacional del aeropuerto Jorge Chávez en Callao ya está incluida en el precio del boleto aéreo para vuelos internacionales. Los pasajeros no necesitan realizar un pago adicional por este concepto en el aeropuerto."
+            }
+        ],
+        "10_Alternativas_Plan_B": [
+            {
+                "pregunta": "¿Qué alternativas de transporte seguro tengo desde el Aeropuerto Jorge Chávez en Callao si mi taxi reservado no llega o me cancela a última hora?",
+                "respuesta": "Si tu taxi reservado falla, busca los módulos oficiales de taxis como 'Taxi Green' o 'Taxi 365' dentro del aeropuerto, ubicados en la zona de llegadas internacionales. Sus tarifas son fijas y seguras, por ejemplo, a Miraflores puede costar entre 60 y 80 Soles. Evita taxis informales fuera del terminal para tu seguridad en Callao."
+            },
+            {
+                "pregunta": "¿Cuáles son las mejores opciones de alojamiento de emergencia cerca del Aeropuerto Jorge Chávez en Callao si mi vuelo se retrasa o cancela inesperadamente?",
+                "respuesta": "Para estancias cortas o de emergencia, considera el 'Holiday Inn Lima Airport' que está conectado directamente al terminal. Otras opciones cercanas incluyen el 'Wyndham Costa del Sol Lima Airport' (también dentro del aeropuerto) o el 'Padma Hotel' a unos 10 minutos en taxi, con tarifas desde 150 Soles la noche, todos en la zona de Callao."
+            },
+            {
+                "pregunta": "¿Cómo puedo llegar al centro de Lima o Miraflores desde el Aeropuerto Jorge Chávez en Callao si aterrizo de madrugada y el transporte público no funciona?",
+                "respuesta": "De madrugada, tu mejor opción es un taxi oficial del aeropuerto ('Taxi Green', 'Taxi 365') o un servicio de aplicación como 'Uber' o 'Cabify' solicitado desde el Wi-Fi del aeropuerto. Las tarifas nocturnas pueden ser ligeramente más altas, por ejemplo, 70-90 Soles a Miraflores. El servicio de bus 'Airport Express Lima' opera desde las 7 AM hasta la medianoche, no siendo una opción de madrugada desde Callao."
+            },
+            {
+                "pregunta": "¿Qué debo hacer si pierdo mi pasaporte o documentos de viaje importantes al llegar o salir del Aeropuerto Jorge Chávez en Callao?",
+                "respuesta": "Reporta inmediatamente la pérdida a la Policía de Turismo (POLTUR) dentro del aeropuerto, ubicada en el segundo piso del terminal principal. Luego, contacta a tu embajada o consulado en Lima para obtener un salvoconducto o pasaporte de emergencia. Es crucial actuar con rapidez en Callao."
+            },
+            {
+                "pregunta": "Si pierdo mi vuelo de conexión en el Aeropuerto Jorge Chávez en Callao por un retraso de la aerolínea, ¿qué pasos debo seguir para reprogramar o buscar compensación?",
+                "respuesta": "Dirígete al mostrador de tu aerolínea de conexión lo antes posible. Ellos deben ofrecerte alternativas de vuelo y, si aplica, alojamiento y comidas. Guarda todos los comprobantes de gastos. Si la aerolínea no responde, contacta a INDECOPI (Instituto Nacional de Defensa de la Competencia y de la Protección de la Propiedad Intelectual) en Perú para asistencia desde Callao."
+            },
+            {
+                "pregunta": "¿Dónde puedo recibir atención médica de emergencia en el Aeropuerto Jorge Chávez en Callao o en sus alrededores si me siento mal?",
+                "respuesta": "El aeropuerto cuenta con un servicio médico de emergencia y paramédicos disponibles las 24 horas. Para casos más serios, el 'Hospital Nacional Daniel Alcides Carrión' en Callao está a unos 15-20 minutos en taxi, y clínicas privadas como la 'Clínica San Gabriel' en San Miguel (a 20-25 minutos) ofrecen atención de mayor nivel."
+            },
+            {
+                "pregunta": "¿Qué alternativas tengo si mis tarjetas de crédito no funcionan o me quedo sin Soles peruanos en el Aeropuerto Jorge Chávez en Callao?",
+                "respuesta": "Dentro del aeropuerto hay varias casas de cambio y cajeros automáticos (ATMs) de diferentes bancos como BCP, BBVA, Interbank y Scotiabank. Si las tarjetas fallan, puedes intentar cambiar dólares o euros en efectivo en las casas de cambio. Como Plan B, algunos taxis oficiales aceptan dólares americanos, pero la tasa de cambio puede no ser favorable en Callao."
+            },
+            {
+                "pregunta": "¿Qué debo hacer si mi equipaje se pierde o llega con retraso en el Aeropuerto Jorge Chávez en Callao?",
+                "respuesta": "Dirígete inmediatamente al mostrador de tu aerolínea en la zona de recojo de equipajes y presenta un 'Parte de Irregularidad de Equipaje' (P.I.R.). Guarda el comprobante y los números de contacto. La aerolínea es responsable de la búsqueda y, si aplica, de la compensación por artículos de primera necesidad mientras estés en Callao."
+            },
+            {
+                "pregunta": "¿Cómo puedo asegurar mi transporte desde o hacia el Aeropuerto Jorge Chávez en Callao si hay una huelga de transporte o bloqueo de vías?",
+                "respuesta": "En caso de huelgas o bloqueos, la mejor alternativa es coordinar con anticipación un servicio de taxi oficial del aeropuerto o un transfer privado que conozca rutas alternas. Mantente informado a través de noticias locales. Considera llegar al aeropuerto con mucha más antelación de lo habitual o incluso pasar la noche en un hotel cercano en Callao si la situación es crítica."
+            },
+            {
+                "pregunta": "¿Dónde puedo encontrar un espacio tranquilo y con buena conexión a internet para trabajar de emergencia en el Aeropuerto Jorge Chávez en Callao?",
+                "respuesta": "El aeropuerto ofrece Wi-Fi gratuito por un tiempo limitado (usualmente 30-60 minutos). Para una conexión más estable y prolongada, puedes comprar una tarjeta SIM local de operadores como Claro o Movistar en las tiendas del aeropuerto. Hay cafeterías como 'Starbucks' o 'Juan Valdez' con mesas y enchufes donde puedes trabajar. El 'VIP Lounge Perú' también ofrece un ambiente más tranquilo y Wi-Fi premium con costo en Callao."
+            }
+        ]
+    }
+}

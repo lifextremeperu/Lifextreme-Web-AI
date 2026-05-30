@@ -102,10 +102,10 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; 
         script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://www.googletagmanager.com https://js.stripe.com https://static.readdy.ai; 
         style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdn.jsdelivr.net https://fonts.googleapis.com; 
-        img-src 'self' data: https://images.unsplash.com https://www.googletagmanager.com https://*.supabase.co https://static.readdy.ai; 
+        img-src 'self' data: https://images.unsplash.com https://www.googletagmanager.com https://*.supabase.co https://static.readdy.ai https://maps.googleapis.com https://maps.gstatic.com; 
         connect-src 'self' https://hub-cusco-2026.tail883d62.ts.net https://desktop-sedhoop.tail883d62.ts.net https://*.supabase.co https://www.google-analytics.com https://stats.g.doubleclick.net https://*.readdy.ai;
         font-src 'self' https://cdn.jsdelivr.net https://fonts.gstatic.com;
-        frame-src 'self' https://js.stripe.com;">
+        frame-src 'self' https://js.stripe.com https://www.google.com;">
     <title>Turismo de Aventura en Peru | Lifextreme</title>
 
     <!-- ═══════════════════════════════════════════════════════════════ -->
@@ -191,21 +191,21 @@
 
 
 
-    <!-- JSON-LD Structured Data -->
+    <!-- JSON-LD Structured Data - LocalBusiness/GEO Optimized -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "TravelAgency",
-      "name": "Lifextreme",
-      "description": "Plataforma líder en turismo de aventura en Perú con IA personalizada",
+      "@type": ["TravelAgency", "LocalBusiness", "TouristInformationCenter"],
+      "name": "Lifextreme Peru",
+      "description": "Plataforma líder en turismo de aventura y expediciones extremas en Perú. Operamos en Cusco, Huaraz, y la Amazonía con soporte de Inteligencia Artificial.",
       "url": "https://www.lifextreme.store",
       "logo": "https://www.lifextreme.store/logo.png",
       "image": "https://www.lifextreme.store/og-image.jpg",
-      "telephone": "+51-984-123-456",
-      "email": "lifextremeperu@gmail.com",
+      "telephone": "+51958050928",
+      "email": "contacto@lifextreme.store",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Cusco",
+        "streetAddress": "Calle Chihuampata N° 626 - Barrio de San Blas",
         "addressLocality": "Cusco",
         "addressRegion": "Cusco",
         "postalCode": "08000",
@@ -213,19 +213,33 @@
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": "-13.531950",
-        "longitude": "-71.967463"
+        "latitude": "-13.518625",
+        "longitude": "-71.973945"
       },
-      "sameAs": [
-        "https://www.facebook.com/lifextremeperu",
-        "https://www.instagram.com/lifextremeperu",
-        "https://twitter.com/lifextremeperu"
+      "hasMap": "https://maps.app.goo.gl/placeholder_sanblas_cusco",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "00:00",
+          "closes": "23:59"
+        }
       ],
-      "priceRange": "$$",
-      "areaServed": {
-        "@type": "Country",
-        "name": "Perú"
-      }
+      "sameAs": [
+        "https://www.facebook.com/Lifextremeperu",
+        "https://www.instagram.com/lifextremeperu/"
+      ],
+      "priceRange": "$$$",
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Cusco"
+        },
+        {
+          "@type": "Country",
+          "name": "Perú"
+        }
+      ]
     }
     </script>
 
@@ -2571,18 +2585,27 @@
                         </li>
                         <li class="flex items-center gap-2">
                             <i class="ri-mail-line text-primary"></i>
-                            <a href="mailto:lifextremeperu@gmail.com"
-                                class="hover:text-white transition-colors">lifextremeperu@gmail.com</a>
+                            <a href="mailto:contacto@lifextreme.store"
+                                class="hover:text-white transition-colors">contacto@lifextreme.store</a>
                         </li>
                         <li class="flex items-start gap-2">
                             <i class="ri-map-pin-line text-secondary mt-1"></i>
-                            <span>Calle Chiwuampata 543, Cusco</span>
+                            <span>Calle Chihuampata N° 626 - Barrio de San Blas - Cusco, Peru</span>
                         </li>
                         <li class="flex items-center gap-2">
                             <i class="ri-time-line text-accent"></i>
-                            <span>Lun-Sab: 8:00 AM - 8:00 PM</span>
+                            <span>Lun-Dom: 24 horas / 7 días 🟢</span>
                         </li>
                     </ul>
+                    <!-- Google Maps Embed - Señal GEO para Google Business -->
+                    <div class="mt-6 rounded-2xl overflow-hidden border border-white/10" style="height:180px;">
+                        <iframe
+                            title="Lifextreme Peru - Barrio de San Blas, Cusco"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3751.2!2d-71.97394500000001!3d-13.518625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x916d9e8e0e0e0e0e%3A0x1234567890abcdef!2sSan%20Blas%2C%20Cusco%2C%20Per%C3%BA!5e0!3m2!1ses!2spe!4v1716500000000"
+                            width="100%" height="180" style="border:0;filter:grayscale(30%) contrast(1.1);" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
                 </div>
             </div>
 
@@ -2595,13 +2618,13 @@
                     </p>
 
                     <!-- Enlaces legales -->
-                    <div class="flex flex-wrap gap-6 text-sm text-slate-400">
-                        <a href="terminos.html" target="_blank" class="hover:text-white transition-colors">Términos y
-                            Condiciones</a>
-                        <a href="privacidad.html" target="_blank" class="hover:text-white transition-colors">Política de
-                            Privacidad</a>
-                        <a href="cookies.html" target="_blank" class="hover:text-white transition-colors">Política de
-                            Cookies</a>
+                    <div class="flex flex-wrap items-center gap-6 text-sm text-slate-400">
+                        <a href="terminos.html" target="_blank" class="hover:text-white transition-colors">Términos y Condiciones</a>
+                        <a href="privacidad.html" target="_blank" class="hover:text-white transition-colors">Política de Privacidad</a>
+                        <a href="cookies.html" target="_blank" class="hover:text-white transition-colors">Política de Cookies</a>
+                        <a href="politica-proveedores.html" target="_blank" class="hover:text-white transition-colors flex items-center gap-1"><i class="ri-shield-check-line text-emerald-400"></i> Política de Proveedores</a>
+                        <a href="esnna.html" target="_blank" class="hover:text-white transition-colors flex items-center gap-1"><i class="ri-shield-user-fill text-orange-500"></i> Prevención ESNNA</a>
+                        <a href="reclamaciones.html" target="_blank" class="hover:text-white transition-colors flex items-center gap-1"><i class="ri-book-read-line text-orange-500"></i> Libro de Reclamaciones</a>
                     </div>
 
                     <!-- Certificaciones -->

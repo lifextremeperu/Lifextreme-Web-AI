@@ -1,0 +1,17 @@
+node_modules/
+.git/
+.github/
+.vscode/
+.idea/
+__pycache__/
+venv/
+env/
+.env
+.env.*
+chroma_db/
+data/knowledge/sources_master/
+*.md
+.firebase/
+firebase.json
+.firebaserc
+vercel.json

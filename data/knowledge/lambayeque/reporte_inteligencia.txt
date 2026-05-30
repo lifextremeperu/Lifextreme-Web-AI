@@ -1,0 +1,60 @@
+<diagnostico>
+PERFIL: Lambayeque, en la costa norte de Perú, es un epicentro arqueológico y cultural, hogar de las civilizaciones Mochica y Sicán. Concentra el 80% de los museos de sitio del país, destacando el Museo Tumbas Reales de Sipán. Su capital, Chiclayo, es un dinámico centro comercial y gastronómico. La región recibe aproximadamente 1.2 millones de visitantes anuales, con un crecimiento sostenido del 5% en el turismo cultural y de naturaleza.
+MACROREGION: Costa
+MADUREZ_TURISTICA: MEDIA
+VISITANTES_ANUALES_EST: 1.2 millones (2023)
+PESO_CATEGORIAS:
+  - Destinos y patrimonio: 35%
+  - Aventura y deportes: 7%
+  - Gastronomía y cultura: 28%
+  - Naturaleza y ecosistemas: 13%
+  - Misticismo y festividades: 7%
+  - Logística y servicios: 5%
+  - Otros: 5%
+  TOTAL: 100%
+PERFIL_VISITANTE_DOMINANTE: Turista nacional (familiar o cultural) interesado en arqueología y gastronomía; turista internacional cultural/histórico.
+MERCADOS_INTERNACIONALES: USA, España, Alemania
+VENTANA_OPTIMA: Abril a Noviembre (clima seco y soleado, ideal para visitas arqueológicas y de naturaleza).
+PROBLEMA_NO_RESUELTO: Conectividad aérea directa internacional limitada y necesidad de diversificar la oferta turística más allá del circuito arqueológico clásico para extender la estadía promedio.
+DESTINOS_CANONICOS_COMPARTIDOS: ninguno
+</diagnostico>
+
+
+[... MÓDULOS OMITIDOS AQUÍ ...]
+
+
+<inteligencia_cierre>
+TOP_5_TRAFICO_MASIVO:
+  - ID: A-01 (Museo Tumbas Reales de Sipán es el principal atractivo y motor turístico de la región.)
+  - ID: A-03 (Las Pirámides de Túcume son un complejo arqueológico icónico y de fácil acceso.)
+  - ID: D-01 (La gastronomía chiclayana atrae a un gran número de visitantes nacionales e internacionales.)
+  - ID: A-02 (El Complejo Arqueológico de Sipán complementa la visita al museo, siendo un punto clave del circuito.)
+  - ID: N-01 (El Santuario Histórico Bosque de Pómac es un destino popular por su combinación de naturaleza y arqueología.)
+
+TOP_5_DIAMANTES_EN_BRUTO:
+  - ID: D-03 (Las Chicherías Tradicionales ofrecen una experiencia cultural y gastronómica auténtica y poco masificada.)
+  - ID: N-02 (La Reserva Ecológica Chaparrí tiene un gran potencial para el ecoturismo y avistamiento de fauna, con enfoque comunitario.)
+  - ID: E-01 (El Curanderismo y Medicina Tradicional es un nicho de turismo cultural profundo, aún subestimado y con gran autenticidad.)
+  - ID: C-01 (El Surf y Deportes Acuáticos en Pimentel tiene potencial para atraer a un segmento joven y aventurero, diversificando la oferta costera.)
+  - ID: A-04 (El Museo Nacional Sicán, aunque importante, es a menudo opacado por Sipán, pero ofrece una perspectiva única de otra gran civilización.)
+
+MODULOS_MERCADO_INTERNACIONAL:
+  - USA: A-01, A-02, A-03, N-02 (Interés en arqueología de alto nivel, cultura y ecoturismo con conservación.)
+  - Europa: A-01, A-03, D-01, N-01 (Valoración de la historia milenaria, la gastronomía auténtica y la naturaleza con patrimonio.)
+  - Asia: A-01, D-01, A-05 (Atracción por los grandes descubrimientos arqueológicos, la riqueza culinaria y la eficiencia en la visita de sitios culturales.)
+
+ALERTAS_VERIFICACION_CAMPO:
+  - ID: E-01 (Curanderismo y Medicina Tradicional) ⚠️: La información sobre contactos, autenticidad de las prácticas y accesibilidad puede ser muy variable y requiere validación local constante.
+  - ID: D-03 (Chicherías Tradicionales de Lambayeque) ⚠️: La calidad y existencia de establecimientos auténticos pueden cambiar rápidamente, y la experiencia puede ser muy subjetiva.
+  - ID: M-01 (Seguridad para el Viajero en Lambayeque) ⚠️: La percepción y realidad de la seguridad son dinámicas y requieren actualización frecuente con fuentes locales y oficiales.
+
+MAPA_CALOR_CATEGORIAS:
+  - Categoría | Módulos | % del total | Prioridad para Fase 2
+  - Destinos y patrimonio | 5 | 33.3% | ALTA
+  - Gastronomía y cultura | 4 | 26.7% | ALTA
+  - Naturaleza y ecosistemas | 2 | 13.3% | MEDIA
+  - Aventura y deportes | 1 | 6.7% | MEDIA
+  - Misticismo y festividades | 1 | 6.7% | MEDIA
+  - Logística y servicios | 1 | 6.7% | MEDIA
+  - Seguridad y Gestión de Riesgo | 1 | 6.7% | MEDIA
+</inteligencia_cierre>

@@ -1,7 +1,7 @@
 import { appendFileSync } from 'fs';
 import { join } from 'path';
 
-const API_KEY = process.env.GEMINI_API_KEY || "AIzaSyA32fTZKcDN-54dfHpSR8KaeTu3KJ9Wu3M";
+const API_KEY = process.env.GEMINI_API_KEY || "";
 const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent?key=${API_KEY}`;
 const logFile = "C:\\Users\\ASUS\\OneDrive\\VARIOS\\Documentos\\LIFEXTREME\\WEB\\Lifextreme-Web-AI\\agents\\debug_claude_call.log";
 

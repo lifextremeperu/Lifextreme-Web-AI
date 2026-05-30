@@ -1,50 +1,81 @@
 import os
 import sys
 import subprocess
-from google.oauth2 import credentials
-from langchain_google_vertexai import VertexAIEmbeddings
-from langchain_community.vectorstores import Chroma
+import shutil
+from google.cloud import aiplatform
+from langchain_google_vertexai import VertexAIEmbeddings, VectorSearchVectorStore
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+from dotenv import load_dotenv
+load_dotenv()
 
 # Forzar codificacion UTF-8
 sys.stdout.reconfigure(encoding='utf-8')
 
-PROJECT_ID = "project-7ccd00cc-f448-42df-90a"
-REGION = "us-central1"
-DB_DIR = 'chroma_db'
-SOURCE_DIR = r'D:\HUB-CUSCO-2026\apps\data\knowledge\lifextreme\sources'
+PROJECT_ID = os.getenv("GOOGLE_CLOUD_PROJECT", "project-7ccd00cc-f448-42df-90a")
+REGION = os.getenv("GOOGLE_CLOUD_REGION", "us-central1")
+TMP_PDF_DIR = r"C:\Users\ASUS\OneDrive\VARIOS\Documentos\LIFEXTREME"
 
-print(f"[1] Autenticando con Google Cloud...")
-gcloud = r'C:\Users\ASUS\AppData\Local\Google\google-cloud-sdk\bin\gcloud.cmd'
-env = os.environ.copy()
-env['CLOUDSDK_PYTHON'] = r'C:\Python313\python.exe'
+print(f"[1] Buscando PDFs localmente en: {TMP_PDF_DIR} ...")
+if not os.path.exists(TMP_PDF_DIR):
+    print(f"Error: La carpeta local {TMP_PDF_DIR} no existe.")
+    sys.exit(1)
+
+print("\n[2] Inicializando Vertex AI y Embeddings...")
+class SmartVertexEmbeddings(VertexAIEmbeddings):
+    def embed_documents(self, texts: list[str]) -> list[list[float]]:
+        all_embeddings = []
+        batch_size = 50
+        print(f"    Calculando vectores matematicos locales para {len(texts)} fragmentos de PDF...")
+        for i in range(0, len(texts), batch_size):
+            batch = texts[i:i+batch_size]
+            try:
+                emb = super().embed_documents(batch)
+                all_embeddings.extend(emb)
+                print(f"    Calculados: {min(i+batch_size, len(texts))}/{len(texts)}")
+            except Exception as e:
+                print(f"    Error en lote, reintentando con batch mas pequeño... {e}")
+                for j in range(0, len(batch), 10):
+                    small_batch = batch[j:j+10]
+                    all_embeddings.extend(super().embed_documents(small_batch))
+        return all_embeddings
 
 try:
-    token = subprocess.check_output([gcloud, 'auth', 'print-access-token'], env=env, text=True).strip()
-    creds = credentials.Credentials(token)
-    embeddings = VertexAIEmbeddings(
+    embeddings = SmartVertexEmbeddings(
         model_name="text-embedding-004", 
         project=PROJECT_ID, 
-        location=REGION,
-        credentials=creds
+        location=REGION
+    )
+    index_id = os.getenv("VECTOR_SEARCH_INDEX_ID")
+    endpoint_id = os.getenv("VECTOR_SEARCH_ENDPOINT_ID")
+    
+    if not index_id or not endpoint_id:
+        print("ERROR: VECTOR_SEARCH_INDEX_ID o VECTOR_SEARCH_ENDPOINT_ID no definidos.")
+        sys.exit(1)
+        
+    vectorstore = VectorSearchVectorStore.from_components(
+        project_id=PROJECT_ID,
+        region=REGION,
+        gcs_bucket_name="lifextreme-knowledge-cusco",
+        gcp_credentials=None,
+        embedding=embeddings,
+        index_id=index_id,
+        endpoint_id=endpoint_id
     )
 except Exception as e:
     print(f"Error inicializando Vertex AI: {e}")
     sys.exit(1)
 
-print("[2] Leyendo PDFs locales...")
+print("\n[3] Procesando y extrayendo texto de PDFs...")
 all_docs = []
 pdf_files = []
 
-for root, dirs, files in os.walk(SOURCE_DIR):
+for root, dirs, files in os.walk(TMP_PDF_DIR):
     for file in files:
         if file.lower().endswith('.pdf'):
             pdf_files.append(os.path.join(root, file))
 
-print(f"    Se encontraron {len(pdf_files)} PDFs. Extrayendo texto (esto tomará un tiempo)...")
-
-# Configuramos el cortador de texto: pedazos de 1000 caracteres, con 100 de superposicion para no cortar ideas a medias
+print(f"    Se encontraron {len(pdf_files)} PDFs locales. Cortando en fragmentos...")
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
 
 procesados = 0
@@ -53,9 +84,7 @@ for pdf_path in pdf_files:
     try:
         loader = PyPDFLoader(pdf_path)
         docs = loader.load()
-        # Cortamos el documento
         splits = text_splitter.split_documents(docs)
-        # Añadir al arreglo total
         all_docs.extend(splits)
         procesados += 1
         if procesados % 10 == 0:
@@ -64,23 +93,18 @@ for pdf_path in pdf_files:
         fallidos += 1
         print(f"    Error leyendo {os.path.basename(pdf_path)}")
 
-print(f"\n[3] Generando Vectores de IA para {len(all_docs)} fragmentos de texto...")
-print("    Esto tomará unos minutos y se procesará en lotes para no saturar la API.")
+print(f"\n[4] ¡DISPARO MASIVO INICIADO! Procesando {len(all_docs)} fragmentos de PDF...")
+print("    - Langchain calculará todos los vectores en tu PC.")
+print("    - Subirá un archivo JSONL a tu Bucket.")
+print("    - Le ordenará a Google Cloud que inyecte todo de golpe.")
 
 try:
-    # Vertex AI limita a 20000 tokens por request, usamos batch de 20 fragmentos por seguridad extrema
-    batch_size = 20
-    # Abrimos la base de datos existente de Cixtur
-    vectorstore = Chroma(persist_directory=DB_DIR, embedding_function=embeddings)
-    
-    total_batches = (len(all_docs)//batch_size) + 1
-    for i in range(0, len(all_docs), batch_size):
-        batch = all_docs[i:i + batch_size]
-        print(f"    Subiendo lote {i//batch_size + 1}/{total_batches}...")
-        vectorstore.add_documents(documents=batch)
+    # Ingesta masiva en un solo llamado
+    vectorstore.add_documents(documents=all_docs)
             
-    print(f"\n[EXITO] {len(all_docs)} fragmentos de PDF inyectados exitosamente en el Cerebro: {DB_DIR}/")
+    print(f"\n[EXITO] {len(all_docs)} fragmentos de PDF inyectados exitosamente en el Cerebro Vectorial de Google Cloud!")
     if fallidos > 0:
         print(f"Nota: {fallidos} PDFs no pudieron ser leidos por estar dañados o protegidos.")
+        
 except Exception as e:
     print(f"\n[ERROR] Falló la vectorización: {e}")

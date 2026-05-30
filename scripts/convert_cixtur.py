@@ -1,10 +1,11 @@
-"""
-Script: Convertir Dataset Cixtur (Excel) a JSONL para RAG
-Lifextreme AI - Knowledge Brain
-"""
+import sys
 import openpyxl
 import json
 import os
+
+# Fix Windows console encoding
+if sys.stdout.encoding != 'utf-8':
+    sys.stdout.reconfigure(encoding='utf-8')
 
 EXCEL_PATH = r"C:\Users\ASUS\OneDrive\VARIOS\Documentos\GPTS IA\TOURBOT\ENTRENAMIENTO\DATA SET CIXTUR 11_11_25.xlsx"
 OUTPUT_PATH = r"C:\Users\ASUS\OneDrive\VARIOS\Documentos\GPTS IA\BIOVET AI\Lifextreme-Web-AI\data\cixtur_knowledge.jsonl"
@@ -30,8 +31,8 @@ with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
                 encontro_header = True
                 continue
             
-            # Procesar filas de datos
-            if encontro_header and row and row[0] and row[1]:
+            # Procesar filas de datos - verificar que tenga al menos 2 columnas
+            if encontro_header and row and len(row) >= 2 and row[0] and row[1]:
                 prompt = str(row[0]).strip()
                 completion = str(row[1]).strip()
                 
@@ -50,7 +51,7 @@ with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
                     total_registros += 1
         
         if registros_hoja > 0:
-            print(f"  ✅ {sheet_name}: {registros_hoja} registros")
+            print(f"  OK {sheet_name}: {registros_hoja} registros")
             total_hojas += 1
 
 print(f"\n🎉 CONVERSIÓN COMPLETA:")

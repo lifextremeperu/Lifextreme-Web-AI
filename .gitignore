@@ -46,6 +46,7 @@ package-lock.json
 .env
 .env.local
 .env.*.local
+service_account.json
 
 # Logs
 logs/
@@ -58,6 +59,7 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.temp
+tmp/
 .cache/
 
 # Build outputs
@@ -67,3 +69,9 @@ build/
 *.min.css
 
 .vercel
+
+# Lifextreme Massive Knowledge Base
+/data/knowledge/sources_master/
+
+# Backups
+*.zip

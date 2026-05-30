@@ -1,0 +1,58 @@
+<diagnostico>
+PERFIL: Loreto es el departamento más extenso de Perú, abarcando 368,852 km² (28.6% del territorio nacional), con Iquitos como su capital, la ciudad más grande del mundo inaccesible por carretera. La región está definida por la cuenca amazónica y sus vastos sistemas fluviales, albergando una biodiversidad excepcional y comunidades indígenas. El turismo se centra en la naturaleza, la observación de fauna y la inmersión cultural, con un promedio estimado de 250,000 visitantes anuales (2019).
+MACROREGION: Selva
+MADUREZ_TURISTICA: MEDIA
+VISITANTES_ANUALES_EST: 250000 (2019)
+PESO_CATEGORIAS:
+  - Destinos y patrimonio: 10%
+  - Aventura y deportes: 15%
+  - Gastronomía y cultura: 20%
+  - Naturaleza y ecosistemas: 40%
+  - Misticismo y festividades: 10%
+  - Logística y servicios: 5%
+  - Otros: 0%
+  TOTAL: 100%
+PERFIL_VISITANTE_DOMINANTE: Amantes de la naturaleza, ecoturistas, buscadores de aventura, exploradores culturales, interesados en experiencias auténticas y la biodiversidad amazónica, a menudo con mayor poder adquisitivo para tours especializados.
+MERCADOS_INTERNACIONALES: Estados Unidos, Alemania, Reino Unido
+VENTANA_OPTIMA: Mayo-Octubre, la estación seca facilita el senderismo en selva y la observación de fauna, con niveles de río más bajos.
+PROBLEMA_NO_RESUELTO: Monitoreo y estandarización de la calidad y seguridad de los servicios turísticos en áreas remotas y comunitarias.
+DESTINOS_CANONICOS_COMPARTIDOS: ninguno
+</diagnostico>
+
+
+[... MÓDULOS OMITIDOS AQUÍ ...]
+
+
+<inteligencia_cierre>
+TOP_5_TRAFICO_MASIVO:
+  - ID: A-01 (Reserva Nacional Pacaya Samiria) — Es el principal atractivo de naturaleza y biodiversidad, con alta demanda internacional.
+  - ID: A-02 (Río Amazonas: Corazón de Loreto) — La experiencia fundamental para cualquier visitante, a menudo incluida en paquetes.
+  - ID: A-03 (Observación de Fauna Amazónica) — La actividad más buscada por los turistas que visitan la selva.
+  - ID: G-01 (Lodges de Selva: Experiencia Inmersiva) — Esencial para la experiencia de pernocte, con opciones para diversos segmentos.
+  - ID: D-01 (Gastronomía Amazónica Iquiteña) — El creciente interés por la gastronomía peruana atrae a muchos a explorar los sabores amazónicos.
+TOP_5_DIAMANTES_EN_BRUTO:
+  - ID: L-01 (Turismo Vivencial con Comunidades Nativas) — Ofrece una inmersión cultural profunda y auténtica, con alto potencial de impacto positivo, pero subpromocionado.
+  - ID: D-02 (Mercado de Belén: Sabor y Cultura Local) — Una experiencia vibrante y auténtica de la vida local, a menudo pasada por alto por el turismo masivo, pero con gran potencial cultural y gastronómico.
+  - ID: E-01 (Chamanismo y Medicina Ancestral) — Un nicho de alto valor cultural y espiritual, que requiere un enfoque ético y responsable para su desarrollo.
+  - ID: C-02 (Senderismo y Trekking en Selva) — Permite una conexión más íntima y desafiante con la selva, más allá de las rutas fluviales convencionales.
+  - ID: A-05 (Centros de Rescate y Conservación de Fauna) — Atrae a un segmento de turismo ético y consciente, con potencial para educar y generar conciencia.
+MODULOS_MERCADO_INTERNACIONAL:
+  - USA: A-01, A-03, C-01, G-01 (Énfasis en aventura, naturaleza, y comodidad en lodges de calidad).
+  - Europa: A-01, L-01, E-01, J-01 (Interés en sostenibilidad, cultura profunda, bienestar y experiencias transformadoras).
+  - Asia: D-01, A-02, A-04 (Atracción por la gastronomía exótica, los íconos naturales y la exploración urbana de Iquitos).
+ALERTAS_VERIFICACION_CAMPO:
+  - ID: L-01 (Turismo Vivencial con Comunidades Nativas) ⚠️: Necesita verificación constante sobre la autenticidad de la experiencia, el reparto justo de beneficios y el respeto cultural.
+  - ID: E-01 (Chamanismo y Medicina Ancestral) ⚠️: Requiere verificación de la ética de los practicantes, la seguridad de los participantes y la legalidad de las sustancias utilizadas.
+  - ID: F-01 (Movilidad Fluvial en la Amazonía) ⚠️: Los horarios, tarifas y estándares de seguridad de las embarcaciones pueden variar y cambiar frecuentemente, especialmente en rutas menos transitadas.
+  - ID: J-01 (Plantas Medicinales y Rituales de Ayahuasca) ⚠️: Alta sensibilidad y riesgos asociados; la verificación de la reputación de los centros, la cualificación de los guías y los protocolos de seguridad es crítica y debe ser continua.
+MAPA_CALOR_CATEGORIAS:
+  - Categoría | Módulos | % del total | Prioridad para Fase 2
+  - Naturaleza y ecosistemas | 5 | 33.3% | ALTA
+  - Gastronomía y cultura | 2 | 13.3% | MEDIA-ALTA
+  - Aventura y deportes | 2 | 13.3% | MEDIA
+  - Misticismo y festividades | 2 | 13.3% | MEDIA
+  - Logística y servicios | 1 | 6.7% | MEDIA
+  - Alojamiento por segmento | 1 | 6.7% | MEDIA
+  - Sostenibilidad y Comunidades | 1 | 6.7% | MEDIA-ALTA
+  - Bienestar y Medicina Tradicional | 1 | 6.7% | MEDIA
+</inteligencia_cierre>

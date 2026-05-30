@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libro de Reclamaciones Virtual - Lifextreme</title>
+    <meta name="description" content="Libro de Reclamaciones Virtual conforme a las exigencias de INDECOPI en Perú.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50">
+    <div class="container mx-auto px-6 py-12 max-w-4xl">
+        <div class="bg-white rounded-3xl shadow-xl p-8 lg:p-12">
+
+            <!-- Back link -->
+            <a href="index.html" class="text-sm font-bold text-orange-600 hover:underline mb-6 inline-block">
+                ← Volver a Lifextreme
+            </a>
+
+            <!-- Header -->
+            <div class="flex items-start gap-4 mb-4">
+                <div class="text-5xl text-orange-600"><i class="ri-book-read-line"></i></div>
+                <div>
+                    <h1 class="text-3xl lg:text-4xl font-black italic uppercase text-slate-800">Libro de Reclamaciones</h1>
+                    <p class="text-sm text-slate-500 mt-2 font-bold">Conforme a lo establecido en el Código de Protección y Defensa del Consumidor</p>
+                </div>
+            </div>
+
+            <div class="bg-slate-100 border-l-4 border-slate-400 p-4 mb-8 text-sm text-slate-700">
+                <p><strong>Razón Social:</strong> Lifextreme S.A.C.</p>
+                <p><strong>RUC:</strong> 10416419545</p>
+                <p><strong>Dirección:</strong> Calle Chihuampata N° 626 - Barrio de San Blas - Cusco, Peru</p>
+            </div>
+
+            <form action="#" method="POST" class="space-y-8">
+                <!-- Tipo -->
+                <div>
+                    <h2 class="text-xl font-bold text-slate-800 border-b pb-2 mb-4">1. Identificación del Consumidor Reclamante</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-1">Nombres y Apellidos *</label>
+                            <input type="text" required class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2 focus:outline-none focus:border-orange-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-1">Tipo y N° de Documento (DNI/CE/Pasaporte) *</label>
+                            <input type="text" required class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2 focus:outline-none focus:border-orange-500">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-bold text-slate-700 mb-1">Domicilio *</label>
+                            <input type="text" required class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2 focus:outline-none focus:border-orange-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-1">Teléfono / Celular *</label>
+                            <input type="tel" required class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2 focus:outline-none focus:border-orange-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-1">Correo Electrónico *</label>
+                            <input type="email" required class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2 focus:outline-none focus:border-orange-500">
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="text-xl font-bold text-slate-800 border-b pb-2 mb-4">2. Identificación del Bien Contratado</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-1">Tipo *</label>
+                            <select required class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2 focus:outline-none focus:border-orange-500">
+                                <option value="servicio">Servicio (Tour/Reserva)</option>
+                                <option value="producto">Producto</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-1">Monto Reclamado (Opcional)</label>
+                            <input type="number" step="0.01" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2 focus:outline-none focus:border-orange-500">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-bold text-slate-700 mb-1">Descripción del Servicio/Producto *</label>
+                            <input type="text" required class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2 focus:outline-none focus:border-orange-500" placeholder="Ej: Tour Montaña de Colores (24 de Julio)">
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="text-xl font-bold text-slate-800 border-b pb-2 mb-4">3. Detalle de Reclamación y Pedido del Consumidor</h2>
+                    <div class="mb-4">
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Tipo de Solicitud *</label>
+                        <div class="flex items-center gap-6">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="tipo" value="reclamo" required class="text-orange-600 focus:ring-orange-500">
+                                <span><strong>Reclamo:</strong> Disconformidad relacionada a los productos o servicios.</span>
+                            </label>
+                        </div>
+                        <div class="flex items-center gap-6 mt-2">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="tipo" value="queja" required class="text-orange-600 focus:ring-orange-500">
+                                <span><strong>Queja:</strong> Disconformidad no relacionada a los productos o servicios; o, malestar o descontento.</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-sm font-bold text-slate-700 mb-1">Detalle (Relato de los hechos) *</label>
+                        <textarea required rows="4" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2 focus:outline-none focus:border-orange-500"></textarea>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block text-sm font-bold text-slate-700 mb-1">Pedido (Qué solicita) *</label>
+                        <textarea required rows="3" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2 focus:outline-none focus:border-orange-500"></textarea>
+                    </div>
+                </div>
+
+                <div class="bg-orange-50 text-orange-800 p-4 rounded-xl text-sm leading-relaxed mb-6">
+                    <p>Al enviar este formulario, usted está firmando digitalmente y declarando que los datos consignados son verdaderos. La formulación del reclamo no impide acudir a otras vías de solución de controversias ni es requisito previo para interponer una denuncia ante el INDECOPI.</p>
+                    <p class="mt-2 font-bold">El proveedor deberá dar respuesta al reclamo en un plazo no mayor a quince (15) días hábiles improrrogables.</p>
+                </div>
+
+                <button type="submit" onclick="event.preventDefault(); alert('Formulario enviado correctamente. Recibirá una copia en su correo en breve.');" class="w-full bg-orange-600 hover:bg-orange-700 text-white font-black text-lg py-4 rounded-xl transition-colors uppercase tracking-wider">
+                    Enviar Hoja de Reclamación
+                </button>
+            </form>
+
+            <!-- Contact -->
+            <div class="border-t pt-8 mt-12 text-center text-slate-500 text-sm">
+                <p>Lifextreme - Cusco, Perú</p>
+                <p>Email: contacto@lifextreme.store</p>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

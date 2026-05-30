@@ -1,0 +1,426 @@
+{
+    "destino_id": "C-01",
+    "modulo_contexto": "Rafting y Kayak en Río Mayo",
+    "fqsas": {
+        "1_Precios_Presupuestos_Moneda": [
+            {
+                "pregunta": "¿Cuánto cuesta un tour de rafting en el Río Mayo en Sanmartin para la temporada de Mayo a Octubre?",
+                "respuesta": "Un tour de rafting de medio día en el Río Mayo desde Sanmartin suele costar entre 80 y 150 Soles peruanos por persona, dependiendo del operador y los servicios incluidos en el paquete."
+            },
+            {
+                "pregunta": "¿Qué servicios están incluidos en el precio de un paquete de rafting o kayak en el Río Mayo, Sanmartin?",
+                "respuesta": "Generalmente, el precio incluye el equipo completo (chaleco, casco, remo), guía certificado, charla de seguridad, transporte desde Sanmartin al punto de inicio y regreso, y a veces un refrigerio o almuerzo ligero."
+            },
+            {
+                "pregunta": "¿Qué tipo de moneda aceptan los operadores de rafting en el Río Mayo de Sanmartin y se puede pagar con tarjeta?",
+                "respuesta": "La moneda principal es el Sol peruano (PEN). Muchos operadores en Sanmartin aceptan pagos en efectivo y algunos de los más grandes también aceptan tarjetas de crédito/débito (Visa, Mastercard), pero es recomendable preguntar antes o llevar efectivo."
+            },
+            {
+                "pregunta": "¿Hay opciones de rafting o kayak más económicas para mochileros en el Río Mayo cerca de Sanmartin?",
+                "respuesta": "Sí, algunos operadores locales en Sanmartin ofrecen tours más básicos o con menos extras a precios ligeramente más bajos, a veces desde 70 Soles. Pregunta por opciones 'solo rafting' sin almuerzo gourmet."
+            },
+            {
+                "pregunta": "¿Es costumbre dejar propina a los guías de rafting en el Río Mayo de Sanmartin y cuánto se recomienda?",
+                "respuesta": "Sí, es costumbre dejar propina si el servicio fue excelente. Un monto sugerido para un guía de rafting en Sanmartin es entre 10 y 20 Soles por persona, o el 5-10% del costo del tour, si estás satisfecho."
+            },
+            {
+                "pregunta": "Si el transporte no está incluido, ¿cuánto cuesta llegar al punto de inicio del rafting en el Río Mayo desde Sanmartin?",
+                "respuesta": "Si el tour no incluye transporte, un mototaxi desde el centro de Sanmartin hasta las zonas de embarque más comunes en el Río Mayo (como el sector de Shapaja) puede costar entre 10 y 20 Soles, dependiendo de la distancia y tu habilidad para negociar."
+            },
+            {
+                "pregunta": "¿Hay cajeros automáticos (ATMs) cerca de las zonas de embarque para rafting en el Río Mayo o solo en Sanmartin?",
+                "respuesta": "Los cajeros automáticos están concentrados principalmente en la ciudad de Sanmartin. Es crucial retirar efectivo antes de salir hacia el Río Mayo, ya que en las zonas rurales cercanas a los puntos de embarque no encontrarás ATMs."
+            },
+            {
+                "pregunta": "¿Varía el precio de los tours de rafting en el Río Mayo de Sanmartin según el nivel de dificultad o la duración?",
+                "respuesta": "Sí, los tours de mayor duración (día completo) o aquellos que cubren tramos más largos o con rápidos de mayor dificultad suelen ser más caros, pudiendo alcanzar los 180-250 Soles, en comparación con los de medio día."
+            },
+            {
+                "pregunta": "¿Existen costos ocultos o adicionales que deba considerar al reservar rafting en el Río Mayo desde Sanmartin?",
+                "respuesta": "Generalmente no hay costos ocultos si reservas con operadores reputados en Sanmartin. Sin embargo, algunos tours pueden cobrar extra por fotos/videos profesionales o por bebidas adicionales no especificadas en el paquete. Siempre pregunta qué incluye 'exactamente'."
+            },
+            {
+                "pregunta": "¿Cuál es la mejor época para encontrar ofertas o el mejor valor por dinero en tours de rafting en el Río Mayo, Sanmartin?",
+                "respuesta": "La temporada de Mayo a Octubre es la ideal por el nivel del río. Para el 'mejor valor', busca paquetes grupales o reserva directamente con operadores locales en Sanmartin en lugar de intermediarios, especialmente fuera de los feriados largos."
+            }
+        ],
+        "2_Logistica_Transporte_Como_Llegar": [
+            {
+                "pregunta": "¿Cómo llegar desde Tarapoto a los puntos de inicio para hacer rafting en el Río Mayo en Sanmartin?",
+                "respuesta": "Para llegar a los puntos de inicio de rafting en el Río Mayo desde Tarapoto, la opción más común es contratar un tour que incluya transporte. La mayoría de operadores como 'Amazonas Expeditions' o 'Río Mayo Aventura' ofrecen recojo desde tu hotel en Tarapoto. Si vas por tu cuenta, puedes tomar un colectivo o bus interprovincial desde el Terminal Terrestre de Tarapoto con dirección a Moyobamba o Rioja, y pedir que te dejen en el desvío hacia el río, cerca de localidades como 'Puerto Rico' o 'Pelejo', lo cual puede costar entre 15 y 25 Soles."
+            },
+            {
+                "pregunta": "¿Cuánto cuesta el transporte público desde Tarapoto hasta la zona de rafting del Río Mayo en Sanmartin?",
+                "respuesta": "El costo del transporte público desde Tarapoto hasta la zona de rafting del Río Mayo, específicamente a puntos de acceso como 'Puerto Rico' o 'Pelejo', varía entre 15 y 25 Soles por persona en colectivo o bus interprovincial. Estos salen del Terminal Terrestre de Tarapoto y el viaje dura aproximadamente 1.5 a 2 horas, dependiendo del tráfico y las paradas."
+            },
+            {
+                "pregunta": "¿Qué empresas de transporte ofrecen rutas desde Tarapoto a las áreas de kayak en el Río Mayo, Sanmartin?",
+                "respuesta": "Para llegar a las áreas de kayak en el Río Mayo desde Tarapoto, puedes usar empresas de transporte interprovincial como 'GH Bus' o 'Transportes Turismo Selva' que van hacia Moyobamba o Rioja. Debes indicar al conductor que te deje en los desvíos cercanos a los puntos de embarque para kayak, como 'Puerto Rico' o 'Pelejo'. Otra opción son los colectivos que salen constantemente del Terminal Terrestre de Tarapoto."
+            },
+            {
+                "pregunta": "¿Los paquetes de rafting en el Río Mayo de Sanmartin incluyen el traslado desde mi hotel en Tarapoto?",
+                "respuesta": "Sí, la gran mayoría de paquetes de rafting y kayak ofrecidos por operadores turísticos en Sanmartin, como 'Tarapoto Expeditions' o 'Río Mayo Adventures', incluyen el servicio de traslado ida y vuelta desde tu hotel o un punto de encuentro céntrico en Tarapoto hasta el punto de inicio de la actividad en el Río Mayo. Es fundamental confirmar este detalle al momento de reservar."
+            },
+            {
+                "pregunta": "¿Es posible llegar a los puntos de embarque de rafting en el Río Mayo, Sanmartin, en taxi privado desde Tarapoto y cuánto costaría?",
+                "respuesta": "Sí, es posible llegar a los puntos de embarque de rafting en el Río Mayo, Sanmartin, en taxi privado desde Tarapoto. El costo de un taxi privado puede oscilar entre 80 y 120 Soles por trayecto, dependiendo de tu habilidad para negociar y la distancia exacta al punto de inicio. Es una opción más cómoda pero significativamente más cara que el transporte público o los tours con traslado incluido."
+            },
+            {
+                "pregunta": "¿Cuál es la duración del viaje en transporte desde Tarapoto hasta el Río Mayo para actividades de aventura en Sanmartin?",
+                "respuesta": "La duración del viaje en transporte desde Tarapoto hasta el Río Mayo para actividades de aventura, específicamente a los puntos de inicio de rafting o kayak, es de aproximadamente 1 hora y 30 minutos a 2 horas en vehículo, ya sea en tour, colectivo o taxi privado, dependiendo de la ubicación exacta del punto de embarque y las condiciones de la carretera Fernando Belaunde Terry."
+            },
+            {
+                "pregunta": "¿Hay estacionamiento seguro si decido ir en mi propio vehículo a las zonas de rafting del Río Mayo en Sanmartin?",
+                "respuesta": "Si decides ir en tu propio vehículo a las zonas de rafting del Río Mayo en Sanmartin, la disponibilidad de estacionamiento seguro es limitada. Algunos operadores turísticos o restaurantes locales cercanos a los puntos de embarque pueden ofrecer un espacio, pero es recomendable coordinar previamente con ellos. No hay estacionamientos públicos vigilados específicamente para esta actividad; la mayoría son áreas abiertas o al costado de la carretera."
+            },
+            {
+                "pregunta": "¿Desde qué parte de Tarapoto salen los colectivos o buses hacia el Río Mayo para hacer kayak en Sanmartin?",
+                "respuesta": "Los colectivos y buses que se dirigen hacia el Río Mayo para hacer kayak en Sanmartin salen principalmente del Terminal Terrestre de Tarapoto, ubicado en la Av. Circunvalación. También puedes encontrar algunos colectivos informales en las inmediaciones del Mercado N° 2 o la Plaza de Armas que van en dirección a Moyobamba o Rioja, pasando por la zona del Río Mayo."
+            },
+            {
+                "pregunta": "¿Qué tan accesibles son los puntos de encuentro para tours de rafting en el Río Mayo si no estoy hospedado en el centro de Tarapoto, Sanmartin?",
+                "respuesta": "Los puntos de encuentro para tours de rafting en el Río Mayo suelen ser céntricos en Tarapoto o directamente en tu hotel si está dentro del perímetro urbano. Si no estás hospedado en el centro, deberás coordinar con el operador para un punto de recojo alternativo o trasladarte por tu cuenta (taxi, mototaxi) hasta el punto de encuentro principal, lo cual puede implicar un costo adicional de 5 a 15 Soles."
+            },
+            {
+                "pregunta": "¿Es necesario reservar el transporte con antelación para ir al Río Mayo para rafting desde Tarapoto en temporada alta en Sanmartin?",
+                "respuesta": "Sí, es altamente recomendable reservar el transporte con antelación, especialmente si planeas unirte a un tour de rafting o kayak que incluya traslado desde Tarapoto durante la temporada alta (Mayo a Octubre) en Sanmartin. Esto asegura tu cupo y evita contratiempos. Si optas por transporte público, los colectivos y buses son frecuentes, pero los asientos pueden llenarse rápidamente en horas pico."
+            }
+        ],
+        "3_Seguridad_Riesgos_Salud": [
+            {
+                "pregunta": "¿Cómo puedo verificar la seguridad y certificación de los operadores de rafting en el Río Mayo en Sanmartin?",
+                "respuesta": "Para rafting en el Río Mayo, Sanmartin, busca operadores con certificaciones de guías de río (por ejemplo, de la Asociación Peruana de Canotaje) y que usen equipos homologados (balsas auto-vaciables, chalecos salvavidas tipo V, cascos). Empresas como 'Amazonas Explorer' o 'Río Mayo Aventura' suelen cumplir estos estándares. Siempre pregunta por sus licencias y seguros."
+            },
+            {
+                "pregunta": "¿Existen riesgos de salud por la calidad del agua del Río Mayo al hacer rafting o kayak en Sanmartin?",
+                "respuesta": "El Río Mayo en Sanmartin es generalmente seguro para actividades acuáticas. Sin embargo, como en cualquier río tropical, existe un riesgo mínimo de infecciones gastrointestinales si se ingiere mucha agua. Se recomienda no tragar agua del río y llevar desinfectante de manos. No se han reportado brotes significativos relacionados con el río."
+            },
+            {
+                "pregunta": "¿Qué protocolos de emergencia tienen los operadores de rafting en el Río Mayo en Sanmartin y dónde está el hospital más cercano?",
+                "respuesta": "Los operadores responsables en Sanmartin deben tener un plan de emergencia que incluya comunicación por radio o satélite, botiquín de primeros auxilios completo y personal capacitado en RCP. El hospital más cercano es el Hospital Regional de Tarapoto, a unos 20-30 minutos en auto desde la zona de embarque del Río Mayo."
+            },
+            {
+                "pregunta": "¿Hay restricciones de salud o requisitos físicos para hacer rafting en el Río Mayo en Sanmartin?",
+                "respuesta": "Sí, para rafting en el Río Mayo, Sanmartin, se requiere buena condición física general. No se recomienda para personas con problemas cardíacos, respiratorios graves, epilepsia, embarazadas o con lesiones recientes de espalda/cuello. La edad mínima suele ser de 8 a 10 años, dependiendo del nivel de los rápidos y la empresa. Siempre informa a tu guía sobre cualquier condición médica preexistente."
+            },
+            {
+                "pregunta": "¿Qué equipo de seguridad es obligatorio para el rafting o kayak en el Río Mayo en Sanmartin?",
+                "respuesta": "Para rafting o kayak en el Río Mayo, Sanmartin, es obligatorio usar chaleco salvavidas (Personal Flotation Device - PFD) homologado, casco y calzado cerrado que se pueda mojar (sandalias de río o zapatillas viejas). Los operadores deben proveer este equipo en buen estado y de la talla adecuada."
+            },
+            {
+                "pregunta": "¿Los tours de rafting en el Río Mayo en Sanmartin incluyen seguro médico o debo contratar uno aparte?",
+                "respuesta": "Algunos operadores de rafting en Sanmartin ofrecen un seguro básico de accidentes incluido en el paquete, pero su cobertura puede ser limitada. Es altamente recomendable que contrates un seguro de viaje internacional que cubra deportes de aventura y evacuación médica antes de tu viaje a Sanmartin para una mayor tranquilidad."
+            },
+            {
+                "pregunta": "¿Cómo me protejo del sol y los insectos durante una excursión de rafting en el Río Mayo en Sanmartin?",
+                "respuesta": "Para rafting en el Río Mayo, Sanmartin, usa protector solar de alto SPF (factor de protección solar) y reaplícalo con frecuencia, incluso en días nublados. Lleva un sombrero de ala ancha o gorra que se pueda mojar y gafas de sol con cordón. Para los insectos, un repelente con DEET o picaridina es efectivo, especialmente al inicio y final de la actividad."
+            },
+            {
+                "pregunta": "¿Cómo afectan las condiciones climáticas la seguridad del rafting en el Río Mayo en Sanmartin, especialmente en la ventana de Mayo a Octubre?",
+                "respuesta": "La ventana de Mayo a Octubre en Sanmartin es la estación seca, lo que generalmente significa niveles de agua más estables y seguros en el Río Mayo para rafting. Sin embargo, lluvias intensas inesperadas pueden aumentar el caudal y la dificultad de los rápidos. Los operadores monitorean el clima y el nivel del río, y pueden cancelar o posponer tours si las condiciones son inseguras."
+            },
+            {
+                "pregunta": "¿Es seguro el rafting en el Río Mayo en Sanmartin para principiantes y cuáles son los riesgos de los rápidos?",
+                "respuesta": "Sí, el rafting en el Río Mayo en Sanmartin es generalmente seguro para principiantes, ya que la mayoría de los tramos comerciales son de clase II-III. Los riesgos principales incluyen caer de la balsa (siempre se usa chaleco salvavidas), golpes con rocas o la balsa, y la posibilidad de quedar atrapado brevemente en un remolino. Los guías están entrenados para manejar estas situaciones y dar instrucciones claras."
+            },
+            {
+                "pregunta": "¿Qué precauciones debo tomar con la comida y el agua potable durante un tour de rafting en el Río Mayo en Sanmartin?",
+                "respuesta": "Durante un tour de rafting en el Río Mayo, Sanmartin, asegúrate de que el operador provea agua embotellada sellada o filtrada. Si se incluyen alimentos, verifica que estén bien empacados y preparados higiénicamente. Es crucial mantenerse hidratado bajo el sol tropical. Evita consumir alimentos de fuentes no confiables para prevenir problemas estomacales."
+            }
+        ],
+        "4_Clima_Temporadas_Horarios": [
+            {
+                "pregunta": "¿Cuál es la mejor época del año para hacer rafting en el Río Mayo cerca de Sanmartin, considerando el clima y los niveles del agua?",
+                "respuesta": "La mejor época para hacer rafting y kayak en el Río Mayo, cerca de Sanmartin, es durante la estación seca, que va de mayo a octubre. En estos meses, el clima es más estable, con menos lluvias y los niveles del río son óptimos para la mayoría de los niveles de dificultad, ofreciendo una experiencia segura y emocionante."
+            },
+            {
+                "pregunta": "¿Hay alguna temporada en Sanmartin donde no se recomiende hacer kayak en el Río Mayo por el clima o las condiciones del río?",
+                "respuesta": "Sí, generalmente se desaconseja hacer kayak en el Río Mayo durante la temporada de lluvias intensas, que va de noviembre a abril. En estos meses, el río puede crecer significativamente, volviéndose más caudaloso y peligroso, lo que aumenta la dificultad y el riesgo, incluso para operadores experimentados en Sanmartin."
+            },
+            {
+                "pregunta": "¿Cómo influye la temporada de lluvias en la dificultad del rafting en el Río Mayo en Sanmartin?",
+                "respuesta": "Durante la temporada de lluvias (noviembre a abril), el Río Mayo en Sanmartin aumenta su caudal y velocidad, lo que eleva la dificultad del rafting. Los rápidos pueden volverse más intensos y peligrosos, pasando de niveles moderados a avanzados. Es crucial consultar a operadores locales como 'Amazonas Expeditions' o 'Tarapoto Aventura' sobre las condiciones actuales."
+            },
+            {
+                "pregunta": "¿Qué tipo de clima puedo esperar en Sanmartin si voy a hacer rafting en el Río Mayo entre mayo y octubre?",
+                "respuesta": "Si visitas Sanmartin para hacer rafting en el Río Mayo entre mayo y octubre, puedes esperar un clima generalmente soleado y cálido, con temperaturas promedio que oscilan entre los 25°C y 32°C. Aunque es la estación seca, pueden ocurrir lluvias esporádicas y de corta duración, típicas de la selva amazónica, pero no suelen afectar las actividades de río."
+            },
+            {
+                "pregunta": "¿A qué hora del día suelen empezar los tours de rafting en el Río Mayo desde Sanmartin y cuánto duran?",
+                "respuesta": "Los tours de rafting en el Río Mayo desde Sanmartin suelen comenzar temprano por la mañana, alrededor de las 8:00 AM o 9:00 AM, para aprovechar las mejores condiciones climáticas y de luz. La duración total de la actividad, incluyendo traslados y preparación, puede variar de 4 a 6 horas, dependiendo del tramo y el operador."
+            },
+            {
+                "pregunta": "¿Es necesario reservar con antelación los tours de rafting en el Río Mayo en Sanmartin, especialmente en temporada alta?",
+                "respuesta": "Sí, es altamente recomendable reservar con antelación los tours de rafting en el Río Mayo en Sanmartin, especialmente durante la temporada alta (junio a agosto y feriados largos). Los operadores como 'Río Mayo Aventura' o 'Tarapoto Expediciones' tienen cupos limitados y la demanda es alta, lo que asegura tu lugar y evita contratiempos."
+            },
+            {
+                "pregunta": "¿Cuál es la temperatura del agua del Río Mayo en Sanmartin durante la temporada de rafting?",
+                "respuesta": "Durante la temporada de rafting en el Río Mayo, que va de mayo a octubre en Sanmartin, la temperatura del agua es generalmente agradable y templada, oscilando entre los 22°C y 26°C. Esto hace que la experiencia sea confortable, incluso si te mojas constantemente."
+            },
+            {
+                "pregunta": "¿Hay alguna diferencia en los horarios de los tours de kayak en el Río Mayo en Sanmartin entre la semana y el fin de semana?",
+                "respuesta": "Generalmente, los horarios de los tours de kayak en el Río Mayo en Sanmartin no varían significativamente entre la semana y el fin de semana. La mayoría de los operadores mantienen salidas matutinas consistentes. Sin embargo, los fines de semana y feriados pueden tener mayor afluencia, por lo que es aún más importante reservar con anticipación."
+            },
+            {
+                "pregunta": "¿Qué precauciones debo tomar con el clima en Sanmartin si planeo hacer deportes de río en el Río Mayo?",
+                "respuesta": "Si planeas hacer deportes de río en el Río Mayo en Sanmartin, es crucial estar preparado para el clima tropical. Lleva protector solar, gorra, gafas de sol y ropa ligera de secado rápido. Aunque sea estación seca, una lluvia repentina es posible, así que un impermeable ligero o una bolsa seca para tus pertenencias son útiles. Hidrátate constantemente."
+            },
+            {
+                "pregunta": "¿Los operadores de rafting en Sanmartin ajustan sus itinerarios en el Río Mayo si hay cambios inesperados en el clima o el nivel del río?",
+                "respuesta": "Sí, los operadores de rafting en Sanmartin, como 'Selva Viva Tours', priorizan la seguridad y monitorean constantemente las condiciones climáticas y el nivel del Río Mayo. Si hay cambios inesperados que puedan comprometer la seguridad, ajustarán los itinerarios, cambiarán el tramo del río o, en casos extremos, cancelarán la actividad, ofreciendo alternativas o reembolsos."
+            }
+        ],
+        "5_Historia_Cultura_Curiosidades": [
+            {
+                "pregunta": "¿Qué leyendas o mitos ancestrales se cuentan sobre el Río Mayo en Sanmartin, relacionados con el rafting?",
+                "respuesta": "Las comunidades quechua y awajún de Sanmartin, cercanas al Río Mayo, narran leyendas sobre 'Yacumama', la madre del agua, una serpiente gigante que habita en las profundidades y protege el río. Se dice que sus rápidos más fuertes son su aliento o su cola moviéndose, y que solo los valientes o aquellos con buen corazón pueden navegar sin su ira. No hay una leyenda específica sobre el rafting, pero sí sobre el respeto al río."
+            },
+            {
+                "pregunta": "¿Cómo influye la cultura local de Sanmartin en las expediciones de rafting o kayak en el Río Mayo?",
+                "respuesta": "La cultura local de Sanmartin influye a través de los guías, muchos de ellos de comunidades ribereñas, que comparten conocimientos sobre la flora y fauna, y el respeto por la naturaleza. A menudo, antes de iniciar el descenso en el Río Mayo, se realiza una pequeña ofrenda simbólica a la 'Pachamama' (Madre Tierra) o al 'Yacumama' para pedir permiso y protección, una práctica cultural arraigada en la cosmovisión andino-amazónica."
+            },
+            {
+                "pregunta": "¿Existen vestigios históricos o sitios arqueológicos cerca de las rutas de rafting en el Río Mayo, Sanmartin?",
+                "respuesta": "Directamente en las orillas del Río Mayo, en las zonas de rápidos para rafting en Sanmartin, no se han identificado grandes sitios arqueológicos accesibles. Sin embargo, en las cercanías de Tarapoto y Lamas, a poca distancia, existen petroglifos de Polish y el Castillo de Lamas, que muestran la presencia de culturas pre-incas y la influencia colonial, respectivamente, ofreciendo un contexto histórico a la región."
+            },
+            {
+                "pregunta": "¿Cuál es la historia de los primeros exploradores o aventureros que hicieron rafting en el Río Mayo en Sanmartin?",
+                "respuesta": "La historia del rafting comercial en el Río Mayo, Sanmartin, es relativamente reciente, popularizándose a finales de los años 90 e inicios de los 2000. Los primeros en explorar sus rápidos con fines turísticos fueron guías locales y extranjeros, a menudo ex-militares o aventureros, que vieron el potencial del río. No hay un 'primer explorador' único documentado, sino un desarrollo gradual impulsado por operadores turísticos pioneros como 'Amazonas Explorer' o 'Mayu Expeditions' en sus inicios."
+            },
+            {
+                "pregunta": "¿Qué curiosidades geológicas hacen al Río Mayo de Sanmartin un lugar especial para el rafting?",
+                "respuesta": "El Río Mayo en Sanmartin es especial por su origen en la Cordillera Central y su descenso hacia la selva baja, creando un gradiente que genera rápidos de diferentes niveles. Una curiosidad es la presencia de formaciones rocosas únicas, como 'La Garganta del Diablo' o 'El Cañón de los Loros', que no solo son desafíos para el rafting sino también hábitats para aves y fauna local, esculpidas por la erosión milenaria del río."
+            },
+            {
+                "pregunta": "¿Hay alguna festividad o evento cultural en Sanmartin relacionado con el Río Mayo o los deportes acuáticos?",
+                "respuesta": "Sí, aunque no es exclusivamente de deportes acuáticos, la 'Semana Turística de Tarapoto' en Sanmartin, celebrada en julio, a menudo incluye eventos y competencias de canotaje o kayak en el Río Mayo como parte de sus actividades. También, las comunidades ribereñas celebran fiestas patronales donde el río es central para actividades como la pesca tradicional o paseos en canoa, aunque no directamente rafting."
+            },
+            {
+                "pregunta": "¿Qué tipo de artesanías o productos culturales se pueden encontrar en las comunidades ribereñas del Río Mayo en Sanmartin?",
+                "respuesta": "En las comunidades ribereñas del Río Mayo en Sanmartin, especialmente en Lamas o cerca de Chazuta, se pueden encontrar artesanías elaboradas con materiales naturales. Destacan la cerámica utilitaria y decorativa con motivos amazónicos, tejidos de algodón teñidos con tintes naturales, y joyería hecha con semillas y plumas. Estas artesanías reflejan la cosmovisión y la conexión de las comunidades con su entorno fluvial y selvático."
+            },
+            {
+                "pregunta": "¿Existen nombres curiosos o apodos para los rápidos más famosos del Río Mayo en Sanmartin?",
+                "respuesta": "Sí, algunos rápidos del Río Mayo en Sanmartin tienen nombres que reflejan su dificultad o alguna característica. Por ejemplo, se menciona 'El Lavadero' por la forma en que el agua 'lava' la balsa, 'El Remolino' por sus corrientes circulares, o 'La Caída del Mono' por alguna anécdota local. Estos nombres, a menudo dados por los guías locales, añaden un toque de folclore a la experiencia del rafting."
+            },
+            {
+                "pregunta": "¿Qué papel juega el Río Mayo en la vida cotidiana y la identidad cultural de los habitantes de Sanmartin?",
+                "respuesta": "El Río Mayo es fundamental en la vida cotidiana y la identidad cultural de Sanmartin. Históricamente, ha sido una vía de comunicación y comercio, fuente de alimento (pesca) y agua. Culturalmente, es un elemento central en sus mitos, leyendas y festividades. Para muchos, el río representa la conexión con la naturaleza y es un símbolo de la riqueza y vitalidad de la región amazónica, influyendo en su gastronomía y sus costumbres."
+            },
+            {
+                "pregunta": "¿Hay alguna anécdota o evento histórico inusual relacionado con el rafting en el Río Mayo, Sanmartin?",
+                "respuesta": "Una anécdota curiosa, aunque no histórica en el sentido amplio, es la de un grupo de turistas que, en un descenso por el Río Mayo en Sanmartin, se encontraron con una anaconda de tamaño considerable tomando el sol en una orilla. El encuentro, aunque inofensivo, se convirtió en una historia recurrente entre los guías y operadores, destacando la imprevisibilidad y la riqueza de la fauna amazónica que se puede avistar durante el rafting."
+            }
+        ],
+        "6_Tips_Locales_Secretos": [
+            {
+                "pregunta": "¿Cuál es el mejor mes para hacer rafting en el Río Mayo en Sanmartin si busco rápidos más desafiantes, según los locales?",
+                "respuesta": "Los guías experimentados en Sanmartin sugieren ir entre finales de mayo y principios de julio. Es cuando el Río Mayo aún tiene un caudal alto por las últimas lluvias, ofreciendo rápidos de clase III-IV, pero el clima ya es más estable y soleado, ideal para la aventura."
+            },
+            {
+                "pregunta": "¿Hay alguna sección del Río Mayo en Sanmartin menos conocida para kayak que los operadores turísticos no suelen ofrecer?",
+                "respuesta": "Sí, los kayakistas locales en Sanmartin a menudo prefieren el tramo entre el Puente Colombia y el caserío de San Antonio. Es un recorrido más técnico, de clase III+, que requiere experiencia y no está en los paquetes estándar, ofreciendo mayor tranquilidad y contacto con la naturaleza."
+            },
+            {
+                "pregunta": "¿Qué operador local de rafting en Sanmartin es el más recomendado por los propios pobladores por su seguridad y autenticidad?",
+                "respuesta": "En Sanmartin, muchos locales confían en 'Aventura Amazónica Expediciones', una empresa familiar con guías certificados que conocen el Río Mayo a la perfección y usan equipos de primera. Su base está en Tarapoto, pero operan en todo el valle del Mayo."
+            },
+            {
+                "pregunta": "¿Existe alguna preparación o ritual local en Sanmartin que los guías recomienden antes de una jornada de rafting en el Río Mayo?",
+                "respuesta": "Algunos guías en Sanmartin sugieren tomar un 'refresco de cocona' o 'aguaje' antes de la actividad. No es un ritual místico, sino una forma natural de hidratarse y obtener energía, muy popular entre los deportistas locales para el Río Mayo."
+            },
+            {
+                "pregunta": "Después de hacer kayak en el Río Mayo, ¿dónde comen los guías locales de Sanmartin para disfrutar de comida auténtica y económica?",
+                "respuesta": "Los guías de Sanmartin suelen ir a 'El Cevichón de la Tía Venancia' en Morales, cerca de Tarapoto, o a 'El Rincón del Pescador' en Juan Guerra. Sirven platos amazónicos frescos y contundentes, perfectos para reponer energías después del Río Mayo, con precios entre 15 y 25 Soles por plato."
+            },
+            {
+                "pregunta": "¿Qué tipo de calzado específico recomiendan los expertos locales de Sanmartin para el rafting en el Río Mayo que no sea el típico?",
+                "respuesta": "Más allá de las sandalias de río, los guías de Sanmartin aconsejan usar 'zapatillas de agua con buen agarre' o incluso 'botas de neopreno finas'. Esto protege mejor los pies de rocas y posibles golpes en el Río Mayo, y evita que se salgan con la fuerza de los rápidos."
+            },
+            {
+                "pregunta": "¿Cómo puedo llegar al punto de inicio del rafting en el Río Mayo desde Tarapoto, Sanmartin, de forma económica y como un local?",
+                "respuesta": "Desde Tarapoto, Sanmartin, toma una 'mototaxi' hasta el paradero de colectivos que van a Juan Guerra o Morales (pregunta por 'colectivos al Bajo Mayo'). El pasaje cuesta entre 3 y 5 Soles. Luego, coordina con tu operador para que te recojan en un punto específico del Río Mayo, evitando taxis turísticos caros."
+            },
+            {
+                "pregunta": "¿Cuál es el error más común que cometen los turistas al hacer rafting en el Río Mayo en Sanmartin y cómo evitarlo, según los locales?",
+                "respuesta": "El error más común en el Río Mayo, Sanmartin, es 'no escuchar atentamente las instrucciones del guía' o 'no remar con fuerza y sincronización'. Los locales enfatizan la importancia de la comunicación y el trabajo en equipo para la seguridad y diversión. Siempre sigue las indicaciones al pie de la letra."
+            },
+            {
+                "pregunta": "¿Hay algún momento del día o sección del Río Mayo en Sanmartin donde sea más fácil avistar fauna local durante el recorrido?",
+                "respuesta": "Los guías de Sanmartin sugieren los 'primeros tramos del Río Mayo por la mañana temprano', entre las 7:00 y 9:00 AM, o 'al atardecer', cerca de las orillas más tranquilas. Es cuando es más probable ver aves como martín pescador, garzas o incluso monos capuchinos en los árboles ribereños."
+            },
+            {
+                "pregunta": "¿Qué snack o bebida local de Sanmartin es ideal para llevar durante una excursión de kayak en el Río Mayo para mantenerse hidratado y con energía?",
+                "respuesta": "Los locales de Sanmartin recomiendan llevar 'agua de coco natural' o 'jugo de camu camu' en botellas reutilizables. Son bebidas refrescantes, ricas en electrolitos y vitamina C, perfectas para el esfuerzo físico en el Río Mayo y el clima tropical. Evita bebidas azucaradas."
+            }
+        ],
+        "7_Gastronomia_Alimentos_Supervivencia": [
+            {
+                "pregunta": "¿Qué tipo de alimentos portátiles y energéticos debo empacar para una excursión de rafting de varios días en el Río Mayo, Sanmartin?",
+                "respuesta": "Para excursiones de rafting en Sanmartin, prioriza alimentos no perecederos y de alto valor energético como barras de cereal, frutos secos (maní, pasas), galletas integrales, atún enlatado y frutas deshidratadas. En Tarapoto, puedes encontrar estos en supermercados como Plaza Vea o en el Mercado Central."
+            },
+            {
+                "pregunta": "¿Dónde puedo comprar provisiones y alimentos frescos antes de iniciar una aventura de kayak en Sanmartin?",
+                "respuesta": "En Tarapoto, Sanmartin, el Mercado N°1 (ubicado en Jr. Alfonso Ugarte) es ideal para comprar frutas frescas, verduras, quesos y carnes. Para productos envasados y de mayor duración, visita los supermercados Plaza Vea o Tottus en el centro de la ciudad."
+            },
+            {
+                "pregunta": "¿Es seguro beber agua del grifo en Sanmartin durante mi viaje de aventura, o necesito purificarla para el rafting?",
+                "respuesta": "No se recomienda beber agua directamente del grifo en Sanmartin. Para tus actividades de rafting o kayak, siempre usa agua embotellada, pastillas potabilizadoras o un filtro de agua portátil. Puedes comprar botellas grandes de 7 litros por unos 8-10 Soles en cualquier tienda o grifo."
+            },
+            {
+                "pregunta": "¿Qué opciones de comida local de Sanmartin son recomendables para reponer energías después de un día intenso de rafting en el Río Mayo?",
+                "respuesta": "Después del rafting en Sanmartin, busca platos como el 'Juane' (arroz con gallina y huevo, envuelto en hoja de bijao), 'Tacacho con Cecina' (plátano verde machacado con carne de cerdo ahumada) o 'Inchicapi' (sopa de gallina con maní). Son ricos en carbohidratos y proteínas."
+            },
+            {
+                "pregunta": "¿Existen alternativas de comida vegetariana o vegana disponibles para mochileros con dietas especiales en Sanmartin?",
+                "respuesta": "Sí, en Tarapoto, Sanmartin, hay restaurantes con opciones vegetarianas y veganas, aunque no son la mayoría. Busca lugares como 'La Patarashca' (con opciones adaptadas) o 'El Bambú' que suelen ofrecer platos sin carne. En los mercados, puedes encontrar abundantes frutas y verduras."
+            },
+            {
+                "pregunta": "¿Cómo puedo mantener mis alimentos frescos y seguros durante una expedición de varios días en la selva de Sanmartin?",
+                "respuesta": "Para mantener los alimentos frescos en la selva de Sanmartin, usa bolsas secas impermeables, recipientes herméticos y considera llevar una nevera portátil con hielo si el transporte lo permite. Prioriza alimentos que no requieran refrigeración y consume los más perecederos primero."
+            },
+            {
+                "pregunta": "¿Qué precauciones debo tomar para evitar enfermedades transmitidas por alimentos al comer en puestos locales en Sanmartin?",
+                "respuesta": "Para evitar enfermedades en Sanmartin, consume alimentos bien cocidos y calientes. Evita ensaladas crudas si no estás seguro de la higiene del agua usada para lavarlas. Bebe solo bebidas embotelladas y lava tus manos frecuentemente con jabón o gel antibacterial."
+            },
+            {
+                "pregunta": "¿Cuál es el costo estimado de los víveres básicos para una semana de aventura y supervivencia en Sanmartin para un mochilero?",
+                "respuesta": "Para una semana de víveres básicos en Sanmartin, un mochilero podría gastar entre 100 y 200 Soles, dependiendo de si cocina sus propios alimentos o compra comidas preparadas. Los mercados locales son más económicos que los supermercados."
+            },
+            {
+                "pregunta": "En caso de emergencia o supervivencia en la selva de Sanmartin, ¿qué frutas o plantas silvestres son seguras para el consumo?",
+                "respuesta": "En una situación de supervivencia en Sanmartin, es CRÍTICO no consumir plantas o frutas silvestres sin conocimiento experto, ya que muchas son tóxicas. Si no estás con un guía local experimentado, limítate a buscar fuentes de agua segura y espera rescate. La identificación errónea puede ser fatal."
+            },
+            {
+                "pregunta": "¿Hay alguna tienda especializada en equipos o alimentos para supervivencia y camping en Sanmartin?",
+                "respuesta": "En Tarapoto, Sanmartin, no hay tiendas especializadas 'de supervivencia' como tal. Sin embargo, puedes encontrar equipos básicos de camping (linternas, cuerdas) en ferreterías grandes y alimentos no perecederos en supermercados como Plaza Vea o Tottus. Para equipos más específicos, es mejor comprarlos antes de llegar."
+            }
+        ],
+        "8_Accesibilidad_Infraestructura": [
+            {
+                "pregunta": "¿Cómo llegar desde Tarapoto, Sanmartin, a los puntos de embarque para rafting en el Río Mayo?",
+                "respuesta": "Para llegar a los puntos de embarque para rafting en el Río Mayo desde Tarapoto, Sanmartin, la opción más común es tomar un colectivo o mototaxi hasta el distrito de Chazuta o Shapaja, que son puntos de partida populares. El viaje en colectivo desde el Terminal Terrestre de Tarapoto puede costar entre S/ 5 y S/ 10 por persona, dependiendo del destino específico y la negociación. Muchas agencias de rafting también incluyen el transporte desde tu hotel en Tarapoto como parte del paquete."
+            },
+            {
+                "pregunta": "¿Las carreteras hacia las zonas de rafting en el Río Mayo, Sanmartin, están pavimentadas o son de difícil acceso?",
+                "respuesta": "Las carreteras principales desde Tarapoto, Sanmartin, hacia los distritos ribereños como Chazuta o Shapaja, que sirven como puntos de acceso al Río Mayo para rafting, están mayormente pavimentadas y en buen estado. Sin embargo, los últimos tramos o desvíos hacia los puntos de embarque específicos pueden ser caminos de tierra o trochas, especialmente si se busca una aventura más remota. Son transitables con vehículos 4x4 o mototaxis en la temporada seca (mayo-octubre)."
+            },
+            {
+                "pregunta": "¿Qué tipo de infraestructura básica encuentro en los puntos de embarque para rafting en el Río Mayo, Sanmartin?",
+                "respuesta": "En los puntos de embarque más comunes para rafting en el Río Mayo, Sanmartin, como en Chazuta o Shapaja, la infraestructura es básica pero funcional. Generalmente encontrarás áreas designadas para las charlas de seguridad y preparación, donde los operadores entregan el equipo. Algunos operadores más establecidos pueden ofrecer vestuarios rústicos y baños secos. No esperes grandes complejos turísticos; la experiencia se enfoca en la naturaleza y la aventura."
+            },
+            {
+                "pregunta": "¿Hay transporte público directo desde Tarapoto, Sanmartin, hasta las zonas de inicio de rafting en el Río Mayo?",
+                "respuesta": "Sí, hay transporte público directo desde Tarapoto, Sanmartin, hasta las zonas cercanas al inicio de rafting en el Río Mayo. Puedes tomar colectivos o 'combis' desde el Terminal Terrestre de Tarapoto con destino a Chazuta o Shapaja. Estos vehículos salen con bastante frecuencia durante el día. El costo del pasaje varía entre S/ 5 y S/ 10 por persona, y el trayecto dura aproximadamente 45 minutos a 1 hora, dependiendo del tráfico y el destino final."
+            },
+            {
+                "pregunta": "¿Existe señal de celular o puntos de emergencia en las áreas de rafting del Río Mayo en Sanmartin?",
+                "respuesta": "En las áreas de rafting del Río Mayo en Sanmartin, la señal de celular puede ser intermitente o nula, especialmente en los tramos más alejados y remotos del río. Es recomendable informar a alguien sobre tu itinerario. Los operadores de rafting suelen llevar equipos de comunicación satelital o radios para emergencias. En caso de necesidad, los puntos de asistencia más cercanos serían los centros de salud de los distritos ribereños como Chazuta o Shapaja."
+            },
+            {
+                "pregunta": "¿Las empresas de rafting en Sanmartin incluyen el transporte desde Tarapoto hasta el Río Mayo en sus paquetes?",
+                "respuesta": "La mayoría de las empresas de rafting en Sanmartin que operan en el Río Mayo sí incluyen el transporte desde Tarapoto hasta el punto de inicio de la actividad y de regreso. Este servicio suele ser parte integral del paquete turístico para facilitar la logística al cliente. Es importante confirmar este detalle al momento de reservar, ya que algunas ofertas más económicas podrían requerir que el cliente llegue por sus propios medios al punto de encuentro."
+            },
+            {
+                "pregunta": "¿Puedo alquilar equipo de rafting o kayak directamente en las orillas del Río Mayo en Sanmartin o debo llevarlo?",
+                "respuesta": "No es común encontrar puntos de alquiler de equipo de rafting o kayak directamente en las orillas del Río Mayo en Sanmartin. La mayoría de los operadores turísticos que ofrecen estas actividades ya incluyen todo el equipo necesario (balsas, remos, chalecos salvavidas, cascos) como parte de su servicio. No es necesario que lleves tu propio equipo, a menos que seas un experto con equipo personal y hayas coordinado previamente con un operador para solo el servicio de guía y logística."
+            },
+            {
+                "pregunta": "¿Cuánto tiempo se tarda en llegar desde Tarapoto, Sanmartin, a los puntos de inicio de rafting en el Río Mayo?",
+                "respuesta": "El tiempo de viaje desde Tarapoto, Sanmartin, a los puntos de inicio de rafting en el Río Mayo, como Chazuta o Shapaja, es de aproximadamente 45 minutos a 1 hora en vehículo (colectivo o transporte turístico). Este tiempo puede variar ligeramente dependiendo del tráfico y las condiciones específicas de la carretera, pero generalmente es un trayecto corto y directo desde la ciudad principal."
+            },
+            {
+                "pregunta": "¿Existen opciones de comida o alojamiento cerca de los puntos de embarque para rafting en el Río Mayo, Sanmartin?",
+                "respuesta": "Cerca de los puntos de embarque para rafting en el Río Mayo, Sanmartin, como en los distritos de Chazuta o Shapaja, encontrarás opciones básicas de comida en pequeños restaurantes locales ('comedores') que ofrecen platos típicos de la selva. En cuanto a alojamiento, hay hostales sencillos y hospedajes rurales. No esperes hoteles de lujo, sino opciones más rústicas y económicas, ideales para el segmento mochilero. Muchos operadores también ofrecen almuerzos campestres incluidos en sus tours."
+            },
+            {
+                "pregunta": "¿Cuál es el punto de encuentro más común para las excursiones de rafting en el Río Mayo desde Sanmartin?",
+                "respuesta": "El punto de encuentro más común para las excursiones de rafting en el Río Mayo desde Sanmartin suele ser la oficina del operador turístico en Tarapoto, la capital de la región. Desde allí, los participantes son transportados en vehículos de la empresa hasta el punto de embarque en el río, que generalmente se encuentra en las cercanías de Chazuta o Shapaja. Algunos operadores también ofrecen recogida directamente desde los hoteles en Tarapoto."
+            }
+        ],
+        "9_Reglas_Prohibiciones_Tramites": [
+            {
+                "pregunta": "¿Necesito algún permiso especial o trámite para hacer rafting en el Río Mayo en Sanmartin como turista extranjero?",
+                "respuesta": "Como turista, no necesitas un permiso individual para hacer rafting o kayak en el Río Mayo en Sanmartin. Sin embargo, es OBLIGATORIO contratar los servicios de un operador turístico formal y registrado, ya que ellos gestionan los permisos colectivos y cumplen con las regulaciones de seguridad y uso del río ante la Autoridad Nacional del Agua (ANA) y la Dirección Regional de Comercio Exterior y Turismo (DIRCETUR) de Sanmartin."
+            },
+            {
+                "pregunta": "¿Hay alguna restricción de edad mínima o máxima para participar en rafting en el Río Mayo, Sanmartin?",
+                "respuesta": "Sí, generalmente los operadores de rafting en el Río Mayo en Sanmartin establecen una edad mínima de 8 a 10 años para los tramos de dificultad baja (clase II-III) y hasta 14 años para tramos más exigentes. No hay una edad máxima estricta, pero se requiere buena condición física y la firma de un descargo de responsabilidad para mayores de 60 años. Siempre consulta con el operador específico."
+            },
+            {
+                "pregunta": "¿Qué equipo de seguridad es obligatorio usar para hacer kayak o rafting en el Río Mayo en Sanmartin?",
+                "respuesta": "Es estrictamente obligatorio el uso de chaleco salvavidas homologado, casco de seguridad y remo adecuado, proporcionados por el operador turístico. Algunos operadores también exigen el uso de calzado cerrado (tipo sandalias de río o zapatillas viejas) y prohíben el uso de joyas o accesorios sueltos que puedan engancharse o perderse en el Río Mayo, Sanmartin."
+            },
+            {
+                "pregunta": "¿Cómo puedo verificar si un operador de rafting en el Río Mayo en Sanmartin está legalmente autorizado y cumple las normas?",
+                "respuesta": "Para verificar la legalidad de un operador en Sanmartin, busca que esté registrado en la DIRCETUR Sanmartin y que cuente con el certificado de 'Operador de Turismo de Aventura'. Puedes solicitar ver su licencia de operación y póliza de seguro contra accidentes. Evita operadores informales que ofrezcan precios excesivamente bajos en el Río Mayo."
+            },
+            {
+                "pregunta": "¿Existen prohibiciones específicas sobre la basura o el impacto ambiental al hacer rafting en el Río Mayo, Sanmartin?",
+                "respuesta": "Sí, está estrictamente prohibido arrojar cualquier tipo de basura, residuos plásticos o contaminantes al Río Mayo y sus riberas en Sanmartin. Los operadores formales siguen la política de 'No Dejar Rastro' y te pedirán que lleves contigo todos tus desechos. También está prohibido molestar la fauna local o extraer flora del entorno."
+            },
+            {
+                "pregunta": "¿Está permitido consumir alcohol o drogas antes o durante las actividades de rafting en el Río Mayo, Sanmartin?",
+                "respuesta": "No, está terminantemente prohibido consumir alcohol o cualquier tipo de sustancia estupefaciente antes o durante las actividades de rafting o kayak en el Río Mayo en Sanmartin. Los operadores tienen la autoridad para negar la participación a cualquier persona bajo la influencia de estas sustancias por razones de seguridad."
+            },
+            {
+                "pregunta": "¿Qué trámites o precauciones debo tomar al reservar una excursión de rafting en el Río Mayo desde Tarapoto, Sanmartin?",
+                "respuesta": "Al reservar desde Tarapoto para el Río Mayo en Sanmartin, asegúrate de que el operador te proporcione un contrato o voucher detallado, que incluya el nombre de la empresa, RUC, itinerario, seguros, y equipo incluido. Deberás firmar un descargo de responsabilidad y, en algunos casos, completar una ficha médica. Paga solo a través de canales oficiales o en la oficina del operador."
+            },
+            {
+                "pregunta": "¿Hay alguna condición de salud que me impida hacer rafting en el Río Mayo en Sanmartin y qué trámites médicos se requieren?",
+                "respuesta": "Sí, personas con problemas cardíacos graves, epilepsia, asma severa no controlada, embarazadas o con lesiones recientes de espalda/cuello, deben abstenerse. Generalmente, se requiere completar un formulario de salud y firmar un descargo de responsabilidad. En caso de duda, consulta a tu médico antes de viajar a Sanmartin y notifica al operador."
+            },
+            {
+                "pregunta": "¿Hay alguna regla o prohibición sobre el uso de cámaras o drones durante el rafting en el Río Mayo, Sanmartin?",
+                "respuesta": "Puedes usar cámaras GoPro o similares, siempre que estén bien aseguradas a tu casco o chaleco. El uso de drones puede estar restringido en ciertas áreas o requerir permiso especial del operador o autoridades locales en Sanmartin, debido a la seguridad del grupo y la posible alteración de la fauna. Consulta siempre con tu guía antes de usarlo en el Río Mayo."
+            },
+            {
+                "pregunta": "¿Qué protocolos de seguridad y emergencia deben seguir los operadores de rafting en el Río Mayo en Sanmartin?",
+                "respuesta": "Los operadores formales en Sanmartin están obligados a seguir protocolos estrictos: contar con guías certificados en primeros auxilios y rescate en aguas bravas, llevar botiquín completo, equipos de comunicación (radio/teléfono satelital), y tener un plan de evacuación. Antes de iniciar, deben dar una charla de seguridad detallada sobre el Río Mayo y las acciones a seguir en caso de emergencia."
+            }
+        ],
+        "10_Alternativas_Plan_B": [
+            {
+                "pregunta": "¿Qué otras actividades de aventura puedo hacer cerca de Tarapoto en Sanmartin si el rafting en Río Mayo no es posible?",
+                "respuesta": "Si el rafting no es una opción en Sanmartin, puedes visitar la Cascada de Ahuashiyacu, a solo 20 minutos de Tarapoto. La entrada cuesta S/ 5.00 por persona y es ideal para nadar y disfrutar de la naturaleza. Hay mototaxis que te llevan por S/ 10-15 desde el centro de Tarapoto."
+            },
+            {
+                "pregunta": "¿Hay alguna cascada menos concurrida que Ahuashiyacu para visitar en Sanmartin si busco algo más tranquilo que el rafting?",
+                "respuesta": "Sí, la Cascada de Pishurayacu es una excelente alternativa en Sanmartin. Se encuentra a unos 45 minutos de Tarapoto, cerca de la localidad de San Antonio de Cumbaza. La entrada es de S/ 3.00 y el acceso implica una caminata corta y refrescante. Es menos turística que Ahuashiyacu."
+            },
+            {
+                "pregunta": "Si el Río Mayo está muy crecido para kayak en Sanmartin, ¿qué plan B de aventura acuática recomiendan?",
+                "respuesta": "La Laguna Azul en Sauce, Sanmartin, es un excelente plan B si el Río Mayo está crecido. Puedes hacer paseos en bote, kayak tranquilo, nadar o incluso pesca artesanal. El viaje desde Tarapoto dura unas 2 horas en auto o colectivo (S/ 20-25 por persona) y el cruce en balsa cuesta S/ 3.00."
+            },
+            {
+                "pregunta": "¿Qué opciones de trekking o senderismo hay en Sanmartin si no puedo hacer rafting en el Río Mayo en temporada de lluvias?",
+                "respuesta": "Puedes explorar las rutas de senderismo en la Cordillera Escalera, Sanmartin, que ofrece miradores y contacto con la selva. Hay tours guiados desde Tarapoto que incluyen caminatas de 3-4 horas por S/ 80-120, dependiendo de la ruta y el operador, y son ideales en época de lluvias moderadas."
+            },
+            {
+                "pregunta": "Busco un plan B más relajado pero experiencial en Sanmartin si el rafting es muy extremo para mí, ¿qué sugieren?",
+                "respuesta": "Considera un tour de cacao o café en Sanmartin. En la ruta a Lamas o Juanjui, hay fincas como 'La Cabaña del Cacao' que ofrecen tours desde S/ 30-50, incluyendo degustación y explicación del proceso. Es una experiencia cultural y gastronómica muy recomendable."
+            },
+            {
+                "pregunta": "Si el clima no permite deportes de río en Sanmartin, ¿qué lugar cultural puedo visitar cerca de Tarapoto?",
+                "respuesta": "La ciudad de Lamas, conocida como la 'Ciudad de los Tres Pisos' en Sanmartin, es una excelente opción cultural. Puedes visitar el Castillo de Lamas (entrada S/ 5.00), el Barrio Nativo Wayku y el Museo Étnico. Los colectivos desde Tarapoto cuestan S/ 5.00 y tardan 30 minutos."
+            },
+            {
+                "pregunta": "¿Qué aventura subterránea puedo hacer en Sanmartin si el rafting en el Río Mayo no es una opción?",
+                "respuesta": "La Cueva de Palestina, cerca de Soritor en Sanmartin, es una excelente alternativa de aventura subterránea. Ofrece espeleología con formaciones impresionantes. Se recomienda ir con un guía local; los tours desde Tarapoto suelen costar entre S/ 180-250 e incluyen transporte y equipo básico."
+            },
+            {
+                "pregunta": "Si busco un plan B de contacto con la naturaleza y fauna en Sanmartin, diferente al rafting, ¿qué me recomiendan?",
+                "respuesta": "Los Humedales de Puerto Rico, cerca de la carretera a Yurimaguas en Sanmartin, son ideales para la observación de aves y flora amazónica. Puedes contratar un mototaxi desde Tarapoto por S/ 25-30 para un viaje de ida y vuelta, y pasar una mañana tranquila en este ecosistema."
+            },
+            {
+                "pregunta": "¿Hay alguna actividad de adrenalina aérea en Sanmartin si el rafting en el Río Mayo está suspendido?",
+                "respuesta": "Sí, puedes probar el canopy o zipline en algunos lodges o centros de aventura cercanos a Tarapoto, Sanmartin, como el de la Cascada de Pishurayacu o en la ruta a Lamas. Los precios varían entre S/ 40-70 por persona, dependiendo de la longitud y altura del recorrido."
+            },
+            {
+                "pregunta": "¿Qué plan B gastronómico y cultural puedo hacer en Sanmartin si las actividades de río no son posibles?",
+                "respuesta": "Visita el Mercado N° 2 de Tarapoto, Sanmartin, por la mañana. Es una inmersión auténtica en la gastronomía local, donde puedes probar frutas exóticas, jugos y platos típicos como el juane. No tiene costo de entrada y es una experiencia sensorial vibrante y cultural."
+            }
+        ]
+    }
+}

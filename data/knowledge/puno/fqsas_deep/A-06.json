@@ -1,0 +1,426 @@
+{
+    "destino_id": "A-06",
+    "modulo_contexto": "Puno Ciudad: Centro Histórico y Miradores",
+    "fqsas": {
+        "1_Precios_Presupuestos_Moneda": [
+            {
+                "pregunta": "¿Cuánto cuesta una noche en un hotel céntrico en Puno para una familia en 2024?",
+                "respuesta": "Para una familia, una noche en un hotel de categoría media en el centro de Puno, cerca de la Plaza de Armas, puede costar entre 120 y 250 Soles peruanos (aproximadamente 30 a 65 USD) en 2024, dependiendo de la temporada y los servicios incluidos como desayuno."
+            },
+            {
+                "pregunta": "¿Cuál es el precio promedio de una comida típica en un restaurante local en el centro de Puno?",
+                "respuesta": "Una comida típica en un restaurante local o 'menú del día' en el centro de Puno, que incluye entrada, plato principal y bebida, suele costar entre 15 y 25 Soles peruanos (aproximadamente 4 a 7 USD). En restaurantes turísticos, los platos a la carta pueden ir desde 35 a 70 Soles."
+            },
+            {
+                "pregunta": "¿Cuánto cuesta un taxi desde la Plaza de Armas de Puno hasta el Mirador Kuntur Wasi?",
+                "respuesta": "Un taxi desde la Plaza de Armas de Puno hasta el Mirador Kuntur Wasi o el Mirador del Cóndor suele costar entre 7 y 10 Soles peruanos (aproximadamente 2 a 3 USD). Es recomendable acordar el precio antes de subir al vehículo."
+            },
+            {
+                "pregunta": "¿Hay que pagar entrada para visitar la Catedral de Puno o los miradores en el centro de la ciudad?",
+                "respuesta": "No, la entrada a la Catedral Basílica de Puno es gratuita para los visitantes. De igual manera, el acceso a los miradores como el Mirador Kuntur Wasi o el Mirador Puma Uta en Puno es libre y no tiene costo alguno."
+            },
+            {
+                "pregunta": "¿Qué moneda se usa en Puno y dónde puedo cambiar dólares o euros a Soles peruanos?",
+                "respuesta": "La moneda oficial en Puno es el Sol peruano (PEN). Puedes cambiar dólares estadounidenses o euros en casas de cambio ('casas de cambio') ubicadas principalmente en el jirón Lima y sus alrededores, o en bancos como el BCP o Interbank. Las tasas suelen ser competitivas en las casas de cambio."
+            },
+            {
+                "pregunta": "¿Cuál es un presupuesto diario recomendado para un turista que visita el centro de Puno?",
+                "respuesta": "Para un turista con un presupuesto moderado que visita el centro de Puno, un presupuesto diario recomendado sería de 100 a 180 Soles peruanos (aproximadamente 27 a 50 USD), incluyendo alojamiento económico, comidas locales, transporte y alguna actividad o souvenir."
+            },
+            {
+                "pregunta": "¿Se aceptan tarjetas de crédito y débito en tiendas y restaurantes del centro histórico de Puno?",
+                "respuesta": "Sí, la mayoría de los hoteles, restaurantes turísticos y tiendas más grandes en el centro histórico de Puno aceptan tarjetas de crédito y débito (Visa, MasterCard). Sin embargo, para compras pequeñas, mercados o taxis, es indispensable llevar efectivo (Soles peruanos)."
+            },
+            {
+                "pregunta": "¿Cuánto dinero en efectivo debo llevar para un día explorando el centro de Puno y sus miradores?",
+                "respuesta": "Para un día explorando el centro de Puno y sus miradores, es recomendable llevar al menos 50 a 80 Soles peruanos en efectivo (aproximadamente 14 a 22 USD) para taxis, snacks, bebidas, propinas y pequeñas compras, ya que no todos los establecimientos aceptan tarjeta."
+            },
+            {
+                "pregunta": "¿Cuánto cuesta un café o una bebida en una cafetería turística cerca de la Plaza de Armas de Puno?",
+                "respuesta": "En una cafetería turística cerca de la Plaza de Armas de Puno, un café (espresso, americano) puede costar entre 8 y 15 Soles peruanos (aproximadamente 2 a 4 USD), mientras que un refresco o una botella de agua oscila entre 3 y 7 Soles."
+            },
+            {
+                "pregunta": "¿Cuál es el costo de un souvenir típico de Puno en el mercado artesanal cerca del centro?",
+                "respuesta": "El costo de un souvenir típico en el mercado artesanal de Puno, como un chullo, una pequeña artesanía de alpaca o un llavero, puede variar desde 10 Soles peruanos (aproximadamente 3 USD) hasta 50 Soles o más, dependiendo del tamaño y la calidad. Es común el regateo."
+            }
+        ],
+        "2_Logistica_Transporte_Como_Llegar": [
+            {
+                "pregunta": "¿Cómo puedo llegar a Puno desde Lima, Perú, de la forma más rápida y económica?",
+                "respuesta": "Para llegar a Puno desde Lima, la opción más rápida es volar al Aeropuerto Internacional Inca Manco Cápac (Juliaca), con vuelos de LATAM o Sky Airline (aprox. 1h 45min). Desde Juliaca, un taxi o colectivo a Puno toma 45-60min, con costos de S/60-S/80 para taxi o S/15-S/20 por persona en colectivo. La opción más económica es el bus (Cruz del Sur, Oltursa) que tarda 20-24h y cuesta entre S/100-S/200."
+            },
+            {
+                "pregunta": "¿Cuál es el costo y la duración del traslado desde el aeropuerto de Juliaca hasta el centro de Puno?",
+                "respuesta": "El traslado desde el Aeropuerto de Juliaca (Juliaca-Puno) hasta el centro de Puno toma aproximadamente 45 a 60 minutos. Un taxi privado tiene un costo de S/60 a S/80, mientras que un servicio de colectivo compartido cuesta entre S/15 y S/20 por persona."
+            },
+            {
+                "pregunta": "¿Qué empresas de bus recomiendan para viajar de Cusco a Puno y cuánto cuesta el pasaje?",
+                "respuesta": "Para viajar de Cusco a Puno, puedes optar por buses turísticos con paradas (como Inka Express o Wonder Peru) que cuestan entre S/150 y S/250 y tardan unas 8-10 horas con tours. Para un viaje directo, empresas como Cruz del Sur o Civa ofrecen pasajes entre S/50 y S/100, con una duración de 6 a 7 horas."
+            },
+            {
+                "pregunta": "¿Cómo me desplazo por el centro histórico de Puno para visitar la Plaza de Armas y la Catedral?",
+                "respuesta": "El centro histórico de Puno, incluyendo la Plaza de Armas y la Catedral, es muy compacto y se puede recorrer cómodamente a pie. Para distancias un poco mayores dentro de la ciudad, puedes usar taxis que tienen tarifas fijas de S/5 a S/8 por trayecto corto."
+            },
+            {
+                "pregunta": "¿Cuánto cuesta un taxi para subir al Mirador Kuntur Wasi en Puno desde la Plaza de Armas?",
+                "respuesta": "Un taxi desde la Plaza de Armas de Puno hasta el Mirador Kuntur Wasi tiene un costo aproximado de S/7 a S/10. Es una opción recomendada ya que la subida a pie es empinada y puede ser cansada."
+            },
+            {
+                "pregunta": "¿Es seguro caminar a los miradores de Puno, como el Mirador Puma Uta, por la noche?",
+                "respuesta": "Durante el día, caminar a los miradores de Puno como Puma Uta es generalmente seguro. Sin embargo, por la noche, se recomienda encarecidamente tomar un taxi para mayor seguridad, ya que algunas zonas pueden estar poco iluminadas y con menor afluencia de personas."
+            },
+            {
+                "pregunta": "¿Dónde se encuentra el Terminal Terrestre de Puno y cómo llegar desde el centro de la ciudad?",
+                "respuesta": "El Terminal Terrestre de Puno está ubicado en la Av. Simón Bolívar 430. Desde el centro de la ciudad, puedes llegar fácilmente en taxi por un costo de S/5 a S/8, o caminando si tu hotel está relativamente cerca (unos 15-20 minutos desde la Plaza de Armas)."
+            },
+            {
+                "pregunta": "¿Hay transporte público local para ir desde mi hotel en Puno a la Plaza de Armas si no estoy en el centro?",
+                "respuesta": "Sí, en Puno existen combis y colectivos que circulan por las principales avenidas y te pueden llevar a las cercanías de la Plaza de Armas desde hoteles fuera del centro. El costo del pasaje es económico, generalmente entre S/1.00 y S/2.00 por persona."
+            },
+            {
+                "pregunta": "¿Cuáles son las opciones de transporte para llegar a Puno desde Arequipa y cuánto tiempo toma?",
+                "respuesta": "Para llegar a Puno desde Arequipa, la opción más común es el bus. Empresas como Cruz del Sur, Oltursa o Civa ofrecen servicios con una duración de viaje de aproximadamente 6 a 7 horas. Los precios de los pasajes varían entre S/40 y S/80, dependiendo de la empresa y el tipo de servicio."
+            },
+            {
+                "pregunta": "¿Qué debo saber sobre el transporte en taxi en Puno para evitar problemas o sobreprecios?",
+                "respuesta": "Al tomar un taxi en Puno, siempre es recomendable acordar el precio con el conductor antes de iniciar el viaje, ya que no usan taxímetro. Para trayectos cortos dentro del centro, el costo suele ser de S/5 a S/8. Si te parece que el precio es excesivo, puedes negociar o buscar otro taxi."
+            }
+        ],
+        "3_Seguridad_Riesgos_Salud": [
+            {
+                "pregunta": "¿Qué precauciones de salud debo tomar para el mal de altura en Puno al visitar el centro histórico?",
+                "respuesta": "Al llegar a Puno, que está a 3812 metros sobre el nivel del mar, es crucial aclimatarse. Evite esfuerzos físicos el primer día, beba abundante agua de mesa embotellada, evite el alcohol y comidas pesadas. Puede tomar mates de coca o pastillas para el soroche como 'Sorojchi Pill', disponibles en cualquier farmacia del centro de Puno como Inkafarma o Mifarma, por aproximadamente 3 a 5 Soles la unidad."
+            },
+            {
+                "pregunta": "¿Es seguro caminar por la Plaza de Armas y el centro histórico de Puno por la noche para un turista?",
+                "respuesta": "Durante el día, la Plaza de Armas y el centro de Puno son generalmente seguros. Por la noche, se recomienda precaución. Evite calles poco iluminadas, no exhiba objetos de valor como cámaras o celulares caros, y prefiera taxis seguros de empresas reconocidas como 'Taxi Turismo' o 'Taxi Express', que puede solicitar desde su hotel, en lugar de taxis informales en la calle."
+            },
+            {
+                "pregunta": "¿Es seguro beber agua del grifo en Puno o qué tipo de agua debo consumir para evitar problemas de salud?",
+                "respuesta": "No es seguro beber agua directamente del grifo en Puno. Siempre consuma agua embotellada sellada. Puede comprarla en cualquier tienda o supermercado como Plaza Vea o en bodegas locales por 2 a 5 Soles el litro. Para alimentos, elija restaurantes con buena reputación y evite la comida callejera si su estómago es sensible."
+            },
+            {
+                "pregunta": "¿Qué protección solar necesito en Puno al recorrer los miradores como el Kuntur Wasi o el Puma Uta?",
+                "respuesta": "Debido a la gran altitud de Puno, la radiación UV es muy alta, incluso en días nublados. Es indispensable usar protector solar con un factor de protección solar (FPS) de 50+ o superior, aplicándolo cada dos horas. También se recomienda llevar sombrero de ala ancha, gafas de sol con protección UV y ropa de manga larga para protegerse del sol intenso."
+            },
+            {
+                "pregunta": "¿A qué números de emergencia debo llamar en Puno si tengo una urgencia médica o de seguridad en el centro?",
+                "respuesta": "Para emergencias médicas en Puno, puede llamar al 106 (SAMU) o contactar directamente a la Clínica Americana en Jirón Deustua 350. Para seguridad ciudadana, el número de la Policía Nacional es 105. En caso de robo o incidente, acuda a la Comisaría Sectorial Puno en Jirón Deustua 530."
+            },
+            {
+                "pregunta": "¿Hay que tener cuidado con el tráfico al cruzar calles en el centro de Puno o cerca de la Plaza de Armas?",
+                "respuesta": "Sí, el tráfico en el centro de Puno puede ser caótico y los conductores a menudo no respetan los cruces peatonales. Siempre mire bien antes de cruzar, use los semáforos cuando estén disponibles y evite distracciones como el celular. Tenga especial precaución en avenidas concurridas como la Avenida El Sol o el Jirón Lima."
+            },
+            {
+                "pregunta": "¿Cómo puedo evitar estafas o servicios turísticos no autorizados al contratar tours o taxis en Puno?",
+                "respuesta": "Para evitar estafas, siempre contrate tours y taxis con empresas registradas y con licencia. Busque agencias de turismo con oficinas físicas en el Jirón Lima o cerca de la Plaza de Armas. Para taxis, use los de empresas como 'Taxi Turismo' o pida a su hotel que le llame uno. Desconfíe de ofertas demasiado baratas o de personas que se acercan en la calle ofreciendo tours."
+            },
+            {
+                "pregunta": "¿Qué ropa debo llevar para protegerme del clima cambiante y frío en Puno, especialmente al visitar los miradores?",
+                "respuesta": "El clima en Puno puede variar drásticamente, con mañanas soleadas y tardes frías, especialmente en los miradores. Se recomienda vestirse en capas: una camiseta, un polar o suéter, y una chaqueta cortavientos o impermeable. Un gorro y guantes también son útiles, sobre todo entre mayo y agosto, cuando las temperaturas nocturnas pueden bajar a 0°C o menos."
+            },
+            {
+                "pregunta": "¿Dónde puedo encontrar un hospital o clínica confiable en Puno si necesito atención médica urgente?",
+                "respuesta": "Para atención médica de emergencia o consultas, la Clínica Americana en Jirón Deustua 350 es una opción privada con buena reputación. También está el Hospital Regional Manuel Núñez Butrón, un hospital público más grande, ubicado en Avenida El Sol 1030. Es recomendable tener un seguro de viaje que cubra emergencias médicas."
+            },
+            {
+                "pregunta": "¿Hay alguna recomendación de seguridad específica al visitar los miradores de Puno como el Kuntur Wasi o el Puma Uta?",
+                "respuesta": "Al visitar los miradores, especialmente al atardecer o anochecer, es aconsejable ir acompañado y no llevar objetos de valor a la vista. Aunque suelen ser lugares concurridos, la iluminación puede ser limitada en algunas zonas. Utilice calzado cómodo y seguro, ya que los caminos pueden ser irregulares. Si va en taxi, pida que lo espere o coordine un recojo."
+            }
+        ],
+        "4_Clima_Temporadas_Horarios": [
+            {
+                "pregunta": "¿Cuál es la mejor época del año para visitar el Centro Histórico y los miradores de Puno con buen clima?",
+                "respuesta": "La mejor época para visitar Puno y sus miradores es durante la estación seca, de mayo a octubre. Los días son soleados y las lluvias son mínimas, aunque las noches son frías, con temperaturas que pueden bajar a 0°C o menos."
+            },
+            {
+                "pregunta": "¿Cómo es el clima en Puno durante la temporada de lluvias y afecta la visita a la Plaza de Armas?",
+                "respuesta": "La temporada de lluvias en Puno va de noviembre a abril. Aunque las lluvias suelen ser por la tarde y no impiden la visita a la Plaza de Armas o la Catedral, pueden dificultar el acceso a los miradores por caminos resbaladizos y reducir la visibilidad."
+            },
+            {
+                "pregunta": "¿A qué hora abren y cierran la Catedral de Puno en la Plaza de Armas para los turistas?",
+                "respuesta": "La Catedral Basílica de Puno generalmente abre sus puertas a los visitantes de lunes a sábado de 7:00 a.m. a 12:00 p.m. y de 3:00 p.m. a 6:00 p.m. Los domingos, el horario puede variar debido a las misas."
+            },
+            {
+                "pregunta": "¿Los miradores de Puno, como Kuntur Wasi o Puma Uta, tienen horarios de visita específicos?",
+                "respuesta": "Los miradores de Puno, como Kuntur Wasi y Puma Uta, son espacios públicos y no tienen horarios de cierre. Se puede acceder a ellos las 24 horas del día, aunque se recomienda visitarlos durante el día por seguridad y mejor visibilidad."
+            },
+            {
+                "pregunta": "¿Qué ropa debo llevar para visitar Puno en julio, considerando el clima frío de la ciudad?",
+                "respuesta": "Para visitar Puno en julio, que es pleno invierno, debe llevar ropa de abrigo en capas: chompas de lana, casaca cortavientos, gorro, guantes y bufanda. Las temperaturas diurnas pueden ser agradables (15-18°C), pero las nocturnas son muy bajas (0°C o menos)."
+            },
+            {
+                "pregunta": "¿Cuánto tiempo se necesita para recorrer tranquilamente la Plaza de Armas y la Catedral de Puno?",
+                "respuesta": "Para recorrer la Plaza de Armas y visitar la Catedral de Puno con calma, incluyendo la observación de su arquitectura barroca mestiza, se recomienda destinar entre 1 a 2 horas."
+            },
+            {
+                "pregunta": "¿Es recomendable visitar los miradores de Puno al atardecer y a qué hora es el mejor momento?",
+                "respuesta": "Sí, es muy recomendable visitar los miradores de Puno al atardecer para disfrutar de las vistas del Lago Titicaca. El mejor momento es entre las 5:30 p.m. y 6:30 p.m., dependiendo de la época del año."
+            },
+            {
+                "pregunta": "¿Cómo afecta la altitud de Puno (3812 msnm) el clima y la experiencia de los turistas en el centro histórico?",
+                "respuesta": "La altitud de Puno intensifica la sensación de frío, especialmente al anochecer, y hace que el sol sea más fuerte durante el día. Los turistas pueden sentir el 'soroche' (mal de altura), por lo que se recomienda aclimatarse y evitar esfuerzos excesivos al explorar el centro."
+            },
+            {
+                "pregunta": "¿Hay alguna temporada en Puno donde el Centro Histórico esté más concurrido por eventos o festividades?",
+                "respuesta": "Sí, el Centro Histórico de Puno está especialmente concurrido durante la Fiesta de la Candelaria en febrero y las Fiestas Patrias en julio. Durante estos periodos, los hoteles y servicios turísticos tienen mayor demanda y los horarios de algunos establecimientos pueden extenderse."
+            },
+            {
+                "pregunta": "¿Cuál es la temperatura promedio diurna y nocturna en Puno durante la estación seca para planificar mi viaje?",
+                "respuesta": "Durante la estación seca (mayo a octubre) en Puno, la temperatura diurna promedio oscila entre 15°C y 20°C. Sin embargo, las noches son considerablemente frías, con temperaturas que pueden descender de 0°C a -5°C, especialmente en junio y julio."
+            }
+        ],
+        "5_Historia_Cultura_Curiosidades": [
+            {
+                "pregunta": "¿Qué estilo arquitectónico tiene la Catedral de Puno y qué curiosidades históricas esconde su fachada principal?",
+                "respuesta": "La Catedral Basílica Menor de Puno, construida entre 1757 y 1794, presenta un estilo barroco andino o mestizo, caracterizado por la fusión de elementos europeos y motivos indígenas. Una curiosidad es la presencia de pumas y serpientes tallados en su fachada de piedra volcánica, símbolos andinos que se mezclan con iconografía cristiana, representando la cosmovisión local."
+            },
+            {
+                "pregunta": "¿Cuál es la importancia histórica de la Plaza de Armas de Puno y qué eventos clave ocurrieron allí?",
+                "respuesta": "La Plaza de Armas de Puno ha sido el epicentro de la vida social y política de la ciudad desde su fundación. Fue escenario de proclamaciones de independencia, levantamientos indígenas como el de Túpac Amaru II y la rebelión de Túpac Katari, y es el punto de encuentro para celebraciones cívicas y religiosas, incluyendo la Fiesta de la Candelaria."
+            },
+            {
+                "pregunta": "¿Qué significa el nombre 'Kuntur Wasi' del mirador en Puno y hay alguna leyenda local asociada a este lugar?",
+                "respuesta": "'Kuntur Wasi' en quechua significa 'Casa del Cóndor'. Aunque no hay una leyenda específica muy difundida sobre el mirador en sí, el cóndor es un ave sagrada en la cosmovisión andina, que representa el 'mundo de arriba' o 'Hanan Pacha'. Se dice que desde este punto, el cóndor vigila la ciudad y el lago Titicaca, conectando lo terrenal con lo divino."
+            },
+            {
+                "pregunta": "¿Por qué se le conoce a Puno como la 'Capital Folklórica del Perú' y qué expresiones culturales se pueden ver en el centro de la ciudad?",
+                "respuesta": "Puno ostenta el título de 'Capital Folklórica del Perú' debido a su riqueza y diversidad de danzas, músicas y tradiciones. En el centro de la ciudad, especialmente en la Plaza de Armas y sus alrededores, se pueden observar ocasionalmente pasacalles o ensayos de grupos de danza, especialmente en los meses previos a la Fiesta de la Candelaria (enero-febrero), donde se exhiben trajes coloridos y bailes como la Diablada, Morenada o Caporales."
+            },
+            {
+                "pregunta": "¿Qué historia tiene la Casa del Corregidor en Puno y qué tipo de actividades culturales se realizan actualmente en este edificio colonial?",
+                "respuesta": "La Casa del Corregidor es una casona colonial restaurada del siglo XVII, ubicada en el Jirón Deustua 576, que fue residencia de los corregidores españoles. Hoy en día, funciona como un importante centro cultural y turístico, albergando una cafetería, una librería, una galería de arte y espacios para eventos culturales como exposiciones, conciertos de música andina y presentaciones de libros, manteniendo viva la historia del lugar."
+            },
+            {
+                "pregunta": "¿Cuál es el significado histórico del Arco Deustua en Puno y a quién conmemora este monumento?",
+                "respuesta": "El Arco Deustua, ubicado en el Jirón Deustua, fue construido en 1847 en honor a los vencedores de las batallas de Junín y Ayacucho, que sellaron la independencia del Perú. Conmemora la valentía de los soldados peruanos y es un símbolo de la libertad y la soberanía nacional, siendo uno de los monumentos más emblemáticos del centro histórico de Puno."
+            },
+            {
+                "pregunta": "¿Qué tipo de colecciones históricas y culturales puedo encontrar en el Museo Carlos Dreyer en Puno?",
+                "respuesta": "El Museo Municipal Carlos Dreyer, ubicado en el Jirón Conde de Lemos 289, alberga una valiosa colección arqueológica, etnográfica y artística. Podrás ver piezas pre-incas de las culturas Pucará, Tiahuanaco e Inca, objetos coloniales, arte religioso, momias, cerámicas, textiles y una sala dedicada al explorador y coleccionista Carlos Dreyer, quien donó gran parte de su acervo a la ciudad."
+            },
+            {
+                "pregunta": "¿Existen leyendas o mitos sobre el origen del Lago Titicaca que sean populares en la cultura de Puno?",
+                "respuesta": "Sí, en la cultura de Puno y la región andina, dos leyendas principales explican el origen del Lago Titicaca. La más conocida es la leyenda de Manco Cápac y Mama Ocllo, quienes emergieron de sus aguas enviados por el dios Sol para fundar el Imperio Inca. Otra leyenda aymara habla de un valle fértil inundado por la ira de los dioses, creando el lago como castigo."
+            },
+            {
+                "pregunta": "¿Dónde puedo ver danzas típicas de Puno en el centro de la ciudad fuera de las grandes festividades como la Candelaria?",
+                "respuesta": "Fuera de la Fiesta de la Candelaria, es más difícil ver danzas folklóricas de forma espontánea en el centro de Puno. Sin embargo, algunos restaurantes turísticos ofrecen espectáculos de danzas en las noches, como 'La Casona' o 'Balcones de Puno', ubicados cerca de la Plaza de Armas. También, en fechas cívicas o eventos especiales, la Plaza de Armas puede ser escenario de presentaciones culturales."
+            },
+            {
+                "pregunta": "¿Hay alguna curiosidad o historia poco conocida sobre el obelisco central en la Plaza de Armas de Puno?",
+                "respuesta": "El obelisco central de la Plaza de Armas de Puno, a diferencia de muchos otros monumentos que conmemoran héroes, tiene una historia curiosa. Fue erigido en 1925 para conmemorar el centenario de la Batalla de Ayacucho y, aunque inicialmente se pensó en una estatua, se optó por el obelisco. Se dice que su diseño y ubicación fueron motivo de debate en su momento, pero hoy es un punto de referencia icónico de la ciudad."
+            }
+        ],
+        "6_Tips_Locales_Secretos": [
+            {
+                "pregunta": "¿Dónde comer comida puneña auténtica y económica cerca de la Plaza de Armas de Puno que no sea para turistas?",
+                "respuesta": "Para una experiencia culinaria local, prueba el 'Mercado Central' en el Jirón Tacna. Busca los puestos de comida en el segundo piso, especialmente el 'Comedor de Doña Julia', donde un menú completo con sopa y segundo plato cuesta entre S/8 y S/12. Es frecuentado por puneños y abre de 7:00 AM a 3:00 PM."
+            },
+            {
+                "pregunta": "¿Cuál es el mejor lugar secreto en Puno para comprar artesanías de alpaca de calidad a buen precio, evitando las tiendas turísticas?",
+                "respuesta": "Dirígete al 'Pasaje Peatonal Lima', cerca del Jirón Deustua. Hay pequeñas tiendas familiares que venden prendas de alpaca y baby alpaca. Pregunta por 'Artesanías Wari' o 'Textiles del Altiplano', donde puedes regatear un poco y encontrar chullos o guantes desde S/25, y chompas desde S/80, con garantía de fibra real."
+            },
+            {
+                "pregunta": "¿Existe algún mirador en Puno menos conocido que el Kuntur Wasi para ver el Lago Titicaca sin tanta gente?",
+                "respuesta": "Sí, el 'Mirador Puma Uta' ofrece una vista panorámica excelente y es menos concurrido que el Kuntur Wasi. Para llegar, toma un taxi desde la Plaza de Armas por unos S/7-S/10. También puedes subir caminando desde el Jirón Tarapacá, aunque es una subida empinada de unos 20 minutos. Es ideal para el atardecer."
+            },
+            {
+                "pregunta": "¿Cómo puedo usar el transporte público local en Puno para llegar a los miradores como un puneño y ahorrar dinero?",
+                "respuesta": "Para ir al Mirador Kuntur Wasi o Puma Uta, en lugar de taxi, puedes tomar una combi o colectivo. Desde el centro, busca las combis que van hacia 'Salcedo' o 'Jayllihuaya' en el Jirón Lampa o el Jirón Primero de Mayo. Pide bajar en la base del mirador. El pasaje cuesta S/1.50 a S/2.00 por persona."
+            },
+            {
+                "pregunta": "¿Hay alguna pequeña galería de arte o museo en el centro de Puno que los turistas suelen pasar por alto pero que vale la pena visitar?",
+                "respuesta": "Sí, el 'Museo Carlos Dreyer' en el Jirón Conde de Lemos 665, a una cuadra de la Plaza de Armas, es un tesoro escondido. Alberga piezas precolombinas, coloniales y republicanas, incluyendo una momia. La entrada para extranjeros es de S/15 y está abierto de lunes a sábado de 9:00 AM a 6:00 PM. Es mucho más íntimo que otros museos."
+            },
+            {
+                "pregunta": "¿Qué precauciones de seguridad específicas debo tomar si camino por el centro de Puno o cerca de los miradores al anochecer, según los locales?",
+                "respuesta": "Los locales recomiendan evitar caminar solo por las calles menos transitadas o los alrededores de los miradores después de las 7:00 PM. En el centro, mantente en las calles principales como el Jirón Lima y la Plaza de Armas, que tienen más iluminación y presencia policial. Guarda tus objetos de valor en un lugar seguro y usa taxis formales o de aplicación por la noche."
+            },
+            {
+                "pregunta": "¿Cuál es el mejor momento y lugar 'secreto' para tomar fotos espectaculares de la Catedral de Puno o la Plaza de Armas sin multitudes?",
+                "respuesta": "Para fotos sin multitudes, visita la Plaza de Armas y la Catedral muy temprano por la mañana, entre las 7:00 AM y 8:30 AM, antes de que abran los negocios y lleguen los tours. Un ángulo poco común es desde el segundo piso de los portales que rodean la plaza, si encuentras un café o restaurante abierto que te permita acceder a su balcón."
+            },
+            {
+                "pregunta": "¿Dónde puedo encontrar un mercado local en Puno para experimentar la vida cotidiana y comprar productos frescos como un verdadero puneño?",
+                "respuesta": "El 'Mercado Laykakota', aunque un poco más alejado del centro (a unos 15-20 minutos a pie o S/5 en taxi), es el mercado más auténtico y grande de Puno. Aquí encontrarás frutas, verduras, quesos, hierbas medicinales y comida preparada a precios locales. Es una inmersión cultural genuina y abre desde las 6:00 AM."
+            },
+            {
+                "pregunta": "¿Hay alguna calle o pasaje pintoresco en el centro de Puno que los turistas suelen ignorar pero que tiene encanto local?",
+                "respuesta": "Sí, el 'Pasaje Peatonal Grau', que conecta el Jirón Deustua con el Jirón Lima, es un pequeño rincón con tiendas de artesanías y cafés. Aunque no es 'secreto', muchos lo pasan por alto. También, explora las calles aledañas a la Plaza de Armas, como el Jirón Arequipa, que conservan arquitectura colonial y tienen menos tráfico turístico."
+            },
+            {
+                "pregunta": "¿Cómo puedo enterarme de eventos culturales o presentaciones de música y danza folklórica local en Puno que no sean solo para turistas?",
+                "respuesta": "Pregunta en la 'Dirección Desconcentrada de Cultura de Puno' (Jirón Deustua 556) o revisa los carteles en la Plaza de Armas y el Jirón Lima. A menudo, hay ensayos de conjuntos folklóricos en el 'Parque Pino' o presentaciones espontáneas en la Plaza de Armas los fines de semana por la tarde, especialmente si hay alguna festividad cercana. También, algunos restaurantes locales como 'La Casona' tienen noches de peña con música en vivo."
+            }
+        ],
+        "7_Gastronomia_Alimentos_Supervivencia": [
+            {
+                "pregunta": "¿Qué alimentos o bebidas locales me recomiendan para prevenir el mal de altura en Puno si estoy en el centro histórico?",
+                "respuesta": "Para el 'soroche' en Puno, es fundamental el mate de coca o de muña, disponibles en casi cualquier restaurante o puesto de mercado cerca de la Plaza de Armas. También ayuda el consumo de caldos sustanciosos como el 'Chairo' o el 'Caldo de gallina', que puedes encontrar en el Mercado Central de Puno, a pocas cuadras de la plaza, por unos S/ 8-12."
+            },
+            {
+                "pregunta": "¿Dónde puedo comprar agua embotellada segura y a buen precio en el centro de Puno para mis recorridos por los miradores?",
+                "respuesta": "Puedes adquirir agua embotellada de marcas reconocidas como San Luis o Cielo en cualquier bodega, minimarket como Tambo+ o supermercado como Plaza Vea, todos ubicados a pocas cuadras de la Plaza de Armas. Una botella de 1 litro suele costar entre S/ 2.50 y S/ 4.00."
+            },
+            {
+                "pregunta": "¿Qué tipo de snacks energéticos y fáciles de llevar puedo encontrar en Puno para una caminata larga a los miradores como Kuntur Wasi?",
+                "respuesta": "Para una caminata a miradores como Kuntur Wasi, te sugiero buscar panes artesanales con queso, empanadas de carne o queso (en panaderías del centro, S/ 2-4 cada una), o frutas secas y galletas de quinua en el Mercado Central. Son económicos, nutritivos y fáciles de transportar."
+            },
+            {
+                "pregunta": "¿Cuál es la opción más económica y nutritiva para almorzar en Puno si estoy cerca de la Plaza de Armas y quiero algo local?",
+                "respuesta": "La opción más económica y nutritiva es el 'menú del día' en los pequeños restaurantes o 'picanterías' alrededor del Mercado Central o en calles aledañas a la Plaza de Armas, como la calle Lima. Un menú completo con entrada, plato de fondo y bebida cuesta entre S/ 8 y S/ 15."
+            },
+            {
+                "pregunta": "¿Hay opciones de comida vegetariana o vegana seguras y accesibles para turistas en el centro de Puno, Perú?",
+                "respuesta": "Sí, aunque limitadas, existen. Puedes encontrar 'Pesque de Quinua' (puré de quinua con queso) o 'Sopa de Quinua' sin carne en varios restaurantes del centro. Algunos lugares como 'La Casona' o 'Mojsa Restaurant' en la calle Lima ofrecen opciones vegetarianas más elaboradas, con precios desde S/ 25."
+            },
+            {
+                "pregunta": "¿Qué precauciones debo tomar con la comida callejera o los puestos de mercado en Puno para evitar problemas estomacales?",
+                "respuesta": "Para evitar problemas estomacales en Puno, prioriza alimentos recién cocidos y calientes. Evita ensaladas crudas o frutas ya peladas. Observa la higiene del puesto y la afluencia de clientes; un puesto concurrido suele ser una buena señal. Siempre bebe agua embotellada."
+            },
+            {
+                "pregunta": "¿Qué plato tradicional de Puno es imprescindible probar para entender la gastronomía local y dónde lo encuentro en el centro?",
+                "respuesta": "El 'Chairo' (sopa andina sustanciosa) o la 'Trucha Frita' del Lago Titicaca son imprescindibles. Puedes probar la trucha en restaurantes como 'La Casona' o 'Mojsa' en la calle Lima (desde S/ 30) o en el Mercado Central para una opción más económica y auténtica (desde S/ 15)."
+            },
+            {
+                "pregunta": "¿Qué bebidas calientes tradicionales de Puno me ayudarán a mantenerme hidratado y caliente durante el frío de la ciudad?",
+                "respuesta": "Además del mate de coca, el 'Emoliente' es una bebida caliente tradicional a base de hierbas, cebada y frutas, muy popular en Puno. Lo encontrarás en carritos ambulantes por las mañanas y noches en las calles principales del centro, como la calle Lima, por S/ 2-3 el vaso."
+            },
+            {
+                "pregunta": "Si tengo una dieta sin gluten, ¿qué opciones de alimentos seguros puedo encontrar fácilmente en Puno para mi supervivencia alimentaria?",
+                "respuesta": "Puno ofrece naturalmente opciones sin gluten. La quinua, la papa, el chuño y la carne son básicos. Busca platos como 'Pesque de Quinua', 'Trucha a la plancha' con papas, o 'Caldo de Cordero' asegurándote que no le añadan fideos. El Mercado Central es ideal para encontrar ingredientes frescos."
+            },
+            {
+                "pregunta": "¿Qué alimentos básicos y no perecederos puedo comprar en Puno para llevar en mi mochila si planeo una excursión a zonas más remotas?",
+                "respuesta": "Para excursiones a zonas remotas desde Puno, te recomiendo comprar galletas de quinua, barras energéticas, frutas secas (pasas, duraznos), pan de molde, queso envasado y agua embotellada. Estos productos los encuentras fácilmente en supermercados como Plaza Vea o en el Mercado Central de Puno."
+            }
+        ],
+        "8_Accesibilidad_Infraestructura": [
+            {
+                "pregunta": "¿Cómo llego al Centro Histórico de Puno desde el Terminal Terrestre en transporte público o taxi?",
+                "respuesta": "Desde el Terminal Terrestre de Puno, puedes tomar un taxi autorizado por aproximadamente 5 a 7 Soles hasta la Plaza de Armas. También hay colectivos o buses urbanos que pasan por la Av. El Sol y te dejan cerca del centro por 1 a 1.50 Soles por persona."
+            },
+            {
+                "pregunta": "¿Es fácil caminar por el Centro Histórico de Puno para explorar la Plaza de Armas y la Catedral?",
+                "respuesta": "Sí, el Centro Histórico de Puno es muy transitable a pie. Las calles principales como el Jirón Lima son peatonales y las distancias entre la Plaza de Armas, la Catedral y otros puntos de interés son cortas y generalmente planas, facilitando el recorrido."
+            },
+            {
+                "pregunta": "¿Los miradores de Puno, como el Mirador Kuntur Wasi o el Mirador Puma Uta, son accesibles para personas con movilidad reducida?",
+                "respuesta": "El Mirador Kuntur Wasi implica subir varias escalinatas, lo que lo hace poco accesible para personas con movilidad reducida. El Mirador Puma Uta es más accesible en vehículo, pero el acceso final a la plataforma de observación también puede tener escalones y no está completamente adaptado."
+            },
+            {
+                "pregunta": "¿Hay transporte público directo desde el Centro de Puno a los miradores principales como el Mirador Kuntur Wasi?",
+                "respuesta": "No hay transporte público directo que te deje en la cima del Mirador Kuntur Wasi. La opción más cómoda es tomar un taxi desde la Plaza de Armas por unos 8 a 10 Soles, que te dejará en la base de las escalinatas. Para el Mirador Puma Uta, un taxi es igualmente la mejor opción."
+            },
+            {
+                "pregunta": "¿Cuál es el estado de las veredas y calles en el Centro Histórico de Puno para caminar con coche de bebé o silla de ruedas?",
+                "respuesta": "Las veredas en el Centro Histórico de Puno, especialmente en el Jirón Lima y alrededor de la Plaza de Armas, están en buen estado. Sin embargo, algunas calles secundarias pueden tener desniveles o adoquines irregulares, lo que podría dificultar el tránsito con coche de bebé o silla de ruedas."
+            },
+            {
+                "pregunta": "¿Dónde puedo encontrar baños públicos limpios y accesibles en el Centro Histórico de Puno?",
+                "respuesta": "En el Centro Histórico de Puno, los baños públicos son limitados. Es recomendable usar los servicios higiénicos de restaurantes, cafeterías o centros comerciales cercanos a la Plaza de Armas, como el Real Plaza Puno, que suelen estar en mejores condiciones y algunos tienen facilidades de accesibilidad."
+            },
+            {
+                "pregunta": "¿Hay buena cobertura de internet móvil y Wi-Fi gratuito en la Plaza de Armas de Puno y sus alrededores?",
+                "respuesta": "Sí, en la Plaza de Armas de Puno y sus alrededores hay buena cobertura de las principales operadoras móviles (Claro, Movistar, Entel). Muchos hoteles, restaurantes y cafeterías ofrecen Wi-Fi gratuito para sus clientes. La municipalidad a veces ofrece Wi-Fi público, pero su estabilidad puede variar."
+            },
+            {
+                "pregunta": "¿Cómo es la iluminación nocturna y la seguridad en el Centro Histórico de Puno, especialmente cerca de la Catedral?",
+                "respuesta": "La Plaza de Armas y las calles principales del Centro Histórico de Puno, incluyendo los alrededores de la Catedral, cuentan con buena iluminación nocturna y presencia policial. Sin embargo, como en cualquier ciudad, se recomienda mantener precauciones básicas y evitar calles poco transitadas después de medianoche."
+            },
+            {
+                "pregunta": "¿Dónde ubico cajeros automáticos (ATMs) y bancos seguros en el Centro de Puno para retirar dinero?",
+                "respuesta": "En el Centro de Puno, encontrarás varios cajeros automáticos y agencias bancarias en el Jirón Lima y sus inmediaciones. Bancos como BCP, BBVA, Interbank y Scotiabank tienen sucursales y ATMs seguros a pocos pasos de la Plaza de Armas."
+            },
+            {
+                "pregunta": "¿Hay opciones de estacionamiento seguro para turistas que visitan el Centro Histórico de Puno con vehículo propio?",
+                "respuesta": "Sí, en el Centro Histórico de Puno existen estacionamientos privados de pago. Puedes encontrar algunos cerca de la Plaza de Armas o en calles adyacentes como el Jirón Deustua o el Jirón Puno. Los precios varían, pero suelen rondar los 3 a 5 Soles por hora. El estacionamiento en la calle es limitado y no siempre seguro."
+            }
+        ],
+        "9_Reglas_Prohibiciones_Tramites": [
+            {
+                "pregunta": "¿Existen restricciones o prohibiciones para tomar fotos dentro de la Catedral de Puno en el Centro Histórico?",
+                "respuesta": "Sí, generalmente está prohibido tomar fotografías con flash o videos dentro de la Catedral Basílica de Puno para preservar las obras de arte y mantener el respeto. Se recomienda preguntar al personal antes de usar la cámara."
+            },
+            {
+                "pregunta": "¿Necesito algún permiso especial para volar un dron en los miradores de Puno o en el Centro Histórico?",
+                "respuesta": "Para uso recreativo, no se requiere un permiso específico para volar drones en Puno, pero está prohibido sobrevolar aglomeraciones de personas, propiedades privadas sin permiso, o zonas militares. Se aconseja precaución y respetar la privacidad."
+            },
+            {
+                "pregunta": "¿Hay algún código de vestimenta obligatorio para ingresar a la Catedral de Puno o a otros templos religiosos en el centro?",
+                "respuesta": "Sí, para ingresar a la Catedral de Puno y otros templos, se recomienda vestir de forma respetuosa, evitando shorts muy cortos, minifaldas, camisetas sin mangas o escotes pronunciados. Es una muestra de respeto al lugar sagrado."
+            },
+            {
+                "pregunta": "¿Está permitido consumir bebidas alcohólicas en la Plaza de Armas de Puno o en los miradores públicos?",
+                "respuesta": "No, está prohibido el consumo de bebidas alcohólicas en la vía pública, incluyendo la Plaza de Armas y los miradores de Puno. Las autoridades pueden aplicar multas por esta infracción."
+            },
+            {
+                "pregunta": "¿Cuáles son las reglas sobre la disposición de basura y residuos en el Centro Histórico de Puno y sus miradores?",
+                "respuesta": "Es obligatorio depositar la basura en los contenedores designados. Arrojar residuos en la vía pública o en los miradores de Puno está prohibido y puede ser sancionado por la municipalidad."
+            },
+            {
+                "pregunta": "¿Hay alguna regulación o prohibición sobre comprar a vendedores ambulantes en la Plaza de Armas de Puno?",
+                "respuesta": "No hay una prohibición directa para comprarles, pero se recomienda precaución con la calidad de los productos y los precios. La municipalidad regula su presencia, y a veces pueden ser desalojados de zonas específicas."
+            },
+            {
+                "pregunta": "¿Está permitido fumar en espacios públicos como la Plaza de Armas o los miradores de Puno?",
+                "respuesta": "No, la ley peruana prohíbe fumar en espacios públicos cerrados y abiertos donde haya concurrencia de personas, incluyendo la Plaza de Armas y los miradores de Puno. El incumplimiento puede acarrear multas."
+            },
+            {
+                "pregunta": "¿Existen reglas sobre el nivel de ruido permitido para turistas en el Centro Histórico de Puno, especialmente de noche?",
+                "respuesta": "Sí, la municipalidad de Puno tiene ordenanzas sobre ruidos molestos. Se espera que los turistas mantengan un nivel de ruido razonable, especialmente después de las 10:00 PM, para no perturbar a los residentes."
+            },
+            {
+                "pregunta": "¿Puedo llevar a mi mascota a la Plaza de Armas de Puno o a los miradores como el Kuntur Wasi?",
+                "respuesta": "Generalmente, se permite llevar mascotas con correa a la Plaza de Armas y miradores como el Kuntur Wasi en Puno, siempre y cuando se recojan sus desechos. Sin embargo, no están permitidas dentro de edificios públicos o religiosos."
+            },
+            {
+                "pregunta": "¿Cómo debo actuar si me encuentro con mendigos o personas que piden dinero de forma insistente en el centro de Puno?",
+                "respuesta": "No hay una prohibición para interactuar, pero se recomienda ser firme pero amable si no desea dar dinero. Evite dar grandes sumas y esté atento a sus pertenencias. Las autoridades locales no tienen una prohibición estricta contra la mendicidad."
+            }
+        ],
+        "10_Alternativas_Plan_B": [
+            {
+                "pregunta": "¿Qué puedo hacer en Puno si no quiero solo caminar por el centro y prefiero una excursión corta al Lago Titicaca como Plan B?",
+                "respuesta": "Una excelente alternativa es visitar las Islas Flotantes de los Uros. Puedes tomar un tour de medio día que sale del puerto de Puno, ubicado al final de la Av. El Sol. Los tours suelen costar entre 30 y 50 Soles por persona, incluyendo el transporte en bote y la visita a dos o tres islas. Salen cada mañana desde las 8:30 AM y por las tardes desde las 2:00 PM."
+            },
+            {
+                "pregunta": "Si el clima en Puno no es bueno para los miradores, ¿qué sitio arqueológico cercano puedo visitar como Plan B?",
+                "respuesta": "Considera una excursión a las Chullpas de Sillustani, a unos 40 minutos de Puno. Es un complejo funerario pre-incaico con impresionantes torres a orillas de la Laguna Umayo. Los tours de medio día cuestan entre 40 y 70 Soles por persona, incluyendo transporte y guía. La entrada al sitio es de aproximadamente 15 Soles para adultos."
+            },
+            {
+                "pregunta": "¿Existe una alternativa a las Islas de los Uros en Puno para una experiencia cultural más auténtica en el Lago Titicaca como Plan B?",
+                "respuesta": "Sí, la Isla de Taquile ofrece una experiencia cultural más profunda. Los tours de día completo que combinan Uros y Taquile cuestan entre 80 y 120 Soles. En Taquile, los habitantes mantienen sus costumbres ancestrales y su arte textil es Patrimonio Cultural Inmaterial de la Humanidad. El almuerzo en la isla (no incluido en el tour) suele costar unos 20-30 Soles."
+            },
+            {
+                "pregunta": "¿Qué museo interesante puedo visitar en Puno si necesito un Plan B para un día lluvioso o quiero aprender más de historia local?",
+                "respuesta": "El Museo Municipal Carlos Dreyer, ubicado en la Calle Conde de Lemos 66, es una excelente opción. Alberga colecciones de cerámica, textiles, orfebrería pre-inca e inca, y una sala dedicada a la cultura Tiahuanaco. La entrada general cuesta 10 Soles y está abierto de lunes a sábado, de 9:00 AM a 5:00 PM."
+            },
+            {
+                "pregunta": "¿Dónde puedo tener una experiencia local auténtica en Puno si busco un Plan B diferente a los sitios turísticos habituales?",
+                "respuesta": "Visita el Mercado Central de Puno, en la Av. Tacna, entre los jirones Deustua y Lampa. Es un lugar vibrante donde puedes ver la vida cotidiana, probar frutas exóticas, quesos locales y platos típicos a precios muy económicos, como un caldo de gallina por 8-10 Soles. Es ideal para sentir el pulso de la ciudad."
+            },
+            {
+                "pregunta": "¿Hay algún pueblo cercano a Puno que valga la pena visitar como Plan B para una tarde tranquila con historia?",
+                "respuesta": "Sí, Chucuito, a solo 18 km al sur de Puno, es conocido como la 'Ciudad de las Cajas Reales'. Puedes tomar una combi desde el Terminal Zonal Sur de Puno por 3-5 Soles. Allí puedes visitar el Templo de la Fertilidad (Inca Uyo), la Plaza de Armas y la Iglesia de Santo Domingo. La entrada al Inca Uyo es de 5 Soles."
+            },
+            {
+                "pregunta": "¿Qué actividad acuática puedo hacer en el Lago Titicaca cerca de Puno si busco un Plan B más activo que un tour en bote grande?",
+                "respuesta": "Puedes alquilar kayaks o botes a remo en la zona del puerto de Puno, cerca del Hotel Libertador. Algunas agencias ofrecen alquiler por hora, con precios que rondan los 20-30 Soles por hora para un kayak individual. Es una forma diferente de apreciar el lago y la ciudad desde el agua."
+            },
+            {
+                "pregunta": "¿Dónde puedo ir en Puno para un Plan B de contacto con la naturaleza y avistamiento de aves, sin ir a las islas principales?",
+                "respuesta": "Explora la Reserva Nacional del Titicaca, específicamente el sector de Puno. Puedes contratar un bote pequeño desde el puerto para un recorrido por los totorales y observar aves acuáticas como el zambullidor del Titicaca. No hay una entrada específica al sector, pero el costo del bote privado puede variar entre 50 y 80 Soles por hora, negociable con los lancheros locales."
+            },
+            {
+                "pregunta": "¿Hay alguna opción de Plan B en Puno para aprender sobre la gastronomía local y cocinar platos típicos?",
+                "respuesta": "Algunas agencias de turismo y hoteles boutique en Puno ofrecen clases de cocina puneña, donde puedes aprender a preparar platos como la trucha frita o la quinua atamalada. Los precios varían, pero suelen oscilar entre 80 y 150 Soles por persona, incluyendo los ingredientes y la degustación. Es recomendable reservar con antelación."
+            },
+            {
+                "pregunta": "Si busco un Plan B para comprar artesanía auténtica en Puno, ¿dónde puedo encontrar tiendas recomendadas más allá de los puestos turísticos?",
+                "respuesta": "Visita el Pasaje Peatonal Lima, cerca de la Plaza de Armas, donde encontrarás varias tiendas con artesanía de calidad. También, la Feria Artesanal en el Parque Pino ofrece una buena selección. Para textiles de alpaca de mayor calidad, busca tiendas especializadas en el Jirón Deustua. Los precios varían, pero una bufanda de alpaca puede costar desde 40 Soles."
+            }
+        ]
+    }
+}

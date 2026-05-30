@@ -1,8 +1,7 @@
 import os
 import json
 import sys
-from langchain_google_vertexai import VertexAIEmbeddings
-from langchain_community.vectorstores import Chroma
+from langchain_google_vertexai import VertexAIEmbeddings, VectorSearchVectorStore
 from langchain_core.documents import Document
 
 # Forzar codificacion UTF-8 en consola Windows
@@ -13,23 +12,11 @@ REGION = "us-central1"
 
 print(f"[1] Iniciando configuracion Vertex AI en proyecto: {PROJECT_ID}...")
 
-import subprocess
-from google.oauth2 import credentials
-
-# Obtener token
-gcloud = r'C:\Users\ASUS\AppData\Local\Google\google-cloud-sdk\bin\gcloud.cmd'
-env = os.environ.copy()
-env['CLOUDSDK_PYTHON'] = r'C:\Python313\python.exe'
-
 try:
-    token = subprocess.check_output([gcloud, 'auth', 'print-access-token'], env=env, text=True).strip()
-    creds = credentials.Credentials(token)
-    
     embeddings = VertexAIEmbeddings(
         model_name="text-embedding-004", 
         project=PROJECT_ID, 
-        location=REGION,
-        credentials=creds
+        location=REGION
     )
 except Exception as e:
     print(f"Error inicializando Vertex AI: {e}")
@@ -52,25 +39,28 @@ except Exception as e:
     print(f"Error leyendo JSONL: {e}")
     sys.exit(1)
 
-print("[3] Generando Vectores de IA y guardando en ChromaDB...")
-print("    Esto tomará unos minutos porque se procesarán 6,555 textos en lotes de 250.")
+print("[3] Generando Vectores de IA y guardando en Vertex AI Vector Search...")
 try:
-    # Vertex AI soporta maximo 250 instancias o 20000 tokens por peticion
-    batch_size = 50
-    vectorstore = None
+    index_id = os.getenv("VECTOR_SEARCH_INDEX_ID")
+    endpoint_id = os.getenv("VECTOR_SEARCH_ENDPOINT_ID")
     
-    for i in range(0, len(docs), batch_size):
-        batch = docs[i:i + batch_size]
-        print(f"    Procesando lote {i//batch_size + 1}/{(len(docs)//batch_size) + 1}...")
-        if vectorstore is None:
-            vectorstore = Chroma.from_documents(
-                documents=batch, 
-                embedding=embeddings, 
-                persist_directory=DB_DIR
-            )
-        else:
-            vectorstore.add_documents(documents=batch)
+    if not index_id or not endpoint_id:
+        print("ERROR: VECTOR_SEARCH_INDEX_ID o VECTOR_SEARCH_ENDPOINT_ID no están definidos.")
+        print("Ejecuta primero python scripts/init_vertex_search.py")
+        sys.exit(1)
+        
+    vectorstore = VectorSearchVectorStore.from_components(
+        project_id=PROJECT_ID,
+        region=REGION,
+        gcp_credentials=None,
+        embedding=embeddings,
+        index_id=index_id,
+        endpoint_id=endpoint_id
+    )
+    
+    print("Enviando documentos a Vector Search (el proceso por lotes es automático)...")
+    vectorstore.add_documents(documents=docs)
             
-    print(f"\n[EXITO] Cerebro Vectorial guardado exitosamente en: {DB_DIR}/")
+    print("\n[EXITO] Cerebro Vectorial guardado exitosamente en Vertex AI!")
 except Exception as e:
     print(f"\n[ERROR] Falló la vectorización: {e}")
