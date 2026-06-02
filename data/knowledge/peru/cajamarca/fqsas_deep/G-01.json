@@ -1,0 +1,426 @@
+{
+    "destino_id": "G-01",
+    "modulo_contexto": "Alojamiento para Cada Viajero",
+    "fqsas": {
+        "1_Precios_Presupuestos_Moneda": [
+            {
+                "pregunta": "¿Cuál es el precio promedio de un hostal económico o albergue en el centro de Cajamarca para mochileros?",
+                "respuesta": "Un hostal básico en el centro de Cajamarca puede costar entre 35 y 60 Soles peruanos (S/) por noche en una cama compartida, mientras que una habitación privada sencilla puede rondar los 80 a 120 S/."
+            },
+            {
+                "pregunta": "¿Cuánto cuesta una noche en un hotel de gama media con buenas valoraciones en Cajamarca ciudad?",
+                "respuesta": "Para un hotel de gama media con servicios decentes en Cajamarca, como el Hotel Costa del Sol Wyndham o el Hotel Laguna Seca, puedes esperar pagar entre 200 y 350 S/ por noche, dependiendo de la temporada y las comodidades."
+            },
+            {
+                "pregunta": "¿Qué presupuesto debo considerar para alojarme en un hotel de lujo o boutique en Cajamarca y sus alrededores?",
+                "respuesta": "Un hotel de lujo o boutique en Cajamarca, como el Hotel El Mirador de la Recoleta o algunas haciendas boutique cercanas, puede tener tarifas que van desde los 400 S/ hasta más de 800 S/ por noche, ofreciendo servicios premium."
+            },
+            {
+                "pregunta": "¿Cuál es el costo aproximado de hospedarse en un lodge rural o una hacienda turística cerca de Cajamarca?",
+                "respuesta": "Los lodges rurales o haciendas turísticas en los alrededores de Cajamarca, como la Hacienda San Antonio o la Hacienda La Collpa, suelen tener precios que oscilan entre 250 S/ y 600 S/ por noche, a menudo incluyendo desayuno y actividades."
+            },
+            {
+                "pregunta": "¿Existen opciones de alojamiento familiar a buen precio en Cajamarca y cuánto cuestan por noche?",
+                "respuesta": "Sí, hay hoteles familiares que ofrecen habitaciones triples o cuádruples. Un hotel de 3 estrellas con habitaciones familiares puede costar entre 250 S/ y 450 S/ por noche, buscando ofertas en plataformas como Booking.com o directamente con el hotel."
+            },
+            {
+                "pregunta": "¿Qué métodos de pago son comúnmente aceptados en los hoteles y hostales de Cajamarca, además del efectivo en Soles?",
+                "respuesta": "La mayoría de hoteles y hostales en Cajamarca aceptan tarjetas de crédito y débito (Visa, MasterCard) además del efectivo en Soles peruanos. Es recomendable llevar algo de efectivo para pequeños gastos o establecimientos más pequeños."
+            },
+            {
+                "pregunta": "¿Cuánto se incrementan los precios de los alojamientos en Cajamarca durante eventos importantes como el Carnaval o Fiestas Patrias?",
+                "respuesta": "Durante el Carnaval de Cajamarca (febrero/marzo) y Fiestas Patrias (julio), los precios de los alojamientos pueden duplicarse o incluso triplicarse, llegando a ser entre 150% y 300% más caros de lo habitual, por lo que se recomienda reservar con mucha antelación."
+            },
+            {
+                "pregunta": "¿Ofrecen descuentos los hoteles en Cajamarca para estancias prolongadas, por ejemplo, una semana o más?",
+                "respuesta": "Algunos hoteles y hostales en Cajamarca sí ofrecen descuentos por estancias prolongadas, generalmente del 10% al 20% para reservas de una semana o más. Es aconsejable contactar directamente al alojamiento para negociar estas tarifas."
+            },
+            {
+                "pregunta": "¿Está incluido el desayuno en el precio de la mayoría de los alojamientos en Cajamarca o es un costo adicional?",
+                "respuesta": "En la mayoría de los hoteles de gama media y alta en Cajamarca, el desayuno suele estar incluido en el precio de la habitación. En hostales económicos, es menos común que esté incluido, pero muchos ofrecen opciones de desayuno por un costo adicional de 15 a 30 S/."
+            },
+            {
+                "pregunta": "¿Dónde puedo cambiar dólares o euros a Soles peruanos para pagar mi hospedaje en Cajamarca?",
+                "respuesta": "Puedes cambiar divisas a Soles peruanos en las casas de cambio ubicadas alrededor de la Plaza de Armas de Cajamarca o en los principales bancos como BCP o BBVA. Evita cambiar en la calle por seguridad y mejores tasas."
+            }
+        ],
+        "2_Logistica_Transporte_Como_Llegar": [
+            {
+                "pregunta": "¿Cuáles son las aerolíneas que vuelan de Lima a Cajamarca y cuánto dura el viaje en avión?",
+                "respuesta": "Las principales aerolíneas que operan la ruta Lima-Cajamarca son LATAM y Sky Airline. El vuelo directo tiene una duración aproximada de 1 hora y 15 minutos."
+            },
+            {
+                "pregunta": "¿Cómo puedo ir del aeropuerto Mayor General FAP Armando Revoredo Iglesias al centro de Cajamarca y cuánto cuesta un taxi?",
+                "respuesta": "Desde el aeropuerto de Cajamarca, la forma más común de llegar al centro es en taxi. El trayecto dura unos 15-20 minutos y el costo promedio es de 10 a 15 Soles, dependiendo de la negociación."
+            },
+            {
+                "pregunta": "¿Qué empresas de bus ofrecen la ruta Lima-Cajamarca, cuánto tiempo toma y cuál es el precio promedio del pasaje?",
+                "respuesta": "Empresas como Cruz del Sur, Civa y Excluciva cubren la ruta Lima-Cajamarca. El viaje en bus dura entre 13 y 16 horas, y los pasajes varían de 70 a 150 Soles, según la empresa y el servicio (ejecutivo, cama)."
+            },
+            {
+                "pregunta": "¿Dónde está ubicado el terminal terrestre principal de Cajamarca y cómo llego desde allí al centro de la ciudad?",
+                "respuesta": "El Terminal Terrestre de Cajamarca se encuentra en la Av. Atahualpa S/N. Desde allí, puedes tomar un taxi por unos 5-7 Soles o una combi por 1.50 Soles para llegar al centro histórico."
+            },
+            {
+                "pregunta": "¿Cómo llegar a las Ventanillas de Otuzco desde el centro de Cajamarca en transporte público o colectivo?",
+                "respuesta": "Para ir a las Ventanillas de Otuzco desde el centro de Cajamarca, puedes tomar colectivos o combis que salen de la cuadra 10 de la Av. 13 de Julio. El pasaje cuesta aproximadamente 2-3 Soles y el viaje dura unos 20 minutos."
+            },
+            {
+                "pregunta": "¿Cuál es la mejor forma de visitar Cumbemayo desde Cajamarca, considerando transporte y tiempo?",
+                "respuesta": "La forma más recomendable para visitar Cumbemayo es contratando un tour organizado desde el centro de Cajamarca, que incluye transporte y guía. Los tours suelen costar entre 30 y 50 Soles por persona y duran medio día."
+            },
+            {
+                "pregunta": "¿Cómo puedo llegar a los Baños del Inca desde la Plaza de Armas de Cajamarca en transporte local?",
+                "respuesta": "Desde la Plaza de Armas de Cajamarca, puedes tomar una combi o taxi a los Baños del Inca. Las combis que van en esa dirección se toman en la calle Amalia Puga o Jr. Dos de Mayo y cuestan 1.50 Soles. Un taxi te costará entre 7 y 10 Soles y el viaje es de unos 15 minutos."
+            },
+            {
+                "pregunta": "¿Hay transporte público directo desde Cajamarca a la Granja Porcón y cuánto cuesta el pasaje?",
+                "respuesta": "No hay transporte público directo y regular a la Granja Porcón. Lo más común es contratar un tour desde Cajamarca (aprox. 50-70 Soles) o tomar un taxi privado que te lleve y espere, lo cual puede costar entre 80 y 120 Soles por el viaje de ida y vuelta."
+            },
+            {
+                "pregunta": "¿Es seguro moverse en taxi por la ciudad de Cajamarca de noche y cuánto cuesta un viaje corto dentro del centro?",
+                "respuesta": "Sí, es generalmente seguro moverse en taxi por la ciudad de Cajamarca, incluso de noche, pero siempre es recomendable usar taxis 'formales' o de empresas 'conocidas'. Un viaje corto dentro del centro histórico o a zonas cercanas cuesta entre 5 y 8 Soles."
+            },
+            {
+                "pregunta": "¿Puedo alquilar un coche en Cajamarca para explorar los alrededores y qué requisitos necesito?",
+                "respuesta": "Sí, es posible alquilar un coche en Cajamarca, aunque la oferta es limitada. Necesitarás una licencia de conducir válida, DNI o pasaporte, y una tarjeta de crédito para la garantía. Los precios varían, pero un coche económico puede costar desde 100-150 Soles por día."
+            }
+        ],
+        "3_Seguridad_Riesgos_Salud": [
+            {
+                "pregunta": "¿Qué tan seguros son los hoteles y hostales en el centro histórico de Cajamarca para turistas que viajan solos?",
+                "respuesta": "Los alojamientos en el centro histórico de Cajamarca suelen ser seguros, especialmente aquellos con recepción 24 horas y cámaras de seguridad. Se recomienda elegir establecimientos bien valorados y evitar caminar solo por calles poco iluminadas después de las 10 p.m. fuera de las zonas más concurridas."
+            },
+            {
+                "pregunta": "¿Existen riesgos de salud específicos al alojarse en lodges rurales cerca de Cajamarca, como en Porcón o La Colpa?",
+                "respuesta": "Al alojarse en lodges rurales cerca de Cajamarca, como en Porcón o La Colpa, los riesgos de salud incluyen picaduras de insectos (mosquitos, arañas), por lo que se aconseja llevar repelente. También es importante verificar que el lodge ofrezca agua potable filtrada o embotellada y que la comida sea preparada con higiene. La atención médica puede ser más limitada que en la ciudad."
+            },
+            {
+                "pregunta": "¿Es seguro dejar objetos de valor en la habitación de un hotel de lujo en Cajamarca o es mejor usar la caja fuerte?",
+                "respuesta": "En hoteles de lujo en Cajamarca, siempre es recomendable utilizar la caja fuerte de la habitación para guardar objetos de valor como pasaportes, dinero en efectivo y joyas. Aunque estos hoteles suelen tener buena seguridad, la caja fuerte minimiza cualquier riesgo de hurto."
+            },
+            {
+                "pregunta": "¿Qué precauciones de salud debo tomar con el agua y la comida si me alojo en un hostal económico en Cajamarca?",
+                "respuesta": "Si te alojas en un hostal económico en Cajamarca, es crucial beber solo agua embotellada o previamente hervida. Evita el hielo en bebidas si no estás seguro de su procedencia. Respecto a la comida, prefiere alimentos cocidos y evita ensaladas o frutas sin pelar si no estás seguro de su lavado. Lávate las manos frecuentemente."
+            },
+            {
+                "pregunta": "¿Hay zonas de Cajamarca que deba evitar al buscar alojamiento por motivos de seguridad, especialmente de noche?",
+                "respuesta": "Generalmente, el centro de Cajamarca es seguro. Sin embargo, se aconseja evitar buscar alojamiento o transitar de noche por zonas más periféricas o poco iluminadas, como algunos sectores cercanos a los mercados grandes o las afueras de la ciudad, donde la vigilancia es menor. Siempre es mejor preguntar en tu alojamiento o a locales sobre las zonas específicas."
+            },
+            {
+                "pregunta": "¿Qué debo hacer si tengo una emergencia médica mientras estoy alojado en un hotel en Cajamarca?",
+                "respuesta": "Si tienes una emergencia médica mientras estás alojado en un hotel en Cajamarca, lo primero es informar a la recepción. Ellos pueden ayudarte a contactar a un médico o a una clínica. Las clínicas privadas recomendadas son la Clínica Limatambo o la Clínica San Antonio, ambas con atención 24 horas. Ten a mano los datos de tu seguro de viaje."
+            },
+            {
+                "pregunta": "¿Los alojamientos en Cajamarca tienen medidas de seguridad contra incendios adecuadas para los huéspedes?",
+                "respuesta": "La mayoría de los alojamientos formales y registrados en Cajamarca, especialmente hoteles y hostales de categoría, deben cumplir con normativas de seguridad contra incendios, incluyendo extintores, rutas de evacuación señalizadas y detectores de humo. Al registrarte, familiarízate con el plano de evacuación de tu habitación."
+            },
+            {
+                "pregunta": "¿Es común el robo en habitaciones de hoteles o hostales en Cajamarca y cómo puedo prevenirlo?",
+                "respuesta": "El robo en habitaciones no es común en alojamientos bien establecidos en Cajamarca, pero puede ocurrir en cualquier lugar. Para prevenirlo, siempre cierra con llave tu habitación, usa la caja fuerte para objetos de valor, no dejes pertenencias a la vista y asegúrate de que las ventanas estén cerradas al salir."
+            },
+            {
+                "pregunta": "¿Qué tan confiables son los servicios de transporte que ofrecen los hoteles en Cajamarca para traslados nocturnos seguros?",
+                "respuesta": "Los servicios de transporte ofrecidos directamente por hoteles en Cajamarca, especialmente los de gama media a alta, suelen ser muy confiables y seguros para traslados nocturnos. Utilizan conductores de confianza y vehículos en buen estado. Si tomas un taxi por tu cuenta, es preferible usar aplicaciones o taxis de empresas reconocidas, evitando los informales en la calle de noche."
+            },
+            {
+                "pregunta": "¿Debo preocuparme por la altitud al alojarme en Cajamarca y qué precauciones de salud tomar en mi hotel?",
+                "respuesta": "Cajamarca se encuentra a unos 2,750 metros sobre el nivel del mar, una altitud que para algunas personas puede causar síntomas leves de mal de altura. Al alojarte, se recomienda descansar el primer día, evitar esfuerzos físicos, beber mucha agua (no alcohol) y comer ligero. Si sientes mareos o dolor de cabeza, informa a la recepción; muchos hoteles tienen oxígeno disponible."
+            }
+        ],
+        "4_Clima_Temporadas_Horarios": [
+            {
+                "pregunta": "¿Cuál es la mejor época del año para visitar Cajamarca y disfrutar de un clima soleado?",
+                "respuesta": "La mejor época para visitar Cajamarca y disfrutar de un clima soleado es durante la temporada seca, que va de mayo a octubre. Durante estos meses, los días son generalmente soleados y las precipitaciones son mínimas, lo que es ideal para actividades al aire libre y explorar la ciudad."
+            },
+            {
+                "pregunta": "¿Cuándo es la temporada de lluvias en Cajamarca y cómo afecta el clima y las actividades turísticas?",
+                "respuesta": "La temporada de lluvias en Cajamarca se extiende de noviembre a abril, siendo los meses de enero a marzo los más lluviosos. Durante este periodo, las mañanas pueden ser soleadas, pero las tardes suelen presentar lluvias intensas. Esto puede afectar algunas excursiones a zonas rurales o carreteras no asfaltadas, pero los atractivos urbanos y la mayoría de los tours operan normalmente."
+            },
+            {
+                "pregunta": "¿Qué temperaturas promedio puedo esperar en Cajamarca durante el día y la noche en diferentes temporadas?",
+                "respuesta": "En Cajamarca, las temperaturas diurnas promedio oscilan entre 18°C y 22°C durante todo el año. Por las noches, la temperatura desciende considerablemente, situándose entre 6°C y 10°C, especialmente en la temporada seca. Siempre se recomienda llevar ropa de abrigo para las noches y mañanas frescas."
+            },
+            {
+                "pregunta": "¿Cómo es el clima en Cajamarca durante el famoso Carnaval, que suele ser en febrero o marzo?",
+                "respuesta": "Durante el Carnaval de Cajamarca, que generalmente se celebra entre febrero y marzo, el clima se encuentra en plena temporada de lluvias. Esto significa que es muy probable que haya precipitaciones, a menudo en las tardes. Sin embargo, esto no detiene la celebración; los cajamarquinos y visitantes disfrutan de las festividades a pesar de la lluvia, que incluso se incorpora a los juegos de agua."
+            },
+            {
+                "pregunta": "¿Los horarios de los principales atractivos turísticos en Cajamarca cambian según la temporada del año?",
+                "respuesta": "Generalmente, los horarios de los principales atractivos turísticos en Cajamarca, como el Cuarto del Rescate, las Ventanillas de Otuzco o Cumbemayo, no varían drásticamente entre la temporada seca y la de lluvias. La mayoría mantiene un horario estándar de 9:00 a 17:00 o 18:00 horas. Sin embargo, es recomendable verificar los horarios específicos en feriados nacionales o eventos especiales, ya que podrían ajustarse."
+            },
+            {
+                "pregunta": "¿Es necesario usar protector solar y ropa de abrigo en Cajamarca, incluso en la temporada seca y soleada?",
+                "respuesta": "Sí, es absolutamente necesario usar protector solar en Cajamarca, incluso en la temporada seca. Debido a su altitud (aproximadamente 2750 m.s.n.m.), la radiación solar es alta. Además, aunque los días sean soleados, las mañanas y noches son frescas a frías, por lo que siempre se debe llevar ropa de abrigo, como casacas o chompas, sin importar la temporada."
+            },
+            {
+                "pregunta": "¿Hay alguna época del año en Cajamarca donde la neblina o garúa sea más frecuente, afectando la visibilidad?",
+                "respuesta": "Sí, la neblina o garúa es más frecuente en Cajamarca durante la temporada de lluvias, especialmente en los meses de enero a abril. Puede aparecer en las mañanas tempranas o en las tardes, reduciendo la visibilidad en las carreteras que conducen a atractivos fuera de la ciudad, como Cumbemayo o las Ventanillas de Otuzco. En la temporada seca, es menos común."
+            },
+            {
+                "pregunta": "¿Cuál es la mejor temporada para realizar caminatas o senderismo en los alrededores de Cajamarca?",
+                "respuesta": "La mejor temporada para realizar caminatas y senderismo en los alrededores de Cajamarca es la temporada seca, de mayo a octubre. Durante estos meses, los senderos están menos resbaladizos, el cielo suele estar despejado y las vistas panorámicas son óptimas, lo que permite disfrutar plenamente de la naturaleza y los paisajes rurales."
+            },
+            {
+                "pregunta": "¿El clima de Cajamarca influye en la posibilidad de sufrir mal de altura y qué precauciones se deben tomar?",
+                "respuesta": "El clima de Cajamarca, con sus noches frías y mañanas frescas, no influye directamente en el mal de altura (soroche), pero la altitud de 2750 m.s.n.m. sí puede provocarlo en algunas personas. Se recomienda aclimatarse el primer día, evitar esfuerzos físicos intensos, beber mucha agua, evitar el alcohol y comidas pesadas. El frío puede hacer que el cuerpo gaste más energía, por lo que es vital abrigarse bien."
+            },
+            {
+                "pregunta": "¿Hay alguna temporada específica en Cajamarca para ver los campos más verdes o las cosechas?",
+                "respuesta": "Para ver los campos de Cajamarca en su máximo esplendor verde y observar las cosechas, la mejor temporada es justo después de la época de lluvias, entre los meses de abril y junio. Durante este periodo, la tierra está fértil, los cultivos están en crecimiento o listos para la recolección, ofreciendo paisajes exuberantes y vibrantes."
+            }
+        ],
+        "5_Historia_Cultura_Curiosidades": [
+            {
+                "pregunta": "¿Dónde fue capturado Atahualpa en Cajamarca y qué puedo ver allí hoy relacionado con ese evento histórico?",
+                "respuesta": "La captura de Atahualpa ocurrió en la Plaza de Armas de Cajamarca. Hoy puedes visitar el 'Cuarto del Rescate', ubicado en el Conjunto Monumental Belén, donde se dice que Atahualpa ofreció llenar la habitación de oro y plata a cambio de su libertad. La entrada al Cuarto del Rescate cuesta aproximadamente 5 Soles para adultos."
+            },
+            {
+                "pregunta": "¿Cuándo se celebra el famoso Carnaval de Cajamarca y qué actividades culturales puedo esperar si viajo en esas fechas?",
+                "respuesta": "El Carnaval de Cajamarca se celebra anualmente entre febrero y marzo, variando las fechas según el calendario litúrgico. Las actividades principales incluyen el 'Corso de Carnaval', el 'Entierro de Ño Carnavalón' y la elección de la 'Reina del Carnaval'. Es una fiesta llena de música, bailes y 'patrullas' que recorren la ciudad."
+            },
+            {
+                "pregunta": "¿Cuál es la historia detrás de los Baños del Inca en Cajamarca y es posible bañarse en sus aguas termales actualmente?",
+                "respuesta": "Los Baños del Inca son un complejo de aguas termales naturales, famosas desde la época incaica. Se dice que el Inca Atahualpa solía relajarse aquí antes de la llegada de los españoles. Sí, puedes bañarte en sus aguas; hay pozas privadas y públicas. El costo de una poza privada es de aproximadamente 6 Soles por 30 minutos."
+            },
+            {
+                "pregunta": "¿Qué son las Ventanillas de Otuzco en Cajamarca y qué significado histórico o cultural tienen estas formaciones?",
+                "respuesta": "Las Ventanillas de Otuzco son una necrópolis pre-incaica, un cementerio tallado en roca volcánica con nichos o 'ventanillas' que datan de la cultura Cajamarca (200-800 d.C.). Se cree que eran tumbas colectivas para personajes importantes. Se encuentran a unos 8 km de la ciudad de Cajamarca. La entrada cuesta alrededor de 5 Soles."
+            },
+            {
+                "pregunta": "¿Qué tipo de productos lácteos son típicos de Cajamarca y dónde puedo comprarlos frescos o visitar una granja lechera?",
+                "respuesta": "Cajamarca es famosa por sus productos lácteos, especialmente el 'queso fresco', el 'queso mantecoso' y el 'manjar blanco'. Puedes comprarlos frescos directamente en las granjas de la ruta a la Collpa o en el 'Mercado Central de Cajamarca', donde encontrarás una gran variedad de productores locales."
+            },
+            {
+                "pregunta": "¿Qué curiosidades culturales ofrece la Hacienda La Collpa en Cajamarca, aparte de la famosa llamada de vacas?",
+                "respuesta": "La Hacienda La Collpa es conocida por su tradicional 'llamada de vacas' para el ordeño, un espectáculo único. Además, puedes visitar su capilla, la laguna artificial con botes de pedal y comprar productos lácteos frescos. Es un buen ejemplo de la vida rural y ganadera de Cajamarca, mostrando su cultura agrícola."
+            },
+            {
+                "pregunta": "¿Cuáles son las iglesias coloniales más importantes para visitar en el centro histórico de Cajamarca y por qué destacan?",
+                "respuesta": "Las iglesias coloniales más destacadas son la 'Catedral de Santa Catalina', con su impresionante fachada barroca inconclusa, y la 'Iglesia de San Francisco', que alberga el 'Museo de Arte Religioso'. También es notable la 'Iglesia de Belén', parte del Conjunto Monumental Belén, con su impresionante arquitectura colonial."
+            },
+            {
+                "pregunta": "¿Qué tipo de artesanía es típica de Cajamarca y dónde puedo encontrar talleres o mercados para comprar recuerdos auténticos?",
+                "respuesta": "La artesanía de Cajamarca incluye trabajos en 'cuero' (carteras, cinturones), 'madera' (tallados, juguetes), 'cerámica' y 'textiles' (mantas, ponchos). Puedes encontrar talleres y tiendas en el 'Barrio San Pedro' y en el 'Pasaje de la Cultura' cerca de la Plaza de Armas, así como en el Mercado Central."
+            },
+            {
+                "pregunta": "¿Qué importancia histórica tiene el Cerro Santa Apolonia en Cajamarca y qué vistas panorámicas ofrece a los visitantes?",
+                "respuesta": "El Cerro Santa Apolonia es un mirador natural con gran valor histórico. En su cima se encuentra la 'Silla del Inca', una formación rocosa tallada que se cree fue un observatorio o trono incaico. Ofrece una vista panorámica espectacular de toda la ciudad de Cajamarca y sus alrededores. La subida es gratuita, pero hay un pequeño costo para acceder a la Silla del Inca, alrededor de 1 Sol."
+            },
+            {
+                "pregunta": "¿Cuáles son los platos típicos de la gastronomía de Cajamarca que debo probar para experimentar su cultura culinaria local?",
+                "respuesta": "Para experimentar la cultura culinaria de Cajamarca, debes probar el 'Caldo Verde' (sopa de papas con hierbas andinas), el 'Cuy Frito con Picante de Papa', la 'Trucha Frita' (especialmente si visitas zonas rurales), y por supuesto, los postres a base de lácteos como el 'Manjar Blanco' y los 'Dulces de Leche'."
+            }
+        ],
+        "6_Tips_Locales_Secretos": [
+            {
+                "pregunta": "¿Cuál es el 'secreto' para conseguir un buen hotel de lujo en Cajamarca a mejor precio fuera de temporada alta?",
+                "respuesta": "El truco es reservar directamente con el hotel, como el 'Costa del Sol Wyndham Cajamarca' o 'Laguna Seca', durante los meses de mayo a septiembre (excepto Fiestas Patrias), y preguntar por tarifas corporativas o de larga estancia, incluso si solo te quedas unos días. A menudo tienen flexibilidad."
+            },
+            {
+                "pregunta": "¿Hay algún hostal familiar 'escondido' en el centro de Cajamarca con buen ambiente y seguro para niños?",
+                "respuesta": "Sí, el 'Hostal El Balcón' en el Jirón Amalia Puga 1050 es un secreto a voces. Es céntrico, tiene patio interior seguro para niños y sus dueños son muy amables. Reserva con anticipación, no tiene muchas habitaciones."
+            },
+            {
+                "pregunta": "¿Qué zonas de Cajamarca son 'secretamente' más tranquilas y seguras para alojarse con niños pequeños?",
+                "respuesta": "Para familias, la zona alrededor del 'Hotel Laguna Seca' en Baños del Inca es ideal por su tranquilidad y acceso a termas. En la ciudad, el barrio de San Antonio, cerca del 'Hotel Continental', es residencial y más seguro que el centro histórico por las noches."
+            },
+            {
+                "pregunta": "¿Cómo puedo encontrar 'lodges rurales auténticos' cerca de Cajamarca que no estén en Booking.com?",
+                "respuesta": "Busca en Facebook o pregunta a taxistas de confianza por 'Hacienda San Vicente' o 'Fundo La Colpa'. A menudo se reservan por teléfono o WhatsApp directamente con los dueños, ofreciendo una experiencia más genuina y precios negociables."
+            },
+            {
+                "pregunta": "¿Existe algún 'tip local' para conseguir estacionamiento seguro si me alojo en el centro histórico de Cajamarca con mi auto?",
+                "respuesta": "Muchos hoteles pequeños en el centro no tienen estacionamiento propio. El 'secreto' es preguntar por convenios con playas de estacionamiento cercanas, como la de la 'Plaza de Armas' o la del 'Mercado Central'. Algunos hoteles como el 'Cajamarca Hotel' tienen estacionamiento limitado, pero es mejor confirmar antes."
+            },
+            {
+                "pregunta": "¿Cuál es el 'mejor momento secreto' para reservar alojamiento en Cajamarca y evitar precios inflados por eventos?",
+                "respuesta": "El 'secreto' es evitar el Carnaval de Cajamarca (febrero/marzo) y Semana Santa (marzo/abril) a toda costa si buscas precios bajos. Reserva con al menos 4-6 meses de anticipación para esas fechas, o viaja en temporada baja (abril-junio, septiembre-noviembre) para encontrar ofertas hasta del 30% menos."
+            },
+            {
+                "pregunta": "¿Hay alguna 'hacienda de lujo secreta' en los alrededores de Cajamarca que ofrezca experiencias culturales auténticas?",
+                "respuesta": "La 'Hacienda La Colpa' es conocida, pero un 'secreto' mejor guardado es la 'Hacienda Porcón'. Aunque es más un centro turístico, ofrece alojamiento rústico de lujo y una inmersión profunda en la vida rural y la reforestación. Debes reservar directamente con ellos por teléfono."
+            },
+            {
+                "pregunta": "¿Qué 'consejo local' hay para elegir un hotel en Cajamarca que tenga buena conectividad de transporte público o taxis confiables?",
+                "respuesta": "Alójate cerca de la 'Plaza de Armas' o en la Avenida 13 de Julio. Desde allí, es fácil tomar taxis seguros (pide siempre que usen taxímetro o acuerda el precio antes) o colectivos a los principales atractivos. Evita hospedajes muy alejados si no tienes movilidad propia."
+            },
+            {
+                "pregunta": "¿Cuál es el 'secreto' para encontrar un alojamiento en Cajamarca que acepte mascotas sin cargos excesivos?",
+                "respuesta": "Pocos hoteles lo publicitan. El 'secreto' es llamar directamente a hoteles pequeños o casas de huéspedes como 'Hostal Atahualpa' o 'Casa de Campo El Mirador' y preguntar. A menudo son más flexibles que las grandes cadenas, y algunos solo piden un pequeño recargo por limpieza."
+            },
+            {
+                "pregunta": "¿Hay algún 'tip de seguridad local' para elegir un hotel en Cajamarca, especialmente si viajo solo o con objetos de valor?",
+                "respuesta": "El 'secreto' es buscar hoteles con recepción 24 horas y cámaras de seguridad visibles. Pregunta si tienen caja fuerte en la habitación o en recepción. Hoteles como el 'Hotel El Portal del Marqués' o 'Hotel Continental' son conocidos por su seguridad y personal atento. Evita alojamientos sin referencias claras."
+            }
+        ],
+        "7_Gastronomia_Alimentos_Supervivencia": [
+            {
+                "pregunta": "¿Qué alimentos básicos y económicos puedo comprar en Cajamarca para una estadía larga o de supervivencia?",
+                "respuesta": "Para una estadía económica o de supervivencia en Cajamarca, puedes encontrar productos básicos como arroz, fideos, papas, huevos, pan y frutas de estación (plátanos, manzanas) en el Mercado Central de Cajamarca, ubicado en el Jirón José Gálvez. Los precios son muy accesibles; por ejemplo, un kilo de arroz puede costar entre 3.50 y 4.50 Soles, y una docena de huevos alrededor de 6 Soles."
+            },
+            {
+                "pregunta": "¿Es seguro beber agua del grifo en Cajamarca o debo comprar agua embotellada para evitar problemas de salud?",
+                "respuesta": "En Cajamarca, para evitar problemas gastrointestinales, se recomienda encarecidamente consumir siempre agua embotellada o hervida. El agua del grifo no es apta para el consumo directo de turistas. Puedes comprar botellas de agua de 2.5 litros en cualquier tienda o supermercado como Plaza Vea o Metro por aproximadamente 4 a 6 Soles."
+            },
+            {
+                "pregunta": "¿Dónde puedo encontrar alimentos no perecederos o enlatados en Cajamarca para una excursión a zonas remotas?",
+                "respuesta": "Para excursiones a zonas remotas desde Cajamarca, puedes adquirir alimentos no perecederos como atún enlatado, galletas, barras energéticas, leche en polvo y sopas instantáneas en los supermercados grandes como Plaza Vea (Av. Héroes de San Ramón 590) o Metro (Av. 13 de Julio 1200). También hay tiendas de abarrotes más pequeñas en el centro que ofrecen una buena variedad."
+            },
+            {
+                "pregunta": "¿Qué comidas locales de Cajamarca son nutritivas y me darán energía para actividades físicas intensas?",
+                "respuesta": "Para actividades físicas intensas en Cajamarca, busca platos como el 'Caldo Verde' (sopa sustanciosa con queso y huevo), 'Cuy Frito con Picante de Papa' (alto en proteínas y carbohidratos) o 'Trucha Frita' (rica en omega-3). Estos platos los encuentras en restaurantes tradicionales como 'El Rescate' en el Jirón Dos de Mayo 575, con precios entre 25 y 45 Soles por plato."
+            },
+            {
+                "pregunta": "¿Existen opciones de comida vegetariana o vegana en Cajamarca para viajeros con restricciones dietéticas en caso de emergencia?",
+                "respuesta": "En Cajamarca, encontrar opciones vegetarianas o veganas puras puede ser un desafío fuera de la ciudad. En la ciudad, algunos restaurantes como 'La Casona del Inca' (Jirón Dos de Mayo 311) pueden adaptar platos. Para situaciones de emergencia o en zonas rurales, tu mejor opción es depender de mercados locales para comprar frutas, verduras, papas y huevos, y prepararlos tú mismo si tienes facilidades."
+            },
+            {
+                "pregunta": "¿Cómo puedo almacenar alimentos de forma segura en Cajamarca si me hospedo en un lugar sin refrigeración?",
+                "respuesta": "Si te hospedas en Cajamarca sin refrigeración, prioriza alimentos no perecederos. Para productos frescos, compra en pequeñas cantidades y consume el mismo día. Utiliza bolsas térmicas con hielo si es posible, o busca lugares frescos y secos. Las frutas con cáscara gruesa como plátanos o naranjas duran más. Evita carnes y lácteos frescos si no puedes refrigerarlos."
+            },
+            {
+                "pregunta": "¿Qué debo hacer si sufro una intoxicación alimentaria en Cajamarca y dónde puedo buscar ayuda médica?",
+                "respuesta": "Si sufres una intoxicación alimentaria en Cajamarca, lo primero es hidratarte con agua embotellada y sales de rehidratación oral. Busca atención médica inmediata en el Hospital Regional de Cajamarca (Av. Hoyos Rubios s/n) o en clínicas privadas como la Clínica Limatambo (Jirón Amalia Puga 1010). Siempre lleva contigo un seguro de viaje que cubra emergencias médicas."
+            },
+            {
+                "pregunta": "¿Hay mercados o tiendas de abarrotes en los alrededores de Cajamarca, como en Baños del Inca, para comprar provisiones?",
+                "respuesta": "Sí, en Baños del Inca, a solo 15 minutos de Cajamarca, encontrarás un mercado local más pequeño y varias tiendas de abarrotes donde puedes comprar provisiones básicas como pan, frutas, bebidas y algunos enlatados. No esperes la misma variedad que en la ciudad, pero es suficiente para necesidades inmediatas. Los precios son similares a los de Cajamarca."
+            },
+            {
+                "pregunta": "¿Qué tipo de alimentos son recomendables para llevar en una caminata larga por los Andes cerca de Cajamarca?",
+                "respuesta": "Para caminatas largas cerca de Cajamarca, lleva alimentos de alto valor energético y fáciles de transportar: frutos secos (pasas, maní), barras energéticas, chocolate, galletas de soda, atún enlatado (con abrefácil), y frutas como manzanas o plátanos. Asegúrate de llevar suficiente agua embotellada o un filtro de agua portátil."
+            },
+            {
+                "pregunta": "¿Cuál es el costo promedio de una comida básica y segura en un restaurante de Cajamarca para un viajero con presupuesto limitado?",
+                "respuesta": "Para un viajero con presupuesto limitado en Cajamarca, una comida básica y segura en un restaurante local (conocido como 'menú') puede costar entre 10 y 18 Soles. Estos menús suelen incluir una sopa, un plato de fondo (con carne o pollo, arroz y papa) y una bebida. Busca restaurantes concurrido por locales, como los que se encuentran en los alrededores de la Plaza de Armas o el Mercado Central."
+            }
+        ],
+        "8_Accesibilidad_Infraestructura": [
+            {
+                "pregunta": "¿Cómo es la accesibilidad a los hoteles en el centro histórico de Cajamarca desde el aeropuerto o terminal terrestre?",
+                "respuesta": "La mayoría de hoteles en el centro de Cajamarca son fácilmente accesibles en taxi desde el Aeropuerto Armando Revoredo Iglesias (aprox. 15-20 Soles, 10-15 min) o el Terminal Terrestre (aprox. 8-12 Soles, 5-10 min). Muchos están a poca distancia de la Plaza de Armas."
+            },
+            {
+                "pregunta": "¿Qué tipo de infraestructura de lujo puedo esperar en hoteles de alta gama en Cajamarca para una estancia confortable y familiar?",
+                "respuesta": "Los hoteles de lujo en Cajamarca suelen ofrecer Wi-Fi de alta velocidad, piscinas temperadas, spas, restaurantes gourmet, estacionamiento privado y, en algunos casos, habitaciones conectadas o suites familiares."
+            },
+            {
+                "pregunta": "¿Cómo puedo llegar a lodges rurales o haciendas exclusivas fuera de la ciudad de Cajamarca, como la Hacienda La Collpa o la Posada del Puruay?",
+                "respuesta": "Para lodges rurales en Cajamarca, se recomienda el transporte privado (taxi o movilidad coordinada con el alojamiento), ya que el transporte público es limitado. Las tarifas de taxi pueden variar entre 30-60 Soles dependiendo de la distancia."
+            },
+            {
+                "pregunta": "¿Existen hoteles en Cajamarca con infraestructura específica para familias, como habitaciones comunicadas o áreas de juego para niños?",
+                "respuesta": "Algunos hoteles más grandes en Cajamarca, como el Costa del Sol Wyndham o el Laguna Seca, ofrecen habitaciones comunicadas o suites familiares. Las áreas de juego dedicadas son menos comunes, pero muchos tienen jardines amplios."
+            },
+            {
+                "pregunta": "¿Qué opciones de alojamiento accesible para personas con movilidad reducida hay en Cajamarca y qué infraestructura ofrecen?",
+                "respuesta": "La infraestructura accesible en Cajamarca es limitada, pero algunos hoteles modernos o renovados pueden tener rampas, ascensores y baños adaptados. Es crucial contactar directamente al hotel para confirmar la disponibilidad y detalles específicos."
+            },
+            {
+                "pregunta": "¿Cuál es la calidad de la infraestructura de internet y Wi-Fi en los hoteles y hostales de Cajamarca para trabajar o comunicarse?",
+                "respuesta": "En la mayoría de hoteles y hostales céntricos de Cajamarca, la infraestructura de Wi-Fi es generalmente buena y estable. En lodges rurales o alojamientos más alejados, la velocidad y fiabilidad pueden ser menores."
+            },
+            {
+                "pregunta": "¿Los hoteles en el centro histórico de Cajamarca ofrecen infraestructura de estacionamiento privado para vehículos?",
+                "respuesta": "Debido a las calles estrechas del centro de Cajamarca, muchos hoteles históricos tienen estacionamiento limitado o no lo tienen. Algunos ofrecen servicio de valet o convenios con estacionamientos públicos cercanos, con costos adicionales de 15-25 Soles por día."
+            },
+            {
+                "pregunta": "¿Es común encontrar infraestructura de calefacción y agua caliente confiable en los alojamientos de Cajamarca, especialmente en invierno?",
+                "respuesta": "La infraestructura de agua caliente es estándar en casi todos los alojamientos de Cajamarca. La calefacción es menos común, pero los hoteles de categoría superior suelen ofrecerla, especialmente entre mayo y agosto, cuando las noches son más frías."
+            },
+            {
+                "pregunta": "¿Cómo se organiza el transporte para llegar a alojamientos exclusivos o de lujo ubicados en las afueras de Cajamarca, como haciendas con termales?",
+                "respuesta": "La mayoría de alojamientos exclusivos en las afueras de Cajamarca, como los hoteles con aguas termales en Baños del Inca, ofrecen servicios de traslado privado desde el aeropuerto o terminal, a menudo con un costo adicional o incluido en paquetes de lujo."
+            },
+            {
+                "pregunta": "¿Cómo son las condiciones de la infraestructura vial para acceder a alojamientos rurales o campestres alrededor de Cajamarca durante todo el año?",
+                "respuesta": "Las vías principales hacia las afueras de Cajamarca están asfaltadas, pero las carreteras de acceso a muchos alojamientos rurales pueden ser de tierra o afirmadas. Durante la temporada de lluvias (noviembre a abril), estas vías pueden volverse más difíciles, requiriendo vehículos 4x4 en algunos casos."
+            }
+        ],
+        "9_Reglas_Prohibiciones_Tramites": [
+            {
+                "pregunta": "¿Cuáles son los horarios de check-in y check-out estándar en hoteles de lujo en Cajamarca y se puede solicitar late check-out?",
+                "respuesta": "Generalmente, el check-in es a partir de las 3 PM y el check-out hasta las 12 PM en hoteles de lujo en Cajamarca. El late check-out está sujeto a disponibilidad y puede tener un costo adicional que varía entre el 30% y el 50% de la tarifa diaria, o incluso el costo total de una noche si se extiende más allá de las 6 PM."
+            },
+            {
+                "pregunta": "¿Qué documentos son obligatorios para hacer el check-in en un hotel o lodge rural en Cajamarca si soy extranjero o peruano?",
+                "respuesta": "Para ciudadanos peruanos, es indispensable presentar el Documento Nacional de Identidad (DNI). Los extranjeros deben mostrar su pasaporte vigente y la Tarjeta Andina de Migración (TAM) sellada al ingresar al país. Para menores de edad, si no viajan con ambos padres, se requiere un permiso notarial."
+            },
+            {
+                "pregunta": "¿Está permitido llevar mascotas a los hoteles familiares o lodges rurales de Cajamarca y cuáles son las reglas?",
+                "respuesta": "La mayoría de hoteles y hostales en el centro de Cajamarca no permiten mascotas. Sin embargo, algunos lodges rurales o alojamientos boutique específicos sí lo hacen, generalmente con restricciones de tamaño o peso y aplicando un cargo adicional por limpieza que puede oscilar entre S/50 y S/100 por noche. Siempre es crucial consultar directamente con el establecimiento antes de reservar."
+            },
+            {
+                "pregunta": "¿Cuáles son las políticas de cancelación comunes para reservas en hoteles de lujo en Cajamarca durante temporada alta?",
+                "respuesta": "Durante temporada alta (Semana Santa, Fiestas Patrias, Carnaval de Cajamarca), las políticas de cancelación en hoteles de lujo suelen ser más estrictas. Generalmente, se permite cancelar sin penalidad hasta 72 horas antes del check-in. Cancelaciones posteriores o no-shows pueden resultar en el cargo de la primera noche o incluso el total de la reserva, dependiendo de la tarifa contratada y el hotel."
+            },
+            {
+                "pregunta": "¿Qué trámites o reglas debo seguir para solicitar una cama adicional para mi hijo en un hotel familiar en Cajamarca?",
+                "respuesta": "Debe solicitar la cama adicional al momento de hacer la reserva o con suficiente antelación, ya que la disponibilidad es limitada. Muchos hoteles en Cajamarca permiten que niños hasta cierta edad (usualmente 5 o 6 años) se alojen gratis utilizando las camas existentes. La cama adicional para niños mayores o adultos tiene un costo extra que puede variar de S/80 a S/150 por noche, dependiendo del hotel."
+            },
+            {
+                "pregunta": "¿Existen prohibiciones de fumar en las habitaciones o áreas comunes de los hoteles y hostales en Cajamarca?",
+                "respuesta": "Sí, la legislación peruana (Ley N° 28705) prohíbe fumar en todos los espacios cerrados de acceso público, incluyendo habitaciones y áreas comunes de hoteles y hostales en Cajamarca. Fumar en estas zonas puede acarrear multas significativas impuestas por el establecimiento, que pueden superar los US$200 o S/750."
+            },
+            {
+                "pregunta": "¿Hay alguna regulación de ruido específica para alojamientos en zonas residenciales o lodges rurales cerca de Cajamarca?",
+                "respuesta": "Aunque no existe una regulación de ruido específica y exclusiva para alojamientos turísticos en Cajamarca, los hoteles y lodges rurales operan bajo las ordenanzas municipales de convivencia y respeto al descanso. Se espera que los huéspedes mantengan un nivel de ruido bajo, especialmente después de las 10 PM. En lodges rurales, se pide especial consideración para no perturbar la tranquilidad del entorno natural y la fauna local."
+            },
+            {
+                "pregunta": "¿Qué métodos de pago son aceptados en la mayoría de hoteles y hostales en el centro de Cajamarca y hay alguna comisión por tarjeta?",
+                "respuesta": "La mayoría de hoteles y hostales en el centro de Cajamarca aceptan efectivo (Soles peruanos), tarjetas de crédito (Visa, MasterCard, American Express) y débito. Es importante saber que algunos establecimientos más pequeños o rurales pueden aplicar un recargo del 3% al 5% sobre el monto total al pagar con tarjeta de crédito o débito para cubrir las comisiones bancarias."
+            },
+            {
+                "pregunta": "¿Qué impuestos o tasas turísticas adicionales debo considerar al reservar alojamiento en Cajamarca como turista extranjero?",
+                "respuesta": "Como turista extranjero, si presenta su pasaporte y la Tarjeta Andina de Migración (TAM) al momento del check-in, estará exonerado del Impuesto General a las Ventas (IGV) del 18% en el servicio de alojamiento. Esta exoneración aplica solo si su estadía es inferior a 60 días. Los residentes peruanos sí deben pagar el IGV."
+            },
+            {
+                "pregunta": "¿Existen regulaciones o trámites especiales para alquilar un departamento por Airbnb u otras plataformas en Cajamarca?",
+                "respuesta": "Para el huésped, no existen trámites turísticos especiales al alquilar un departamento a través de plataformas como Airbnb en Cajamarca. Sin embargo, es responsabilidad del anfitrión cumplir con las normativas municipales de uso de suelo, seguridad y las obligaciones tributarias ante la SUNAT. Se recomienda a los viajeros verificar que el anfitrión tenga buenas reseñas y cumpla con los estándares de seguridad."
+            }
+        ],
+        "10_Alternativas_Plan_B": [
+            {
+                "pregunta": "¿Qué alternativas de alojamiento existen en Cajamarca si los hoteles principales están llenos durante Carnavales o Fiestas Patrias?",
+                "respuesta": "Si los hoteles tradicionales en Cajamarca están llenos, considera buscar hostales con habitaciones privadas como el Hostal El Balcón en Jr. Amazonas 1042, o casas de huéspedes familiares. También puedes explorar alquileres temporales de apartamentos a través de plataformas como Airbnb, especialmente en barrios como San Antonio o La Recoleta, que suelen tener más disponibilidad y precios que oscilan entre 150 y 300 Soles por noche para una familia."
+            },
+            {
+                "pregunta": "¿Dónde puedo encontrar hospedaje económico y seguro para una familia en Cajamarca si mi presupuesto es limitado?",
+                "respuesta": "Para hospedaje económico y seguro en Cajamarca para familias, considera hostales con habitaciones cuádruples o familiares. El Hostal Plaza en Jr. Dos de Mayo 356 ofrece opciones desde 80 Soles por noche. Otra alternativa es el Hospedaje El Rosario en Jr. Apurímac 680, con precios similares y un ambiente familiar. Siempre verifica las reseñas recientes en línea antes de reservar."
+            },
+            {
+                "pregunta": "¿Cuáles son las mejores opciones de alojamiento rural o haciendas cerca de Cajamarca para una experiencia diferente al hotel tradicional?",
+                "respuesta": "Si buscas una experiencia rural alternativa en Cajamarca, la Hacienda La Collpa, a unos 11 km de la ciudad, ofrece alojamiento en sus instalaciones con precios desde 250 Soles por noche. Otra opción es el Hotel Laguna Seca, en Baños del Inca, que aunque es un hotel, su entorno natural y termal ofrece una atmósfera distinta. También hay pequeñas casas de campo en alquiler en zonas como Llacanora o Porcón Bajo, que puedes encontrar en grupos de Facebook locales o contactando agencias de turismo rural."
+            },
+            {
+                "pregunta": "¿Cómo puedo encontrar alojamiento de última hora en Cajamarca si llego sin reserva previa, especialmente para una familia?",
+                "respuesta": "Para alojamiento de última hora en Cajamarca, especialmente para familias, la mejor estrategia es dirigirse a la zona céntrica, cerca de la Plaza de Armas, donde hay una alta concentración de hostales y hospedajes. Lugares como el Jr. Dos de Mayo o Jr. Amalia Puga tienen varias opciones. Pregunta directamente en la recepción por disponibilidad y tarifas familiares. También puedes usar aplicaciones como Booking.com o Expedia en tu móvil para filtrar por 'disponibilidad inmediata' y 'habitaciones familiares', aunque los precios podrían ser más altos."
+            },
+            {
+                "pregunta": "¿Existen alojamientos pet-friendly en Cajamarca para viajar con mi mascota si mi hotel habitual no la acepta?",
+                "respuesta": "En Cajamarca, encontrar alojamientos pet-friendly puede ser un desafío, pero hay alternativas. Algunos hostales y casas de huéspedes más pequeños, como el Hostal Atahualpa en Jr. Amalia Puga 680, a veces permiten mascotas previa consulta y con un costo adicional de 20-30 Soles por noche. La mejor opción es buscar alquileres de casas o apartamentos a través de Airbnb y filtrar por 'permite mascotas', o contactar directamente a hospedajes rurales en las afueras, como en Baños del Inca, que suelen ser más flexibles."
+            },
+            {
+                "pregunta": "¿Qué alternativas de hospedaje en Cajamarca ofrecen cocina equipada para familias que prefieren preparar sus propias comidas?",
+                "respuesta": "Si tu familia necesita una cocina equipada en Cajamarca, la mejor alternativa son los apart-hoteles o alquileres de apartamentos temporales. El Apart Hotel El Mirador en Jr. La Mar 770 ofrece unidades con cocina y sala de estar, con precios desde 200 Soles por noche. Plataformas como Airbnb también listan numerosos apartamentos y casas con cocinas completas en diferentes zonas de la ciudad, lo que es ideal para estancias más largas o para controlar el presupuesto de comidas."
+            },
+            {
+                "pregunta": "¿Cómo puedo encontrar hospedajes en Cajamarca que ofrezcan una experiencia más auténtica y local que un hotel convencional?",
+                "respuesta": "Para una experiencia auténtica y local en Cajamarca, busca hospedajes familiares o casas de huéspedes. El Hospedaje El Portal del Marqués en Jr. Del Comercio 640 es un ejemplo, donde los dueños suelen interactuar más con los huéspedes. También puedes explorar el agroturismo en comunidades cercanas como Porcón o Granja Porcón, donde algunas familias ofrecen alojamiento básico y la oportunidad de participar en actividades agrícolas, con precios desde 70 Soles por persona, incluyendo comidas."
+            },
+            {
+                "pregunta": "¿Si los hoteles de lujo tradicionales en Cajamarca están fuera de mi presupuesto o no disponibles, ¿qué alternativas premium existen?",
+                "respuesta": "Si los hoteles de lujo como el Costa del Sol Wyndham Cajamarca no están disponibles o son muy caros, considera alternativas premium. El Hotel Laguna Seca en Baños del Inca ofrece suites de lujo con acceso a aguas termales, desde 350 Soles por noche, y un ambiente exclusivo. Otra opción es buscar suites ejecutivas en hoteles boutique bien valorados en el centro, como el Hotel Continental en Jr. Dos de Mayo 780, que a menudo tienen servicios de alta calidad a un precio ligeramente inferior."
+            },
+            {
+                "pregunta": "¿Dónde puedo encontrar un alojamiento tranquilo y alejado del bullicio en Cajamarca, ideal para un retiro o descanso familiar?",
+                "respuesta": "Para un alojamiento tranquilo y alejado del bullicio en Cajamarca, busca opciones en las afueras de la ciudad. El Hotel Laguna Seca en Baños del Inca es una excelente opción por su entorno natural y termal. También puedes considerar lodges o casas de campo en zonas como Llacanora o Jesús, a 15-20 minutos en taxi desde el centro (costo aproximado de 15-20 Soles), que ofrecen mayor privacidad y contacto con la naturaleza. Algunos de estos lugares se anuncian en portales de alquiler vacacional."
+            },
+            {
+                "pregunta": "¿Si necesito extender mi estancia en Cajamarca inesperadamente, ¿qué opciones de alojamiento a largo plazo o con descuentos puedo encontrar?",
+                "respuesta": "Para una estancia extendida inesperada en Cajamarca, la mejor alternativa es buscar apartamentos amoblados en alquiler por semanas o meses. Contacta a agencias inmobiliarias locales o revisa grupos de Facebook como 'Alquileres Cajamarca' donde se publican opciones desde 800-1500 Soles al mes, dependiendo del tamaño y ubicación. Algunos hostales y hoteles pequeños también ofrecen tarifas especiales por estancias prolongadas; pregunta directamente en la recepción por descuentos para más de 7 días."
+            }
+        ]
+    }
+}

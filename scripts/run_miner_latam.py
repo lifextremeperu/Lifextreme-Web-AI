@@ -100,8 +100,9 @@ def main():
     print(f"INICIANDO MINERÍA PROFUNDA PARA {departamento.upper()}")
     print(f"==================================================")
     
-    ruta_input = f"data/knowledge/{departamento}/modulos_cartografo.txt"
-    ruta_output_dir = f"data/knowledge/{departamento}/fqsas_deep"
+    pais_lower = pais.lower().replace(" ", "")
+    ruta_input = f"data/knowledge/{pais_lower}/{departamento}/modulos_cartografo.txt"
+    ruta_output_dir = f"data/knowledge/{pais_lower}/{departamento}/fqsas_deep"
     os.makedirs(ruta_output_dir, exist_ok=True)
     
     try:

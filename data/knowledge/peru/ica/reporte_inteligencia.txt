@@ -1,0 +1,62 @@
+<diagnostico>
+PERFIL: Ica es una región costera del sur de Perú, reconocida por sus vastos desiertos, el oasis de Huacachina y las enigmáticas Líneas de Nazca. Es un importante centro vitivinícola, produciendo el 80% del pisco peruano, y alberga la Reserva Nacional de Paracas, un ecosistema marino de alta biodiversidad. Recibe aproximadamente 1.8 millones de visitantes anuales (2023), siendo un destino clave para el turismo nacional de fin de semana y parte de la ruta clásica del sur para viajeros internacionales. Su infraestructura turística está bien desarrollada, especialmente en los corredores principales.
+MACROREGION: Costa
+MADUREZ_TURISTICA: ALTA
+VISITANTES_ANUALES_EST: 1,800,000 (2023)
+PESO_CATEGORIAS:
+  - Destinos y patrimonio: 30%
+  - Aventura y deportes: 20%
+  - Gastronomía y cultura: 15%
+  - Naturaleza y ecosistemas: 20%
+  - Misticismo y festividades: 5%
+  - Logística y servicios: 5%
+  - Otros: 5%
+  TOTAL: 100%
+PERFIL_VISITANTE_DOMINANTE: Viajero nacional de fin de semana (Lima), turista internacional en ruta clásica del sur (Lima-Paracas-Nazca), entusiastas del pisco y el vino, y buscadores de aventura.
+MERCADOS_INTERNACIONALES: Estados Unidos, España, Chile
+VENTANA_OPTIMA: Abril-Noviembre (temperaturas más agradables y menor neblina costera, ideal para vuelos y actividades al aire libre).
+PROBLEMA_NO_RESUELTO: Desarrollo de rutas turísticas sostenibles que integren la riqueza vitivinícola, arqueológica y natural, mitigando la presión sobre los puntos más masivos y distribuyendo beneficios a comunidades locales.
+DESTINOS_CANONICOS_COMPARTIDOS: ninguno
+</diagnostico>
+
+
+[... MÓDULOS OMITIDOS ...]
+
+
+<inteligencia_cierre>
+TOP_5_TRAFICO_MASIVO:
+  - A-03: Oasis de Huacachina: Principal atractivo para aventura y ocio, con fácil acceso y oferta concentrada.
+  - A-02: Reserva Nacional de Paracas: Visita obligada por las Islas Ballestas y el Candelabro, parte de la ruta clásica.
+  - A-01: Líneas de Nazca: Ícono mundial que atrae a gran número de turistas internacionales por su misterio y singularidad.
+  - C-01: Sandboarding y Buggies en Huacachina: Experiencia de aventura altamente demandada y popular entre jóvenes y familias.
+  - D-01: Ruta del Pisco y Vino de Ica: Atrae a un público amplio interesado en la cultura gastronómica y bebidas emblemáticas.
+
+TOP_5_DIAMANTES_EN_BRUTO:
+  - A-04: Cahuachi y Acueductos de Cantalloc: Ofrece una inmersión profunda en la cultura Nasca, menos masificado que las Líneas, con gran valor histórico.
+  - B-01: Humedales de Pisco: Potencial para el ecoturismo especializado y observación de aves, subestimado frente a los atractivos de playa y desierto.
+  - A-05: Tambo Colorado: Un sitio inca costero excepcionalmente conservado que a menudo se pasa por alto en los itinerarios tradicionales.
+  - L-01: Ecoturismo y Conservación en Paracas: Un enfoque de viaje con propósito que puede atraer a un segmento de viajeros conscientes y generar un impacto positivo.
+  - E-01: Fiesta de la Vendimia y Señor de Luren: Eventos culturales auténticos que ofrecen una experiencia local profunda, fuera de la temporada alta turística.
+
+MODULOS_MERCADO_INTERNACIONAL:
+  - USA: A-01 (Líneas de Nazca), A-02 (Paracas), C-01 (Sandboarding), D-01 (Ruta del Pisco), L-01 (Ecoturismo y Conservación).
+  - Europa: A-01 (Líneas de Nazca), A-02 (Paracas), D-01 (Ruta del Pisco), A-04 (Cahuachi), B-01 (Humedales de Pisco).
+  - Asia: A-01 (Líneas de Nazca), A-02 (Paracas), C-01 (Sandboarding), D-01 (Ruta del Pisco), C-03 (Parapente en Paracas).
+
+ALERTAS_VERIFICACION_CAMPO:
+  - B-01: Humedales de Pisco: La infraestructura turística y la disponibilidad de guías especializados para observación de aves pueden ser limitadas o variar. ⚠️
+  - A-04: Cahuachi y Acueductos de Cantalloc: La información sobre acceso, guías in situ y servicios básicos puede requerir actualización constante. ⚠️
+  - L-01: Ecoturismo y Conservación en Paracas: Necesidad de verificar la existencia y el alcance real de programas de ecoturismo activos y su impacto. ⚠️
+  - F-01: Conectividad y Transporte en Ica: El estado de las carreteras secundarias y la frecuencia de transporte público a zonas menos céntricas pueden cambiar. ⚠️
+  - E-01: Fiesta de la Vendimia y Señor de Luren: Las fechas exactas y la programación detallada de estos eventos pueden variar anualmente y requieren confirmación. ⚠️
+
+MAPA_CALOR_CATEGORIAS:
+  - Categoría | Módulos | % del total | Prioridad para Fase 2
+  - Destinos y patrimonio | 5 | 33.3% | ALTA
+  - Aventura y deportes | 3 | 20.0% | ALTA
+  - Gastronomía y cultura | 2 | 13.3% | MEDIA
+  - Naturaleza y ecosistemas | 2 | 13.3% | MEDIA
+  - Misticismo y festividades | 1 | 6.7% | BAJA
+  - Logística y servicios | 1 | 6.7% | BAJA
+  - Economía del viaje | 1 | 6.7% | BAJA
+</inteligencia_cierre>

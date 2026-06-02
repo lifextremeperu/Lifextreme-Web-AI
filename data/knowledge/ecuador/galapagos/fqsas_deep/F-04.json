@@ -1,0 +1,426 @@
+{
+    "destino_id": "F-04",
+    "modulo_contexto": "Gestión de Permisos y Tasas del Parque Nacional Galápagos",
+    "fqsas": {
+        "1_Precios_Presupuestos_Moneda": [
+            {
+                "pregunta": "¿Cuánto cuesta la entrada al Parque Nacional Galápagos para extranjeros en 2024?",
+                "respuesta": "La tarifa de entrada para visitantes extranjeros adultos al Parque Nacional Galápagos es de 100 USD. Para niños entre 2 y 12 años, la tarifa es de 50 USD. Este pago se realiza al llegar a los aeropuertos de Baltra o San Cristóbal, antes de recoger el equipaje."
+            },
+            {
+                "pregunta": "¿Cuál es el costo de la Tarjeta de Control de Tránsito (TCT) obligatoria para viajar a Galápagos?",
+                "respuesta": "La Tarjeta de Control de Tránsito (TCT) tiene un costo de 20 USD por persona. Es un requisito indispensable para ingresar a las islas Galápagos y se obtiene en los aeropuertos de Quito o Guayaquil antes de abordar el vuelo, o en los mostradores de llegada en Galápagos si no se obtuvo previamente."
+            },
+            {
+                "pregunta": "¿Qué moneda se utiliza para pagar las tasas y permisos en Galápagos y se aceptan tarjetas de crédito?",
+                "respuesta": "La moneda oficial en Galápagos y en todo Ecuador es el Dólar Estadounidense (USD). Para la tasa del Parque Nacional y la TCT, se aceptan tarjetas de crédito principales (Visa, Mastercard), pero es recomendable llevar efectivo (USD) para gastos menores o en lugares más remotos."
+            },
+            {
+                "pregunta": "¿Existen otros costos de conservación o tasas adicionales al entrar al Parque Nacional Galápagos?",
+                "respuesta": "La tarifa de entrada al Parque Nacional Galápagos de 100 USD (o 50 USD para niños) ya incluye la contribución directa a la conservación. No hay tasas de conservación adicionales obligatorias para el acceso general al Parque, más allá de la TCT y la entrada."
+            },
+            {
+                "pregunta": "¿Dónde se pagan las tasas de entrada al Parque Nacional Galápagos al llegar a las islas?",
+                "respuesta": "Las tasas de entrada al Parque Nacional Galápagos se pagan directamente en los aeropuertos de llegada en las islas, ya sea en Baltra (GPS) o San Cristóbal (SCY), antes de pasar por el control de equipaje y migración. Hay mostradores designados para este fin."
+            },
+            {
+                "pregunta": "¿Hay descuentos en la tarifa de entrada al Parque Nacional Galápagos para niños o estudiantes internacionales?",
+                "respuesta": "Sí, los niños entre 2 y 12 años pagan una tarifa reducida de 50 USD para ingresar al Parque Nacional Galápagos. No hay descuentos específicos para estudiantes internacionales, a menos que sean residentes o ciudadanos ecuatorianos con carné válido."
+            },
+            {
+                "pregunta": "¿Cuánto cuesta la entrada al Parque Nacional Galápagos para ciudadanos ecuatorianos o residentes permanentes?",
+                "respuesta": "Para ciudadanos ecuatorianos y residentes permanentes, la tarifa de entrada al Parque Nacional Galápagos es de 6 USD para adultos y 3 USD para niños. Es indispensable presentar una identificación válida que acredite la nacionalidad o residencia."
+            },
+            {
+                "pregunta": "¿Es posible pagar todas las tasas de ingreso a Galápagos con tarjeta de crédito o es mejor llevar efectivo en USD?",
+                "respuesta": "Generalmente, la tarifa del Parque Nacional Galápagos y la TCT se pueden pagar con tarjetas de crédito (Visa, Mastercard). Sin embargo, siempre es aconsejable tener algo de efectivo en Dólares Estadounidenses (USD) para propinas, compras pequeñas o en establecimientos que no acepten tarjeta."
+            },
+            {
+                "pregunta": "¿Cuánto dinero debo presupuestar para las tasas obligatorias de entrada y permisos al planificar mi viaje a Galápagos?",
+                "respuesta": "Para un adulto extranjero, debes presupuestar un total de 120 USD por persona para las tasas obligatorias: 20 USD para la Tarjeta de Control de Tránsito (TCT) y 100 USD para la entrada al Parque Nacional Galápagos. Estos son costos fijos e ineludibles."
+            },
+            {
+                "pregunta": "¿Las tarifas del Parque Nacional Galápagos cambian con frecuencia y dónde puedo verificar los precios actualizados?",
+                "respuesta": "Las tarifas del Parque Nacional Galápagos pueden ser ajustadas ocasionalmente por las autoridades ecuatorianas. Para verificar los precios más actualizados, siempre se recomienda consultar el sitio web oficial de la Dirección del Parque Nacional Galápagos o el Ministerio de Turismo de Ecuador antes de su viaje."
+            }
+        ],
+        "2_Logistica_Transporte_Como_Llegar": [
+            {
+                "pregunta": "¿Cómo llego a las Islas Galápagos desde Ecuador continental en avión?",
+                "respuesta": "Para llegar a las Islas Galápagos desde Ecuador continental, debes tomar un vuelo desde Guayaquil (GYE) o Quito (UIO). Las aerolíneas principales que operan esta ruta son LATAM, Avianca y Equair. Los vuelos aterrizan en el Aeropuerto Seymour (GPS) en Baltra (para Santa Cruz) o en el Aeropuerto de San Cristóbal (SCY)."
+            },
+            {
+                "pregunta": "¿Cuánto cuesta un vuelo de ida y vuelta a Galápagos desde Quito o Guayaquil para turistas?",
+                "respuesta": "El costo de un vuelo de ida y vuelta a Galápagos desde Quito o Guayaquil para turistas extranjeros generalmente oscila entre 400 y 700 USD, dependiendo de la temporada y la antelación de la reserva. A esto se suma la Tarjeta de Control de Tránsito (TCT) de 20 USD y la tasa de entrada al Parque Nacional Galápagos de 100 USD para extranjeros."
+            },
+            {
+                "pregunta": "¿Cuáles son las opciones de transporte entre islas habitadas en Galápagos y sus precios aproximados?",
+                "respuesta": "Las opciones principales de transporte entre islas habitadas en Galápagos son las lanchas rápidas (fibras) y vuelos inter-islas. Las lanchas conectan Santa Cruz (Puerto Ayora) con San Cristóbal (Puerto Baquerizo Moreno) e Isabela (Puerto Villamil). El costo por trayecto en lancha es de aproximadamente 30 a 35 USD por persona. Los vuelos inter-islas son más caros, alrededor de 170-200 USD por trayecto."
+            },
+            {
+                "pregunta": "¿Cómo me muevo del Aeropuerto de Baltra (GPS) a Puerto Ayora en Santa Cruz, Galápagos?",
+                "respuesta": "Desde el Aeropuerto de Baltra (GPS), debes tomar un autobús gratuito de la aerolínea hasta el Canal de Itabaca (aprox. 10 minutos). Luego, cruzar el canal en una barcaza (ferry) por 1 USD. Al otro lado, encontrarás taxis y autobuses que te llevarán a Puerto Ayora. Un taxi compartido cuesta alrededor de 5 USD por persona, y un taxi privado unos 25-30 USD."
+            },
+            {
+                "pregunta": "¿Existe transporte público dentro de las ciudades principales como Puerto Ayora o Puerto Baquerizo Moreno en Galápagos?",
+                "respuesta": "En Puerto Ayora (Santa Cruz) y Puerto Baquerizo Moreno (San Cristóbal), el transporte público se limita principalmente a taxis. No hay un sistema de autobuses urbanos. Los taxis son camionetas blancas y las tarifas son fijas para rutas comunes, por ejemplo, un viaje dentro de Puerto Ayora cuesta alrededor de 1.50 a 2 USD."
+            },
+            {
+                "pregunta": "¿Es necesario reservar los botes inter-islas en Galápagos con antelación, especialmente en temporada alta?",
+                "respuesta": "Sí, es altamente recomendable reservar los botes inter-islas en Galápagos con antelación, especialmente durante la temporada alta (junio-agosto y diciembre-enero). Las plazas son limitadas y los boletos pueden agotarse rápidamente. Puedes reservarlos a través de agencias de viajes locales o en los muelles de Puerto Ayora, Puerto Baquerizo Moreno o Puerto Villamil."
+            },
+            {
+                "pregunta": "¿Cuánto tiempo duran los viajes en lancha rápida entre las islas principales de Galápagos?",
+                "respuesta": "Los viajes en lancha rápida entre las islas principales de Galápagos suelen durar entre 2.5 y 3 horas por trayecto. Por ejemplo, de Puerto Ayora a Puerto Baquerizo Moreno son aproximadamente 2.5 horas, y de Puerto Ayora a Puerto Villamil (Isabela) también unas 2.5 horas. Se recomienda llegar al muelle con al menos 30 minutos de antelación."
+            },
+            {
+                "pregunta": "¿Cómo puedo llegar a la Isla Isabela en Galápagos si no quiero tomar una lancha rápida?",
+                "respuesta": "Si no deseas tomar una lancha rápida para llegar a la Isla Isabela en Galápagos, la única alternativa es un vuelo inter-islas. La aerolínea Emetebe ofrece vuelos cortos entre Baltra/Santa Cruz, San Cristóbal e Isabela. Estos vuelos son más caros (aproximadamente 170-200 USD por trayecto) y están sujetos a disponibilidad y límites de equipaje."
+            },
+            {
+                "pregunta": "¿Qué documentos de viaje necesito para volar a Galápagos desde el continente ecuatoriano?",
+                "respuesta": "Para volar a Galápagos desde el continente ecuatoriano, necesitas tu pasaporte o cédula de identidad, y la Tarjeta de Control de Tránsito (TCT) emitida por el Consejo de Gobierno de Galápagos, que tiene un costo de 20 USD y se adquiere en el aeropuerto antes de tu vuelo. También necesitarás el boleto aéreo de ida y vuelta y el comprobante de pago de la tasa de entrada al Parque Nacional Galápagos."
+            },
+            {
+                "pregunta": "¿Cuál es el costo de un taxi acuático para ir del muelle a un barco anclado en Puerto Ayora, Galápagos?",
+                "respuesta": "El costo de un taxi acuático (lancha pequeña) para ir del muelle principal de Puerto Ayora a un barco anclado en la bahía, o viceversa, es de aproximadamente 1 USD por persona por trayecto. Operan durante el día y hasta la noche, dependiendo de la demanda y las regulaciones locales."
+            }
+        ],
+        "3_Seguridad_Riesgos_Salud": [
+            {
+                "pregunta": "¿Qué precauciones de salud debo tomar antes de viajar a las Islas Galápagos para evitar enfermedades como el dengue o zika?",
+                "respuesta": "Antes de viajar a Galápagos, se recomienda consultar a un médico sobre vacunas rutinarias. Para prevenir enfermedades transmitidas por mosquitos como el dengue o zika, use repelente con DEET, vista ropa de manga larga y pantalones, especialmente al amanecer y anochecer. Aunque el riesgo es bajo en las islas principales, es una precaución general para Ecuador."
+            },
+            {
+                "pregunta": "¿Es seguro nadar con la fauna marina en Galápagos y qué riesgos debo considerar al interactuar con lobos marinos o tiburones?",
+                "respuesta": "Nadar con fauna marina en Galápagos es generalmente seguro si se siguen las reglas del Parque Nacional. Mantenga siempre una distancia mínima de dos metros de los animales. Los lobos marinos pueden ser curiosos pero no deben ser tocados; los tiburones de arrecife son comunes y rara vez representan un peligro para los nadadores. Nunca alimente a los animales ni intente tocarlos, ya que esto puede alterar su comportamiento natural y ser peligroso."
+            },
+            {
+                "pregunta": "¿Qué tipo de seguro de viaje con cobertura médica es recomendable para una visita a Galápagos en caso de emergencia o accidente?",
+                "respuesta": "Es altamente recomendable adquirir un seguro de viaje integral que incluya cobertura médica de emergencia, evacuación médica y repatriación. Las instalaciones médicas en Galápagos son limitadas (hospitales básicos en Santa Cruz y San Cristóbal), y cualquier emergencia grave podría requerir traslado a Guayaquil o Quito, lo cual es muy costoso sin seguro. Asegúrese de que su póliza cubra actividades de aventura como snorkel o buceo si planea realizarlas."
+            },
+            {
+                "pregunta": "¿Cuáles son los riesgos de seguridad al caminar por senderos en Galápagos y qué reglas del Parque Nacional debo seguir para evitarlos?",
+                "respuesta": "Los principales riesgos al caminar por senderos en Galápagos incluyen caídas en terrenos irregulares, exposición solar intensa y encuentros inesperados con fauna. Siempre debe permanecer en los senderos marcados, usar calzado adecuado, llevar agua suficiente y un sombrero. Es obligatorio ir acompañado de un guía naturalista certificado por el Parque Nacional Galápagos, quien conoce los peligros y asegura el cumplimiento de las normas de seguridad y conservación."
+            },
+            {
+                "pregunta": "¿Cómo se manejan las emergencias médicas graves en las Islas Galápagos y cuánto tiempo puede tardar una evacuación a tierra firme?",
+                "respuesta": "Las emergencias médicas graves en Galápagos se manejan inicialmente en los centros de salud locales en Puerto Ayora (Santa Cruz) o Puerto Baquerizo Moreno (San Cristóbal). Sin embargo, para casos complejos, se requiere una evacuación aérea a Guayaquil o Quito. Este proceso puede tardar varias horas, dependiendo de la disponibilidad de aeronaves y las condiciones climáticas. Por eso, el seguro de evacuación médica es crucial."
+            },
+            {
+                "pregunta": "¿Existe algún riesgo de enfermedades transmitidas por el agua o alimentos en Galápagos y qué precauciones debo tomar al comer y beber?",
+                "respuesta": "Para minimizar el riesgo de enfermedades transmitidas por el agua o alimentos en Galápagos, se aconseja beber siempre agua embotellada o purificada. Evite el hielo si no está seguro de su origen. Consuma alimentos bien cocidos y evite frutas o verduras crudas que no hayan sido lavadas con agua segura. Los restaurantes y hoteles turísticos suelen tener altos estándares de higiene, pero la precaución es siempre recomendable."
+            },
+            {
+                "pregunta": "¿Qué debo hacer si sufro una picadura de insecto o una quemadura solar grave durante mi viaje a Galápagos?",
+                "respuesta": "Para picaduras de insectos en Galápagos, limpie la zona y aplique una crema antihistamínica o antiinflamatoria. Si hay reacción alérgica grave, busque atención médica. Para quemaduras solares, aplique compresas frías y lociones hidratantes con aloe vera. Use protector solar de alto factor (SPF 50+), sombrero y gafas de sol, y evite la exposición directa al sol en las horas pico (10:00 a 16:00) para prevenirlas."
+            },
+            {
+                "pregunta": "¿Hay algún riesgo asociado a la actividad volcánica en Galápagos y cómo se informa a los turistas sobre posibles erupciones?",
+                "respuesta": "Las Islas Galápagos son de origen volcánico y la actividad esporádica es natural, especialmente en las islas occidentales como Fernandina e Isabela. Los volcanes están monitoreados por el Instituto Geofísico de la Escuela Politécnica Nacional. En caso de actividad volcánica significativa que pueda afectar la seguridad de los turistas, el Parque Nacional Galápagos y las autoridades locales emitirían alertas y restricciones de acceso a las zonas afectadas. Los operadores turísticos también serían informados para ajustar los itinerarios."
+            },
+            {
+                "pregunta": "¿Cuáles son las normas de seguridad a bordo de los cruceros o embarcaciones turísticas en Galápagos y qué debo saber sobre chalecos salvavidas y simulacros?",
+                "respuesta": "Todas las embarcaciones turísticas en Galápagos deben cumplir con estrictas normas de seguridad marítima. Es obligatorio que cada pasajero tenga acceso a un chaleco salvavidas y que se realice un simulacro de emergencia al inicio del crucero, explicando el uso de equipos de seguridad y los puntos de reunión. Preste atención a las instrucciones de la tripulación y familiarícese con las salidas de emergencia y la ubicación de los botes salvavidas."
+            },
+            {
+                "pregunta": "¿Qué medidas de seguridad se aplican en Galápagos para proteger a los turistas de la delincuencia o situaciones de riesgo personal?",
+                "respuesta": "Galápagos es generalmente un destino muy seguro con bajos índices de delincuencia. Las principales medidas de seguridad incluyen la presencia de policía turística en las áreas urbanas de Puerto Ayora, Puerto Baquerizo Moreno y Puerto Villamil. Se recomienda tomar precauciones básicas como no dejar objetos de valor desatendidos, evitar caminar solo por zonas poco iluminadas de noche y estar atento a sus pertenencias en lugares concurridos, aunque los incidentes son raros."
+            }
+        ],
+        "4_Clima_Temporadas_Horarios": [
+            {
+                "pregunta": "¿Cuál es la mejor época del año para viajar a Galápagos y disfrutar del clima y la vida silvestre?",
+                "respuesta": "La mejor época depende de tus preferencias. Generalmente, la temporada cálida y húmeda (diciembre a mayo) es excelente para el buceo y el snorkel por sus aguas más cálidas y claras, con temperaturas promedio de 25-30°C. La temporada seca y fresca (junio a noviembre) es ideal para ver más actividad marina en la superficie y apareamiento de aves, con temperaturas de 20-25°C."
+            },
+            {
+                "pregunta": "¿Cuáles son las dos temporadas principales en Galápagos y qué características climáticas tiene cada una?",
+                "respuesta": "Galápagos tiene dos temporadas bien definidas: la temporada cálida y húmeda (diciembre a mayo) con lluvias ocasionales pero cielos soleados, aguas cálidas y vegetación exuberante; y la temporada seca y fresca (junio a noviembre), conocida como 'garúa', con cielos a menudo nublados, lloviznas ligeras en las tierras altas, aguas más frías y vientos más fuertes."
+            },
+            {
+                "pregunta": "¿Cómo varían las temperaturas del agua en Galápagos a lo largo del año para actividades como snorkel o buceo?",
+                "respuesta": "Las temperaturas del agua en Galápagos son más cálidas durante la temporada de diciembre a mayo, oscilando entre 24°C y 28°C, lo que es ideal para snorkel y buceo sin traje de neopreno. De junio a noviembre, las temperaturas bajan a 18°C-23°C debido a la corriente de Humboldt, haciendo recomendable el uso de un traje de neopreno de 3mm o 5mm."
+            },
+            {
+                "pregunta": "¿En qué meses es más probable avistar pingüinos o piqueros de patas azules en Galápagos durante una visita?",
+                "respuesta": "Para avistar pingüinos de Galápagos, la temporada seca (junio a noviembre) es ideal, ya que las aguas frías traen más alimento y son más activos. Los piqueros de patas azules se pueden ver todo el año, pero su cortejo y anidación son más prominentes entre junio y agosto en islas como Española y Seymour Norte."
+            },
+            {
+                "pregunta": "¿Qué tipo de ropa y equipo debo empacar para un viaje a Galápagos considerando las diferentes temporadas climáticas?",
+                "respuesta": "Para la temporada cálida (diciembre-mayo), empaca ropa ligera de algodón, bañadores, sombrero, gafas de sol y protector solar. Para la temporada seca (junio-noviembre), añade un cortavientos o chaqueta ligera, un suéter y posiblemente un traje de neopreno si planeas mucho snorkel, ya que el agua es más fría. Calzado cómodo para caminar es esencial en ambas."
+            },
+            {
+                "pregunta": "¿Hay algún mes en particular que deba evitar para visitar Galápagos por condiciones climáticas desfavorables o lluvias intensas?",
+                "respuesta": "No hay meses que deban evitarse por completo, ya que Galápagos es un destino de todo el año. Las lluvias en la temporada cálida (diciembre-mayo) son generalmente cortas y seguidas de sol. La temporada seca (junio-noviembre) puede tener cielos más nublados y aguas más frías, lo que algunos prefieren para la vida marina. La elección depende de tus prioridades."
+            },
+            {
+                "pregunta": "¿Cuáles son las horas de luz solar típicas en Galápagos a lo largo del año y cómo afecta esto a los itinerarios de los tours?",
+                "respuesta": "Galápagos está en el ecuador, por lo que las horas de luz solar son bastante consistentes durante todo el año, aproximadamente de 6:00 AM a 6:00 PM. Los amaneceres y atardeceres son rápidos. Los itinerarios de los tours se adaptan a esto, con actividades temprano en la mañana y al final de la tarde para evitar el calor del mediodía y aprovechar la mayor actividad de la fauna."
+            },
+            {
+                "pregunta": "¿Cómo afectan fenómenos como El Niño o La Niña al clima y las temporadas en Galápagos y la experiencia del turista?",
+                "respuesta": "El Niño trae aguas inusualmente cálidas y lluvias intensas, lo que puede afectar la reproducción de algunas especies marinas y terrestres, pero también puede aumentar la vegetación. La Niña, por el contrario, trae aguas más frías de lo normal. Estos fenómenos pueden alterar temporalmente las características típicas de las temporadas, pero los operadores turísticos están preparados para adaptar los itinerarios."
+            },
+            {
+                "pregunta": "¿Cuál es la mejor temporada para la fotografía de paisajes y vida silvestre en Galápagos, considerando la luz y el clima?",
+                "respuesta": "La temporada cálida y húmeda (diciembre a mayo) ofrece cielos más despejados y una luz más brillante, ideal para colores vibrantes y paisajes exuberantes. Sin embargo, la temporada seca (junio a noviembre) con sus cielos 'garúa' puede crear una luz más suave y difusa, excelente para retratos de animales sin sombras duras, y la actividad de la fauna es alta."
+            },
+            {
+                "pregunta": "¿Existen horarios específicos del día recomendados para ciertas actividades como snorkel o caminatas en Galápagos debido al clima?",
+                "respuesta": "Sí, para snorkel, las mañanas suelen ser más tranquilas y con mejor visibilidad antes de que los vientos aumenten. Para caminatas, se recomienda realizarlas temprano en la mañana (7:00 AM - 10:00 AM) o al final de la tarde (3:00 PM - 5:00 PM) para evitar el calor intenso del mediodía y observar la fauna más activa."
+            }
+        ],
+        "5_Historia_Cultura_Curiosidades": [
+            {
+                "pregunta": "¿Qué islas de Galapagos visitó Charles Darwin y qué descubrió sobre la evolución?",
+                "respuesta": "Charles Darwin visitó varias islas en Galapagos en 1835, incluyendo San Cristóbal, Floreana, Isabela y Santiago. Sus observaciones de los pinzones y tortugas gigantes, con sus adaptaciones únicas a cada isla, fueron cruciales para desarrollar su teoría de la selección natural y la evolución, publicada en 'El Origen de las Especies'."
+            },
+            {
+                "pregunta": "¿Cuál es la historia de Solitario George, la tortuga gigante más famosa de Galapagos?",
+                "respuesta": "Solitario George fue el último individuo conocido de la subespecie de tortuga gigante de Pinta (Chelonoidis abingdonii). Fue encontrado en 1971 y vivió en la Estación Científica Charles Darwin en Santa Cruz hasta su muerte en 2012. Su historia se convirtió en un símbolo global de la conservación y la extinción de especies. Su cuerpo embalsamado se exhibe en el Centro de Exhibición de la Estación Científica Charles Darwin."
+            },
+            {
+                "pregunta": "¿Qué papel jugaron los piratas y balleneros en la historia temprana de las islas Galapagos?",
+                "respuesta": "Las islas Galapagos fueron un refugio estratégico para piratas y corsarios en los siglos XVII y XVIII, quienes las usaban para reabastecerse de agua y tortugas gigantes. Posteriormente, en el siglo XIX, los balleneros las utilizaron intensivamente para cazar ballenas y capturar tortugas para su carne, lo que diezmó gravemente las poblaciones de tortugas en varias islas."
+            },
+            {
+                "pregunta": "¿Cómo es la vida cultural de los habitantes locales en Puerto Ayora, Santa Cruz, Galapagos?",
+                "respuesta": "La vida cultural en Puerto Ayora, Santa Cruz, gira en torno a la pesca artesanal, el turismo y la conservación. Hay una mezcla de influencias continentales y una fuerte identidad isleña. Se celebran festividades cívicas y religiosas, y la gastronomía local, basada en mariscos frescos, es un pilar cultural. La comunidad es muy consciente de la importancia de la conservación del entorno."
+            },
+            {
+                "pregunta": "¿Cuál es la curiosidad geológica principal sobre cómo se formaron las islas Galapagos?",
+                "respuesta": "La principal curiosidad geológica es que las islas Galapagos se formaron por actividad volcánica sobre un punto caliente (hotspot) en la placa de Nazca. A medida que la placa se mueve hacia el este, nuevas islas emergen en el oeste (como Fernandina e Isabela, que son las más jóvenes y activas) mientras que las islas más antiguas en el este (como San Cristóbal y Española) se erosionan y hunden lentamente."
+            },
+            {
+                "pregunta": "¿Hubo alguna base militar de Estados Unidos en Galapagos durante la Segunda Guerra Mundial y dónde estaba?",
+                "respuesta": "Sí, durante la Segunda Guerra Mundial, Estados Unidos estableció una base aérea y naval en la isla Baltra, conocida como 'Base Seymour'. Su propósito era proteger el Canal de Panamá de posibles ataques del Eje. La base fue devuelta a Ecuador después de la guerra y hoy en día el aeropuerto principal de Galapagos opera desde allí."
+            },
+            {
+                "pregunta": "¿Cómo influye la cultura de conservación en la vida diaria de los residentes de Galapagos?",
+                "respuesta": "La cultura de conservación es fundamental en Galapagos. Los residentes viven bajo estrictas regulaciones ambientales que rigen desde la gestión de residuos hasta la construcción y el uso de recursos. La educación ambiental es prioritaria en las escuelas y la mayoría de las actividades económicas están ligadas al turismo sostenible y la protección de la biodiversidad, fomentando un fuerte sentido de responsabilidad ecológica."
+            },
+            {
+                "pregunta": "¿De dónde vienen los nombres de las islas principales de Galapagos como Isabela o San Cristóbal?",
+                "respuesta": "Muchas islas de Galapagos tienen múltiples nombres, reflejando su historia. Isabela fue nombrada en honor a la Reina Isabel I de Castilla. San Cristóbal lleva el nombre del patrón de los marineros, San Cristóbal, y también se la conoce como Chatham por el Conde de Chatham. Santa Cruz fue nombrada por la Santa Cruz, y también se la conoce como Indefatigable por un barco británico."
+            },
+            {
+                "pregunta": "¿Quiénes fueron los primeros colonos permanentes en las islas Galapagos y dónde se asentaron?",
+                "respuesta": "Los primeros colonos permanentes en Galapagos fueron un pequeño grupo de ecuatorianos liderados por José de Villamil, quien estableció el primer asentamiento en la isla Floreana en 1832. Intentaron cultivar la tierra y explotar recursos como el aceite de tortuga, aunque con dificultades. Esta isla es famosa por su 'Oficina de Correos' histórica."
+            },
+            {
+                "pregunta": "¿Qué curiosidades sobre las adaptaciones únicas de la fauna se pueden ver en Galapagos?",
+                "respuesta": "Las adaptaciones son la esencia de Galapagos. Por ejemplo, los pinzones de Darwin desarrollaron picos de diferentes formas para explotar distintas fuentes de alimento. Las iguanas marinas son las únicas iguanas del mundo que se alimentan en el mar. Los cormoranes no voladores perdieron la capacidad de volar al no tener depredadores terrestres, desarrollando alas vestigiales y patas fuertes para nadar."
+            }
+        ],
+        "6_Tips_Locales_Secretos": [
+            {
+                "pregunta": "¿Cuál es el 'secreto' local para pagar la TCT en Galapagos y evitar largas filas al llegar al aeropuerto?",
+                "respuesta": "Un 'tip' local es pagar la Tarjeta de Control de Tránsito (TCT) en línea antes de viajar a Galapagos, a través del sitio web del Consejo de Gobierno de Galápagos. Esto te permite pasar directamente por el control de la TCT sin hacer fila en el mostrador de pago en el aeropuerto de Guayaquil o Quito, ahorrando tiempo valioso, especialmente en temporada alta como julio o diciembre."
+            },
+            {
+                "pregunta": "¿Hay algún 'truco' local para saber cuándo es mejor pagar la entrada al Parque Nacional Galapagos en efectivo o con tarjeta?",
+                "respuesta": "Los locales recomiendan llevar siempre efectivo (dólares estadounidenses) para el pago de la entrada al Parque Nacional Galapagos, especialmente si llegas en vuelos tempranos o tardíos. Aunque aceptan tarjeta en los aeropuertos de Baltra o San Cristóbal, las máquinas de punto de venta pueden fallar o ser lentas, y el efectivo asegura un proceso más rápido y sin contratiempos."
+            },
+            {
+                "pregunta": "¿Qué 'consejo' dan los residentes de Galapagos para agilizar el proceso de ingreso al Parque Nacional y la revisión de equipaje?",
+                "respuesta": "Un 'secreto' local es tener toda tu documentación (pasaporte, TCT, reserva de alojamiento y boleto aéreo de regreso) a mano y organizada antes de aterrizar en Galapagos. Además, asegúrate de que tu equipaje de mano no contenga alimentos frescos, semillas o animales, ya que esto puede causar demoras significativas en la inspección de AGROCALIDAD, un 'cuello de botella' común."
+            },
+            {
+                "pregunta": "¿Existe alguna 'estrategia' local para evitar multas inesperadas relacionadas con permisos en Galapagos que los turistas suelen desconocer?",
+                "respuesta": "Los 'insiders' de Galapagos advierten que siempre debes llevar contigo tu TCT y una copia de tu pasaporte. Las autoridades pueden solicitarla en cualquier momento, y no tenerla puede resultar en demoras o incluso multas. Además, respeta estrictamente las zonas permitidas para turistas; desviarse de los senderos marcados sin un guía autorizado es una infracción grave."
+            },
+            {
+                "pregunta": "¿Los 'locales' de Galapagos saben de alguna forma de obtener descuentos en la tarifa de entrada al Parque Nacional para ciertos grupos?",
+                "respuesta": "Sí, los residentes de Ecuador pagan una tarifa reducida de 6 USD, y los niños ecuatorianos pagan 3 USD. Para turistas extranjeros, la tarifa estándar es de 100 USD (adultos) y 50 USD (niños menores de 12 años). No hay 'descuentos secretos' para turistas extranjeros adultos, pero conocer estas tarifas diferenciadas es un 'tip' para entender la estructura de costos local."
+            },
+            {
+                "pregunta": "¿Cuál es el 'secreto' de los guías locales en Galapagos para manejar los permisos de visita a sitios específicos y evitar problemas?",
+                "respuesta": "Los guías locales experimentados en Galapagos siempre verifican con antelación la disponibilidad de cupos y los permisos necesarios para cada sitio de visita, especialmente para lugares como la Estación Científica Charles Darwin o las Islas Isabela y Floreana. Un 'tip' es reservar tours con operadores turísticos establecidos que ya gestionan estos permisos, evitando así sorpresas de último minuto o denegaciones de acceso."
+            },
+            {
+                "pregunta": "¿Hay algún 'consejo' local para los turistas que planean quedarse más tiempo en Galapagos y necesitan extender su TCT?",
+                "respuesta": "Los residentes de Galapagos saben que la TCT tiene una validez máxima de 90 días. Si un turista planea quedarse más tiempo, el 'secreto' es iniciar el trámite de extensión en la oficina del Consejo de Gobierno de Galápagos en Puerto Ayora (Santa Cruz) o Puerto Baquerizo Moreno (San Cristóbal) con suficiente antelación, al menos dos semanas antes de que expire la TCT original, para evitar problemas migratorios."
+            },
+            {
+                "pregunta": "¿Qué 'tip' dan los habitantes de Galapagos sobre cómo prepararse para la inspección de equipaje y evitar la confiscación de artículos prohibidos?",
+                "respuesta": "El 'secreto' es revisar la lista oficial de artículos prohibidos por AGROCALIDAD en Galapagos antes de empacar. Los locales saben que la inspección es muy estricta. Evita llevar frutas, verduras, semillas, productos lácteos, carnes crudas o cualquier material orgánico no procesado. Un 'consejo' es comprar snacks y alimentos procesados una vez que ya estés en las islas."
+            },
+            {
+                "pregunta": "¿Existe alguna 'recomendación' local para los viajeros que llegan a Galapagos con un presupuesto ajustado respecto a las tasas y permisos?",
+                "respuesta": "Un 'tip' local para viajeros con presupuesto es considerar que las tasas de entrada al Parque Nacional y la TCT son fijas e ineludibles. El 'secreto' para ahorrar es enfocarse en tours de un día desde las islas habitadas (Santa Cruz, San Cristóbal, Isabela) en lugar de cruceros, ya que estos últimos suelen incluir tarifas de permisos más complejas y costosas dentro de su precio total."
+            },
+            {
+                "pregunta": "¿Cuál es el 'secreto' de los locales para entender la contribución de las tasas de entrada al Parque Nacional Galapagos a la conservación?",
+                "respuesta": "Los 'insiders' de Galapagos entienden que la tarifa de entrada al Parque Nacional no es solo un costo, sino una contribución directa a la conservación. Un 'tip' es investigar cómo se distribuyen esos fondos (protección de especies, educación ambiental, infraestructura sostenible). Saber esto ayuda a apreciar el valor de la tarifa y el compromiso de Galapagos con su ecosistema único, más allá de ser solo un 'permiso'."
+            }
+        ],
+        "7_Gastronomia_Alimentos_Supervivencia": [
+            {
+                "pregunta": "¿Dónde puedo comprar alimentos frescos y provisiones en Galápagos si viajo por mi cuenta?",
+                "respuesta": "En Puerto Ayora (Santa Cruz) y Puerto Baquerizo Moreno (San Cristóbal) encontrará mercados locales como el Mercado Municipal de Santa Cruz en la calle Baltra, donde se venden frutas, verduras y pescado fresco. También hay tiendas de abarrotes más pequeñas y algunos supermercados. En Isabela, las opciones son más limitadas, con pequeñas tiendas de barrio en Puerto Villamil."
+            },
+            {
+                "pregunta": "¿Cuál es el costo promedio de una comida en un restaurante local en Puerto Ayora, Galápagos?",
+                "respuesta": "Una comida en un 'almuerzo ejecutivo' (menú del día) en un restaurante local en Puerto Ayora puede costar entre 5 USD y 10 USD. En restaurantes turísticos, un plato principal puede oscilar entre 15 USD y 30 USD, dependiendo del tipo de cocina y la ubicación."
+            },
+            {
+                "pregunta": "¿Hay opciones de comida vegetariana o vegana disponibles fácilmente en las islas Galápagos?",
+                "respuesta": "Sí, en las principales islas como Santa Cruz y San Cristóbal, muchos restaurantes ofrecen opciones vegetarianas y algunas veganas. Es recomendable preguntar específicamente o buscar restaurantes con menús que las indiquen. En Puerto Ayora, hay varios establecimientos que se especializan en este tipo de cocina."
+            },
+            {
+                "pregunta": "¿Puedo llevar mis propios alimentos o snacks a las islas Galápagos desde el continente?",
+                "respuesta": "Sí, pero con restricciones estrictas debido a la bioseguridad. Está prohibido introducir frutas frescas, verduras, semillas, plantas, animales o productos lácteos no procesados. Snacks empaquetados y sellados como galletas, barras energéticas o frutos secos suelen estar permitidos, pero siempre deben ser declarados al llegar al aeropuerto de Galápagos para inspección."
+            },
+            {
+                "pregunta": "¿Cómo es el acceso a agua potable segura en las zonas turísticas de Galápagos?",
+                "respuesta": "El agua del grifo en Galápagos no es apta para beber directamente. Se recomienda comprar agua embotellada, que está ampliamente disponible en tiendas y restaurantes. Muchos hoteles y cruceros ofrecen dispensadores de agua filtrada para rellenar botellas reutilizables, lo cual es una opción más ecológica y económica."
+            },
+            {
+                "pregunta": "¿Qué tipo de comida típica debo probar en Galápagos y dónde la encuentro?",
+                "respuesta": "Debe probar el 'encebollado' (sopa de pescado), el 'ceviche' de mariscos frescos, el 'arroz marinero' y el 'bolón de verde'. Estos platos se encuentran en 'comedores' locales y restaurantes en Puerto Ayora (Santa Cruz), especialmente en la 'calle de los kioscos' por la noche, y en Puerto Baquerizo Moreno (San Cristóbal)."
+            },
+            {
+                "pregunta": "¿Es seguro comer mariscos crudos o ceviche en los mercados de Galápagos?",
+                "respuesta": "Generalmente es seguro comer ceviche y mariscos frescos en establecimientos con buena reputación y alta rotación de clientes, especialmente en la 'calle de los kioscos' en Puerto Ayora. Sin embargo, como en cualquier lugar, es prudente elegir lugares concurridos y con apariencia limpia para minimizar riesgos."
+            },
+            {
+                "pregunta": "¿Hay supermercados o tiendas de abarrotes bien surtidos en las islas principales de Galápagos?",
+                "respuesta": "Sí, en Puerto Ayora (Santa Cruz) hay supermercados como 'Supermarket La Barata' o 'Supermarket El Arrecife' que ofrecen una variedad decente de productos, aunque los precios son más altos que en el continente. En Puerto Baquerizo Moreno (San Cristóbal) también hay opciones similares. En Isabela, las tiendas son más pequeñas y con menos surtido."
+            },
+            {
+                "pregunta": "¿Qué debo empacar de alimentos no perecederos si planeo una excursión de varios días en Galápagos?",
+                "respuesta": "Para excursiones de varios días en Galápagos, considere empacar barras energéticas, frutos secos, galletas, atún enlatado o sardinas, y sopas instantáneas. Asegúrese de que todos los empaques estén sellados y sean fáciles de transportar. Recuerde que la basura debe ser retornada y no dejada en las áreas naturales."
+            },
+            {
+                "pregunta": "¿Cuánto cuesta una botella de agua embotellada o un refresco en Galápagos?",
+                "respuesta": "Una botella pequeña de agua embotellada (500ml) puede costar entre 1 USD y 2 USD en tiendas y hasta 3 USD en zonas turísticas. Un refresco en lata o botella (350ml) suele costar entre 1.50 USD y 2.50 USD. Comprar en supermercados es más económico que en pequeños quioscos o restaurantes."
+            }
+        ],
+        "8_Accesibilidad_Infraestructura": [
+            {
+                "pregunta": "¿Dónde exactamente puedo pagar la tasa de entrada al Parque Nacional Galapagos al llegar al aeropuerto de Baltra o San Cristóbal?",
+                "respuesta": "La tasa de entrada al Parque Nacional Galapagos se paga en efectivo (USD) o con tarjeta de crédito (Visa/Mastercard) en los mostradores designados dentro de las terminales de llegada de los aeropuertos de Baltra (GPS) y San Cristóbal (SCY), justo después de pasar el control de la Tarjeta de Control de Tránsito (TCT) y antes de recoger el equipaje. No hay puntos de pago fuera de los aeropuertos principales al llegar."
+            },
+            {
+                "pregunta": "¿Hay alguna forma de pagar la Tarjeta de Control de Tránsito (TCT) de Galapagos online antes de mi viaje para agilizar el proceso en el aeropuerto?",
+                "respuesta": "Sí, la Tarjeta de Control de Tránsito (TCT) de Galapagos se puede pre-registrar y pagar online a través del sitio web oficial del Consejo de Gobierno de Galápagos (CGREG) antes de su viaje. Esto agiliza el proceso en los aeropuertos de Quito o Guayaquil antes de abordar su vuelo a Galapagos, donde solo necesitará validar su pago y obtener la tarjeta física."
+            },
+            {
+                "pregunta": "¿Las instalaciones de los aeropuertos de Galapagos para el pago de tasas son accesibles para personas con movilidad reducida o sillas de ruedas?",
+                "respuesta": "Sí, los aeropuertos de Baltra (GPS) y San Cristóbal (SCY) en Galapagos, incluyendo las áreas de control migratorio y pago de tasas, están diseñados para ser accesibles. Cuentan con rampas, ascensores y baños adaptados. El personal de los aeropuertos también está disponible para ofrecer asistencia a pasajeros con movilidad reducida."
+            },
+            {
+                "pregunta": "¿Cómo afecta la infraestructura de transporte marítimo entre islas en Galapagos la verificación de permisos y tasas al moverme entre Santa Cruz e Isabela?",
+                "respuesta": "Al viajar en lanchas rápidas entre islas como Santa Cruz (Puerto Ayora) e Isabela (Puerto Villamil), no se realizan verificaciones adicionales de la tasa del Parque Nacional Galapagos o la TCT, ya que estas se validan al ingreso a las islas. Sin embargo, en los muelles de embarque se verifica la identidad y el boleto de la lancha, y se cobra una pequeña tasa portuaria de USD 1.00 por persona para el uso de los muelles de pasajeros."
+            },
+            {
+                "pregunta": "¿Es confiable la conexión a internet en Puerto Ayora, Galapagos, para gestionar trámites de permisos de última hora o pagos online?",
+                "respuesta": "La conexión a internet en Puerto Ayora, Santa Cruz, Galapagos, ha mejorado, pero puede ser intermitente o más lenta que en el continente. Muchos hoteles y restaurantes ofrecen Wi-Fi, pero para trámites críticos de permisos o pagos online, se recomienda realizarlos con anticipación o en los puntos de acceso más estables, como cibercafés o la oficina de CNT, para evitar inconvenientes."
+            },
+            {
+                "pregunta": "¿Hay cajeros automáticos (ATMs) disponibles en los aeropuertos de Galapagos para pagar la tasa del Parque Nacional si no llevo suficiente efectivo?",
+                "respuesta": "No, generalmente no hay cajeros automáticos (ATMs) dentro de las terminales de llegada de los aeropuertos de Baltra (GPS) o San Cristóbal (SCY) en Galapagos. Se recomienda llevar suficiente efectivo en USD para la tasa del Parque Nacional (USD 100 para extranjeros) o tener una tarjeta de crédito válida. Los ATMs más cercanos se encuentran en las ciudades principales como Puerto Ayora o Puerto Baquerizo Moreno."
+            },
+            {
+                "pregunta": "¿Cuánto cuesta y cómo funciona el transporte desde el aeropuerto de Baltra en Galapagos hasta Puerto Ayora después de pagar las tasas de entrada?",
+                "respuesta": "Desde el aeropuerto de Baltra (GPS), después de pagar las tasas, se toma un autobús gratuito hasta el canal de Itabaca. Luego, se cruza el canal en una barcaza (USD 1.00 por persona) y, al otro lado, se puede tomar un autobús (USD 5.00 por persona) o un taxi (aproximadamente USD 25-30 por vehículo) hasta Puerto Ayora, Santa Cruz. El trayecto total dura unos 45 minutos a 1 hora."
+            },
+            {
+                "pregunta": "¿Dónde están ubicadas las oficinas principales del Parque Nacional Galapagos en Puerto Ayora para consultas sobre permisos especiales o regulaciones?",
+                "respuesta": "La oficina principal de la Dirección del Parque Nacional Galapagos (DPNG) en Puerto Ayora, Santa Cruz, está ubicada en la Avenida Charles Darwin, cerca del Centro de Interpretación Charles Darwin. Es el lugar para consultas sobre regulaciones, permisos especiales para investigadores o actividades no turísticas estándar, y para reportar cualquier incidente."
+            },
+            {
+                "pregunta": "¿La señalización y el personal en los puntos de pago de tasas en los aeropuertos de Galapagos están disponibles en inglés para turistas internacionales?",
+                "respuesta": "Sí, la señalización en los aeropuertos de Galapagos, incluyendo los puntos de control y pago de tasas, está disponible en español e inglés. Además, el personal que atiende en estas áreas suele hablar inglés básico o intermedio para asistir a los turistas internacionales con el proceso de pago de la Tarjeta de Control de Tránsito (TCT) y la tasa del Parque Nacional."
+            },
+            {
+                "pregunta": "¿Existe alguna plataforma web oficial para pre-registrar mi visita a Galapagos y agilizar el proceso de permisos al llegar, más allá de la TCT?",
+                "respuesta": "Actualmente, la principal plataforma web oficial para pre-registrar y agilizar un componente de la entrada es la del Consejo de Gobierno de Galápagos (CGREG) para la Tarjeta de Control de Tránsito (TCT). No existe una plataforma web unificada para pre-registrar la visita completa al Parque Nacional Galapagos o pagar la tasa de entrada antes de llegar a los aeropuertos de las islas. La tasa del Parque se paga directamente al arribo."
+            }
+        ],
+        "9_Reglas_Prohibiciones_Tramites": [
+            {
+                "pregunta": "¿Cuánto cuesta la tarjeta de control de tránsito y la tasa de entrada al Parque Nacional Galápagos para turistas extranjeros en 2024?",
+                "respuesta": "Para turistas extranjeros mayores de 12 años, la Tarjeta de Control de Tránsito (TCT) cuesta 20 USD y la tasa de entrada al Parque Nacional Galápagos es de 100 USD. Los niños de 2 a 12 años pagan 50 USD por la tasa de entrada. Estos pagos se realizan en efectivo al llegar a los aeropuertos de Quito o Guayaquil para la TCT, y en el aeropuerto de Galápagos para la tasa del Parque."
+            },
+            {
+                "pregunta": "¿Es obligatorio contratar un guía naturalista certificado para visitar las áreas protegidas del Parque Nacional Galápagos?",
+                "respuesta": "Sí, es estrictamente obligatorio. Para visitar cualquier sitio de visita terrestre dentro del Parque Nacional Galápagos, debe ir acompañado por un guía naturalista certificado por la Dirección del Parque Nacional Galápagos. No se permite el acceso a estos sitios sin la supervisión de un guía autorizado."
+            },
+            {
+                "pregunta": "¿Qué objetos o sustancias están prohibidos introducir a las islas Galápagos para proteger su ecosistema único?",
+                "respuesta": "Está prohibido introducir cualquier tipo de plantas, semillas, animales vivos, productos agrícolas no procesados, tierra, y ciertos productos químicos. El objetivo es prevenir la entrada de especies invasoras que puedan dañar la flora y fauna endémica de Galápagos. Hay estrictos controles de bioseguridad en los aeropuertos de origen y destino."
+            },
+            {
+                "pregunta": "¿Puedo tocar, alimentar o acercarme a los animales silvestres en Galápagos y cuáles son las reglas al respecto?",
+                "respuesta": "No, está terminantemente prohibido tocar, alimentar o molestar a los animales silvestres en Galápagos. Debe mantener una distancia mínima de dos metros de la fauna para no alterar su comportamiento natural. Alimentar a los animales puede causarles enfermedades y dependencia de los humanos, lo cual es perjudicial para su supervivencia."
+            },
+            {
+                "pregunta": "¿Está permitido llevarme rocas, arena, conchas o cualquier elemento natural como recuerdo de las playas de Galápagos?",
+                "respuesta": "No, está completamente prohibido llevarse cualquier elemento natural de las islas Galápagos, incluyendo rocas volcánicas, arena, conchas, plantas o partes de animales. La extracción de estos elementos es ilegal y contribuye al deterioro del ecosistema. Los inspectores de bioseguridad realizan controles rigurosos en los aeropuertos."
+            },
+            {
+                "pregunta": "¿Existen restricciones o permisos especiales para el uso de drones o equipos de fotografía profesional en el Parque Nacional Galápagos?",
+                "respuesta": "Sí, el uso de drones está estrictamente prohibido en todo el Parque Nacional Galápagos sin un permiso especial y muy difícil de obtener de la Dirección del Parque, generalmente solo para fines científicos o documentales autorizados. Para equipos de fotografía profesional, no hay restricciones si se usan de manera responsable y sin molestar a la fauna."
+            },
+            {
+                "pregunta": "¿Qué reglas debo seguir sobre el manejo de basura y desechos durante mi visita a las áreas protegidas de Galápagos?",
+                "respuesta": "Debe llevar consigo toda la basura que genere, incluyendo colillas de cigarrillos, envases, plásticos y restos de comida. No está permitido dejar ningún tipo de desecho en las islas. Los residuos deben ser depositados en los contenedores designados en las zonas pobladas o llevados de vuelta a su embarcación o alojamiento."
+            },
+            {
+                "pregunta": "¿Está permitido fumar o consumir bebidas alcohólicas en los sitios de visita del Parque Nacional Galápagos?",
+                "respuesta": "No, está prohibido fumar en todos los sitios de visita del Parque Nacional Galápagos, así como en las embarcaciones turísticas. El consumo de bebidas alcohólicas está restringido a las áreas urbanas y a bordo de las embarcaciones de crucero, pero nunca en los senderos o playas de visita."
+            },
+            {
+                "pregunta": "¿Cuáles son las regulaciones sobre la navegación y el fondeo de embarcaciones privadas en las aguas del Parque Nacional Galápagos?",
+                "respuesta": "La navegación y el fondeo de embarcaciones privadas están altamente regulados. Se requiere un permiso especial de la Dirección del Parque Nacional Galápagos y la Autoridad Portuaria. Solo se permite el fondeo en sitios designados y bajo estrictas normas para proteger los ecosistemas marinos, como los arrecifes de coral y los lechos de algas."
+            },
+            {
+                "pregunta": "¿Necesito algún tipo de visa o requisito migratorio adicional para entrar a Galápagos si ya tengo permiso para entrar a Ecuador?",
+                "respuesta": "No se requiere una visa adicional específica para Galápagos si ya tiene permiso para ingresar a Ecuador. Sin embargo, es obligatorio obtener la Tarjeta de Control de Tránsito (TCT) antes de su vuelo a las islas, además de pagar la tasa de entrada al Parque Nacional Galápagos al llegar. Estos son trámites internos de control migratorio y ambiental."
+            }
+        ],
+        "10_Alternativas_Plan_B": [
+            {
+                "pregunta": "¿Qué hago si olvido pagar la Tarjeta de Control de Tránsito (TCT) de Galapagos online antes de mi viaje?",
+                "respuesta": "Si olvidas pagar la TCT online, puedes hacerlo directamente en los aeropuertos de Quito (UIO) o Guayaquil (GYE) antes de abordar tu vuelo a Galapagos. Busca el mostrador del Consejo de Gobierno de Régimen Especial de Galápagos (CGREG). El costo es de 20 USD por persona y es obligatorio para el ingreso. Asegúrate de tener efectivo o tarjeta de crédito."
+            },
+            {
+                "pregunta": "¿Cuál es el Plan B si pierdo mi Tarjeta de Control de Tránsito (TCT) o el recibo de la tasa de entrada al Parque Nacional Galapagos durante mi estadía?",
+                "respuesta": "Si pierdes tu TCT o recibo, debes contactar inmediatamente a la oficina del Consejo de Gobierno de Régimen Especial de Galápagos (CGREG) en Puerto Ayora (Santa Cruz) o Puerto Baquerizo Moreno (San Cristóbal). Ellos pueden verificar tu registro y emitir una constancia o duplicado si es necesario para tu salida, aunque es raro que se solicite al salir si ya pasaste el control inicial. Guarda siempre una foto en tu móvil como respaldo."
+            },
+            {
+                "pregunta": "¿Qué alternativas tengo si llego a Galapagos sin una reserva de alojamiento o tour confirmada, lo cual es un requisito para el ingreso?",
+                "respuesta": "Si llegas sin alojamiento o tour pre-reservado, lo cual es un riesgo, la autoridad migratoria en el aeropuerto de Galapagos podría solicitarte que demuestres un plan. Tu Plan B inmediato sería buscar y reservar alojamiento en el mismo aeropuerto a través de agencias locales o usando tu móvil. En casos extremos, podrían pedirte que reserves un tour de día completo para demostrar tu propósito turístico. Esto es crucial para cumplir con la Ley Orgánica de Régimen Especial de Galápagos."
+            },
+            {
+                "pregunta": "¿Qué hago si el sistema de pago online para la tasa de entrada al Parque Nacional Galapagos no funciona o está caído el día de mi viaje?",
+                "respuesta": "Si el sistema online está caído, tu Plan B es pagar la tasa de entrada directamente en efectivo al llegar al aeropuerto de Galapagos (Baltra o San Cristóbal). Hay mostradores designados para el cobro. La tarifa es de 100 USD para extranjeros adultos y 50 USD para niños. Asegúrate de llevar la cantidad exacta en dólares americanos para evitar inconvenientes."
+            },
+            {
+                "pregunta": "¿Existe alguna opción si no pude pagar la Tarjeta de Control de Tránsito (TCT) de Galapagos dentro del plazo establecido online?",
+                "respuesta": "Sí, si no pudiste pagar la TCT online, la única alternativa es pagarla en persona en los aeropuertos de Quito (UIO) o Guayaquil (GYE) antes de tu vuelo a Galapagos. No hay un plazo 'online' estricto más allá de hacerlo antes de tu viaje. El pago en el aeropuerto es la opción estándar para quienes no lo hacen previamente."
+            },
+            {
+                "pregunta": "¿Qué sucede si mi vuelo a Galapagos se retrasa y llego al aeropuerto de conexión después del horario de cierre del mostrador de la TCT?",
+                "respuesta": "Si llegas tarde y el mostrador del CGREG está cerrado en Quito o Guayaquil, tu Plan B es dirigirte directamente al mostrador del CGREG en el aeropuerto de llegada en Galapagos (Baltra o San Cristóbal). Ellos tienen personal para procesar la TCT a los pasajeros que llegan, aunque esto puede generar una pequeña demora. Es fundamental pagarla antes de salir del aeropuerto de llegada."
+            },
+            {
+                "pregunta": "¿Qué alternativas tengo si me deniegan la entrada al Parque Nacional Galapagos por falta de algún documento, como el boleto de regreso o prueba de alojamiento?",
+                "respuesta": "Si te deniegan la entrada por falta de documentos, tu Plan B inmediato es intentar obtener o demostrar el documento faltante en el mismo aeropuerto. Por ejemplo, si falta el boleto de regreso, puedes intentar comprar uno online. Si es la prueba de alojamiento, contacta a tu hotel para que te envíen la confirmación. En casos extremos, y si no puedes resolverlo, podrías ser reembarcado en el siguiente vuelo de regreso al continente, lo cual es una situación muy seria."
+            },
+            {
+                "pregunta": "¿Cómo puedo demostrar mi residencia en Ecuador para pagar la tarifa de entrada reducida al Parque Nacional Galapagos si no soy residente de las islas?",
+                "respuesta": "Si eres residente de Ecuador pero no de Galapagos, tu Plan B para acceder a la tarifa reducida (6 USD para adultos) es presentar tu cédula de identidad ecuatoriana vigente. Asegúrate de que tu cédula esté en buen estado y sea claramente legible. No se aceptan otros documentos como prueba de residencia para este fin."
+            },
+            {
+                "pregunta": "¿Cuál es el procedimiento alternativo si quiero extender mi estadía en Galapagos más allá de la validez inicial de mi Tarjeta de Control de Tránsito (TCT)?",
+                "respuesta": "Si deseas extender tu estadía más allá de los 90 días iniciales permitidos por la TCT, tu Plan B es solicitar una prórroga en la oficina del Consejo de Gobierno de Régimen Especial de Galápagos (CGREG) en Puerto Ayora o Puerto Baquerizo Moreno. Esto debe hacerse antes de que expire tu TCT actual. Generalmente, se requiere justificación y puede implicar una nueva tasa administrativa. No es una extensión automática."
+            },
+            {
+                "pregunta": "¿Qué opciones tengo si viajo con menores de edad y sus documentos (cédula/pasaporte) están incompletos o faltan para la TCT o la tasa del Parque Nacional Galapagos?",
+                "respuesta": "Si viajas con menores y sus documentos están incompletos, tu Plan B es asegurarte de tener al menos una copia legible de su cédula o pasaporte, junto con el libro de familia o un permiso de viaje notariado si no viajan con ambos padres. Para la TCT y la tasa del Parque, los menores requieren identificación válida. Sin ella, podrían denegarles el ingreso. Es crucial tener todos los documentos en regla para evitar problemas en el control migratorio y del Parque."
+            }
+        ]
+    }
+}

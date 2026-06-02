@@ -1,0 +1,94 @@
+===============================================================
+AGENTE CARTÓGRAFO TURÍSTICO LATAM — Lifextreme v3.0 (Optimizador B2B)
+===============================================================
+
+**ROL:** Analista Senior de Inteligencia Turística y Estratega de Negocios B2B.
+
+---
+
+**PASO 1 — DIAGNÓSTICO DEL DESTINO**
+<diagnostico>
+PERFIL: Magdalena es un departamento de contrastes extremos, fusionando la majestuosidad de la Sierra Nevada de Santa Marta (la montaña costera más alta del mundo) con las playas del Caribe y la singularidad de la Ciénaga Grande. Ofrece una infraestructura turística dual: por un lado, un turismo masivo en zonas como El Rodadero, y por otro, un nicho creciente de aventura técnica, etnoturismo profundo y hotelería conceptual de alto valor. Su riqueza cultural indígena (Kogui, Arhuaco, Wiwa) y sus ecosistemas únicos lo posicionan como un destino clave para experiencias transformadoras.
+MACROREGION: Caribe Colombiano, Sierra Nevada de Santa Marta.
+NIVEL_DE_RIESGO_B2B: MEDIO (Requiere operadores especializados para zonas remotas de la Sierra Nevada y un manejo cuidadoso en experiencias etnoturísticas. La logística general desde Santa Marta es robusta, pero el acceso a ciertas rutas off-road o comunidades puede ser desafiante sin la planificación adecuada).
+PESO_CATEGORIAS: Aventura y Deportes Técnicos: 35%, Misticismo y Etnoturismo Genuino: 30%, Hospedaje Conceptual: 20%, Rutas Off the Beaten Path: 10%, Destinos Estrella (re-contextualizados): 5%.
+PERFIL_VISITANTE_DOMINANTE: Viajeros conscientes, exploradores culturales y de aventura, ornitólogos especializados, buscadores de bienestar y experiencias auténticas, con alto poder adquisitivo y aprecio por la sostenibilidad.
+VENTANA_OPTIMA: Diciembre a Abril (temporada seca principal), Julio a Agosto (corta temporada seca). Evitar la temporada de lluvias intensas (Mayo-Junio, Septiembre-Noviembre).
+DESTINOS_DESCARTADOS: El Rodadero (turismo de masas, sin valor Lifextreme), Santa Marta Ciudad (funciona como hub logístico, no como destino experiencial principal), Taganga (ambiente mochilero, aunque base de buceo, no cumple el perfil conceptual).
+</diagnostico>
+
+---
+
+**PASO 2 — ÍNDICE MAESTRO DE MÓDULOS (CALIDAD EXTREMA)**
+<modulos_generados>
+---
+ID: A-01
+MÓDULO: Ciudad Perdida (Teyuna) Trek
+SUBTÍTULO: La Aventura Ancestral Definitiva en la Sierra Nevada
+VIABILIDAD_B2B: ALTA
+CANTIDAD_FQSAS_ESTIMADAS: 150
+GANCHO_COMERCIAL: Una expedición de 4-5 días a la mítica ciudad sagrada Tayrona, combinando trekking técnico, inmersión cultural indígena y paisajes de selva virgen. Un viaje transformador al corazón de la civilización precolombina.
+---
+ID: B-01
+MÓDULO: Minca: Ruta del Café de Origen y Avistamiento de Aves
+SUBTÍTULO: Inmersión Serana en la Cultura Cafetera y la Biodiversidad
+VIABILIDAD_B2B: ALTA
+CANTIDAD_FQSAS_ESTIMADAS: 100
+GANCHO_COMERCIAL: Exploración de fincas cafeteras sostenibles, senderismo por cascadas ocultas y avistamiento de aves endémicas en un entorno de montaña fresco y vibrante, con opciones de hospedaje conceptual.
+---
+ID: C-01
+MÓDULO: Buceo Técnico en Parques Marinos de Tayrona
+SUBTÍTULO: Exploración Submarina de Arrecifes Vírgenes del Caribe
+VIABILIDAD_B2B: ALTA
+CANTIDAD_FQSAS_ESTIMADAS: 70
+GANCHO_COMERCIAL: Inmersiones certificadas en los ecosistemas marinos protegidos del Parque Tayrona (Neguanje, Gayraca), revelando una biodiversidad submarina excepcional y arrecifes de coral prístinos.
+---
+ID: D-01
+MÓDULO: Eco-Lodges de Lujo en Minca y Estribaciones de la Sierra
+SUBTÍTULO: Retiro de Lujo Sostenible con Vistas Panorámicas
+VIABILIDAD_B2B: ALTA
+CANTIDAD_FQSAS_ESTIMADAS: 60
+GANCHO_COMERCIAL: Experiencias de hospedaje boutique en la selva, con diseño consciente, gastronomía local y actividades de bienestar, ofreciendo paz y conexión profunda con la naturaleza. Ej: Sierra Adentro, Finca La Jorara.
+---
+ID: E-01
+MÓDULO: Encuentro Cultural Genuino con Comunidades Indígenas (Kogui/Wiwa)
+SUBTÍTULO: Conexión Profunda con los Guardianes de la Sierra Nevada
+VIABILIDAD_B2B: MEDIA
+CANTIDAD_FQSAS_ESTIMADAS: 120
+GANCHO_COMERCIAL: Visitas respetuosas y guiadas por mamos o líderes indígenas a comunidades ancestrales en la Sierra Nevada, para comprender su cosmovisión, tradiciones y el significado de su territorio sagrado.
+---
+ID: B-02
+MÓDULO: Tayrona Salvaje: Trekking a Playa Brava y Pueblito
+SUBTÍTULO: Senderismo y Playas Remotas Lejos de las Multitudes
+VIABILIDAD_B2B: MEDIA
+CANTIDAD_FQSAS_ESTIMADAS: 80
+GANCHO_COMERCIAL: Una ruta de trekking desafiante a través de la selva del Parque Tayrona, culminando en playas vírgenes y la posibilidad de explorar ruinas Tayronas menos conocidas, con pernocta en eco-lodges rústicos.
+---
+ID: C-02
+MÓDULO: Observación de Aves de Altura en Cuchilla de San Lorenzo
+SUBTÍTULO: Paraíso Ornitológico para Especies Endémicas de la Sierra
+VIABILIDAD_B2B: ALTA
+CANTIDAD_FQSAS_ESTIMADAS: 90
+GANCHO_COMERCIAL: Expediciones especializadas para avistamiento de aves en uno de los hotspots de biodiversidad más importantes del mundo, hogar de numerosas especies endémicas de la Sierra Nevada.
+---
+ID: D-02
+MÓDULO: Glamping Exclusivo en Cercanías del Parque Tayrona
+SUBTÍTULO: Lujo Natural con Vistas al Caribe y la Sierra
+VIABILIDAD_B2B: ALTA
+CANTIDAD_FQSAS_ESTIMADAS: 60
+GANCHO_COMERCIAL: Tiendas de campaña de lujo o cabañas ecológicas con todas las comodidades, ubicadas estratégicamente para ofrecer acceso privilegiado al Parque Tayrona y experiencias de desconexión total. Ej: Tayrona Tented Lodge, Ecohabs.
+---
+ID: B-03
+MÓDULO: Expedición Cultural a los Pueblos Palafíticos de la Ciénaga Grande
+SUBTÍTULO: Navegación por Manglares y Vida Flotante en el Caribe
+VIABILIDAD_B2B: MEDIA
+CANTIDAD_FQSAS_ESTIMADAS: 70
+GANCHO_COMERCIAL: Un viaje en bote por el ecosistema de manglares más grande de Colombia, visitando pueblos construidos sobre el agua (Nueva Venecia, Buenavista) y conociendo la vida de sus pescadores.
+---
+ID: F-01
+MÓDULO: Base Operativa Estratégica en Santa Marta
+SUBTÍTULO: Hub Logístico para Expediciones de Alta Gama
+VIABILIDAD_B2B: ALTA
+CANTIDAD_FQSAS_ESTIMADAS: 50
+GANCHO_COMERCIAL: Punto de partida y soporte esencial para todas las expediciones en la Sierra Nevada y el Caribe, con infraestructura de transporte, alojamiento de calidad y servicios de coordinación especializados.
+</modulos_generadas>

@@ -1,0 +1,121 @@
+<diagnostico>
+PERFIL: Magallanes es la puerta de entrada a la Patagonia Austral y la Antártica, un ecosistema prístino de glaciares, fiordos, montañas imponentes y estepas ventosas. Ofrece aventura técnica de alto nivel (trekking de expedición, kayak de mar, escalada en hielo), hotelería conceptual de diseño integrada en el paisaje, y una profunda conexión con el misticismo patagónico y la herencia de pueblos originarios como los Kawésqar. Es un destino para exploradores exigentes que buscan experiencias transformadoras y exclusivas, con un fuerte componente de sostenibilidad y autenticidad.
+MACROREGION: Patagonia Austral, Subantártica y Antártica (influencia polar).
+NIVEL_DE_RIESGO_B2B: MEDIO (Debido a la complejidad logística, variabilidad climática extrema y la necesidad de operadores altamente especializados y certificados para garantizar la seguridad y la calidad de las experiencias técnicas y remotas).
+PESO_CATEGORIAS: A: 30%, B: 15%, C: 35%, D: 15%, E: 5%
+PERFIL_VISITANTE_DOMINANTE: Exploradores de lujo, aventureros técnicos, fotógrafos de naturaleza, viajeros conscientes y de alto poder adquisitivo, buscadores de experiencias auténticas y transformadoras, interesados en la conservación y la cultura.
+VENTANA_OPTIMA: Noviembre a Marzo (verano austral, condiciones climáticas más estables y mayor oferta de servicios especializados).
+DESTINOS_DESCARTADOS:
+*   Circuitos de trekking masivos sin componente técnico o de expedición en Torres del Paine (ej. "W" sin guías especializados o extensiones a rutas menos transitadas, o sin un enfoque de bajo impacto).
+*   Tours de avistamiento de fauna marina genéricos sin enfoque en conservación, investigación o acceso exclusivo y guiado por expertos.
+*   Visitas a estancias ganaderas tradicionales que no ofrezcan una inmersión conceptual profunda, etnoturismo genuino o actividades de aventura técnica complementarias.
+*   Actividades de "aventura" de bajo umbral técnico o sin certificaciones de seguridad y sostenibilidad (ej. canopy o rafting básico sin operadores especializados y con impacto ambiental).
+</diagnostico>
+
+<modulos_generados>
+---
+ID: A-01
+MÓDULO: Parque Nacional Torres del Paine - Expediciones de Alta Montaña
+SUBTÍTULO: La Patagonia salvaje para exploradores técnicos
+VIABILIDAD_B2B: ALTA
+CANTIDAD_FQSAS_ESTIMADAS: 150
+GANCHO_COMERCIAL: Acceso exclusivo a rutas de trekking técnico y escalada en hielo con guías certificados UIAGM, lejos de las multitudes, ofreciendo una inmersión profunda en el corazón indomable de Paine.
+---
+ID: A-02
+MÓDULO: Punta Arenas - Puerta Antártica y Cabo Froward
+SUBTÍTULO: Conexión polar y el fin del continente americano
+VIABILIDAD_B2B: ALTA
+CANTIDAD_FQSAS_ESTIMADAS: 100
+GANCHO_COMERCIAL: Punto estratégico para expediciones antárticas y la única ruta terrestre al Cabo Froward, el punto más austral de América continental, con trekking técnico y vistas místicas del Estrecho de Magallanes.
+---
+ID: B-01
+MÓDULO: Ruta Y-85 Tierra del Fuego - Expedición 4x4 Austral
+SUBTÍTULO: Exploración remota en el corazón de la Isla Grande
+VIABILIDAD_B2B: MEDIA
+CANTIDAD_FQSAS_ESTIMADAS: 120
+GANCHO_COMERCIAL: Una travesía 4x4 de expedición por la remota Tierra del Fuego chilena, conectando paisajes de estepa, bosque y fiordos, con campamentos de lujo y acceso a puntos de interés poco explorados.
+---
+ID: B-02
+MÓDULO: Seno Almirantazgo y Parque Karukinka
+SUBTÍTULO: Fiordos, glaciares y el bosque primario de Tierra del Fuego
+VIABILIDAD_B2B: MEDIA
+CANTIDAD_FQSAS_ESTIMADAS: 130
+GANCHO_COMERCIAL: Navegación de expedición por fiordos inexplorados, avistamiento de fauna endémica y trekking en el prístino Parque Karukinka, el primer parque natural de la Wildlife Conservation Society en Chile.
+---
+ID: C-01
+MÓDULO: Kayak de Mar en Fiordos Patagónicos - Seno Última Esperanza
+SUBTÍTULO: Remando entre glaciares y acantilados milenarios
+VIABILIDAD_B2B: ALTA
+CANTIDAD_FQSAS_ESTIMADAS: 100
+GANCHO_COMERCIAL: Expediciones de kayak de mar de varios días, explorando glaciares colgantes y cuevas marinas, con campamentos remotos y guías expertos en seguridad y ecosistemas patagónicos.
+---
+ID: C-02
+MÓDULO: Expedición a Campos de Hielo Sur - Paso John Gardner
+SUBTÍTULO: Travesía técnica por la tercera reserva de agua dulce del mundo
+VIABILIDAD_B2B: ALTA
+CANTIDAD_FQSAS_ESTIMADAS: 150
+GANCHO_COMERCIAL: Una de las expediciones de trekking más desafiantes del mundo, cruzando el Paso John Gardner con vistas panorámicas al Campo de Hielo Sur, solo para aventureros experimentados con guías de montaña certificados.
+---
+ID: C-03
+MÓDULO: Buceo en Naufragios del Estrecho de Magallanes
+SUBTÍTULO: Arqueología subacuática en aguas subantárticas
+VIABILIDAD_B2B: MEDIA
+CANTIDAD_FQSAS_ESTIMADAS: 90
+GANCHO_COMERCIAL: Experiencia de buceo técnico en los históricos naufragios del Estrecho de Magallanes, revelando historias de exploración y comercio en un entorno subacuático único y desafiante.
+---
+ID: D-01
+MÓDULO: Explora Patagonia - Torres del Paine
+SUBTÍTULO: Lujo sostenible y exploración profunda en el corazón de Paine
+VIABILIDAD_B2B: ALTA
+CANTIDAD_FQSAS_ESTIMADAS: 150
+GANCHO_COMERCIAL: Hospedaje de diseño con filosofía "todo incluido" de expediciones, ofreciendo más de 50 rutas de trekking, cabalgatas y navegación, con guías expertos y un enfoque en la inmersión cultural y natural.
+---
+ID: D-02
+MÓDULO: Awasi Patagonia - Villas privadas con guía y vehículo
+SUBTÍTULO: Exclusividad y personalización en la Patagonia salvaje
+VIABILIDAD_B2B: ALTA
+CANTIDAD_FQSAS_ESTIMADAS: 150
+GANCHO_COMERCIAL: Villas privadas con vistas a Torres del Paine, cada una con guía y vehículo 4x4 personal, permitiendo itinerarios totalmente a medida y una experiencia de lujo y privacidad sin igual.
+---
+ID: D-03
+MÓDULO: The Singular Patagonia - Puerto Bories
+SUBTÍTULO: Hotelería conceptual en una antigua fábrica frigorífica
+VIABILIDAD_B2B: ALTA
+CANTIDAD_FQSAS_ESTIMADAS: 100
+GANCHO_COMERCIAL: Un hotel de diseño industrial en una histórica fábrica frigorífica, que fusiona patrimonio, lujo y aventura, ofreciendo expediciones personalizadas y una experiencia cultural única en Puerto Natales.
+---
+ID: E-01
+MÓDULO: Encuentro Kawésqar - Canal Messier y Fiordos Occidentales
+SUBTÍTULO: Conexión genuina con los últimos nómadas del mar
+VIABILIDAD_B2B: MEDIA
+CANTIDAD_FQSAS_ESTIMADAS: 150
+GANCHO_COMERCIAL: Una experiencia etnoturística profundamente respetuosa y genuina, facilitada por operadores éticos, para interactuar con la comunidad Kawésqar, aprendiendo de su cultura ancestral y su relación con el mar.
+---
+ID: E-02
+MÓDULO: Mitos y Leyendas de la Patagonia Austral - Ruta del Estrecho
+SUBTÍTULO: Historias de pioneros, navegantes y seres míticos
+VIABILIDAD_B2B: MEDIA
+CANTIDAD_FQSAS_ESTIMADAS: 80
+GANCHO_COMERCIAL: Un viaje inmersivo a través de los relatos orales y escritos de la colonización y exploración de Magallanes, visitando sitios históricos y paisajes que inspiraron leyendas de la Patagonia profunda.
+---
+ID: F-01
+MÓDULO: Cruceros de Expedición Australis / Ventus Australis
+SUBTÍTULO: Navegación de lujo por los canales fueguinos y Cabo de Hornos
+VIABILIDAD_B2B: ALTA
+CANTIDAD_FQSAS_ESTIMADAS: 150
+GANCHO_COMERCIAL: La forma más sofisticada y segura de explorar los fiordos, glaciares y el mítico Cabo de Hornos, con desembarcos diarios y un enfoque en la educación ambiental y la comodidad.
+---
+ID: F-02
+MÓDULO: Vuelos Chárter y Helitours - Acceso a Zonas Remotas
+SUBTÍTULO: Logística aérea para expediciones exclusivas
+VIABILIDAD_B2B: ALTA
+CANTIDAD_FQSAS_ESTIMADAS: 150
+GANCHO_COMERCIAL: Soluciones de transporte aéreo personalizadas para acceder a campamentos remotos, glaciares inexplorados o puntos de inicio de expediciones técnicas, maximizando el tiempo y la exclusividad.
+---
+ID: F-03
+MÓDULO: Operadores 4x4 y Guías de Expedición Certificados
+SUBTÍTULO: Seguridad y experticia en terrenos extremos
+VIABILIDAD_B2B: ALTA
+CANTIDAD_FQSAS_ESTIMADAS: 100
+GANCHO_COMERCIAL: Acceso a una red de operadores logísticos 4x4 especializados y guías de montaña/expedición con certificaciones internacionales, esenciales para la seguridad y el éxito de cualquier aventura técnica en Magallanes.
+</modulos_generadas>

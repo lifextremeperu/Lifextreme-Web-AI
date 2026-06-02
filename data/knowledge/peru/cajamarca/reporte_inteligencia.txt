@@ -1,0 +1,64 @@
+<diagnostico>
+PERFIL: Cajamarca, ubicada en la sierra norte de Perú, es un destino histórico y cultural clave, conocido por ser el escenario de la captura del Inca Atahualpa. Atrae aproximadamente 350,000 visitantes anuales (2022 est.), con un fuerte componente de turismo interno. Su economía turística se sustenta en el patrimonio arqueológico, la riqueza natural andina y sus vibrantes festividades como el Carnaval. La región destaca por su producción láctea y paisajes de alta montaña.
+MACROREGION: Sierra
+MADUREZ_TURISTICA: MEDIA
+VISITANTES_ANUALES_EST: 350000 (2022)
+PESO_CATEGORIAS:
+  - Destinos y patrimonio: 30%
+  - Aventura y deportes: 10%
+  - Gastronomía y cultura: 20%
+  - Naturaleza y ecosistemas: 15%
+  - Misticismo y festividades: 15%
+  - Logística y servicios: 5%
+  - Otros: 5%
+  TOTAL: 100%
+PERFIL_VISITANTE_DOMINANTE: Turista nacional (familias, grupos de amigos) interesado en historia, cultura, gastronomía y festividades. También atrae a un segmento de turismo de naturaleza y bienestar.
+MERCADOS_INTERNACIONALES: Ecuador, Chile, España
+VENTANA_OPTIMA: Mayo a Octubre (estación seca, ideal para actividades al aire libre y visitas culturales).
+PROBLEMA_NO_RESUELTO: La falta de circuitos turísticos integrados y señalización clara que conecten los diversos atractivos de la región, limitando la estancia promedio y el gasto del visitante.
+DESTINOS_CANONICOS_COMPARTIDOS: ninguno
+</diagnostico>
+
+
+[... MÓDULOS OMITIDOS ...]
+
+
+<inteligencia_cierre>
+TOP_5_TRAFICO_MASIVO:
+  - A-01: Cuarto del Rescate y Centro Histórico (Icono histórico nacional y punto de partida para todo visitante)
+  - E-01: Carnaval de Cajamarca: Fiesta y Tradición (Evento cultural masivo que atrae a miles de turistas nacionales e internacionales)
+  - J-01: Baños del Inca: Termalismo y Bienestar (Atractivo termal popular y accesible, ideal para familias y relajación)
+  - D-01: Ruta del Queso y Lácteos Cajamarquinos (Experiencia gastronómica muy buscada, fácil de integrar en cualquier itinerario)
+  - A-02: Cumbemayo: Arqueología Hidráulica Pre-Inca (Sitio arqueológico emblemático y de fácil acceso desde la ciudad)
+
+TOP_5_DIAMANTES_EN_BRUTO:
+  - B-01: Kuntur Wasi: El Origen del Oro (Gran valor arqueológico e histórico, poco conocido internacionalmente, potencial para turismo cultural profundo)
+  - N-01: Lagunas de San Nicolás y Bosques Secos (Belleza natural subestimada con potencial para ecoturismo y avistamiento de aves, requiere mayor promoción)
+  - E-02: Cosmovisión Andina y Ritos Locales (Ofrece una inmersión cultural profunda y auténtica, poco explotada para turismo vivencial responsable)
+  - C-02: Ciclismo de Montaña en los Andes Cajamarquinos (Potencial para turismo de aventura especializado, con rutas escénicas y desafiantes aún por consolidar)
+  - C-01: Trekking en la Ruta Inca de Cajamarca (Senderos con alto valor histórico y paisajístico, pero con desarrollo turístico incipiente y falta de infraestructura de apoyo)
+
+MODULOS_MERCADO_INTERNACIONAL:
+  - USA: A-01 (Historia), A-02 (Arqueología), C-01 (Aventura), N-01 (Naturaleza), B-01 (Arqueología/Historia profunda)
+  - Europa: A-01 (Historia), A-02 (Arqueología), E-01 (Cultura/Festividad), J-01 (Bienestar/Historia), B-01 (Arqueología/Historia profunda)
+  - Asia: A-01 (Historia), E-01 (Cultura/Festividad), D-01 (Gastronomía), J-01 (Bienestar), N-01 (Naturaleza)
+
+ALERTAS_VERIFICACION_CAMPO:
+  - E-02: Cosmovisión Andina y Ritos Locales ⚠️ (Requiere validación de la sensibilidad cultural, acceso a comunidades y veracidad de las prácticas actuales)
+  - C-01: Trekking en la Ruta Inca de Cajamarca ⚠️ (Estado actual de los senderos, señalización, seguridad, disponibilidad y certificación de guías locales)
+  - C-02: Ciclismo de Montaña en los Andes Cajamarquinos ⚠️ (Mapeo preciso de rutas, condiciones del terreno, infraestructura de apoyo, alquiler y mantenimiento de equipos)
+  - B-01: Kuntur Wasi: El Origen del Oro ⚠️ (Condiciones de acceso, horarios de visita, servicios turísticos básicos en el sitio y alrededores)
+  - F-01: Conectividad y Acceso a Cajamarca ⚠️ (Actualización constante sobre el estado de carreteras secundarias, frecuencia y fiabilidad del transporte público a zonas rurales)
+
+MAPA_CALOR_CATEGORIAS:
+  - Destinos y patrimonio | 4 | 26.67% | Prioridad ALTA
+  - Gastronomía y cultura | 3 | 20.00% | Prioridad ALTA
+  - Misticismo y festividades | 2 | 13.33% | Prioridad MEDIA
+  - Aventura y deportes | 2 | 13.33% | Prioridad MEDIA
+  - Naturaleza y ecosistemas | 1 | 6.67% | Prioridad MEDIA
+  - Bienestar y medicina tradicional | 1 | 6.67% | Prioridad MEDIA
+  - Rutas Off the Beaten Path | 1 | 6.67% | Prioridad MEDIA
+  - Logística y servicios | 1 | 6.67% | Prioridad BAJA
+  - Alojamiento por segmento | 1 | 6.67% | Prioridad BAJA
+  - Vida urbana y escena cultural | 1 | 6.67% | Prioridad BAJA
+</inteligencia_cierre>

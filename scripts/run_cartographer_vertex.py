@@ -8,7 +8,7 @@ import vertexai
 from vertexai.generative_models import GenerativeModel
 
 def extract_prompt_from_master():
-    master_path = Path("data/knowledge/prompts/pipeline_prompts_maestros.md")
+    master_path = Path("data/knowledge/prompts/pipeline_sudamerica.md")
     with open(master_path, 'r', encoding='utf-8') as f:
         content = f.read()
     bloque2_match = re.search(r'# BLOQUE 2 — PROMPT AGENTE CARTÓGRAFO.*?```(.*?)```', content, re.DOTALL)
@@ -52,7 +52,8 @@ def main():
     print("[+] ¡Respuesta recibida! Extrayendo módulos...")
     
     modulos_match = re.search(r'<modulos_generados>(.*?)</modulos_generados>', respuesta_texto, re.DOTALL)
-    output_dir = Path(f"data/knowledge/{departamento}")
+    pais_lower = pais.lower().replace(" ", "")
+    output_dir = Path(f"data/knowledge/{pais_lower}/{departamento}")
     output_dir.mkdir(parents=True, exist_ok=True)
     
     if modulos_match:

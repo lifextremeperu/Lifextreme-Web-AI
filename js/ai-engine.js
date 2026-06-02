@@ -95,14 +95,15 @@ class AIPersonalizationEngine {
         
         // 1. NUEVA CONEXIÓN AL CEREBRO MAESTRO (Vertex AI + Pydantic AI)
         // Usa la ruta relativa para producción (redireccionada por Firebase) o localhost para dev puro.
-        const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
-            ? 'http://localhost:8000/chat' 
-            : '/api/chat';
+        // URL local segura (IPv4 explícito)
+        const apiUrl = 'http://127.0.0.1:8000/chat';
 
         try {
             const response = await fetch(apiUrl, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 
+                    'Content-Type': 'application/json'
+                },
                 body: JSON.stringify({ message: msg })
             });
             
@@ -117,7 +118,8 @@ class AIPersonalizationEngine {
                 return;
             }
         } catch (e) { 
-            console.warn('⚠️ Agente Maestro Offline -> Intentando Hub Secundario'); 
+            console.warn('⚠️ Agente Maestro Offline -> Intentando Hub Secundario', e);
+            await this.addBotMessage('⚠️ ERROR AL CONTACTAR API: ' + e.message);
         }
 
         // 2. BACKEND HUB (FALLBACK)

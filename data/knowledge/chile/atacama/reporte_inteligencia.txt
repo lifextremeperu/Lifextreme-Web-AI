@@ -1,0 +1,142 @@
+===============================================================
+AGENTE CARTÓGRAFO TURÍSTICO LATAM — Lifextreme v3.0 (Optimizador B2B)
+===============================================================
+
+**ROL:** Analista Senior de Inteligencia Turística y Estratega de Negocios B2B.
+
+**DESTINO OBJETIVO:**
+País: Chile
+Departamento / Región: Atacama
+
+---
+
+**PASO 1 — DIAGNÓSTICO DEL DESTINO**
+<diagnostico>
+PERFIL: Atacama, Chile, es un laboratorio natural de extremos: el desierto más árido del mundo se encuentra con la majestuosidad de la Cordillera de los Andes. Ofrece un lienzo inigualable para el turismo de aventura técnica, la inmersión cultural profunda y la hotelería conceptual. Sus pilares son: 1) **Paisajes Geológicos Extremos:** Salares, volcanes activos, géiseres y valles lunares; 2) **Aventura de Alto Nivel:** Trekking de altura, ascensos a volcanes, 4x4 en rutas remotas y astroturismo técnico; 3) **Misticismo Andino Genuino:** Conexión con la cosmovisión Lickanantay y sitios arqueológicos; 4) **Hospedaje de Diseño:** Lodges de lujo y glampings que integran sostenibilidad y experiencia; 5) **Logística Especializada:** Infraestructura y operadores capaces de manejar expediciones complejas en entornos desafiantes.
+MACROREGION: Desierto de Atacama y Altiplano Andino.
+NIVEL_DE_RIESGO_B2B: MEDIO (con segmentos de ALTO para expediciones de alta montaña o rutas muy remotas, que requieren planificación y operadores de élite).
+PESO_CATEGORIAS:
+    Aventura y Deportes Técnicos: 35%
+    Destinos Estrella (con enfoque técnico/conceptual): 25%
+    Misticismo y Etnoturismo Genuino: 15%
+    Hospedaje Conceptual: 15%
+    Rutas Off the Beaten Path: 5%
+    Logística Crítica B2B: 5%
+PERFIL_VISITANTE_DOMINANTE: Viajero experimentado, consciente, con alto poder adquisitivo, que busca experiencias transformadoras, desafíos físicos y conexión cultural auténtica, valorando la sostenibilidad y el servicio de élite.
+VENTANA_OPTIMA: Marzo a Mayo y Septiembre a Noviembre (evitando el calor extremo del verano y las bajas temperaturas/nevadas del invierno altiplánico).
+DESTINOS_DESCARTADOS:
+    - Tours masivos en bus a Valle de la Luna/Valle de Marte (sin enfoque de trekking, astroturismo técnico o experiencia inmersiva).
+    - Lagunas Altiplánicas (en circuitos de bajo valor añadido, sin guías especializados en geología o cultura andina).
+    - Mina San José (sin un componente de aventura, historia profunda o conexión con la resiliencia humana más allá de la anécdota mediática).
+    - Cualquier ruta o destino sin infraestructura de soporte mínima (ej. comunicaciones, refugios básicos) o sin operadores locales certificados para B2B.
+</diagnostico>
+
+**PASO 2 — ÍNDICE MAESTRO DE MÓDULOS (CALIDAD EXTREMA)**
+<modulos_generados>
+---
+ID: A-01
+MÓDULO: Salar de Atacama & Lagunas Altiplánicas (Miscanti, Miñiques)
+SUBTÍTULO: Ecosistemas de altura y espejos de sal
+VIABILIDAD_B2B: ALTA
+CANTIDAD_FQSAS_ESTIMADAS: 120
+GANCHO_COMERCIAL: La postal icónica del altiplano, redefinida con enfoque en ecología, fotografía de paisaje y trekking suave, lejos de las multitudes, ideal para el viajero que busca profundidad.
+---
+ID: A-02
+MÓDULO: Geysers del Tatio (Experiencia de Altura al Amanecer)
+SUBTÍTULO: Campos geotérmicos y despertar andino
+VIABILIDAD_B2B: ALTA
+CANTIDAD_FQSAS_ESTIMADAS: 100
+GANCHO_COMERCIAL: Un espectáculo natural único al amanecer, con la posibilidad de trekking en el entorno y desayuno gourmet en altura, minimizando el impacto turístico y maximizando la conexión.
+---
+ID: A-03
+MÓDULO: Valle de la Luna & Valle de Marte (Trekking y Astroturismo)
+SUBTÍTULO: Paisajes extraterrestres bajo el manto estelar
+VIABILIDAD_B2B: ALTA
+CANTIDAD_FQSAS_ESTIMADAS: 90
+GANCHO_COMERCIAL: La exploración de formaciones geológicas únicas combinada con trekking al atardecer y una sesión de astroturismo técnico con telescopios profesionales, para una experiencia multisensorial.
+---
+ID: B-01
+MÓDULO: Ruta de los Salares Escondidos (Tara, Aguas Calientes, Pujsa)
+SUBTÍTULO: Expedición 4x4 a la "Catedral del Desierto"
+VIABILIDAD_B2B: ALTA
+CANTIDAD_FQSAS_ESTIMADAS: 150
+GANCHO_COMERCIAL: Una travesía de varios días por salares y formaciones rocosas monumentales, accesible solo con 4x4 y guías expertos, ofreciendo aislamiento y paisajes prístinos para el explorador de élite.
+---
+ID: B-02
+MÓDULO: Travesía Altiplánica Atacama-Bolivia (Salar de Uyuni Extendido)
+SUBTÍTULO: Conexión transfronteriza de altura y cultura
+VIABILIDAD_B2B: MEDIA
+CANTIDAD_FQSAS_ESTIMADAS: 150
+GANCHO_COMERCIAL: Una expedición épica que une el desierto chileno con el Salar de Uyuni, explorando paisajes y culturas andinas con logística de alta gama, ideal para programas de incentivos o expediciones fotográficas.
+---
+ID: B-03
+MÓDULO: Trekking Avanzado en la Quebrada de Guatin
+SUBTÍTULO: Oasis de cactus gigantes y petroglifos ocultos
+VIABILIDAD_B2B: MEDIA
+CANTIDAD_FQSAS_ESTIMADAS: 80
+GANCHO_COMERCIAL: Una ruta de trekking desafiante que explora un cañón con cactus centenarios y arte rupestre, culminando en las Termas de Puritama con acceso exclusivo, combinando aventura y relajación.
+---
+ID: C-01
+MÓDULO: Ascenso al Volcán Licancabur (Expedición Técnica)
+SUBTÍTULO: Cima sagrada y desafío de altura
+VIABILIDAD_B2B: ALTA
+CANTIDAD_FQSAS_ESTIMADAS: 150
+GANCHO_COMERCIAL: Una ascensión técnica a un volcán emblemático, con aclimatación profesional y guías de alta montaña, para montañistas experimentados que buscan una cumbre con significado cultural.
+---
+ID: C-02
+MÓDULO: Mountain Bike de Altura en el Altiplano
+SUBTÍTULO: Rutas épicas entre volcanes y salares
+VIABILIDAD_B2B: ALTA
+CANTIDAD_FQSAS_ESTIMADAS: 120
+GANCHO_COMERCIAL: Circuitos de ciclismo de montaña diseñados para expertos, con soporte logístico completo, explorando paisajes de altura inaccesibles de otra forma, para el ciclista aventurero.
+---
+ID: C-03
+MÓDULO: Astroturismo de Observación Científica (ALMA o Privados)
+SUBTÍTULO: Ventana al universo con expertos astrónomos
+VIABILIDAD_B2B: ALTA
+CANTIDAD_FQSAS_ESTIMADAS: 130
+GANCHO_COMERCIAL: Acceso exclusivo a observatorios privados o visitas guiadas a ALMA (sujeto a disponibilidad y regulaciones), con charlas de astrónomos y equipos de alta gama, para una inmersión científica.
+---
+ID: D-01
+MÓDULO: Experiencia Lodge de Lujo (Explora, Awasi, Tierra Atacama)
+SUBTÍTULO: Inmersión total con diseño y sostenibilidad
+VIABILIDAD_B2B: ALTA
+CANTIDAD_FQSAS_ESTIMADAS: 150
+GANCHO_COMERCIAL: Hotelería de clase mundial que ofrece programas all-inclusive con excursiones personalizadas, gastronomía de autor y diseño arquitectónico integrado al paisaje, para el viajero exigente.
+---
+ID: D-02
+MÓDULO: Glamping de Diseño en el Desierto Remoto
+SUBTÍTULO: Lujo bajo las estrellas en aislamiento
+VIABILIDAD_B2B: MEDIA
+CANTIDAD_FQSAS_ESTIMADAS: 100
+GANCHO_COMERCIAL: Campamentos de lujo temporales o semi-permanentes en ubicaciones exclusivas, ofreciendo confort y servicio premium en medio de la naturaleza virgen, para una experiencia íntima y exclusiva.
+---
+ID: E-01
+MÓDULO: Ruta Ancestral Lickanantay (Toconao, Machuca, Caspana)
+SUBTÍTULO: Conexión profunda con la cultura atacameña
+VIABILIDAD_B2B: ALTA
+CANTIDAD_FQSAS_ESTIMADAS: 110
+GANCHO_COMERCIAL: Interacción auténtica con comunidades locales, participación en talleres artesanales, gastronomía tradicional y comprensión de la cosmovisión andina, para una inmersión cultural genuina.
+---
+ID: E-02
+MÓDULO: Ceremonias Andinas y Cosmovisión (Guía Local)
+SUBTÍTULO: Rituales de conexión con la Pachamama
+VIABILIDAD_B2B: MEDIA
+CANTIDAD_FQSAS_ESTIMADAS: 90
+GANCHO_COMERCIAL: Experiencias espirituales guiadas por sabios locales, en entornos naturales sagrados, para una inmersión profunda en la espiritualidad andina y el bienestar personal.
+---
+ID: F-01
+MÓDULO: Flota 4x4 de Expedición y Guías de Alta Montaña Certificados
+SUBTÍTULO: Movilidad y seguridad en terrenos extremos
+VIABILIDAD_B2B: ALTA
+CANTIDAD_FQSAS_ESTIMADAS: 150
+GANCHO_COMERCIAL: La columna vertebral de cualquier expedición compleja: vehículos adaptados, equipamiento de seguridad y un equipo humano altamente capacitado para operar en altura y desierto, garantizando la operación.
+---
+ID: F-02
+MÓDULO: Soporte Médico y Rescate en Zonas Remotas
+SUBTÍTULO: Seguridad integral para aventuras extremas
+VIABILIDAD_B2B: ALTA
+CANTIDAD_FQSAS_ESTIMADAS: 150
+GANCHO_COMERCIAL: Servicios de paramédicos, oxígeno, cámaras hiperbáricas portátiles y planes de evacuación, esenciales para la tranquilidad y seguridad en el turismo de aventura técnica, un valor innegociable.
+---
+ID: F-03

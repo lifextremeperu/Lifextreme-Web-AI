@@ -1,0 +1,426 @@
+{
+    "destino_id": "B-02",
+    "modulo_contexto": "Ruta de la Herencia Palenquera",
+    "fqsas": {
+        "1_Precios_Presupuestos_Moneda": [
+            {
+                "pregunta": "¿Cuánto cuesta un tour guiado a San Basilio de Palenque desde Cartagena, Bolivar, en 2024?",
+                "respuesta": "Un tour de día completo a San Basilio de Palenque desde Cartagena, Bolivar, que incluye transporte, guía local certificado y almuerzo, puede costar entre 250.000 COP y 400.000 COP por persona, dependiendo si es un tour privado o en grupo pequeño."
+            },
+            {
+                "pregunta": "¿Cuál es el precio del transporte público para ir a San Basilio de Palenque desde Cartagena, Bolivar?",
+                "respuesta": "El pasaje en buseta o colectivo desde el Mercado de Bazurto en Cartagena hasta San Basilio de Palenque, Bolivar, tiene un costo aproximado de 15.000 COP a 25.000 COP por trayecto en 2024. Se recomienda confirmar el precio antes de abordar."
+            },
+            {
+                "pregunta": "¿Cuánto dinero necesito para comer en San Basilio de Palenque, Bolivar, durante una visita de un día?",
+                "respuesta": "Para un almuerzo típico palenquero con pescado frito, arroz con coco y patacones en San Basilio de Palenque, Bolivar, se estima un costo de entre 25.000 COP y 45.000 COP por persona en los comedores locales en 2024."
+            },
+            {
+                "pregunta": "¿Qué precios tienen los dulces típicos y artesanías en San Basilio de Palenque, Bolivar?",
+                "respuesta": "Los dulces de coco y alegría en San Basilio de Palenque, Bolivar, suelen costar entre 2.000 COP y 5.000 COP cada uno. Las artesanías como collares, pulseras o figuras pueden variar de 15.000 COP a 50.000 COP, dependiendo del tamaño y material."
+            },
+            {
+                "pregunta": "¿Qué moneda se usa y aceptan tarjetas de crédito en San Basilio de Palenque, Bolivar?",
+                "respuesta": "La moneda oficial es el Peso Colombiano (COP). Es crucial llevar suficiente efectivo, ya que la gran mayoría de los comercios, guías y vendedores en San Basilio de Palenque, Bolivar, no aceptan pagos con tarjetas de crédito o débito."
+            },
+            {
+                "pregunta": "¿Cuál es un presupuesto estimado para un día en San Basilio de Palenque, Bolivar, si viajo por mi cuenta?",
+                "respuesta": "Para un día en San Basilio de Palenque, Bolivar, incluyendo transporte público (ida y vuelta), almuerzo, bebidas y la compra de algún souvenir o dulce, se recomienda un presupuesto mínimo de 100.000 COP a 150.000 COP por persona en efectivo para 2024."
+            },
+            {
+                "pregunta": "¿Cuánto cobra un guía local en San Basilio de Palenque, Bolivar, si no voy con un tour organizado?",
+                "respuesta": "Contratar un guía local certificado en San Basilio de Palenque, Bolivar, para un recorrido de medio día puede costar entre 80.000 COP y 150.000 COP por grupo pequeño (1-4 personas). El precio es negociable directamente con el guía en 2024."
+            },
+            {
+                "pregunta": "¿Hay cajeros automáticos disponibles en San Basilio de Palenque, Bolivar, para retirar dinero?",
+                "respuesta": "No, no hay cajeros automáticos en San Basilio de Palenque, Bolivar. Es absolutamente necesario retirar todo el efectivo que vayas a necesitar para tu visita en Cartagena antes de emprender el viaje."
+            },
+            {
+                "pregunta": "¿Se debe dar propina y cuánto es lo usual en San Basilio de Palenque, Bolivar, a los guías y artistas?",
+                "respuesta": "Sí, es muy apreciado dar propina a los guías locales, músicos y artistas en San Basilio de Palenque, Bolivar, como una forma de apoyo directo a la comunidad. Un monto sugerido para un guía es del 10-15% del costo del servicio o un aporte voluntario de 10.000 COP a 20.000 COP."
+            },
+            {
+                "pregunta": "¿Existen tarifas de entrada o costos adicionales ocultos al visitar San Basilio de Palenque, Bolivar?",
+                "respuesta": "Generalmente no hay tarifas de entrada fijas para acceder a la comunidad de San Basilio de Palenque, Bolivar. Sin embargo, se espera que los visitantes contribuyan al desarrollo local a través de la contratación de guías, compra de artesanías o consumo en los negocios locales."
+            }
+        ],
+        "2_Logistica_Transporte_Como_Llegar": [
+            {
+                "pregunta": "¿Cómo llegar a San Basilio de Palenque desde Cartagena, Bolivar, usando transporte público?",
+                "respuesta": "Para llegar a San Basilio de Palenque desde Cartagena, Bolivar, puedes tomar un colectivo compartido. Estos parten principalmente desde la zona del 'Mercado de Bazurto' o cerca de 'La Bodeguita', buscando los que van hacia 'Mahates' o directamente a 'San Basilio de Palenque'."
+            },
+            {
+                "pregunta": "¿Cuál es el costo aproximado de un colectivo compartido a San Basilio de Palenque desde Cartagena, Bolivar?",
+                "respuesta": "El pasaje en colectivo compartido desde Cartagena a San Basilio de Palenque, Bolivar, cuesta aproximadamente COP 25.000 a COP 35.000 por persona. El precio puede variar ligeramente y se paga directamente al conductor."
+            },
+            {
+                "pregunta": "¿Cuánto tiempo se tarda en llegar a San Basilio de Palenque desde Cartagena, Bolivar, en vehículo?",
+                "respuesta": "El viaje en vehículo desde Cartagena hasta San Basilio de Palenque, Bolivar, toma aproximadamente 1 hora y 30 minutos a 2 horas, dependiendo del tráfico en la salida de Cartagena y las condiciones de la carretera."
+            },
+            {
+                "pregunta": "¿Es posible contratar un taxi privado para ir a San Basilio de Palenque desde Cartagena, Bolivar, y cuánto costaría?",
+                "respuesta": "Sí, es posible contratar un taxi privado. El costo de un taxi privado desde Cartagena a San Basilio de Palenque, Bolivar, oscila entre COP 200.000 y COP 250.000 por trayecto, negociable con el conductor."
+            },
+            {
+                "pregunta": "¿Hay tours organizados que incluyan transporte a la Ruta de la Herencia Palenquera en San Basilio de Palenque desde Cartagena, Bolivar?",
+                "respuesta": "Sí, varias agencias de turismo en Cartagena, Bolivar, ofrecen tours organizados a la Ruta de la Herencia Palenquera en San Basilio de Palenque. Estos suelen incluir transporte de ida y vuelta, guía local y actividades culturales, con precios que varían desde COP 250.000 por persona."
+            },
+            {
+                "pregunta": "¿Desde qué punto específico de Cartagena, Bolivar, salen los colectivos hacia San Basilio de Palenque?",
+                "respuesta": "Los colectivos hacia San Basilio de Palenque, Bolivar, suelen salir de la calle 30, cerca del 'Mercado de Bazurto', o en la zona de 'La Bodeguita', preguntando por los vehículos que van hacia 'Mahates' o directamente a Palenque."
+            },
+            {
+                "pregunta": "¿Cuál es la mejor hora para salir de Cartagena hacia San Basilio de Palenque, Bolivar, para encontrar transporte fácilmente?",
+                "respuesta": "La mejor hora para salir de Cartagena hacia San Basilio de Palenque, Bolivar, es temprano en la mañana, entre las 7:00 AM y las 9:00 AM, ya que los colectivos se llenan más rápido y hay mayor disponibilidad de vehículos."
+            },
+            {
+                "pregunta": "¿Cómo se regresa de San Basilio de Palenque a Cartagena, Bolivar, si fui en colectivo?",
+                "respuesta": "Para regresar de San Basilio de Palenque a Cartagena, Bolivar, los colectivos de vuelta suelen esperar en la plaza principal del pueblo. Es recomendable coordinar el regreso con el mismo conductor o preguntar a los locales por los puntos de salida y horarios."
+            },
+            {
+                "pregunta": "¿Necesito un vehículo 4x4 para conducir a San Basilio de Palenque desde Cartagena, Bolivar, o un carro normal es suficiente?",
+                "respuesta": "No es estrictamente necesario un vehículo 4x4 para conducir a San Basilio de Palenque desde Cartagena, Bolivar. La carretera principal está pavimentada, aunque algunos tramos pueden tener baches. Un carro normal es suficiente, pero se recomienda precaución."
+            },
+            {
+                "pregunta": "¿Hay alguna estación de autobuses principal en Cartagena, Bolivar, con rutas directas a San Basilio de Palenque?",
+                "respuesta": "No existe una estación de autobuses principal en Cartagena, Bolivar, con rutas directas a San Basilio de Palenque. La opción más común es tomar un bus intermunicipal hasta 'Mahates' o 'San Juan Nepomuceno' y desde allí un transporte local como mototaxi o colectivo a Palenque."
+            }
+        ],
+        "3_Seguridad_Riesgos_Salud": [
+            {
+                "pregunta": "¿Es seguro visitar San Basilio de Palenque en Bolivar para turistas extranjeros y qué precauciones debo tomar?",
+                "respuesta": "San Basilio de Palenque es generalmente seguro y sus habitantes son acogedores con los turistas. Se recomienda ir con un guía local certificado, no exhibir objetos de valor, y respetar las costumbres de la comunidad. Los incidentes de seguridad son muy raros, pero la precaución básica es siempre aconsejable, especialmente al atardecer si no se pernocta."
+            },
+            {
+                "pregunta": "¿Qué vacunas son recomendables o necesarias antes de viajar a San Basilio de Palenque, Bolivar, Colombia?",
+                "respuesta": "Para visitar San Basilio de Palenque, se recomienda tener al día las vacunas contra la Fiebre Amarilla (con certificado), Tétanos, Hepatitis A y B, y Tifoidea. Es crucial consultar a su médico al menos 4-6 semanas antes del viaje para una recomendación personalizada según su historial de salud."
+            },
+            {
+                "pregunta": "¿Hay riesgos de enfermedades transmitidas por mosquitos en San Basilio de Palenque, Bolivar, y cómo puedo protegerme?",
+                "respuesta": "Sí, como en muchas zonas tropicales de Bolivar, existe riesgo de enfermedades como el Dengue, Chikungunya y Zika. Se aconseja usar repelente de insectos con DEET o picaridina, vestir ropa de manga larga y pantalones claros, especialmente al amanecer y atardecer, y dormir bajo mosquitero si se pernocta."
+            },
+            {
+                "pregunta": "¿Es seguro beber el agua del grifo o comer en puestos callejeros en San Basilio de Palenque, Bolivar?",
+                "respuesta": "No se recomienda beber agua del grifo en San Basilio de Palenque. Siempre consuma agua embotellada sellada. Respecto a la comida callejera, aunque es parte de la experiencia cultural, se aconseja elegir puestos con alta rotación de clientes y buena higiene visible para minimizar riesgos de problemas estomacales."
+            },
+            {
+                "pregunta": "¿Qué tipo de instalaciones médicas o farmacias existen en San Basilio de Palenque, Bolivar, para una emergencia?",
+                "respuesta": "San Basilio de Palenque cuenta con un puesto de salud básico que puede atender emergencias menores. Para casos más serios o tratamientos especializados, sería necesario trasladarse a Mahates (a unos 30-40 minutos) o a Cartagena (aproximadamente 1.5 horas). Se recomienda llevar un botiquín personal con medicamentos básicos."
+            },
+            {
+                "pregunta": "¿Cómo son las condiciones de las carreteras para llegar a San Basilio de Palenque desde Cartagena, Bolivar, y qué riesgos de viaje hay?",
+                "respuesta": "La ruta desde Cartagena a San Basilio de Palenque implica tramos pavimentados y algunos sin pavimentar, especialmente en los últimos kilómetros. Las carreteras pueden tener baches y el viaje puede ser irregular. Se recomienda viajar durante el día para mayor seguridad y visibilidad, y preferir vehículos 4x4 o vans de tour operadores reconocidos en Bolivar."
+            },
+            {
+                "pregunta": "¿Existe algún riesgo de robo o delincuencia menor para los turistas que visitan San Basilio de Palenque en Bolivar?",
+                "respuesta": "El riesgo de robo o delincuencia menor en San Basilio de Palenque es bajo, ya que es una comunidad unida y acogedora. Sin embargo, como en cualquier destino, se aconseja no dejar objetos de valor desatendidos, no llevar grandes sumas de dinero en efectivo y estar atento a sus pertenencias en todo momento."
+            },
+            {
+                "pregunta": "¿Qué precauciones debo tomar respecto al sol y el calor extremo al visitar San Basilio de Palenque, Bolivar?",
+                "respuesta": "El clima en San Basilio de Palenque, Bolivar, es tropical, con altas temperaturas y humedad. Es fundamental usar protector solar de alto SPF, sombrero o gorra, gafas de sol, y ropa ligera y transpirable. Manténgase hidratado bebiendo mucha agua embotellada para evitar la deshidratación y el golpe de calor."
+            },
+            {
+                "pregunta": "¿Es seguro viajar solo a San Basilio de Palenque, Bolivar, o es mejor ir en un tour organizado?",
+                "respuesta": "Aunque es posible viajar solo, para una experiencia más segura y enriquecedora, se recomienda encarecidamente unirse a un tour organizado desde Cartagena o contratar un guía local certificado al llegar. Esto no solo facilita la logística sino que también asegura una inmersión cultural respetuosa y segura dentro de la comunidad de Bolivar."
+            },
+            {
+                "pregunta": "¿Cuáles son los números de emergencia locales o nacionales que debo conocer al visitar San Basilio de Palenque, Bolivar?",
+                "respuesta": "En caso de emergencia en San Basilio de Palenque o cualquier parte de Colombia, el número unificado de emergencias es el 123 (Policía, Bomberos, Ambulancia). También puede marcar 112 para la Policía Nacional. Es útil tener a mano el contacto de su embajada o consulado y el de su operador turístico si viaja con uno."
+            }
+        ],
+        "4_Clima_Temporadas_Horarios": [
+            {
+                "pregunta": "¿Cuál es la mejor época del año para visitar San Basilio de Palenque, Bolivar, si quiero evitar las lluvias intensas?",
+                "respuesta": "La mejor época para visitar San Basilio de Palenque, Bolivar, y disfrutar de un clima más seco es durante la temporada seca, que generalmente va de diciembre a abril. Durante estos meses, las precipitaciones son significativamente menores, lo que facilita las actividades al aire libre."
+            },
+            {
+                "pregunta": "¿Cómo es el clima típico en San Basilio de Palenque, Bolivar, durante los meses de junio a agosto?",
+                "respuesta": "Durante los meses de junio a agosto en San Basilio de Palenque, Bolivar, el clima es cálido y húmedo, característico de la temporada de lluvias. Aunque puede haber un 'veranillo de San Juan' con menos lluvias en julio, generalmente se esperan precipitaciones frecuentes, a menudo en forma de aguaceros cortos pero intensos, con temperaturas que rondan los 28-32°C."
+            },
+            {
+                "pregunta": "¿Hay alguna temporada en San Basilio de Palenque, Bolivar, donde el calor sea insoportable para las actividades turísticas?",
+                "respuesta": "San Basilio de Palenque, Bolivar, mantiene temperaturas elevadas y alta humedad durante todo el año, con promedios entre 28°C y 32°C. Sin embargo, los meses de marzo a mayo suelen ser los más calurosos y secos, lo que puede hacer que las actividades al mediodía sean más exigentes. Se recomienda planificar las visitas temprano en la mañana o al final de la tarde."
+            },
+            {
+                "pregunta": "¿Cuáles son los horarios más recomendables para realizar tours culturales en San Basilio de Palenque, Bolivar, considerando el clima tropical?",
+                "respuesta": "Para tours culturales en San Basilio de Palenque, Bolivar, se recomienda encarecidamente programar las actividades entre las 8:00 AM y las 11:00 AM, o después de las 3:00 PM. Esto permite evitar las horas de mayor intensidad solar y calor, que suelen ser entre las 12:00 PM y las 2:00 PM, haciendo la experiencia más cómoda y agradable."
+            },
+            {
+                "pregunta": "¿Qué tipo de vestimenta es apropiada para el clima de San Basilio de Palenque, Bolivar, especialmente en la temporada de lluvias?",
+                "respuesta": "Para el clima de San Basilio de Palenque, Bolivar, se aconseja ropa ligera, de algodón o lino, que sea transpirable y de colores claros. En la temporada de lluvias (mayo a noviembre), es prudente llevar un impermeable ligero o un paraguas, y calzado cómodo y resistente al agua, ya que los caminos pueden volverse lodosos."
+            },
+            {
+                "pregunta": "¿Cuándo es la temporada alta de visitantes en San Basilio de Palenque, Bolivar, y cómo se relaciona con el clima?",
+                "respuesta": "La temporada alta de visitantes en San Basilio de Palenque, Bolivar, coincide generalmente con la temporada seca, de diciembre a abril, y también durante festividades como Semana Santa. El clima más favorable, con menos lluvias y cielos más despejados, atrae a más turistas, aunque las temperaturas siguen siendo altas."
+            },
+            {
+                "pregunta": "¿Es constante la humedad en San Basilio de Palenque, Bolivar, durante todo el año o varía significativamente por temporada?",
+                "respuesta": "La humedad en San Basilio de Palenque, Bolivar, es consistentemente alta durante todo el año debido a su ubicación tropical. Aunque puede haber ligeras variaciones, la sensación de humedad es una constante, siendo un poco más pronunciada durante la temporada de lluvias (mayo a noviembre)."
+            },
+            {
+                "pregunta": "¿Qué meses específicos tienen las menores probabilidades de lluvia si planeo un viaje a San Basilio de Palenque, Bolivar?",
+                "respuesta": "Los meses con las menores probabilidades de lluvia para visitar San Basilio de Palenque, Bolivar, son enero, febrero y marzo. Diciembre y abril también son parte de la temporada seca y ofrecen buen clima, pero los tres primeros meses del año suelen ser los más estables en cuanto a precipitaciones."
+            },
+            {
+                "pregunta": "¿Se ven afectadas las actividades turísticas o los accesos a San Basilio de Palenque, Bolivar, durante la temporada de lluvias intensas o huracanes?",
+                "respuesta": "Durante la temporada de lluvias intensas (especialmente de septiembre a noviembre) o en caso de fenómenos climáticos extremos, los caminos de acceso a San Basilio de Palenque, Bolivar, pueden verse afectados temporalmente, dificultando el transporte. Las actividades al aire libre pueden suspenderse por seguridad, por lo que es recomendable consultar las condiciones antes de viajar."
+            },
+            {
+                "pregunta": "¿Cuál es la temperatura promedio nocturna en San Basilio de Palenque, Bolivar, y cómo afecta el descanso?",
+                "respuesta": "La temperatura promedio nocturna en San Basilio de Palenque, Bolivar, rara vez baja de los 24-26°C (75-79°F), incluso en la temporada seca. Combinado con la alta humedad, esto puede hacer que las noches sean cálidas. Es recomendable buscar alojamientos con buena ventilación o aire acondicionado para un descanso más confortable."
+            }
+        ],
+        "5_Historia_Cultura_Curiosidades": [
+            {
+                "pregunta": "¿Cuál es la historia de San Basilio de Palenque como la primera comunidad libre de esclavos en Bolivar, Colombia?",
+                "respuesta": "San Basilio de Palenque, en Bolivar, fue fundado en el siglo XVII por esclavos africanos que huyeron de Cartagena de Indias, liderados por Benkos Biohó. Se estableció como un 'palenque' o refugio fortificado, logrando su libertad y autonomía frente a la Corona Española en 1691, mucho antes que cualquier otra comunidad en América."
+            },
+            {
+                "pregunta": "¿Qué es el idioma palenquero y dónde puedo escucharlo o aprender algunas frases básicas durante mi visita a San Basilio de Palenque, Bolivar?",
+                "respuesta": "El palenquero es la única lengua criolla de base española en América, declarada Patrimonio Oral e Inmaterial de la Humanidad por la UNESCO. Es una mezcla de español, portugués y lenguas bantúes. Durante tu visita a San Basilio de Palenque, Bolivar, lo escucharás en la vida cotidiana de los ancianos y niños, y los guías locales suelen enseñar frases como '¿Ke a sé?' (¿Cómo estás?)."
+            },
+            {
+                "pregunta": "¿Cuáles son las expresiones musicales y de danza más representativas de la cultura palenquera en San Basilio de Palenque, Bolivar?",
+                "respuesta": "La música y danza palenquera son vibrantes. Destacan el 'Bullerengue sentado', el 'Son palenquero' y el 'Lumbalú', este último un rito fúnebre ancestral. Instrumentos como el tambor 'llamador', el 'alegre' y la 'marímbula' son esenciales. Podrás presenciar estas expresiones en eventos culturales o con grupos como 'Son Palenque' en San Basilio de Palenque, Bolivar."
+            },
+            {
+                "pregunta": "¿Qué platos típicos afro-colombianos debo probar en San Basilio de Palenque, Bolivar, y dónde puedo encontrarlos?",
+                "respuesta": "En San Basilio de Palenque, Bolivar, no puedes dejar de probar el 'Arroz con coco', el 'Pescado frito' (especialmente mojarra o pargo), el 'Mote de queso' y dulces tradicionales como las 'Cocadas' y el 'Caballito'. Las 'palenqueras' (mujeres con sus bandejas en la cabeza) venden estos manjares en las calles principales y en los mercados locales."
+            },
+            {
+                "pregunta": "¿Por qué San Basilio de Palenque en Bolivar fue declarado Patrimonio Oral e Inmaterial de la Humanidad por la UNESCO?",
+                "respuesta": "San Basilio de Palenque, Bolivar, fue declarado Patrimonio Oral e Inmaterial de la Humanidad por la UNESCO en 2005 debido a su singularidad cultural. Conserva tradiciones africanas en su lengua palenquera, música, danza (como el Lumbalú), organización social y prácticas medicinales, siendo un testimonio vivo de la resistencia y la identidad afrodescendiente en América."
+            },
+            {
+                "pregunta": "¿Existen rituales o ceremonias ancestrales que los turistas puedan observar o participar en San Basilio de Palenque, Bolivar?",
+                "respuesta": "Aunque el 'Lumbalú' es un rito fúnebre privado, los visitantes de San Basilio de Palenque, Bolivar, pueden participar en talleres de percusión, danza o cocina tradicional. A menudo, se organizan presentaciones de grupos folclóricos que muestran danzas y cantos ancestrales. Es importante consultar con los guías locales sobre eventos culturales programados durante tu visita."
+            },
+            {
+                "pregunta": "¿Quién fue Benkos Biohó y cuál fue su papel histórico en la fundación de San Basilio de Palenque, Bolivar?",
+                "respuesta": "Benkos Biohó fue un rey africano capturado y esclavizado, quien se convirtió en el líder más emblemático de la rebelión de esclavos en la Nueva Granada. Escapó de Cartagena de Indias a finales del siglo XVI y fundó San Basilio de Palenque, Bolivar, organizando a los cimarrones y negociando la paz con la Corona Española, estableciendo así el primer pueblo libre de América."
+            },
+            {
+                "pregunta": "¿Cómo se mantiene la organización social y las tradiciones comunitarias en San Basilio de Palenque, Bolivar, hoy en día?",
+                "respuesta": "La comunidad de San Basilio de Palenque, Bolivar, mantiene una fuerte cohesión social a través de los 'Ma-Ngá' o 'Kuagro', grupos de edad que funcionan como redes de apoyo mutuo para eventos sociales, económicos y fúnebres. Esta estructura ancestral es clave para la preservación de su cultura y la transmisión de conocimientos entre generaciones."
+            },
+            {
+                "pregunta": "¿Hay algún museo o centro cultural en San Basilio de Palenque, Bolivar, donde pueda aprender más sobre su historia y cultura?",
+                "respuesta": "Sí, en San Basilio de Palenque, Bolivar, existe el 'Centro Cultural y Museo Palenque', aunque es más un espacio comunitario. Ofrece exposiciones de artefactos, fotografías y explicaciones sobre la historia del palenque, la lengua, la música y las tradiciones. Los guías locales suelen incluir una visita a este centro en sus recorridos."
+            },
+            {
+                "pregunta": "¿Cuáles son algunas curiosidades o leyendas populares que se cuentan en San Basilio de Palenque, Bolivar, sobre su origen o sus habitantes?",
+                "respuesta": "Una curiosidad es que muchos palenqueros creen que sus ancestros tenían la capacidad de transformarse en animales para escapar. También se cuenta que Benkos Biohó poseía poderes mágicos. Otra curiosidad es la tradición de los 'peinados africanos' que las mujeres utilizaban para trazar mapas de escape durante la esclavitud, una práctica que aún se celebra en San Basilio de Palenque, Bolivar."
+            }
+        ],
+        "6_Tips_Locales_Secretos": [
+            {
+                "pregunta": "¿Cuál es el plato más auténtico y menos conocido que debo probar en San Basilio de Palenque, Bolivar, según los locales?",
+                "respuesta": "Busca el 'guiso de gallina criolla con arroz de frijol cabecita negra' preparado en casas particulares. Pregunta por 'Doña Eufemia' en el sector de La Ceiba; su sazón es legendaria y no tiene un restaurante formal, solo cocina por encargo para visitantes recomendados. El precio puede variar entre 25.000 y 35.000 COP por plato, dependiendo de la porción."
+            },
+            {
+                "pregunta": "¿Cómo puedo participar en una actividad cultural diaria genuina en San Basilio de Palenque, Bolivar, más allá de los tours típicos?",
+                "respuesta": "Intenta unirte a una 'rueda de tambores' espontánea al atardecer en la plaza principal o cerca del 'Monumento a Benkos Biohó'. A veces, los jóvenes se reúnen para practicar. Otra opción es preguntar si puedes acompañar a alguna 'palenquera' a recoger frutas o preparar dulces tradicionales por la mañana, ofreciendo una pequeña ayuda económica de 10.000 a 20.000 COP por la experiencia."
+            },
+            {
+                "pregunta": "¿Existe alguna ruta o medio de transporte local secreto para explorar los alrededores de San Basilio de Palenque, Bolivar, de forma auténtica?",
+                "respuesta": "Para explorar los campos cercanos o el río, los locales usan 'mototaxis' que no suelen estar en las rutas turísticas. Pregunta por 'El Papi' o 'El Flaco' en la entrada del pueblo; ellos conocen caminos menos transitados y te pueden llevar a fincas donde se cultiva ñame o yuca por unos 15.000 a 20.000 COP la hora, negociando directamente."
+            },
+            {
+                "pregunta": "¿Dónde puedo encontrar artesanías verdaderamente únicas y no turísticas en San Basilio de Palenque, Bolivar, que solo los locales conocen?",
+                "respuesta": "En lugar de las tiendas principales, busca a 'Maestra Adelaida' en el barrio El Centro, cerca de la iglesia. Ella teje canastos y sombreros de palma de iraca con diseños ancestrales que no se comercializan masivamente. Sus precios van desde 30.000 COP por un pequeño canasto hasta 100.000 COP por un sombrero elaborado, dependiendo de la complejidad."
+            },
+            {
+                "pregunta": "¿Cuáles son las frases esenciales en lengua Palenquera que me ayudarán a conectar mejor con la gente local en San Basilio de Palenque, Bolivar?",
+                "respuesta": "Aprende '¡Kumo éh?', que significa '¿Cómo estás?'; '¡Aho!', que es un saludo general de bienvenida; y '¡Gracia!', para agradecer. Usarlas demuestra respeto y abre puertas. La gente apreciará el esfuerzo y te responderá con una sonrisa, facilitando la interacción cultural."
+            },
+            {
+                "pregunta": "¿Cuál es el mejor momento del año para visitar San Basilio de Palenque, Bolivar, y vivir una experiencia auténtica sin aglomeraciones turísticas?",
+                "respuesta": "Los locales sugieren visitar entre finales de enero y principios de marzo, o en octubre y noviembre. Se evita la temporada alta de vacaciones y las lluvias más intensas. En estos meses, la vida cotidiana del pueblo fluye con más naturalidad y es más fácil interactuar con la comunidad sin la presencia masiva de grupos turísticos."
+            },
+            {
+                "pregunta": "¿Hay opciones de alojamiento en casas de familia o posadas locales que ofrezcan una inmersión cultural profunda en San Basilio de Palenque, Bolivar?",
+                "respuesta": "Sí, en lugar de los pocos hostales, pregunta por 'Casa de la Familia Reyes' en el sector de La Bonga. Ofrecen habitaciones sencillas con ventilador y comidas caseras. No tienen reserva online, debes llegar y preguntar directamente. El costo por noche ronda los 60.000 a 80.000 COP con desayuno incluido."
+            },
+            {
+                "pregunta": "¿Dónde se reúnen los jóvenes y adultos locales para socializar en San Basilio de Palenque, Bolivar, fuera de los puntos turísticos?",
+                "respuesta": "Los jóvenes suelen reunirse en la cancha de baloncesto por las tardes, cerca de la escuela. Los adultos se congregan en la 'Tienda de la Esquina' de Don Rafael, en la calle principal, para tomar una cerveza fría y conversar. Es un buen lugar para observar la vida local y, si eres respetuoso, entablar una conversación auténtica."
+            },
+            {
+                "pregunta": "¿Qué consejo de seguridad local poco conocido debo seguir al visitar San Basilio de Palenque, Bolivar, para una experiencia sin problemas?",
+                "respuesta": "Evita caminar solo por senderos apartados o áreas rurales después del anochecer, especialmente si no conoces bien el terreno. Aunque Palenque es seguro, es mejor permanecer en las zonas centrales y bien iluminadas del pueblo. Siempre informa a tu anfitrión o guía local si planeas salir por la noche para que estén al tanto."
+            },
+            {
+                "pregunta": "¿Existe algún evento o celebración local en San Basilio de Palenque, Bolivar, que no sea ampliamente publicitado pero que ofrezca una experiencia cultural única?",
+                "respuesta": "Busca los 'velorios cantados' o 'lumbalú', ceremonias funerarias ancestrales que son muy importantes para la comunidad. No son eventos turísticos, pero si te invitan o te encuentras con uno, es una experiencia cultural profunda y respetuosa. Pregunta a tu guía local si hay alguno programado durante tu visita, pero siempre con la debida discreción y respeto."
+            }
+        ],
+        "7_Gastronomia_Alimentos_Supervivencia": [
+            {
+                "pregunta": "¿Qué platos típicos de San Basilio de Palenque, Bolivar, son imprescindibles probar para una inmersión gastronómica auténtica?",
+                "respuesta": "Debes probar el 'mote de queso', el 'pescado frito con arroz con coco', la 'sopa de guandú' y los dulces tradicionales como las 'cocadas' y los 'caballitos'. Los puedes encontrar en los comedores locales o en casas de familia que ofrecen servicio de alimentación."
+            },
+            {
+                "pregunta": "¿Dónde puedo comprar alimentos básicos o snacks si visito San Basilio de Palenque, Bolivar, y qué opciones hay?",
+                "respuesta": "En San Basilio de Palenque, Bolivar, encontrarás pequeñas 'tiendas' o 'misceláneas' donde puedes comprar bebidas, galletas, y algunos productos básicos. Para una mayor variedad, es recomendable llevar tus propios snacks o artículos específicos desde Cartagena."
+            },
+            {
+                "pregunta": "¿Es seguro beber el agua del grifo en San Basilio de Palenque, Bolivar, o debo llevar agua embotellada como turista?",
+                "respuesta": "Como turista en San Basilio de Palenque, Bolivar, es altamente recomendable consumir únicamente agua embotellada. Aunque la comunidad tiene acceso a agua, para evitar cualquier riesgo de salud, lo más seguro es llevar tu propia provisión o comprarla en las tiendas locales."
+            },
+            {
+                "pregunta": "¿Hay alguna oportunidad para tomar clases de cocina tradicional palenquera en San Basilio de Palenque, Bolivar, y aprender sus recetas?",
+                "respuesta": "Sí, algunas organizaciones comunitarias y familias en San Basilio de Palenque, Bolivar, ofrecen talleres de cocina donde puedes aprender a preparar platos como el 'arroz con coco' o los dulces típicos. Es mejor coordinar con antelación a través de tu guía local."
+            },
+            {
+                "pregunta": "¿Qué opciones de comida vegetariana o vegana puedo encontrar en San Basilio de Palenque, Bolivar, si tengo restricciones dietéticas?",
+                "respuesta": "Las opciones vegetarianas o veganas en San Basilio de Palenque, Bolivar, son limitadas pero posibles. Puedes encontrar platos a base de arroz, frijoles, plátano, yuca y algunas verduras. Es crucial comunicar tus necesidades dietéticas con anticipación a tu anfitrión o guía."
+            },
+            {
+                "pregunta": "¿Qué dulces y fritos tradicionales venden las palenqueras en las calles de San Basilio de Palenque, Bolivar, y cuánto cuestan?",
+                "respuesta": "Las palenqueras venden deliciosos dulces como 'cocadas', 'alegrías', 'enyucados' y 'bollos de yuca'. Los precios suelen ser muy económicos, entre 1.000 y 3.000 COP por unidad, dependiendo del producto y el tamaño."
+            },
+            {
+                "pregunta": "¿Cómo se abastece de alimentos la comunidad de San Basilio de Palenque, Bolivar, y qué productos cultivan localmente?",
+                "respuesta": "La comunidad de San Basilio de Palenque, Bolivar, se abastece principalmente de productos cultivados localmente como yuca, ñame, plátano, maíz y algunas frutas. También complementan con compras en mercados de ciudades cercanas como Cartagena o Mahates."
+            },
+            {
+                "pregunta": "¿Cuál es el costo promedio de una comida tradicional completa para un turista en San Basilio de Palenque, Bolivar?",
+                "respuesta": "El costo promedio de una comida tradicional completa en un comedor local o casa de familia en San Basilio de Palenque, Bolivar, suele oscilar entre 15.000 y 25.000 COP (aproximadamente 4 a 7 USD), incluyendo un plato fuerte, arroz y bebida."
+            },
+            {
+                "pregunta": "¿Existen prácticas de conservación de alimentos ancestrales que aún se utilicen en San Basilio de Palenque, Bolivar?",
+                "respuesta": "Sí, en San Basilio de Palenque, Bolivar, aún se mantienen algunas prácticas ancestrales como el secado de pescados al sol, la salazón y el uso de ahumados para conservar carnes y pescados, reflejando su ingenio para la supervivencia."
+            },
+            {
+                "pregunta": "¿Qué frutas exóticas o locales puedo probar en San Basilio de Palenque, Bolivar, que sean parte de su dieta diaria?",
+                "respuesta": "En San Basilio de Palenque, Bolivar, puedes probar frutas tropicales como el mango, la patilla (sandía), el melón, el corozo y el tamarindo, que son comunes en la dieta local y se usan para jugos y dulces."
+            }
+        ],
+        "8_Accesibilidad_Infraestructura": [
+            {
+                "pregunta": "¿Cómo llegar a San Basilio de Palenque desde Cartagena, Bolivar, en transporte público y cuánto cuesta?",
+                "respuesta": "Desde la Terminal de Transporte de Cartagena, Bolivar, puedes tomar una buseta o taxi colectivo hacia San Basilio de Palenque. El trayecto dura aproximadamente 1.5 a 2 horas y el costo por persona oscila entre 25.000 y 35.000 COP, dependiendo del tipo de vehículo y la negociación. La carretera está mayormente pavimentada, pero con tramos irregulares."
+            },
+            {
+                "pregunta": "¿Cuál es el estado de las carreteras principales para acceder a San Basilio de Palenque, Bolivar, desde la Troncal del Caribe?",
+                "respuesta": "La vía principal desde la Troncal del Caribe hasta San Basilio de Palenque, Bolivar, está pavimentada en su mayoría. Sin embargo, algunos tramos dentro o en las inmediaciones del pueblo pueden ser de tierra o presentar baches, especialmente en épocas de lluvia, lo que requiere precaución al conducir."
+            },
+            {
+                "pregunta": "¿Hay hoteles o posadas disponibles para pernoctar en San Basilio de Palenque, Bolivar, y cómo se reservan?",
+                "respuesta": "Las opciones de alojamiento en San Basilio de Palenque, Bolivar, son limitadas a posadas comunitarias o casas de familia que ofrecen habitaciones sencillas. No hay hoteles de cadena. Se recomienda contactar a los guías locales o a la Fundación Batata para coordinar y reservar con antelación, ya que la disponibilidad es reducida."
+            },
+            {
+                "pregunta": "¿Cómo es la cobertura de telefonía móvil y el acceso a internet para turistas en San Basilio de Palenque, Bolivar?",
+                "respuesta": "La cobertura de telefonía móvil en San Basilio de Palenque, Bolivar, puede ser intermitente o débil, dependiendo del operador (Claro y Tigo suelen tener mejor señal). El acceso a internet es limitado; algunas posadas o centros comunitarios pueden ofrecer Wi-Fi básico, pero no es generalizado ni de alta velocidad. Prepárate para una 'desconexión digital'."
+            },
+            {
+                "pregunta": "¿Qué infraestructura de servicios sanitarios o baños públicos está disponible para visitantes en San Basilio de Palenque, Bolivar?",
+                "respuesta": "En San Basilio de Palenque, Bolivar, no existen baños públicos dedicados para turistas. Los servicios sanitarios se encuentran disponibles en las posadas, restaurantes o casas de familia que ofrecen servicios a los visitantes. Es importante preguntar y ser respetuoso con el uso de estas instalaciones privadas."
+            },
+            {
+                "pregunta": "¿Es San Basilio de Palenque, Bolivar, un destino con infraestructura adaptada para personas con discapacidad o movilidad reducida?",
+                "respuesta": "Lamentablemente, la infraestructura de San Basilio de Palenque, Bolivar, no está adaptada para personas con discapacidad o movilidad reducida. Las calles son irregulares, de tierra o empedradas, y no hay rampas ni facilidades especiales, lo que dificulta el desplazamiento en silla de ruedas o con andadores."
+            },
+            {
+                "pregunta": "¿Hay centros de salud o farmacias para emergencias médicas en San Basilio de Palenque, Bolivar?",
+                "respuesta": "San Basilio de Palenque, Bolivar, cuenta con un puesto de salud básico para atender situaciones menores. Sin embargo, para emergencias médicas graves o acceso a farmacias bien surtidas, sería necesario trasladarse a municipios cercanos como Mahates o a Cartagena, lo cual puede tomar tiempo. Se aconseja llevar un botiquín personal."
+            },
+            {
+                "pregunta": "¿Cuáles son las opciones de transporte interno para moverse por San Basilio de Palenque, Bolivar, una vez que se llega?",
+                "respuesta": "San Basilio de Palenque, Bolivar, es un pueblo pequeño y la forma más común y auténtica de explorarlo es caminando. Para distancias más largas o si prefieres, puedes encontrar mototaxis locales que te llevarán a diferentes puntos dentro de la comunidad por un costo módico, usualmente negociado en el momento."
+            },
+            {
+                "pregunta": "¿Cómo es la infraestructura de servicios básicos como electricidad y agua potable para turistas en San Basilio de Palenque, Bolivar?",
+                "respuesta": "La electricidad en San Basilio de Palenque, Bolivar, es generalmente estable, aunque pueden ocurrir cortes ocasionales, especialmente durante tormentas. En cuanto al agua, no se recomienda beber directamente del grifo; es preferible consumir agua embotellada, la cual se puede adquirir en pequeñas tiendas locales."
+            },
+            {
+                "pregunta": "¿Existe algún punto de información turística oficial o centro de visitantes en San Basilio de Palenque, Bolivar?",
+                "respuesta": "No hay un centro de información turística oficial o un centro de visitantes formal en San Basilio de Palenque, Bolivar. La mejor manera de obtener información y orientación es a través de los guías locales de la comunidad, quienes son los principales anfitriones y fuentes de conocimiento sobre el destino."
+            }
+        ],
+        "9_Reglas_Prohibiciones_Tramites": [
+            {
+                "pregunta": "¿Cuáles son las reglas básicas de etiqueta cultural que debo seguir al visitar San Basilio de Palenque, Bolivar, para mostrar respeto?",
+                "respuesta": "Es fundamental saludar con respeto, pedir permiso antes de tomar fotografías a personas, especialmente a los mayores, y evitar interrumpir actividades cotidianas. Se valora la discreción y la observación respetuosa de sus tradiciones en San Basilio de Palenque."
+            },
+            {
+                "pregunta": "¿Está permitido tomar fotos o grabar videos libremente en todas las áreas de San Basilio de Palenque, Bolivar, o hay prohibiciones específicas?",
+                "respuesta": "No. Se prohíbe estrictamente fotografiar o grabar videos en ceremonias rituales o espacios sagrados sin autorización explícita de los líderes comunitarios. Para retratos de personas, siempre pida permiso primero en San Basilio de Palenque, Bolivar."
+            },
+            {
+                "pregunta": "¿Existe un código de vestimenta específico que los turistas deban cumplir al visitar San Basilio de Palenque, Bolivar, para no ofender a la comunidad?",
+                "respuesta": "Se recomienda vestir de manera modesta y cómoda. Evite ropa demasiado reveladora. Para las mujeres, es aconsejable cubrir hombros y rodillas, especialmente al visitar lugares de culto o durante eventos comunitarios en San Basilio de Palenque, Bolivar."
+            },
+            {
+                "pregunta": "¿Cuáles son las prohibiciones sobre el manejo de residuos y la contaminación ambiental para turistas en San Basilio de Palenque, Bolivar?",
+                "respuesta": "Está estrictamente prohibido arrojar basura o residuos de cualquier tipo en la calle o en los espacios naturales. Se espera que los visitantes depositen sus desechos en los lugares designados o los lleven consigo fuera de San Basilio de Palenque, Bolivar."
+            },
+            {
+                "pregunta": "¿Es obligatorio contratar un guía local certificado para recorrer San Basilio de Palenque, Bolivar, y dónde puedo tramitarlo?",
+                "respuesta": "Aunque no es estrictamente obligatorio, es altamente recomendado y una forma de apoyar la economía local. Puede tramitar la contratación de guías a través de la Corporación de Turismo de Palenque o directamente con los operadores turísticos locales al llegar a San Basilio de Palenque, Bolivar."
+            },
+            {
+                "pregunta": "¿Hay alguna restricción o prohibición sobre el consumo de alcohol o sustancias psicoactivas en los espacios públicos de San Basilio de Palenque, Bolivar?",
+                "respuesta": "Sí, el consumo de alcohol en exceso y de sustancias psicoactivas está prohibido en espacios públicos y es visto con desaprobación. Se espera un comportamiento respetuoso y sobrio por parte de los visitantes en San Basilio de Palenque, Bolivar."
+            },
+            {
+                "pregunta": "¿Se requiere algún permiso especial o trámite para participar en eventos culturales o talleres en San Basilio de Palenque, Bolivar?",
+                "respuesta": "Generalmente no se requiere un permiso especial para participar en eventos abiertos al público. Sin embargo, para talleres específicos o inmersiones más profundas, es aconsejable coordinar previamente con los organizadores locales o su guía en San Basilio de Palenque, Bolivar."
+            },
+            {
+                "pregunta": "¿Qué prohibiciones existen respecto a la interacción con los niños de la comunidad en San Basilio de Palenque, Bolivar?",
+                "respuesta": "Se prohíbe dar dinero o dulces directamente a los niños, ya que esto puede fomentar la mendicidad. Si desea contribuir, es mejor hacerlo a través de proyectos comunitarios o su guía en San Basilio de Palenque, Bolivar."
+            },
+            {
+                "pregunta": "¿Hay alguna regla sobre el uso de drones o equipos de filmación profesional en San Basilio de Palenque, Bolivar?",
+                "respuesta": "Sí, para el uso de drones o equipos de filmación profesional, se requiere un permiso previo de las autoridades comunitarias de San Basilio de Palenque, Bolivar. Es importante respetar la privacidad y la tranquilidad de los habitantes."
+            },
+            {
+                "pregunta": "¿Existe alguna contribución económica o tarifa de entrada obligatoria para los turistas que visitan San Basilio de Palenque, Bolivar?",
+                "respuesta": "No hay una tarifa de entrada obligatoria para acceder al pueblo de San Basilio de Palenque, Bolivar. Sin embargo, se espera que los visitantes apoyen la economía local comprando artesanías, alimentos o contratando servicios de guías locales."
+            }
+        ],
+        "10_Alternativas_Plan_B": [
+            {
+                "pregunta": "¿Qué alternativas culturales afro-colombianas hay en Bolivar si no puedo visitar San Basilio de Palenque?",
+                "respuesta": "Si San Basilio de Palenque no es viable, puede explorar el barrio Getsemaní en Cartagena, Bolivar, que ofrece murales de arte callejero con temática afro, música en vivo y gastronomía caribeña. También hay tours de la 'Cartagena Negra' que visitan monumentos y plazas con significado afro."
+            },
+            {
+                "pregunta": "Si mi tour a San Basilio de Palenque, Bolivar, se cancela, ¿hay alguna forma de experimentar la cultura palenquera en Cartagena?",
+                "respuesta": "Sí, puede buscar 'Palenqueras' en las plazas principales de Cartagena, Bolivar, como la Plaza de Bolívar o la Plaza de los Coches. Ellas venden dulces típicos y son embajadoras de su cultura. También, algunos restaurantes en Getsemaní ofrecen platos con influencia palenquera."
+            },
+            {
+                "pregunta": "¿Existen alternativas más económicas para conocer la herencia palenquera en Bolivar si el tour a San Basilio es muy caro?",
+                "respuesta": "En lugar de un tour organizado, puede tomar un bus público desde la Terminal de Transportes de Cartagena, Bolivar, hacia San Basilio de Palenque. El pasaje cuesta aproximadamente 15.000 COP por trayecto. Una vez allí, puede contratar un guía local directamente por unos 50.000-80.000 COP por medio día, lo que reduce costos."
+            },
+            {
+                "pregunta": "Si tengo poco tiempo en Bolivar, ¿qué experiencia cultural afro-colombiana puedo hacer en lugar de un viaje largo a Palenque?",
+                "respuesta": "Considere un tour a pie por Getsemaní en Cartagena, Bolivar, que dura unas 2-3 horas. Este barrio tiene una fuerte influencia afro-caribeña, con música, arte y gastronomía que reflejan la diversidad cultural de la región, sin la necesidad de un viaje de día completo."
+            },
+            {
+                "pregunta": "Si no consigo un taller de cocina palenquera en San Basilio de Palenque, Bolivar, ¿dónde puedo aprender sobre la gastronomía afro-colombiana?",
+                "respuesta": "En Cartagena, Bolivar, algunos restaurantes en Getsemaní o el Centro Histórico ofrecen clases de cocina caribeña que incluyen platos con raíces africanas, como el arroz con coco o el pescado frito. Pregunte por 'clases de cocina cartagenera' o 'sabores del Caribe'."
+            },
+            {
+                "pregunta": "¿Qué puedo hacer en Bolivar si llueve mucho y no puedo ir a San Basilio de Palenque?",
+                "respuesta": "Si el clima impide el viaje a Palenque, puede visitar el Museo Naval del Caribe o el Museo del Oro Zenú en Cartagena, Bolivar, que son cubiertos. También, explore las tiendas de artesanías locales en el Centro Histórico o disfrute de la gastronomía en restaurantes techados."
+            },
+            {
+                "pregunta": "Si el transporte público a San Basilio de Palenque, Bolivar, falla o no es seguro, ¿hay alguna alternativa para llegar o un destino similar?",
+                "respuesta": "Si el transporte público no es una opción, puede contratar un taxi privado o un servicio de transporte turístico desde Cartagena, Bolivar, aunque será más costoso (aprox. 200.000-300.000 COP ida y vuelta). Como alternativa cultural, considere un tour por el Castillo de San Felipe de Barajas, que también tiene una historia ligada a la esclavitud y la defensa colonial."
+            },
+            {
+                "pregunta": "Si no encuentro alojamiento en San Basilio de Palenque, Bolivar, ¿dónde puedo quedarme cerca para visitarlo al día siguiente?",
+                "respuesta": "San Basilio de Palenque no tiene muchas opciones de alojamiento. La mejor alternativa es hospedarse en Cartagena, Bolivar, y hacer el viaje a Palenque como una excursión de un día. Hay opciones de hoteles y hostales para todos los presupuestos en Cartagena, como el Hotel Caribe by Faranda Grand o el Hostal Media Luna en Getsemaní."
+            },
+            {
+                "pregunta": "¿Qué alternativas seguras hay en Bolivar para conocer la cultura palenquera si no me siento cómodo viajando a San Basilio de Palenque?",
+                "respuesta": "Puede interactuar con las 'Palenqueras' en las plazas de Cartagena, Bolivar, como la Plaza de Bolívar o la Plaza de los Coches, quienes son embajadoras de su cultura y venden dulces típicos. También, algunos eventos culturales en Cartagena, como festivales o exposiciones, a menudo incluyen representaciones de la música y danza palenquera."
+            },
+            {
+                "pregunta": "¿Hay opciones para personas con movilidad reducida para conocer la cultura palenquera en Bolivar si San Basilio no es accesible?",
+                "respuesta": "San Basilio de Palenque tiene calles irregulares que pueden ser un desafío. Una alternativa es disfrutar de la cultura palenquera en Cartagena, Bolivar, donde las plazas y el centro histórico son más accesibles. Puede encontrar 'Palenqueras' en la Plaza de Bolívar o la Plaza de los Coches, y disfrutar de su música y dulces en un entorno más cómodo."
+            }
+        ]
+    }
+}

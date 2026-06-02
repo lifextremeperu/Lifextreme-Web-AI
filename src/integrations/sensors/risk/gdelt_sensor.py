@@ -19,43 +19,48 @@ class GdeltCrisisSensor:
         
     def fetch_gdelt_events(self, pais="PE"):
         """
-        Consulta GDELT vía BigQuery para detectar protestas o bloqueos (EventCode 14) en las últimas 24 hrs.
+        Consulta GDELT vía su API REST pública (Free & Open Source) para detectar protestas o bloqueos.
         """
-        print(f"[SENSOR-CRISIS] 🚨 Analizando la base de datos global GDELT para el país: {pais}...")
+        print(f"[SENSOR-CRISIS] 🚨 Analizando la base de datos global GDELT (REST API) para el país: {pais}...")
         
         try:
-            # Intentar conexión real a Google BigQuery
-            client = bigquery.Client()
+            import requests
             
-            # Query real: Buscar eventos de protesta (EventCode 14) en Perú en las últimas 24h
-            query = f"""
-                SELECT ActionGeo_FullName, SOURCEURL
-                FROM `gdelt-bq.gdeltv2.events`
-                WHERE ActionGeo_CountryCode = '{pais}'
-                  AND EventCode LIKE '14%'
-                  AND SQLDATE >= PARSE_DATE('%Y%m%d', CAST(FORMAT_DATE('%Y%m%d', DATE_SUB(CURRENT_DATE(), INTERVAL 1 DAY)) AS STRING))
-                LIMIT 5
-            """
+            # API Pública de GDELT 2.0: Buscamos noticias recientes sobre protestas/bloqueos en el país indicado
+            # No requiere API Key, es 100% gratuita.
+            url = "https://api.gdeltproject.org/api/v2/doc/doc"
+            params = {
+                "query": f"(protesta OR bloqueo OR huelga OR paro) sourcecountry:{pais}",
+                "mode": "artlist",
+                "maxrecords": "5",
+                "format": "json"
+            }
             
-            query_job = client.query(query)
-            results = query_job.result()
+            response = requests.get(url, params=params, timeout=10)
+            response.raise_for_status()
+            data = response.json()
             
-            eventos = [{"ubicacion": row.ActionGeo_FullName, "fuente": row.SOURCEURL} for row in results]
+            eventos = []
+            if "articles" in data:
+                for article in data["articles"]:
+                    eventos.append({
+                        "ubicacion": f"{pais} (Noticia Global)", 
+                        "fuente": article.get("url", ""),
+                        "titulo": article.get("title", "")
+                    })
             
             if eventos:
                 return eventos
             return []
             
         except Exception as e:
-            print(f"[SENSOR-CRISIS] ⚠️ No se pudo conectar a BigQuery (API no habilitada o permisos faltantes).")
-            print(f"Error detallado: {e}")
+            print(f"[SENSOR-CRISIS] ⚠️ Error conectando a GDELT API Pública: {e}")
             print("[SENSOR-CRISIS] 🔄 Activando Módulo de Simulación para la Arquitectura Event-Driven...")
             time.sleep(1)
             
-            # Simulación de un bloqueo de carretera detectado por noticias
             return [{
-                "ubicacion": "Puno, Peru",
-                "fuente": "https://noticias-locales-simuladas.com/bloqueo-carretera-juliaca"
+                "ubicacion": "Amazonas, Peru",
+                "fuente": "https://noticias-locales-simuladas.com/bloqueo-carretera-amazonas"
             }]
 
     def ejecutar_monitoreo(self, pais="PE", region_objetivo="Puno"):

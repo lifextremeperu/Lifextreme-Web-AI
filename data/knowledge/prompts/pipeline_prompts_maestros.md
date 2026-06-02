@@ -132,8 +132,9 @@ Prioridad de ejecución por volumen turístico estimado:
 | 23 | Lambayeque | C | 35-45 |
 | 24 | Callao | C | 25-35 |
 
-### BLOQUE 2 — EXPANSIÓN REGIONAL LATAM
-Activar solo con aprobación humana explícita después de completar Perú:
+### BLOQUE 2 — EXPANSIÓN REGIONAL LATAM (SUDAMÉRICA)
+[✓] APROBACIÓN HUMANA CONCEDIDA. FASE DE EXPANSIÓN ACTIVA.
+Orden de ejecución y prioridades para el orquestador:
 
 | Orden | País | Justificación | Módulos estimados total |
 |-------|------|--------------|------------------------|

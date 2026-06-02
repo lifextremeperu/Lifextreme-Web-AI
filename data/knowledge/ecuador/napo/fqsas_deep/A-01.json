@@ -1,0 +1,426 @@
+{
+    "destino_id": "A-01",
+    "modulo_contexto": "Tena, Capital de la Canela",
+    "fqsas": {
+        "1_Precios_Presupuestos_Moneda": [
+            {
+                "pregunta": "¿Qué moneda se usa en Tena, Napo, y dónde puedo encontrar cajeros automáticos para retirar efectivo?",
+                "respuesta": "La moneda oficial en Tena, Napo, es el Dólar estadounidense (USD). Encontrarás cajeros automáticos de bancos como 'Banco Pichincha' o 'Banco del Pacífico' en el centro de Tena, especialmente cerca del Parque Central y la Avenida 15 de Noviembre. Es recomendable llevar algo de efectivo para mercados locales o comunidades rurales donde no aceptan tarjeta."
+            },
+            {
+                "pregunta": "¿Cuánto cuesta el pasaje de bus desde Quito a Tena, Napo, y qué empresas operan esa ruta?",
+                "respuesta": "El pasaje de bus desde Quito a Tena, Napo, generalmente oscila entre 8 y 12 USD por persona, dependiendo de la empresa y el tipo de servicio. Cooperativas como 'Expreso Baños' o 'Transportes Amazonas' son las más comunes, saliendo desde el Terminal Terrestre Quitumbe en Quito. El viaje dura aproximadamente 4-5 horas."
+            },
+            {
+                "pregunta": "¿Cuál es el precio promedio de un hostal económico o alojamiento básico en Tena, Napo, para viajeros con bajo presupuesto?",
+                "respuesta": "Para un hostal económico o alojamiento básico en Tena, Napo, puedes esperar pagar entre 15 y 25 USD por noche por una habitación privada con baño. Hay opciones como 'Hostal Limoncocha' o 'Hostal Los Yutzos' que ofrecen tarifas competitivas, especialmente si reservas con antelación fuera de temporada alta (julio-agosto, diciembre-enero)."
+            },
+            {
+                "pregunta": "¿Cuánto cuesta una noche en un hotel de gama media con piscina en Tena, Napo, para una pareja en temporada alta?",
+                "respuesta": "En temporada alta (julio-agosto, diciembre-enero), una noche en un hotel de gama media con piscina en Tena, Napo, como el 'Hotel Arazá' o 'Hotel Anaconda', puede costar entre 50 y 80 USD para una pareja. Es aconsejable reservar con varios meses de anticipación para asegurar disponibilidad y mejores tarifas."
+            },
+            {
+                "pregunta": "¿Cuánto cuesta una comida típica ecuatoriana en un restaurante local de Tena, Napo, para el almuerzo?",
+                "respuesta": "Un 'almuerzo ejecutivo' o 'menú del día' en un restaurante local de Tena, Napo, que incluye sopa, plato fuerte y jugo, cuesta entre 3 y 5 USD. Lugares como el 'Mercado Central' o pequeños comedores en la calle 15 de Noviembre ofrecen opciones auténticas y económicas."
+            },
+            {
+                "pregunta": "¿Cuál es el precio de un tour de rafting de un día completo en el Río Jatunyacu o Anzu en Napo, Ecuador?",
+                "respuesta": "Un tour de rafting de un día completo en el Río Jatunyacu o Anzu en Napo, Ecuador, con operadores certificados como 'Ríos Ecuador' o 'Imagine Ecuador', generalmente cuesta entre 60 y 85 USD por persona. Esto incluye equipo, guía bilingüe, transporte desde Tena y almuerzo."
+            },
+            {
+                "pregunta": "¿Cuánto cuesta una estadía de 3 días y 2 noches en un lodge de selva todo incluido cerca de Tena, Napo, para una experiencia amazónica?",
+                "respuesta": "Una estadía de 3 días y 2 noches en un lodge de selva todo incluido cerca de Tena, Napo, como 'Suchipakari Amazon Eco-Lodge' o 'Hakuna Matata Amazon Lodge', puede costar entre 250 y 450 USD por persona. Estos paquetes suelen incluir transporte fluvial, todas las comidas, guías nativos y actividades como caminatas, visitas a comunidades y paseos en canoa."
+            },
+            {
+                "pregunta": "¿Cuánto cuesta un viaje en taxi dentro de la ciudad de Tena, Napo, desde el terminal terrestre al centro?",
+                "respuesta": "Un viaje en taxi dentro de la ciudad de Tena, Napo, desde el terminal terrestre hasta el centro, cuesta aproximadamente entre 1.50 y 2.50 USD. Las tarifas son fijas para trayectos cortos dentro de la ciudad, pero siempre es bueno preguntar el precio antes de subir."
+            },
+            {
+                "pregunta": "¿Hay que pagar entrada para visitar el Parque Amazónico La Isla en Tena, Napo, y cuánto cuesta?",
+                "respuesta": "Sí, hay que pagar una pequeña entrada para visitar el Parque Amazónico La Isla en Tena, Napo. El costo es de aproximadamente 1 USD para adultos nacionales y 2-3 USD para extranjeros. Este precio puede variar ligeramente y se destina al mantenimiento del parque."
+            },
+            {
+                "pregunta": "¿Qué presupuesto diario adicional debería considerar para gastos menores, souvenirs o bebidas en Tena, Napo?",
+                "respuesta": "Para gastos menores, souvenirs y bebidas en Tena, Napo, se recomienda un presupuesto diario adicional de 15 a 30 USD por persona. Esto cubriría artesanías en el 'Mercado Artesanal', snacks, bebidas refrescantes o alguna propina para guías locales."
+            }
+        ],
+        "2_Logistica_Transporte_Como_Llegar": [
+            {
+                "pregunta": "¿Cómo puedo llegar a Tena, Napo, desde Quito en transporte público y cuánto tiempo toma el viaje?",
+                "respuesta": "Para llegar a Tena, Napo, desde Quito, debes tomar un autobús interprovincial desde el Terminal Terrestre Quitumbe. Empresas como 'Baños', 'Expreso Baños', 'Amazonas' o 'Jumandy' ofrecen rutas directas. El viaje dura aproximadamente 4 a 5 horas, dependiendo de las condiciones de la carretera y las paradas. El costo del pasaje oscila entre 8 y 12 USD por persona en 2024."
+            },
+            {
+                "pregunta": "¿Cuál es la mejor ruta para viajar de Guayaquil a Tena, Napo, y qué empresas de bus recomiendan?",
+                "respuesta": "Desde Guayaquil a Tena, Napo, la ruta más común es vía Ambato o Puyo. Puedes tomar un bus desde el Terminal Terrestre de Guayaquil con empresas como 'Transportes Baños' o 'Expreso Baños'. El viaje es más largo, aproximadamente 8 a 10 horas, y el costo del pasaje puede variar entre 15 y 25 USD en 2024. Se recomienda viajar de día por seguridad y para disfrutar del paisaje."
+            },
+            {
+                "pregunta": "¿Qué opciones de transporte local existen para moverse dentro de la ciudad de Tena, Napo, y sus alrededores cercanos?",
+                "respuesta": "Dentro de Tena, Napo, puedes usar taxis (amarillos, con taxímetro o tarifa acordada), mototaxis (tricimotos, comunes para distancias cortas y económicas) y buses urbanos. Para los alrededores cercanos, los taxis y mototaxis son convenientes, o puedes contratar camionetas 'rancheras' para grupos a sitios como Misahuallí o Archidona."
+            },
+            {
+                "pregunta": "¿Cómo se llega a Puerto Misahuallí desde Tena, Napo, y cuánto cuesta el transporte público?",
+                "respuesta": "Para llegar a Puerto Misahuallí desde Tena, Napo, puedes tomar un bus local desde el Terminal Terrestre de Tena. Las cooperativas 'Jumandy' o 'Amazonas' tienen rutas frecuentes. El viaje dura aproximadamente 30-40 minutos y el pasaje cuesta alrededor de 1.00 a 1.50 USD en 2024. También hay taxis que cobran entre 8 y 12 USD por el trayecto."
+            },
+            {
+                "pregunta": "¿Es fácil llegar a Archidona desde Tena, Napo, y qué tipo de transporte es el más eficiente?",
+                "respuesta": "Sí, es muy fácil llegar a Archidona desde Tena, Napo. Es una ruta corta y bien conectada. El transporte más eficiente es el bus local, que sale con mucha frecuencia desde el Terminal Terrestre de Tena. El viaje toma unos 15-20 minutos y el costo del pasaje es de aproximadamente 0.50 a 0.75 USD en 2024. También hay taxis disponibles."
+            },
+            {
+                "pregunta": "¿Hay opciones de alquiler de vehículos en Tena, Napo, para explorar la zona de forma independiente?",
+                "respuesta": "Las opciones de alquiler de vehículos en Tena, Napo, son limitadas en comparación con ciudades grandes. Es posible encontrar agencias locales pequeñas o contactar a operadores turísticos que ofrezcan vehículos 4x4 con conductor. Se recomienda reservar con anticipación, especialmente en temporada alta. Los precios varían mucho según el tipo de vehículo y la duración del alquiler."
+            },
+            {
+                "pregunta": "¿Cuál es el aeropuerto más cercano a Tena, Napo, y cómo se llega desde allí a la ciudad?",
+                "respuesta": "El aeropuerto más cercano a Tena, Napo, con vuelos comerciales regulares es el Aeropuerto Internacional Mariscal Sucre (UIO) en Quito. No hay aeropuerto comercial directo en Tena. Desde Quito, debes tomar un bus interprovincial como se mencionó anteriormente. El tiempo total de viaje desde el aeropuerto de Quito hasta Tena puede ser de 5 a 6 horas, incluyendo el traslado al terminal de buses."
+            },
+            {
+                "pregunta": "¿Cómo son las condiciones de las carreteras para llegar a Tena, Napo, especialmente en la temporada de lluvias?",
+                "respuesta": "Las carreteras principales hacia Tena, Napo, como la E30 (vía Baños-Puyo-Tena) y la E45 (vía Quito-Baeza-Tena), están generalmente en buen estado. Sin embargo, durante la temporada de lluvias (aproximadamente de abril a julio), pueden presentarse deslizamientos de tierra o cierres temporales, especialmente en la vía Baeza-Tena. Es recomendable consultar el estado de las vías con el ECU911 o el Ministerio de Transporte y Obras Públicas antes de viajar."
+            },
+            {
+                "pregunta": "¿Dónde se encuentra el Terminal Terrestre principal de Tena, Napo, y cómo funciona para salidas a otras ciudades?",
+                "respuesta": "El Terminal Terrestre de Tena, Napo, se encuentra en la Avenida 15 de Noviembre y Calle Sucre, en el sector sur de la ciudad. Es el punto central para la salida y llegada de buses interprovinciales a ciudades como Quito, Guayaquil, Ambato, Puyo, y también para buses locales a Misahuallí, Archidona y otras comunidades. Funciona desde tempranas horas de la mañana hasta la noche, con frecuencias variables según el destino."
+            },
+            {
+                "pregunta": "¿Hay opciones de transporte fluvial desde Tena, Napo, para explorar la Amazonía y qué consideraciones de seguridad debo tener?",
+                "respuesta": "Sí, Tena, Napo, es un punto de partida para el transporte fluvial, especialmente desde Puerto Misahuallí (a 30-40 minutos de Tena). Desde allí, puedes tomar canoas motorizadas para excursiones por el Río Napo hacia lodges amazónicos o comunidades indígenas. Es crucial contratar operadores turísticos registrados y guías locales certificados. Asegúrate de que la embarcación tenga chalecos salvavidas y que el guía conozca bien la ruta y las condiciones del río. Los precios varían mucho según la distancia y duración del tour."
+            }
+        ],
+        "3_Seguridad_Riesgos_Salud": [
+            {
+                "pregunta": "¿Es seguro caminar por el centro de Tena, Napo, de noche para turistas?",
+                "respuesta": "Sí, el centro de Tena es generalmente seguro para caminar de noche, especialmente en las zonas más concurridas como el Malecón del Río Tena. Sin embargo, como en cualquier ciudad, se recomienda precaución, evitar calles poco iluminadas y no exhibir objetos de valor. Los incidentes son raros, pero la vigilancia personal es clave."
+            },
+            {
+                "pregunta": "¿Cuáles son los riesgos de robo o asalto para turistas en Tena, Napo, y cómo prevenirlos?",
+                "respuesta": "Los riesgos principales en Tena, Napo, son los pequeños hurtos o 'carteristas', especialmente en el Terminal Terrestre o mercados concurridos. Para prevenirlos, mantenga sus objetos de valor guardados, use mochilas frontales y evite caminar solo por zonas aisladas. Siempre prefiera taxis de cooperativas reconocidas, como 'Tena Express' o 'Amazonas', solicitándolos por teléfono o en paradas oficiales."
+            },
+            {
+                "pregunta": "¿Qué enfermedades transmitidas por mosquitos hay en Tena, Napo, y qué vacunas necesito antes de viajar?",
+                "respuesta": "En Tena, Napo, las enfermedades transmitidas por mosquitos incluyen dengue, chikungunya y zika. El riesgo de malaria es bajo pero existe. Se recomienda encarecidamente la vacuna contra la fiebre amarilla, al menos 10 días antes de su viaje. Use repelente con DEET, ropa de manga larga y pantalones, especialmente al amanecer y al anochecer."
+            },
+            {
+                "pregunta": "¿Es seguro beber agua del grifo en Tena, Napo, o debo comprar agua embotellada?",
+                "respuesta": "No se recomienda beber agua directamente del grifo en Tena, Napo. Aunque el agua es tratada, es mejor optar por agua embotellada, que está disponible en todos los supermercados y tiendas como 'Supermaxi' o 'Mi Comisariato', o usar pastillas potabilizadoras si va a zonas rurales. Muchos alojamientos ofrecen agua filtrada para sus huéspedes."
+            },
+            {
+                "pregunta": "¿Dónde está el hospital más cercano en Tena, Napo, para una emergencia médica?",
+                "respuesta": "Para emergencias médicas en Tena, Napo, el principal centro de atención es el Hospital General 'José María Velasco Ibarra', ubicado en la Av. 15 de Noviembre y Calle Sucre. También hay clínicas privadas como la 'Clínica San Francisco' en la Calle Juan Montalvo, que ofrecen servicios de consulta y atención de urgencias."
+            },
+            {
+                "pregunta": "¿Cómo puedo asegurarme de que un taxi o transporte público sea seguro en Tena, Napo?",
+                "respuesta": "Para asegurar un transporte seguro en Tena, Napo, siempre use taxis oficiales que son de color amarillo y tienen placas naranjas. Evite vehículos sin identificación. Puede solicitar taxis por teléfono a cooperativas como 'Tena Express' (062886000) o 'Amazonas' (062886100), o pedirlos en su hotel. Los buses interurbanos son generalmente seguros durante el día."
+            },
+            {
+                "pregunta": "¿Qué precauciones de seguridad debo tomar en excursiones por la selva cerca de Tena, Napo, y necesito un guía certificado?",
+                "respuesta": "Para excursiones por la selva en los alrededores de Tena, Napo, es IMPRESCINDIBLE contratar un guía local certificado. Esto previene extravíos, encuentros peligrosos con fauna silvestre o plantas tóxicas, y asegura el cumplimiento de protocolos de seguridad. Verifique que la agencia u operador turístico esté registrado en el Ministerio de Turismo y que su guía tenga credenciales válidas."
+            },
+            {
+                "pregunta": "¿Qué animales peligrosos debo tener en cuenta al visitar la selva amazónica en Napo, cerca de Tena?",
+                "respuesta": "Al visitar la selva amazónica en Napo, cerca de Tena, debe estar atento a serpientes venenosas (como la equis o la coral), arañas (como la errante brasileña), insectos (como hormigas bala o avispas) y, en ríos, caimanes o pirañas. Nunca toque animales salvajes, use botas y pantalones largos en caminatas, y siga siempre las indicaciones de su guía."
+            },
+            {
+                "pregunta": "¿Hay farmacias 24 horas en Tena, Napo, para comprar medicamentos de emergencia?",
+                "respuesta": "Sí, en Tena, Napo, puede encontrar farmacias que operan 24 horas o con horarios extendidos. La cadena 'Farmacias SanaSana' en la Av. 15 de Noviembre y la 'Farmacia Cruz Azul' en la Calle Juan Montalvo suelen tener turnos rotativos para atención nocturna o de emergencia. Es recomendable preguntar en su alojamiento por la farmacia de turno más cercana."
+            },
+            {
+                "pregunta": "¿Es recomendable contratar un seguro de viaje para visitar Tena, Napo, Ecuador?",
+                "respuesta": "Sí, es ALTAMENTE recomendable contratar un seguro de viaje integral antes de visitar Tena, Napo, Ecuador. Este debe cubrir emergencias médicas, evacuación de emergencia (especialmente si planea excursiones a la selva), pérdida de equipaje y cancelación de viaje. Los costos de atención médica o rescate pueden ser elevados sin cobertura."
+            }
+        ],
+        "4_Clima_Temporadas_Horarios": [
+            {
+                "pregunta": "¿Cuál es la mejor época del año para visitar Tena, Napo y disfrutar de actividades al aire libre?",
+                "respuesta": "La mejor época para visitar Tena, Napo y realizar actividades al aire libre es durante la temporada seca, que generalmente va de agosto a diciembre. En estos meses, las lluvias son menos intensas y más esporádicas, lo que facilita excursiones por la selva y deportes acuáticos como el rafting."
+            },
+            {
+                "pregunta": "¿Cómo es el clima en Tena, Napo durante la temporada de lluvias y qué actividades se pueden hacer?",
+                "respuesta": "El clima en Tena, Napo durante la temporada de lluvias, de enero a julio, es cálido y húmedo, con precipitaciones frecuentes, a menudo en forma de aguaceros cortos pero intensos. A pesar de la lluvia, se pueden realizar actividades como visitas a cuevas, museos locales, o disfrutar de la gastronomía, ya que la vegetación está en su máximo esplendor y los ríos tienen buen caudal."
+            },
+            {
+                "pregunta": "¿Qué temperatura promedio puedo esperar en Tena, Napo en un día típico de viaje?",
+                "respuesta": "En Tena, Napo, la temperatura promedio diaria oscila entre los 23°C y 28°C durante todo el año, con poca variación estacional. Las noches son ligeramente más frescas, alrededor de 20°C a 22°C, manteniendo un clima tropical húmedo constante."
+            },
+            {
+                "pregunta": "¿Es necesario llevar ropa de lluvia o impermeable si viajo a Tena, Napo en cualquier mes del año?",
+                "respuesta": "Sí, es absolutamente necesario llevar ropa de lluvia o un impermeable ligero si viajas a Tena, Napo en cualquier mes del año. Aunque hay temporadas más secas, las lluvias tropicales pueden ocurrir inesperadamente en cualquier momento, especialmente por las tardes, por lo que es mejor estar preparado."
+            },
+            {
+                "pregunta": "¿Cuáles son los meses con mayor probabilidad de fuertes lluvias en Tena, Napo que podrían afectar tours fluviales?",
+                "respuesta": "Los meses con mayor probabilidad de fuertes lluvias en Tena, Napo que podrían afectar tours fluviales son de marzo a junio. Durante este período, los ríos pueden crecer significativamente, lo que a veces lleva a la suspensión temporal de ciertas actividades de rafting o canotaje por seguridad, por lo que es recomendable consultar con los operadores locales."
+            },
+            {
+                "pregunta": "¿Hay alguna diferencia notable en el clima de Tena, Napo entre la mañana y la tarde?",
+                "respuesta": "Sí, en Tena, Napo es común que las mañanas sean soleadas o parcialmente nubladas, con temperaturas agradables. Las tardes, especialmente después del mediodía, suelen ser cuando se presentan las lluvias tropicales, que pueden durar desde unos minutos hasta un par de horas, refrescando el ambiente y manteniendo la exuberancia de la selva."
+            },
+            {
+                "pregunta": "¿Qué tipo de ropa debo empacar para el clima húmedo de Tena, Napo en cualquier temporada?",
+                "respuesta": "Para el clima húmedo de Tena, Napo, se recomienda empacar ropa ligera, de secado rápido y transpirable, preferiblemente de algodón o materiales sintéticos. Incluye camisetas, pantalones cortos, un par de pantalones largos ligeros, traje de baño, sombrero y calzado cómodo y resistente al agua, como sandalias o botas de goma."
+            },
+            {
+                "pregunta": "¿A qué hora suelen amanecer y anochecer en Tena, Napo durante el año?",
+                "respuesta": "En Tena, Napo, al estar cerca del ecuador, las horas de amanecer y anochecer son bastante consistentes durante todo el año. El sol suele salir entre las 6:00 AM y 6:30 AM, y se pone entre las 6:00 PM y 6:30 PM, con poca variación estacional, ofreciendo aproximadamente 12 horas de luz diurna."
+            },
+            {
+                "pregunta": "¿Afecta la temporada de lluvias en Tena, Napo la visibilidad para la observación de fauna silvestre?",
+                "respuesta": "La temporada de lluvias en Tena, Napo puede afectar la visibilidad para la observación de fauna silvestre, ya que algunos animales pueden buscar refugio o estar menos activos. Sin embargo, la lluvia también revitaliza la selva y atrae a otras especies, por lo que la experiencia puede ser diferente pero igualmente enriquecedora, con guías expertos que conocen los mejores lugares."
+            },
+            {
+                "pregunta": "¿Es posible hacer rafting en los ríos de Tena, Napo durante la temporada seca o hay niveles de agua muy bajos?",
+                "respuesta": "Sí, es posible hacer rafting en los ríos de Tena, Napo durante la temporada seca (agosto a diciembre), aunque los niveles de agua pueden ser más bajos en algunos tramos. Esto a menudo significa rápidos menos intensos pero aguas más claras y una experiencia diferente, aún emocionante y segura con operadores locales certificados como 'Rafting Ecuador' o 'Aninga Tours'."
+            }
+        ],
+        "5_Historia_Cultura_Curiosidades": [
+            {
+                "pregunta": "¿Cuál es la historia de la fundación de Tena, Napo y quiénes fueron sus primeros habitantes indígenas?",
+                "respuesta": "Tena fue fundada el 15 de noviembre de 1560 por el capitán Gil Ramírez Dávalos, bajo el nombre de 'San Juan de Tena'. Sus primeros habitantes fueron principalmente los pueblos Kichwa de la Amazonía, quienes ya ocupaban la región mucho antes de la llegada de los españoles, estableciendo una rica cultura ancestral."
+            },
+            {
+                "pregunta": "¿Qué platos típicos Kichwa son imprescindibles probar en Tena, Napo y dónde puedo encontrarlos con autenticidad?",
+                "respuesta": "En Tena, Napo, es imprescindible probar el maito de pescado (generalmente tilapia o cachama, envuelto en hojas de bijao y asado), los chontacuros (gusanos de palma, una delicia exótica) y la guayusa (bebida energizante tradicional). Puedes encontrarlos con autenticidad en el Mercado Central de Tena o en restaurantes locales como 'El Jardín' en la calle Juan Montalvo."
+            },
+            {
+                "pregunta": "¿Existen leyendas o mitos interesantes de la cultura Kichwa en Tena, Napo que un turista pueda conocer?",
+                "respuesta": "Sí, en Tena, Napo, una leyenda popular Kichwa es la del 'Runa Yacu' o 'Hombre del Agua', un espíritu protector de los ríos que puede aparecer como un hombre o una anaconda gigante. Otra es la leyenda de la 'Guayusa', que explica su origen divino y propiedades energéticas, transmitida oralmente por los yachaks (chamanes)."
+            },
+            {
+                "pregunta": "¿Cuáles son las festividades culturales más importantes en Tena, Napo y en qué meses se celebran anualmente?",
+                "respuesta": "Las festividades culturales más importantes en Tena, Napo, incluyen la Fiesta de la Chonta, celebrada por las comunidades Kichwa entre marzo y abril, y la Fiesta de la Fundación de Tena el 15 de noviembre, con desfiles y eventos culturales. También destaca el Carnaval de la Guayusa y la Canela, que suele realizarse en febrero o marzo."
+            },
+            {
+                "pregunta": "¿Qué papel tuvieron las misiones religiosas en la historia de Tena, Napo y qué vestigios históricos quedan de esa época?",
+                "respuesta": "Las misiones jesuitas y dominicas tuvieron un papel crucial en la colonización y evangelización de Tena, Napo, desde el siglo XVI, estableciendo reducciones y centros de enseñanza. Hoy, el principal vestigio es la Catedral de Tena, aunque su estructura actual es moderna, se asienta sobre antiguos cimientos misionales y el 'Parque Central' era parte de la plaza misional original."
+            },
+            {
+                "pregunta": "¿Dónde puedo comprar artesanías auténticas Kichwa en Tena, Napo y qué tipo de objetos son los más tradicionales?",
+                "respuesta": "En Tena, Napo, puedes encontrar artesanías auténticas Kichwa en el 'Centro de Interpretación y Artesanías' en la Av. 15 de Noviembre o en el 'Mercado Artesanal' cerca del Terminal Terrestre. Los objetos más tradicionales incluyen cerámicas pintadas con motivos amazónicos, collares de semillas de tagua y achira, shigras (bolsos de fibra) y lanzas decorativas."
+            },
+            {
+                "pregunta": "¿Por qué se conoce a Tena, Napo como la 'Capital de la Canela' y cuál es su historia con esta especia?",
+                "respuesta": "Tena, Napo, es conocida como la 'Capital de la Canela' debido a que históricamente fue un importante centro de recolección y comercio de la canela silvestre amazónica (Cinnamomum zeylanicum), que crecía abundantemente en la región. Durante la época colonial, la canela fue uno de los productos más codiciados y exportados desde esta zona hacia la Real Audiencia de Quito y más allá."
+            },
+            {
+                "pregunta": "¿Cómo afectó el auge del caucho a la población y el desarrollo de Tena, Napo a principios del siglo XX?",
+                "respuesta": "El auge del caucho a finales del siglo XIX y principios del XX tuvo un impacto significativo en Tena, Napo. Atrajo a colonos y comerciantes, pero también provocó la explotación de las comunidades indígenas Kichwa, quienes fueron forzadas a trabajar en la extracción. Esto generó un crecimiento económico temporal, pero también desplazamientos y enfermedades, dejando una huella compleja en la demografía y estructura social."
+            },
+            {
+                "pregunta": "¿Qué idioma indígena se habla principalmente en Tena, Napo y hay formas de aprender frases básicas para interactuar?",
+                "respuesta": "El idioma indígena principal que se habla en Tena, Napo, es el Kichwa amazónico, siendo la lengua materna de muchas comunidades rurales. Para aprender frases básicas, puedes buscar guías locales que ofrezcan talleres culturales o usar aplicaciones de idiomas. Frases útiles incluyen 'Alli puncha' (Buenos días) o 'Imanalla' (¿Cómo estás?)."
+            },
+            {
+                "pregunta": "¿Hay alguna arquitectura histórica o tipo de construcción tradicional única en Tena, Napo que valga la pena visitar?",
+                "respuesta": "Aunque Tena, Napo, no tiene una arquitectura colonial monumental, sí puedes observar construcciones tradicionales Kichwa en las comunidades cercanas, como casas de madera y caña con techos de paja toquilla o palma, adaptadas al clima amazónico. En el centro de Tena, la 'Casa del Gobierno Provincial de Napo' y la 'Catedral' son ejemplos de arquitectura republicana temprana y moderna, respectivamente, que marcan hitos urbanos."
+            }
+        ],
+        "6_Tips_Locales_Secretos": [
+            {
+                "pregunta": "¿Para probar el verdadero sabor amazónico en Tena, Napo, ¿qué 'hueca' o restaurante local secreto recomiendan los habitantes?",
+                "respuesta": "Busca 'El Rinconcito Amazónico' en la calle 15 de Noviembre, cerca del mercado central. Su 'maito de tilapia' con yuca y plátano es imperdible y cuesta alrededor de 6 USD. Abre solo para almuerzos hasta las 3 PM y es donde comen los locales."
+            },
+            {
+                "pregunta": "Para moverse por Tena, Napo, ¿cuál es el 'secreto' de los locales para conseguir transporte económico, especialmente en la noche?",
+                "respuesta": "Siempre negocia el precio antes de subirte al taxi o mototaxi. Para distancias cortas dentro de Tena, no pagues más de 2-3 USD. Después de las 9 PM, los precios suben un poco, pero puedes llamar a 'Radio Taxi Tena' al 062886000 para tarifas más justas que parar uno en la calle."
+            },
+            {
+                "pregunta": "En los alrededores de Tena, Napo, ¿existe alguna cascada 'secreta' o balneario fluvial que los turistas suelen pasar por alto?",
+                "respuesta": "La 'Cascada de Latas', a unos 25 minutos en bus local desde el terminal de Tena hacia Archidona. Pide al conductor que te deje en el desvío. La entrada es de 1.50 USD, gestionada por la comunidad, y es ideal para un baño refrescante sin aglomeraciones."
+            },
+            {
+                "pregunta": "Para comprar artesanías Kichwa auténticas y a buen precio en Napo, ¿dónde van los locales en lugar de las tiendas turísticas de Tena?",
+                "respuesta": "Visita el 'Mercado Artesanal de Archidona' los sábados por la mañana, a solo 15 minutos de Tena en bus. Allí encontrarás productos directamente de los artesanos. También, en la vía a Misahuallí, busca pequeños puestos de venta de las comunidades como 'Shiripuno' o 'Wayusa Wasi' para precios más justos."
+            },
+            {
+                "pregunta": "Al interactuar con comunidades indígenas en Napo, ¿cuál es un 'tip secreto' de etiqueta cultural para mostrar respeto y evitar malentendidos?",
+                "respuesta": "Siempre pide permiso antes de tomar fotos a las personas, especialmente a los niños. Un saludo en Kichwa como 'Alli puncha' (buenos días) es muy apreciado. Evita regatear excesivamente en sus mercados y vístete de forma modesta, cubriendo hombros y rodillas."
+            },
+            {
+                "pregunta": "Más allá de los eventos turísticos, ¿existe alguna fiesta o celebración local 'secreta' en Tena, Napo, que ofrezca una experiencia cultural auténtica?",
+                "respuesta": "La 'Fiesta de la Chonta', celebrada por varias comunidades Kichwa en marzo o abril, dependiendo del ciclo lunar. Es una celebración de la cosecha de la palma de chonta, con danzas ancestrales, música y comida tradicional. Pregunta en la oficina de turismo de Tena por las fechas exactas en las comunidades cercanas como 'San Pedro de Sumino'."
+            },
+            {
+                "pregunta": "Para un alojamiento económico y auténtico en Tena, Napo, ¿qué hostal 'secreto' o familiar recomiendan los residentes?",
+                "respuesta": "El 'Hostal Limoncocha', ubicado en la calle 15 de Noviembre y Juan Montalvo. Ofrece habitaciones sencillas, limpias y con baño privado desde 18 USD por noche. Es gestionado por una familia local y está a pocas cuadras del centro, pero en una zona tranquila."
+            },
+            {
+                "pregunta": "Para un tour de selva auténtico y a buen precio en Napo, ¿cuál es el 'truco' de los locales para evitar agencias caras en Tena?",
+                "respuesta": "Dirígete directamente a Misahuallí o Puerto Napo y busca operadores turísticos comunitarios. Por ejemplo, 'Guías Nativos de Misahuallí' ofrece tours de un día desde 40-60 USD por persona, incluyendo almuerzo y actividades, negociable si vas en grupo. Apoyas directamente a las comunidades."
+            },
+            {
+                "pregunta": "En Napo, ¿qué 'remedio secreto' amazónico usan los locales para aliviar picaduras de insectos o problemas estomacales?",
+                "respuesta": "Para picaduras de mosquitos, aplica el zumo de la hoja de 'hierba luisa' (Cymbopogon citratus) o 'sábila' (Aloe vera), que puedes encontrar en mercados. Para malestar estomacal, una infusión de 'guayusa' (Ilex guayusa) es muy efectiva y se vende en cualquier tienda local."
+            },
+            {
+                "pregunta": "Para disfrutar de un atardecer espectacular sobre la selva en Tena, Napo, ¿hay algún mirador 'secreto' o poco concurrido que los locales conozcan?",
+                "respuesta": "Sube al 'Mirador de la Cruz' en el barrio Bellavista, al este de Tena. Es una caminata de unos 20 minutos desde el centro, un poco empinada, pero las vistas panorámicas del río Tena y la selva amazónica al atardecer son impresionantes y rara vez hay turistas."
+            }
+        ],
+        "7_Gastronomia_Alimentos_Supervivencia": [
+            {
+                "pregunta": "¿Qué platos típicos de la gastronomía amazónica de Napo debo probar sí o sí en Tena para una experiencia auténtica?",
+                "respuesta": "En Tena, Napo, no puedes dejar de probar el 'maito de pescado' (pescado envuelto en hoja de bijao y asado), el 'uchumanga' (sopa picante con carne de monte), y la 'chicha de chonta' o 'chicha de yuca' como bebida tradicional. Busca estos platos en el Mercado Central de Tena o en restaurantes locales como 'El Fogón Amazónico' o 'Aromas de la Selva' en el centro de la ciudad."
+            },
+            {
+                "pregunta": "¿Dónde puedo comprar alimentos frescos y provisiones para una expedición de supervivencia en la selva de Napo cerca de Tena?",
+                "respuesta": "Para alimentos frescos y provisiones en Tena, Napo, el mejor lugar es el Mercado Central, ubicado en la Av. 15 de Noviembre y Juan Montalvo. Allí encontrarás frutas, verduras, carnes y productos locales. Para alimentos no perecederos y de supervivencia como enlatados, galletas energéticas o agua embotellada, puedes ir a supermercados como 'Supermaxi' o 'Coral Hipermercados' en la vía a Archidona, a pocos minutos del centro."
+            },
+            {
+                "pregunta": "¿Es seguro beber el agua del grifo en Tena, Napo, o debo llevar purificadores para mi viaje de aventura?",
+                "respuesta": "En Tena, Napo, generalmente no se recomienda beber agua directamente del grifo para evitar problemas estomacales, especialmente si no estás acostumbrado. Es preferible consumir agua embotellada, que puedes comprar en cualquier tienda o supermercado. Para expediciones en la selva, es indispensable llevar un filtro de agua portátil, pastillas potabilizadoras o un sistema de ebullición para garantizar la seguridad del agua de ríos o vertientes."
+            },
+            {
+                "pregunta": "¿Qué opciones de comida vegetariana o vegana son comunes en los restaurantes de Tena, Napo, para turistas con dietas especiales?",
+                "respuesta": "En Tena, Napo, las opciones vegetarianas o veganas pueden ser limitadas en restaurantes tradicionales, pero siempre puedes encontrar platos a base de yuca, plátano verde, arroz y ensaladas. Pregunta por 'maito de palmito' o 'maito de hongos' si están disponibles. Algunos restaurantes más turísticos o cafeterías en el centro de Tena, como 'Café Tortuga' o 'The Jungle Roots', suelen tener opciones más adaptadas o pueden preparar algo a pedido. Siempre es bueno comunicar tus preferencias claramente."
+            },
+            {
+                "pregunta": "¿Cómo puedo evitar enfermedades transmitidas por alimentos al comer en puestos callejeros o mercados en Napo?",
+                "respuesta": "Para evitar enfermedades transmitidas por alimentos en Napo, especialmente en puestos callejeros o mercados de Tena, sigue estas precauciones: elige alimentos recién cocinados y calientes, evita ensaladas o frutas ya peladas que no se hayan lavado con agua segura, y prefiere bebidas embotelladas. Observa la higiene del lugar y de quienes manipulan los alimentos. Siempre lleva desinfectante de manos y úsalo antes de comer."
+            },
+            {
+                "pregunta": "¿Qué tipo de alimentos de alto valor energético debo empacar para una caminata de varios días en la selva de Napo?",
+                "respuesta": "Para una caminata de varios días en la selva de Napo, empaca alimentos de alto valor energético y fáciles de transportar: barras energéticas, frutos secos (maní, pasas, nueces), chocolate, galletas integrales, atún enlatado o en pouch, sopas instantáneas y café soluble. Considera también alimentos liofilizados si tu presupuesto lo permite, ya que son ligeros y nutritivos. Asegúrate de que todo esté bien sellado para protegerlo de la humedad y los insectos."
+            },
+            {
+                "pregunta": "¿Existen tours o experiencias en Napo donde pueda aprender a cocinar platos amazónicos tradicionales en Tena?",
+                "respuesta": "Sí, en Napo existen algunas iniciativas que ofrecen experiencias culinarias. En Tena, puedes preguntar en agencias de turismo locales como 'Suchipakari' o 'Gulliver Expeditions' si tienen convenios con comunidades indígenas o lodges que ofrezcan talleres de cocina amazónica. A menudo, estas experiencias incluyen la preparación de 'maito' o 'chicha' y el uso de ingredientes locales como la yuca, el plátano y hierbas de la selva. Es recomendable reservar con antelación."
+            },
+            {
+                "pregunta": "¿Cuál es el costo promedio de una comida completa en un restaurante local de Tena, Napo, para un turista?",
+                "respuesta": "El costo promedio de una comida completa en un restaurante local de Tena, Napo, puede variar. Un 'almuerzo ejecutivo' o 'menú del día' en un comedor sencillo suele costar entre 3.50 y 6.00 USD, incluyendo sopa, plato fuerte y bebida. En restaurantes con un ambiente más turístico, una cena a la carta con un plato principal puede oscilar entre 8.00 y 15.00 USD por persona, sin incluir bebidas alcohólicas."
+            },
+            {
+                "pregunta": "¿Qué frutas exóticas de la Amazonía de Napo puedo encontrar en los mercados de Tena y cuáles son comestibles?",
+                "respuesta": "En los mercados de Tena, Napo, puedes encontrar una gran variedad de frutas exóticas de la Amazonía. Algunas de las más comunes y comestibles son la 'pitahaya' (amarilla o roja), 'maracuyá' (fruta de la pasión), 'guaba', 'chonta' (fruto de palma), 'copoazú', 'borojó' y 'uvilla amazónica'. No dudes en preguntar a los vendedores sobre cómo se consumen y cuáles están de temporada para probarlas frescas."
+            },
+            {
+                "pregunta": "¿Se puede cazar o pescar para alimentarse durante una expedición de supervivencia en la selva de Napo, Ecuador, y es legal para turistas?",
+                "respuesta": "No, como turista en Napo, Ecuador, no está permitido cazar ni pescar para alimentarse durante una expedición de supervivencia. La caza y pesca de fauna silvestre están reguladas y, en muchos casos, prohibidas para la conservación de la biodiversidad. Las comunidades indígenas tienen derechos ancestrales, pero los turistas deben abstenerse. Siempre se debe llevar provisiones adecuadas y depender de guías autorizados que conocen las regulaciones y las fuentes de alimento sostenibles si fuera necesario en una situación extrema."
+            }
+        ],
+        "8_Accesibilidad_Infraestructura": [
+            {
+                "pregunta": "¿Cómo puedo llegar a Tena, Napo, desde Quito en transporte público y cuánto cuesta el pasaje en 2024?",
+                "respuesta": "Para llegar a Tena, Napo, desde Quito, la opción más común es el bus interprovincial. Varias cooperativas como 'Transportes Baños' o 'Expreso Baños' operan la ruta desde el Terminal Terrestre Quitumbe. El viaje dura aproximadamente 4 a 5 horas y el pasaje cuesta entre 8 y 12 USD, dependiendo de la cooperativa y el tipo de servicio."
+            },
+            {
+                "pregunta": "¿Qué opciones de transporte local hay disponibles en Tena, Napo, para moverse por la ciudad y sus alrededores?",
+                "respuesta": "En Tena, Napo, puedes moverte fácilmente en taxi (carreras cortas dentro de la ciudad suelen costar 1.50 a 2 USD), mototaxi (más económicos para distancias cortas, alrededor de 0.50 a 1 USD) y buses urbanos que cubren las principales rutas. Para excursiones a los alrededores, hay camionetas tipo 'ranchera' o taxis que se pueden contratar por horas o por día."
+            },
+            {
+                "pregunta": "¿Es fácil encontrar alojamiento en Tena, Napo, sin reserva previa durante la temporada alta de turismo amazónico?",
+                "respuesta": "Aunque Tena, Napo, cuenta con una buena oferta de hostales, hoteles y eco-lodges, durante la temporada alta (junio-agosto y feriados nacionales) es recomendable reservar con antelación, especialmente si buscas opciones específicas o de mayor confort. Sin reserva, podrías encontrar disponibilidad, pero con menos opciones y posiblemente precios más altos."
+            },
+            {
+                "pregunta": "¿Qué tan buena es la cobertura de internet y señal de celular en Tena, Napo, para trabajar remotamente o mantenerse conectado?",
+                "respuesta": "En el centro de Tena, Napo, la cobertura de internet y señal de celular es generalmente buena, con operadores como Claro y Movistar ofreciendo 4G. Muchos hoteles y restaurantes tienen Wi-Fi gratuito. Sin embargo, al aventurarse en zonas más rurales o lodges amazónicos alejados, la conectividad puede ser limitada o inexistente."
+            },
+            {
+                "pregunta": "¿Dónde puedo encontrar cajeros automáticos y bancos en Tena, Napo, para retirar dinero o cambiar divisas?",
+                "respuesta": "En Tena, Napo, encontrarás varios cajeros automáticos (ATMs) de bancos importantes como Banco Pichincha, Banco del Pacífico y Produbanco, principalmente en el centro de la ciudad, cerca del Parque Central y en la Av. 15 de Noviembre. También hay sucursales bancarias para transacciones más complejas y casas de cambio para divisas, aunque el dólar estadounidense es la moneda oficial."
+            },
+            {
+                "pregunta": "¿Hay hospitales o clínicas de emergencia disponibles en Tena, Napo, en caso de necesitar atención médica durante mi viaje?",
+                "respuesta": "Sí, Tena, Napo, cuenta con el Hospital General Tena 'José María Velasco Ibarra', que ofrece servicios de emergencia y atención médica general. Además, hay varias clínicas privadas y farmacias distribuidas por la ciudad que pueden atender necesidades médicas básicas o dispensar medicamentos."
+            },
+            {
+                "pregunta": "¿Es fácil encontrar operadores turísticos confiables en Tena, Napo, para organizar excursiones a la selva o actividades de aventura?",
+                "respuesta": "Tena, Napo, es un hub importante para el turismo amazónico, por lo que es muy fácil encontrar operadores turísticos confiables. Muchos tienen oficinas en el centro de la ciudad, especialmente en la Av. 15 de Noviembre y sus alrededores. Se recomienda buscar aquellos con certificaciones y buenas reseñas, como 'Rafting Ecuador' o 'Amazon Jungle Tours'."
+            },
+            {
+                "pregunta": "¿Cuál es el estado de las carreteras desde Tena, Napo, hacia destinos populares como Misahuallí o Archidona en 2024?",
+                "respuesta": "Las carreteras principales desde Tena, Napo, hacia destinos populares como Misahuallí y Archidona están generalmente en buen estado, asfaltadas y bien mantenidas. La vía E45 que conecta Tena con Archidona y Baeza es una arteria principal. Sin embargo, algunas vías secundarias o accesos a comunidades más remotas pueden ser de lastre y requerir vehículos 4x4, especialmente en época de lluvias."
+            },
+            {
+                "pregunta": "¿Hay transporte público frecuente desde Tena, Napo, a atractivos cercanos como las Cavernas de Jumandy o el Parque Amazónico La Isla?",
+                "respuesta": "Sí, desde el Terminal Terrestre de Tena, Napo, puedes tomar buses locales o camionetas tipo 'ranchera' que te llevan a destinos cercanos. Para las Cavernas de Jumandy, hay buses que van hacia Archidona y te dejan en la entrada. Para el Parque Amazónico La Isla, está dentro de la ciudad y es accesible a pie, en taxi o mototaxi desde el centro."
+            },
+            {
+                "pregunta": "¿Qué tan accesible es la infraestructura turística en Tena, Napo, para personas con movilidad reducida o sillas de ruedas?",
+                "respuesta": "La infraestructura en Tena, Napo, aún presenta desafíos para personas con movilidad reducida. Si bien algunos hoteles modernos pueden tener rampas o ascensores, muchas aceras y establecimientos más antiguos no están adaptados. El acceso a la naturaleza amazónica y a ciertas atracciones puede ser particularmente difícil debido a terrenos irregulares y falta de infraestructura especializada."
+            }
+        ],
+        "9_Reglas_Prohibiciones_Tramites": [
+            {
+                "pregunta": "¿Es necesario algún permiso especial o pagar una entrada para visitar las cascadas o reservas naturales cerca de Tena, Napo?",
+                "respuesta": "Sí, para muchas atracciones naturales como la Cascada de Latas o el Parque Nacional Sumaco Napo-Galeras, se requiere el pago de una entrada que varía entre 1 USD y 5 USD por persona para extranjeros, y a veces un registro. Es recomendable consultar con la oficina de turismo municipal de Tena o con operadores locales antes de ir."
+            },
+            {
+                "pregunta": "¿Qué objetos están prohibidos llevar o usar en las áreas protegidas de la Amazonía de Napo, especialmente cerca de Tena?",
+                "respuesta": "Está estrictamente prohibido el ingreso de plásticos de un solo uso (botellas, fundas, etc.), así como la extracción de flora o fauna. También se prohíbe alimentar a los animales silvestres, hacer fogatas fuera de zonas autorizadas y el uso de drones sin autorización previa de la autoridad ambiental (Ministerio del Ambiente, Agua y Transición Ecológica)."
+            },
+            {
+                "pregunta": "¿Cuáles son las reglas de comportamiento o etiqueta cultural al visitar comunidades indígenas Kichwa en los alrededores de Tena, Napo?",
+                "respuesta": "Al visitar comunidades Kichwa en Napo, es fundamental pedir permiso antes de tomar fotografías, especialmente de personas. Se debe vestir de forma respetuosa, evitar el consumo de alcohol o drogas, y seguir las indicaciones de los guías locales. La compra de artesanías directamente apoya su economía."
+            },
+            {
+                "pregunta": "¿Es obligatorio contratar un guía turístico certificado para realizar actividades de aventura como rafting o canyoning en los ríos de Napo cerca de Tena?",
+                "respuesta": "Sí, para actividades de aventura como rafting en el río Jatunyacu o canyoning en cascadas, es mandatorio contratar los servicios de un operador turístico registrado y un guía certificado por el Ministerio de Turismo. Esto garantiza tu seguridad y el cumplimiento de normativas locales."
+            },
+            {
+                "pregunta": "¿Qué vacunas o trámites de salud son recomendables o exigidos para viajar a Tena, Napo, en la Amazonía ecuatoriana?",
+                "respuesta": "Aunque no es estrictamente obligatorio para ingresar a Tena, se recomienda encarecidamente la vacuna contra la fiebre amarilla (al menos 10 días antes del viaje) y tener al día la vacuna contra el tétanos. También es prudente llevar repelente de insectos y consultar a tu médico sobre profilaxis para la malaria si planeas adentrarte en zonas muy remotas."
+            },
+            {
+                "pregunta": "¿Hay alguna prohibición sobre el uso de drones para fotografía o video en los parques nacionales y reservas de Napo, cerca de Tena?",
+                "respuesta": "Sí, el uso de drones en parques nacionales como el Sumaco Napo-Galeras o en otras áreas protegidas de Napo está generalmente prohibido sin un permiso especial emitido por el Ministerio del Ambiente, Agua y Transición Ecológica. El incumplimiento puede acarrear multas y la confiscación del equipo."
+            },
+            {
+                "pregunta": "¿Qué reglas debo seguir para el manejo de residuos y basura al hacer senderismo o visitar áreas naturales en Tena, Napo?",
+                "respuesta": "La regla principal es 'no dejar rastro'. Toda la basura, incluyendo orgánicos como cáscaras de fruta, debe ser empacada y llevada de regreso a Tena para su correcta disposición. No hay botes de basura en los senderos y dejar residuos contamina el ecosistema."
+            },
+            {
+                "pregunta": "¿Se necesita algún permiso o trámite para pescar en los ríos de la provincia de Napo, especialmente en los alrededores de Tena?",
+                "respuesta": "Sí, la pesca deportiva en los ríos de Napo requiere un permiso emitido por el Ministerio de Acuacultura y Pesca o por las autoridades ambientales locales. Existen regulaciones sobre las especies permitidas, tamaños mínimos y temporadas de pesca. La pesca sin permiso es ilegal."
+            },
+            {
+                "pregunta": "¿Está permitido acampar libremente en cualquier lugar de la selva amazónica de Napo cerca de Tena, o hay restricciones?",
+                "respuesta": "No está permitido acampar libremente en cualquier lugar de la selva de Napo. Debes hacerlo en zonas designadas para camping dentro de reservas privadas, lodges o con el permiso explícito de comunidades locales. Encender fogatas está restringido y solo se permite en lugares seguros y autorizados para evitar incendios forestales."
+            },
+            {
+                "pregunta": "¿Existen multas o sanciones por no cumplir las normas ambientales o de comportamiento en los atractivos turísticos de Tena, Napo?",
+                "respuesta": "Sí, el incumplimiento de las normativas ambientales (como dejar basura, extraer flora/fauna) o de comportamiento (como molestar a la fauna, no respetar comunidades) puede resultar en multas significativas impuestas por las autoridades ambientales o municipales de Napo. En casos graves, puede haber acciones legales."
+            }
+        ],
+        "10_Alternativas_Plan_B": [
+            {
+                "pregunta": "¿Qué hacer en Tena, Napo, si llueve mucho y se cancela el rafting o kayak?",
+                "respuesta": "Si las actividades acuáticas se suspenden por lluvia intensa en Tena, Napo, puedes visitar el Centro de Rescate de Fauna Amazónica 'AmaZOOnico' (a 45 minutos en bus hacia Misahuallí, costo de entrada $5), explorar el Parque Amazónico La Isla en el centro de Tena (entrada gratuita), o participar en un tour de chocolate artesanal en fincas cercanas como 'Choco-Kao' (costo aproximado $15-$25 por persona, incluye degustación y proceso)."
+            },
+            {
+                "pregunta": "¿Si mi tour de selva de 3 días en Tena, Napo, está lleno o es muy caro, qué alternativas más cortas y económicas hay?",
+                "respuesta": "Como alternativa a tours largos y costosos en Tena, Napo, considera una visita de un día a la Comunidad Kichwa de Shiripuno (a 30 minutos de Tena, costo de transporte en bus público $1.50, actividades culturales y demostraciones de $10-$20 por persona) o una caminata guiada de medio día por senderos cercanos a la ciudad como el sendero del Río Misahuallí, que ofrecen operadores locales por unos $25-$40."
+            },
+            {
+                "pregunta": "¿Qué opciones tranquilas hay en Tena, Napo, si no quiero hacer senderismo intenso o canyoning?",
+                "respuesta": "Si buscas algo menos extenuante en Tena, Napo, puedes disfrutar de las piscinas naturales del Río Misahuallí (acceso gratuito, a 30 minutos en bus desde Tena, costo $1.50), visitar el Museo Arqueológico y Etnográfico de Tena (entrada $2, ubicado en el centro) o relajarte en el Parque Amazónico La Isla, ideal para un paseo tranquilo y observación de aves."
+            },
+            {
+                "pregunta": "¿Si la cascada Latas en Napo está inaccesible por mal clima o carretera, qué otra cascada cercana puedo visitar desde Tena?",
+                "respuesta": "Si la Cascada Latas en Napo no es accesible, una excelente alternativa desde Tena es la Cascada de San Rafael (aunque la principal caída colapsó, aún hay senderos y miradores interesantes cerca del antiguo sitio, a unas 2 horas en bus hacia Baeza, costo $3-4). Otra opción más cercana es la Cascada de Pimpilala, a 45 minutos de Tena, con un costo de entrada de $3-$5 y un sendero más corto."
+            },
+            {
+                "pregunta": "¿Dónde puedo tener una inmersión cultural rápida en Tena, Napo, si no tengo tiempo para un tour completo de comunidad?",
+                "respuesta": "Para una inmersión cultural rápida en Tena, Napo, visita el Mercado Central de Tena (ubicado en la calle 15 de Noviembre y Juan Montalvo, abierto diariamente desde las 6 AM) para interactuar con locales y probar productos amazónicos. También puedes explorar las tiendas de artesanías Kichwa en el centro, cerca del Parque Central, donde encontrarás productos hechos a mano y podrás conversar con los artesanos."
+            },
+            {
+                "pregunta": "¿Si el restaurante 'La Estancia' en Tena, Napo, está cerrado, qué otros lugares recomiendas para probar comida amazónica auténtica?",
+                "respuesta": "Si 'La Estancia' está cerrado en Tena, Napo, puedes probar 'El Fogón del Oriente' (en la calle 15 de Noviembre, cerca del Parque Central) conocido por su maito de pescado y chontacuro. Otra excelente opción es 'Aromas de la Selva' (en la Av. 15 de Noviembre y Sucre) que ofrece platos típicos en un ambiente agradable. Los precios de un plato principal varían entre $7 y $15."
+            },
+            {
+                "pregunta": "¿Si no consigo cupo para un tour de avistamiento de aves específico en Tena, Napo, qué otras opciones hay para ver fauna?",
+                "respuesta": "Si un tour específico de avistamiento de aves en Tena, Napo, está lleno, una excelente alternativa es el Centro de Rescate de Fauna Amazónica 'AmaZOOnico' (cerca de Misahuallí, a 45 minutos de Tena, entrada $5), donde puedes ver animales rescatados. También puedes visitar el Jardín Botánico de Tena (entrada $2, a 10 minutos del centro en taxi, $3) que atrae diversas especies de aves e insectos."
+            },
+            {
+                "pregunta": "¿Dónde puedo encontrar buen Wi-Fi y un lugar tranquilo para trabajar en Tena, Napo, si el internet de mi hotel falla?",
+                "respuesta": "Si el Wi-Fi de tu hotel en Tena, Napo, no funciona bien, puedes ir a cafeterías como 'Café del Río' (en la Av. 15 de Noviembre, frente al río) que ofrece buena conexión y un ambiente tranquilo. Otra opción es 'La Casa del Café' (en la calle Juan Montalvo y 9 de Octubre), ambos con precios de consumo promedio de $3-$7 por bebida y snack."
+            },
+            {
+                "pregunta": "¿Si el mercado de artesanías principal en Tena, Napo, está cerrado o es muy turístico, dónde puedo comprar recuerdos auténticos?",
+                "respuesta": "Si el mercado principal de artesanías en Tena, Napo, no es de tu agrado, busca pequeñas tiendas gestionadas por comunidades Kichwa en los alrededores del Parque Central o en la calle 15 de Noviembre. También puedes visitar la tienda de la Fundación Runa Tupari (a 10 minutos del centro en taxi, $3), que ofrece productos de comercio justo y apoya a las comunidades locales."
+            },
+            {
+                "pregunta": "¿Qué actividad espontánea y rápida puedo hacer en una tarde libre inesperada en Tena, Napo?",
+                "respuesta": "Para una tarde libre espontánea en Tena, Napo, puedes dar un paseo por el Malecón del Río Tena y Pano, disfrutando de las vistas y el ambiente local. Otra opción es cruzar el puente colgante hacia el Parque Amazónico La Isla (acceso gratuito) para una caminata relajante y observar la flora. O, si tienes un par de horas, toma un bus a Misahuallí (30 minutos, $1.50) para ver los monos en la plaza."
+            }
+        ]
+    }
+}

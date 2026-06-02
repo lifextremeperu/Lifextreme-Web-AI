@@ -1,0 +1,426 @@
+{
+    "destino_id": "F-01",
+    "modulo_contexto": "Hub Logístico Bogotá - Cundinamarca",
+    "fqsas": {
+        "1_Precios_Presupuestos_Moneda": [
+            {
+                "pregunta": "¿Cuál es el presupuesto diario recomendado para un turista que visita Cundinamarca en 2024, incluyendo alojamiento y actividades?",
+                "respuesta": "Para un viaje cómodo en Cundinamarca en 2024, un turista debería presupuestar entre 250.000 y 400.000 COP por día, incluyendo alojamiento en hotel boutique o finca, comidas en restaurantes locales de gama media y una actividad turística como senderismo o visita a un atractivo cultural."
+            },
+            {
+                "pregunta": "¿Cuánto cuesta un tour de aventura 4x4 guiado con equipo de seguridad en Cundinamarca para 2024?",
+                "respuesta": "Un tour de aventura 4x4 guiado en Cundinamarca, incluyendo transporte especializado, guía bilingüe certificado, equipo de seguridad y comunicación satelital, puede costar entre 600.000 COP y 1.500.000 COP por persona por día, dependiendo de la duración y la exclusividad del destino, como el Páramo de Sumapaz o la Laguna de Guatavita."
+            },
+            {
+                "pregunta": "¿Cuál es el precio por día para contratar un guía bilingüe certificado en etnoturismo en Cundinamarca?",
+                "respuesta": "Contratar un guía bilingüe certificado en etnoturismo o aventura en Cundinamarca tiene un costo promedio de 350.000 COP a 600.000 COP por día, dependiendo de su especialización, el idioma y la complejidad de la ruta, como las expediciones a la provincia del Guavio o la región de Ubaté."
+            },
+            {
+                "pregunta": "¿Cuánto vale el transporte especializado 4x4 desde Bogotá a zonas remotas de Cundinamarca, como la región del Tequendama o Gachalá?",
+                "respuesta": "El servicio de transporte especializado 4x4 desde Bogotá a zonas remotas de Cundinamarca, como la región del Tequendama o Gachalá, puede oscilar entre 400.000 COP y 800.000 COP por trayecto, dependiendo de la distancia, el tipo de vehículo y si incluye conductor con experiencia en terrenos difíciles."
+            },
+            {
+                "pregunta": "¿Qué rangos de precios tienen los eco-lodges y alojamientos rurales con encanto en Cundinamarca para una noche?",
+                "respuesta": "Los eco-lodges y alojamientos rurales con encanto en Cundinamarca, como los de Suesca o La Vega, ofrecen precios que van desde 180.000 COP hasta 500.000 COP por noche para dos personas, incluyendo desayuno en muchos casos. Las opciones más lujosas o con servicios de aventura integrados pueden superar este rango."
+            },
+            {
+                "pregunta": "¿Cuánto dinero necesito para comer en restaurantes locales de Cundinamarca por día en 2024?",
+                "respuesta": "Para comer en restaurantes locales de Cundinamarca, un presupuesto diario de 80.000 COP a 150.000 COP por persona es adecuado. Esto cubre un desayuno típico, un almuerzo ejecutivo (corrientazo) y una cena en un lugar de gama media, por ejemplo, en La Calera o Villeta."
+            },
+            {
+                "pregunta": "¿Dónde puedo cambiar dólares o euros a pesos colombianos en Cundinamarca y cuál es la tasa de cambio actual?",
+                "respuesta": "En Cundinamarca, es recomendable cambiar dólares o euros a pesos colombianos en casas de cambio autorizadas en Bogotá antes de salir a los municipios. En pueblos más pequeños, las opciones son limitadas y las tasas menos favorables. La tasa de cambio fluctúa diariamente; consulte casas de cambio como 'Cambios Kapital' o 'Global Exchange' en Bogotá para las tasas más competitivas."
+            },
+            {
+                "pregunta": "¿Es posible alquilar equipos de seguridad y comunicación satelital para senderismo en Cundinamarca y cuánto cuesta?",
+                "respuesta": "Sí, es posible alquilar equipos de seguridad como cascos, arneses y radios de comunicación, así como dispositivos satelitales, a través de operadores turísticos especializados en aventura en Cundinamarca. El costo diario de alquiler puede variar entre 50.000 COP y 150.000 COP por equipo, dependiendo de la complejidad y la duración del alquiler."
+            },
+            {
+                "pregunta": "¿Los tours de aventura en Cundinamarca incluyen seguros o costos adicionales por protocolos de emergencia para turistas?",
+                "respuesta": "Los operadores turísticos certificados en Cundinamarca, especialmente aquellos que ofrecen aventura y etnoturismo, suelen incluir un seguro de asistencia médica y rescate dentro del costo total del tour. Es crucial verificar que el tour contratado incluya estos protocolos de emergencia estandarizados y su cobertura, para evitar costos adicionales en caso de incidentes."
+            },
+            {
+                "pregunta": "¿Cuáles son los precios de entrada a atracciones turísticas populares en Cundinamarca como la Catedral de Sal de Zipaquirá o la Laguna de Guatavita para 2024?",
+                "respuesta": "Para 2024, la entrada general a la Catedral de Sal de Zipaquirá para adultos colombianos es de aproximadamente 60.000 COP, y para extranjeros de 98.000 COP. La entrada a la Laguna de Guatavita (área protegida) para colombianos es de unos 19.000 COP y para extranjeros de 28.500 COP, con tarifas reducidas para niños y adultos mayores."
+            }
+        ],
+        "2_Logistica_Transporte_Como_Llegar": [
+            {
+                "pregunta": "¿Cómo puedo llegar al 'Hub Logístico Bogotá - Cundinamarca' desde el Aeropuerto El Dorado en Bogotá para iniciar mi tour?",
+                "respuesta": "Desde el Aeropuerto El Dorado (BOG), la forma más eficiente es tomar un taxi o servicio de plataforma (Uber, Didi) directamente al hub, ubicado en la Zona Franca de Fontibón, Calle 17 #118-25. El trayecto suele costar entre COP $35.000 y $45.000 y toma aproximadamente 25-40 minutos, dependiendo del tráfico en Cundinamarca."
+            },
+            {
+                "pregunta": "¿Qué tipo de vehículos 4x4 ofrece el 'Hub Logístico Bogotá - Cundinamarca' para expediciones a zonas remotas de Cundinamarca?",
+                "respuesta": "El hub dispone de una flota de camionetas Toyota Land Cruiser Prado y Ford Ranger 4x4, equipadas para terrenos difíciles y con capacidad para 4-6 pasajeros más equipaje. Estos vehículos están certificados para operar en parques naturales y zonas de difícil acceso en Cundinamarca, garantizando la seguridad."
+            },
+            {
+                "pregunta": "¿Es posible contratar un guía bilingüe y transporte especializado desde el 'Hub Logístico Bogotá - Cundinamarca' para visitar el Páramo de Sumapaz en Cundinamarca?",
+                "respuesta": "Sí, el hub ofrece paquetes que incluyen transporte 4x4 con conductor experimentado y guías bilingües (inglés/español) certificados en aventura y etnoturismo, ideales para expediciones como la del Páramo de Sumapaz en Cundinamarca. La reserva debe hacerse con al menos 72 horas de anticipación."
+            },
+            {
+                "pregunta": "¿Cuáles son los protocolos de seguridad para el transporte terrestre que maneja el 'Hub Logístico Bogotá - Cundinamarca' en sus rutas por Cundinamarca?",
+                "respuesta": "Todos los vehículos cuentan con seguimiento GPS en tiempo real, botiquín de primeros auxilios, extintor y equipo de comunicación satelital. Los conductores están capacitados en manejo defensivo y primeros auxilios, y se realizan revisiones técnicas vehiculares cada 3 meses, superando las exigencias de ley para Cundinamarca."
+            },
+            {
+                "pregunta": "¿Cuánto cuesta aproximadamente un traslado privado desde el 'Hub Logístico Bogotá - Cundinamarca' hasta la Laguna de Guatavita en Cundinamarca para un grupo de 4 personas?",
+                "respuesta": "Un traslado privado en una camioneta 4x4 para 4 personas desde el hub hasta la Laguna de Guatavita, incluyendo peajes y combustible, tiene un costo estimado de COP $280.000 a $350.000 por trayecto, dependiendo de la disponibilidad y el tipo de vehículo solicitado en Cundinamarca."
+            },
+            {
+                "pregunta": "¿Cómo se gestiona la comunicación en zonas sin cobertura celular durante los tours de aventura organizados por el 'Hub Logístico Bogotá - Cundinamarca' en Cundinamarca?",
+                "respuesta": "Para garantizar la seguridad, todos los vehículos y guías están equipados con radios satelitales Iridium o dispositivos Garmin InReach, que permiten comunicación bidireccional y envío de mensajes de emergencia incluso en las áreas más remotas de Cundinamarca sin señal celular."
+            },
+            {
+                "pregunta": "¿Con qué antelación debo reservar el transporte y los servicios logísticos del 'Hub Logístico Bogotá - Cundinamarca' para un grupo grande en Cundinamarca durante la temporada alta de diciembre?",
+                "respuesta": "Para grupos grandes (más de 8 personas) y durante la temporada alta (diciembre a enero, Semana Santa y mitad de año), se recomienda reservar los servicios de transporte y logística con al menos 2 a 3 meses de anticipación para asegurar la disponibilidad de vehículos y guías especializados en Cundinamarca."
+            },
+            {
+                "pregunta": "¿Ofrece el 'Hub Logístico Bogotá - Cundinamarca' opciones de transporte adaptado para personas con movilidad reducida para explorar Cundinamarca?",
+                "respuesta": "Actualmente, el hub está implementando una flota limitada de vehículos adaptados con rampas o elevadores para sillas de ruedas. Es crucial consultar la disponibilidad y reservar con al menos un mes de antelación, especificando las necesidades para rutas en Cundinamarca, ya que la disponibilidad es reducida."
+            },
+            {
+                "pregunta": "¿Cuáles son los puntos de recogida y entrega más comunes para los servicios de transporte del 'Hub Logístico Bogotá - Cundinamarca' en Cundinamarca?",
+                "respuesta": "Además del propio hub, los puntos de recogida y entrega más comunes incluyen hoteles en Bogotá (Zona T, Chapinero), el Aeropuerto El Dorado, y destinos turísticos clave en Cundinamarca como Villa de Leyva, Zipaquirá o La Vega, siempre coordinando previamente con el equipo logístico."
+            },
+            {
+                "pregunta": "¿Existe algún servicio de transporte de carga especializada para equipos de aventura que ofrece el 'Hub Logístico Bogotá - Cundinamarca' para rutas en Cundinamarca?",
+                "respuesta": "Sí, el hub cuenta con vehículos de carga ligera y remolques especializados para transportar equipos voluminosos como kayaks, bicicletas de montaña o material de camping, garantizando su seguridad y llegada a los puntos de inicio de las rutas de aventura en Cundinamarca. Este servicio se cotiza aparte."
+            }
+        ],
+        "3_Seguridad_Riesgos_Salud": [
+            {
+                "pregunta": "¿Qué precauciones debo tomar para evitar el mal de altura en destinos de Cundinamarca como Chingaza o Guatavita, y qué síntomas buscar?",
+                "respuesta": "Para evitar el mal de altura en Cundinamarca, especialmente en zonas por encima de 2.500 metros como Chingaza o Guatavita, se recomienda aclimatarse gradualmente, beber mucha agua, evitar el alcohol y comidas pesadas el primer día. Los síntomas incluyen dolor de cabeza, náuseas, mareos y fatiga; si persisten, busque atención médica inmediata en el centro de salud más cercano, como el Hospital de La Calera o el Hospital de Sesquilé."
+            },
+            {
+                "pregunta": "¿Es obligatorio o muy recomendable contratar guías certificados y equipo especializado para senderismo en parques naturales de Cundinamarca como el Parque Nacional Natural Sumapaz?",
+                "respuesta": "Sí, es altamente recomendable y en algunas zonas de Cundinamarca como el Parque Nacional Natural Sumapaz es obligatorio contratar guías certificados por Parques Nacionales Naturales de Colombia. Nuestro hub logístico ofrece guías bilingües especializados y equipos de seguridad como GPS satelital, radios de comunicación y botiquines de primeros auxilios avanzados, esenciales para su seguridad en estas áreas remotas."
+            },
+            {
+                "pregunta": "¿Es seguro beber agua del grifo en municipios turísticos de Cundinamarca como Villa de Leyva o Zipaquirá, y qué recomendaciones hay sobre la comida callejera?",
+                "respuesta": "En la mayoría de los municipios turísticos de Cundinamarca, como Villa de Leyva o Zipaquirá, se recomienda beber agua embotellada para evitar problemas gastrointestinales. Si no hay agua embotellada, hiérvala o use filtros potabilizadores. Respecto a la comida callejera, elija puestos con alta rotación de clientes, buena higiene y alimentos cocinados al momento para minimizar riesgos."
+            },
+            {
+                "pregunta": "¿Cómo funcionan los protocolos de emergencia y la comunicación satelital en rutas de aventura remotas de Cundinamarca con el servicio del hub logístico?",
+                "respuesta": "Nuestro hub logístico en Cundinamarca implementa protocolos de emergencia estandarizados que incluyen comunicación satelital (teléfonos Iridium o Garmin InReach) para cobertura en zonas sin señal celular. En caso de emergencia, se activa un plan de respuesta coordinado con la Defensa Civil, Cruz Roja y autoridades locales, garantizando una evacuación y asistencia rápida."
+            },
+            {
+                "pregunta": "¿Qué tipo de cobertura médica o seguro de viaje se recomienda para explorar Cundinamarca, y cuál es la calidad de los hospitales en zonas rurales?",
+                "respuesta": "Para explorar Cundinamarca, se recomienda encarecidamente un seguro de viaje internacional que cubra emergencias médicas, evacuación y repatriación. Los hospitales en zonas rurales de Cundinamarca suelen tener capacidad limitada; para emergencias mayores, los pacientes son trasladados a Bogotá, donde hay clínicas de alta complejidad como la Fundación Santa Fe de Bogotá o la Clínica del Country."
+            },
+            {
+                "pregunta": "¿Hay zonas específicas o barrios en Cundinamarca que los turistas deberían evitar por seguridad, especialmente en municipios cercanos a Bogotá como Soacha o Facatativá?",
+                "respuesta": "En general, las zonas turísticas de Cundinamarca son seguras. Sin embargo, como en cualquier lugar, se aconseja precaución en áreas menos transitadas o por la noche. En municipios como Soacha o Facatativá, es prudente evitar barrios periféricos o poco iluminados, y siempre estar atento a sus pertenencias, especialmente en terminales de transporte o mercados concurridos."
+            },
+            {
+                "pregunta": "¿Existe riesgo de enfermedades transmitidas por mosquitos como el dengue o el zika en Cundinamarca, y qué medidas preventivas debo tomar?",
+                "respuesta": "El riesgo de enfermedades transmitidas por mosquitos como el dengue o el zika en Cundinamarca es bajo en zonas de alta montaña (por encima de 1.800 msnm), pero puede existir en municipios de clima cálido y templado, como Girardot, Melgar o La Mesa. Se recomienda usar repelente con DEET, ropa de manga larga y pantalones, y dormir bajo mosquiteros si el alojamiento no tiene aire acondicionado o mallas en las ventanas."
+            },
+            {
+                "pregunta": "¿Qué tan seguras son las carreteras en Cundinamarca para el transporte terrestre, especialmente hacia destinos remotos, y qué tipo de vehículos se usan en el hub logístico?",
+                "respuesta": "Las carreteras principales de Cundinamarca están en buen estado, pero las vías secundarias hacia destinos remotos pueden ser sinuosas, estrechas o destapadas, especialmente en temporada de lluvias. Nuestro hub logístico utiliza una red consolidada de transporte 4x4 con conductores experimentados y vehículos en óptimas condiciones, garantizando la seguridad y viabilidad en cualquier tipo de terreno."
+            },
+            {
+                "pregunta": "¿Qué precauciones debo tomar respecto a la fauna silvestre o plantas venenosas al hacer ecoturismo en Cundinamarca, por ejemplo, en el Parque Natural Chicaque?",
+                "respuesta": "Al hacer ecoturismo en Cundinamarca, como en el Parque Natural Chicaque, es fundamental permanecer en los senderos señalizados y no tocar la fauna ni la flora. Aunque los encuentros con animales peligrosos son raros, se pueden encontrar serpientes, arañas o plantas urticantes. Use calzado adecuado, observe desde la distancia y siga siempre las indicaciones de su guía certificado."
+            },
+            {
+                "pregunta": "¿Cuáles son los riesgos climáticos en Cundinamarca, como lluvias intensas o deslizamientos, y cómo afectan la seguridad de los viajes, especialmente en temporada de invierno?",
+                "respuesta": "Cundinamarca puede experimentar lluvias intensas, especialmente entre abril-junio y octubre-diciembre, lo que aumenta el riesgo de deslizamientos de tierra y cierres de vías, particularmente en zonas montañosas. Es crucial consultar los pronósticos del IDEAM antes de viajar y seguir las recomendaciones de las autoridades. Nuestros protocolos de emergencia incluyen monitoreo constante de las condiciones climáticas para ajustar las rutas si es necesario."
+            }
+        ],
+        "4_Clima_Temporadas_Horarios": [
+            {
+                "pregunta": "¿Cuál es la mejor época del año para hacer senderismo y actividades de aventura en Cundinamarca y evitar las lluvias?",
+                "respuesta": "La mejor época para senderismo y aventura en Cundinamarca es durante las temporadas secas, que generalmente van de diciembre a marzo y de julio a agosto. Estos meses ofrecen cielos más despejados y menor probabilidad de lluvias, ideales para explorar páramos y bosques andinos."
+            },
+            {
+                "pregunta": "¿Cómo es el clima promedio en Cundinamarca durante los meses de junio y julio para planificar un viaje?",
+                "respuesta": "Durante junio y julio, Cundinamarca experimenta una de sus temporadas secas, conocida como 'veranillo de San Juan'. El clima suele ser soleado y agradable, con temperaturas diurnas que varían entre 14°C y 22°C en zonas de altiplano, y más cálidas en valles. Es un excelente momento para actividades al aire libre."
+            },
+            {
+                "pregunta": "¿Cuáles son los horarios típicos de operación de los parques naturales o reservas ecológicas en Cundinamarca para turistas?",
+                "respuesta": "La mayoría de los parques naturales y reservas ecológicas en Cundinamarca operan generalmente de 8:00 AM a 5:00 PM. Es crucial verificar los horarios específicos de cada sitio, ya que algunos pueden tener restricciones de acceso o requerir reserva previa, especialmente para grupos guiados."
+            },
+            {
+                "pregunta": "¿Qué tipo de ropa debo empacar para un viaje de aventura en Cundinamarca considerando las variaciones climáticas diarias?",
+                "respuesta": "Para un viaje de aventura en Cundinamarca, se recomienda empacar ropa en capas. Incluya prendas térmicas, un impermeable o chaqueta cortavientos, pantalones cómodos para caminar, botas de trekking resistentes al agua, y un sombrero o gorra. Las mañanas pueden ser frías, los mediodías cálidos y las tardes lluviosas."
+            },
+            {
+                "pregunta": "¿Hay alguna temporada en Cundinamarca donde el acceso a ciertas rutas de 4x4 o etnoturismo se vea afectado por el clima?",
+                "respuesta": "Sí, durante las temporadas de lluvias intensas, que suelen ser de abril a mayo y de septiembre a noviembre, algunas rutas de 4x4 y caminos rurales en Cundinamarca pueden volverse intransitables o muy difíciles debido al barro y deslizamientos. Es vital consultar el estado de las vías con operadores locales antes de planificar."
+            },
+            {
+                "pregunta": "¿Cuál es el horario recomendado para iniciar excursiones de alta montaña o páramo en Cundinamarca para aprovechar el buen tiempo?",
+                "respuesta": "Para excursiones de alta montaña o páramo en Cundinamarca, se recomienda iniciar muy temprano, idealmente entre 6:00 AM y 7:00 AM. Esto permite aprovechar las horas de la mañana, que suelen ser más despejadas y soleadas, y regresar antes de que las nubes o la lluvia de la tarde se presenten."
+            },
+            {
+                "pregunta": "¿El transporte especializado 4x4 en Cundinamarca opera con horarios fijos o se adapta a las condiciones climáticas?",
+                "respuesta": "El transporte especializado 4x4 en Cundinamarca, especialmente el ofrecido por operadores B2B, suele ser flexible y se adapta a las condiciones climáticas y necesidades del grupo. Sin embargo, por seguridad, los guías y conductores pueden ajustar los horarios o rutas si las condiciones meteorológicas se vuelven adversas, priorizando la seguridad."
+            },
+            {
+                "pregunta": "¿Qué meses son considerados temporada baja en Cundinamarca en términos de afluencia turística y clima?",
+                "respuesta": "La temporada baja en Cundinamarca, en cuanto a afluencia turística, suele coincidir con las temporadas de lluvia más intensas, como abril-mayo y septiembre-octubre. Aunque el clima puede ser más impredecible, es una buena opción para quienes buscan tranquilidad y precios potencialmente más bajos, siempre preparados para la lluvia."
+            },
+            {
+                "pregunta": "¿Existen restricciones de horario para visitar comunidades indígenas o realizar actividades de etnoturismo en Cundinamarca?",
+                "respuesta": "Sí, las visitas a comunidades indígenas para actividades de etnoturismo en Cundinamarca suelen tener horarios específicos, a menudo coordinados con los líderes comunitarios. Generalmente, las actividades se realizan durante el día, entre 9:00 AM y 4:00 PM, para respetar sus costumbres y dinámicas diarias. Siempre se requiere coordinación previa."
+            },
+            {
+                "pregunta": "¿Cómo afecta la altitud el clima diario en diferentes zonas de Cundinamarca y qué debo esperar en un día típico?",
+                "respuesta": "El clima en Cundinamarca varía drásticamente con la altitud. En zonas de altiplano (2500m+), como Bogotá, los días son templados (10-20°C) y las noches frías. En zonas más bajas (1000-2000m), como la región del Tequendama, el clima es más cálido (18-28°C). Un día típico puede pasar de soleado a nublado y lluvioso rápidamente, por lo que la preparación es clave."
+            }
+        ],
+        "5_Historia_Cultura_Curiosidades": [
+            {
+                "pregunta": "¿Cuál es la verdadera historia detrás de la leyenda de El Dorado y su conexión con la Laguna de Guatavita en Cundinamarca?",
+                "respuesta": "La leyenda de El Dorado en Cundinamarca se origina en el ritual de investidura del cacique Muisca, quien cubierto de oro en polvo, se sumergía en la Laguna de Guatavita para ofrendar a los dioses, arrojando también piezas de oro y esmeraldas. Este ritual, documentado por cronistas españoles como Juan Rodríguez Freyle en 'El Carnero', atrajo a conquistadores como Gonzalo Jiménez de Quesada en el siglo XVI, quienes intentaron drenar la laguna en varias ocasiones, como la fallida expedición de Antonio de Sepúlveda en 1580, buscando el tesoro sumergido."
+            },
+            {
+                "pregunta": "¿Qué curiosidades históricas o culturales hacen única a la Catedral de Sal de Zipaquirá en Cundinamarca, aparte de ser subterránea?",
+                "respuesta": "La Catedral de Sal de Zipaquirá en Cundinamarca es única no solo por ser subterránea, sino por ser la única iglesia católica en el mundo construida dentro de una mina de sal activa, a 180 metros bajo tierra. Su construcción moderna, inaugurada en 1995, reemplazó una anterior de 1954. Una curiosidad es que sus 14 estaciones del Vía Crucis están talladas directamente en la roca de sal, y el altar mayor cuenta con una cruz de 16 metros de altura, también esculpida en sal, simbolizando la fe de los mineros."
+            },
+            {
+                "pregunta": "¿Qué pueblos coloniales con gran valor histórico y cultural puedo visitar cerca de Bogotá en Cundinamarca y qué los hace especiales?",
+                "respuesta": "En Cundinamarca, el pueblo colonial de Guaduas es un excelente ejemplo, declarado Patrimonio Histórico y Cultural de la Humanidad. Es famoso por ser la cuna de Policarpa Salavarrieta, 'La Pola', heroína de la independencia. Puedes visitar su casa museo y el Convento de la Soledad. Otro destino cercano es La Calera, con su iglesia colonial y paisajes que evocan la época de la Colonia, aunque no es 'Pueblo Patrimonio' oficial, ofrece una rica historia local y vistas panorámicas de la sabana."
+            },
+            {
+                "pregunta": "¿Cuáles son los platos típicos más representativos de la cultura gastronómica de Cundinamarca y dónde puedo probarlos auténticamente?",
+                "respuesta": "La gastronomía de Cundinamarca es rica y variada. No puedes dejar de probar el Ajiaco Santafereño, una sopa espesa con tres tipos de papa, pollo, mazorca y guascas, servida con alcaparras y crema de leche. Otro plato icónico es la Fritanga, una mezcla de carnes, papa criolla, yuca y embutidos. Para probarlos auténticamente, te recomiendo visitar restaurantes tradicionales en La Candelaria en Bogotá (considerado el centro cultural y gastronómico de la región histórica de Cundinamarca) o en mercados locales en pueblos como Chía o Cajicá, donde encontrarás 'piquetes' o restaurantes familiares que conservan las recetas ancestrales."
+            },
+            {
+                "pregunta": "¿Qué festividades culturales o religiosas importantes se celebran anualmente en Cundinamarca y cuál es su origen histórico?",
+                "respuesta": "En Cundinamarca, una festividad destacada es el Festival de la Luna y la Sal en Zipaquirá, que celebra la herencia Muisca y la importancia de la sal en la región, generalmente en octubre. También es relevante la Semana Santa en Guaduas, que conserva procesiones y ritos coloniales. El Festival del Sol y la Luna en Chía, que se realiza en junio, es otra celebración de origen Muisca que honra al sol (Sué) y la luna (Chía), con danzas, música y rituales ancestrales."
+            },
+            {
+                "pregunta": "¿Qué tipo de artesanías tradicionales son características de la cultura de Cundinamarca y dónde puedo comprarlas directamente a los artesanos?",
+                "respuesta": "Las artesanías de Cundinamarca reflejan su rica historia y recursos naturales. Destacan las piezas elaboradas en arcilla (con influencia de Ráquira, Boyacá), la cestería de Fúquene y Ubaté, y los trabajos en madera y fique. Para comprar directamente a los artesanos, te sugiero visitar los mercados de artesanías en Zipaquirá, especialmente los fines de semana cerca de la Catedral de Sal, o en el centro de Bogotá en el Pasaje Rivas, que aunque en la capital, agrupa productores de la región."
+            },
+            {
+                "pregunta": "¿Existen sitios arqueológicos Muiscas importantes en Cundinamarca que se puedan visitar para entender mejor su historia prehispánica?",
+                "respuesta": "Sí, en Cundinamarca puedes visitar el Parque Arqueológico de Facatativá, conocido como 'Piedras del Tunjo', donde se encuentran pictogramas y petroglifos Muiscas que datan de hace miles de años, ofreciendo una ventana a su cosmovisión y arte rupestre. Otro lugar de interés es el Museo Arqueológico de Pasca, que alberga una colección significativa de piezas Muiscas, incluyendo una réplica de la famosa 'Balsa Muisca' (el original está en el Museo del Oro en Bogotá), que representa la ceremonia de El Dorado."
+            },
+            {
+                "pregunta": "¿Qué personajes históricos clave de la independencia de Colombia tienen una fuerte conexión con Cundinamarca y dónde puedo aprender más sobre ellos?",
+                "respuesta": "Cundinamarca es cuna de figuras cruciales para la independencia. Policarpa Salavarrieta, 'La Pola', nació en Guaduas, donde su casa es ahora un museo que narra su vida y sacrificio. Antonio Nariño, precursor de la independencia, aunque nacido en Bogotá, tuvo gran influencia en la región; sus ideas se difundieron por Cundinamarca. Puedes aprender más en los museos históricos de Guaduas y en el Museo Nacional de Colombia en Bogotá, que dedica secciones a estos héroes y sus aportes a la nación."
+            },
+            {
+                "pregunta": "¿Hay alguna curiosidad arquitectónica o un estilo particular que defina la historia de las construcciones coloniales en Cundinamarca?",
+                "respuesta": "La arquitectura colonial en Cundinamarca se caracteriza por el uso de materiales locales como la tapia pisada, el adobe y la teja de barro, con influencias andaluzas y mudéjares. Una curiosidad es la presencia de balcones voladizos de madera y patios interiores con fuentes, diseñados para la vida social y el clima. En pueblos como Guaduas, se pueden observar casas con portones macizos y ventanas enrejadas que datan de los siglos XVII y XVIII, reflejando la jerarquía social y las técnicas constructivas de la época."
+            },
+            {
+                "pregunta": "¿Cuáles son las leyendas o mitos locales más populares de Cundinamarca que reflejan su cultura y creencias ancestrales?",
+                "respuesta": "Además de El Dorado, Cundinamarca está llena de leyendas. Una muy conocida es la del 'Mohán', un ser mítico que habita en ríos y lagunas, a menudo descrito como un hombre peludo con ojos grandes, que encanta a las lavanderas y pescadores. Otra es la 'Patasola', una mujer hermosa que se transforma en un ser monstruoso para castigar a los hombres infieles en los bosques. Estas leyendas, transmitidas oralmente, reflejan el respeto por la naturaleza y las creencias morales de las comunidades rurales de Cundinamarca."
+            }
+        ],
+        "6_Tips_Locales_Secretos": [
+            {
+                "pregunta": "¿Cuál es la cascada secreta en Cundinamarca que solo los locales conocen y cómo llegar sin guía?",
+                "respuesta": "La Cascada 'El Salto del Duende' cerca de La Calera es un secreto local en Cundinamarca. Para llegar, toma la vía a La Calera, luego el desvío a la vereda El Hato. Necesitarás un 4x4 y preguntar a los lugareños por el sendero no señalizado que inicia a 1 km del puente sobre el río Teusacá. No hay señalización oficial, por eso es un secreto bien guardado."
+            },
+            {
+                "pregunta": "¿Cuál es el mejor mes para visitar los Páramos de Cundinamarca y evitar las multitudes de turistas?",
+                "respuesta": "Para una experiencia más íntima en los Páramos de Cundinamarca, como el de Chingaza, el mejor mes es febrero o principios de marzo. Evitas las lluvias fuertes de fin de año y las vacaciones escolares, encontrando senderos más despejados y menos afluencia de visitantes, lo que permite una conexión más profunda con la naturaleza."
+            },
+            {
+                "pregunta": "¿Dónde puedo probar la auténtica gastronomía cundinamarquesa fuera de los circuitos turísticos en Cundinamarca?",
+                "respuesta": "Busca 'Las Delicias de Doña Rosa' en el mercado campesino de Zipacón, Cundinamarca, abierto solo los domingos de 8 AM a 2 PM. Su gallina criolla y la chicha de maíz son legendarias entre los locales y no aparecen en ninguna guía turística convencional, ofreciendo un sabor genuino de la región."
+            },
+            {
+                "pregunta": "¿Existe alguna forma económica y segura de moverse por las zonas rurales más remotas de Cundinamarca sin un tour organizado?",
+                "respuesta": "Sí, en Cundinamarca puedes usar los 'jeeps de escalera' que salen de los terminales pequeños en municipios como La Vega o Villeta. Son vehículos 4x4 que transportan locales y mercancía. Pregunta por 'Don Pedro' en La Vega, su jeep sale a las 6 AM hacia la vereda El Chical y cobra unos COP 15.000. Es una experiencia auténtica y segura si vas con locales."
+            },
+            {
+                "pregunta": "¿Cómo puedo interactuar respetuosamente con las comunidades indígenas de Cundinamarca si quiero hacer etnoturismo?",
+                "respuesta": "Para el etnoturismo en Cundinamarca, el secreto es contactar a la Asociación de Cabildos Indígenas Muiscas de Cundinamarca (ACIM). Ellos facilitan visitas guiadas por miembros de la comunidad, asegurando que tu presencia sea bienvenida y respetuosa, y que los beneficios lleguen directamente a ellos. Evita ir por tu cuenta a sus territorios sin invitación previa."
+            },
+            {
+                "pregunta": "¿Cuál es el punto de vista más impresionante y menos conocido para fotos panorámicas en Cundinamarca?",
+                "respuesta": "El 'Mirador de la Cruz' en el municipio de Guatavita, Cundinamarca, ofrece vistas espectaculares del embalse y las montañas circundantes, mucho menos concurrido que el mirador principal. Para llegar, toma la vía antigua a Sesquilé y busca un pequeño desvío de tierra a la derecha, justo antes de la entrada al pueblo nuevo."
+            },
+            {
+                "pregunta": "¿Qué equipo de comunicación satelital recomiendan los guías locales para rutas de aventura extremas en Cundinamarca?",
+                "respuesta": "Los guías experimentados en Cundinamarca recomiendan el 'Garmin InReach Mini 2' para rutas extremas. Permite comunicación bidireccional y SOS satelital, crucial en zonas sin cobertura celular como el Parque Nacional Natural Sumapaz. Asegúrate de tener un plan de suscripción activo antes de partir para garantizar tu seguridad."
+            },
+            {
+                "pregunta": "¿Hay algún horario o día específico para visitar la Laguna de Guatavita en Cundinamarca y evitar las aglomeraciones?",
+                "respuesta": "Para una visita más tranquila a la Laguna de Guatavita en Cundinamarca, el secreto es ir un martes o miércoles a primera hora de la mañana, justo cuando abren (9:00 AM). Evitarás los grupos grandes de fin de semana y tendrás una experiencia más mística y personal con este sitio sagrado."
+            },
+            {
+                "pregunta": "¿Dónde puedo encontrar artesanías auténticas y no turísticas directamente de los productores en Cundinamarca?",
+                "respuesta": "En Cundinamarca, el 'Mercado de las Pulgas de Usaquén' en Bogotá (punto de acceso clave para la región) tiene una sección de artesanos locales los domingos. Busca los puestos de la 'Fundación Artesanías de Colombia' que promueven directamente a los artesanos de la región, ofreciendo piezas únicas de cerámica de La Chamba o cestería de Guaduas, lejos de los souvenirs genéricos."
+            },
+            {
+                "pregunta": "¿Qué protocolo de emergencia específico debo conocer si me aventuro en zonas remotas de Cundinamarca con un guía local?",
+                "respuesta": "Si te aventuras en zonas remotas de Cundinamarca con un guía local, el protocolo secreto es siempre llevar una copia física y digital de tu póliza de seguro de viaje con cobertura de rescate. Además, tu guía debe tener un 'plan de evacuación preestablecido' con puntos de encuentro y contactos de emergencia locales, no solo los números generales. Pregunta por este plan antes de iniciar la ruta."
+            }
+        ],
+        "7_Gastronomia_Alimentos_Supervivencia": [
+            {
+                "pregunta": "¿Qué tipo de alimentos no perecederos o de supervivencia recomiendan empacar para una expedición de varios días en zonas remotas de Cundinamarca?",
+                "respuesta": "Para expediciones en Cundinamarca, es crucial llevar alimentos de alto valor energético y bajo peso. Recomendamos barras energéticas, frutos secos como maní y uvas pasas, chocolate oscuro, atún enlatado o pouch, sopas deshidratadas, y galletas saladas. En Bogotá, puedes encontrar estos productos en grandes superficies como Éxito o Carulla, o tiendas especializadas en aventura como 'Aventura Colombia' en la Calle 72 con Carrera 11."
+            },
+            {
+                "pregunta": "¿Dónde puedo comprar raciones de emergencia o kits de supervivencia alimentaria específicos para el clima de Cundinamarca antes de una aventura?",
+                "respuesta": "En Bogotá, principal hub logístico para Cundinamarca, puedes adquirir raciones de emergencia en tiendas militares o de artículos para camping y aventura. 'Decathlon' en el Centro Comercial Santafé o 'Outdoor Adventure' en la Calle 109 con Carrera 15 ofrecen opciones. Busca kits con alimentos liofilizados y tabletas potabilizadoras de agua, ideales para la humedad y altitud de Cundinamarca."
+            },
+            {
+                "pregunta": "¿Hay alguna fruta silvestre o planta comestible segura que se pueda encontrar en los páramos de Cundinamarca en una situación de supervivencia, y cómo identificarla?",
+                "respuesta": "En los páramos de Cundinamarca, la identificación de plantas comestibles seguras sin conocimiento experto es extremadamente riesgosa. Sin embargo, algunas bayas como el 'mortiño' (Vaccinium meridionale) son comestibles. SIEMPRE se debe ir acompañado de un guía etnobotánico certificado para identificar cualquier planta silvestre. Nunca consuma algo si no está 100% seguro de su identificación."
+            },
+            {
+                "pregunta": "¿Cómo puedo asegurar el acceso a agua potable en rutas de senderismo extensas por Cundinamarca si mis reservas se agotan?",
+                "respuesta": "Para asegurar agua potable en rutas extensas en Cundinamarca, es indispensable llevar un filtro de agua portátil (tipo Sawyer Mini o Lifestraw) o tabletas potabilizadoras (como Aquatabs). Los ríos y quebradas de montaña pueden parecer limpios, pero el riesgo de contaminación bacteriana es alto. Nuestros guías certificados siempre llevan estos equipos y conocen los puntos seguros para reabastecerse y tratar el agua."
+            },
+            {
+                "pregunta": "¿Qué platos tradicionales de Cundinamarca son altamente nutritivos y pueden sostener a un aventurero durante largas jornadas de actividad física?",
+                "respuesta": "Platos como el 'Ajiaco Santafereño' (con pollo, tres tipos de papa, mazorca y guascas) es muy nutritivo y calórico. Otro es el 'Cocido Boyacense' (con carnes, tubérculos y verduras). Aunque no son prácticos para llevar en una mochila, son excelentes para recargar energías antes o después de una jornada. Para llevar, el 'envuelto de mazorca' o 'tamal' son opciones más portátiles y energéticas."
+            },
+            {
+                "pregunta": "¿Es posible encontrar tiendas o mercados locales en pueblos pequeños de Cundinamarca para reabastecerse de alimentos básicos durante una travesía?",
+                "respuesta": "Sí, en la mayoría de los pueblos pequeños de Cundinamarca, incluso los más remotos, encontrarás 'tiendas de barrio' o 'plazas de mercado' donde puedes comprar pan, huevos, quesos, frutas, verduras, y productos enlatados. Sin embargo, la variedad es limitada y los horarios pueden ser irregulares. Siempre planifica tus provisiones principales desde Bogotá o un centro urbano mayor."
+            },
+            {
+                "pregunta": "¿Qué precauciones debo tomar con la comida y el agua para evitar problemas gastrointestinales durante una expedición en Cundinamarca?",
+                "respuesta": "Para evitar problemas gastrointestinales en Cundinamarca, siempre consume agua embotellada o tratada con filtros/pastillas. Evita alimentos crudos o mal cocidos de puestos callejeros si no estás seguro de su higiene. Lava bien las frutas y verduras. Lleva contigo un kit básico de medicamentos para diarrea y deshidratación oral. La higiene de manos es fundamental, especialmente antes de comer."
+            },
+            {
+                "pregunta": "¿Qué opciones de comida caliente de fácil preparación existen para campamentos en las montañas de Cundinamarca?",
+                "respuesta": "Para campamentos en las montañas de Cundinamarca, las opciones de comida caliente de fácil preparación incluyen sopas instantáneas o deshidratadas, pasta con salsas enlatadas, arroz precocido, y avena instantánea para el desayuno. Las estufillas portátiles de gas o alcohol son esenciales. Algunos guías experimentados también preparan 'arepas' o 'calentados' con ingredientes locales."
+            },
+            {
+                "pregunta": "¿Cómo puedo almacenar alimentos de forma segura para evitar la atracción de fauna silvestre en campamentos de Cundinamarca?",
+                "respuesta": "Para almacenar alimentos de forma segura y evitar la fauna silvestre en Cundinamarca, utiliza bolsas herméticas y contenedores a prueba de olores. Cuelga la comida en un 'bear bag' (bolsa para osos) a una altura de al menos 3 metros del suelo y a 1.5 metros de distancia del tronco de un árbol, lejos de tu tienda de campaña. Nunca dejes restos de comida al aire libre."
+            },
+            {
+                "pregunta": "¿Hay alguna bebida tradicional de Cundinamarca que sea energizante y segura para consumir durante largas caminatas?",
+                "respuesta": "Sí, la 'chicha' (bebida fermentada de maíz) es una bebida tradicional y energizante, pero su preparación casera puede ser de higiene dudosa. Una opción más segura y ampliamente disponible es el 'agua de panela' (bebida de caña de azúcar) con limón, que es un excelente rehidratante y fuente de energía. Muchos lugareños la consumen durante sus jornadas de trabajo en el campo."
+            }
+        ],
+        "8_Accesibilidad_Infraestructura": [
+            {
+                "pregunta": "¿Qué tan confiable es la red de transporte 4x4 para operaciones de turismo de aventura en zonas remotas de Cundinamarca?",
+                "respuesta": "La red de transporte 4x4 para operaciones B2B en Cundinamarca es altamente confiable, gestionada por operadores certificados como 'Aventura Extrema Cundinamarca' y 'Rutas Andinas 4x4'. Los vehículos se someten a revisiones mensuales y están equipados con GPS, winches y equipo de recuperación, asegurando el acceso incluso a rutas desafiantes como la 'Ruta del Cóndor' en Guasca o la 'Quebrada Las Delicias' en Choachí, especialmente durante la temporada de lluvias de abril a junio y de octubre a noviembre."
+            },
+            {
+                "pregunta": "¿Qué tipo de equipo de comunicación se proporciona para la seguridad en tours especializados en las zonas menos accesibles de Cundinamarca?",
+                "respuesta": "Para tours especializados en las zonas menos accesibles de Cundinamarca, nuestros socios B2B proporcionan dispositivos de comunicación satelital (Garmin InReach o Spot Gen4) para cada expedición, junto con radios VHF/UHF para comunicación de corto alcance. Esto asegura contacto constante incluso en áreas sin cobertura celular, como los páramos de Chingaza o Sumapaz."
+            },
+            {
+                "pregunta": "¿Hay guías bilingües certificados disponibles para experiencias de etnoturismo que requieran infraestructura especializada en Cundinamarca?",
+                "respuesta": "Sí, nuestra red incluye más de 50 guías bilingües certificados (inglés-español, algunos con francés o alemán) especializados en aventura y etnoturismo en Cundinamarca. Están capacitados en primeros auxilios (certificación WFR) e interpretación cultural, crucial para áreas sensibles como las comunidades Muiscas en Sesquilé o los resguardos indígenas en Fúquene."
+            },
+            {
+                "pregunta": "¿Cuáles son los protocolos de emergencia y procedimientos de evacuación para incidentes durante operaciones de aventura en Cundinamarca?",
+                "respuesta": "Nuestros protocolos de emergencia estandarizados para Cundinamarca incluyen comunicación satelital inmediata con nuestro centro de operaciones en Bogotá, coordinación con Defensa Civil y Cruz Roja Colombiana, y planes de evacuación terrestre o aérea (helicóptero medicalizado si es necesario) en menos de 4 horas para la mayoría de los puntos críticos, como la 'Laguna de Guatavita' o el 'Parque Nacional Natural Chingaza'."
+            },
+            {
+                "pregunta": "¿Cómo se mantiene la infraestructura vial para acceder a destinos de ecoturismo en Cundinamarca, especialmente en temporadas de lluvia?",
+                "respuesta": "La infraestructura vial para destinos de ecoturismo en Cundinamarca, particularmente las vías secundarias y terciarias sin pavimentar, se monitorea regularmente. Durante las temporadas de lluvia (abril-junio y octubre-noviembre), nuestros operadores B2B realizan reconocimientos diarios. Rutas como la vía a 'La Chorrera' en Choachí o el acceso a 'Suesca' para escalada pueden requerir vehículos 4x4 obligatoriamente, y se informa a los operadores con 24 horas de antelación sobre posibles cierres o desvíos."
+            },
+            {
+                "pregunta": "¿Qué tipo de equipo de seguridad es obligatorio para los participantes en actividades de trekking o escalada de alta montaña en Cundinamarca?",
+                "respuesta": "Para actividades de trekking o escalada de alta montaña en Cundinamarca, el equipo de seguridad obligatorio incluye cascos certificados (UIAA/CE), arneses, cuerdas (dinámicas y estáticas), ascensores, descensores, mosquetones y botiquines personales de primeros auxilios. Todo el equipo es inspeccionado antes de cada viaje y proporcionado por nuestros socios B2B, cumpliendo con estándares internacionales para ascensos en 'Roca de Suesca' o 'Páramo de Sumapaz'."
+            },
+            {
+                "pregunta": "¿Puede la red de transporte especializado en Cundinamarca manejar grupos grandes para eventos B2B que requieran múltiples vehículos 4x4?",
+                "respuesta": "Sí, nuestra red de transporte especializado en Cundinamarca está diseñada para manejar grupos B2B grandes. Podemos desplegar flotas de hasta 15 vehículos 4x4 simultáneamente, coordinando la logística para grupos de más de 60 participantes, asegurando un movimiento eficiente entre múltiples sitios como 'Zipaquirá' y el 'Parque Jaime Duque'."
+            },
+            {
+                "pregunta": "¿Cuáles son los costos típicos asociados con la contratación de transporte 4x4 especializado para una operación B2B de día completo en Cundinamarca?",
+                "respuesta": "El costo típico de contratar transporte 4x4 especializado para una operación B2B de día completo en Cundinamarca, incluyendo conductor y combustible por hasta 8 horas, oscila entre COP $600.000 y COP $950.000 (aproximadamente USD $150-240, dependiendo del tipo de vehículo y la ruta). Esta tarifa aplica para rutas como 'Bogotá-La Vega-Villeta' o 'Bogotá-Guatavita-Sesquilé'."
+            },
+            {
+                "pregunta": "¿Existe cobertura de internet y celular confiable en las áreas remotas de Cundinamarca donde se realiza el turismo de aventura?",
+                "respuesta": "La cobertura de internet y celular confiable es generalmente limitada en las áreas verdaderamente remotas de Cundinamarca donde se realiza el turismo de aventura, como en lo profundo del 'Parque Nacional Natural Chingaza' o el 'Páramo de Sumapaz'. Nuestras operaciones B2B mitigan esto con dispositivos de comunicación satelital y mapas offline precargados, asegurando la continuidad operacional y la seguridad. En zonas menos remotas como 'Suesca' o 'La Calera', la cobertura 4G de Claro o Tigo es intermitente."
+            },
+            {
+                "pregunta": "¿Qué tipo de infraestructura de apoyo logístico está disponible para establecer campamentos temporales o sitios de eventos en los parques naturales de Cundinamarca?",
+                "respuesta": "Para establecer campamentos temporales o sitios de eventos en los parques naturales de Cundinamarca, nuestro hub B2B proporciona un apoyo logístico integral. Esto incluye unidades sanitarias portátiles, servicios de catering (con chefs de campo), generadores eléctricos silenciosos, carpas de expedición de alta resistencia y equipos de iluminación. Los permisos con Parques Nacionales Naturales de Colombia o CAR Cundinamarca son gestionados con 30 días de antelación para sitios como 'Parque Chicaque' o 'Laguna de Pedro Palo'."
+            }
+        ],
+        "9_Reglas_Prohibiciones_Tramites": [
+            {
+                "pregunta": "¿Se necesita algún permiso especial para hacer senderismo en el Parque Natural Chingaza en Cundinamarca?",
+                "respuesta": "Sí, para ingresar al Parque Nacional Natural Chingaza en Cundinamarca es obligatorio reservar y obtener un permiso previo a través de Parques Nacionales Naturales de Colombia. El trámite se hace en línea o en sus oficinas en Bogotá, con al menos 72 horas de anticipación, y tiene un costo aproximado de 20.000 COP para nacionales y 50.000 COP para extranjeros por día."
+            },
+            {
+                "pregunta": "¿Es obligatorio contratar un guía certificado para explorar las cuevas de La Vaca en Suesca, Cundinamarca?",
+                "respuesta": "Sí, por seguridad y conservación, es estrictamente obligatorio ir acompañado de un guía certificado por el Ministerio de Comercio, Industria y Turismo para actividades de espeleología en las cuevas de La Vaca en Suesca, Cundinamarca. Las empresas de turismo de aventura locales como 'Aventura Cundinamarca' ofrecen guías desde 80.000 COP por persona."
+            },
+            {
+                "pregunta": "¿Qué objetos están prohibidos llevar al visitar territorios indígenas o reservas naturales en Cundinamarca?",
+                "respuesta": "Está estrictamente prohibido introducir plásticos de un solo uso, bebidas alcohólicas, armas de fuego, drones sin permiso especial, y cualquier tipo de estupefacientes en territorios indígenas como la comunidad Muisca de Sesquilé o reservas naturales en Cundinamarca. El incumplimiento puede acarrear multas y expulsión."
+            },
+            {
+                "pregunta": "¿Hay restricciones para usar drones o cámaras profesionales en sitios arqueológicos como Piedras del Tunjo en Facatativá, Cundinamarca?",
+                "respuesta": "Sí, el uso de drones está generalmente prohibido en sitios arqueológicos y parques naturales de Cundinamarca sin un permiso especial del Instituto Colombiano de Antropología e Historia (ICANH) o Parques Nacionales. Para fotografía profesional, se requiere una autorización previa que puede tener un costo adicional y un proceso de solicitud de hasta 15 días hábiles."
+            },
+            {
+                "pregunta": "¿Cuáles son las reglas de manejo de residuos para turistas en zonas de ecoturismo como la Laguna de Guatavita en Cundinamarca?",
+                "respuesta": "En la Laguna de Guatavita y otras zonas de ecoturismo en Cundinamarca, rige la política de 'No Deje Rastro'. Es obligatorio llevarse toda la basura generada, incluyendo residuos orgánicos. Está prohibido arrojar cualquier tipo de desecho, fumar, o encender fogatas. Se recomienda usar envases reutilizables."
+            },
+            {
+                "pregunta": "¿Qué protocolos de seguridad son obligatorios para hacer canyoning o rafting en el Río Negro en Cundinamarca?",
+                "respuesta": "Para canyoning o rafting en el Río Negro, Cundinamarca, es obligatorio el uso de equipo de seguridad certificado (casco, chaleco salvavidas, arnés), seguir las instrucciones del guía profesional en todo momento, y firmar un descargo de responsabilidad. Las empresas deben cumplir con la NTS-TS 003 de turismo de aventura. No se permite participar bajo influencia de alcohol o drogas."
+            },
+            {
+                "pregunta": "¿Qué normas de comportamiento o trámites debo seguir al visitar comunidades indígenas en Cundinamarca, como la Muisca en Chía?",
+                "respuesta": "Al visitar comunidades indígenas en Cundinamarca, como la Muisca en Chía, es fundamental respetar sus costumbres, pedir permiso antes de tomar fotografías a personas, no ingresar sin invitación a sus viviendas, y abstenerse de ofrecer dinero o regalos sin un contexto cultural apropiado. Se recomienda coordinar la visita a través de operadores turísticos especializados que tengan acuerdos con las comunidades."
+            },
+            {
+                "pregunta": "¿Está permitido acampar o hacer fogatas libremente en áreas naturales como el Páramo de Sumapaz en Cundinamarca?",
+                "respuesta": "No, acampar y hacer fogatas libremente está estrictamente prohibido en el Páramo de Sumapaz y la mayoría de las áreas naturales protegidas de Cundinamarca debido al riesgo de incendios y el impacto ambiental. Solo se permite acampar en zonas designadas con permiso previo de Parques Nacionales o autoridades locales, y las fogatas están generalmente vetadas."
+            },
+            {
+                "pregunta": "¿Existen restricciones o trámites para el acceso de vehículos 4x4 a rutas de alta montaña en Cundinamarca, como la vía a la Laguna de Pedro Palo?",
+                "respuesta": "Sí, algunas rutas de alta montaña en Cundinamarca, como la vía a la Laguna de Pedro Palo, pueden tener restricciones de acceso vehicular por conservación o seguridad, especialmente en épocas de lluvia. A menudo se requiere un permiso de la autoridad ambiental local (CAR Cundinamarca) o de propietarios privados. Se recomienda consultar con operadores turísticos especializados en 4x4 para conocer los trámites vigentes."
+            },
+            {
+                "pregunta": "¿Es necesario reservar con antelación para visitar la Catedral de Sal de Zipaquirá en Cundinamarca, y cómo se hace el trámite?",
+                "respuesta": "Aunque no es estrictamente obligatorio, se recomienda encarecidamente reservar la entrada a la Catedral de Sal de Zipaquirá en Cundinamarca con antelación, especialmente en temporada alta o fines de semana, para evitar largas filas. El trámite se puede realizar en línea a través de su sitio web oficial 'CatedralDeSal.com.co' o mediante agencias de viajes autorizadas. El costo de la entrada general para extranjeros es de aproximadamente 60.000 COP."
+            }
+        ],
+        "10_Alternativas_Plan_B": [
+            {
+                "pregunta": "¿Si llueve mucho en Cundinamarca y no puedo hacer senderismo en el Parque Chicaque, qué plan B de actividad cubierta puedo hacer cerca de Bogotá?",
+                "respuesta": "Una excelente alternativa es visitar el Museo del Oro en Bogotá, que está a solo 45 minutos en coche desde el sur de Cundinamarca. Otra opción es el Centro Comercial Fontanar en Chía, con cine y tiendas, o el Parque Jaime Duque en Tocancipá, que tiene varias atracciones bajo techo como el Museo del Hombre en el Universo y el Taj Mahal a escala. El costo de entrada al Jaime Duque es de aproximadamente $54.000 COP por persona."
+            },
+            {
+                "pregunta": "¿Qué alternativas hay si la Catedral de Sal de Zipaquirá en Cundinamarca está demasiado llena o no consigo entradas para mi horario preferido?",
+                "respuesta": "Si la Catedral de Sal está saturada, considere visitar la Mina de Sal de Nemocón, a solo 30 minutos de Zipaquirá. Ofrece una experiencia minera más auténtica con espejos de agua salada y un corazón de sal. La entrada cuesta aproximadamente $38.000 COP para adultos. Otra opción es explorar el centro histórico de Zipaquirá, con su Plaza de los Comuneros y la Iglesia Parroquial, sin costo alguno."
+            },
+            {
+                "pregunta": "¿Si la carretera a La Chorrera en Choachí, Cundinamarca, está cerrada por mantenimiento o mal tiempo, qué otra cascada o atractivo natural similar puedo visitar?",
+                "respuesta": "En caso de cierre de La Chorrera, puede optar por la Cascada El Salto del Tequendama, aunque su acceso es más para observación desde el mirador y el Museo Salto del Tequendama - Casa del Salto. Una alternativa más activa es la Cascada La Honda en San Antonio del Tequendama, que requiere una caminata moderada y es menos concurrida. Para llegar a La Honda, tome un bus desde el Terminal del Sur de Bogotá hacia San Antonio del Tequendama y luego un taxi local; el costo del bus es de unos $10.000 COP."
+            },
+            {
+                "pregunta": "Mi vuelo a Cundinamarca se retrasó y perdí mi tour programado de parapente en Sopó, ¿hay alguna otra actividad de aventura que pueda hacer el mismo día por la tarde?",
+                "respuesta": "Si el parapente en Sopó no es posible, una alternativa de aventura más flexible y cercana a Bogotá es el Parque Ecológico Pionono en Sopó, donde puede hacer senderismo con vistas panorámicas o visitar el mirador. Otra opción es el Parque Jaime Duque en Tocancipá, que ofrece atracciones como el bioparque y paseos en tren. Para Pionono, la entrada es de aproximadamente $8.000 COP y está abierto hasta las 5:00 p.m."
+            },
+            {
+                "pregunta": "¿Si mi reserva de hotel en Guatavita, Cundinamarca, se cancela a último minuto, qué pueblos cercanos ofrecen buenas opciones de alojamiento boutique o campestre?",
+                "respuesta": "Si Guatavita no es una opción, considere el pueblo de Suesca, famoso por la escalada en roca, que ofrece varias fincas campestres y hostales con encanto. Otra excelente alternativa es Sesquilé, con opciones de glamping y hoteles rurales cerca de la Laguna del Cacique Guatavita. En Suesca, puede encontrar habitaciones desde $150.000 COP en lugares como 'Casa de la Montaña'."
+            },
+            {
+                "pregunta": "¿Qué puedo hacer en Cundinamarca si mi plan de visitar la Laguna de Guatavita se ve afectado por restricciones de acceso o cierres temporales en 2024?",
+                "respuesta": "Si la Laguna de Guatavita tiene restricciones, una excelente alternativa es visitar la Laguna de Fúquene, aunque está un poco más al norte, ofrece avistamiento de aves y paisajes serenos. Otra opción más cercana es el Embalse del Sisga, donde se pueden realizar actividades náuticas como kayak o simplemente disfrutar de la vista y la gastronomía local en los restaurantes aledaños. El acceso al Embalse del Sisga es gratuito, y el alquiler de un kayak puede costar alrededor de $30.000 COP por hora."
+            },
+            {
+                "pregunta": "¿Si mi presupuesto para tours guiados en Cundinamarca es limitado, qué actividades culturales o históricas gratuitas o de bajo costo puedo encontrar en la región?",
+                "respuesta": "Para un plan B económico, puede explorar los centros históricos de pueblos como Zipaquirá, Chía o Tabio, disfrutando de su arquitectura colonial y plazas principales sin costo. Visitar la Plaza de Bolívar en Bogotá y sus alrededores (Catedral Primada, Capitolio Nacional) es gratuito. También puede asistir a misas o eventos culturales en iglesias locales. Los mercados campesinos en municipios como La Calera o Tenjo ofrecen una inmersión cultural a bajo costo, donde solo gastará en lo que consuma."
+            },
+            {
+                "pregunta": "¿Qué opciones de transporte alternativo tengo en Cundinamarca si mi coche de alquiler se avería en una zona rural cerca de La Vega o Villeta?",
+                "respuesta": "Si su coche se avería en esa zona, la mejor opción es contactar a su agencia de alquiler para asistencia en carretera. Como plan B, puede buscar taxis locales o 'colectivos' (vans compartidas) que operan entre pueblos. En Villeta, la Terminal de Transporte ofrece rutas frecuentes a Bogotá y municipios cercanos. Para emergencias, los números de las empresas de taxis locales suelen estar disponibles en los comercios o estaciones de servicio. Un taxi de La Vega a Villeta puede costar entre $20.000 y $30.000 COP."
+            },
+            {
+                "pregunta": "¿Si tengo un día extra inesperado en Cundinamarca y ya visité los sitios principales, qué excursión de un día menos conocida pero interesante puedo hacer desde Bogotá?",
+                "respuesta": "Con un día extra, considere una excursión a la Ruta del Sol y la Luna en Tenjo y Tabio. Puede visitar los pozos termales de Tabio (entrada $15.000 COP) para relajarse y luego explorar el centro histórico de Tenjo, conocido por su tranquilidad y gastronomía. Otra opción es el Parque Arqueológico de Facatativá, con sus Piedras del Tunjo y arte rupestre, que ofrece una experiencia cultural e histórica diferente. La entrada al parque de Facatativá es gratuita."
+            },
+            {
+                "pregunta": "¿Si el clima no permite actividades al aire libre en el Embalse del Neusa, Cundinamarca, qué plan B de experiencia gastronómica o artesanal puedo encontrar cerca?",
+                "respuesta": "Si el clima en Neusa no coopera, diríjase a Cogua, el pueblo más cercano, conocido por sus lácteos y panadería artesanal. Puede visitar fincas productoras de queso o panaderías tradicionales. Otra opción es ir a Zipaquirá, a unos 40 minutos, donde además de la Catedral de Sal, hay una variada oferta gastronómica con restaurantes de comida típica cundinamarquesa y tiendas de artesanías locales en el centro histórico. Un almuerzo típico en Zipaquirá puede costar desde $25.000 COP."
+            }
+        ]
+    }
+}

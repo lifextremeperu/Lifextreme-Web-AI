@@ -1,0 +1,105 @@
+{
+    "pais": "bolivia",
+    "departamento": "tarija",
+    "modulos_evaluados": 13,
+    "modulos_aprobados": 13,
+    "modulos_fallidos": 0,
+    "modulos_advertencia": 0,
+    "fqsas_totales_validadas": 1299,
+    "fqsas_totales_esperadas": 1300,
+    "detalles": {
+        "A-01": {
+            "status": "PASS",
+            "fqsas_validas": 100,
+            "fqsas_totales": 100,
+            "porcentaje_exito": "100.0%",
+            "errores": []
+        },
+        "A-02": {
+            "status": "PASS",
+            "fqsas_validas": 100,
+            "fqsas_totales": 100,
+            "porcentaje_exito": "100.0%",
+            "errores": []
+        },
+        "B-01": {
+            "status": "PASS",
+            "fqsas_validas": 100,
+            "fqsas_totales": 100,
+            "porcentaje_exito": "100.0%",
+            "errores": []
+        },
+        "B-02": {
+            "status": "PASS",
+            "fqsas_validas": 100,
+            "fqsas_totales": 100,
+            "porcentaje_exito": "100.0%",
+            "errores": []
+        },
+        "C-01": {
+            "status": "PASS",
+            "fqsas_validas": 100,
+            "fqsas_totales": 100,
+            "porcentaje_exito": "100.0%",
+            "errores": []
+        },
+        "C-02": {
+            "status": "PASS",
+            "fqsas_validas": 100,
+            "fqsas_totales": 100,
+            "porcentaje_exito": "100.0%",
+            "errores": []
+        },
+        "D-01": {
+            "status": "PASS",
+            "fqsas_validas": 100,
+            "fqsas_totales": 100,
+            "porcentaje_exito": "100.0%",
+            "errores": []
+        },
+        "D-02": {
+            "status": "PASS",
+            "fqsas_validas": 100,
+            "fqsas_totales": 100,
+            "porcentaje_exito": "100.0%",
+            "errores": []
+        },
+        "E-01": {
+            "status": "PASS",
+            "fqsas_validas": 100,
+            "fqsas_totales": 100,
+            "porcentaje_exito": "100.0%",
+            "errores": []
+        },
+        "E-02": {
+            "status": "PASS",
+            "fqsas_validas": 100,
+            "fqsas_totales": 100,
+            "porcentaje_exito": "100.0%",
+            "errores": []
+        },
+        "F-01": {
+            "status": "PASS",
+            "fqsas_validas": 99,
+            "fqsas_totales": 100,
+            "porcentaje_exito": "99.0%",
+            "errores": [
+                "Error detectado en la extracción de 6_Tips_Locales_Secretos"
+            ]
+        },
+        "F-02": {
+            "status": "PASS",
+            "fqsas_validas": 100,
+            "fqsas_totales": 100,
+            "porcentaje_exito": "100.0%",
+            "errores": []
+        },
+        "F-03": {
+            "status": "PASS",
+            "fqsas_validas": 100,
+            "fqsas_totales": 100,
+            "porcentaje_exito": "100.0%",
+            "errores": []
+        }
+    }
+}

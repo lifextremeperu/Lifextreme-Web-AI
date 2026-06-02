@@ -78,27 +78,32 @@ def notify_fase2_batch(departamento, pais, completados, total, aprobados, regene
     return send_message(msg)
 
 def notify_department_complete(departamento, pais, total_modulos, total_fqsas, aprobadas, pct_aprobadas, human_review, errores, horas, min, costo_usd, siguiente_dept):
+    pais_lower = pais.lower().replace(" ", "")
     msg = f"""🏆 *DEPARTAMENTO COMPLETADO*
 
 ━━━━━━━━━━━━━━━━━━━━━━━
 📍 *{departamento.upper()}, {pais.upper()}*
+🎯 *Enfoque:* Aventura Técnica & B2B (Lifextreme v3.0)
 ━━━━━━━━━━━━━━━━━━━━━━━
 
 📊 *RESUMEN DE PRODUCCIÓN*
-├ Módulos generados: {total_modulos}
-├ FQSAs totales: {total_fqsas}
-├ Aprobadas QA: {aprobadas} ({pct_aprobadas}%)
-├ Requieren revisión humana: {human_review}
-└ Errores no recuperados: {errores}
+├ Módulos B2B validados: {total_modulos}
+├ FQSAs extraídas: {total_fqsas}
+├ Aprobadas por Agente QA: {aprobadas} ({pct_aprobadas}%)
+├ Módulos con revisión humana sugerida: {human_review}
+└ Errores o vacíos de mercado detectados: {errores}
 
-⏱ *TIEMPOS*
-└ Duración total: {horas}h {min}m
+⏱ *MÉTRICAS DE EJECUCIÓN*
+└ Tiempo de mapeo y minería: {horas}h {min}m
 
-💰 *COSTOS*
-└ Costo estimado: {costo_usd:.3f} USD
+💰 *COSTOS DE INFRAESTRUCTURA*
+└ Consumo Vertex AI (Gemini Flash): {costo_usd:.3f} USD
 
-📋 *SIGUIENTE PASO DISPONIBLE:*
-{siguiente_dept}
+💾 *ALMACENAMIENTO ESTRUCTURADO*
+└ Ruta local: `data/knowledge/{pais_lower}/{departamento.lower()}/`
 
-⚠️ _Acción requerida: Responde_ *APROBAR {siguiente_dept.split(' ')[0]}* _para continuar._"""
+📋 *ESTADO DEL ORQUESTADOR:*
+Pasando inmediatamente al siguiente objetivo: {siguiente_dept}
+
+🔴 🛑 *YA CHAMBIE GRINGO* 🛑 🔴"""
     return send_message(msg)

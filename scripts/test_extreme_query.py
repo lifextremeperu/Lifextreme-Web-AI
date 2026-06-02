@@ -1,89 +1,130 @@
 import os
 import sys
+import requests
 import json
-import time
 from pathlib import Path
 from dotenv import load_dotenv
 
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
-from google import genai
-from google.genai.types import HttpOptions, GenerateContentConfig
+# Supabase Client
+from supabase import create_client, Client
 
-# Sensores
+# ==========================================
+# SENSORES EN TIEMPO REAL (LIFEXTREME)
+# ==========================================
 from src.integrations.sensors.maps_sensor import GoogleMapsTrafficSensor
 from src.integrations.sensors.logistics.sutran_service import SutranService
 from src.integrations.sensors.risk.gdelt_sensor import GdeltCrisisSensor
 from src.integrations.risk_correlator import RiskCorrelator
 
-def run_extreme_test():
+def init_supabase():
     load_dotenv()
+    supabase_url = os.getenv("SUPABASE_URL")
+    supabase_key = os.getenv("SUPABASE_KEY")
+    supabase: Client = create_client(supabase_url, supabase_key)
+    return supabase
+
+def get_local_embedding(text):
+    """Convierte la pregunta en vector usando Ollama (nomic-embed-text)"""
+    url = "http://localhost:11434/api/embed"
+    response = requests.post(url, json={"model": "nomic-embed-text", "input": text})
+    return response.json().get("embeddings", [])[0]
+
+def chat_with_deepseek(prompt):
+    """Habla con el modelo Deepseek alojado localmente en Ollama usando la API de chat"""
+    url = "http://localhost:11434/api/chat"
+    payload = {
+        "model": "phi3:latest",
+        "messages": [
+            {"role": "user", "content": prompt}
+        ],
+        "stream": False,
+        "options": {"temperature": 0.3, "num_predict": 1024}
+    }
+    response = requests.post(url, json=payload)
+    try:
+        return response.json().get("message", {}).get("content", "")
+    except Exception as e:
+        return f"Error leyendo respuesta de Ollama: {e}\nRaw: {response.text}"
+
+def run_extreme_test():
     sys.stdout.reconfigure(encoding='utf-8')
+    supabase = init_supabase()
     
     print("=======================================================================================")
-    print(" 🚨 SIMULACIÓN EXTREMA EN TIEMPO REAL: AGENTE DE VENTAS + INTELIGENCIA OPERATIVA")
+    print(" 🚨 SIMULACIÓN EXTREMA: RAG (SUPABASE) + SENSORES EN TIEMPO REAL + IA LOCAL")
     print("=======================================================================================")
     
     query = """
-    "Tengo un grupo VIP de 8 turistas corporativos. Tienen vuelo de llegada mañana a Cusco, 
-    quieren visitar Machu Picchu, y luego hacer la Ruta del Sol terrestre hasta Puno, 
-    porque tienen un vuelo internacional que sale desde el aeropuerto de Juliaca en 3 días. 
-    He escuchado rumores de bloqueos en la carretera Cusco-Puno por paros agrarios. 
-    ¿Es seguro? ¿Qué alternativas y plan B exacto me recomiendas para que no pierdan su vuelo 
-    internacional, considerando la situación de las carreteras y riesgos al día de hoy?"
+    "Hola, viajo mañana a Huaraz (Ancash) con mis padres de 65 años. Queremos hacer el trekking 
+    a la Laguna 69, pero he leído que hay huelgas en las carreteras de la sierra y que ha estado 
+    lloviendo mucho. ¿Es seguro para ellos? Si la ruta está bloqueada o es muy pesada por la altura, 
+    ¿qué plan B tranquilo y seguro nos recomiendas en Ancash, considerando las condiciones de hoy?"
     """
     
     print(f"\n[QUERY DEL USUARIO]:\n{query}\n")
-    print("=> 1. Activando Sensores Perimetrales...\n")
     
-    # 1. Ejecutar Sensores para alimentar el contexto
-    sutran = SutranService()
-    sutran.escanear_alertas()
+    print("=> 1. Activando Sensores Perimetrales (SUTRAN, GDELT, MAPS)...\n")
+    try:
+        sutran = SutranService()
+        sutran.escanear_alertas()
+        
+        gdelt = GdeltCrisisSensor()
+        gdelt.ejecutar_monitoreo(pais="PE", region_objetivo="Ancash")
+        
+        maps = GoogleMapsTrafficSensor()
+        maps.ejecutar_monitoreo("Lima, Peru", "Huaraz, Peru", "Ancash")
+        
+        print("\n=> 2. Evaluando Nivel de Riesgo (RiskCorrelator)...")
+        correlator = RiskCorrelator()
+        riesgo = correlator.calcular_score_regional("Ancash")
+        print(f"   [Nivel de Riesgo Calculado]: {riesgo}/100\n")
+    except Exception as e:
+        print(f"[-] Advertencia con los sensores: {e}")
+        riesgo = 15 # Valor por defecto
+
+    print("=> 3. Buscando Conocimiento Estratégico en Supabase (Vectores)...")
+    query_vector = get_local_embedding(query)
     
-    gdelt = GdeltCrisisSensor()
-    gdelt.ejecutar_monitoreo(pais="PE", region_objetivo="Puno")
+    response = supabase.rpc("match_knowledge_vectors", {
+        "query_embedding": query_vector,
+        "match_threshold": 0.3, 
+        "match_count": 3 
+    }).execute()
     
-    maps = GoogleMapsTrafficSensor()
-    maps.ejecutar_monitoreo("Cusco, Peru", "Puno, Peru", "Puno")
+    contexto_db = ""
+    for match in response.data:
+        contexto_db += f"- [{match['modulo_nombre']}]: {match['text_content']}\n"
     
-    print("\n=> 2. Evaluando Nivel de Riesgo (RiskCorrelator)...")
-    correlator = RiskCorrelator()
-    riesgo = correlator.calcular_score_regional("Puno")
-    print(f"   [Nivel de Riesgo Calculado]: {riesgo}/100\n")
+    print("=> 4. Conectando con Deepseek-v2 (Cerebro Local) para Resolución Estratégica...")
     
-    print("=> 3. Conectando con Gemini 2.5 Flash para Resolución Estratégica...")
-    
-    os.environ['GOOGLE_GENAI_USE_VERTEXAI'] = 'True'
-    client = genai.Client(http_options=HttpOptions(api_version='v1'))
-    
-    # Prompt Maestro de Resolución
-    contexto = f"""
-    Eres el Agente Senior de Operaciones de Lifextreme.
-    Tienes que responder a esta consulta crítica de un usuario:
+    # Prompt Maestro Híbrido: RAG + Sensores
+    prompt_maestro = f"""
+    Eres el Agente Senior de Operaciones de Lifextreme. Tienes que responder a esta consulta crítica:
     CONSULTA: {query}
     
     DATOS EN TIEMPO REAL DE TUS SENSORES AHORA MISMO:
     - SUTRAN / MTC: Reporta vías con posible tránsito restringido por manifestaciones sociales.
     - GDELT (Noticias Globales): Nivel de tensión alto en Puno y carreteras de la sierra sur.
-    - SCORE DE RIESGO LIFEXTREME: {riesgo}/100 (Considerado Riesgo Alto).
+    - SCORE DE RIESGO LIFEXTREME: {riesgo}/100.
+    
+    CONOCIMIENTO ESTRATÉGICO DE LA BASE DE DATOS LIFEXTREME (RAG):
+    {contexto_db}
     
     INSTRUCCIONES:
     1. Responde de forma directa y ejecutiva.
-    2. Usa los datos en tiempo real de los sensores para tomar tu decisión.
-    3. Si el riesgo es alto, RECOMIENDA UN PLAN B LOGÍSTICO INMEDIATO (ej: desvío por Arequipa, cambio a tren PeruRail, o cancelación de ruta terrestre y tomar vuelo Cusco-Juliaca/Lima).
+    2. Usa TANTO los datos de la base de datos (RAG) como la información de los sensores en tiempo real para tomar tu decisión.
+    3. Si el riesgo es alto (como indica el score), RECOMIENDA UN PLAN B LOGÍSTICO INMEDIATO (ej: desvío, tren, o vuelo) basándote en la base de datos.
     4. Actúa como el experto absoluto. No dudes.
     """
     
-    response = client.models.generate_content(
-        model="gemini-2.5-flash",
-        contents=contexto,
-        config=GenerateContentConfig(temperature=0.4, max_output_tokens=1024)
-    )
+    respuesta_final = chat_with_deepseek(prompt_maestro)
     
     print("=======================================================================================")
-    print(" 🤖 RESPUESTA DE LA INTELIGENCIA ARTIFICIAL LIFEXTREME:")
+    print(" 🤖 RESPUESTA DE DEEPSEEK (AGENTE OPERATIVO LIFEXTREME):")
     print("=======================================================================================")
-    print(response.text)
+    print(respuesta_final)
     print("=======================================================================================")
 
 if __name__ == "__main__":
