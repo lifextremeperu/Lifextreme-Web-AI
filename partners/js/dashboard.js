@@ -4,8 +4,7 @@
 
 import { supabase } from '../../js/supabase-client.js';
 
-// 🔒 PROTECCIÓN DE RUTA (DESHABILITADA PARA SIMULACIÓN)
-/**
+// 🔒 PROTECCIÓN DE RUTA ACTIVADA
 (async function protectRoute() {
     const { data: { session }, error } = await supabase.auth.getSession();
 
@@ -19,8 +18,7 @@ import { supabase } from '../../js/supabase-client.js';
         updateUserProfile(session.user);
     }
 })();
-**/
-console.log("🔓 MODO SIMULACIÓN ACTIVO: Protección de ruta deshabilitada.");
+
 
 document.addEventListener('DOMContentLoaded', () => {
     // Si llegamos aquí, asumimos que protectRoute está corriendo, 
@@ -267,3 +265,143 @@ function loadBookings() {
 function loadActivities() {
     console.log('Loading activities...');
 }
+
+// ============================================
+// AI INTELLIGENCE CHAT (B2B)
+// ============================================
+document.addEventListener('DOMContentLoaded', () => {
+    const chatForm = document.getElementById('ai-chat-form');
+    const chatInput = document.getElementById('ai-chat-input');
+    const chatHistory = document.getElementById('ai-chat-history');
+
+    if (chatForm && chatInput && chatHistory) {
+        chatForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const message = chatInput.value.trim();
+            if (!message) return;
+
+            // 1. Mostrar mensaje del usuario
+            appendMessage(message, 'user');
+            chatInput.value = '';
+
+            // 2. Mostrar indicador de carga
+            const loadingId = appendLoading();
+
+            try {
+                // 3. Llamar a la API B2B Local
+                const response = await fetch('http://localhost:8000/api/v1/b2b/query', {
+                    method: 'POST',
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'X-API-Key': 'LIFEXTREME-TEST-KEY-2026' // La clave MVP acordada
+                    },
+                    body: JSON.stringify({ message })
+                });
+
+                if (!response.ok) throw new Error('Error en la comunicación con LIFEXTREME-CORE');
+
+                const data = await response.json();
+                
+                // 4. Quitar loading y mostrar respuesta
+                removeLoading(loadingId);
+                appendMessage(data.mensaje_principal, 'ai', data.fuentes_utilizadas);
+                
+            } catch (error) {
+                console.error(error);
+                removeLoading(loadingId);
+                appendMessage('Error de conexión con el motor GraphRAG. Por favor, verifica que la API local esté corriendo.', 'error');
+            }
+        });
+    }
+
+    function appendMessage(text, sender, sources = []) {
+        const msgDiv = document.createElement('div');
+        msgDiv.className = 'flex gap-4 animate-fade-in';
+        
+        if (sender === 'user') {
+            msgDiv.classList.add('flex-row-reverse');
+            msgDiv.innerHTML = `
+                <div class="w-8 h-8 rounded-full bg-slate-700 flex-shrink-0 flex items-center justify-center border border-slate-600 mt-1">
+                    <i data-lucide="user" class="w-4 h-4 text-slate-300"></i>
+                </div>
+                <div class="bg-emerald-600 rounded-2xl rounded-tr-none p-4 max-w-[85%] border border-emerald-500 shadow-sm text-white">
+                    <p>${escapeHtml(text)}</p>
+                </div>
+            `;
+        } else if (sender === 'ai') {
+            let sourcesHtml = '';
+            if (sources && sources.length > 0) {
+                sourcesHtml = `<div class="mt-3 pt-3 border-t border-slate-700/50 flex flex-wrap gap-2">
+                    <span class="text-[10px] text-slate-500 uppercase tracking-widest font-bold w-full">Fuentes (GraphRAG):</span>
+                    ${sources.map(s => `<span class="bg-slate-900 px-2 py-1 rounded text-[10px] text-emerald-500 border border-slate-700">${escapeHtml(s)}</span>`).join('')}
+                </div>`;
+            }
+
+            msgDiv.innerHTML = `
+                <div class="w-8 h-8 rounded-full bg-emerald-500/20 flex-shrink-0 flex items-center justify-center border border-emerald-500/30 mt-1">
+                    <i data-lucide="cpu" class="w-4 h-4 text-emerald-400"></i>
+                </div>
+                <div class="bg-slate-800 rounded-2xl rounded-tl-none p-4 max-w-[85%] border border-slate-700 shadow-sm text-slate-300">
+                    <div class="prose prose-invert prose-sm max-w-none prose-p:leading-relaxed prose-pre:bg-slate-900 prose-pre:border prose-pre:border-slate-700">${formatMarkdown(text)}</div>
+                    ${sourcesHtml}
+                </div>
+            `;
+        } else {
+            msgDiv.innerHTML = `
+                <div class="w-8 h-8 rounded-full bg-red-500/20 flex-shrink-0 flex items-center justify-center border border-red-500/30 mt-1">
+                    <i data-lucide="alert-triangle" class="w-4 h-4 text-red-400"></i>
+                </div>
+                <div class="bg-red-900/20 rounded-2xl rounded-tl-none p-4 max-w-[85%] border border-red-500/30 text-red-400">
+                    <p>${escapeHtml(text)}</p>
+                </div>
+            `;
+        }
+
+        chatHistory.appendChild(msgDiv);
+        chatHistory.scrollTop = chatHistory.scrollHeight;
+        if (window.lucide) window.lucide.createIcons({ root: msgDiv });
+    }
+
+    function appendLoading() {
+        const id = 'loading-' + Date.now();
+        const msgDiv = document.createElement('div');
+        msgDiv.id = id;
+        msgDiv.className = 'flex gap-4 animate-fade-in';
+        msgDiv.innerHTML = `
+            <div class="w-8 h-8 rounded-full bg-emerald-500/20 flex-shrink-0 flex items-center justify-center border border-emerald-500/30 mt-1">
+                <i data-lucide="cpu" class="w-4 h-4 text-emerald-400"></i>
+            </div>
+            <div class="bg-slate-800 rounded-2xl rounded-tl-none p-4 max-w-[85%] border border-slate-700 shadow-sm flex items-center gap-2">
+                <div class="w-2 h-2 bg-emerald-500 rounded-full animate-bounce"></div>
+                <div class="w-2 h-2 bg-emerald-500 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+                <div class="w-2 h-2 bg-emerald-500 rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
+            </div>
+        `;
+        chatHistory.appendChild(msgDiv);
+        chatHistory.scrollTop = chatHistory.scrollHeight;
+        if (window.lucide) window.lucide.createIcons({ root: msgDiv });
+        return id;
+    }
+
+    function removeLoading(id) {
+        const el = document.getElementById(id);
+        if (el) el.remove();
+    }
+
+    function escapeHtml(unsafe) {
+        return unsafe
+             .replace(/&/g, "&amp;")
+             .replace(/</g, "&lt;")
+             .replace(/>/g, "&gt;")
+             .replace(/"/g, "&quot;")
+             .replace(/'/g, "&#039;");
+    }
+
+    function formatMarkdown(text) {
+        // Formateo muy básico para negritas y saltos de línea (idealmente usar marked.js)
+        return text
+            .replace(/\\*\\*(.*?)\\*\\*/g, '<strong>$1</strong>')
+            .replace(/\\*(.*?)\\*/g, '<em>$1</em>')
+            .replace(/\\n/g, '<br/>');
+    }
+});

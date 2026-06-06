@@ -296,7 +296,7 @@ async function checkSession() {
     const isAuthPage = window.location.pathname.includes('index.html') || window.location.pathname.endsWith('/partners/');
 
     if (session && isAuthPage) {
-        // Opcional: Verificar validez o redirigir
-        // window.location.href = 'dashboard.html'; 
+        // Redirigir al dashboard si ya hay sesión
+        window.location.href = 'dashboard.html'; 
     }
 }

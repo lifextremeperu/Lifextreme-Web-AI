@@ -41,5 +41,4 @@ if (Test-Path $destinationFile) {
     Write-Host "[-] Hubo un problema al crear el respaldo." -ForegroundColor Red
 }
 
-Write-Host "Presiona cualquier tecla para salir..."
-$null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
+# Fin del respaldo.

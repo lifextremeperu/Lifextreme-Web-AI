@@ -11,8 +11,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="/partners/css/styles.css">
+    <link rel="stylesheet" href="/partners/css/dashboard.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
@@ -66,6 +66,11 @@
                 <i data-lucide="message-square"></i>
                 <span>Mensajes</span>
                 <span class="badge">3</span>
+            </a>
+            <a href="#" class="nav-item" data-section="inteligencia">
+                <i data-lucide="brain"></i>
+                <span>Inteligencia AI</span>
+                <span class="badge bg-emerald-500 text-white border-0">BETA</span>
             </a>
             <a href="#" class="nav-item" data-section="configuracion">
                 <i data-lucide="settings"></i>
@@ -449,6 +454,55 @@
                 </div>
             </section>
 
+            <!-- INTELIGENCIA AI (B2B) -->
+            <section id="section-inteligencia" class="dashboard-section hidden">
+                <div class="section-header flex justify-between items-center">
+                    <div>
+                        <h2 class="section-title flex items-center gap-2">
+                            <i data-lucide="brain" class="text-emerald-500"></i> Inteligencia Estratégica (B2B)
+                        </h2>
+                        <p class="text-sm text-slate-500 mt-1">Consulta al motor GraphRAG sobre logística, riesgos e inversiones.</p>
+                    </div>
+                    <span class="bg-slate-900 text-emerald-400 text-xs px-3 py-1 rounded-full font-mono uppercase tracking-wider shadow-inner border border-slate-700">LIFEXTREME-CORE v2.0</span>
+                </div>
+                
+                <div class="dashboard-card bg-slate-900 text-slate-100 border-slate-800 shadow-xl overflow-hidden flex flex-col h-[600px]">
+                    <div class="bg-slate-950 p-4 border-b border-slate-800 flex items-center gap-3">
+                        <div class="relative">
+                            <div class="w-10 h-10 bg-emerald-500/20 rounded-lg flex items-center justify-center border border-emerald-500/30">
+                                <i data-lucide="terminal" class="text-emerald-400 w-5 h-5"></i>
+                            </div>
+                            <div class="absolute -bottom-1 -right-1 w-3 h-3 bg-emerald-500 rounded-full border-2 border-slate-950 animate-pulse"></div>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-sm text-emerald-50">LIFEXTREME-CORE Analyst</h3>
+                            <p class="text-xs text-emerald-500/70 font-mono">En línea y procesando GraphRAG...</p>
+                        </div>
+                    </div>
+                    
+                    <div id="ai-chat-history" class="flex-1 p-6 overflow-y-auto space-y-6 font-mono text-sm bg-slate-900/50">
+                        <div class="flex gap-4">
+                            <div class="w-8 h-8 rounded-full bg-emerald-500/20 flex-shrink-0 flex items-center justify-center border border-emerald-500/30 mt-1">
+                                <i data-lucide="cpu" class="w-4 h-4 text-emerald-400"></i>
+                            </div>
+                            <div class="bg-slate-800 rounded-2xl rounded-tl-none p-4 max-w-[85%] border border-slate-700 shadow-sm text-slate-300">
+                                <p class="mb-2">Saludos, operador. Soy <strong>LIFEXTREME-CORE</strong>, analista estratégico conectado a SUTRAN, SENAMHI y la red de inversión territorial (PERTUR).</p>
+                                <p>¿Qué necesitas saber sobre tus rutas logísticas o nuevas oportunidades de negocio?</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4 bg-slate-950 border-t border-slate-800">
+                        <form id="ai-chat-form" class="flex gap-3">
+                            <input type="text" id="ai-chat-input" class="flex-1 bg-slate-900 border border-slate-700 rounded-xl px-4 text-slate-200 placeholder-slate-600 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 font-mono text-sm transition-all" placeholder="Ej: ¿Cómo afecta el bloqueo en Puno a mi ruta hacia Cusco?..." autocomplete="off">
+                            <button type="submit" id="ai-chat-submit" class="bg-emerald-600 hover:bg-emerald-500 text-white w-12 h-12 rounded-xl flex items-center justify-center transition-colors shadow-lg shadow-emerald-900/50 flex-shrink-0">
+                                <i data-lucide="send" class="w-5 h-5"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
             <!-- SOSTENIBILIDAD & CAPACITACIÓN -->
             <section id="section-sostenibilidad" class="dashboard-section hidden">
                 <div class="section-header flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
@@ -737,8 +791,8 @@
         </div>
     </main>
 
-    <script src="js/main.js"></script>
-    <script type="module" src="js/dashboard.js"></script>
+    <script src="/partners/js/main.js"></script>
+    <script type="module" src="/partners/js/dashboard.js"></script>
 </body>
 
 </html>
