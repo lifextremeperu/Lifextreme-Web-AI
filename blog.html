@@ -1,255 +1,136 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <!-- Same Head as Index for consistency -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KW625TWP91"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-KW625TWP91');
-    </script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lifextreme Blog - Guías y Consejos de Aventura</title>
-
-    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" integrity="sha384-L/vw44MdBs/7hovWr2rBVSRKqdti4Vw077yuSGQ2PO3tQARRLiLuMh8xhVmVrR0I" crossorigin="anonymous">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap"
-        rel="stylesheet">
+    <title>Blog & Tips | Lifextreme</title>
+    
+    <!-- Meta tags SEO -->
+    <meta name="description" content="Guías, tips y artículos sobre turismo de aventura y deportes extremos en Perú.">
+    
+    <!-- Tailwind CSS (via CDN para rapidez) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
-
+    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         primary: '#4338ca',
-                        secondary: '#f43f5e',
-                        accent: '#ffbf00',
-                        slate: { 900: '#0f172a', 910: '#020617' }
-                    },
-                    fontFamily: {
-                        sans: ['Outfit', 'sans-serif'],
-                        heading: ['Montserrat', 'sans-serif']
+                        secondary: '#ec4899',
+                        accent: '#ffbf00'
                     }
                 }
             }
         }
     </script>
+    <style>
+        body { font-family: 'Outfit', sans-serif; }
+        .logo-font { font-family: 'Montserrat', sans-serif; }
+        .glass-header { background: rgba(255,255,255,0.9); backdrop-filter: blur(10px); }
+    </style>
 </head>
+<body class="bg-slate-50 min-h-screen">
 
-<body class="bg-[#fcfdff] min-h-screen">
-
-    <!-- HEADER (Simplified for Subpage) -->
-    <header class="bg-white/90 backdrop-blur-md shadow-sm fixed top-0 w-full z-50 border-b border-slate-50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <!-- HEADER SIMPLIFICADO -->
+    <header class="glass-header shadow-sm fixed top-0 w-full z-[1000]">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <a href="index.html" class="flex items-center group">
-                <div
-                    class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white shadow-lg group-hover:rotate-12 transition-all">
+                <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white shadow-xl">
                     <i class="ri-flashlight-fill text-xl"></i>
                 </div>
-                <div class="ml-3 leading-none">
-                    <span class="text-slate-900 font-normal text-xl tracking-tight">LIFE</span><span
-                        class="text-primary font-black text-xl tracking-tighter italic">XTREME</span>
+                <div class="logo-font ml-3 leading-none">
+                    <span class="text-slate-900 font-normal text-xl tracking-tight">LIFE</span><span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary font-black text-xl italic">XTREME</span>
                 </div>
             </a>
-
             <nav class="hidden md:flex space-x-8">
-                <a href="index.html"
-                    class="text-xs font-bold text-slate-500 uppercase tracking-widest hover:text-primary transition-colors">Volver
-                    al Inicio</a>
-                <a href="#" class="text-xs font-bold text-primary uppercase tracking-widest">Blog & Guías</a>
+                <a href="index.html" class="text-slate-500 font-bold text-xs uppercase tracking-widest hover:text-primary">Inicio</a>
+                <a href="blog.html" class="text-primary font-black text-xs uppercase tracking-widest">Blog</a>
             </nav>
         </div>
     </header>
 
-    <main class="pt-32 pb-20">
-        <!-- Hero Section -->
-        <div class="container mx-auto px-6 mb-16 text-center">
-            <span
-                class="bg-indigo-50 text-primary px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-6 inline-block">Knowledge
-                Base</span>
-            <h1 class="text-4xl md:text-6xl font-black text-slate-900 mb-6 italic tracking-tight">
-                Aventura <span
-                    class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Inteligente</span>
-            </h1>
-            <p class="text-slate-500 max-w-2xl mx-auto text-lg leading-relaxed">
-                Guías generadas por expertos y nuestra IA para que domines cada ruta, clima y equipo antes de salir de
-                casa.
-            </p>
+    <main class="pt-32 pb-20 container mx-auto px-6">
+        <div class="text-center mb-16">
+            <span class="bg-indigo-50 text-primary px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-widest mb-4 inline-block">Nuevos Artículos</span>
+            <h1 class="text-4xl md:text-6xl font-black italic text-slate-900 mb-4">Blog de Aventura</h1>
+            <p class="text-slate-500 max-w-2xl mx-auto">Consejos, guías completas y secretos de los expertos para sobrevivir y disfrutar al máximo el turismo extremo en Perú.</p>
         </div>
 
-        <!-- Filters -->
-        <div class="container mx-auto px-6 mb-12">
-            <div class="flex flex-wrap justify-center gap-4">
-                <button onclick="filterPosts('all')"
-                    class="px-6 py-2 rounded-full bg-slate-900 text-white text-xs font-bold uppercase tracking-widest hover:bg-primary transition-colors">Todos</button>
-                <button onclick="filterPosts('Guías')"
-                    class="px-6 py-2 rounded-full bg-white border border-slate-200 text-slate-500 text-xs font-bold uppercase tracking-widest hover:border-primary hover:text-primary transition-colors">Guías</button>
-                <button onclick="filterPosts('Consejos')"
-                    class="px-6 py-2 rounded-full bg-white border border-slate-200 text-slate-500 text-xs font-bold uppercase tracking-widest hover:border-primary hover:text-primary transition-colors">Consejos</button>
-                <button onclick="filterPosts('Planificación')"
-                    class="px-6 py-2 rounded-full bg-white border border-slate-200 text-slate-500 text-xs font-bold uppercase tracking-widest hover:border-primary hover:text-primary transition-colors">Planificación</button>
-            </div>
-        </div>
-
-        <!-- Blog Grid -->
-        <div class="container mx-auto px-6">
-            <div id="blog-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Loading State -->
-                <div class="col-span-full text-center py-20">
-                    <div
-                        class="inline-block w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin">
-                    </div>
-                    <p class="mt-4 text-slate-400 font-bold text-xs uppercase tracking-widest">Cargando Artículos...</p>
-                </div>
+        <div id="blog-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Los artículos se cargarán aquí por JS -->
+            <div class="col-span-full text-center py-20" id="loading-state">
+                <i class="ri-loader-4-line text-4xl text-primary animate-spin inline-block"></i>
+                <p class="text-slate-400 font-bold mt-4">Sincronizando con el agente IA...</p>
             </div>
         </div>
     </main>
 
-    <!-- Footer Simple -->
-    <footer class="bg-slate-900 text-white py-12 border-t border-slate-800">
-        <div class="container mx-auto px-6 text-center">
-            <p class="text-slate-500 text-xs font-bold uppercase tracking-widest">© 2026 Lifextreme. Power by Supabase &
-                AI.</p>
-        </div>
-    </footer>
-
-    <!-- LOGIC -->
     <script>
-        // Datos Simulados "Pro SEO" (Bypass Supabase backend for immediate frontend polish)
-        const mockPosts = [
-            {
-                id: 'rainy-season-gear',
-                title: "Rainy Season Peru: Complete Waterproof Gear Guide",
-                category: "Guías",
-                excerpt: "Don't let the rain stop you. The ultimate tested gear list for trekking Cusco in January.",
-                cover_image: "https://images.unsplash.com/photo-1517999588663-150277524953?q=80&w=800&auto=format&fit=crop",
-                created_at: "2026-01-08T10:00:00Z"
-            },
-            {
-                id: 'machu-picchu-rain',
-                title: "Machu Picchu en Temporada de Lluvias: Guía Completa 2026",
-                category: "Guías",
-                excerpt: "¿Miedo a la lluvia? La verdad sobre viajar en enero y los precios bajos. Descubre por qué es la época secreta de los fotógrafos.",
-                cover_image: "https://images.unsplash.com/photo-1587595431973-160d0d94add1?q=80&w=800&auto=format&fit=crop",
-                created_at: "2026-01-08T09:30:00Z"
-            },
-            {
-                id: 'best-time-machu-picchu',
-                title: "Mejor Época para Viajar a Machupicchu",
-                category: "Planificación",
-                excerpt: "¿Planeando tu viaje? No puedes perderte estos consejos sobre clima Cusco que transformarán tu experiencia y tu presupuesto.",
-                cover_image: "https://images.unsplash.com/photo-1526392060635-9d6019884377?q=80&w=800&auto=format&fit=crop",
-                created_at: "2026-01-08T08:15:00Z"
-            },
-            {
-                id: 'training-rainbow-mountain',
-                title: "Cómo Entrenar para la Montaña de 7 Colores",
-                category: "Consejos",
-                excerpt: "La altura no es chiste. Rutina de 4 semanas para llegar a los 5,200 msnm sin morir en el intento. Guía de aclimatación incluida.",
-                cover_image: "https://images.unsplash.com/photo-1533130061792-649d44e7855e?q=80&w=800&auto=format&fit=crop",
-                created_at: "2026-01-07T14:20:00Z"
-            },
-            {
-                id: 'packing-list-inca-trail',
-                title: "Packing List Definitivo: Camino Inca 4 Días",
-                category: "Planificación",
-                excerpt: "Menos es más, pero olvidar esto puede arruinar tu viaje. La lista de verificación que usan nuestros guías expertos.",
-                cover_image: "https://images.unsplash.com/photo-1621682372775-533449e5502d?q=80&w=800&auto=format&fit=crop",
-                created_at: "2026-01-06T11:00:00Z"
-            },
-            {
-                id: 'altitude-sickness-hacks',
-                title: "Soroche: 5 Hacks Reales que Funcionan",
-                category: "Consejos",
-                excerpt: "Olvida las pastillas de farmacia. Remedios naturales y técnicas de respiración para conquistar la altura de los Andes.",
-                cover_image: "https://images.unsplash.com/photo-1518709568911-37299a4c528f?q=80&w=800&auto=format&fit=crop",
-                created_at: "2026-01-05T09:45:00Z"
-            }
-        ];
-
-        let allPosts = mockPosts;
-
-        function renderPosts(posts) {
-            const grid = document.getElementById('blog-grid');
-
-            if (posts.length === 0) {
-                grid.innerHTML = `
-    <div class="col-span-full text-center py-10 bg-slate-50 rounded-3xl border border-dashed border-slate-300">
-        <i class="ri-article-line text-4xl text-slate-300 mb-4"></i>
-        <p class="text-slate-500 font-bold">No hay artículos disponibles en esta categoría.</p>
-    </div>
-    `;
-                return;
-            }
-
-            grid.innerHTML = posts.map(post => `
-    <article onclick="window.location.href='blog-article.html?id=${post.id}'"
-        class="group bg-white rounded-3xl shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col h-full cursor-pointer">
-        <div class="relative h-56 overflow-hidden">
-            <img src="${post.cover_image}"
-                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-            <div
-                class="absolute top-4 left-4 bg-white/90 backdrop-blur text-primary px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest border border-slate-100 shadow-sm">
-                ${post.category}
-            </div>
-            <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
-        </div>
-        <div class="p-8 flex-1 flex flex-col">
-            <h3
-                class="text-xl font-black text-slate-900 mb-3 leading-tight group-hover:text-primary transition-colors italic">
-                ${post.title}
-            </h3>
-            <p class="text-slate-500 text-sm mb-6 line-clamp-3 leading-relaxed flex-1">
-                ${post.excerpt}
-            </p>
-
-            <div class="flex items-center justify-between mt-auto pt-6 border-t border-slate-50">
-                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1">
-                    <i class="ri-calendar-line"></i> ${new Date(post.created_at).toLocaleDateString()}
-                </span>
-                <button
-                    class="w-10 h-10 rounded-full bg-slate-50 text-slate-900 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
-                    <i class="ri-arrow-right-line text-lg"></i>
-                </button>
-            </div>
-        </div>
-    </article>
-    `).join('');
-        }
-
-        window.filterPosts = (category) => {
-            // Update active button style
-            const buttons = document.querySelectorAll('button[onclick^="filterPosts"]');
-            buttons.forEach(btn => {
-                if ((category === 'all' && btn.innerText.toUpperCase() === 'TODOS') || btn.innerText.toUpperCase() === category.toUpperCase()) {
-                    btn.classList.remove('bg-white', 'text-slate-500', 'border-slate-200');
-                    btn.classList.add('bg-slate-900', 'text-white', 'border-transparent');
-                } else {
-                    btn.classList.add('bg-white', 'text-slate-500', 'border-slate-200');
-                    btn.classList.remove('bg-slate-900', 'text-white', 'border-transparent');
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                // Agregar timestamp (Date.now) a la URL de fetch para evitar que el navegador guarde cache del JSON viejo
+                const response = await fetch(`data/blog/index.json?t=${Date.now()}`);
+                
+                if (!response.ok) throw new Error('No se pudo cargar el índice del blog');
+                
+                const articles = await response.json();
+                const grid = document.getElementById('blog-grid');
+                
+                if(articles.length === 0) {
+                    grid.innerHTML = '<div class="col-span-full text-center py-20"><p class="text-slate-500">Aún no hay artículos generados. El agente está trabajando...</p></div>';
+                    return;
                 }
-            });
-
-            if (category === 'all') {
-                renderPosts(allPosts);
-            } else {
-                const filtered = allPosts.filter(p => p.category === category);
-                renderPosts(filtered);
+                
+                grid.innerHTML = ''; // Limpiar estado de carga
+                
+                // Mostrar en orden reverso (más nuevos primero)
+                articles.reverse().forEach(article => {
+                    const card = document.createElement('div');
+                    card.className = "bg-white rounded-3xl p-6 border border-slate-100 shadow-sm hover:shadow-xl transition-all group cursor-pointer flex flex-col h-full relative overflow-hidden";
+                    card.onclick = () => window.location.href = `article.html?id=${article.slug}`;
+                    
+                    // Decidir un icono/color basado en la categoría
+                    let icon = 'ri-article-line';
+                    let color = 'bg-blue-100 text-blue-600';
+                    
+                    if(article.category && article.category.toLowerCase().includes('canopy')) { icon = 'ri-windy-line'; color = 'bg-cyan-100 text-cyan-600'; }
+                    if(article.category && article.category.toLowerCase().includes('bungee')) { icon = 'ri-arrow-down-double-line'; color = 'bg-red-100 text-red-600'; }
+                    
+                    card.innerHTML = `
+                        <div class="absolute -right-10 -top-10 w-32 h-32 bg-slate-50 rounded-full group-hover:scale-150 transition-transform duration-500"></div>
+                        <div class="relative z-10">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 rounded-xl ${color} flex items-center justify-center">
+                                    <i class="${icon} text-lg"></i>
+                                </div>
+                                <div>
+                                    <span class="text-[9px] font-black uppercase tracking-widest text-slate-400">${article.location || 'Perú'}</span>
+                                    <p class="text-xs font-bold text-slate-600">${article.category || 'Aventura'}</p>
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-black italic text-slate-900 mb-3 group-hover:text-primary transition-colors">${article.title}</h3>
+                            <p class="text-sm text-slate-500 mb-6 flex-grow">${article.summary}</p>
+                            
+                            <div class="flex items-center justify-between pt-4 border-t border-slate-50 mt-auto">
+                                <span class="text-[10px] font-bold text-slate-400"><i class="ri-calendar-line mr-1"></i> ${article.date}</span>
+                                <span class="text-[10px] font-black text-primary uppercase tracking-widest flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                                    Leer Guía <i class="ri-arrow-right-line"></i>
+                                </span>
+                            </div>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                });
+                
+            } catch(e) {
+                console.error(e);
+                document.getElementById('loading-state').innerHTML = '<p class="text-red-500">No hay artículos publicados aún.</p>';
             }
-        }
-
-        // Init with all posts
-        renderPosts(allPosts);
-
-        // Initial button state fix (optional, but ensures UI sync)
-        // filterPosts('all'); 
+        });
     </script>
 </body>
-
 </html>
