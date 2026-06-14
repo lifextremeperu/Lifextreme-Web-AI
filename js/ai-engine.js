@@ -95,8 +95,8 @@ class AIPersonalizationEngine {
         
         // 1. NUEVA CONEXIÓN AL CEREBRO MAESTRO (Vertex AI + Pydantic AI)
         // Usa la ruta relativa para producción (redireccionada por Firebase) o localhost para dev puro.
-        // URL local segura (IPv4 explícito)
-        const apiUrl = 'http://127.0.0.1:8000/chat';
+        // URL pública segura vía Tailscale Funnel
+        const apiUrl = 'https://desktop-sedhoop.tail883d62.ts.net/chat';
 
         try {
             const response = await fetch(apiUrl, {
