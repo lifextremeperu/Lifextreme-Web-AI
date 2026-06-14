@@ -1186,6 +1186,17 @@ function finishQuiz() {
 
 // SPA Navigation
 function navigateTo(id) {
+    if (id === 'destinos') {
+        id = 'home';
+        document.querySelectorAll('.section-view').forEach(s => s.classList.remove('active'));
+        document.getElementById('section-' + id)?.classList.add('active');
+        setTimeout(() => {
+            const destContainer = document.getElementById('home-destinos-container');
+            if (destContainer) destContainer.scrollIntoView({ behavior: 'smooth' });
+        }, 50);
+        return;
+    }
+
     document.querySelectorAll('.section-view').forEach(s => s.classList.remove('active'));
     document.getElementById('section-' + id)?.classList.add('active');
     if (id === 'socio') { updateWishlistDashboard(); }
