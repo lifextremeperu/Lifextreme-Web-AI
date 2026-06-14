@@ -294,6 +294,8 @@
                 <a href="javascript:void(0)" data-action="navigate" data-target="eventos" id="nav-eventos"
                     data-i18n="nav_eventos"
                     class="nav-link text-slate-500 font-bold text-[10px] uppercase tracking-widest text-accent">Eventos</a>
+                <a href="javascript:void(0)" data-action="navigate" data-target="infraestructura" id="nav-infraestructura"
+                    class="nav-link text-slate-500 font-bold text-[10px] uppercase tracking-widest">Parques</a>
                 <a href="javascript:void(0)" data-action="navigate" data-target="equipos" id="nav-equipos"
                     data-i18n="nav_equipos"
                     class="nav-link text-slate-500 font-bold text-[10px] uppercase tracking-widest">Equipos</a>
@@ -397,6 +399,8 @@
             class="text-2xl font-black italic text-slate-900 border-b border-slate-100 py-6">DESTINOS</a>
         <a href="javascript:void(0)" data-action="mobile-navigate" data-target="eventos"
             class="text-2xl font-black italic text-slate-900 border-b border-slate-100 py-6">EVENTOS</a>
+        <a href="javascript:void(0)" data-action="mobile-navigate" data-target="infraestructura"
+            class="text-2xl font-black italic text-slate-900 border-b border-slate-100 py-6">PARQUES</a>
         <a href="javascript:void(0)" data-action="mobile-navigate" data-target="equipos"
             class="text-2xl font-black italic text-slate-900 border-b border-slate-100 py-6">EQUIPAMIENTO</a>
         <a href="javascript:void(0)" data-action="mobile-navigate" data-target="guias"
@@ -787,6 +791,27 @@
                     <div class="region-chip" data-action="sel-event-region" data-region="Arequipa">Arequipa</div>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10" id="events-grid"></div>
+            </div>
+        </section>
+
+        <!-- INFRAESTRUCTURA Y PARQUES -->
+        <section id="section-infraestructura" class="section-view pt-32 pb-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-black mb-4">Parques & <span class="text-primary italic">Aventura</span></h2>
+                    <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest italic">
+                        Palestras, Tirolesas y Zonas de Entrenamiento
+                    </p>
+                </div>
+                <div class="flex gap-4 overflow-x-auto pb-8 no-scrollbar mb-12" id="infra-region-selector">
+                    <div class="region-chip active" data-action="sel-infra-region" data-region="Todos">Todos</div>
+                    <div class="region-chip" data-action="sel-infra-region" data-region="Lima">Lima</div>
+                    <div class="region-chip" data-action="sel-infra-region" data-region="Cusco">Cusco</div>
+                    <div class="region-chip" data-action="sel-infra-region" data-region="Arequipa">Arequipa</div>
+                    <div class="region-chip" data-action="sel-infra-region" data-region="San Martín">San Martín</div>
+                    <div class="region-chip" data-action="sel-infra-region" data-region="Loreto">Loreto</div>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10" id="infra-grid"></div>
             </div>
         </section>
 
@@ -3322,6 +3347,7 @@
     <script src="js/share-engine.js" defer></script>
     <script type="module" src="js/booking-service.js" defer></script>
     <script src="js/app.js" defer></script>
+    <script type="module" src="js/infrastructure.js" defer></script>
     <script src="js/gamification.js" defer></script>
     <script src="js/forms-handler.js" defer></script>
 </body>
