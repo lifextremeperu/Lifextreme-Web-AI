@@ -3,7 +3,7 @@
 // Cliente de Supabase para el Frontend
 // ============================================
 
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
 
 // ✅ Configuración de Supabase - Lifextreme Backend
 const supabaseUrl = 'https://zobpkmiqrvhbepqnjshr.supabase.co'
