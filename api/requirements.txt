@@ -1,10 +1,6 @@
 fastapi==0.115.0
 uvicorn==0.31.0
-pydantic-ai
-google-genai
-langchain-google-vertexai
-langchain-community
-google-cloud-aiplatform
 pydantic==2.12.5
-google-auth
-httpx
+supabase
+requests
+python-dotenv
