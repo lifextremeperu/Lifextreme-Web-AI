@@ -1345,230 +1345,47 @@ const tours = [
 ];
 
 const events = [
-    {
-        id: 101,
-        title: 'Curso WFR Certificado',
-        dept: 'Cusco',
-        cat: 'Certificación',
-        date: '10',
-        month: 'MAY',
-        img: 'https://images.unsplash.com/photo-1544367563-12123d832d34?q=80&w=2070&auto=format&fit=crop',
-        price: 1200,
-        detail: 'Certificación Wilderness First Responder con validez internacional (80h).',
-        whatYouDo: ['Simulacros reales', 'Salud en altura', 'Evacuación'],
-        steps: [{ n: 'ri-book-open-line', t: 'Teoría', d: '3 Días' }, { n: 'ri-first-aid-kit-line', t: 'Práctica', d: 'Campo' }],
-        inc: ['Manual WFR', 'Certificado Wafer', 'Coffee']
-    },
-    {
-        id: 102,
-        title: 'Andes Race 100K',
-        dept: 'Cusco',
-        cat: 'Competencia',
-        date: '25',
-        month: 'AGO',
-        img: 'https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=2070&auto=format&fit=crop',
-        price: 450,
-        detail: 'La ultra maratón más alta del mundo retorna al Valle Sagrado.',
-        whatYouDo: ['Running 100k', 'Pasos a 4500m', 'Vistas del Valle'],
-        steps: [{ n: 'ri-flag-2-line', t: 'Partida', d: '02:00 AM' }, { n: 'ri-trophy-line', t: 'Meta', d: 'Ollantaytambo' }],
-        inc: ['Kit Corredor', 'Medalla Finisher', 'Seguro']
-    },
-    {
-        id: 103,
-        title: 'Taller Escalada Roca',
-        dept: 'Huaraz',
-        cat: 'Taller',
-        date: '15',
-        month: 'JUN',
-        img: 'https://images.unsplash.com/photo-1522661067900-ab829854a57f?q=80&w=1932&auto=format&fit=crop',
-        price: 350,
-        detail: 'Aprende nudos, seguridad y técnica de escalada en Hatun Machay.',
-        whatYouDo: ['Nudos básicos', 'Aseguramiento', 'Top-Rope'],
-        steps: [{ n: 'ri-landscape-line', t: 'Hatun Machay', d: 'Campo Base' }, { n: 'ri-guide-line', t: 'Práctica', d: 'Pared' }],
-        inc: ['Equipo técnico', 'Instructor', 'Entradas']
-    },
-    {
-        id: 104,
-        title: 'Retiro de Yoga & Trek',
-        dept: 'Cusco',
-        cat: 'Bienestar',
-        date: '08',
-        month: 'JUL',
-        img: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=2070&auto=format&fit=crop',
-        price: 680,
-        detail: 'Conexión con la Pachamama en la Laguna Humantay.',
-        whatYouDo: ['Yoga al amanecer', 'Caminata consciente', 'Meditación'],
-        steps: [{ n: 'ri-sun-line', t: 'Amanecer', d: 'Clase' }, { n: 'ri-footprint-line', t: 'Trek', d: 'Laguna' }],
-        inc: ['Mats', 'Alimentación Veg', 'Guía Espiritual']
-    },
-    {
-        id: 105,
-        title: 'Curso Fotografía Aventura',
-        dept: 'Huaraz',
-        cat: 'Curso',
-        date: '20',
-        month: 'SEP',
-        img: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1938&auto=format&fit=crop',
-        price: 900,
-        detail: 'Domina la luz natural y el movimiento en entornos extremos.',
-        whatYouDo: ['Composición', 'Astrofotografía', 'Post-prod'],
-        steps: [{ n: 'ri-camera-lens-line', t: 'Teoría', d: 'Lodge' }, { n: 'ri-image-line', t: 'Shooting', d: 'Glaciar' }],
-        inc: ['Software', 'Revisión portafolio', 'Transporte']
-    },
-    {
-        id: 106,
-        title: 'Festival Cine Montaña',
-        dept: 'Lima',
-        cat: 'Festival',
-        date: '12',
-        month: 'OCT',
-        img: 'https://images.unsplash.com/photo-1517604931442-7105376f7c04?q=80&w=2070&auto=format&fit=crop',
-        price: 80,
-        detail: 'Proyección de los mejores documentales de aventura del año.',
-        whatYouDo: ['Cine al aire libre', 'Charlas con atletas', 'Sorteos'],
-        steps: [{ n: 'ri-film-line', t: 'Cine', d: 'Noche' }, { n: 'ri-user-voice-line', t: 'Charla', d: 'Invitado' }],
-        inc: ['Popcorn', 'Bebida', 'After Party']
-    },
-    {
-        id: 107,
-        title: 'Curso Supervivencia Selva',
-        dept: 'Iquitos',
-        cat: 'Curso',
-        date: '05',
-        month: 'NOV',
-        img: 'https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=2070&auto=format&fit=crop',
-        price: 1500,
-        detail: '3 días aislado en el Amazonas aprendiendo a sobrevivir.',
-        whatYouDo: ['Fuego primitivo', 'Refugios', 'Rastreo'],
-        steps: [{ n: 'ri-fire-line', t: 'Fuego', d: 'Técnica' }, { n: 'ri-home-4-line', t: 'Refugio', d: 'Construcción' }],
-        inc: ['Machete', 'Instructor Militar', 'Evacuación']
-    },
-    {
-        id: 108,
-        title: 'Lunahuaná Kayak Fest',
-        dept: 'Lima',
-        cat: 'Competencia',
-        date: '18',
-        month: 'MAY',
-        img: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=2070&auto=format&fit=crop',
-        price: 120,
-        detail: 'Competencia de aguas bravas y camaradería en el río Cañete.',
-        whatYouDo: ['Downriver', 'Slalom', 'Fiesta Luau'],
-        steps: [{ n: 'ri-ship-line', t: 'Río', d: 'Partida' }, { n: 'ri-music-line', t: 'Fiesta', d: 'Cierre' }],
-        inc: ['Polo Evento', 'Cena', 'Camping']
-    },
-    {
-        id: 109,
-        title: 'Andes Pacific MTB Cup',
-        dept: 'Lima',
-        cat: 'Competencia MTB',
-        date: '20',
-        month: 'JUN',
-        img: 'https://images.unsplash.com/photo-1544198365-f5d60b6d8190?q=80&w=2070&auto=format&fit=crop',
-        price: 150,
-        detail: 'Etapa clasificatoria Huarochirí. Lifextreme te conecta directo con el organizador oficial.',
-        whatYouDo: ['Rutas técnicas', 'Descensos Enduro', 'Medalla Finisher'],
-        steps: [{ n: 'ri-riding-line', t: 'Ruta', d: 'Partida' }, { n: 'ri-medal-line', t: 'Podio', d: 'Cierre' }],
-        inc: ['Dorsal', 'Hidratación', 'Seguro de Carrera']
-    },
-    {
-        id: 110,
-        title: 'Ultra Trail Cordillera Blanca',
-        dept: 'Huaraz',
-        cat: 'Trail Running',
-        date: '02',
-        month: 'JUL',
-        img: 'https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=2070&auto=format&fit=crop',
-        price: 350,
-        detail: 'Corre a los pies del Huascarán. Inscripción a precio oficial de la organización.',
-        whatYouDo: ['Rutas 12K a 50K', 'Vistas Glaciares', 'Altitud extrema'],
-        steps: [{ n: 'ri-flag-2-line', t: 'Huaraz', d: 'Partida' }, { n: 'ri-trophy-line', t: 'Meta', d: 'Llegada' }],
-        inc: ['Kit UTCB', 'Puntos de Abasto', 'Medalla']
-    },
-    {
-        id: 111,
-        title: '3 Piedras & 100 Millas',
-        dept: 'Huaraz',
-        cat: 'Ultra Trail',
-        date: '25',
-        month: 'JUL',
-        img: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070&auto=format&fit=crop',
-        price: 450,
-        detail: 'La primera carrera de 100 millas en Perú. Reserva tu cupo a precio de organizador.',
-        whatYouDo: ['100 Millas Non-stop', 'Supervivencia andina', 'Desafío Mental'],
-        steps: [{ n: 'ri-moon-line', t: 'Noche', d: 'Correr' }, { n: 'ri-sun-line', t: 'Día', d: 'Resistir' }],
-        inc: ['Dorsal tracker GPS', 'Base camps', 'Polo finisher']
-    },
-    {
-        id: 112,
-        title: 'Andes Race 100K',
-        dept: 'Cusco',
-        cat: 'Ultra Maratón',
-        date: '25',
-        month: 'AGO',
-        img: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=2070&auto=format&fit=crop',
-        price: 480,
-        detail: 'Recorre la ruta de los Chaskis en el Valle Sagrado. Precio oficial Andes Race.',
-        whatYouDo: ['Pasos de 4500m', 'Ruinas incas', 'Desnivel brutal'],
-        steps: [{ n: 'ri-footprint-line', t: 'Valle', d: 'Inicio' }, { n: 'ri-map-pin-line', t: 'Ollanta', d: 'Fin' }],
-        inc: ['Kit corredor', 'Traslado a partida', 'Medalla Inka']
-    },
-    {
-        id: 113,
-        title: 'Génesis Inka MTB',
-        dept: 'Huaraz',
-        cat: 'MTB por etapas',
-        date: '24',
-        month: 'AGO',
-        img: 'https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?q=80&w=2070&auto=format&fit=crop',
-        price: 800,
-        detail: '6 días de MTB cruzando la Cordillera de los Andes. Lifextreme promociona inscripción oficial.',
-        whatYouDo: ['Campamentos Base', 'Etapas maratón', 'Comunidad ciclista'],
-        steps: [{ n: 'ri-riding-line', t: 'Etapa 1', d: 'Inicio' }, { n: 'ri-flag-checkered-line', t: 'Etapa 6', d: 'Final' }],
-        inc: ['Derecho de ruta', 'Logística de campamento', 'Asistencia médica']
-    },
-    {
-        id: 114,
-        title: 'Desafío Huarochirí',
-        dept: 'Lima',
-        cat: 'Trail Running',
-        date: '15',
-        month: 'SEP',
-        img: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=2070&auto=format&fit=crop',
-        price: 90,
-        detail: 'Clásica carrera de montaña a pocas horas de Lima. Boleto directo organizador.',
-        whatYouDo: ['Cuestas técnicas', 'Desnivel positivo', 'Ruta señalizada'],
-        steps: [{ n: 'ri-map-pin-2-line', t: 'Pueblo', d: 'Partida' }, { n: 'ri-medal-line', t: 'Meta', d: 'Plaza' }],
-        inc: ['Dorsal', 'Hidratación', 'Medalla']
-    },
-    {
-        id: 115,
-        title: 'Amazon Race Forest',
-        dept: 'San Martín',
-        cat: 'Trail Running',
-        date: '10',
-        month: 'OCT',
-        img: 'https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=2070&auto=format&fit=crop',
-        price: 180,
-        detail: 'Corre en medio de la amazonía peruana, barro y selva. Precio oficial.',
-        whatYouDo: ['Cruce de ríos', 'Humedad extrema', 'Paisaje verde'],
-        steps: [{ n: 'ri-leaf-line', t: 'Selva', d: 'Inicio' }, { n: 'ri-water-flash-line', t: 'Barro', d: 'Obstáculos' }],
-        inc: ['Dorsal', 'Kit supervivencia', 'Fiesta Finisher']
-    },
-    {
-        id: 116,
-        title: 'Clausura AQP Trail',
-        dept: 'Arequipa',
-        cat: 'Competencia',
-        date: '05',
-        month: 'NOV',
-        img: 'https://images.unsplash.com/photo-1522163182402-834f60b58e26?q=80&w=2070&auto=format&fit=crop',
-        price: 120,
-        detail: 'Última fecha del circuito de montaña arequipeño. Venta directa sin comisiones.',
-        whatYouDo: ['Faldas del Misti', 'Terreno volcánico', 'Cierre de temporada'],
-        steps: [{ n: 'ri-fire-line', t: 'Volcán', d: 'Ascenso' }, { n: 'ri-trophy-line', t: 'Ceremonia', d: 'Premiación' }],
-        inc: ['Dorsal', 'Sorteos', 'Medalla anual']
-    }
+    // JUNIO
+    { id: 201, title: 'Mi Primer Trail', dept: 'Lima', cat: 'Trail Running', date: '13', month: 'JUN', img: 'https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=2070', price: 80, detail: 'Parque Ecológico de La Molina. Ideal para iniciantes.', whatYouDo: ['Senderos cortos', 'Acompañamiento', 'Naturaleza'], steps: [{ n: 'ri-flag-2-line', t: 'Inicio', d: 'La Molina' }, { n: 'ri-medal-line', t: 'Meta', d: 'Parque' }], inc: ['Dorsal', 'Hidratación', 'Medalla'] },
+    { id: 202, title: 'Ruta de la Chirimoya', dept: 'Lima', cat: 'Trail Running', date: '14', month: 'JUN', img: 'https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=2070', price: 90, detail: 'Carrera en Callahuanca, Huarochirí. Disfruta de paisajes y fruta fresca.', whatYouDo: ['Ascensos', 'Senderos rurales', 'Degustación'], steps: [{ n: 'ri-flag-2-line', t: 'Inicio', d: 'Callahuanca' }, { n: 'ri-medal-line', t: 'Meta', d: 'Plaza' }], inc: ['Dorsal', 'Hidratación', 'Chirimoyas'] },
+    { id: 203, title: 'Cajatambo Raid', dept: 'Lima', cat: 'Expedición', date: '14', month: 'JUN', img: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070', price: 150, detail: 'Raid de aventura en la sierra de Lima.', whatYouDo: ['Trek', 'Orientación', 'Clima andino'], steps: [{ n: 'ri-compass-line', t: 'Ruta', d: 'Navegación' }, { n: 'ri-medal-line', t: 'Cierre', d: 'Cajatambo' }], inc: ['Mapa', 'Asistencia', 'Medalla'] },
+    { id: 204, title: 'Geoconsciencia Quelccaya', dept: 'Cusco', cat: 'Expedición', date: '14', month: 'JUN', img: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=2070', price: 120, detail: 'Salida al Sistema Glaciar Quelccaya y Suyuparina.', whatYouDo: ['Trek Glaciar', 'Observación', 'Consciencia'], steps: [{ n: 'ri-snowflake-line', t: 'Glaciar', d: 'Ascenso' }, { n: 'ri-eye-line', t: 'Observación', d: 'Estudio' }], inc: ['Guía', 'Transporte', 'Snack'] },
+    { id: 205, title: 'Tatoo Terra Challenge', dept: 'Lima', cat: 'Trail & Enduro', date: '20', month: 'JUN', img: 'https://images.unsplash.com/photo-1544198365-f5d60b6d8190?q=80&w=2070', price: 180, detail: 'Morro Edition en Chorrillos. Incluye Trail Running y MTB Enduro.', whatYouDo: ['Rutas técnicas', 'Descensos Enduro', 'Medalla Finisher'], steps: [{ n: 'ri-riding-line', t: 'Morro', d: 'Desafío' }, { n: 'ri-medal-line', t: 'Meta', d: 'Playa' }], inc: ['Dorsal', 'Hidratación', 'Seguro'] },
+    { id: 206, title: 'Carrera Sauce', dept: 'San Martín', cat: 'Trail Running', date: '20', month: 'JUN', img: 'https://images.unsplash.com/photo-1522163182402-834f60b58e26?q=80&w=2070', price: 100, detail: 'Corre bordeando la famosa Laguna Azul en Tarapoto.', whatYouDo: ['Selva', 'Humedad', 'Barro'], steps: [{ n: 'ri-drop-line', t: 'Laguna', d: 'Ruta' }, { n: 'ri-medal-line', t: 'Meta', d: 'Pueblo' }], inc: ['Dorsal', 'Hidratación', 'Medalla'] },
+    { id: 207, title: 'Marcahuasi Ultra SkyRunning', dept: 'Lima', cat: 'Ultra Trail', date: '26', month: 'JUN', img: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=2070', price: 250, detail: 'El MUT. Ascenso brutal hasta el bosque de piedras de Marcahuasi.', whatYouDo: ['SkyRunning', 'Altura extrema', 'Desnivel'], steps: [{ n: 'ri-arrow-up-line', t: 'Ascenso', d: 'San Pedro' }, { n: 'ri-landscape-line', t: 'Meseta', d: 'Marcahuasi' }], inc: ['Dorsal tracker', 'Puntos abasto', 'Polo Finisher'] },
+    { id: 208, title: 'Picha Trail Fest', dept: 'Junín', cat: 'Trail Running', date: '28', month: 'JUN', img: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=2070', price: 120, detail: 'Festival de Trail en la sierra central del Perú.', whatYouDo: ['Valles', 'Río', 'Naturaleza'], steps: [{ n: 'ri-flag-2-line', t: 'Inicio', d: 'Valle' }, { n: 'ri-medal-line', t: 'Meta', d: 'Centro' }], inc: ['Dorsal', 'Hidratación', 'Fiesta'] },
+    { id: 209, title: 'Ranking Nac. DH 2da Válida', dept: 'Apurímac', cat: 'MTB DH', date: '13', month: 'JUN', img: 'https://images.unsplash.com/photo-1544198365-f5d60b6d8190?q=80&w=2070', price: 150, detail: 'Campeonato Nacional de Downhill en Andahuaylas.', whatYouDo: ['Descenso extremo', 'Saltos', 'Velocidad'], steps: [{ n: 'ri-arrow-down-line', t: 'Partida', d: 'Cima' }, { n: 'ri-flag-checkered-line', t: 'Llegada', d: 'Valle' }], inc: ['Remonte', 'Cronometraje', 'Seguro'] },
+    { id: 210, title: 'Andes Pacific MTB Cup', dept: 'Lima', cat: 'MTB Enduro', date: '20', month: 'JUN', img: 'https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?q=80&w=2070', price: 160, detail: 'Copa Internacional de Enduro en Huachupampa.', whatYouDo: ['Enduro', 'Zonas técnicas', 'Roca'], steps: [{ n: 'ri-riding-line', t: 'Especial 1', d: 'Sierra' }, { n: 'ri-flag-checkered-line', t: 'Liaison', d: 'Plaza' }], inc: ['Chip', 'Abastecimiento', 'Medalla'] },
+    { id: 211, title: 'Ranking Nac. XCO 4ta Válida', dept: 'Arequipa', cat: 'MTB XCO', date: '21', month: 'JUN', img: 'https://images.unsplash.com/photo-1517604931442-7105376f7c04?q=80&w=2070', price: 140, detail: 'Cross Country Olímpico en Arequipa.', whatYouDo: ['Circuitos técnicos', 'Explosividad', 'Altitud'], steps: [{ n: 'ri-riding-line', t: 'Circuito', d: 'Vueltas' }, { n: 'ri-trophy-line', t: 'Podio', d: 'Premiación' }], inc: ['Dorsal', 'Cronometraje', 'Jueces UCI'] },
+
+    // JULIO
+    { id: 212, title: 'Ultra Trail Cordillera Blanca', dept: 'Huaraz', cat: 'Ultra Trail', date: '02', month: 'JUL', img: 'https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=2070', price: 350, detail: 'UTCB. Corre bajo los glaciares tropicales más altos del mundo.', whatYouDo: ['Rutas 12K a 50K', 'Vistas Glaciares', 'Altitud extrema'], steps: [{ n: 'ri-flag-2-line', t: 'Huaraz', d: 'Partida' }, { n: 'ri-trophy-line', t: 'Meta', d: 'Llegada' }], inc: ['Kit UTCB', 'Puntos de Abasto', 'Medalla'] },
+    { id: 213, title: 'Ai Apaec Trail', dept: 'La Libertad', cat: 'Trail Running', date: '12', month: 'JUL', img: 'https://images.unsplash.com/photo-1440342359743-84fcb8c21f21?q=80&w=2070', price: 90, detail: 'Ruta moche en Trujillo. Corriendo entre dunas y ruinas.', whatYouDo: ['Arena', 'Calor', 'Ruinas'], steps: [{ n: 'ri-sun-line', t: 'Desierto', d: 'Ruta' }, { n: 'ri-medal-line', t: 'Moche', d: 'Meta' }], inc: ['Dorsal', 'Hidratación', 'Medalla'] },
+    { id: 214, title: 'Sierra Andina Mountain Trail', dept: 'Huaraz', cat: 'Trail Running', date: '19', month: 'JUL', img: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070', price: 200, detail: 'Carrera extrema en Matara, Áncash.', whatYouDo: ['Desnivel', 'Alta montaña', 'Frío'], steps: [{ n: 'ri-arrow-up-line', t: 'Ascenso', d: 'Paso' }, { n: 'ri-flag-checkered-line', t: 'Meta', d: 'Pueblo' }], inc: ['Dorsal', 'Cerveza SAMT', 'Medalla'] },
+    { id: 215, title: 'Desafío Manchay', dept: 'Lima', cat: 'Trail Running', date: '19', month: 'JUL', img: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=2070', price: 80, detail: 'Carrera local de cerros y arenales en Lima.', whatYouDo: ['Lomas', 'Arena', 'Ascensos cortos'], steps: [{ n: 'ri-flag-2-line', t: 'Inicio', d: 'Manchay' }, { n: 'ri-medal-line', t: 'Meta', d: 'Plaza' }], inc: ['Dorsal', 'Agua', 'Medalla'] },
+    { id: 216, title: 'Tingo María Trail', dept: 'Huánuco', cat: 'Trail Running', date: '25', month: 'JUL', img: 'https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=2070', price: 150, detail: 'Corre en la selva alta, cerca de la Bella Durmiente.', whatYouDo: ['Humedad', 'Barro', 'Vegetación'], steps: [{ n: 'ri-leaf-line', t: 'Selva', d: 'Ruta' }, { n: 'ri-medal-line', t: 'Meta', d: 'Cueva' }], inc: ['Dorsal', 'Kit supervivencia', 'Fiesta Finisher'] },
+    { id: 217, title: 'Valley Camp', dept: 'Cusco', cat: 'Expedición', date: '27', month: 'JUL', img: 'https://images.unsplash.com/photo-1522163182402-834f60b58e26?q=80&w=2070', price: 850, detail: 'Campamento de Exploradores en Urubamba.', whatYouDo: ['Supervivencia', 'Trek', 'Cultura'], steps: [{ n: 'ri-tent-line', t: 'Base', d: 'Valle' }, { n: 'ri-compass-line', t: 'Explorar', d: 'Montañas' }], inc: ['Carpas', 'Alimentación', 'Guías'] },
+    { id: 218, title: 'Ranking Nac. DH 3ra Válida', dept: 'Cusco', cat: 'MTB DH', date: '11', month: 'JUL', img: 'https://images.unsplash.com/photo-1544198365-f5d60b6d8190?q=80&w=2070', price: 150, detail: 'Downhill Nacional en los senderos sagrados del Cusco.', whatYouDo: ['Descenso extremo', 'Piedra inca', 'Drops'], steps: [{ n: 'ri-arrow-down-line', t: 'Partida', d: 'Cima' }, { n: 'ri-flag-checkered-line', t: 'Llegada', d: 'Valle' }], inc: ['Remonte', 'Cronometraje', 'Seguro'] },
+
+    // AGOSTO
+    { id: 219, title: 'adidas Andes Race', dept: 'Cusco', cat: 'Ultra Maratón', date: '14', month: 'AGO', img: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=2070', price: 480, detail: 'Una de las ultra maratones más exigentes del calendario andino.', whatYouDo: ['Running 100k', 'Pasos a 4500m', 'Vistas del Valle'], steps: [{ n: 'ri-flag-2-line', t: 'Partida', d: 'Valle' }, { n: 'ri-trophy-line', t: 'Meta', d: 'Ollantaytambo' }], inc: ['Kit Corredor', 'Medalla Inka', 'Seguro'] },
+    { id: 220, title: 'Ranking Nac. DH 4ta Válida', dept: 'Cajamarca', cat: 'MTB DH', date: '14', month: 'AGO', img: 'https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?q=80&w=2070', price: 150, detail: 'Downhill Nacional en Cajamarca.', whatYouDo: ['Descenso extremo', 'Tierra suelta', 'Curvas'], steps: [{ n: 'ri-arrow-down-line', t: 'Partida', d: 'Cima' }, { n: 'ri-flag-checkered-line', t: 'Llegada', d: 'Base' }], inc: ['Remonte', 'Cronometraje', 'Seguro'] },
+    { id: 221, title: 'Ranking Nac. XCO 5ta Válida', dept: 'Cusco', cat: 'MTB XCO', date: '23', month: 'AGO', img: 'https://images.unsplash.com/photo-1517604931442-7105376f7c04?q=80&w=2070', price: 140, detail: 'Penúltima fecha del circuito XCO.', whatYouDo: ['Circuito', 'Rock gardens', 'Altitud'], steps: [{ n: 'ri-riding-line', t: 'Circuito', d: 'Vueltas' }, { n: 'ri-trophy-line', t: 'Podio', d: 'Premiación' }], inc: ['Dorsal', 'Cronometraje', 'Jueces UCI'] },
+
+    // SEPTIEMBRE
+    { id: 222, title: 'Sudamericano BMX Racing', dept: 'Lima', cat: 'BMX', date: '19', month: 'SEP', img: 'https://images.unsplash.com/photo-1544198365-f5d60b6d8190?q=80&w=2070', price: 200, detail: 'Campeonato Sudamericano y Latinoamericano BMX en la Costa Verde.', whatYouDo: ['BMX Racing', 'Saltos triples', 'Competición intl'], steps: [{ n: 'ri-riding-line', t: 'Pista', d: 'Clasificación' }, { n: 'ri-trophy-line', t: 'Finales', d: 'Podio' }], inc: ['Acceso a pista', 'Seguro', 'Placa UCI'] },
+    { id: 223, title: 'Ranking Nac. DH 5ta Válida', dept: 'Lima', cat: 'MTB DH', date: '26', month: 'SEP', img: 'https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?q=80&w=2070', price: 150, detail: 'Circuito DH en Amancay.', whatYouDo: ['Roca', 'Polvo', 'Inclinación'], steps: [{ n: 'ri-arrow-down-line', t: 'Partida', d: 'Cima' }, { n: 'ri-flag-checkered-line', t: 'Meta', d: 'Pachacamac' }], inc: ['Remonte', 'Cronometraje', 'Seguro'] },
+    { id: 224, title: 'Peru Outdoor Expo', dept: 'Amazonas', cat: 'Feria B2B', date: '30', month: 'SEP', img: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=2070', price: 0, detail: 'Evento top y rueda de negocios para operadores de aventura.', whatYouDo: ['Networking', 'Equipos', 'Innovación'], steps: [{ n: 'ri-store-line', t: 'Feria', d: 'Expo' }, { n: 'ri-hand-coin-line', t: 'Negocios', d: 'B2B' }], inc: ['Credencial', 'Charlas', 'Catálogos'] },
+
+    // OCTUBRE
+    { id: 225, title: 'MTB Pongo de Maenique', dept: 'Cusco', cat: 'MTB Extremo', date: '07', month: 'OCT', img: 'https://images.unsplash.com/photo-1544198365-f5d60b6d8190?q=80&w=2070', price: 1200, detail: 'La Película. Expedición MTB de resistencia en la selva de Cusco.', whatYouDo: ['MTB Selva', 'Supervivencia', 'Grabación'], steps: [{ n: 'ri-film-line', t: 'Shooting', d: 'Selva' }, { n: 'ri-riding-line', t: 'Travesía', d: 'Pongo' }], inc: ['Logística completa', 'Aparición en film', 'Campamentos'] },
+
+    // NOVIEMBRE
+    { id: 226, title: 'Triatlón Paracas', dept: 'Ica', cat: 'Triatlón', date: '21', month: 'NOV', img: 'https://images.unsplash.com/photo-1522163182402-834f60b58e26?q=80&w=2070', price: 650, detail: 'Distancia Medio Ironman en la Reserva de Paracas.', whatYouDo: ['Nado 1.9k', 'Bici 90k', 'Trote 21k'], steps: [{ n: 'ri-water-flash-line', t: 'Océano', d: 'Nado' }, { n: 'ri-medal-line', t: 'Meta', d: 'Finish' }], inc: ['Gorro natación', 'Dorsal', 'Cena carbohidratos'] },
+    { id: 227, title: 'Huacho Half Marathon', dept: 'Lima', cat: 'Running', date: '22', month: 'NOV', img: 'https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=2070', price: 90, detail: 'Media maratón de asfalto en el norte chico.', whatYouDo: ['Asfalto', 'Velocidad', 'Brisas'], steps: [{ n: 'ri-flag-2-line', t: 'Inicio', d: 'Plaza' }, { n: 'ri-medal-line', t: 'Meta', d: 'Malecón' }], inc: ['Polo oficial', 'Medalla', 'Hidratación'] },
+
+    // DICIEMBRE
+    { id: 228, title: 'Clausura Trail Cierre Temporada', dept: 'Arequipa', cat: 'Trail Running', date: '05', month: 'DIC', img: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070', price: 120, detail: 'Expedición final sin carácter competitivo. Aclimatación y confraternidad.', whatYouDo: ['Trek relajado', 'Confraternidad', 'Fogata'], steps: [{ n: 'ri-group-line', t: 'Comunidad', d: 'Ruta' }, { n: 'ri-fire-line', t: 'Fogata', d: 'Cierre' }], inc: ['Comida', 'Sorteos', 'Polo recuerdo'] }
 ];
 
 const equips = [
