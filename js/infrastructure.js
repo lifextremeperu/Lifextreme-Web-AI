@@ -1,8 +1,7 @@
 import { supabase } from './supabase-client.js';
 
-document.addEventListener('DOMContentLoaded', () => {
-    initInfrastructure();
-});
+// Inicializar directamente porque type="module" se ejecuta después del parseo del DOM
+initInfrastructure();
 
 let allInfrastructure = [];
 
