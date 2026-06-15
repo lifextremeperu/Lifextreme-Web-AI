@@ -3,34 +3,40 @@ import sys
 import glob
 import json
 import time
+import requests
 from pathlib import Path
-from dotenv import load_dotenv
 
-from google import genai
-from google.genai.types import HttpOptions, GenerateContentConfig
+OLLAMA_URL = "http://localhost:11434/api/chat"
+MODEL = "phi3:latest" 
 
-# Agregar src al path
-sys.path.append(str(Path(__file__).resolve().parent.parent))
-from src.models.corporate_schema import StrategicInsightSchema
+SYSTEM_PROMPT = """Actúa como el Director de Inversiones (CIO) de Lifextreme, una agencia de turismo de vanguardia.
+A continuación tienes datos extraídos del PENTUR/PERTUR oficial del gobierno para una región.
+Tu tarea es leer estos datos macro y extraer inteligencia puramente B2B (oportunidades de negocio, riesgos, plan del gobierno y datos macro) y responder ESTRICTAMENTE en formato JSON con la siguiente estructura, sin texto adicional ni bloques de markdown (```json):
+
+{
+  "region": "Nombre de la región",
+  "oportunidades_negocio": ["Déficit de servicios", "nuevas tendencias"],
+  "riesgos_inversion": ["Brechas de infraestructura", "conflictos sociales"],
+  "datos_macro_clave": ["Cifras de crecimiento", "estadísticas"],
+  "plan_gobierno": ["Inversión pública proyectada", "proyectos"],
+  "resumen_ejecutivo": "Resumen táctico de alto nivel para el CEO"
+}
+
+Si el texto no contiene datos relevantes para alguna lista, deja el array vacío [].
+Asegúrate de que la salida sea UNICAMENTE un JSON válido que pueda ser procesado por json.loads().
+"""
 
 def main():
-    load_dotenv()
-    sys.stdout.reconfigure(encoding='utf-8')
-    print("==================================================")
-    print(" >>> INICIANDO NORMALIZACIÓN ESTRATÉGICA PENTUR (B2B)")
-    print("==================================================")
-    
-    os.environ['GOOGLE_CLOUD_PROJECT'] = 'lifextreme-arequipa-agent'
-    os.environ['GOOGLE_CLOUD_LOCATION'] = 'us-central1'
-    os.environ['GOOGLE_GENAI_USE_VERTEXAI'] = 'True'
-    
     try:
-        client = genai.Client(http_options=HttpOptions(api_version='v1'))
-    except Exception as e:
-        print(f"[-] Error conectando a Vertex AI: {e}")
-        sys.exit(1)
-        
-    pentur_files = glob.glob('data/knowledge/*/modulos_pdf_error.txt')
+        sys.stdout.reconfigure(encoding='utf-8')
+    except:
+        pass
+    
+    print("==================================================")
+    print(" >>> INICIANDO NORMALIZACIÓN ESTRATÉGICA PENTUR (B2B Local)")
+    print("==================================================")
+    
+    pentur_files = glob.glob('data/knowledge/peru/*/modulos_pdf_error.txt')
     print(f"[+] Se encontraron {len(pentur_files)} archivos crudos de PENTUR.")
     
     for file_path in pentur_files:
@@ -47,40 +53,34 @@ def main():
             with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
                 texto_crudo = f.read()
                 
-            # Limitar a 150k caracteres para agilizar y mantener el foco
-            texto_crudo = texto_crudo[:150000] 
+            # Limitar a 40k caracteres para Ollama local (Phi3)
+            texto_crudo = texto_crudo[:40000] 
             
-            prompt = f"""
-            Actúa como el Director de Inversiones (CIO) de Lifextreme, una agencia de turismo de vanguardia.
-            A continuación tienes datos extraídos del PENTUR/PERTUR oficial del gobierno para la región {region.capitalize()}.
-            Tu tarea es leer estos datos macro y extraer inteligencia puramente B2B (oportunidades de negocio, riesgos, plan del gobierno y datos macro) usando estrictamente el esquema JSON proporcionado.
+            user_message = f"Analiza los siguientes datos de la región {region.capitalize()} y genera el JSON correspondiente:\n\n{texto_crudo}"
             
-            Si el texto no contiene datos relevantes para alguna lista, deja el array vacío.
+            print(f"    -> Conectando con {MODEL} (Ollama) para extraer Insights...")
+            res = requests.post(OLLAMA_URL, json={
+                "model": MODEL,
+                "messages": [
+                    {"role": "system", "content": SYSTEM_PROMPT},
+                    {"role": "user", "content": user_message}
+                ],
+                "stream": False,
+                "format": "json"
+            }, timeout=600)
             
-            DATOS CRUDOS DEL GOBIERNO:
-            {texto_crudo}
-            """
-            
-            print(f"    -> Conectando con Gemini 2.5 Flash para extraer Insights...")
-            response = client.models.generate_content(
-                model="gemini-2.5-flash",
-                contents=prompt,
-                config=GenerateContentConfig(
-                    temperature=0.2,
-                    response_mime_type="application/json",
-                    response_schema=StrategicInsightSchema
-                )
-            )
-            
-            with open(output_file, "w", encoding="utf-8") as out:
-                out.write(response.text)
-                
-            print(f"    [+] Intelligence Report guardado: {output_file}")
+            if res.ok:
+                respuesta_json = res.json()['message']['content']
+                with open(output_file, "w", encoding="utf-8") as out:
+                    out.write(respuesta_json)
+                print(f"    [+] Intelligence Report guardado: {output_file}")
+            else:
+                print(f"    [-] Error HTTP {res.status_code}: {res.text}")
             
         except Exception as e:
             print(f"    [-] Error procesando {region}: {e}")
             
-        time.sleep(3) # Anti-spam
+        time.sleep(2)
 
     print("==================================================")
     print(" ✅ NORMALIZACIÓN B2B COMPLETADA.")

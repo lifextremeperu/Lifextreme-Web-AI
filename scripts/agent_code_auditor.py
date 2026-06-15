@@ -69,7 +69,7 @@ def auditar_codigo(filepath, model=DEFAULT_MODEL):
                 {"role": "user", "content": user_message}
             ],
             "stream": False
-        }, timeout=300)
+        }, timeout=900)
         
         if res.ok:
             return res.json()['message']['content']
