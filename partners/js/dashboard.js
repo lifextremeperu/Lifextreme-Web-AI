@@ -818,48 +818,85 @@ window.filterBookings = function(status) {
 // ============================================
 // ANALYTICS CHART
 // ============================================
-window.renderAnalyticsChart = function() {
+window.renderAnalyticsChart = async function() {
     const ctx = document.getElementById('analyticsChart');
     if (!ctx) return;
     
-    // Evitar crear múltiples instancias
-    if (window.analyticsChartInstance) {
-        window.analyticsChartInstance.destroy();
-    }
-    
-    window.analyticsChartInstance = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'],
-            datasets: [{
-                label: 'Ingresos ($)',
-                data: [1200, 1900, 1500, 2200, 2800, 3240],
-                borderColor: '#4f46e5',
-                backgroundColor: 'rgba(79, 70, 229, 0.1)',
-                borderWidth: 2,
-                fill: true,
-                tension: 0.4
-            }, {
-                label: 'Reservas',
-                data: [15, 25, 20, 30, 42, 50],
-                borderColor: '#10b981',
-                backgroundColor: 'rgba(16, 185, 129, 0.1)',
-                borderWidth: 2,
-                fill: true,
-                tension: 0.4
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: { position: 'top' }
-            },
-            scales: {
-                y: { beginAtZero: true }
-            }
+    try {
+        const { data, error } = await supabase.from('bookings').select('total_price, booking_date, status');
+        if (error) throw error;
+        
+        const months = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
+        const currentMonth = new Date().getMonth();
+        
+        let labels = [];
+        let incomeData = [0,0,0,0,0,0];
+        let bookingsData = [0,0,0,0,0,0];
+        
+        for (let i = 5; i >= 0; i--) {
+            let m = currentMonth - i;
+            if (m < 0) m += 12;
+            labels.push(months[m]);
         }
-    });
+        
+        if (data && data.length > 0) {
+            data.forEach(b => {
+                if (!b.booking_date) return;
+                const date = new Date(b.booking_date);
+                const m = date.getMonth();
+                
+                let idx = -1;
+                for (let i=0; i<6; i++) {
+                    let calcM = currentMonth - (5-i);
+                    if (calcM < 0) calcM += 12;
+                    if (m === calcM) { idx = i; break; }
+                }
+                
+                if (idx !== -1) {
+                    bookingsData[idx] += 1;
+                    if (b.status === 'confirmed') {
+                        incomeData[idx] += parseFloat(b.total_price) || 0;
+                    }
+                }
+            });
+        }
+        
+        if (window.analyticsChartInstance) {
+            window.analyticsChartInstance.destroy();
+        }
+        
+        window.analyticsChartInstance = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Ingresos ($)',
+                    data: incomeData,
+                    borderColor: '#4f46e5',
+                    backgroundColor: 'rgba(79, 70, 229, 0.1)',
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.4
+                }, {
+                    label: 'Reservas',
+                    data: bookingsData,
+                    borderColor: '#10b981',
+                    backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { position: 'top' } },
+                scales: { y: { beginAtZero: true } }
+            }
+        });
+    } catch (e) {
+        console.error('Error renderizando chart real:', e);
+    }
 };
 
 // ============================================
