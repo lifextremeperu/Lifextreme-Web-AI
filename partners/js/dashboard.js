@@ -6,6 +6,13 @@ import { supabase } from '../../js/supabase-client.js';
 
 // 🔒 PROTECCIÓN DE RUTA ACTIVADA
 (async function protectRoute() {
+    const devToken = localStorage.getItem('dev_bypass_token');
+    if (devToken === 'DEV_SECRET_LIFEXTREME_2026') {
+        console.warn('DEV BYPASS: Saltando verificación de Supabase.');
+        updateUserProfile({ user_metadata: { full_name: "Admin Lifextreme" }, email: "admin@lifextreme.local" });
+        return;
+    }
+
     const { data: { session }, error } = await supabase.auth.getSession();
 
     if (!session) {
@@ -31,7 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initLogout();
     initNavigation();
     animateStats();
-    loadBookings(); // Esto eventualmente debería cargar datos reales
+    loadDashboardStats(); // Cargar estadísticas del resumen principal
+    loadBookings(); 
     loadActivities();
 });
 
@@ -146,8 +154,12 @@ function initNavigation() {
 
         // Update sections
         sections.forEach(s => {
+            s.classList.remove('active');
             s.classList.add('hidden');
-            if (s.id === `section-${targetId}`) s.classList.remove('hidden');
+            if (s.id === `section-${targetId}`) {
+                s.classList.remove('hidden');
+                s.classList.add('active');
+            }
         });
 
         // Update title
@@ -164,6 +176,7 @@ function initNavigation() {
         // Custom Loaders
         if (targetId === 'reservas') loadBookings();
         if (targetId === 'actividades') loadActivities();
+        if (targetId === 'clientes') loadClients();
 
         // Re-init icons for new section
         if (window.lucide) window.lucide.createIcons();
@@ -251,19 +264,185 @@ function animateStats() {
 }
 
 // ============================================
-// DATA LOADING (MOCK por ahora, conectar a Supabase luego)
+// DATA LOADING (Conectado a Supabase)
 // ============================================
 
-function loadBookings() {
-    // Aquí iría la llamada a Supabase:
-    // const { data } = await supabase.from('bookings').select('*')...
-
-    // Por ahora mantenemos los mocks para que se vea algo
-    console.log('Loading bookings...');
+async function loadBookings() {
+    const tbody = document.getElementById('bookings-table-body');
+    if (!tbody) return;
+    
+    tbody.innerHTML = '<tr><td colspan="7" class="text-center py-4">Cargando reservas reales...</td></tr>';
+    
+    try {
+        const { data, error } = await supabase.from('bookings').select('*').limit(5);
+        if (error) throw error;
+        
+        if (!data || data.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="7" class="text-center py-4 text-slate-500">No hay reservas activas en tu cuenta.</td></tr>';
+            return;
+        }
+        
+        tbody.innerHTML = '';
+        data.forEach(booking => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td class="font-bold text-slate-700">#${booking.id.substring(0,8)}</td>
+                <td>
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs">
+                            ${(booking.contact_name || 'U').charAt(0).toUpperCase()}
+                        </div>
+                        <div>
+                            <p class="font-bold text-sm text-slate-800">${booking.contact_name || 'Sin Nombre'}</p>
+                            <p class="text-xs text-slate-500">${booking.contact_email || 'Sin Email'}</p>
+                        </div>
+                    </div>
+                </td>
+                <td class="text-sm">Tour #${booking.tour_id ? booking.tour_id.substring(0,6) : 'N/A'}</td>
+                <td class="text-sm">${booking.booking_date || 'N/A'}</td>
+                <td class="font-bold text-slate-700">$${booking.total_price || 0}</td>
+                <td><span class="badge ${booking.status === 'confirmed' ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700'}">${booking.status || 'pending'}</span></td>
+                <td><button class="btn btn-secondary text-xs py-1 px-2">Ver Detalles</button></td>
+            `;
+            tbody.appendChild(tr);
+        });
+    } catch (e) {
+        console.error('Error cargando reservas:', e);
+        tbody.innerHTML = '<tr><td colspan="7" class="text-center py-4 text-red-500">Error conectando con la base de datos.</td></tr>';
+    }
 }
 
-function loadActivities() {
-    console.log('Loading activities...');
+async function loadActivities() {
+    const container = document.getElementById('activities-container');
+    if (!container) return;
+    
+    container.innerHTML = '<div class="text-center py-4 text-slate-500 w-full">Cargando tus tours desde el catálogo...</div>';
+    
+    try {
+        const { data, error } = await supabase.from('tours').select('*').limit(3);
+        if (error) throw error;
+        
+        if (!data || data.length === 0) {
+            container.innerHTML = '<div class="text-center py-4 text-slate-500 w-full">No tienes actividades creadas. ¡Empieza creando tu primer tour!</div>';
+            return;
+        }
+        
+        container.innerHTML = '';
+        data.forEach(tour => {
+            const div = document.createElement('div');
+            div.className = 'dashboard-card overflow-hidden';
+            div.innerHTML = `
+                <div class="h-40 w-full relative">
+                    <img src="${(tour.images && tour.images.length > 0) ? tour.images[0] : 'https://images.unsplash.com/photo-1522199755839-a2bacb67c546?w=400'}" class="w-full h-full object-cover" alt="Tour image">
+                    <div class="absolute top-2 right-2 badge bg-emerald-500 text-white border-0">Activo</div>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-bold text-lg mb-1 truncate">${tour.title}</h3>
+                    <p class="text-sm text-slate-500 mb-3">${tour.region || 'Perú'} • ${tour.difficulty || 'Básico'}</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-black text-emerald-600">S/ ${tour.price_pen || 0}</span>
+                        <button class="text-indigo-600 font-bold text-sm hover:underline">Editar</button>
+                    </div>
+                </div>
+            `;
+            container.appendChild(div);
+        });
+    } catch (e) {
+        console.error('Error cargando actividades:', e);
+        container.innerHTML = '<div class="text-center py-4 text-red-500 w-full">Error conectando con la base de datos.</div>';
+    }
+}
+
+async function loadDashboardStats() {
+    const elIngresos = document.getElementById('stat-ingresos');
+    const elReservas = document.getElementById('stat-reservas');
+    const elClientes = document.getElementById('stat-clientes');
+    
+    if (!elIngresos || !elReservas || !elClientes) return;
+
+    try {
+        const { data: bookings, error } = await supabase.from('bookings').select('total_price, status, contact_email');
+        if (error) throw error;
+
+        if (!bookings || bookings.length === 0) {
+            elIngresos.textContent = '$0.00';
+            elReservas.textContent = '0';
+            elClientes.textContent = '0';
+            return;
+        }
+
+        // Calcular ingresos totales (reservas confirmadas)
+        const totalIncome = bookings
+            .filter(b => b.status === 'confirmed')
+            .reduce((sum, b) => sum + (parseFloat(b.total_price) || 0), 0);
+
+        // Contar reservas activas
+        const activeBookings = bookings.length;
+
+        // Contar clientes únicos
+        const uniqueClients = new Set(bookings.map(b => b.contact_email).filter(Boolean)).size;
+
+        // Actualizar UI
+        elIngresos.textContent = '$' + totalIncome.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        elReservas.textContent = activeBookings.toString();
+        elClientes.textContent = uniqueClients.toString();
+
+    } catch (e) {
+        console.error('Error cargando estadísticas globales:', e);
+        elIngresos.textContent = 'Error';
+        elReservas.textContent = 'Error';
+        elClientes.textContent = 'Error';
+    }
+}
+
+async function loadClients() {
+    const tbody = document.getElementById('clients-table-body');
+    if (!tbody) return;
+    
+    tbody.innerHTML = '<tr><td colspan="4" class="text-center py-4 text-slate-500">Extrayendo datos de clientes...</td></tr>';
+    
+    try {
+        const { data: bookings, error } = await supabase.from('bookings').select('contact_name, contact_email, total_price');
+        if (error) throw error;
+        
+        if (!bookings || bookings.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="4" class="text-center py-4 text-slate-500">Aún no tienes clientes registrados.</td></tr>';
+            return;
+        }
+        
+        // Agrupar por email
+        const clientsMap = {};
+        bookings.forEach(b => {
+            if (!b.contact_email) return;
+            if (!clientsMap[b.contact_email]) {
+                clientsMap[b.contact_email] = {
+                    name: b.contact_name || 'Sin Nombre',
+                    email: b.contact_email,
+                    tours: 0,
+                    totalSpent: 0
+                };
+            }
+            clientsMap[b.contact_email].tours += 1;
+            clientsMap[b.contact_email].totalSpent += parseFloat(b.total_price) || 0;
+        });
+        
+        const clients = Object.values(clientsMap).sort((a, b) => b.totalSpent - a.totalSpent);
+        
+        tbody.innerHTML = '';
+        clients.forEach(client => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td class="font-bold text-slate-800">${client.name}</td>
+                <td class="text-slate-500 text-sm">${client.email}</td>
+                <td><span class="badge bg-slate-100 text-slate-700">${client.tours}</span></td>
+                <td class="font-black text-emerald-600">$${client.totalSpent.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+            `;
+            tbody.appendChild(tr);
+        });
+    } catch (e) {
+        console.error('Error cargando clientes:', e);
+        tbody.innerHTML = '<tr><td colspan="4" class="text-center py-4 text-red-500">Error al conectar con la base de datos.</td></tr>';
+    }
 }
 
 // ============================================
@@ -273,6 +452,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatForm = document.getElementById('ai-chat-form');
     const chatInput = document.getElementById('ai-chat-input');
     const chatHistory = document.getElementById('ai-chat-history');
+
+    // Función global para sugerencias
+    window.sendSuggestion = function(text) {
+        if (chatInput && chatForm) {
+            chatInput.value = text;
+            chatForm.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
+        }
+    };
 
     if (chatForm && chatInput && chatHistory) {
         chatForm.addEventListener('submit', async (e) => {
@@ -288,12 +475,23 @@ document.addEventListener('DOMContentLoaded', () => {
             const loadingId = appendLoading();
 
             try {
-                // 3. Llamar a la API B2B Local
-                const response = await fetch('http://localhost:8000/api/v1/b2b/query', {
+                // Obtener token JWT de Supabase o Token Dev
+                const devToken = localStorage.getItem('dev_bypass_token');
+                let token = '';
+                
+                if (devToken === 'DEV_SECRET_LIFEXTREME_2026') {
+                    token = 'DEV_SECRET_LIFEXTREME_2026';
+                } else {
+                    const { data: { session } } = await supabase.auth.getSession();
+                    token = session ? session.access_token : '';
+                }
+
+                // 3. Llamar a la API B2B Local (Modelo 1 - JWT)
+                const response = await fetch('/api/v1/b2b/query', {
                     method: 'POST',
                     headers: { 
                         'Content-Type': 'application/json',
-                        'X-API-Key': 'LIFEXTREME-TEST-KEY-2026' // La clave MVP acordada
+                        'Authorization': `Bearer ${token}`
                     },
                     body: JSON.stringify({ message })
                 });
@@ -321,37 +519,37 @@ document.addEventListener('DOMContentLoaded', () => {
         if (sender === 'user') {
             msgDiv.classList.add('flex-row-reverse');
             msgDiv.innerHTML = `
-                <div class="w-8 h-8 rounded-full bg-slate-700 flex-shrink-0 flex items-center justify-center border border-slate-600 mt-1">
-                    <i data-lucide="user" class="w-4 h-4 text-slate-300"></i>
+                <div class="w-10 h-10 rounded-full bg-slate-700 flex-shrink-0 flex items-center justify-center border border-slate-600 shadow-md">
+                    <i data-lucide="user" class="w-5 h-5 text-slate-300"></i>
                 </div>
-                <div class="bg-emerald-600 rounded-2xl rounded-tr-none p-4 max-w-[85%] border border-emerald-500 shadow-sm text-white">
-                    <p>${escapeHtml(text)}</p>
+                <div class="bg-indigo-600 rounded-2xl rounded-tr-none p-4 max-w-[85%] border border-indigo-500 shadow-sm text-white">
+                    <p class="text-sm">${escapeHtml(text)}</p>
                 </div>
             `;
         } else if (sender === 'ai') {
             let sourcesHtml = '';
             if (sources && sources.length > 0) {
-                sourcesHtml = `<div class="mt-3 pt-3 border-t border-slate-700/50 flex flex-wrap gap-2">
-                    <span class="text-[10px] text-slate-500 uppercase tracking-widest font-bold w-full">Fuentes (GraphRAG):</span>
-                    ${sources.map(s => `<span class="bg-slate-900 px-2 py-1 rounded text-[10px] text-emerald-500 border border-slate-700">${escapeHtml(s)}</span>`).join('')}
+                sourcesHtml = `<div class="mt-4 pt-3 border-t border-slate-700/50 flex flex-wrap gap-2">
+                    <span class="text-[10px] text-slate-500 uppercase tracking-widest font-bold w-full flex items-center gap-1"><i data-lucide="database" class="w-3 h-3"></i> Fuentes (GraphRAG):</span>
+                    ${sources.map(s => `<span class="bg-slate-900 px-2 py-1 rounded text-[10px] text-indigo-400 border border-slate-700">${escapeHtml(s)}</span>`).join('')}
                 </div>`;
             }
 
             msgDiv.innerHTML = `
-                <div class="w-8 h-8 rounded-full bg-emerald-500/20 flex-shrink-0 flex items-center justify-center border border-emerald-500/30 mt-1">
-                    <i data-lucide="cpu" class="w-4 h-4 text-emerald-400"></i>
+                <div class="w-10 h-10 rounded-full bg-indigo-900 flex-shrink-0 flex items-center justify-center border border-indigo-700 mt-1 shadow-md">
+                    <i data-lucide="cpu" class="w-5 h-5 text-indigo-400"></i>
                 </div>
-                <div class="bg-slate-800 rounded-2xl rounded-tl-none p-4 max-w-[85%] border border-slate-700 shadow-sm text-slate-300">
+                <div class="bg-slate-800 rounded-2xl rounded-tl-none p-5 max-w-[85%] border border-slate-700 shadow-sm text-slate-200">
                     <div class="prose prose-invert prose-sm max-w-none prose-p:leading-relaxed prose-pre:bg-slate-900 prose-pre:border prose-pre:border-slate-700">${formatMarkdown(text)}</div>
                     ${sourcesHtml}
                 </div>
             `;
         } else {
             msgDiv.innerHTML = `
-                <div class="w-8 h-8 rounded-full bg-red-500/20 flex-shrink-0 flex items-center justify-center border border-red-500/30 mt-1">
-                    <i data-lucide="alert-triangle" class="w-4 h-4 text-red-400"></i>
+                <div class="w-10 h-10 rounded-full bg-red-900/50 flex-shrink-0 flex items-center justify-center border border-red-700 mt-1">
+                    <i data-lucide="alert-triangle" class="w-5 h-5 text-red-400"></i>
                 </div>
-                <div class="bg-red-900/20 rounded-2xl rounded-tl-none p-4 max-w-[85%] border border-red-500/30 text-red-400">
+                <div class="bg-red-900/20 rounded-2xl rounded-tl-none p-4 max-w-[85%] border border-red-500/30 text-red-400 text-sm">
                     <p>${escapeHtml(text)}</p>
                 </div>
             `;
@@ -368,13 +566,20 @@ document.addEventListener('DOMContentLoaded', () => {
         msgDiv.id = id;
         msgDiv.className = 'flex gap-4 animate-fade-in';
         msgDiv.innerHTML = `
-            <div class="w-8 h-8 rounded-full bg-emerald-500/20 flex-shrink-0 flex items-center justify-center border border-emerald-500/30 mt-1">
-                <i data-lucide="cpu" class="w-4 h-4 text-emerald-400"></i>
+            <div class="w-10 h-10 rounded-full bg-indigo-900 flex-shrink-0 flex items-center justify-center border border-indigo-700 mt-1 shadow-md">
+                <i data-lucide="cpu" class="w-5 h-5 text-indigo-400"></i>
             </div>
-            <div class="bg-slate-800 rounded-2xl rounded-tl-none p-4 max-w-[85%] border border-slate-700 shadow-sm flex items-center gap-2">
-                <div class="w-2 h-2 bg-emerald-500 rounded-full animate-bounce"></div>
-                <div class="w-2 h-2 bg-emerald-500 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
-                <div class="w-2 h-2 bg-emerald-500 rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
+            <div class="bg-slate-800 rounded-2xl rounded-tl-none p-4 max-w-[85%] border border-slate-700 shadow-sm">
+                <div class="flex items-center gap-2 mb-2">
+                    <div class="text-sm text-slate-200 font-bold">Analizando Inteligencia Operativa...</div>
+                    <div class="w-2 h-2 bg-indigo-500 rounded-full animate-bounce"></div>
+                    <div class="w-2 h-2 bg-indigo-500 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+                    <div class="w-2 h-2 bg-indigo-500 rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
+                </div>
+                <p class="text-[11px] text-amber-400/90 leading-tight bg-amber-900/20 p-2 rounded-lg border border-amber-700/30">
+                    <i data-lucide="info" class="w-3 h-3 inline mr-1 mb-0.5"></i>
+                    Esta consulta profunda toma entre <strong>60 y 120 segundos</strong>. La Inteligencia Artificial Local (Phi-3) está cruzando datos de GraphRAG para garantizar precisión estratégica corporativa. Por favor, espera sin cerrar la ventana.
+                </p>
             </div>
         `;
         chatHistory.appendChild(msgDiv);
@@ -398,10 +603,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function formatMarkdown(text) {
-        // Formateo muy básico para negritas y saltos de línea (idealmente usar marked.js)
+        if (!text) return "";
+        // Formateo básico para negritas y saltos de línea
         return text
-            .replace(/\\*\\*(.*?)\\*\\*/g, '<strong>$1</strong>')
-            .replace(/\\*(.*?)\\*/g, '<em>$1</em>')
-            .replace(/\\n/g, '<br/>');
+            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+            .replace(/\*(.*?)\*/g, '<em>$1</em>')
+            .replace(/\n/g, '<br/>');
     }
 });

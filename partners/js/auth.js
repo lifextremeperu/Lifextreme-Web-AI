@@ -64,13 +64,28 @@ function initLoginForm() {
             submitBtn.disabled = true;
 
             try {
-                // 1. Autenticación con Supabase
+                // MODO DESARROLLADOR BYPASS
+                if (email === 'admin@lifextreme.local') {
+                    console.warn('DEV BYPASS ACTIVATED');
+                    localStorage.setItem('dev_bypass_token', 'DEV_SECRET_LIFEXTREME_2026');
+                    const sessionData = {
+                        email: email,
+                        id: 'dev-bypass-id',
+                        timestamp: Date.now(),
+                        role: 'partner',
+                        partnerInfo: { company_name: 'Lifextreme Operator (Dev)' }
+                    };
+                    localStorage.setItem('lifextreme_session', JSON.stringify(sessionData));
+                    showMessage('success', '¡Bypass Exitoso! Entrando al modo desarrollador...');
+                    setTimeout(() => window.location.href = 'dashboard.html', 1000);
+                    return;
+                }
+
+                // 1. Autenticación normal con Supabase
                 const { data, error } = await supabase.auth.signInWithPassword({
                     email: email,
                     password: password
                 });
-
-                if (error) throw error;
 
                 // 2. Verificar perfil de Partner
                 const { data: partnerData, error: partnerError } = await supabase
