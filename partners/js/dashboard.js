@@ -495,8 +495,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     token = session ? session.access_token : '';
                 }
 
-                // 3. Llamar a la API B2B Local (FastAPI en el puerto 8000)
-                const response = await fetch('http://localhost:8000/api/v1/b2b/query', {
+                // 3. Llamar a la API B2B Local vía Tailscale (Seguro HTTPS)
+                const response = await fetch('https://desktop-sedhoop.tail883d62.ts.net/api/v1/b2b/query', {
                     method: 'POST',
                     headers: { 
                         'Content-Type': 'application/json',
