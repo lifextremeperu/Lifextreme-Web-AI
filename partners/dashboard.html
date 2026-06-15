@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="/partners/css/styles.css">
     <link rel="stylesheet" href="/partners/css/dashboard.css">
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body class="dashboard-body">
@@ -129,7 +130,7 @@
                         <h2>¡Bienvenido de vuelta! 👋</h2>
                         <p>Aquí está un resumen de tu actividad hoy</p>
                     </div>
-                    <button class="btn btn-primary">
+                    <button class="btn btn-primary" onclick="openActivityModal()">
                         <i data-lucide="plus"></i>
                         Nueva Actividad
                     </button>
@@ -261,7 +262,7 @@
                         </div>
                         <div class="card-content">
                             <div class="quick-actions">
-                                <button class="quick-action-btn" onclick="switchSection('actividades')">
+                                <button class="quick-action-btn" onclick="openActivityModal()">
                                     <div class="quick-action-icon">
                                         <i data-lucide="plus-circle"></i>
                                     </div>
@@ -302,9 +303,9 @@
                             <input type="text" placeholder="Buscar por cliente o actividad...">
                         </div>
                         <div class="filter-group">
-                            <button class="filter-btn active">Todas</button>
-                            <button class="filter-btn">Pendientes</button>
-                            <button class="filter-btn">Confirmadas</button>
+                            <button class="filter-btn active" id="btn-filter-all" onclick="filterBookings('all')">Todas</button>
+                            <button class="filter-btn" id="btn-filter-pending" onclick="filterBookings('pending')">Pendientes</button>
+                            <button class="filter-btn" id="btn-filter-confirmed" onclick="filterBookings('confirmed')">Confirmadas</button>
                         </div>
                     </div>
                     <div class="table-container">
@@ -332,7 +333,10 @@
             <section id="section-actividades" class="dashboard-section">
                 <div class="section-header">
                     <h2 class="section-title">Mis Actividades</h2>
-                    <button class="btn btn-primary"><i data-lucide="plus"></i> Crear Actividad</button>
+                    <div class="flex gap-2">
+                        <button class="btn btn-secondary border-dashed" onclick="generateMockData()"><i data-lucide="database"></i> Datos de Prueba</button>
+                        <button class="btn btn-primary" onclick="openActivityModal()"><i data-lucide="plus"></i> Crear Actividad</button>
+                    </div>
                 </div>
                 <div class="activities-grid" id="activities-container">
                     <!-- Se llenará dinámicamente -->
@@ -345,11 +349,25 @@
                     <button class="btn btn-secondary">Reporte Mensual</button>
                 </div>
                 <div class="stats-grid-dashboard">
+                    <div class="stat-card-dashboard bg-indigo-50 border-indigo-100">
+                        <div class="stat-details">
+                            <div class="stat-label text-indigo-800">Saldo Disponible</div>
+                            <div class="stat-value text-indigo-900">$3,240.50</div>
+                            <button class="btn btn-primary mt-3 w-full justify-center" onclick="alert('Funcionalidad de retiro en conexión con pasarela de pagos Próximamente.')">Solicitar Retiro</button>
+                        </div>
+                    </div>
                     <div class="stat-card-dashboard">
                         <div class="stat-details">
-                            <div class="stat-label">Saldo Disponible</div>
-                            <div class="stat-value">$3,240.50</div>
-                            <button class="btn btn-primary mt-3">Solicitar Retiro</button>
+                            <div class="stat-label">Ticket Promedio</div>
+                            <div class="stat-value">$185.00</div>
+                            <div class="stat-change positive mt-2"><i data-lucide="arrow-up"></i> +5% este mes</div>
+                        </div>
+                    </div>
+                    <div class="stat-card-dashboard">
+                        <div class="stat-details">
+                            <div class="stat-label">Deuda Pendiente (Comisiones)</div>
+                            <div class="stat-value text-amber-600">$45.00</div>
+                            <button class="btn btn-secondary mt-3 w-full justify-center text-xs">Pagar ahora</button>
                         </div>
                     </div>
                 </div>
@@ -413,12 +431,8 @@
                 <div class="dashboard-card">
                     <div class="card-content">
                         <!-- Performance Charts -->
-                        <div
-                            class="flex items-center justify-center h-64 bg-slate-50 rounded-3xl border-2 border-dashed border-slate-200">
-                            <div class="text-center">
-                                <i data-lucide="bar-chart" class="mx-auto mb-2 text-slate-300"></i>
-                                <p class="text-sm font-medium text-slate-400">Cargando datos de analytics...</p>
-                            </div>
+                        <div class="w-full h-80">
+                            <canvas id="analyticsChart"></canvas>
                         </div>
                     </div>
                 </div>
@@ -429,12 +443,53 @@
                     <h2 class="section-title">Centro de Mensajes</h2>
                 </div>
                 <div class="dashboard-card">
-                    <div class="card-content">
-                        <div class="flex flex-col items-center justify-center h-64 text-center">
-                            <i data-lucide="message-square" class="w-12 h-12 text-slate-200 mb-4"></i>
-                            <h3 class="text-lg font-bold">No tienes mensajes nuevos</h3>
-                            <p class="text-sm text-slate-500 max-w-xs">Los mensajes de tus clientes y del soporte
-                                técnico aparecerán aquí.</p>
+                    <div class="card-content p-0">
+                        <div class="flex h-[500px]">
+                            <!-- Lista de Mensajes -->
+                            <div class="w-1/3 border-r border-slate-100 overflow-y-auto">
+                                <div class="p-4 border-b border-slate-100 bg-slate-50 cursor-pointer hover:bg-slate-100 transition-colors">
+                                    <div class="flex justify-between items-start mb-1">
+                                        <h4 class="font-bold text-sm">Carlos Mendoza</h4>
+                                        <span class="text-[10px] text-slate-400">10:30 AM</span>
+                                    </div>
+                                    <p class="text-xs text-slate-500 truncate">Hola, ¿qué ropa recomiendan para el trekking?</p>
+                                </div>
+                                <div class="p-4 border-b border-slate-100 cursor-pointer hover:bg-slate-50 transition-colors">
+                                    <div class="flex justify-between items-start mb-1">
+                                        <h4 class="font-bold text-sm text-emerald-600"><i data-lucide="shield-check" class="inline w-3 h-3"></i> Soporte Lifextreme</h4>
+                                        <span class="text-[10px] text-slate-400">Ayer</span>
+                                    </div>
+                                    <p class="text-xs text-slate-500 truncate">Tu cuenta ha sido verificada exitosamente.</p>
+                                </div>
+                                <div class="p-4 border-b border-slate-100 cursor-pointer hover:bg-slate-50 transition-colors">
+                                    <div class="flex justify-between items-start mb-1">
+                                        <h4 class="font-bold text-sm">Ana García</h4>
+                                        <span class="text-[10px] text-slate-400">Lun</span>
+                                    </div>
+                                    <p class="text-xs text-slate-500 truncate">Muchas gracias por el tour, ¡fue increíble!</p>
+                                </div>
+                            </div>
+                            <!-- Área de Chat -->
+                            <div class="w-2/3 flex flex-col bg-slate-50/50">
+                                <div class="p-4 border-b border-slate-100 bg-white flex justify-between items-center">
+                                    <h3 class="font-bold">Carlos Mendoza</h3>
+                                    <span class="badge bg-indigo-100 text-indigo-700">Reserva #1A2B3C</span>
+                                </div>
+                                <div class="flex-1 p-4 overflow-y-auto space-y-4">
+                                    <div class="flex gap-3">
+                                        <div class="w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold text-xs">CM</div>
+                                        <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm text-sm border border-slate-100 max-w-[80%]">
+                                            Hola, ya reservé para mañana el Trekking. ¿Qué tipo de ropa me recomiendan llevar considerando el clima?
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-4 bg-white border-t border-slate-100">
+                                    <div class="flex gap-2">
+                                        <input type="text" class="flex-1 border border-slate-200 rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-indigo-500 outline-none" placeholder="Escribe tu respuesta...">
+                                        <button class="bg-indigo-600 text-white p-2 rounded-xl hover:bg-indigo-700 transition-colors"><i data-lucide="send" class="w-5 h-5"></i></button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -779,11 +834,11 @@
                         <div class="space-y-6 max-w-2xl">
                             <div class="form-group">
                                 <label class="text-sm font-bold mb-2 block">Nombre de la Empresa</label>
-                                <input type="text" class="form-input" value="Aventura Extrema" readonly>
+                                <input type="text" id="config-company-name" class="form-input" value="Aventura Extrema" readonly>
                             </div>
                             <div class="form-group">
                                 <label class="text-sm font-bold mb-2 block">Email de Contacto</label>
-                                <input type="email" class="form-input" value="contacto@aventuraextrema.com" readonly>
+                                <input type="email" id="config-email" class="form-input" value="contacto@aventuraextrema.com" readonly>
                             </div>
                             <div class="form-group">
                                 <label class="text-sm font-bold mb-2 block">Estado de Cuenta</label>
@@ -796,6 +851,65 @@
                     </div>
                 </div>
             </section>
+        </div>
+        
+        <!-- Modal Nueva Actividad -->
+        <div id="modal-nueva-actividad" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
+            <div class="bg-white rounded-2xl shadow-xl w-full max-w-lg overflow-hidden transform scale-95 transition-transform duration-300">
+                <div class="p-6 border-b border-slate-100 flex justify-between items-center">
+                    <h3 class="font-bold text-xl text-slate-800">Crear Nueva Actividad</h3>
+                    <button class="text-slate-400 hover:text-slate-600" onclick="closeActivityModal()">
+                        <i data-lucide="x"></i>
+                    </button>
+                </div>
+                <div class="p-6">
+                    <form id="form-nueva-actividad" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-1">Título de la Actividad</label>
+                            <input type="text" id="act-title" class="w-full border border-slate-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required placeholder="Ej. Trekking Laguna 69">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-1">Región</label>
+                                <input type="text" id="act-region" class="w-full border border-slate-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required placeholder="Ej. Ancash">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-1">Dificultad</label>
+                                <select id="act-difficulty" class="w-full border border-slate-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                                    <option value="Básico">Básico</option>
+                                    <option value="Intermedio">Intermedio</option>
+                                    <option value="Avanzado">Avanzado</option>
+                                    <option value="Técnico">Técnico</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-1">Precio (S/)</label>
+                                <input type="number" id="act-price" step="0.01" class="w-full border border-slate-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required placeholder="0.00">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-1">Estado</label>
+                                <select id="act-status" class="w-full border border-slate-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                                    <option value="active">Publicado (Activo)</option>
+                                    <option value="pending">Borrador (Pendiente)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-1">URL de Imagen Principal</label>
+                            <input type="url" id="act-image" class="w-full border border-slate-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="https://ejemplo.com/imagen.jpg">
+                            <p class="text-xs text-slate-500 mt-1">Por ahora ingresa el link de tu imagen web.</p>
+                        </div>
+                        <div class="pt-4 flex justify-end gap-3">
+                            <button type="button" class="px-5 py-2 rounded-lg font-bold text-slate-600 hover:bg-slate-100" onclick="closeActivityModal()">Cancelar</button>
+                            <button type="submit" id="btn-save-activity" class="px-5 py-2 rounded-lg font-bold text-white bg-indigo-600 hover:bg-indigo-700 flex items-center gap-2">
+                                <i data-lucide="save" class="w-4 h-4"></i> Guardar Actividad
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </main>
 
