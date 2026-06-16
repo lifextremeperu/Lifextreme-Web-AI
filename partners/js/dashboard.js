@@ -582,7 +582,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="w-10 h-10 rounded-full bg-indigo-900 flex-shrink-0 flex items-center justify-center border border-indigo-500 mt-1 shadow-[0_0_15px_#6366f1]">
                 <i data-lucide="cpu" class="w-5 h-5 text-white"></i>
             </div>
-            <div class="bg-[#0b1120] rounded-2xl rounded-tl-none p-5 w-full max-w-[85%] border border-indigo-500/40 shadow-[0_0_30px_rgba(99,102,241,0.1)] overflow-hidden relative">
+            <div class="bg-[#0b1120] rounded-2xl rounded-tl-none p-5 w-full max-w-[95%] border border-indigo-500/40 shadow-[0_0_30px_rgba(99,102,241,0.1)] overflow-hidden relative">
                 
                 <div class="flex items-center gap-3 mb-4">
                     <div class="text-sm text-white font-black tracking-widest drop-shadow-[0_0_5px_#ffffff]">SINTETIZANDO INTELIGENCIA...</div>
@@ -591,50 +591,69 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
 
-                <!-- SIMULADOR NEURONAL -->
-                <div class="relative w-full h-48 bg-[#050814] rounded-xl overflow-hidden border border-indigo-500/30 mb-4 flex items-center justify-center p-4 shadow-inner">
+                <!-- SIMULADOR N8N / PIPELINE -->
+                <div class="relative w-full overflow-x-auto custom-scrollbar bg-[#050814] rounded-xl border border-indigo-500/30 mb-4 p-6 shadow-inner flex items-center justify-start lg:justify-center">
                     <!-- Neural Grid -->
                     <div class="absolute inset-0 opacity-30" style="background-image: radial-gradient(#818cf8 1px, transparent 1px); background-size: 20px 20px;"></div>
                     
-                    <!-- Animated Beams behind nodes -->
-                    <div class="absolute w-[70%] h-0.5 bg-slate-800/80 rounded-full top-1/2 -translate-y-1/2 flex items-center overflow-hidden">
-                        <div class="h-full w-1/3 bg-emerald-400 shadow-[0_0_15px_#34d399] animate-[slideRight_1.5s_infinite_linear]"></div>
-                        <div class="h-full w-1/3 bg-indigo-400 shadow-[0_0_15px_#818cf8] animate-[slideRight_1.5s_infinite_linear] ml-12"></div>
-                    </div>
-
-                    <!-- Layered layout -->
-                    <div class="flex justify-between items-center w-full max-w-md relative z-10 px-4">
+                    <div class="flex items-center gap-1 relative z-10 scale-90 md:scale-100 origin-left">
                         
-                        <!-- Input Layer -->
-                        <div class="flex flex-col gap-8">
-                            <div class="flex items-center gap-3">
-                                <div class="w-12 h-12 rounded-full bg-emerald-950 border-2 border-emerald-400 flex items-center justify-center shadow-[0_0_20px_#10b981] animate-pulse">
-                                    <i data-lucide="database" class="w-5 h-5 text-emerald-300"></i>
-                                </div>
-                                <span class="text-[11px] font-mono font-bold text-emerald-300 drop-shadow-[0_0_5px_#34d399]">GraphRAG</span>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <div class="w-12 h-12 rounded-full bg-amber-950 border-2 border-amber-400 flex items-center justify-center shadow-[0_0_20px_#f59e0b] animate-pulse" style="animation-delay: 0.5s">
-                                    <i data-lucide="radio" class="w-5 h-5 text-amber-300"></i>
-                                </div>
-                                <span class="text-[11px] font-mono font-bold text-amber-300 drop-shadow-[0_0_5px_#fbbf24]">SUTRAN</span>
-                            </div>
+                        <!-- Nodo 1: Query -->
+                        <div class="flex items-center bg-slate-900 border border-blue-500/60 rounded p-2 shadow-[0_0_10px_rgba(59,130,246,0.3)]">
+                            <i data-lucide="search" class="w-4 h-4 text-blue-400 mr-2"></i>
+                            <span class="text-[10px] font-mono text-blue-300 font-bold">QueryParser</span>
+                        </div>
+                        
+                        <div class="h-0.5 w-6 bg-slate-800 relative overflow-hidden"><div class="absolute inset-0 bg-blue-400 animate-[slideRight_1.5s_infinite_linear]"></div></div>
+                        
+                        <!-- Nodo 2: Vector DB -->
+                        <div class="flex items-center bg-slate-900 border border-emerald-500/60 rounded p-2 shadow-[0_0_10px_rgba(16,185,129,0.3)]">
+                            <i data-lucide="database" class="w-4 h-4 text-emerald-400 mr-2"></i>
+                            <span class="text-[10px] font-mono text-emerald-300 font-bold">GraphRAG DB</span>
                         </div>
 
-                        <!-- Central Core (Cerebro) -->
-                        <div class="relative flex flex-col items-center">
-                            <div class="absolute inset-0 rounded-full bg-indigo-500 animate-ping opacity-25"></div>
-                            <div class="w-20 h-20 rounded-full bg-[#0a0f24] border-4 border-indigo-400 flex items-center justify-center shadow-[0_0_40px_#6366f1] relative z-10">
-                                <i data-lucide="brain-circuit" class="w-10 h-10 text-white animate-pulse"></i>
+                        <div class="h-0.5 w-6 bg-slate-800 relative overflow-hidden"><div class="absolute inset-0 bg-emerald-400 animate-[slideRight_1.5s_infinite_linear]" style="animation-delay: 0.3s"></div></div>
+                        
+                        <!-- Block 3: Paralelo Sensores -->
+                        <div class="flex flex-col gap-2">
+                            <div class="flex items-center gap-1">
+                                <div class="flex items-center bg-slate-900 border border-amber-500/60 rounded p-2 shadow-[0_0_10px_rgba(245,158,11,0.3)]">
+                                    <i data-lucide="radio" class="w-4 h-4 text-amber-400 mr-2"></i>
+                                    <span class="text-[10px] font-mono text-amber-300 font-bold">SUTRAN API</span>
+                                </div>
+                                <div class="h-0.5 w-4 bg-slate-800 relative overflow-hidden"><div class="absolute inset-0 bg-amber-400 animate-[slideRight_1.5s_infinite_linear]" style="animation-delay: 0.6s"></div></div>
                             </div>
-                            <span class="absolute -bottom-7 left-1/2 -translate-x-1/2 text-xs font-black tracking-widest text-indigo-200 drop-shadow-[0_0_8px_#818cf8] whitespace-nowrap">PHI-3 CORE</span>
+                            <div class="flex items-center gap-1">
+                                <div class="flex items-center bg-slate-900 border border-rose-500/60 rounded p-2 shadow-[0_0_10px_rgba(244,63,94,0.3)]">
+                                    <i data-lucide="alert-triangle" class="w-4 h-4 text-rose-400 mr-2"></i>
+                                    <span class="text-[10px] font-mono text-rose-300 font-bold">GDELT Risk</span>
+                                </div>
+                                <div class="h-0.5 w-4 bg-slate-800 relative overflow-hidden"><div class="absolute inset-0 bg-rose-400 animate-[slideRight_1.5s_infinite_linear]" style="animation-delay: 0.6s"></div></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Nodo 4: Correlador -->
+                        <div class="flex items-center bg-slate-900 border border-cyan-500/60 rounded p-2 shadow-[0_0_10px_rgba(6,182,212,0.3)]">
+                            <i data-lucide="git-merge" class="w-4 h-4 text-cyan-400 mr-2"></i>
+                            <span class="text-[10px] font-mono text-cyan-300 font-bold">RiskEngine</span>
+                        </div>
+
+                        <div class="h-0.5 w-8 bg-slate-800 relative overflow-hidden"><div class="absolute inset-0 bg-cyan-400 animate-[slideRight_1.5s_infinite_linear]" style="animation-delay: 0.9s"></div></div>
+
+                        <!-- Nodo 5: CORE -->
+                        <div class="relative flex flex-col items-center ml-2">
+                            <div class="absolute inset-0 rounded-full bg-purple-500 animate-ping opacity-25" style="animation-delay: 1.2s"></div>
+                            <div class="w-16 h-16 rounded-full bg-[#0a0f24] border-4 border-purple-500 flex items-center justify-center shadow-[0_0_30px_#a855f7] relative z-10">
+                                <i data-lucide="brain-circuit" class="w-8 h-8 text-white animate-pulse"></i>
+                            </div>
+                            <span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-black tracking-widest text-purple-200 drop-shadow-[0_0_8px_#a855f7] whitespace-nowrap">PHI-3 CORE</span>
                         </div>
 
                     </div>
                 </div>
                 
                 <!-- TEXTO TERMINAL BRILLANTE -->
-                <div class="mt-6 font-mono text-center h-6 overflow-hidden relative w-full bg-black/50 rounded border border-indigo-900">
+                <div class="mt-8 font-mono text-center h-6 overflow-hidden relative w-full bg-black/50 rounded border border-indigo-900">
                     <div class="absolute w-full animate-[slideUpText_8s_infinite_steps(4)] text-emerald-400 font-bold text-[13px] drop-shadow-[0_0_5px_#10b981]">
                         <div class="h-6 flex items-center justify-center">> Vectorizando parámetros de consulta...</div>
                         <div class="h-6 flex items-center justify-center">> Extrayendo inteligencia de GraphRAG...</div>
@@ -643,9 +662,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
 
+                <!-- INFO DE ESPERA -->
+                <p class="mt-4 text-[11px] text-slate-400 leading-relaxed bg-slate-900/50 p-3 rounded-lg border border-slate-700">
+                    <i data-lucide="shield-check" class="w-3 h-3 inline mr-1 mb-0.5 text-emerald-500"></i>
+                    Esta consulta estratégica toma entre <strong>30 y 60 segundos</strong>. CORE está filtrando la base de datos RAG para evitar alucinaciones operativas y cruzando datos de riesgo en tiempo real.
+                </p>
+
                 <style>
                     @keyframes slideRight { 0% { transform: translateX(-100%); } 100% { transform: translateX(300%); } }
                     @keyframes slideUpText { 0%, 20% { transform: translateY(0); } 25%, 45% { transform: translateY(-24px); } 50%, 70% { transform: translateY(-48px); } 75%, 95% { transform: translateY(-72px); } 100% { transform: translateY(-72px); } }
+                    .custom-scrollbar::-webkit-scrollbar { height: 4px; }
+                    .custom-scrollbar::-webkit-scrollbar-track { background: #0f172a; }
+                    .custom-scrollbar::-webkit-scrollbar-thumb { background: #334155; border-radius: 2px; }
                 </style>
             </div>
         `;
