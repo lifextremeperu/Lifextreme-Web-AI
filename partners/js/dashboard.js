@@ -577,22 +577,85 @@ document.addEventListener('DOMContentLoaded', () => {
         const id = 'loading-' + Date.now();
         const msgDiv = document.createElement('div');
         msgDiv.id = id;
-        msgDiv.className = 'flex gap-4 animate-fade-in';
+        msgDiv.className = 'flex gap-4 animate-fade-in w-full';
         msgDiv.innerHTML = `
             <div class="w-10 h-10 rounded-full bg-indigo-900 flex-shrink-0 flex items-center justify-center border border-indigo-700 mt-1 shadow-md">
                 <i data-lucide="cpu" class="w-5 h-5 text-indigo-400"></i>
             </div>
-            <div class="bg-slate-800 rounded-2xl rounded-tl-none p-4 max-w-[85%] border border-slate-700 shadow-sm">
-                <div class="flex items-center gap-2 mb-2">
-                    <div class="text-sm text-slate-200 font-bold">Analizando Inteligencia Operativa...</div>
-                    <div class="w-2 h-2 bg-indigo-500 rounded-full animate-bounce"></div>
-                    <div class="w-2 h-2 bg-indigo-500 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
-                    <div class="w-2 h-2 bg-indigo-500 rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
+            <div class="bg-slate-800 rounded-2xl rounded-tl-none p-5 w-full max-w-[85%] border border-slate-700 shadow-sm overflow-hidden relative">
+                
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="text-sm text-slate-200 font-bold tracking-wide">SINTETIZANDO INTELIGENCIA OPERATIVA</div>
+                    <div class="flex gap-1">
+                        <div class="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-ping"></div>
+                    </div>
                 </div>
-                <p class="text-[11px] text-amber-400/90 leading-tight bg-amber-900/20 p-2 rounded-lg border border-amber-700/30">
-                    <i data-lucide="info" class="w-3 h-3 inline mr-1 mb-0.5"></i>
-                    Esta consulta profunda toma entre <strong>60 y 120 segundos</strong>. La Inteligencia Artificial Local (Phi-3) está cruzando datos de GraphRAG para garantizar precisión estratégica corporativa. Por favor, espera sin cerrar la ventana.
+
+                <!-- DIAGRAMA DE FLUJO MENTAL (SVG ANIMADO) -->
+                <div class="bg-slate-900/80 rounded-xl p-4 border border-slate-700/50 flex flex-col items-center justify-center relative overflow-hidden mb-4">
+                    <!-- Grid Background -->
+                    <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#6366f1 1px, transparent 1px); background-size: 16px 16px;"></div>
+                    
+                    <div class="flex items-center justify-between w-full max-w-sm relative z-10">
+                        
+                        <!-- Nodo 1: Consulta -->
+                        <div class="flex flex-col items-center">
+                            <div class="w-10 h-10 rounded-full bg-slate-800 border-2 border-indigo-500 flex items-center justify-center shadow-[0_0_15px_rgba(99,102,241,0.5)] animate-pulse">
+                                <i data-lucide="search" class="w-4 h-4 text-indigo-400"></i>
+                            </div>
+                            <span class="text-[9px] text-slate-400 mt-2 font-mono">Query</span>
+                        </div>
+
+                        <!-- Conector Animado 1 -->
+                        <div class="flex-1 h-0.5 bg-slate-700 relative overflow-hidden mx-2">
+                            <div class="absolute top-0 left-0 h-full w-1/3 bg-indigo-500 animate-[slideRight_1.5s_infinite_linear]"></div>
+                        </div>
+
+                        <!-- Nodo 2: Base Vectorial (RAG) -->
+                        <div class="flex flex-col items-center">
+                            <div class="w-12 h-12 rounded-lg bg-slate-800 border-2 border-emerald-500 flex items-center justify-center shadow-[0_0_15px_rgba(16,185,129,0.3)] relative">
+                                <i data-lucide="database" class="w-5 h-5 text-emerald-400 relative z-10"></i>
+                                <!-- Scanning line -->
+                                <div class="absolute top-0 left-0 w-full h-0.5 bg-emerald-400 shadow-[0_0_8px_#10b981] animate-[scanDown_2s_infinite_ease-in-out]"></div>
+                            </div>
+                            <span class="text-[9px] text-emerald-400/80 mt-2 font-mono">GraphRAG</span>
+                        </div>
+
+                        <!-- Conector Animado 2 -->
+                        <div class="flex-1 h-0.5 bg-slate-700 relative overflow-hidden mx-2">
+                            <div class="absolute top-0 left-0 h-full w-1/3 bg-purple-500 animate-[slideRight_1.5s_infinite_linear]" style="animation-delay: 0.75s"></div>
+                        </div>
+
+                        <!-- Nodo 3: LLM Inference -->
+                        <div class="flex flex-col items-center">
+                            <div class="w-10 h-10 rounded-full bg-slate-800 border-2 border-purple-500 flex items-center justify-center shadow-[0_0_15px_rgba(168,85,247,0.5)] animate-pulse" style="animation-delay: 0.5s">
+                                <i data-lucide="brain-circuit" class="w-4 h-4 text-purple-400"></i>
+                            </div>
+                            <span class="text-[9px] text-slate-400 mt-2 font-mono">Phi-3 CORE</span>
+                        </div>
+
+                    </div>
+                    
+                    <div class="mt-4 text-[10px] text-slate-500 font-mono text-center h-4 overflow-hidden relative w-full">
+                        <div class="absolute w-full animate-[slideUpText_4s_infinite_steps(4)]">
+                            <div>[1/4] Vectorizando consulta comercial...</div>
+                            <div>[2/4] Cruzando variables con base de datos MINCETUR...</div>
+                            <div>[3/4] Evaluando márgenes y riesgos operativos...</div>
+                            <div>[4/4] Sintetizando plan táctico en Phi-3...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="text-[11px] text-slate-400 leading-relaxed bg-slate-900/50 p-3 rounded-lg border border-slate-700">
+                    <i data-lucide="shield-check" class="w-3 h-3 inline mr-1 mb-0.5 text-emerald-500"></i>
+                    Esta consulta estratégica toma entre <strong>30 y 60 segundos</strong>. CORE está filtrando la base de datos RAG para evitar alucinaciones operativas.
                 </p>
+
+                <style>
+                    @keyframes slideRight { 0% { left: -33%; } 100% { left: 100%; } }
+                    @keyframes scanDown { 0%, 100% { top: 0%; opacity: 0; } 10%, 90% { opacity: 1; } 50% { top: calc(100% - 2px); } }
+                    @keyframes slideUpText { 0%, 20% { transform: translateY(0); } 25%, 45% { transform: translateY(-16px); } 50%, 70% { transform: translateY(-32px); } 75%, 95% { transform: translateY(-48px); } 100% { transform: translateY(-48px); } }
+                </style>
             </div>
         `;
         chatHistory.appendChild(msgDiv);
