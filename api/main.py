@@ -146,6 +146,15 @@ def retrieve_b2b_context(user_query: str):
 def b2c_chat(request: ChatRequest):
     try:
         user_query = request.message
+        
+        # RAG Conversacional: Si responde algo corto como "julio", no perder el contexto de búsqueda
+        search_query = user_query
+        if request.history and len(user_query.split()) <= 3:
+            for msg in reversed(request.history):
+                if msg.get("role") == "user":
+                    search_query = msg.get("content", "") + " " + user_query
+                    break
+        
         riesgo = 10
         try:
             correlator = RiskCorrelator()
@@ -153,7 +162,7 @@ def b2c_chat(request: ChatRequest):
         except:
             pass
 
-        texto_contexto, fuentes = retrieve_b2c_context(user_query)
+        texto_contexto, fuentes = retrieve_b2c_context(search_query)
         
         system_prompt = f"""
         Eres MAX, Asesor de Ventas de Lifextreme Peru. Tu objetivo es chatear como un humano real por WhatsApp.
@@ -161,7 +170,7 @@ def b2c_chat(request: ChatRequest):
         REGLAS DE CHAT HUMANO (ESTRICTAS):
         1. CORTEDAD EXTREMA: Está PROHIBIDO enviar testamentos. Tu mensaje debe tener MÁXIMO 2 o 3 oraciones en total. Eres rápido y directo.
         2. PING-PONG (CONVERSACIÓN REAL): Un vendedor humano hace una pregunta y ESPERA. Si necesitas saber fechas o cuántas personas son, haz UNA SOLA pregunta corta y termina tu mensaje ahí. NO sigas hablando.
-        3. NO ALUCINES GEOGRAFÍA: Basa tus respuestas EXACTAMENTE en la "DATA FQSA". (Ejemplo: El Cañón de los Perdidos es desierto en Ica, no selva).
+        3. NO ALUCINES NOMBRES: Basa tus respuestas EXACTAMENTE en la "DATA FQSA". JAMÁS inventes nombres de lagos, rutas o lugares (ej. no existe "Choquechaka"). Si el contexto de FQSA no menciona un lugar, usa tu conocimiento general REAL del Perú o di que consultarás al equipo.
         4. CERO ETIQUETAS: Jamás uses viñetas ni títulos como "Consejo:" o "Cierre:".
         5. RIESGO Y LOGÍSTICA: {riesgo}/100. Da un solo tip útil y pasa a tu pregunta comercial.
 
