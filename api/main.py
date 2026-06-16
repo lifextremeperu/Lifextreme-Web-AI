@@ -106,14 +106,13 @@ def get_bge_embedder():
     return _bge_embedder
 
 def retrieve_b2b_context(user_query: str):
-    # Búsqueda RAG profunda en DIVS-v1 (Partners)
-    embedder = get_bge_embedder()
-    query_embedding = embedder.encode(user_query).tolist()
+    # Búsqueda RAG profunda (Volvemos a usar nomic-embed-text para evitar colapso de RAM)
+    query_vector = get_local_embedding(user_query)
     
     res = supabase.rpc(
-        'match_knowledge_chunks',
+        'match_knowledge_vectors',
         {
-            'query_embedding': query_embedding,
+            'query_embedding': query_vector,
             'match_threshold': 0.3,
             'match_count': 4
         }
@@ -123,10 +122,9 @@ def retrieve_b2b_context(user_query: str):
     contextos_list = []
     fuentes_list = []
     for r in resultados:
-        meta = r.get('metadata', {})
-        origen = meta.get('archivo_origen', 'Desconocido')
-        region = meta.get('region', 'Desconocido')
-        texto = r.get('content', '')
+        origen = r.get('modulo_nombre', 'Desconocido')
+        region = r.get('region', 'Desconocido')
+        texto = r.get('text_content', '')
         contextos_list.append(f"ORIGEN: {origen} (REGION: {region})\nCONTENIDO: {texto}")
         fuentes_list.append(f"{origen} ({region})")
         
