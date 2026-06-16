@@ -2,7 +2,7 @@ import os
 import sys
 import json
 import requests
-from typing import List
+from typing import List, Optional, Dict
 from fastapi import FastAPI, HTTPException, Depends, Security
 from fastapi.security import APIKeyHeader
 from fastapi.middleware.cors import CORSMiddleware
@@ -59,11 +59,20 @@ def get_local_embedding(text):
     response = requests.post(url, json={"model": "nomic-embed-text", "input": text})
     return response.json().get("embeddings", [])[0]
 
-def chat_with_phi3(prompt):
+def chat_with_phi3(prompt: str, history: list = None, system_prompt: str = None):
     url = "http://localhost:11434/api/chat"
+    
+    if system_prompt is not None:
+        messages = [{"role": "system", "content": system_prompt}]
+        if history:
+            messages.extend(history)
+        messages.append({"role": "user", "content": prompt})
+    else:
+        messages = [{"role": "user", "content": prompt}]
+
     payload = {
         "model": "phi3:latest",
-        "messages": [{"role": "user", "content": prompt}],
+        "messages": messages,
         "stream": False
     }
     response = requests.post(url, json=payload)
@@ -74,6 +83,7 @@ def chat_with_phi3(prompt):
 # ==========================================
 class ChatRequest(BaseModel):
     message: str
+    history: Optional[List[Dict[str, str]]] = []
 
 class LifextremeResponse(BaseModel):
     mensaje_principal: str
@@ -145,7 +155,7 @@ def b2c_chat(request: ChatRequest):
 
         texto_contexto, fuentes = retrieve_b2c_context(user_query)
         
-        master_prompt = f"""
+        system_prompt = f"""
         Eres MAX, Asesor de Ventas de Lifextreme Peru. Tu objetivo es chatear como un humano real por WhatsApp.
 
         REGLAS DE CHAT HUMANO (ESTRICTAS):
@@ -160,12 +170,9 @@ def b2c_chat(request: ChatRequest):
 
         DATA FQSA (Tu Memoria):
         {texto_contexto}
-
-        PREGUNTA DEL VIAJERO:
-        {user_query}
         """
         
-        respuesta_ia = chat_with_phi3(master_prompt)
+        respuesta_ia = chat_with_phi3(prompt=user_query, history=request.history, system_prompt=system_prompt)
         
         return LifextremeResponse(mensaje_principal=respuesta_ia, fuentes_utilizadas=[], nivel_confianza=0.95)
     except Exception as e:

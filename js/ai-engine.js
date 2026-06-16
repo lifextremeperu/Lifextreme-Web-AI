@@ -104,7 +104,13 @@ class AIPersonalizationEngine {
                 headers: { 
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ message: msg })
+                body: JSON.stringify({ 
+                    message: msg,
+                    history: this.chatHistory.slice(-7, -1).map(h => ({
+                        role: h.role === 'bot' ? 'assistant' : 'user',
+                        content: h.content
+                    }))
+                })
             });
             
             if (response.ok) {
