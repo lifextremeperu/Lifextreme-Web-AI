@@ -552,8 +552,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="w-10 h-10 rounded-full bg-indigo-900 flex-shrink-0 flex items-center justify-center border border-indigo-700 mt-1 shadow-md">
                     <i data-lucide="cpu" class="w-5 h-5 text-indigo-400"></i>
                 </div>
-                <div class="bg-slate-800 rounded-2xl rounded-tl-none p-5 max-w-[85%] border border-slate-700 shadow-sm text-slate-200">
-                    <div class="prose prose-invert prose-sm max-w-none prose-p:leading-relaxed prose-pre:bg-slate-900 prose-pre:border prose-pre:border-slate-700">${formatMarkdown(text)}</div>
+                <div class="bg-slate-800 rounded-2xl rounded-tl-none p-5 max-w-[95%] border border-slate-700 shadow-sm text-slate-200 relative group">
+                    <button onclick="window.downloadReportAsPDF(this)" class="absolute top-4 right-4 bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-all flex items-center gap-2 shadow-lg text-xs font-bold" title="Descargar como PDF">
+                        <i data-lucide="download" class="w-4 h-4"></i> Guardar PDF
+                    </button>
+                    <div class="report-content prose prose-invert prose-sm max-w-none prose-p:leading-relaxed prose-pre:bg-slate-900 prose-pre:border prose-pre:border-slate-700 prose-headings:text-indigo-300 prose-strong:text-emerald-400 prose-hr:border-slate-700">${formatMarkdown(text)}</div>
                     ${sourcesHtml}
                 </div>
             `;
@@ -567,6 +570,69 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
         }
+
+        chatHistory.appendChild(msgDiv);
+        chatHistory.scrollTop = chatHistory.scrollHeight;
+        if (window.lucide) window.lucide.createIcons({ root: msgDiv });
+    }
+
+    // Funcionalidad para descargar PDF Oficial (se expone al window para onClick)
+    window.downloadReportAsPDF = function(button) {
+        const reportContent = button.closest('.relative').querySelector('.report-content').innerHTML;
+        const printWindow = window.open('', '_blank', 'width=800,height=900');
+        printWindow.document.write(`
+            <html>
+            <head>
+                <title>Reporte_Inteligencia_Lifextreme</title>
+                <style>
+                    @page { margin: 20mm; }
+                    body { font-family: 'Arial', sans-serif; color: #1e293b; line-height: 1.6; font-size: 14px; }
+                    .header { border-bottom: 3px solid #1e1b4b; padding-bottom: 20px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: flex-end; }
+                    .header h1 { margin: 0; color: #1e1b4b; font-size: 22px; text-transform: uppercase; letter-spacing: 1px; }
+                    .header .logo { font-weight: 900; font-size: 24px; color: #4338ca; letter-spacing: -1px; }
+                    .content h1 { display: none; } /* Ocultar el h1 que viene de markdown porque ya lo ponemos en el header */
+                    h2 { margin-top: 30px; border-bottom: 1px solid #cbd5e1; padding-bottom: 8px; font-size: 16px; text-transform: uppercase; color: #334155; }
+                    h3 { font-size: 14px; color: #475569; }
+                    strong { color: #0f172a; }
+                    p { margin-bottom: 15px; text-align: justify; }
+                    hr { border: 0; border-top: 1px dashed #cbd5e1; margin: 30px 0; }
+                    .footer { margin-top: 50px; padding-top: 20px; border-top: 1px solid #cbd5e1; font-size: 11px; color: #64748b; text-align: center; font-style: italic; }
+                    /* Formato de viñetas para que se vean bien en PDF */
+                    ul { padding-left: 20px; }
+                    li { margin-bottom: 8px; }
+                </style>
+            </head>
+            <body>
+                <div class="header">
+                    <div>
+                        <h1>Reporte de Inteligencia Estratégica</h1>
+                        <div style="color: #64748b; font-size: 12px; margin-top: 5px;">Emitido por Sistema B2B para Operadores Turísticos</div>
+                    </div>
+                    <div class="logo">⚡ LIFEXTREME AI</div>
+                </div>
+                
+                <div class="content">
+                    ${reportContent}
+                </div>
+                
+                <div class="footer">
+                    Documento analítico generado de manera autónoma por Lifextreme-CORE AI V3.<br>
+                    Uso exclusivo para toma de decisiones y optimización táctica empresarial.
+                </div>
+                
+                <script>
+                    window.onload = function() { 
+                        setTimeout(function() {
+                            window.print(); 
+                            window.close(); 
+                        }, 500);
+                    }
+                </script>
+            </body>
+            </html>
+        `);
+        printWindow.document.close();
+    }
 
         chatHistory.appendChild(msgDiv);
         chatHistory.scrollTop = chatHistory.scrollHeight;
