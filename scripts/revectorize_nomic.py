@@ -18,9 +18,10 @@ supabase: Client = create_client(url, key)
 
 OLLAMA_URL = "http://localhost:11434/api/embeddings"
 MODEL_NAME = "nomic-embed-text"
-BATCH_SIZE = 50
+BATCH_SIZE = 10
 COOL_DOWN_SECONDS = 2.5 # Pausa de 2.5 seg por lote para no calentar la PC
 CHECKPOINT_FILE = "data/revectorize_checkpoint.json"
+MAX_RECORDS_PER_RUN = 10000 # Límite diario/por ejecución para no saturar Supabase ni la PC
 
 def get_nomic_embedding(text: str) -> list:
     """Obtiene el vector usando la API HTTP local de Ollama (muy rápida y ligera)"""
@@ -54,15 +55,18 @@ def main():
     print("=====================================================")
     
     # Obtener el total de registros para saber cuánto falta
-    res_count = supabase.table('knowledge_chunks').select('id', count='exact').execute()
-    total_records = res_count.count
-    print(f" Total de registros a procesar: {total_records}")
+    # (Evitamos count='exact' porque tarda más de 1 minuto en la tabla pesada de 32k)
+    total_records = 32149
+    print(f" Total de registros a procesar: aprox {total_records}")
 
     current_index = load_checkpoint()
     print(f" Reanudando desde el registro: {current_index}")
+    print(f" Límite configurado para esta sesión: {MAX_RECORDS_PER_RUN} registros.")
     print("=====================================================")
 
-    while current_index < total_records:
+    records_processed_this_run = 0
+
+    while current_index < total_records and records_processed_this_run < MAX_RECORDS_PER_RUN:
         start_idx = current_index
         end_idx = current_index + BATCH_SIZE - 1
 
@@ -80,42 +84,61 @@ def main():
         
         # 2. Re-vectorizar cada chunk con el modelo ligero
         print(f"    -> Transformando {len(chunks)} textos a matemática de 768 dimensiones...")
-        for chunk in chunks:
+        
+        for idx, chunk in enumerate(chunks, 1):
             text = chunk.get('content', '')
             if not text.strip():
                 continue
                 
             metadata = chunk.get('metadata', {})
+            
+            # Print para calmar la ansiedad del usuario
+            print(f"       [{idx}/{len(chunks)}] Generando vector para ID {chunk['id'][:8]}...", end=" ", flush=True)
+            
             vector = get_nomic_embedding(text)
             
             if not vector:
-                print(f"    [!] Error al vectorizar ID {chunk['id']}. Saltando.")
+                print("❌ ERROR")
                 continue
+                
+            print("✅ OK")
+
+            # Parseo seguro del nivel de importancia (tier) a entero
+            raw_tier = metadata.get('categoria_turistica', 3)
+            try:
+                tier_val = int(raw_tier)
+            except (ValueError, TypeError):
+                tier_val = 3 # Nivel 3 (General) por defecto si es texto como "desconocido"
 
             # Mapeo a la nueva tabla knowledge_vectors
             new_row = {
                 "vector_id": chunk['id'], # ID original como referencia
                 "region": metadata.get('region', 'desconocido').lower(),
-                "tier": metadata.get('categoria_turistica', 'desconocido'),
+                "tier": tier_val,
                 "modulo_nombre": metadata.get('archivo_origen', 'Migracion Nomic'),
                 "text_content": text,
                 "embedding": vector
             }
             new_vectors_batch.append(new_row)
 
-        # 3. Subir el nuevo lote ligero a Supabase
+        # 3. Subir el nuevo lote ligero a Supabase (Con reintentos antibloqueo)
         if new_vectors_batch:
             print(f"    -> Subiendo {len(new_vectors_batch)} vectores ligeros a Supabase...")
-            try:
-                # Usamos upsert por si el script se repite
-                supabase.table('knowledge_vectors').upsert(new_vectors_batch).execute()
-            except Exception as e:
-                print(f"    [ERROR FATAL] Al subir a Supabase: {str(e)}")
-                # Si falla la subida, detenemos para no perder el tracking
-                break
+            max_retries = 3
+            for attempt in range(max_retries):
+                try:
+                    supabase.table('knowledge_vectors').upsert(new_vectors_batch).execute()
+                    break # Éxito, salimos del reintento
+                except Exception as e:
+                    print(f"    [AVISO] Intento {attempt + 1} falló: {str(e)}")
+                    if attempt == max_retries - 1:
+                        print("    [ERROR FATAL] No se pudo subir a Supabase tras varios intentos.")
+                        return # Abortar función
+                    time.sleep(5) # Esperar antes de reintentar
 
         # 4. Guardar progreso y enfriar
         current_index += len(chunks)
+        records_processed_this_run += len(chunks)
         save_checkpoint(current_index)
         
         porcentaje = (current_index / total_records) * 100
@@ -125,7 +148,10 @@ def main():
         time.sleep(COOL_DOWN_SECONDS)
 
     print("\n=====================================================")
-    print(" 🎉 PROCESO COMPLETADO O DETENIDO CORRECTAMENTE 🎉")
+    if records_processed_this_run >= MAX_RECORDS_PER_RUN:
+        print(f" 🛑 META DIARIA ALCANZADA ({MAX_RECORDS_PER_RUN} registros). PROGRAMADO PARA DETENERSE.")
+    else:
+        print(" 🎉 PROCESO COMPLETADO O DETENIDO CORRECTAMENTE 🎉")
     print("=====================================================")
 
 if __name__ == "__main__":
