@@ -21,7 +21,7 @@ MODEL_NAME = "nomic-embed-text"
 BATCH_SIZE = 10
 COOL_DOWN_SECONDS = 2.5 # Pausa de 2.5 seg por lote para no calentar la PC
 CHECKPOINT_FILE = "data/revectorize_checkpoint.json"
-MAX_RECORDS_PER_RUN = 10000 # Límite diario/por ejecución para no saturar Supabase ni la PC
+MAX_RECORDS_PER_RUN = 40000 # Límite diario/por ejecución para no saturar Supabase ni la PC
 
 def get_nomic_embedding(text: str) -> list:
     """Obtiene el vector usando la API HTTP local de Ollama (muy rápida y ligera)"""
@@ -127,7 +127,7 @@ def main():
             max_retries = 3
             for attempt in range(max_retries):
                 try:
-                    supabase.table('knowledge_vectors').upsert(new_vectors_batch).execute()
+                    supabase.table('knowledge_vectors').upsert(new_vectors_batch, on_conflict='vector_id').execute()
                     break # Éxito, salimos del reintento
                 except Exception as e:
                     print(f"    [AVISO] Intento {attempt + 1} falló: {str(e)}")
