@@ -111,3 +111,25 @@ async def process_message(
             "action_required": None,
             "_debug_error": str(e)[:300]
         }
+
+from typing import AsyncGenerator
+
+async def process_message_stream(
+    prompt: str,
+    history: List[dict] = None,
+    user_data=None
+) -> AsyncGenerator[str, None]:
+    """
+    Procesa un mensaje y retorna un generador asíncrono cediendo los fragmentos (chunks)
+    en tiempo real para habilitar Server-Sent Events (SSE).
+    """
+    try:
+        async with max_agent.run_stream(
+            prompt,
+            message_history=history or []
+        ) as result:
+            async for chunk in result.stream_text(delta=True):
+                yield chunk
+    except Exception as e:
+        import traceback; traceback.print_exc()
+        yield f"\n\n[Error de conexión: {str(e)[:100]}]"

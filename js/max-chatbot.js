@@ -14,6 +14,7 @@
   // El usuario puede sobreescribirla en el HTML: window.LIFEXTREME_BACKEND_URL = "https://..."
   const BACKEND_URL = (window.LIFEXTREME_BACKEND_URL || 'http://localhost:8000').replace(/\/$/, '');
   const ENDPOINT    = `${BACKEND_URL}/webhook/lifextreme`;
+  const STREAM_ENDPOINT = `${BACKEND_URL}/webhook/lifextreme/stream`;
 
   // ── ESTILOS ───────────────────────────────────────────────
   const CSS = `
@@ -348,7 +349,7 @@
     isLoading = true;
 
     try {
-      const response = await fetch(ENDPOINT, {
+      const response = await fetch(STREAM_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: text, history, profile: {} })
@@ -356,20 +357,42 @@
 
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
-      const data = await response.json();
       hideTyping();
-
-      const msg = data.mensaje || data.message || 'No pude procesar tu consulta. Intenta de nuevo.';
-      appendMessage('bot', msg);
-
-      // Acciones especiales del agente
-      if (data.action_required === 'SHOW_PAYMENT' && data.datos_cotizacion) {
-        showPaymentAction(data.datos_cotizacion);
+      const botMsgDiv = appendMessage('bot', ''); // Crea la burbuja vacía
+      
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder('utf-8');
+      let fullText = '';
+      
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        
+        const chunkStr = decoder.decode(value, { stream: true });
+        const lines = chunkStr.split('\\n');
+        
+        for (const line of lines) {
+          if (line.startsWith('data: ')) {
+            try {
+              const data = JSON.parse(line.substring(6));
+              if (data.chunk) {
+                fullText += data.chunk;
+                botMsgDiv.textContent = fullText;
+                botMsgDiv.parentElement.scrollTop = botMsgDiv.parentElement.scrollHeight;
+              } else if (data.error) {
+                console.error('[MAX] Stream error:', data.error);
+                botMsgDiv.textContent = fullText + `\\n[Error: ${data.error}]`;
+              }
+            } catch (e) {
+              // Ignorar JSON malformado por cortes en el stream
+            }
+          }
+        }
       }
 
-      // Actualizar historial para contexto multi-turno
+      // Actualizar historial
       history.push({ role: 'user', content: text });
-      history.push({ role: 'assistant', content: msg });
+      history.push({ role: 'assistant', content: fullText });
       if (history.length > 20) history = history.slice(-20);
 
     } catch (err) {
@@ -388,6 +411,7 @@
     div.textContent = text;
     msgs.appendChild(div);
     msgs.scrollTop = msgs.scrollHeight;
+    return div;
   }
 
   let typingEl = null;
