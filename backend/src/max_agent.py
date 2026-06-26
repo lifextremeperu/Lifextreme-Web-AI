@@ -1,55 +1,113 @@
-import os
-import json
-from pydantic_ai import Agent, RunContext
-from .models import MAXResponse, Cotizacion, PerfilUsuario
-from typing import List, Optional, Literal
+"""
+max_agent.py - MAX: Asesor Maestro de Aventura de Lifextreme
+RAG real con Supabase knowledge_vectors (101,737 vectores)
+LLM: qwen2.5:7b via Ollama (local, sin costo)
 
-# --- CONFIGURACION DEL AGENTE ---
-# Prioriza variables de entorno para máxima flexibilidad en la nube
-OPENAI_API_KEY = os.getenv('OPENAI_API_KEY', 'sk-hub-cusco-2026')
-OPENAI_BASE_URL = os.getenv('OPENAI_BASE_URL', 'https://hub-cusco-2026.tail883d62.ts.net/v1')
+NOTA: Usamos output_type=str para maxima compatibilidad con Ollama.
+      El servidor convierte la respuesta al formato MAXResponse.
+"""
+import os
+from pydantic_ai import Agent, RunContext
+from .rag_service import get_rag_context
+from typing import List, Optional
+
+SYSTEM_PROMPT = """Eres MAX, el Asesor Maestro de Aventura de Lifextreme Peru.
+Eres un experto en turismo de aventura certificado UIAGM con conocimiento profundo de los Andes y Amazonia.
+
+OBJETIVO: Informar y cerrar reservas usando el sistema Lifextreme 30/30/40:
+- 30% hoy para asegurar el cupo
+- 30% antes del tour  
+- 40% el dia del tour
+
+REGLAS:
+1. Usa SIEMPRE el contexto de la base de conocimiento que te proporcionan las herramientas
+2. Menciona precios e itinerarios SOLO si aparecen en el contexto
+3. Habla con autoridad tecnica pero de forma cercana y entusiasta
+4. Cuando detectes intencion de compra, ofrece el link de reserva: https://wa.me/51958050928
+5. Responde SIEMPRE en espanol
+6. Respuestas concisas, maximo 3 parrafos
+
+VALORES: Aventura responsable, seguridad UIAGM, experiencias transformadoras."""
 
 max_agent = Agent(
-    'openai:hub-llama3', 
-    output_type=MAXResponse,
-    system_prompt=(
-        "Eres MAX, el Asesor Maestro de Aventura de Lifextreme. Tu objetivo es cerrar reservas "
-        "usando el Lifextreme Pro System (30/30/40). Hablas con autoridad técnica (UIAGM). "
-        "Usa siempre el ADN de ventas (Sales DNA) para responder con los valores de la marca."
-    )
+    'openai:qwen2.5:7b',
+    system_prompt=SYSTEM_PROMPT
 )
 
-# --- HERRAMIENTAS (TOOLS) ---
-
 @max_agent.tool
-async def consultar_adn_ventas(ctx: RunContext[None], query: str) -> str:
-    """Consulta el ADN de ventas y doctrina de Lifextreme para responder correctamente."""
+async def buscar_en_base_de_conocimiento(ctx: RunContext[None], consulta: str, region: str = None) -> str:
+    """
+    Busca informacion real en la base de 101,737 vectores de Lifextreme.
+    LLAMAR SIEMPRE antes de responder sobre tours, precios, rutas o destinos.
+    
+    Args:
+        consulta: La pregunta del usuario (ej: 'tour Ausangate 4 dias')
+        region: Region opcional (cusco, apurimac, amazonas, santacruz, galapagos)
+    """
     try:
-        path = os.path.join(os.path.dirname(__file__), "..", "data", "max_sales_dna.json")
-        if os.path.exists(path):
-            with open(path, "r", encoding="utf-8") as f:
-                dna = json.load(f)
-                # Búsqueda simple por palabras clave en el ADN
-                relevant = [str(v) for k, v in dna.items() if any(word in str(v).lower() for word in query.lower().split())]
-                return "\n".join(relevant[:3]) if relevant else "Usa el tono de experto UIAGM."
-        return "Sigue el protocolo 30/30/40."
+        context = await get_rag_context(consulta, region=region)
+        return context
     except Exception as e:
-        return f"Error consultando ADN: {str(e)}"
+        return f"No pude acceder a la base de conocimiento: {str(e)}. Responde con informacion general de Lifextreme."
+
 
 @max_agent.tool
-async def generar_link_pago_niubiz(ctx: RunContext[None], monto: float) -> str:
-    """Genera un link de pago dinámico usando la API de Niubiz para la reserva del 30%."""
-    return f"https://niubiz.visanet.com.pe/pay/lifextreme_resva_{int(monto)}"
+async def generar_reserva(ctx: RunContext[None], nombre_tour: str, precio_total: float) -> str:
+    """
+    Genera un resumen de reserva con el sistema 30/30/40 y link de pago.
+    Usar cuando el usuario confirma intencion de reservar.
+    
+    Args:
+        nombre_tour: Nombre del tour o experiencia
+        precio_total: Precio total en soles peruanos
+    """
+    r1 = round(precio_total * 0.30, 2)
+    r2 = round(precio_total * 0.30, 2)
+    r3 = round(precio_total * 0.40, 2)
+    
+    return (
+        f"RESERVA {nombre_tour.upper()}\n"
+        f"Precio total: S/ {precio_total}\n"
+        f"1er pago HOY (30%): S/ {r1} — asegura tu cupo\n"
+        f"2do pago antes del tour (30%): S/ {r2}\n"
+        f"Saldo el dia del tour (40%): S/ {r3}\n"
+        f"WhatsApp: https://wa.me/51958050928\n"
+        f"Yape: 958 050 928"
+    )
 
-@max_agent.tool
-async def calcular_ahorro_membresia(ctx: RunContext[None], monto_total: float) -> str:
-    """Calcula el ahorro si el usuario decide comprar la membresía Elite."""
-    ahorro = monto_total * 0.15
-    return (f"Si te unes hoy al Club Elite por S/ 450, ahorras S/ {ahorro} en esta compra "
-            f"y viajas al costo todo el año.")
 
-# --- LÓGICA DE PROCESAMIENTO ---
-async def process_message(prompt: str, history: List[dict] = None, user_data: Optional[PerfilUsuario] = None):
-    # Ejecución asíncrona del agente con el historial de conversación
-    result = await max_agent.run(prompt, message_history=history)
-    return result.data
+async def process_message(
+    prompt: str,
+    history: List[dict] = None,
+    user_data=None
+) -> dict:
+    """
+    Procesa un mensaje y retorna un dict compatible con MAXResponse.
+    """
+    try:
+        result = await max_agent.run(
+            prompt,
+            message_history=history or []
+        )
+        # pydantic-ai >= 0.0.14 usa .output; versiones antiguas usaban .data
+        raw = getattr(result, 'output', None) or getattr(result, 'data', None)
+        mensaje = str(raw) if raw else "Lo siento, no pude generar una respuesta."
+        return {
+            "mensaje": mensaje,
+            "datos_cotizacion": None,
+            "action_required": None
+        }
+    except Exception as e:
+        error_msg = str(e)
+        import traceback; traceback.print_exc()
+        # Fallback amigable para cualquier error del agente
+        return {
+            "mensaje": (
+                "Hola! Soy MAX, asesor de aventura de Lifextreme 🏔️. "
+                "Puedo ayudarte con informacion sobre tours al Ausangate, Machu Picchu, Amazonia y mas. "
+                "¿Que destino te interesa?"
+            ),
+            "datos_cotizacion": None,
+            "action_required": None,
+            "_debug_error": str(e)[:300]
+        }

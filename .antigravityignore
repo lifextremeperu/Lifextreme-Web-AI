@@ -1,0 +1,67 @@
+# ============================================================
+# .antigravityignore — Exclusiones para el IDE Antigravity
+# Lifextreme Web AI | 2026-06-26
+# Evita indexación de archivos pesados para prevenir cuelgues
+# ============================================================
+
+# ── VECTOR DATABASE ──────────────────────────────────────────
+chroma_db/
+
+# ── PYTHON COMPILADO ─────────────────────────────────────────
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.pyd
+.pytest_cache/
+.benchmarks/
+.mypy_cache/
+
+# ── NODE MODULES ─────────────────────────────────────────────
+**/node_modules/
+**/*.js.map
+**/*.css.map
+
+# ── DATOS MASIVOS (PDFs, imágenes, JSON de conocimiento) ─────
+data/raw_pdfs/
+data/knowledge/
+data/_control/
+data/social/
+data/news/
+data/guides/
+
+# ── ARCHIVOS INDIVIDUALES PESADOS ────────────────────────────
+tours_faq.csv
+*.jsonl
+*.zip
+*.HEIC
+*.heic
+*.sqlite3
+*.bin
+
+# ── LOGS Y ESTADO ────────────────────────────────────────────
+logs/
+*.log
+logs_ingesta*.txt
+ingestion_state.json
+revectorize_checkpoint.json
+output.txt
+
+# ── TEMPORALES Y SCRATCH ─────────────────────────────────────
+tmp/
+scratch/
+.cache/
+*.gstmp
+*.tmp
+*.temp
+
+# ── CREDENCIALES ─────────────────────────────────────────────
+.env
+service_account.json
+gcp-ai-key.json
+
+# ── MEDIA ────────────────────────────────────────────────────
+assets/img/
+assets/videos/
+*.mp4
+*.mov
+*.avi

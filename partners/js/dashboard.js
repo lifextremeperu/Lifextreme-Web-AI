@@ -657,66 +657,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
 
-                <!-- SIMULADOR N8N / PIPELINE -->
-                <div class="relative w-full overflow-x-auto custom-scrollbar bg-[#050814] rounded-xl border border-indigo-500/30 mb-4 p-6 shadow-inner flex items-center justify-start lg:justify-center">
-                    <!-- Neural Grid -->
-                    <div class="absolute inset-0 opacity-30" style="background-image: radial-gradient(#818cf8 1px, transparent 1px); background-size: 20px 20px;"></div>
-                    
-                    <div class="flex items-center gap-1 relative z-10 scale-90 md:scale-100 origin-left">
-                        
-                        <!-- Nodo 1: Query -->
-                        <div class="flex items-center bg-slate-900 border border-blue-500/60 rounded p-2 shadow-[0_0_10px_rgba(59,130,246,0.3)]">
-                            <i data-lucide="search" class="w-4 h-4 text-blue-400 mr-2"></i>
-                            <span class="text-[10px] font-mono text-blue-300 font-bold">Leyendo Consulta</span>
-                        </div>
-                        
-                        <div class="h-0.5 w-6 bg-slate-800 relative overflow-hidden"><div class="absolute inset-0 bg-blue-400 animate-[slideRight_1.5s_infinite_linear]"></div></div>
-                        
-                        <!-- Nodo 2: Vector DB -->
-                        <div class="flex items-center bg-slate-900 border border-emerald-500/60 rounded p-2 shadow-[0_0_10px_rgba(16,185,129,0.3)]">
-                            <i data-lucide="database" class="w-4 h-4 text-emerald-400 mr-2"></i>
-                            <span class="text-[10px] font-mono text-emerald-300 font-bold">Base de Conocimientos</span>
-                        </div>
-
-                        <div class="h-0.5 w-6 bg-slate-800 relative overflow-hidden"><div class="absolute inset-0 bg-emerald-400 animate-[slideRight_1.5s_infinite_linear]" style="animation-delay: 0.3s"></div></div>
-                        
-                        <!-- Block 3: Paralelo Sensores -->
-                        <div class="flex flex-col gap-2">
-                            <div class="flex items-center gap-1">
-                                <div class="flex items-center bg-slate-900 border border-amber-500/60 rounded p-2 shadow-[0_0_10px_rgba(245,158,11,0.3)]">
-                                    <i data-lucide="radio" class="w-4 h-4 text-amber-400 mr-2"></i>
-                                    <span class="text-[10px] font-mono text-amber-300 font-bold">Estado de Carreteras</span>
-                                </div>
-                                <div class="h-0.5 w-4 bg-slate-800 relative overflow-hidden"><div class="absolute inset-0 bg-amber-400 animate-[slideRight_1.5s_infinite_linear]" style="animation-delay: 0.6s"></div></div>
-                            </div>
-                            <div class="flex items-center gap-1">
-                                <div class="flex items-center bg-slate-900 border border-rose-500/60 rounded p-2 shadow-[0_0_10px_rgba(244,63,94,0.3)]">
-                                    <i data-lucide="alert-triangle" class="w-4 h-4 text-rose-400 mr-2"></i>
-                                    <span class="text-[10px] font-mono text-rose-300 font-bold">Alertas y Clima</span>
-                                </div>
-                                <div class="h-0.5 w-4 bg-slate-800 relative overflow-hidden"><div class="absolute inset-0 bg-rose-400 animate-[slideRight_1.5s_infinite_linear]" style="animation-delay: 0.6s"></div></div>
-                            </div>
-                        </div>
-                        
-                        <!-- Nodo 4: Correlador -->
-                        <div class="flex items-center bg-slate-900 border border-cyan-500/60 rounded p-2 shadow-[0_0_10px_rgba(6,182,212,0.3)]">
-                            <i data-lucide="git-merge" class="w-4 h-4 text-cyan-400 mr-2"></i>
-                            <span class="text-[10px] font-mono text-cyan-300 font-bold">Cruzando Riesgos</span>
-                        </div>
-
-                        <div class="h-0.5 w-8 bg-slate-800 relative overflow-hidden"><div class="absolute inset-0 bg-cyan-400 animate-[slideRight_1.5s_infinite_linear]" style="animation-delay: 0.9s"></div></div>
-
-                        <!-- Nodo 5: CORE -->
-                        <div class="relative flex flex-col items-center ml-2">
-                            <div class="absolute inset-0 rounded-full bg-purple-500 animate-ping opacity-25" style="animation-delay: 1.2s"></div>
-                            <div class="w-16 h-16 rounded-full bg-[#0a0f24] border-4 border-purple-500 flex items-center justify-center shadow-[0_0_30px_#a855f7] relative z-10">
-                                <i data-lucide="brain-circuit" class="w-8 h-8 text-white animate-pulse"></i>
-                            </div>
-                            <span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-black tracking-widest text-purple-200 drop-shadow-[0_0_8px_#a855f7] whitespace-nowrap">CEREBRO ESTRATÉGICO</span>
-                        </div>
-
-                    </div>
-                </div>
                 
                 <!-- TEXTO TERMINAL BRILLANTE -->
                 <div class="mt-8 font-mono text-center h-6 overflow-hidden relative w-full bg-black/50 rounded border border-indigo-900">

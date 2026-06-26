@@ -6,7 +6,7 @@ from datetime import datetime
 class OpsAgent:
     def __init__(self):
         self.agent = Agent(
-            'openai:hub-llama3',
+            'openai:llama3:8b',
             system_prompt="Eres el Jefe de Operaciones de Lifextreme. Monitoreas la salud técnica y comercial."
         )
 

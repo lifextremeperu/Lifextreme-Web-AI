@@ -3,4 +3,7 @@ pydantic
 openai
 httpx
 python-dotenv
+supabase
+uvicorn[standard]
+fastapi
 logfire

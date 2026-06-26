@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -3286,48 +3286,15 @@
     </style>
 
     <!-- ═══════════════════════════════════════════════════════════════ -->
-    <!-- HUB CUSCO 2026 - CHATBOT UI COMPONENT -->
+    <!-- MAX CHATBOT — Conectado al backend RAG real (Supabase + Ollama) -->
     <!-- ═══════════════════════════════════════════════════════════════ -->
-    <div id="life-chat-window" class="fixed bottom-24 right-6 w-[90vw] md:w-[380px] h-[70vh] md:h-[600px] bg-white rounded-[40px] shadow-3xl z-[9000] hidden flex flex-col overflow-hidden border border-slate-100 animate-in slide-in-from-bottom-5 duration-300">
-        <!-- Header -->
-        <div class="bg-primary p-6 text-white flex justify-between items-center bg-gradient-to-r from-primary to-indigo-900 shrink-0">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-white/20 rounded-2xl flex items-center justify-center">
-                    <i class="ri-flashlight-fill text-xl"></i>
-                </div>
-                <div>
-                    <p class="text-[10px] font-black uppercase tracking-[0.3em] opacity-70">Lifextreme Peru</p>
-                    <h3 class="font-black text-lg leading-none italic uppercase">MAX Chat AI</h3>
-                </div>
-            </div>
-            <button onclick="window.AIEngine.toggleChat()" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all">
-                <i class="ri-close-line text-xl"></i>
-            </button>
-        </div>
-
-        <!-- Messages Area -->
-        <div id="life-messages" class="flex-1 min-h-0 overflow-y-auto bg-[#fcfdff] p-6 space-y-4">
-            <div class="bg-primary/5 p-4 rounded-[24px] rounded-tl-none border border-primary/10 max-w-[90%] shadow-sm mt-4">
-                <p class="text-sm font-medium text-slate-700 leading-relaxed">Hola! Soy <b>MAX</b>, tu Asesor de Aventuras! ¿Qué destino quieres explorar hoy? 🏔️⚡</p>
-            </div>
-        </div>
-
-        <!-- Input Area -->
-        <div class="p-4 bg-white border-t border-gray-100 shrink-0">
-            <form id="life-chat-form" onsubmit="event.preventDefault(); window.AIEngine.sendChatFromInput();" class="flex items-center gap-2 bg-gray-100 p-2 rounded-2xl border border-gray-200 focus-within:border-orange-500 transition-all">
-                <input type="text" id="life-input" placeholder="Pregúntame algo..." class="flex-1 bg-transparent border-none focus:ring-0 text-sm px-2 py-1 outline-none">
-                <button type="submit" class="w-10 h-10 bg-orange-600 text-white rounded-xl flex items-center justify-center hover:bg-orange-700 transition-all shadow-lg shadow-orange-600/20 active:scale-90">
-                    <i class="fas fa-paper-plane text-xs"></i>
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Trigger Button -->
-    <button id="life-trigger" onclick="window.AIEngine.toggleChat()" class="fixed bottom-6 right-6 w-16 h-16 bg-primary text-white rounded-[24px] shadow-[0_20px_50px_rgba(67,56,202,0.4)] z-[9001] flex items-center justify-center hover:scale-110 active:scale-95 hover:rotate-6 transition-all group">
-        <i class="ri-chat-smile-3-fill text-3xl group-hover:animate-pulse"></i>
-        <div id="life-badge" class="absolute -top-1 -right-1 w-4 h-4 bg-secondary rounded-full border-2 border-white animate-bounce hidden"></div>
-    </button>
+    <script>
+        // URL del backend FastAPI local expuesto via cloudflare tunnel.
+        // Actualizar esta URL cuando se inicie un nuevo tunnel con start_max_backend.bat
+        // Si el backend no esta disponible, MAX mostrara un mensaje de fallback.
+        window.LIFEXTREME_BACKEND_URL = 'https://containers-reception-involved-mill.trycloudflare.com';
+    </script>
+    <script src="js/max-chatbot.js" defer></script>
 
     <script>
         // Reveal on scroll observer
@@ -3363,100 +3330,7 @@
     <script src="js/gamification.js" defer></script>
     <script src="js/forms-handler.js" defer></script>
 
-<!-- INICIO CHAT MAX Q-RAG -->
-<style>
-#max-chat-widget {
-    position: fixed; bottom: 20px; right: 20px; width: 350px; height: 450px; background: #111; border: 1px solid #333; border-radius: 12px; display: flex; flex-direction: column; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.5); font-family: Arial, sans-serif; color: white;
-}
-#max-chat-header {
-    background: #ff5e00; padding: 15px; border-top-left-radius: 12px; border-top-right-radius: 12px; font-weight: bold; display: flex; justify-content: space-between;
-}
-#max-chat-messages {
-    flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px;
-}
-.chat-msg {
-    padding: 10px 15px; border-radius: 8px; max-width: 80%; line-height: 1.4; font-size: 14px;
-}
-.chat-msg.user { background: #333; align-self: flex-end; }
-.chat-msg.max { background: #1a1a1a; border: 1px solid #ff5e00; align-self: flex-start; }
-#max-chat-input-area { display: flex; padding: 10px; border-top: 1px solid #333; }
-#max-chat-input { flex: 1; padding: 10px; border: none; background: #222; color: white; border-radius: 4px; outline: none; }
-#max-chat-send { background: #ff5e00; color: white; border: none; padding: 10px 15px; margin-left: 5px; border-radius: 4px; cursor: pointer; font-weight: bold; }
-</style>
 
-<div id="max-chat-widget">
-    <div id="max-chat-header"><span>🤖 MAX (Q-RAG)</span></div>
-    <div id="max-chat-messages"><div class="chat-msg max">Hola, soy MAX. ¿Buscas adrenalina o relax en Cusco?</div></div>
-    <div id="max-chat-input-area">
-        <input type="text" id="max-chat-input" placeholder="Escribe aquí..." autocomplete="off" />
-        <button id="max-chat-send">▶</button>
-    </div>
-</div>
-
-<script>
-    // Conectando a localtunnel
-    const API_URL = "https://lifextreme-api.loca.lt/api/chat";
-    
-    const maxInput = document.getElementById('max-chat-input');
-    const maxSendBtn = document.getElementById('max-chat-send');
-    const maxMessages = document.getElementById('max-chat-messages');
-
-    async function sendMaxMessage() {
-        const text = maxInput.value.trim();
-        if(!text) return;
-        
-        maxMessages.innerHTML += `<div class="chat-msg user">${text}</div>`;
-        maxInput.value = '';
-        maxMessages.scrollTop = maxMessages.scrollHeight;
-
-        const maxMsgId = 'msg-' + Date.now();
-        maxMessages.innerHTML += `<div class="chat-msg max" id="${maxMsgId}">...</div>`;
-        maxMessages.scrollTop = maxMessages.scrollHeight;
-
-        try {
-            const response = await fetch(API_URL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ message: text })
-            });
-
-            if (!response.body) throw new Error("No ReadableStream");
-            const reader = response.body.getReader();
-            const decoder = new TextDecoder("utf-8");
-            let maxElement = document.getElementById(maxMsgId);
-            maxElement.innerHTML = '';
-
-            while (true) {
-                const { done, value } = await reader.read();
-                if (done) break;
-                
-                const chunk = decoder.decode(value, {stream: true});
-                const lines = chunk.split('\n');
-                for(let line of lines) {
-                    if(line.startsWith('data: ')) {
-                        const dataStr = line.substring(6).trim();
-                        if(dataStr === '[DONE]') break;
-                        if(dataStr) {
-                            try {
-                                const data = JSON.parse(dataStr);
-                                if(data.text) {
-                                    maxElement.innerHTML += data.text;
-                                    maxMessages.scrollTop = maxMessages.scrollHeight;
-                                }
-                            } catch(e) { }
-                        }
-                    }
-                }
-            }
-        } catch(err) {
-            document.getElementById(maxMsgId).innerHTML = "⚠️ API local apagada. Asegúrate de encender max_api_server.py y el localtunnel.";
-        }
-    }
-
-    maxSendBtn.addEventListener('click', sendMaxMessage);
-    maxInput.addEventListener('keypress', (e) => { if(e.key === 'Enter') sendMaxMessage(); });
-</script>
-<!-- FIN CHAT MAX Q-RAG -->
 
 </body>
 

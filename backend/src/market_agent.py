@@ -20,7 +20,7 @@ class ResearchReport(BaseModel):
 
 # --- AGENTE INVESTIGADOR ---
 market_agent = Agent(
-    'openai:hub-llama3', # O el modelo que prefieras en la nube
+    'openai:llama3:8b', # Conexión local a Ollama
     output_type=ResearchReport,
     system_prompt=(
         "Eres el Director de Inteligencia de Mercado de Lifextreme. "

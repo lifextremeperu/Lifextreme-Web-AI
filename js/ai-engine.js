@@ -93,16 +93,15 @@ class AIPersonalizationEngine {
         if (this.isTyping) return;
         this.showTypingIndicator();
         
-        // 1. NUEVA CONEXIÓN AL CEREBRO MAESTRO (Vertex AI + Pydantic AI)
-        // Usa la ruta relativa para producción (redireccionada por Firebase) o localhost para dev puro.
-        // URL pública segura vía Tailscale Funnel
-        const apiUrl = 'https://desktop-sedhoop.tail883d62.ts.net/api/v1/b2c/chat';
+        // URL pública segura vía LocalTunnel (Conecta al puerto 8000 local)
+        const apiUrl = 'https://max-lifextreme.loca.lt/webhook/lifextreme';
 
         try {
             const response = await fetch(apiUrl, {
                 method: 'POST',
                 headers: { 
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Bypass-Tunnel-Reminder': 'true' // Necesario para saltar la advertencia de loca.lt
                 },
                 body: JSON.stringify({ 
                     message: msg,
@@ -115,55 +114,25 @@ class AIPersonalizationEngine {
             
             if (response.ok) {
                 const data = await response.json();
-                // Mostramos el mensaje principal y opcionalmente las fuentes para dar autoridad
-                let responseText = data.mensaje_principal;
-                if (data.fuentes_utilizadas && data.fuentes_utilizadas.length > 0) {
-                    responseText += `\n\n📖 *Basado en: ${data.fuentes_utilizadas.join(', ')}*`;
-                }
-                await this.addBotMessage(responseText);
-                return;
-            }
-        } catch (e) { 
-            console.warn('⚠️ Agente Maestro Offline -> Intentando Hub Secundario', e);
-            await this.addBotMessage('⚠️ ERROR AL CONTACTAR API: ' + e.message);
-        }
-
-        // 2. BACKEND HUB (FALLBACK)
-        try {
-            const response = await fetch(this.hubUrl, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                mode: 'cors',
-                body: JSON.stringify({ 
-                    message: msg, 
-                    profile: this.userProfile,
-                    history: this.chatHistory.slice(-5)
-                })
-            });
-            
-            if (response.ok) {
-                const data = await response.json();
+                let responseText = data.mensaje || data.mensaje_principal || "Lo siento, no pude procesar la respuesta.";
                 
-                // Mostrar mensaje principal mas datos de cotización si vienen
-                let fullResponse = data.mensaje || "Entendido.";
-                
+                // Mostrar datos de cotización si vienen del agente RAG
                 if (data.datos_cotizacion) {
                     const c = data.datos_cotizacion;
-                    fullResponse += `\n\n--- 📊 **COTIZACIÓN PRO** ---\n` +
+                    responseText += `\n\n--- 📊 **COTIZACIÓN PRO** ---\n` +
                                    `🎒 **Items:** ${c.items.join(', ')}\n` +
                                    `💵 **Monto Reserva (30%):** S/ ${c.monto_reserva_hoy}\n\n` +
                                    `📍 [Paga tu reserva con YAPE aquí](${c.link_pago_niubiz})`;
                 }
                 
-                await this.addBotMessage(fullResponse);
+                await this.addBotMessage(responseText);
                 return;
+            } else {
+                throw new Error("HTTP " + response.status);
             }
-        } catch (e) { console.warn('⚠️ Hub Offline -> Usando RAG Local'); }
-
-        // 2. SAFETY FALLBACK (LOCAL RAG)
-        const kbResult = this.searchKnowledgeBase(msg);
-        if (kbResult) {
-            await this.addBotMessage(kbResult.answer);
+        } catch (e) { 
+            console.warn('⚠️ Agente MAX Offline', e);
+            await this.addBotMessage('⚠️ MAX está desconectado. Asegúrate de ejecutar `npx localtunnel --port 8000 --subdomain max-lifextreme` y el servidor uvicorn local.');
             return;
         }
 
