@@ -83,9 +83,9 @@ html_content = f"""
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lifextreme - AI Factory Building 3D</title>
     <!-- EL ORDEN ES CRÍTICO: Three.js DEBE cargar antes que 3d-force-graph y SpriteText -->
-    <script src="https://unpkg.com/three"></script>
-    <script src="https://unpkg.com/three-spritetext"></script>
-    <script src="https://unpkg.com/3d-force-graph"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://unpkg.com/three-spritetext@1.6.5/dist/three-spritetext.min.js"></script>
+    <script src="https://unpkg.com/3d-force-graph@1.73.3/dist/3d-force-graph.min.js"></script>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
@@ -131,16 +131,21 @@ html_content = f"""
             
             // Reemplazamos las esferas por texto 3D Brillante
             .nodeThreeObject(node => {{
-                const sprite = new SpriteText(node.name);
-                sprite.color = node.color;
-                sprite.textHeight = node.val;
-                sprite.fontWeight = 'bold';
-                sprite.fontFace = 'Inter';
-                
-                // Efecto de neón: Fondo transparente pero con glow
-                sprite.backgroundColor = 'transparent';
-                
-                return sprite;
+                try {{
+                    const sprite = new SpriteText(node.name);
+                    sprite.color = node.color;
+                    sprite.textHeight = node.val / 1.5; // Escalado seguro para evitar clipeo
+                    sprite.fontWeight = 'bold';
+                    sprite.fontFace = 'Inter';
+                    
+                    // Efecto de neón: Fondo transparente pero con glow
+                    sprite.backgroundColor = 'transparent';
+                    
+                    return sprite;
+                }} catch (err) {{
+                    console.error("Error creating SpriteText:", err);
+                    return false; // Fallback
+                }}
             }})
             
             // Configuración de conexiones cibernéticas
@@ -156,13 +161,17 @@ html_content = f"""
         // Rotación orbital lenta de la cámara alrededor del "Rascacielos"
         let angle = 0;
         const distance = 400;
-        setInterval(() => {{
-            Graph.cameraPosition({{
-                x: distance * Math.sin(angle),
-                z: distance * Math.cos(angle)
-            }});
-            angle += Math.PI / 1500;
-        }}, 30);
+        setTimeout(() => {{
+            setInterval(() => {{
+                try {{
+                    Graph.cameraPosition({{
+                        x: distance * Math.sin(angle),
+                        z: distance * Math.cos(angle)
+                    }});
+                    angle += Math.PI / 1500;
+                }} catch(e) {{}}
+            }}, 30);
+        }}, 1500); // Esperar que el grafo se inicie antes de mover la cámara
     </script>
 </body>
 </html>
