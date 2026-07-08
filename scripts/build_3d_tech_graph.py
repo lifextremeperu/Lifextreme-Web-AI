@@ -11,47 +11,81 @@ if not os.path.exists(WEB_DIR):
 with open(GRAPH_JSON_PATH, "r", encoding="utf-8") as f:
     data = json.load(f)
 
-nodes = data.get("nodes", [])
-links = data.get("links", [])
+raw_nodes = data.get("nodes", [])
+raw_links = data.get("links", [])
 
-node_map = {}
-for n in nodes:
+node_to_module = {}
+modules = {}
+
+# Nodos Macro Arquitectónicos (El Núcleo del Ecosistema)
+macro_nodes = {
+    "Lifextreme Frontend": {"id": "Lifextreme Frontend", "name": "💻 Lifextreme Web/App", "group": 1, "val": 12},
+    "LLM Core": {"id": "LLM Core", "name": "🧠 Motor LLM (Ollama/Llama3)", "group": 5, "val": 15},
+    "Vector DB (RAG)": {"id": "Vector DB (RAG)", "name": "📊 Vector DB (Supabase/Chroma)", "group": 4, "val": 12},
+    "Obsidian Vault": {"id": "Obsidian Vault", "name": "📚 Obsidian Knowledge Base", "group": 3, "val": 10},
+}
+
+# Agrupar cientos de funciones AST en sus respectivos Microservicios/Scripts
+for n in raw_nodes:
     node_id = n.get("id")
-    label = n.get("norm_label") or n.get("label") or node_id
-    group = n.get("community", 1)
+    source_file = n.get("source_file", "unknown")
     
-    val = 1
-    file_type = n.get("file_type", "code")
-    if file_type == "code" and label.endswith(".py"):
-        val = 4
-        group = 0 # main modules
-    elif file_type == "code":
-        val = 1.5
+    if not source_file.endswith(".py"):
+        continue
+        
+    module_name = source_file
+    node_to_module[node_id] = module_name
     
-    node_map[node_id] = {
-        "id": node_id,
-        "name": label,
-        "val": val,
-        "group": group
-    }
+    if module_name not in modules:
+        group = 0 # Default scripts
+        if "agent" in module_name: group = 5 # Agents -> LLM Color
+        elif "api" in module_name or "server" in module_name: group = 1 # APIs -> Frontend Color
+        elif "rag" in module_name or "vector" in module_name: group = 4 # RAG -> Vector DB Color
+        elif "export" in module_name or "obsidian" in module_name or "graph" in module_name: group = 3 # Graph/Obsidian Color
+        
+        modules[module_name] = {
+            "id": module_name,
+            "name": f"⚙️ {module_name}",
+            "group": group,
+            "val": 4
+        }
 
-# Process links
-valid_links = []
-for l in links:
-    source = l.get("source")
-    target = l.get("target")
-    if source in node_map and target in node_map:
-        valid_links.append({
-            "source": source,
-            "target": target
-        })
-        # increase size slightly for connected nodes
-        node_map[source]["val"] += 0.2
-        node_map[target]["val"] += 0.2
+macro_links_dict = {}
+
+# Mapear las relaciones entre funciones a relaciones entre Microservicios
+for l in raw_links:
+    source_id = l.get("source")
+    target_id = l.get("target")
+    
+    source_mod = node_to_module.get(source_id)
+    target_mod = node_to_module.get(target_id)
+    
+    if source_mod and target_mod and source_mod != target_mod:
+        link_key = f"{source_mod}____{target_mod}"
+        if link_key not in macro_links_dict:
+            macro_links_dict[link_key] = {"source": source_mod, "target": target_mod}
+        # Incrementar tamaño de los nodos más conectados
+        modules[source_mod]["val"] += 0.3
+        modules[target_mod]["val"] += 0.3
+
+# Enlaces sintéticos para conectar los scripts aislados a los Núcleos Arquitectónicos
+synthetic_links = []
+for m in modules:
+    if "agent" in m:
+        synthetic_links.append({"source": m, "target": "LLM Core"})
+    if "rag" in m or "vector" in m:
+        synthetic_links.append({"source": m, "target": "Vector DB (RAG)"})
+    if "export" in m or "graph" in m or "build" in m:
+        synthetic_links.append({"source": m, "target": "Obsidian Vault"})
+    if "api" in m or "server" in m or "export_web" in m:
+        synthetic_links.append({"source": "Lifextreme Frontend", "target": m})
+
+macro_links = list(macro_links_dict.values()) + synthetic_links
+all_nodes = list(macro_nodes.values()) + list(modules.values())
 
 graph_data = {
-    "nodes": list(node_map.values()),
-    "links": valid_links
+    "nodes": all_nodes,
+    "links": macro_links
 }
 
 graph_json_str = json.dumps(graph_data)
