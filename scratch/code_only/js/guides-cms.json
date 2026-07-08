@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "name": "Mendoza",
+        "specialty": "Alta Montaña",
+        "img": "https://images.unsplash.com/photo-1520333789090-1afc82db536a",
+        "achievements": [
+            "+50 ascensos al Huascarán (6,768m)",
+            "Rescatista certificado AGMP",
+            "Apertura de ruta 2024 en Cordillera Huayhuash"
+        ],
+        "bio": "Mendoza no solo conoce la montaña; la respeta. Es el operario con mayor tiempo de campo en Lifextreme, especializado en climas extremos."
+    },
+    {
+        "id": 2,
+        "name": "Sánchez",
+        "specialty": "Trekking & Cultura",
+        "img": "https://images.unsplash.com/photo-1587595431973-160d0d94add1",
+        "achievements": [
+            "Descendiente directo de linaje quechua",
+            "15 años liderando el Camino Inca",
+            "Especialista en etnobotánica andina"
+        ],
+        "bio": "Para Sánchez, cada piedra en el camino tiene una historia. Un guía que convierte una caminata en una clase magistral de historia viva."
+    },
+    {
+        "id": 3,
+        "name": "Palacios",
+        "specialty": "Supervivencia",
+        "img": "https://images.unsplash.com/photo-1502452392471-a472c67fe997",
+        "achievements": [
+            "Ex-Instructor de fuerzas especiales",
+            "Experto en navegación sin GPS",
+            "Primer lugar Desert Challenge 2023"
+        ],
+        "bio": "Palacios es quien quieres a tu lado cuando la tormenta golpea. Experto en seguridad táctica y gestión de riesgos en tiempo real."
+    },
+    {
+        "id": 4,
+        "name": "Flores",
+        "specialty": "Fotografía & Naturaleza",
+        "img": "https://images.unsplash.com/photo-1550974026-61474274c442",
+        "achievements": [
+            "Ganadora National Geographic 2022",
+            "Especialista en avistamiento de Cóndores",
+            "Líder de expediciones en Manu Deep"
+        ],
+        "bio": "Flores captura la esencia de la aventura. Si buscas la foto perfecta de tu vida, ella sabe dónde y cuándo disparar."
+    }
+]

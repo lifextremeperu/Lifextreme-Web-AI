@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lifextreme AI Agent Architecture — graphify tree viewer</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+    h1 {
+      margin: 20px 0 0 24px;
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: #1e3a56;
+    }
+    .controls {
+      margin: 20px 0 15px 24px;
+    }
+    button {
+      margin-right: 10px;
+      padding: 8px 18px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.2s ease-in-out;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    button:active {
+      background: #004085;
+    }
+    #tree-container {
+      width: calc(100vw - 48px); /* Adjust for body margin/padding */
+      height: 85vh;
+      overflow: auto;
+      border-radius: 8px;
+      background: #fff;
+      margin-left: 24px;
+      margin-right: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      border: 1px solid #ddd;
+    }
+    svg {
+      background: #fff;
+      border-radius: 8px;
+      display: block; /* Important for D3 */
+    }
+    .node circle {
+      stroke-width: 2.5px;
+    }
+    .node text { /* Base style for the <text> container */
+      font: 13px 'Segoe UI', sans-serif;
+      paint-order: stroke fill; /* Ensures text is readable over lines */
+      stroke: #fff; /* White halo */
+      stroke-width: 3px; /* Halo thickness */
+      stroke-linejoin: round;
+      stroke-opacity: 0.85; /* Halo opacity */
+    }
+    .link {
+      fill: none;
+      stroke-opacity: 0.7;
+      stroke-width: 2px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lifextreme AI Agent Architecture — Knowledge Graph</h1>
+  <div class="controls">
+    <button onclick="expandAll()">Expand All</button>
+    <button onclick="collapseAll()">Collapse All</button>
+    <button onclick="resetView()">Reset View</button>
+  </div>
+  <div id="tree-container">
+    <svg id="tree-svg" width="6000" height="8000"></svg>
+  </div>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script>
+    const initialJsonData = {"name":"Lifextreme AI Agent Architecture","total_count":287,"children":[{"name":"agent_code_auditor.py","total_count":3,"children":[{"name":"auditar_codigo()","total_count":1,"children":[]},{"name":"guardar_reporte()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]}]},{"name":"agent_flyer_hunter.py","total_count":18,"children":[{"name":"Actualiza la URL img del evento en js/data.js usando regex","total_count":1,"children":[]},{"name":"agent_search()","total_count":1,"children":[]},{"name":"banner()","total_count":1,"children":[]},{"name":"Busca im\u00e1genes del evento y retorna lista de {url, title}","total_count":1,"children":[]},{"name":"check_vision_available()","total_count":1,"children":[]},{"name":"Comprueba qu\u00e9 modelo de visi\u00f3n est\u00e1 disponible en Ollama","total_count":1,"children":[]},{"name":"Descarga una imagen en memoria, retorna bytes o None","total_count":1,"children":[]},{"name":"download_image()","total_count":1,"children":[]},{"name":"heuristic_validate()","total_count":1,"children":[]},{"name":"log()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"Optimiza la imagen y la sube a Supabase Storage","total_count":1,"children":[]},{"name":"process_and_upload()","total_count":1,"children":[]},{"name":"progress_bar()","total_count":1,"children":[]},{"name":"update_data_js()","total_count":1,"children":[]},{"name":"Usa llava para validar si la imagen es un flyer/poster del evento","total_count":1,"children":[]},{"name":"Validaci\u00f3n heur\u00edstica cuando no hay modelo de visi\u00f3n disponible.     Analiza: ta","total_count":1,"children":[]},{"name":"validate_with_ollama()","total_count":1,"children":[]}]},{"name":"agent_infraestructura_aventura.py","total_count":1,"children":[{"name":"ejecutar_mapeo()","total_count":1,"children":[]}]},{"name":"agent_intel.py","total_count":1,"children":[{"name":"generar_boletin_inteligencia()","total_count":1,"children":[]}]},{"name":"agent_rss_api.py","total_count":4,"children":[{"name":"cargar_historial()","total_count":1,"children":[]},{"name":"guardar_historial()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"phi3_evaluar()","total_count":1,"children":[]}]},{"name":"agent_scrape_guides.py","total_count":5,"children":[{"name":"cargar_historial()","total_count":1,"children":[]},{"name":"extraer_atracciones()","total_count":1,"children":[]},{"name":"guardar_historial()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"phi3_evaluar()","total_count":1,"children":[]}]},{"name":"agent_seo_writer.py","total_count":6,"children":[{"name":"extract_title_and_summary()","total_count":1,"children":[]},{"name":"generate_article()","total_count":1,"children":[]},{"name":"load_blog_index()","total_count":1,"children":[]},{"name":"load_topics()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"save_blog_index()","total_count":1,"children":[]}]},{"name":"agent_social.py","total_count":5,"children":[{"name":"buscar_tweets()","total_count":1,"children":[]},{"name":"cargar_historial()","total_count":1,"children":[]},{"name":"guardar_historial()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"phi3_evaluar()","total_count":1,"children":[]}]},{"name":"agent_spider_chile.py","total_count":6,"children":[{"name":"cargar_historial()","total_count":1,"children":[]},{"name":"descargar_pdf()","total_count":1,"children":[]},{"name":"evaluar_relevancia_con_ia()","total_count":1,"children":[]},{"name":"guardar_historial()","total_count":1,"children":[]},{"name":"run_spider()","total_count":1,"children":[]},{"name":"Usa el modelo local Phi-3 para determinar si un documento encontrado     es vali","total_count":1,"children":[]}]},{"name":"agent_spider_latam.py","total_count":7,"children":[{"name":"Descarga respetando l\u00edmites y detectando bloqueos.","total_count":1,"children":[]},{"name":"descarga_etica()","total_count":1,"children":[]},{"name":"evaluar_con_llm()","total_count":1,"children":[]},{"name":"Filtro estricto de IA. Solo documentos institucionales o log\u00edsticos.","total_count":1,"children":[]},{"name":"guardar_historial_pais()","total_count":1,"children":[]},{"name":"iniciar_recoleccion()","total_count":1,"children":[]},{"name":"obtener_historial_pais()","total_count":1,"children":[]}]},{"name":"agent_url_check.py","total_count":5,"children":[{"name":"Append a timestamped line to the URL check log.","total_count":1,"children":[]},{"name":"check_url()","total_count":1,"children":[]},{"name":"log_message()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"Perform a HEAD request to verify that a URL is reachable.     Returns True if st","total_count":1,"children":[]}]},{"name":"api_server.py","total_count":2,"children":[{"name":"ask()","total_count":1,"children":[]},{"name":"get_creds()","total_count":1,"children":[]}]},{"name":"auto_inject_tours.py","total_count":2,"children":[{"name":"inject_into_data_js()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]}]},{"name":"batch_pdf_ingestion.py","total_count":4,"children":[{"name":"extract_prompt_from_master()","total_count":1,"children":[]},{"name":"extract_region_from_filename()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"process_pdf()","total_count":1,"children":[]}]},{"name":"blog_agent.py","total_count":14,"children":[{"name":"============================================================ LIFEXTREME - Blog A","total_count":1,"children":[]},{"name":"BlogArticle","total_count":1,"children":[]},{"name":"Carga registros aleatorios del dataset CIXTUR como contexto RAG.","total_count":1,"children":[]},{"name":"cargar_cixtur()","total_count":1,"children":[]},{"name":"Envuelve el art\u00edculo en la plantilla HTML de Lifextreme.","total_count":1,"children":[]},{"name":"FAQItem","total_count":1,"children":[]},{"name":"Genera el structured data Schema.org para Article + FAQPage.","total_count":1,"children":[]},{"name":"Genera un art\u00edculo de blog usando Pydantic AI + Gemini + CIXTUR.","total_count":1,"children":[]},{"name":"generar_articulo()","total_count":1,"children":[]},{"name":"generar_html_pagina()","total_count":1,"children":[]},{"name":"generar_json_ld()","total_count":1,"children":[]},{"name":"Guarda el art\u00edculo como archivo HTML en la carpeta del blog.","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"publicar_articulo()","total_count":1,"children":[]}]},{"name":"blog_scheduler.py","total_count":3,"children":[{"name":"============================================================ LIFEXTREME - Schedu","total_count":1,"children":[]},{"name":"iniciar_scheduler()","total_count":1,"children":[]},{"name":"tarea_diaria()","total_count":1,"children":[]}]},{"name":"build_arequipa_embeddings.py","total_count":2,"children":[{"name":".embed_documents()","total_count":1,"children":[]},{"name":"SmartVertexEmbeddings","total_count":1,"children":[]}]},{"name":"build_batch_embeddings.py","total_count":2,"children":[{"name":".embed_documents()","total_count":1,"children":[]},{"name":"SmartVertexEmbeddings","total_count":1,"children":[]}]},{"name":"build_graph_from_fqsas.py","total_count":3,"children":[{"name":"extract_graph_entities_local()","total_count":1,"children":[]},{"name":"get_local_embedding()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]}]},{"name":"build_pdf_embeddings.py","total_count":2,"children":[{"name":".embed_documents()","total_count":1,"children":[]},{"name":"SmartVertexEmbeddings","total_count":1,"children":[]}]},{"name":"build_pitch_showcase.py","total_count":2,"children":[{"name":"create_showcase()","total_count":1,"children":[]},{"name":"sanitize_filename()","total_count":1,"children":[]}]},{"name":"chile_ingestion_pipeline.py","total_count":5,"children":[{"name":"extract_and_chunk_pdf()","total_count":1,"children":[]},{"name":"get_file_hash()","total_count":1,"children":[]},{"name":"load_state()","total_count":1,"children":[]},{"name":"process_chile_pdfs()","total_count":1,"children":[]},{"name":"save_state()","total_count":1,"children":[]}]},{"name":"clean_sales_dna.py","total_count":1,"children":[{"name":"clean_sales_dna()","total_count":1,"children":[]}]},{"name":"count_db_fqsas.py","total_count":1,"children":[{"name":"main()","total_count":1,"children":[]}]},{"name":"demo_operador_4pm.py","total_count":2,"children":[{"name":"animate_text()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]}]},{"name":"divs_ingestion_pipeline.py","total_count":8,"children":[{"name":"extract_and_chunk_pdf()","total_count":1,"children":[]},{"name":"extract_region_from_path()","total_count":1,"children":[]},{"name":"Extrae la regi\u00f3n de la carpeta padre.","total_count":1,"children":[]},{"name":"Extrae texto usando PyMuPDF y hace un chunking b\u00e1sico sem\u00e1ntico (por p\u00e1rrafos).","total_count":1,"children":[]},{"name":"get_file_hash()","total_count":1,"children":[]},{"name":"load_state()","total_count":1,"children":[]},{"name":"process_pdfs_batch()","total_count":1,"children":[]},{"name":"save_state()","total_count":1,"children":[]}]},{"name":"expand_tours_agents.py","total_count":8,"children":[{"name":"DepartmentTours","total_count":1,"children":[]},{"name":"FaqItem","total_count":1,"children":[]},{"name":"generate_tours()","total_count":1,"children":[]},{"name":"get_department_context()","total_count":1,"children":[]},{"name":"ItineraryStep","total_count":1,"children":[]},{"name":"SensoryVariants","total_count":1,"children":[]},{"name":"TourModel","total_count":1,"children":[]},{"name":"TourStep","total_count":1,"children":[]}]},{"name":"export_to_obsidian.py","total_count":5,"children":[{"name":"add_deep_links()","total_count":1,"children":[]},{"name":"build_vault()","total_count":1,"children":[]},{"name":"Busca conceptos clave y los envuelve en [[Concepto]] para Obsidian","total_count":1,"children":[]},{"name":"Limpia el nombre para que sea un archivo v\u00e1lido en Windows/Linux y recorta longi","total_count":1,"children":[]},{"name":"sanitize_filename()","total_count":1,"children":[]}]},{"name":"export_web_graph.py","total_count":3,"children":[{"name":"get_color()","total_count":1,"children":[]},{"name":"get_label()","total_count":1,"children":[]},{"name":"get_size()","total_count":1,"children":[]}]},{"name":"final_rag_sync.py","total_count":2,"children":[{"name":"get_embedding()","total_count":1,"children":[]},{"name":"upsert_vectors()","total_count":1,"children":[]}]},{"name":"ingestion_rules.py","total_count":5,"children":[{"name":"CategoriaTuristica","total_count":1,"children":[]},{"name":"ChunkMetadata","total_count":1,"children":[]},{"name":"Estructura final a vectorizar.","total_count":1,"children":[]},{"name":"Metadatos del chunk. Varios se autocompletan por el script usando la ruta del ar","total_count":1,"children":[]},{"name":"ProcessedChunk","total_count":1,"children":[]}]},{"name":"init_vertex_search.py","total_count":1,"children":[{"name":"init_vector_search()","total_count":1,"children":[]}]},{"name":"interactive_max_qrag.py","total_count":5,"children":[{"name":"calculate_sales_recipe()","total_count":1,"children":[]},{"name":"fast_extract_intent()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"sales_state_circuit()","total_count":1,"children":[]},{"name":"stream_max_response()","total_count":1,"children":[]}]},{"name":"master_agent.py","total_count":4,"children":[{"name":"ask_max()","total_count":1,"children":[]},{"name":"LifextremeResponse","total_count":1,"children":[]},{"name":"search_knowledge()","total_count":1,"children":[]},{"name":"test()","total_count":1,"children":[]}]},{"name":"max_api_server.py","total_count":4,"children":[{"name":"api_chat()","total_count":1,"children":[]},{"name":"calculate_sales_recipe()","total_count":1,"children":[]},{"name":"fast_extract_intent()","total_count":1,"children":[]},{"name":"sales_state_circuit()","total_count":1,"children":[]}]},{"name":"max_chat_server.py","total_count":8,"children":[{"name":"b2b_query_endpoint()","total_count":1,"children":[]},{"name":"chat_endpoint()","total_count":1,"children":[]},{"name":"serve_index()","total_count":1,"children":[]},{"name":"serve_static()","total_count":1,"children":[]},{"name":"tool_analyze_website()","total_count":1,"children":[]},{"name":"tool_check_sutran()","total_count":1,"children":[]},{"name":"tool_crear_reserva()","total_count":1,"children":[]},{"name":"tool_search_rag()","total_count":1,"children":[]}]},{"name":"monitor_and_notify.py","total_count":2,"children":[{"name":"is_uploader_running()","total_count":1,"children":[]},{"name":"send_message()","total_count":1,"children":[]}]},{"name":"monitor_regions_telegram.py","total_count":3,"children":[{"name":"get_json_count()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"send_message()","total_count":1,"children":[]}]},{"name":"nightly_vector_uploader.py","total_count":5,"children":[{"name":"extract_fqsas_from_json()","total_count":1,"children":[]},{"name":"generate_local_embeddings()","total_count":1,"children":[]},{"name":"get_peru_tourism_jsons()","total_count":1,"children":[]},{"name":"init_supabase()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]}]},{"name":"normalize_pentur.py","total_count":1,"children":[{"name":"main()","total_count":1,"children":[]}]},{"name":"quantum_deep_pricing.py","total_count":2,"children":[{"name":"deep_quantum_pricing()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]}]},{"name":"quantum_macro_scenarios.py","total_count":2,"children":[{"name":"main()","total_count":1,"children":[]},{"name":"quantum_macro_simulator()","total_count":1,"children":[]}]},{"name":"quantum_sales_router.py","total_count":3,"children":[{"name":"calculate_sales_recipe()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"sales_state_circuit()","total_count":1,"children":[]}]},{"name":"quantum_sales_simulator.py","total_count":3,"children":[{"name":"calculate_sales_recipe()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"sales_state_circuit()","total_count":1,"children":[]}]},{"name":"quantum_vinicunca_analysis.py","total_count":2,"children":[{"name":"main()","total_count":1,"children":[]},{"name":"quantum_impact_evaluator()","total_count":1,"children":[]}]},{"name":"revectorize_nomic.py","total_count":5,"children":[{"name":"get_nomic_embedding()","total_count":1,"children":[]},{"name":"load_checkpoint()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"Obtiene el vector usando la API HTTP local de Ollama (muy r\u00e1pida y ligera)","total_count":1,"children":[]},{"name":"save_checkpoint()","total_count":1,"children":[]}]},{"name":"run_all_sequential.py","total_count":2,"children":[{"name":"main()","total_count":1,"children":[]},{"name":"run_and_log()","total_count":1,"children":[]}]},{"name":"run_cartographer.py","total_count":2,"children":[{"name":"extract_prompt_from_master()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]}]},{"name":"run_cartographer_batch.py","total_count":2,"children":[{"name":"extract_prompt_from_master()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]}]},{"name":"run_cartographer_bloque2.py","total_count":2,"children":[{"name":"extract_prompt_from_master()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]}]},{"name":"run_cartographer_vertex.py","total_count":2,"children":[{"name":"extract_prompt_from_master()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]}]},{"name":"run_corredor_centro.py","total_count":2,"children":[{"name":"main()","total_count":1,"children":[]},{"name":"send_telegram_report()","total_count":1,"children":[]}]},{"name":"run_corredor_nacional.py","total_count":2,"children":[{"name":"main()","total_count":1,"children":[]},{"name":"send_telegram_report()","total_count":1,"children":[]}]},{"name":"run_corredor_sur.py","total_count":1,"children":[{"name":"main()","total_count":1,"children":[]}]},{"name":"run_latam_bulk.py","total_count":5,"children":[{"name":"cargar_historial()","total_count":1,"children":[]},{"name":"descarga_etica()","total_count":1,"children":[]},{"name":"evaluar_con_phi3()","total_count":1,"children":[]},{"name":"guardar_historial()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]}]},{"name":"run_miner_arequipa.py","total_count":2,"children":[{"name":"ejecutar_mineria()","total_count":1,"children":[]},{"name":"extraer_modulos()","total_count":1,"children":[]}]},{"name":"run_miner_arequipa_deep.py","total_count":3,"children":[{"name":"ejecutar_mineria_profunda()","total_count":1,"children":[]},{"name":"extraer_modulos()","total_count":1,"children":[]},{"name":"generar_prompt_enfoque()","total_count":1,"children":[]}]},{"name":"run_miner_latam.py","total_count":3,"children":[{"name":"extraer_modulos()","total_count":1,"children":[]},{"name":"generar_prompt_enfoque()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]}]},{"name":"run_miner_latam_orchestrator.py","total_count":7,"children":[{"name":"Agrega un nuevo hito al Roadmap del Dashboard de Inversores.","total_count":1,"children":[]},{"name":"apply_jitter()","total_count":1,"children":[]},{"name":"load_master_index()","total_count":1,"children":[]},{"name":"Pol\u00edtica Anti-SPAM de Google:     Aplica una pausa aleatoria para simular compor","total_count":1,"children":[]},{"name":"run_orchestrator()","total_count":1,"children":[]},{"name":"save_master_index()","total_count":1,"children":[]},{"name":"update_investor_changelog()","total_count":1,"children":[]}]},{"name":"run_national_expansion.py","total_count":1,"children":[{"name":"main()","total_count":1,"children":[]}]},{"name":"run_pdf_ingestion.py","total_count":2,"children":[{"name":"extract_prompt_from_master()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]}]},{"name":"run_qa_verifier.py","total_count":2,"children":[{"name":"main()","total_count":1,"children":[]},{"name":"validate_json_content()","total_count":1,"children":[]}]},{"name":"simulate_e2e_sale.py","total_count":4,"children":[{"name":"ask_marcos()","total_count":1,"children":[]},{"name":"ask_max()","total_count":1,"children":[]},{"name":"run_e2e_simulation()","total_count":1,"children":[]},{"name":"simulate_payment()","total_count":1,"children":[]}]},{"name":"telegram_notifier.py","total_count":5,"children":[{"name":"notify_department_complete()","total_count":1,"children":[]},{"name":"notify_fase1_complete()","total_count":1,"children":[]},{"name":"notify_fase2_batch()","total_count":1,"children":[]},{"name":"notify_start()","total_count":1,"children":[]},{"name":"send_message()","total_count":1,"children":[]}]},{"name":"test_divs_retrieval.py","total_count":1,"children":[{"name":"test_query()","total_count":1,"children":[]}]},{"name":"test_ecosistema_completo.py","total_count":1,"children":[{"name":"test_ecosistema()","total_count":1,"children":[]}]},{"name":"test_extreme_query.py","total_count":6,"children":[{"name":"chat_with_deepseek()","total_count":1,"children":[]},{"name":"Convierte la pregunta en vector usando Ollama (nomic-embed-text)","total_count":1,"children":[]},{"name":"get_local_embedding()","total_count":1,"children":[]},{"name":"Habla con el modelo Deepseek alojado localmente en Ollama usando la API de chat","total_count":1,"children":[]},{"name":"init_supabase()","total_count":1,"children":[]},{"name":"run_extreme_test()","total_count":1,"children":[]}]},{"name":"test_graphrag_query.py","total_count":2,"children":[{"name":"get_local_embedding()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]}]},{"name":"test_knowledge.py","total_count":1,"children":[{"name":"buscar()","total_count":1,"children":[]}]},{"name":"test_macro_query.py","total_count":1,"children":[{"name":"run_macro_regional_test()","total_count":1,"children":[]}]},{"name":"test_max_internal.py","total_count":1,"children":[{"name":"test_api()","total_count":1,"children":[]}]},{"name":"test_operador_latam.py","total_count":6,"children":[{"name":"chat_with_phi3()","total_count":1,"children":[]},{"name":"Convierte la pregunta en vector usando Ollama (nomic-embed-text)","total_count":1,"children":[]},{"name":"get_local_embedding()","total_count":1,"children":[]},{"name":"Habla con el modelo Phi-3 alojado localmente en Ollama","total_count":1,"children":[]},{"name":"init_supabase()","total_count":1,"children":[]},{"name":"run_latam_test()","total_count":1,"children":[]}]},{"name":"test_partner_api.py","total_count":1,"children":[{"name":"test_lifextreme_api()","total_count":1,"children":[]}]},{"name":"test_quantum_routing.py","total_count":2,"children":[{"name":"main()","total_count":1,"children":[]},{"name":"quantum_route_evaluator()","total_count":1,"children":[]}]},{"name":"test_real_world.py","total_count":1,"children":[{"name":"test_mundo_real()","total_count":1,"children":[]}]},{"name":"test_telegram.py","total_count":1,"children":[{"name":"send_telegram_message()","total_count":1,"children":[]}]},{"name":"test_user_query_cusco_puno.py","total_count":1,"children":[{"name":"test_cusco_puno()","total_count":1,"children":[]}]},{"name":"test_user_query_cusco_puno_full.py","total_count":1,"children":[{"name":"test_full_ecosystem_query()","total_count":1,"children":[]}]},{"name":"upload_cusco_supabase.py","total_count":4,"children":[{"name":"Genera embeddings usando Ollama (nomic-embed-text) localmente.","total_count":1,"children":[]},{"name":"generate_local_embeddings()","total_count":1,"children":[]},{"name":"init_supabase()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]}]},{"name":"upload_infrastructure_seed.py","total_count":1,"children":[{"name":"upload_seed_data()","total_count":1,"children":[]}]},{"name":"upload_infrastructure_vectors.py","total_count":4,"children":[{"name":"extract_infrastructure_data()","total_count":1,"children":[]},{"name":"generate_local_embeddings()","total_count":1,"children":[]},{"name":"init_supabase()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]}]},{"name":"upload_latam_supabase.py","total_count":5,"children":[{"name":"extract_fqsas_from_json()","total_count":1,"children":[]},{"name":"generate_local_embeddings()","total_count":1,"children":[]},{"name":"get_latam_tourism_jsons()","total_count":1,"children":[]},{"name":"init_supabase()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]}]},{"name":"build_embeddings.py","total_count":1,"children":[]},{"name":"convert_cixtur.py","total_count":1,"children":[]},{"name":"ingest_json_dataset.py","total_count":1,"children":[]},{"name":"inject_widget.py","total_count":1,"children":[]},{"name":"orquestador_sudamerica.ps1","total_count":1,"children":[]},{"name":"send_update.py","total_count":1,"children":[]},{"name":"setup_flyers_prereqs.py","total_count":1,"children":[]},{"name":"sync_pdfs.py","total_count":1,"children":[]},{"name":"test_rag.py","total_count":1,"children":[]},{"name":"test_scraper.py","total_count":1,"children":[]},{"name":"test_telegram_templates.py","total_count":1,"children":[]}]};
+
+    function transformData(jsonData) {
+        // Helper function to recursively build the children structure
+        function processNode(node, parentL1StageName) {
+            let displayName = node.name;
+            // Append total_count if it exists and is not already in the name
+            if (node.total_count !== undefined) {
+                if (!/\(Total Count: \d+\)$/.test(displayName)) {
+                    displayName += ` (Total Count: ${node.total_count})`;
+                }
+            }
+
+            const newNode = { name: displayName };
+
+            if (parentL1StageName === "Root") {
+                 newNode.originalStageName = node.name;
+            } else {
+                newNode.originalStageName = parentL1StageName;
+            }
+
+            if (node.children && node.children.length > 0) {
+                const stageNameToPass = (parentL1StageName === "Root") ? node.name : parentL1StageName;
+                newNode.children = node.children.map(child => processNode(child, stageNameToPass));
+            }
+
+            return newNode;
+        }
+
+        let rootDisplayName = jsonData.name;
+        if (jsonData.total_count !== undefined && !/\(Total Count: \d+\)$/.test(rootDisplayName)) {
+            rootDisplayName += ` (Total Count: ${jsonData.total_count})`;
+        }
+
+        return {
+            name: rootDisplayName,
+            originalStageName: "Root",
+            children: (jsonData.children || []).map(child => processNode(child, "Root"))
+        };
+    }
+
+    const treeData = transformData(initialJsonData);
+
+    // Auto-populated phaseColors: every depth-1 child of the root gets
+    // a stable colour from a bigger palette so all top-level dirs are
+    // distinguishable.
+    const PALETTE = [
+      ["#3498DB","#2980B9","#AED6F1"], ["#2ECC71","#27AE60","#A9DFBF"],
+      ["#E74C3C","#C0392B","#F5B7B1"], ["#9B59B6","#8E44AD","#D7BDE2"],
+      ["#F39C12","#D68910","#FAD7A0"], ["#1ABC9C","#117864","#A2D9CE"],
+      ["#34495E","#1B2631","#ABB2B9"], ["#E67E22","#BA4A00","#F5CBA7"],
+      ["#16A085","#0E6655","#A2D9CE"], ["#D35400","#A04000","#EDBB99"],
+      ["#7F8C8D","#566573","#D5DBDB"], ["#C0392B","#7B241C","#F5B7B1"],
+      ["#2E86C1","#1B4F72","#A9CCE3"], ["#28B463","#196F3D","#A9DFBF"],
+      ["#AF7AC5","#6C3483","#D2B4DE"],
+    ];
+    const phaseColors = { "Root": { fill: "#4A4A4A", stroke: "#333333", collapsedFill: "#6C757D" },
+                          "Default": { fill: "#BDC3C7", stroke: "#95A5A6", collapsedFill: "#ECF0F1" } };
+    (initialJsonData.children || []).forEach((c, i) => {
+      const pal = PALETTE[i % PALETTE.length];
+      phaseColors[c.name] = { fill: pal[0], stroke: pal[1], collapsedFill: pal[2] };
+    });
+
+    const levelSpecificPalettes = {
+      0: { fill: "#4A4A4A", stroke: "#333333", collapsedFill: "#6C757D" },
+      2: { fill: "#6ab04c", stroke: "#508a38", collapsedFill: "#a3d391" },
+      3: { fill: "#f0932b", stroke: "#d0730f", collapsedFill: "#f6c07e" },
+      4: { fill: "#be2edd", stroke: "#a01cb3", collapsedFill: "#e08bf2" },
+      5: { fill: "#00a8ff", stroke: "#007ac1", collapsedFill: "#74d2ff" },
+      6: { fill: "#e55039", stroke: "#c23620", collapsedFill: "#f09a8d" },
+      default: { fill: "#747d8c", stroke: "#57606f", collapsedFill: "#a4b0be" }
+    };
+
+    const svgElement = d3.select("#tree-svg");
+    const initialSvgWidth = +svgElement.attr("width");
+    const initialSvgHeight = +svgElement.attr("height");
+    const margin = { top: 40, right: 120, bottom: 80, left: 450 };
+    let width = initialSvgWidth - margin.left - margin.right;
+    let height = initialSvgHeight - margin.top - margin.bottom;
+    const duration = 500;
+    let nodeCounter = 0;
+    const g = svgElement.append("g").attr("transform", `translate(${margin.left},${margin.top})`);
+    const treemap = d3.tree().nodeSize([40, 0]);
+    let rootNode = d3.hierarchy(treeData, d => d.children);
+    rootNode.x0 = 0;
+    rootNode.y0 = 0;
+
+    if (rootNode.children) {
+      rootNode.children.forEach(d_child => {
+        if (d_child.children) { collapseBranch(d_child); }
+      });
+    }
+    updateTree(rootNode);
+
+    function collapseBranch(d) { if (d.children) { d._children = d.children; d._children.forEach(collapseBranch); d.children = null; } }
+    function expandBranch(d) { if (d._children) { d.children = d._children; d._children = null; } if (d.children) { d.children.forEach(expandBranch); } }
+    window.expandAll = () => { expandBranch(rootNode); updateTree(rootNode); };
+    window.collapseAll = () => { if (rootNode.children) { rootNode.children.forEach(collapseBranch); } updateTree(rootNode); };
+    window.resetView = () => { if (rootNode.children) { rootNode.children.forEach(d_child => { if (d_child.children || d_child._children) { collapseBranch(d_child); } }); } if (rootNode._children && !rootNode.children) { rootNode.children = rootNode._children; rootNode._children = null; } updateTree(rootNode); };
+
+    function updateTree(source) {
+      const treeLayoutData = treemap(rootNode);
+      let nodes = treeLayoutData.descendants();
+      let links = treeLayoutData.descendants().slice(1);
+
+      let minX = 0;
+      let maxX = 0;
+      if (nodes.length > 0) {
+        minX = d3.min(nodes, d => d.x);
+        maxX = d3.max(nodes, d => d.x);
+      }
+
+      let neededHeight = Math.max(initialSvgHeight, maxX - minX + margin.top + margin.bottom + 100);
+      svgElement.transition().duration(duration / 2).attr("height", neededHeight);
+      g.transition().duration(duration / 2).attr("transform", `translate(${margin.left},${margin.top - minX + 40})`);
+
+      nodes.forEach(d => { d.y = d.depth * 400; }); // Adjust horizontal separation if needed
+
+      const node = g.selectAll('g.node').data(nodes, d => d.id || (d.id = ++nodeCounter));
+      const nodeEnter = node.enter().append('g')
+        .attr('class', d => "node" + (d.children || d._children ? " node--internal" : " node--leaf") + (d._children ? " _children" : ""))
+        .attr('transform', d => `translate(${source.y0},${source.x0})`)
+        .on('click', (event, d) => { if (d.children) { d._children = d.children; d.children = null; } else if (d._children) { d.children = d._children; d._children = null; } updateTree(d); })
+        .style('cursor', d => (d.children || d._children) ? 'pointer' : 'default');
+
+      nodeEnter.append('circle').attr('r', 1e-6);
+
+      nodeEnter.append('text')
+        .attr('dy', '.35em')
+        .attr('x', d => d.children || d._children ? -14 : 14)
+        .attr('text-anchor', d => d.children || d._children ? 'end' : 'start')
+        .style("fill-opacity", 1e-6)
+        .call(wrapText, 380);
+
+      const nodeUpdate = nodeEnter.merge(node);
+      nodeUpdate.transition().duration(duration)
+        .attr('transform', d => `translate(${d.y},${d.x})`)
+        .attr('class', d => "node" + (d.children ? " node--internal" : " node--leaf") + (d._children ? " node--internal _children" : ""));
+
+      nodeUpdate.select('circle').attr('r', 8.5)
+        .style('fill', d => {
+            let palette;
+            if (d.depth === 0) {
+                palette = levelSpecificPalettes[0];
+            } else if (d.depth === 1) {
+                palette = phaseColors[d.data.originalStageName] || phaseColors.Default;
+            } else {
+                palette = levelSpecificPalettes[d.depth] || levelSpecificPalettes.default;
+            }
+            if (d._children) return palette.collapsedFill;
+            if (d.children) return palette.fill;
+            return "#fff";
+        })
+        .style('stroke', d => {
+            let palette;
+            if (d.depth === 0) {
+                palette = levelSpecificPalettes[0];
+            } else if (d.depth === 1) {
+                palette = phaseColors[d.data.originalStageName] || phaseColors.Default;
+            } else {
+                palette = levelSpecificPalettes[d.depth] || levelSpecificPalettes.default;
+            }
+            return palette.stroke;
+        });
+      nodeUpdate.select('text').style("fill-opacity", 1).call(wrapText, 380);
+
+      const nodeExit = node.exit().transition().duration(duration).attr('transform', d => `translate(${source.y},${source.x})`).remove();
+      nodeExit.select('circle').attr('r', 1e-6);
+      nodeExit.select('text').style('fill-opacity', 1e-6);
+
+      const link = g.selectAll('path.link').data(links, d => d.id);
+      const linkEnter = link.enter().insert('path', "g").attr('class', 'link').attr('d', d => { const o = { x: source.x0, y: source.y0 }; return diagonal(o, o); });
+
+      linkEnter.merge(link).transition().duration(duration).attr('d', d => diagonal(d, d.parent))
+        .style('stroke', d => {
+            const sourceNode = d.parent;
+            if (!sourceNode) return phaseColors.Default.stroke;
+            const l1AncestorName = sourceNode.data.originalStageName;
+            const colorPalette = phaseColors[l1AncestorName] || phaseColors.Default;
+            return colorPalette.stroke;
+        });
+      link.exit().transition().duration(duration).attr('d', d => { const o = { x: source.x, y: source.y }; return diagonal(o, o); }).remove();
+      nodes.forEach(d => { d.x0 = d.x; d.y0 = d.y; });
+    }
+
+    function diagonal(s, d) { return `M ${s.y} ${s.x} C ${(s.y + d.y) / 2} ${s.x}, ${(s.y + d.y) / 2} ${d.x}, ${d.y} ${d.x}`; }
+
+    function wrapText(textElements, maxWidth) {
+        const textPartColors = {
+            name: '#343a40',
+            count: '#0056b3'
+        };
+        const countRegex = /(\s\(Total Count: \d+\))$/;
+
+        textElements.each(function () {
+            const textD3 = d3.select(this);
+            const originalNodeText = textD3.datum().data.name;
+            const x = parseFloat(textD3.attr("x") || 0);
+            const initialDy = textD3.attr("dy");
+            const textAnchor = textD3.attr("text-anchor");
+            const lineHeight = 1.1;
+
+            textD3.text(null);
+
+            let namePart = originalNodeText;
+            let countPartText = "";
+
+            const countMatch = originalNodeText.match(countRegex);
+            if (countMatch && originalNodeText.endsWith(countMatch[0])) {
+                namePart = originalNodeText.substring(0, originalNodeText.length - countMatch[0].length).trim();
+                countPartText = countMatch[0].trim();
+            }
+
+            const tokens = [];
+            namePart.split(/\s+/).filter(Boolean).forEach(word => {
+                tokens.push({ text: word, type: 'name' });
+            });
+            if (countPartText) {
+                tokens.push({ text: countPartText, type: 'count' });
+            }
+
+            if (tokens.length === 0 && originalNodeText) {
+                tokens.push({ text: originalNodeText, type: 'name' });
+            }
+
+            let currentTspan = textD3.append("tspan").attr("x", x).attr("dy", initialDy);
+            if (textAnchor === "end") currentTspan.attr("text-anchor", "end");
+
+            let lineTokens = [];
+
+            for (let i = 0; i < tokens.length; i++) {
+                const tokenObj = tokens[i];
+
+                lineTokens.push(tokenObj);
+                currentTspan.text(lineTokens.map(t => t.text).join(" "));
+
+                if (currentTspan.node().getComputedTextLength() > maxWidth && lineTokens.length > 1) {
+                    lineTokens.pop();
+
+                    currentTspan.text(null);
+                    lineTokens.forEach((prevToken, idx) => {
+                        currentTspan.append("tspan")
+                            .text((idx > 0 ? " " : "") + prevToken.text)
+                            .style("fill", textPartColors[prevToken.type] || textPartColors.name)
+                            .style("font-weight", prevToken.type === 'count' ? "bold" : "normal");
+                    });
+
+                    lineTokens = [tokenObj];
+                    currentTspan = textD3.append("tspan").attr("x", x).attr("dy", lineHeight + "em");
+                    if (textAnchor === "end") currentTspan.attr("text-anchor", "end");
+                }
+            }
+
+            currentTspan.text(null);
+            lineTokens.forEach((token, idx) => {
+                currentTspan.append("tspan")
+                    .text((idx > 0 ? " " : "") + token.text)
+                    .style("fill", textPartColors[token.type] || textPartColors.name)
+                    .style("font-weight", token.type === 'count' ? "bold" : "normal");
+            });
+
+            if (textD3.selectAll("tspan > tspan").empty() && textD3.select("tspan").text().length === 0 && originalNodeText) {
+                let t = textD3.select("tspan");
+                let displayText = originalNodeText;
+                t.text(displayText).style("fill", textPartColors.name);
+                if (t.node() && t.node().getComputedTextLength() > maxWidth && displayText.length > 20) {
+                    let estimatedChars = Math.floor(maxWidth / (t.node().getComputedTextLength()/displayText.length) );
+                    displayText = displayText.substring(0, Math.max(0, estimatedChars - 3)) + "...";
+                    t.text(displayText);
+                }
+            }
+        });
+    }
+  </script>
+</body>
+</html>
