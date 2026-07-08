@@ -4,11 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lifextreme - Ecosistema de Ingeniería 3D</title>
+    <title>Lifextreme - AI Factory Building 3D</title>
     <script src="https://unpkg.com/3d-force-graph"></script>
+    <script src="https://unpkg.com/three"></script>
+    <!-- Importante: SpriteText para renderizar el texto en 3D -->
+    <script src="https://unpkg.com/three-spritetext"></script>
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        body { margin: 0; padding: 0; overflow: hidden; background-color: #020617; font-family: 'Inter', sans-serif; }
+        body { margin: 0; padding: 0; overflow: hidden; background-color: #050510; font-family: 'Inter', sans-serif; }
         #3d-graph { width: 100vw; height: 100vh; cursor: crosshair; }
         
         #title-overlay {
@@ -17,7 +21,7 @@
             left: 40px;
             z-index: 10;
             pointer-events: none;
-            background: rgba(15, 23, 42, 0.85); /* Slate 900 con opacidad */
+            background: rgba(15, 23, 42, 0.85);
             padding: 24px;
             border-radius: 16px;
             border: 1px solid #334155;
@@ -25,72 +29,62 @@
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
         }
         h1 { margin: 0; font-size: 28px; font-weight: 800; letter-spacing: -0.5px; color: #f8fafc; }
-        p { margin: 10px 0 0 0; color: #94a3b8; font-size: 15px; max-width: 380px; line-height: 1.5; }
+        p { margin: 10px 0 0 0; color: #94a3b8; font-size: 15px; max-width: 400px; line-height: 1.5; }
         .instruction { color: #10b981; font-weight: 600; margin-top: 15px; font-size: 14px; display: block; }
-        
-        .scene-tooltip {
-            background: rgba(15, 23, 42, 0.9) !important;
-            color: #f8fafc !important;
-            border: 1px solid #334155 !important;
-            border-radius: 8px !important;
-            padding: 8px 12px !important;
-            font-family: 'Inter', sans-serif !important;
-            font-size: 13px !important;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5) !important;
-        }
     </style>
 </head>
 <body>
     <div id="title-overlay">
-        <h1>ARQUITECTURA DE INGENIERÍA</h1>
-        <p>Ecosistema de Software y Dependencias de Inteligencia Artificial.</p>
-        <span class="instruction">👉 Rota el espacio 3D con Click, o haz Scroll para Zoom In/Out.</span>
+        <h1>LIFEXTREME AI FACTORY</h1>
+        <p>Edificio corporativo de Inteligencia Artificial. Flujo de datos desde los servidores y bases vectoriales (Planta Baja) hacia las APIs y el Frontend (Último Piso).</p>
+        <span class="instruction">👉 Arrastra para orbitar el edificio. Haz Scroll para zoom espacial.</span>
     </div>
     
     <div id="3d-graph"></div>
 
     <script>
-        const data = {"nodes": [{"id": "Lifextreme Frontend", "name": "\ud83d\udcbb Lifextreme Web/App", "group": 1, "val": 12}, {"id": "LLM Core", "name": "\ud83e\udde0 Motor LLM (Ollama/Llama3)", "group": 5, "val": 15}, {"id": "Vector DB (RAG)", "name": "\ud83d\udcca Vector DB (Supabase/Chroma)", "group": 4, "val": 12}, {"id": "Obsidian Vault", "name": "\ud83d\udcda Obsidian Knowledge Base", "group": 3, "val": 10}, {"id": "agent_code_auditor.py", "name": "\u2699\ufe0f agent_code_auditor.py", "group": 5, "val": 4}, {"id": "agent_flyer_hunter.py", "name": "\u2699\ufe0f agent_flyer_hunter.py", "group": 5, "val": 4}, {"id": "agent_infraestructura_aventura.py", "name": "\u2699\ufe0f agent_infraestructura_aventura.py", "group": 5, "val": 4}, {"id": "agent_intel.py", "name": "\u2699\ufe0f agent_intel.py", "group": 5, "val": 4}, {"id": "agent_rss_api.py", "name": "\u2699\ufe0f agent_rss_api.py", "group": 5, "val": 4}, {"id": "agent_scrape_guides.py", "name": "\u2699\ufe0f agent_scrape_guides.py", "group": 5, "val": 4.3}, {"id": "agent_seo_writer.py", "name": "\u2699\ufe0f agent_seo_writer.py", "group": 5, "val": 4}, {"id": "agent_social.py", "name": "\u2699\ufe0f agent_social.py", "group": 5, "val": 4}, {"id": "agent_spider_chile.py", "name": "\u2699\ufe0f agent_spider_chile.py", "group": 5, "val": 4}, {"id": "agent_spider_latam.py", "name": "\u2699\ufe0f agent_spider_latam.py", "group": 5, "val": 4}, {"id": "agent_url_check.py", "name": "\u2699\ufe0f agent_url_check.py", "group": 5, "val": 4.3}, {"id": "api_server.py", "name": "\u2699\ufe0f api_server.py", "group": 1, "val": 4}, {"id": "auto_inject_tours.py", "name": "\u2699\ufe0f auto_inject_tours.py", "group": 0, "val": 4}, {"id": "batch_pdf_ingestion.py", "name": "\u2699\ufe0f batch_pdf_ingestion.py", "group": 0, "val": 4}, {"id": "blog_agent.py", "name": "\u2699\ufe0f blog_agent.py", "group": 5, "val": 5.199999999999999}, {"id": "blog_scheduler.py", "name": "\u2699\ufe0f blog_scheduler.py", "group": 0, "val": 5.199999999999999}, {"id": "build_arequipa_embeddings.py", "name": "\u2699\ufe0f build_arequipa_embeddings.py", "group": 0, "val": 4}, {"id": "build_batch_embeddings.py", "name": "\u2699\ufe0f build_batch_embeddings.py", "group": 0, "val": 4}, {"id": "build_embeddings.py", "name": "\u2699\ufe0f build_embeddings.py", "group": 0, "val": 4}, {"id": "build_graph_from_fqsas.py", "name": "\u2699\ufe0f build_graph_from_fqsas.py", "group": 3, "val": 4}, {"id": "build_pdf_embeddings.py", "name": "\u2699\ufe0f build_pdf_embeddings.py", "group": 0, "val": 4}, {"id": "build_pitch_showcase.py", "name": "\u2699\ufe0f build_pitch_showcase.py", "group": 0, "val": 4}, {"id": "chile_ingestion_pipeline.py", "name": "\u2699\ufe0f chile_ingestion_pipeline.py", "group": 0, "val": 5.499999999999999}, {"id": "clean_sales_dna.py", "name": "\u2699\ufe0f clean_sales_dna.py", "group": 0, "val": 4}, {"id": "convert_cixtur.py", "name": "\u2699\ufe0f convert_cixtur.py", "group": 0, "val": 4}, {"id": "count_db_fqsas.py", "name": "\u2699\ufe0f count_db_fqsas.py", "group": 0, "val": 4}, {"id": "demo_operador_4pm.py", "name": "\u2699\ufe0f demo_operador_4pm.py", "group": 0, "val": 4}, {"id": "divs_ingestion_pipeline.py", "name": "\u2699\ufe0f divs_ingestion_pipeline.py", "group": 0, "val": 5.499999999999999}, {"id": "expand_tours_agents.py", "name": "\u2699\ufe0f expand_tours_agents.py", "group": 5, "val": 4}, {"id": "export_to_obsidian.py", "name": "\u2699\ufe0f export_to_obsidian.py", "group": 3, "val": 4}, {"id": "export_web_graph.py", "name": "\u2699\ufe0f export_web_graph.py", "group": 3, "val": 4}, {"id": "final_rag_sync.py", "name": "\u2699\ufe0f final_rag_sync.py", "group": 4, "val": 4}, {"id": "ingest_json_dataset.py", "name": "\u2699\ufe0f ingest_json_dataset.py", "group": 0, "val": 4}, {"id": "ingestion_rules.py", "name": "\u2699\ufe0f ingestion_rules.py", "group": 0, "val": 6.999999999999998}, {"id": "init_vertex_search.py", "name": "\u2699\ufe0f init_vertex_search.py", "group": 0, "val": 4}, {"id": "inject_widget.py", "name": "\u2699\ufe0f inject_widget.py", "group": 0, "val": 4}, {"id": "interactive_max_qrag.py", "name": "\u2699\ufe0f interactive_max_qrag.py", "group": 4, "val": 4}, {"id": "master_agent.py", "name": "\u2699\ufe0f master_agent.py", "group": 5, "val": 4}, {"id": "max_api_server.py", "name": "\u2699\ufe0f max_api_server.py", "group": 1, "val": 4}, {"id": "max_chat_server.py", "name": "\u2699\ufe0f max_chat_server.py", "group": 1, "val": 4}, {"id": "monitor_and_notify.py", "name": "\u2699\ufe0f monitor_and_notify.py", "group": 0, "val": 4}, {"id": "monitor_regions_telegram.py", "name": "\u2699\ufe0f monitor_regions_telegram.py", "group": 0, "val": 4}, {"id": "nightly_vector_uploader.py", "name": "\u2699\ufe0f nightly_vector_uploader.py", "group": 4, "val": 4}, {"id": "normalize_pentur.py", "name": "\u2699\ufe0f normalize_pentur.py", "group": 0, "val": 4}, {"id": "quantum_deep_pricing.py", "name": "\u2699\ufe0f quantum_deep_pricing.py", "group": 0, "val": 4}, {"id": "quantum_macro_scenarios.py", "name": "\u2699\ufe0f quantum_macro_scenarios.py", "group": 0, "val": 4}, {"id": "quantum_sales_router.py", "name": "\u2699\ufe0f quantum_sales_router.py", "group": 0, "val": 4}, {"id": "quantum_sales_simulator.py", "name": "\u2699\ufe0f quantum_sales_simulator.py", "group": 0, "val": 4}, {"id": "quantum_vinicunca_analysis.py", "name": "\u2699\ufe0f quantum_vinicunca_analysis.py", "group": 0, "val": 4}, {"id": "revectorize_nomic.py", "name": "\u2699\ufe0f revectorize_nomic.py", "group": 4, "val": 4}, {"id": "run_all_sequential.py", "name": "\u2699\ufe0f run_all_sequential.py", "group": 0, "val": 4}, {"id": "run_cartographer.py", "name": "\u2699\ufe0f run_cartographer.py", "group": 3, "val": 4}, {"id": "run_cartographer_batch.py", "name": "\u2699\ufe0f run_cartographer_batch.py", "group": 3, "val": 4}, {"id": "run_cartographer_bloque2.py", "name": "\u2699\ufe0f run_cartographer_bloque2.py", "group": 3, "val": 4}, {"id": "run_cartographer_vertex.py", "name": "\u2699\ufe0f run_cartographer_vertex.py", "group": 3, "val": 4}, {"id": "run_corredor_centro.py", "name": "\u2699\ufe0f run_corredor_centro.py", "group": 0, "val": 4}, {"id": "run_corredor_nacional.py", "name": "\u2699\ufe0f run_corredor_nacional.py", "group": 0, "val": 4}, {"id": "run_corredor_sur.py", "name": "\u2699\ufe0f run_corredor_sur.py", "group": 0, "val": 4}, {"id": "run_latam_bulk.py", "name": "\u2699\ufe0f run_latam_bulk.py", "group": 0, "val": 4}, {"id": "run_miner_arequipa.py", "name": "\u2699\ufe0f run_miner_arequipa.py", "group": 0, "val": 4}, {"id": "run_miner_arequipa_deep.py", "name": "\u2699\ufe0f run_miner_arequipa_deep.py", "group": 0, "val": 4}, {"id": "run_miner_latam.py", "name": "\u2699\ufe0f run_miner_latam.py", "group": 0, "val": 4}, {"id": "run_miner_latam_orchestrator.py", "name": "\u2699\ufe0f run_miner_latam_orchestrator.py", "group": 0, "val": 5.499999999999999}, {"id": "run_national_expansion.py", "name": "\u2699\ufe0f run_national_expansion.py", "group": 0, "val": 4}, {"id": "run_pdf_ingestion.py", "name": "\u2699\ufe0f run_pdf_ingestion.py", "group": 0, "val": 4}, {"id": "run_qa_verifier.py", "name": "\u2699\ufe0f run_qa_verifier.py", "group": 0, "val": 4}, {"id": "send_update.py", "name": "\u2699\ufe0f send_update.py", "group": 0, "val": 4.6}, {"id": "setup_flyers_prereqs.py", "name": "\u2699\ufe0f setup_flyers_prereqs.py", "group": 0, "val": 4}, {"id": "simulate_e2e_sale.py", "name": "\u2699\ufe0f simulate_e2e_sale.py", "group": 0, "val": 4}, {"id": "sync_pdfs.py", "name": "\u2699\ufe0f sync_pdfs.py", "group": 0, "val": 4}, {"id": "telegram_notifier.py", "name": "\u2699\ufe0f telegram_notifier.py", "group": 0, "val": 7.599999999999998}, {"id": "test_divs_retrieval.py", "name": "\u2699\ufe0f test_divs_retrieval.py", "group": 0, "val": 4}, {"id": "test_ecosistema_completo.py", "name": "\u2699\ufe0f test_ecosistema_completo.py", "group": 0, "val": 4}, {"id": "test_extreme_query.py", "name": "\u2699\ufe0f test_extreme_query.py", "group": 0, "val": 4}, {"id": "test_graphrag_query.py", "name": "\u2699\ufe0f test_graphrag_query.py", "group": 4, "val": 4}, {"id": "test_knowledge.py", "name": "\u2699\ufe0f test_knowledge.py", "group": 0, "val": 4}, {"id": "test_macro_query.py", "name": "\u2699\ufe0f test_macro_query.py", "group": 0, "val": 4}, {"id": "test_max_internal.py", "name": "\u2699\ufe0f test_max_internal.py", "group": 0, "val": 4}, {"id": "test_operador_latam.py", "name": "\u2699\ufe0f test_operador_latam.py", "group": 0, "val": 4}, {"id": "test_partner_api.py", "name": "\u2699\ufe0f test_partner_api.py", "group": 1, "val": 4}, {"id": "test_quantum_routing.py", "name": "\u2699\ufe0f test_quantum_routing.py", "group": 0, "val": 4}, {"id": "test_rag.py", "name": "\u2699\ufe0f test_rag.py", "group": 4, "val": 4}, {"id": "test_real_world.py", "name": "\u2699\ufe0f test_real_world.py", "group": 0, "val": 4}, {"id": "test_scraper.py", "name": "\u2699\ufe0f test_scraper.py", "group": 0, "val": 4}, {"id": "test_telegram.py", "name": "\u2699\ufe0f test_telegram.py", "group": 0, "val": 4}, {"id": "test_telegram_templates.py", "name": "\u2699\ufe0f test_telegram_templates.py", "group": 0, "val": 5.499999999999999}, {"id": "test_user_query_cusco_puno.py", "name": "\u2699\ufe0f test_user_query_cusco_puno.py", "group": 0, "val": 4}, {"id": "test_user_query_cusco_puno_full.py", "name": "\u2699\ufe0f test_user_query_cusco_puno_full.py", "group": 0, "val": 4}, {"id": "upload_cusco_supabase.py", "name": "\u2699\ufe0f upload_cusco_supabase.py", "group": 0, "val": 4}, {"id": "upload_infrastructure_seed.py", "name": "\u2699\ufe0f upload_infrastructure_seed.py", "group": 0, "val": 4}, {"id": "upload_infrastructure_vectors.py", "name": "\u2699\ufe0f upload_infrastructure_vectors.py", "group": 4, "val": 4}, {"id": "upload_latam_supabase.py", "name": "\u2699\ufe0f upload_latam_supabase.py", "group": 0, "val": 4}], "links": [{"source": "agent_url_check.py", "target": "agent_scrape_guides.py"}, {"source": "blog_scheduler.py", "target": "blog_agent.py"}, {"source": "chile_ingestion_pipeline.py", "target": "ingestion_rules.py"}, {"source": "divs_ingestion_pipeline.py", "target": "ingestion_rules.py"}, {"source": "run_miner_latam_orchestrator.py", "target": "telegram_notifier.py"}, {"source": "send_update.py", "target": "telegram_notifier.py"}, {"source": "test_telegram_templates.py", "target": "telegram_notifier.py"}, {"source": "agent_code_auditor.py", "target": "LLM Core"}, {"source": "agent_flyer_hunter.py", "target": "LLM Core"}, {"source": "agent_infraestructura_aventura.py", "target": "LLM Core"}, {"source": "agent_intel.py", "target": "LLM Core"}, {"source": "agent_rss_api.py", "target": "LLM Core"}, {"source": "Lifextreme Frontend", "target": "agent_rss_api.py"}, {"source": "agent_scrape_guides.py", "target": "LLM Core"}, {"source": "agent_seo_writer.py", "target": "LLM Core"}, {"source": "agent_social.py", "target": "LLM Core"}, {"source": "agent_spider_chile.py", "target": "LLM Core"}, {"source": "agent_spider_latam.py", "target": "LLM Core"}, {"source": "agent_url_check.py", "target": "LLM Core"}, {"source": "Lifextreme Frontend", "target": "api_server.py"}, {"source": "blog_agent.py", "target": "LLM Core"}, {"source": "build_arequipa_embeddings.py", "target": "Obsidian Vault"}, {"source": "build_batch_embeddings.py", "target": "Obsidian Vault"}, {"source": "build_embeddings.py", "target": "Obsidian Vault"}, {"source": "build_graph_from_fqsas.py", "target": "Obsidian Vault"}, {"source": "build_pdf_embeddings.py", "target": "Obsidian Vault"}, {"source": "build_pitch_showcase.py", "target": "Obsidian Vault"}, {"source": "expand_tours_agents.py", "target": "LLM Core"}, {"source": "export_to_obsidian.py", "target": "Obsidian Vault"}, {"source": "export_web_graph.py", "target": "Obsidian Vault"}, {"source": "Lifextreme Frontend", "target": "export_web_graph.py"}, {"source": "final_rag_sync.py", "target": "Vector DB (RAG)"}, {"source": "interactive_max_qrag.py", "target": "Vector DB (RAG)"}, {"source": "master_agent.py", "target": "LLM Core"}, {"source": "Lifextreme Frontend", "target": "max_api_server.py"}, {"source": "Lifextreme Frontend", "target": "max_chat_server.py"}, {"source": "nightly_vector_uploader.py", "target": "Vector DB (RAG)"}, {"source": "revectorize_nomic.py", "target": "Vector DB (RAG)"}, {"source": "run_cartographer.py", "target": "Obsidian Vault"}, {"source": "run_cartographer_batch.py", "target": "Obsidian Vault"}, {"source": "run_cartographer_bloque2.py", "target": "Obsidian Vault"}, {"source": "run_cartographer_vertex.py", "target": "Obsidian Vault"}, {"source": "test_graphrag_query.py", "target": "Vector DB (RAG)"}, {"source": "test_graphrag_query.py", "target": "Obsidian Vault"}, {"source": "Lifextreme Frontend", "target": "test_partner_api.py"}, {"source": "test_rag.py", "target": "Vector DB (RAG)"}, {"source": "upload_infrastructure_vectors.py", "target": "Vector DB (RAG)"}]};
-        
-        // Colores corporativos Lifextreme + Paleta neón ciberseguridad
-        const colors = [
-            '#ffffff', // 0: Main py files (White Core)
-            '#00f0ff', // 1: Cyan (Cyber)
-            '#ff003c', // 2: Neon Red
-            '#ffbf00', // 3: Amber
-            '#00ff66', // 4: Matrix Green
-            '#bc13fe', // 5: Neon Purple
-            '#ff073a', // 6: Laser Red
-            '#1f51ff', // 7: Neon Blue
-            '#ccff00', // 8: Electric Yellow
-            '#ff1493'  // 9: Deep Pink
-        ];
+        const data = {"nodes": [{"id": "obsidian", "name": "Obsidian Vault", "group": 1, "color": "#bc13fe", "val": 10}, {"id": "supabase", "name": "Supabase VectorDB", "group": 1, "color": "#10b981", "val": 10}, {"id": "ollama", "name": "Ollama AI Server", "group": 1, "color": "#ff073a", "val": 15}, {"id": "dify", "name": "Dify.AI Orchestrator", "group": 2, "color": "#0ea5e9", "val": 8}, {"id": "n8n", "name": "N8N Automation", "group": 2, "color": "#ffbf00", "val": 8}, {"id": "llama3_orq", "name": "Llama-3 (Routing)", "group": 3, "color": "#00f0ff", "val": 6}, {"id": "llama3_ventas", "name": "Llama-3 (Sales)", "group": 3, "color": "#00f0ff", "val": 6}, {"id": "phi3_rag", "name": "Phi-3 (RAG)", "group": 3, "color": "#00ff66", "val": 6}, {"id": "risk_agent", "name": "Llama-3 (Risk Alert)", "group": 3, "color": "#ff003c", "val": 6}, {"id": "fastapi", "name": "FastAPI Core", "group": 4, "color": "#ccff00", "val": 12}, {"id": "quartz", "name": "Quartz 4 Interface", "group": 5, "color": "#ffffff", "val": 10}, {"id": "github", "name": "GitHub Pages", "group": 5, "color": "#ffffff", "val": 8}, {"id": "vercel", "name": "Vercel Edge", "group": 5, "color": "#ffffff", "val": 8}, {"id": "b2b_client", "name": "B2B Partner Web", "group": 5, "color": "#f8fafc", "val": 14}], "links": [{"source": "obsidian", "target": "supabase"}, {"source": "obsidian", "target": "quartz"}, {"source": "ollama", "target": "llama3_orq"}, {"source": "ollama", "target": "llama3_ventas"}, {"source": "ollama", "target": "phi3_rag"}, {"source": "ollama", "target": "risk_agent"}, {"source": "supabase", "target": "phi3_rag"}, {"source": "llama3_orq", "target": "dify"}, {"source": "dify", "target": "llama3_ventas"}, {"source": "dify", "target": "phi3_rag"}, {"source": "dify", "target": "risk_agent"}, {"source": "llama3_ventas", "target": "fastapi"}, {"source": "phi3_rag", "target": "fastapi"}, {"source": "risk_agent", "target": "fastapi"}, {"source": "n8n", "target": "fastapi"}, {"source": "n8n", "target": "obsidian"}, {"source": "fastapi", "target": "quartz"}, {"source": "fastapi", "target": "b2b_client"}, {"source": "quartz", "target": "github"}, {"source": "quartz", "target": "vercel"}]};
 
         const Graph = ForceGraph3D()
         (document.getElementById('3d-graph'))
             .graphData(data)
-            .nodeLabel('name')
-            .nodeAutoColorBy('group')
-            .nodeColor(node => colors[node.group % colors.length])
-            .nodeVal(node => Math.min(node.val * 1.5, 8)) // Slightly larger nodes
-            .linkColor(() => 'rgba(0, 240, 255, 0.15)') // Cyan transparent links
-            .linkWidth(0.6)
-            .linkDirectionalParticles(link => Math.max(1, Math.floor(Math.random() * 4))) // 1 to 3 particles per link
-            .linkDirectionalParticleWidth(1.8)
-            .linkDirectionalParticleColor(() => '#ffffff') // Bright white data packets
+            // ESTO CREA LA ESTRUCTURA DE EDIFICIO (Bottom-Up DAG)
+            .dagMode('bu')
+            .dagLevelDistance(60)
+            
+            // Reemplazamos las esferas por texto 3D Brillante
+            .nodeThreeObject(node => {
+                const sprite = new SpriteText(node.name);
+                sprite.color = node.color;
+                sprite.textHeight = node.val;
+                sprite.fontWeight = 'bold';
+                sprite.fontFace = 'Inter';
+                
+                // Efecto de neón: Fondo transparente pero con glow
+                sprite.backgroundColor = 'transparent';
+                
+                return sprite;
+            })
+            
+            // Configuración de conexiones cibernéticas
+            .linkColor(() => 'rgba(0, 240, 255, 0.2)') // Cian transparente
+            .linkWidth(1)
+            .linkDirectionalParticles(link => Math.max(1, Math.floor(Math.random() * 4))) // Flujo de datos
+            .linkDirectionalParticleWidth(2.5)
+            .linkDirectionalParticleColor(() => '#ffffff') // Paquetes de datos blancos
             .linkDirectionalParticleSpeed(0.008)
-            .backgroundColor('#050510') // Pitch black/deep blue void
+            .backgroundColor('#050510') // Vacío profundo
             .showNavInfo(false);
             
-        // Rotación orbital automática suave (Efecto Dashboard)
+        // Rotación orbital lenta de la cámara alrededor del "Rascacielos"
         let angle = 0;
-        const distance = 700;
+        const distance = 400;
         setInterval(() => {
             Graph.cameraPosition({
                 x: distance * Math.sin(angle),
                 z: distance * Math.cos(angle)
             });
-            angle += Math.PI / 2000;
+            angle += Math.PI / 1500;
         }, 30);
     </script>
 </body>
