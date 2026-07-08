@@ -159,27 +159,16 @@ html_content = f"""
             border-radius: 50%;
             box-shadow: 0 0 8px currentColor;
         }}
-        #chat-overlay {{
-            position: absolute;
-            top: 30px;
-            right: 40px;
-            z-index: 10;
-            pointer-events: none;
-            background: rgba(15, 23, 42, 0.85); /* Slate 900 con opacidad */
-            padding: 24px;
-            border-radius: 16px;
-            border: 1px solid #334155;
-            backdrop-filter: blur(12px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
-            width: 340px;
-            max-height: 85vh;
-            overflow-y: auto;
+        .rag-demo {{
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px dashed #334155;
         }}
-        .chat-title {{ font-size: 18px; font-weight: 800; color: #f8fafc; margin: 0 0 15px 0; border-bottom: 1px solid #334155; padding-bottom: 12px; }}
-        .chat-bubble {{ background: #1e293b; padding: 14px; border-radius: 12px; margin-bottom: 14px; font-size: 13.5px; color: #cbd5e1; border-left: 4px solid #4338ca; line-height: 1.5; }}
-        .chat-bubble.user {{ border-left: 4px solid #ffbf00; background: rgba(255, 191, 0, 0.1); color: #f8fafc; }}
-        .chat-bubble.ai {{ border-left: 4px solid #10b981; background: rgba(16, 185, 129, 0.15); color: #f8fafc; }}
-        .step-title {{ font-weight: 800; color: #94a3b8; display: block; margin-bottom: 6px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }}
+        .rag-title {{ font-size: 15px; font-weight: 800; color: #f8fafc; margin: 0 0 12px 0; display: flex; align-items: center; gap: 8px;}}
+        .rag-box {{ background: #1e293b; padding: 12px; border-radius: 10px; margin-bottom: 10px; font-size: 13px; color: #cbd5e1; line-height: 1.5; border-left: 3px solid #4338ca; }}
+        .rag-box.user {{ border-left: 3px solid #ffbf00; background: rgba(255, 191, 0, 0.08); color: #f8fafc; }}
+        .rag-box.ai {{ border-left: 3px solid #10b981; background: rgba(16, 185, 129, 0.1); color: #f8fafc; }}
+        .step {{ color: #94a3b8; font-size: 11px; font-weight: 800; text-transform: uppercase; margin-bottom: 4px; display: block; }}
     </style>
 </head>
 <body>
@@ -194,44 +183,33 @@ html_content = f"""
             <div class="legend-item"><div class="dot" style="background:#f43f5e; color:#f43f5e;"></div> Agentes de Riesgo / Alertas</div>
             <div class="legend-item"><div class="dot" style="background:#10b981; color:#10b981;"></div> Finanzas / Ventas</div>
         </div>
-    </div>
-    
-    <div id="chat-overlay">
-        <h2 class="chat-title">Simulación de Inferencia</h2>
-        
-        <div class="chat-bubble user">
-            <span class="step-title">👤 Usuario (B2B Partner)</span>
-            "Necesito cotizar el Salkantay Trek de 5 días para 2 pasajeros en Junio. ¿Cuáles son los riesgos climáticos y el margen B2B?"
-        </div>
-        
-        <div class="chat-bubble">
-            <span class="step-title">🤖 Agente Orquestador</span>
-            Descomponiendo intención: [Cotización], [Ruta: Salkantay], [Clima, Riesgos, Precios]. Activando Motor Vectorial...
-        </div>
-        
-        <div class="chat-bubble">
-            <span class="step-title">⚡ Motor Vectorial (RAG)</span>
-            Extrayendo vectores de MASTER_CUSCO:<br>
-            • <span style="color:#ffbf00">Salkantay Clima Temporada</span> (Seca)<br>
-            • <span style="color:#ffbf00">Salkantay Seguridad</span> (Altitud 4600m)<br>
-            • <span style="color:#ffbf00">Salkantay Precios Moneda</span>
-        </div>
 
-        <div class="chat-bubble">
-            <span class="step-title">🛡️ Agente de Riesgo</span>
-            Alerta detectada: "Frío extremo en el Abra Salkantay. Se requiere mitigación de mal de altura."
-        </div>
-        
-        <div class="chat-bubble ai">
-            <span class="step-title">✅ Respuesta Lifextreme AI</span>
-            "Para Junio las condiciones son óptimas (temporada seca). El único riesgo es el frío en el Abra (4600m). El costo B2B neto es $350 USD por PAX, permitiendo un margen sugerido del 25% para su agencia."
+        <div class="rag-demo">
+            <h2 class="rag-title">🧠 Ejemplo de Inferencia Real</h2>
+            
+            <div class="rag-box user">
+                <span class="step">1. Pregunta del Usuario (B2B)</span>
+                "Cotizar el Salkantay Trek de 5 días para 2 pasajeros en Junio. ¿Cuáles son los riesgos climáticos y margen B2B?"
+            </div>
+            
+            <div class="rag-box">
+                <span class="step">2. Orquestador RAG Extrae Nodos:</span>
+                • <span style="color:#ffbf00">Salkantay Clima Temporada</span> (Seca)<br>
+                • <span style="color:#f43f5e">Salkantay Seguridad</span> (Altitud 4600m)<br>
+                • <span style="color:#10b981">Salkantay Precios Moneda</span> ($350 Base)
+            </div>
+            
+            <div class="rag-box ai">
+                <span class="step">3. Respuesta Lifextreme AI</span>
+                "Para Junio las condiciones son óptimas (temporada seca). El riesgo a mitigar es el frío en el Abra (4600m). El costo B2B neto es $350 USD por PAX, permitiendo un margen del 25% para su agencia."
+            </div>
         </div>
     </div>
 
     <div id="mynetwork"></div>
     <script type="text/javascript">
-        var nodes = new vis.DataSet({{nodes_json}});
-        var edges = new vis.DataSet({{edges_json}});
+        var nodes = new vis.DataSet({nodes_json});
+        var edges = new vis.DataSet({edges_json});
 
         var container = document.getElementById('mynetwork');
         var data = {{
