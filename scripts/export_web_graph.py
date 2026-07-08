@@ -125,57 +125,66 @@ html_content = f"""
         }}
         #title-overlay {{
             position: absolute;
-            top: 30px;
-            left: 40px;
+            top: 20px;
+            left: 30px;
             z-index: 10;
-            pointer-events: none;
-            background: rgba(15, 23, 42, 0.85); /* Slate 900 con opacidad */
-            padding: 24px;
+            background: rgba(15, 23, 42, 0.85);
+            padding: 20px;
             border-radius: 16px;
             border: 1px solid #334155;
             backdrop-filter: blur(12px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+            width: 340px;
+            max-height: 90vh;
+            overflow-y: auto;
+            /* pointer-events: auto para permitir hacer scroll en el panel */
+            pointer-events: auto; 
         }}
-        h1 {{ margin: 0; font-size: 28px; font-weight: 800; letter-spacing: -0.5px; color: #f8fafc; }}
-        p {{ margin: 10px 0 0 0; color: #94a3b8; font-size: 15px; max-width: 380px; line-height: 1.5; }}
-        .instruction {{ color: #ffbf00; font-weight: 600; margin-top: 15px; font-size: 14px; display: block; }}
+        /* Custom scrollbar para el overlay */
+        #title-overlay::-webkit-scrollbar {{ width: 6px; }}
+        #title-overlay::-webkit-scrollbar-track {{ background: rgba(15, 23, 42, 0.5); border-radius: 4px; }}
+        #title-overlay::-webkit-scrollbar-thumb {{ background: #334155; border-radius: 4px; }}
+
+        h1 {{ margin: 0; font-size: 24px; font-weight: 800; letter-spacing: -0.5px; color: #f8fafc; }}
+        p {{ margin: 8px 0 0 0; color: #94a3b8; font-size: 13px; line-height: 1.5; }}
+        .instruction {{ color: #ffbf00; font-weight: 600; margin-top: 12px; font-size: 13px; display: block; }}
         .legend {{
-            margin-top: 20px;
+            margin-top: 16px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
         }}
         .legend-item {{
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 14px;
+            gap: 10px;
+            font-size: 13px;
             color: #cbd5e1;
             font-weight: 600;
         }}
         .dot {{
-            width: 14px;
-            height: 14px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
             box-shadow: 0 0 8px currentColor;
         }}
         .rag-demo {{
-            margin-top: 24px;
-            padding-top: 20px;
+            margin-top: 20px;
+            padding-top: 16px;
             border-top: 1px dashed #334155;
         }}
-        .rag-title {{ font-size: 15px; font-weight: 800; color: #f8fafc; margin: 0 0 12px 0; display: flex; align-items: center; gap: 8px;}}
-        .rag-box {{ background: #1e293b; padding: 12px; border-radius: 10px; margin-bottom: 10px; font-size: 13px; color: #cbd5e1; line-height: 1.5; border-left: 3px solid #4338ca; }}
+        .rag-title {{ font-size: 14px; font-weight: 800; color: #f8fafc; margin: 0 0 10px 0; display: flex; align-items: center; gap: 8px;}}
+        .rag-box {{ background: #1e293b; padding: 10px; border-radius: 8px; margin-bottom: 8px; font-size: 12px; color: #cbd5e1; line-height: 1.5; border-left: 3px solid #4338ca; }}
         .rag-box.user {{ border-left: 3px solid #ffbf00; background: rgba(255, 191, 0, 0.08); color: #f8fafc; }}
         .rag-box.ai {{ border-left: 3px solid #10b981; background: rgba(16, 185, 129, 0.1); color: #f8fafc; }}
-        .step {{ color: #94a3b8; font-size: 11px; font-weight: 800; text-transform: uppercase; margin-bottom: 4px; display: block; }}
+        .step {{ color: #94a3b8; font-size: 10px; font-weight: 800; text-transform: uppercase; margin-bottom: 3px; display: block; }}
     </style>
 </head>
 <body>
     <div id="title-overlay">
         <h1>LIFEXTREME NEURAL RAG</h1>
-        <p>Modelo dinámico del proceso de decisión de la IA para ventas y logística B2B.</p>
-        <span class="instruction">👉 Haz CLIC en los nodos para expandir/colapsar sus conexiones neurales.</span>
+        <p>Modelo dinámico del proceso de decisión de la IA para ventas B2B.</p>
+        <span class="instruction">👉 Haz CLIC en los nodos para expandir sus conexiones.</span>
         <div class="legend">
             <div class="legend-item"><div class="dot" style="background:#f8fafc; color:#f8fafc;"></div> Clúster Maestro (Cusco)</div>
             <div class="legend-item"><div class="dot" style="background:#4338ca; color:#4338ca;"></div> Motor Vectorial (IA)</div>
@@ -188,12 +197,12 @@ html_content = f"""
             <h2 class="rag-title">🧠 Ejemplo de Inferencia Real</h2>
             
             <div class="rag-box user">
-                <span class="step">1. Pregunta del Usuario (B2B)</span>
-                "Cotizar el Salkantay Trek de 5 días para 2 pasajeros en Junio. ¿Cuáles son los riesgos climáticos y margen B2B?"
+                <span class="step">1. Pregunta B2B</span>
+                "Cotizar Salkantay Trek 5 días, 2 PAX en Junio. Riesgos y margen."
             </div>
             
             <div class="rag-box">
-                <span class="step">2. Orquestador RAG Extrae Nodos:</span>
+                <span class="step">2. RAG Extrae Nodos:</span>
                 • <span style="color:#ffbf00">Salkantay Clima Temporada</span> (Seca)<br>
                 • <span style="color:#f43f5e">Salkantay Seguridad</span> (Altitud 4600m)<br>
                 • <span style="color:#10b981">Salkantay Precios Moneda</span> ($350 Base)
@@ -201,7 +210,7 @@ html_content = f"""
             
             <div class="rag-box ai">
                 <span class="step">3. Respuesta Lifextreme AI</span>
-                "Para Junio las condiciones son óptimas (temporada seca). El riesgo a mitigar es el frío en el Abra (4600m). El costo B2B neto es $350 USD por PAX, permitiendo un margen del 25% para su agencia."
+                "Junio es óptimo (temporada seca). Riesgo: frío en Abra (4600m). Costo neto: $350 USD, margen sugerido 25%."
             </div>
         </div>
     </div>
@@ -252,6 +261,16 @@ html_content = f"""
         }};
         var network = new vis.Network(container, data, options);
         
+        // Centrar cámara al iniciar
+        network.once("stabilizationIterationsDone", function() {{
+            network.fit({{
+                animation: {{
+                    duration: 1000,
+                    easingFunction: "easeInOutQuad"
+                }}
+            }});
+        }});
+
         // Efecto hover
         network.on("hoverNode", function (params) {{
             network.canvas.body.container.style.cursor = 'pointer';
