@@ -129,34 +129,79 @@ html_content = f"""
             .dagMode('bu')
             .dagLevelDistance(60)
             
-            // Reemplazamos las esferas por texto 3D Brillante
+            // Reemplazamos las esferas por bloques físicos 3D (Lego / Fábrica)
             .nodeThreeObject(node => {{
+                const group = new THREE.Group();
+                
+                // 1. El Bloque de Servidor / Lego (Cubo aplanado)
+                const geometry = new THREE.BoxGeometry(28, 8, 28);
+                
+                // Material de cristal brillante/Neón
+                const material = new THREE.MeshPhysicalMaterial({{
+                    color: node.color,
+                    transparent: true,
+                    opacity: 0.7,
+                    roughness: 0.2,
+                    transmission: 0.6,
+                    emissive: node.color,
+                    emissiveIntensity: 0.4
+                }});
+                const cube = new THREE.Mesh(geometry, material);
+                
+                // Bordes luminosos para darle ese look arquitectónico Tron/Sci-Fi
+                const edges = new THREE.EdgesGeometry(geometry);
+                const edgesMaterial = new THREE.LineBasicMaterial({{ 
+                    color: 0xffffff, 
+                    transparent: true, 
+                    opacity: 0.8 
+                }});
+                const line = new THREE.LineSegments(edges, edgesMaterial);
+                cube.add(line);
+                
+                group.add(cube);
+
+                // 2. Texto Holográfico flotando encima del bloque
                 try {{
                     const sprite = new SpriteText(node.name);
-                    sprite.color = node.color;
-                    sprite.textHeight = node.val / 1.5; // Escalado seguro para evitar clipeo
+                    sprite.color = '#ffffff';
+                    sprite.textHeight = 4.5;
                     sprite.fontWeight = 'bold';
                     sprite.fontFace = 'Inter';
-                    
-                    // Efecto de neón: Fondo transparente pero con glow
+                    sprite.position.y = 12; // Flota encima del cubo
                     sprite.backgroundColor = 'transparent';
                     
-                    return sprite;
+                    group.add(sprite);
                 }} catch (err) {{
                     console.error("Error creating SpriteText:", err);
-                    return false; // Fallback
                 }}
+                
+                return group;
             }})
             
-            // Configuración de conexiones cibernéticas
-            .linkColor(() => 'rgba(0, 240, 255, 0.2)') // Cian transparente
-            .linkWidth(1)
+            // Configuración de conexiones (Tubos de la fábrica)
+            .linkColor(() => 'rgba(255, 255, 255, 0.25)') // Líneas blancas/gris brillante
+            .linkWidth(1.5)
             .linkDirectionalParticles(link => Math.max(1, Math.floor(Math.random() * 4))) // Flujo de datos
-            .linkDirectionalParticleWidth(2.5)
-            .linkDirectionalParticleColor(() => '#ffffff') // Paquetes de datos blancos
-            .linkDirectionalParticleSpeed(0.008)
-            .backgroundColor('#050510') // Vacío profundo
+            .linkDirectionalParticleWidth(3.5)
+            .linkDirectionalParticleColor(() => '#00f0ff') // Paquetes de datos cian neón
+            .linkDirectionalParticleSpeed(0.006)
+            .backgroundColor('#030712') // Gris ultra oscuro (casi negro)
             .showNavInfo(false);
+            
+        // --- ILUMINACIÓN Y ESCENARIO (LA FÁBRICA) ---
+        
+        // Suelo de la Fábrica (Grid Holográfico)
+        const gridHelper = new THREE.GridHelper(1000, 40, 0x00f0ff, 0x1e293b);
+        gridHelper.position.y = -150; // Colocado en la base del rascacielos
+        Graph.scene().add(gridHelper);
+        
+        // Luces para los bloques de cristal
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+        Graph.scene().add(ambientLight);
+        
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 1.2);
+        directionalLight.position.set(200, 500, 300);
+        Graph.scene().add(directionalLight);
             
         // Rotación orbital lenta de la cámara alrededor del "Rascacielos"
         let angle = 0;
