@@ -82,10 +82,10 @@ html_content = f"""
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lifextreme - AI Factory Building 3D</title>
-    <script src="https://unpkg.com/3d-force-graph"></script>
+    <!-- EL ORDEN ES CRÍTICO: Three.js DEBE cargar antes que 3d-force-graph y SpriteText -->
     <script src="https://unpkg.com/three"></script>
-    <!-- Importante: SpriteText para renderizar el texto en 3D -->
     <script src="https://unpkg.com/three-spritetext"></script>
+    <script src="https://unpkg.com/3d-force-graph"></script>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
