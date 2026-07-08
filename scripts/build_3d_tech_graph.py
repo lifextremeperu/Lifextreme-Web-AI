@@ -110,18 +110,18 @@ html_content = f"""
     <script>
         const data = {graph_json_str};
         
-        // Colores corporativos Lifextreme + Paleta expandida para clusters
+        // Colores corporativos Lifextreme + Paleta neón ciberseguridad
         const colors = [
-            '#f8fafc', // 0: Main py files (White)
-            '#4338ca', // 1: Indigo
-            '#f43f5e', // 2: Rose
+            '#ffffff', // 0: Main py files (White Core)
+            '#00f0ff', // 1: Cyan (Cyber)
+            '#ff003c', // 2: Neon Red
             '#ffbf00', // 3: Amber
-            '#10b981', // 4: Emerald
-            '#0ea5e9', // 5: Sky
-            '#d946ef', // 6: Fuchsia
-            '#8b5cf6', // 7: Violet
-            '#14b8a6', // 8: Teal
-            '#f97316'  // 9: Orange
+            '#00ff66', // 4: Matrix Green
+            '#bc13fe', // 5: Neon Purple
+            '#ff073a', // 6: Laser Red
+            '#1f51ff', // 7: Neon Blue
+            '#ccff00', // 8: Electric Yellow
+            '#ff1493'  // 9: Deep Pink
         ];
 
         const Graph = ForceGraph3D()
@@ -130,22 +130,25 @@ html_content = f"""
             .nodeLabel('name')
             .nodeAutoColorBy('group')
             .nodeColor(node => colors[node.group % colors.length])
-            .nodeVal('val')
-            .linkColor(() => 'rgba(148, 163, 184, 0.2)') // Slate 400 con 20% opacidad
-            .linkWidth(0.5)
-            .linkDirectionalParticles(1)
-            .linkDirectionalParticleWidth(1.2)
-            .linkDirectionalParticleSpeed(0.005)
-            .backgroundColor('#020617');
+            .nodeVal(node => Math.min(node.val * 1.5, 8)) // Slightly larger nodes
+            .linkColor(() => 'rgba(0, 240, 255, 0.15)') // Cyan transparent links
+            .linkWidth(0.6)
+            .linkDirectionalParticles(link => Math.max(1, Math.floor(Math.random() * 4))) // 1 to 3 particles per link
+            .linkDirectionalParticleWidth(1.8)
+            .linkDirectionalParticleColor(() => '#ffffff') // Bright white data packets
+            .linkDirectionalParticleSpeed(0.008)
+            .backgroundColor('#050510') // Pitch black/deep blue void
+            .showNavInfo(false);
             
-        // Rotación orbital automática suave
+        // Rotación orbital automática suave (Efecto Dashboard)
         let angle = 0;
+        const distance = 700;
         setInterval(() => {{
             Graph.cameraPosition({{
-                x: 600 * Math.sin(angle),
-                z: 600 * Math.cos(angle)
+                x: distance * Math.sin(angle),
+                z: distance * Math.cos(angle)
             }});
-            angle += Math.PI / 1500;
+            angle += Math.PI / 2000;
         }}, 30);
     </script>
 </body>
@@ -155,4 +158,5 @@ html_content = f"""
 with open(os.path.join(WEB_DIR, "index.html"), "w", encoding="utf-8") as f:
     f.write(html_content)
 
-print("Grafo 3D WebGL generado en:", WEB_DIR)
+print("Grafo 3D WebGL Ciberseguridad generado en:", WEB_DIR)
+
