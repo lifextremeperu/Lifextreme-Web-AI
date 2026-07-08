@@ -1,0 +1,757 @@
+{
+  "communities": {
+    "0": [
+      "chile_ingestion_pipeline",
+      "chile_ingestion_pipeline_extract_and_chunk_pdf",
+      "chile_ingestion_pipeline_get_file_hash",
+      "chile_ingestion_pipeline_load_state",
+      "chile_ingestion_pipeline_process_chile_pdfs",
+      "chile_ingestion_pipeline_save_state",
+      "divs_ingestion_pipeline",
+      "divs_ingestion_pipeline_extract_and_chunk_pdf",
+      "divs_ingestion_pipeline_extract_region_from_path",
+      "divs_ingestion_pipeline_get_file_hash",
+      "divs_ingestion_pipeline_load_state",
+      "divs_ingestion_pipeline_process_pdfs_batch",
+      "divs_ingestion_pipeline_rationale_44",
+      "divs_ingestion_pipeline_rationale_65",
+      "divs_ingestion_pipeline_save_state",
+      "enum",
+      "ingestion_rules",
+      "ingestion_rules_categoriaturistica",
+      "ingestion_rules_chunkmetadata",
+      "ingestion_rules_processedchunk",
+      "ingestion_rules_py_basemodel",
+      "ingestion_rules_rationale_15",
+      "ingestion_rules_rationale_35",
+      "str"
+    ],
+    "1": [
+      "agent_flyer_hunter",
+      "agent_flyer_hunter_agent_search",
+      "agent_flyer_hunter_banner",
+      "agent_flyer_hunter_check_vision_available",
+      "agent_flyer_hunter_download_image",
+      "agent_flyer_hunter_heuristic_validate",
+      "agent_flyer_hunter_log",
+      "agent_flyer_hunter_main",
+      "agent_flyer_hunter_process_and_upload",
+      "agent_flyer_hunter_progress_bar",
+      "agent_flyer_hunter_rationale_127",
+      "agent_flyer_hunter_rationale_158",
+      "agent_flyer_hunter_rationale_173",
+      "agent_flyer_hunter_rationale_191",
+      "agent_flyer_hunter_rationale_226",
+      "agent_flyer_hunter_rationale_261",
+      "agent_flyer_hunter_rationale_293",
+      "agent_flyer_hunter_update_data_js",
+      "agent_flyer_hunter_validate_with_ollama",
+      "client"
+    ],
+    "2": [
+      "blog_agent",
+      "blog_agent_blogarticle",
+      "blog_agent_cargar_cixtur",
+      "blog_agent_faqitem",
+      "blog_agent_generar_articulo",
+      "blog_agent_generar_html_pagina",
+      "blog_agent_generar_json_ld",
+      "blog_agent_main",
+      "blog_agent_publicar_articulo",
+      "blog_agent_py_basemodel",
+      "blog_agent_rationale_1",
+      "blog_agent_rationale_142",
+      "blog_agent_rationale_248",
+      "blog_agent_rationale_290",
+      "blog_agent_rationale_46",
+      "blog_agent_rationale_91",
+      "blog_scheduler",
+      "blog_scheduler_iniciar_scheduler",
+      "blog_scheduler_rationale_1",
+      "blog_scheduler_tarea_diaria"
+    ],
+    "3": [
+      "run_miner_latam_orchestrator",
+      "run_miner_latam_orchestrator_apply_jitter",
+      "run_miner_latam_orchestrator_load_master_index",
+      "run_miner_latam_orchestrator_rationale_18",
+      "run_miner_latam_orchestrator_rationale_38",
+      "run_miner_latam_orchestrator_run_orchestrator",
+      "run_miner_latam_orchestrator_save_master_index",
+      "run_miner_latam_orchestrator_update_investor_changelog",
+      "send_update",
+      "telegram_notifier",
+      "telegram_notifier_notify_department_complete",
+      "telegram_notifier_notify_fase1_complete",
+      "telegram_notifier_notify_fase2_batch",
+      "telegram_notifier_notify_start",
+      "telegram_notifier_send_message",
+      "test_telegram_templates"
+    ],
+    "4": [
+      "agent_scrape_guides",
+      "agent_scrape_guides_cargar_historial",
+      "agent_scrape_guides_extraer_atracciones",
+      "agent_scrape_guides_guardar_historial",
+      "agent_scrape_guides_main",
+      "agent_scrape_guides_phi3_evaluar",
+      "agent_url_check",
+      "agent_url_check_check_url",
+      "agent_url_check_log_message",
+      "agent_url_check_main",
+      "agent_url_check_rationale_14",
+      "agent_url_check_rationale_22"
+    ],
+    "5": [
+      "expand_tours_agents",
+      "expand_tours_agents_departmenttours",
+      "expand_tours_agents_faqitem",
+      "expand_tours_agents_generate_tours",
+      "expand_tours_agents_get_department_context",
+      "expand_tours_agents_itinerarystep",
+      "expand_tours_agents_py_basemodel",
+      "expand_tours_agents_sensoryvariants",
+      "expand_tours_agents_tourmodel",
+      "expand_tours_agents_tourstep"
+    ],
+    "6": [
+      "max_chat_server",
+      "max_chat_server_b2b_query_endpoint",
+      "max_chat_server_chat_endpoint",
+      "max_chat_server_serve_index",
+      "max_chat_server_serve_static",
+      "max_chat_server_tool_analyze_website",
+      "max_chat_server_tool_check_sutran",
+      "max_chat_server_tool_crear_reserva",
+      "max_chat_server_tool_search_rag"
+    ],
+    "7": [
+      "agent_spider_latam",
+      "agent_spider_latam_descarga_etica",
+      "agent_spider_latam_evaluar_con_llm",
+      "agent_spider_latam_guardar_historial_pais",
+      "agent_spider_latam_iniciar_recoleccion",
+      "agent_spider_latam_obtener_historial_pais",
+      "agent_spider_latam_rationale_65",
+      "agent_spider_latam_rationale_98"
+    ],
+    "8": [
+      "agent_seo_writer",
+      "agent_seo_writer_extract_title_and_summary",
+      "agent_seo_writer_generate_article",
+      "agent_seo_writer_load_blog_index",
+      "agent_seo_writer_load_topics",
+      "agent_seo_writer_main",
+      "agent_seo_writer_save_blog_index"
+    ],
+    "9": [
+      "agent_spider_chile",
+      "agent_spider_chile_cargar_historial",
+      "agent_spider_chile_descargar_pdf",
+      "agent_spider_chile_evaluar_relevancia_con_ia",
+      "agent_spider_chile_guardar_historial",
+      "agent_spider_chile_rationale_69",
+      "agent_spider_chile_run_spider"
+    ],
+    "10": [
+      "master_agent",
+      "master_agent_ask_max",
+      "master_agent_lifextremeresponse",
+      "master_agent_py_basemodel",
+      "master_agent_search_knowledge",
+      "master_agent_test",
+      "runcontext"
+    ],
+    "11": [
+      "test_extreme_query",
+      "test_extreme_query_chat_with_deepseek",
+      "test_extreme_query_get_local_embedding",
+      "test_extreme_query_init_supabase",
+      "test_extreme_query_rationale_29",
+      "test_extreme_query_rationale_35",
+      "test_extreme_query_run_extreme_test"
+    ],
+    "12": [
+      "test_operador_latam",
+      "test_operador_latam_chat_with_phi3",
+      "test_operador_latam_get_local_embedding",
+      "test_operador_latam_init_supabase",
+      "test_operador_latam_rationale_26",
+      "test_operador_latam_rationale_32",
+      "test_operador_latam_run_latam_test"
+    ],
+    "13": [
+      "agent_social",
+      "agent_social_buscar_tweets",
+      "agent_social_cargar_historial",
+      "agent_social_guardar_historial",
+      "agent_social_main",
+      "agent_social_phi3_evaluar"
+    ],
+    "14": [
+      "export_to_obsidian",
+      "export_to_obsidian_add_deep_links",
+      "export_to_obsidian_build_vault",
+      "export_to_obsidian_rationale_38",
+      "export_to_obsidian_rationale_45",
+      "export_to_obsidian_sanitize_filename"
+    ],
+    "15": [
+      "interactive_max_qrag",
+      "interactive_max_qrag_calculate_sales_recipe",
+      "interactive_max_qrag_fast_extract_intent",
+      "interactive_max_qrag_main",
+      "interactive_max_qrag_sales_state_circuit",
+      "interactive_max_qrag_stream_max_response"
+    ],
+    "16": [
+      "nightly_vector_uploader",
+      "nightly_vector_uploader_extract_fqsas_from_json",
+      "nightly_vector_uploader_generate_local_embeddings",
+      "nightly_vector_uploader_get_peru_tourism_jsons",
+      "nightly_vector_uploader_init_supabase",
+      "nightly_vector_uploader_main"
+    ],
+    "17": [
+      "revectorize_nomic",
+      "revectorize_nomic_get_nomic_embedding",
+      "revectorize_nomic_load_checkpoint",
+      "revectorize_nomic_main",
+      "revectorize_nomic_rationale_27",
+      "revectorize_nomic_save_checkpoint"
+    ],
+    "18": [
+      "run_latam_bulk",
+      "run_latam_bulk_cargar_historial",
+      "run_latam_bulk_descarga_etica",
+      "run_latam_bulk_evaluar_con_phi3",
+      "run_latam_bulk_guardar_historial",
+      "run_latam_bulk_main"
+    ],
+    "19": [
+      "upload_latam_supabase",
+      "upload_latam_supabase_extract_fqsas_from_json",
+      "upload_latam_supabase_generate_local_embeddings",
+      "upload_latam_supabase_get_latam_tourism_jsons",
+      "upload_latam_supabase_init_supabase",
+      "upload_latam_supabase_main"
+    ],
+    "20": [
+      "agent_rss_api",
+      "agent_rss_api_cargar_historial",
+      "agent_rss_api_guardar_historial",
+      "agent_rss_api_main",
+      "agent_rss_api_phi3_evaluar"
+    ],
+    "21": [
+      "batch_pdf_ingestion",
+      "batch_pdf_ingestion_extract_prompt_from_master",
+      "batch_pdf_ingestion_extract_region_from_filename",
+      "batch_pdf_ingestion_main",
+      "batch_pdf_ingestion_process_pdf"
+    ],
+    "22": [
+      "max_api_server",
+      "max_api_server_api_chat",
+      "max_api_server_calculate_sales_recipe",
+      "max_api_server_fast_extract_intent",
+      "max_api_server_sales_state_circuit"
+    ],
+    "23": [
+      "simulate_e2e_sale",
+      "simulate_e2e_sale_ask_marcos",
+      "simulate_e2e_sale_ask_max",
+      "simulate_e2e_sale_run_e2e_simulation",
+      "simulate_e2e_sale_simulate_payment"
+    ],
+    "24": [
+      "upload_cusco_supabase",
+      "upload_cusco_supabase_generate_local_embeddings",
+      "upload_cusco_supabase_init_supabase",
+      "upload_cusco_supabase_main",
+      "upload_cusco_supabase_rationale_22"
+    ],
+    "25": [
+      "upload_infrastructure_vectors",
+      "upload_infrastructure_vectors_extract_infrastructure_data",
+      "upload_infrastructure_vectors_generate_local_embeddings",
+      "upload_infrastructure_vectors_init_supabase",
+      "upload_infrastructure_vectors_main"
+    ],
+    "26": [
+      "agent_code_auditor",
+      "agent_code_auditor_auditar_codigo",
+      "agent_code_auditor_guardar_reporte",
+      "agent_code_auditor_main"
+    ],
+    "27": [
+      "build_arequipa_embeddings",
+      "build_arequipa_embeddings_py_vertexaiembeddings",
+      "build_arequipa_embeddings_smartvertexembeddings",
+      "build_arequipa_embeddings_smartvertexembeddings_embed_documents"
+    ],
+    "28": [
+      "build_batch_embeddings",
+      "build_batch_embeddings_py_vertexaiembeddings",
+      "build_batch_embeddings_smartvertexembeddings",
+      "build_batch_embeddings_smartvertexembeddings_embed_documents"
+    ],
+    "29": [
+      "build_graph_from_fqsas",
+      "build_graph_from_fqsas_extract_graph_entities_local",
+      "build_graph_from_fqsas_get_local_embedding",
+      "build_graph_from_fqsas_main"
+    ],
+    "30": [
+      "build_pdf_embeddings",
+      "build_pdf_embeddings_py_vertexaiembeddings",
+      "build_pdf_embeddings_smartvertexembeddings",
+      "build_pdf_embeddings_smartvertexembeddings_embed_documents"
+    ],
+    "31": [
+      "export_web_graph",
+      "export_web_graph_get_color",
+      "export_web_graph_get_label",
+      "export_web_graph_get_size"
+    ],
+    "32": [
+      "monitor_regions_telegram",
+      "monitor_regions_telegram_get_json_count",
+      "monitor_regions_telegram_main",
+      "monitor_regions_telegram_send_message"
+    ],
+    "33": [
+      "quantum_sales_router",
+      "quantum_sales_router_calculate_sales_recipe",
+      "quantum_sales_router_main",
+      "quantum_sales_router_sales_state_circuit"
+    ],
+    "34": [
+      "quantum_sales_simulator",
+      "quantum_sales_simulator_calculate_sales_recipe",
+      "quantum_sales_simulator_main",
+      "quantum_sales_simulator_sales_state_circuit"
+    ],
+    "35": [
+      "run_miner_arequipa_deep",
+      "run_miner_arequipa_deep_ejecutar_mineria_profunda",
+      "run_miner_arequipa_deep_extraer_modulos",
+      "run_miner_arequipa_deep_generar_prompt_enfoque"
+    ],
+    "36": [
+      "run_miner_latam",
+      "run_miner_latam_extraer_modulos",
+      "run_miner_latam_generar_prompt_enfoque",
+      "run_miner_latam_main"
+    ],
+    "37": [
+      "api_server",
+      "api_server_ask",
+      "api_server_get_creds"
+    ],
+    "38": [
+      "auto_inject_tours",
+      "auto_inject_tours_inject_into_data_js",
+      "auto_inject_tours_main"
+    ],
+    "39": [
+      "build_pitch_showcase",
+      "build_pitch_showcase_create_showcase",
+      "build_pitch_showcase_sanitize_filename"
+    ],
+    "40": [
+      "demo_operador_4pm",
+      "demo_operador_4pm_animate_text",
+      "demo_operador_4pm_main"
+    ],
+    "41": [
+      "final_rag_sync",
+      "final_rag_sync_get_embedding",
+      "final_rag_sync_upsert_vectors"
+    ],
+    "42": [
+      "monitor_and_notify",
+      "monitor_and_notify_is_uploader_running",
+      "monitor_and_notify_send_message"
+    ],
+    "43": [
+      "quantum_deep_pricing",
+      "quantum_deep_pricing_deep_quantum_pricing",
+      "quantum_deep_pricing_main"
+    ],
+    "44": [
+      "quantum_macro_scenarios",
+      "quantum_macro_scenarios_main",
+      "quantum_macro_scenarios_quantum_macro_simulator"
+    ],
+    "45": [
+      "quantum_vinicunca_analysis",
+      "quantum_vinicunca_analysis_main",
+      "quantum_vinicunca_analysis_quantum_impact_evaluator"
+    ],
+    "46": [
+      "run_all_sequential",
+      "run_all_sequential_main",
+      "run_all_sequential_run_and_log"
+    ],
+    "47": [
+      "run_cartographer",
+      "run_cartographer_extract_prompt_from_master",
+      "run_cartographer_main"
+    ],
+    "48": [
+      "run_cartographer_batch",
+      "run_cartographer_batch_extract_prompt_from_master",
+      "run_cartographer_batch_main"
+    ],
+    "49": [
+      "run_cartographer_bloque2",
+      "run_cartographer_bloque2_extract_prompt_from_master",
+      "run_cartographer_bloque2_main"
+    ],
+    "50": [
+      "run_cartographer_vertex",
+      "run_cartographer_vertex_extract_prompt_from_master",
+      "run_cartographer_vertex_main"
+    ],
+    "51": [
+      "run_corredor_centro",
+      "run_corredor_centro_main",
+      "run_corredor_centro_send_telegram_report"
+    ],
+    "52": [
+      "run_corredor_nacional",
+      "run_corredor_nacional_main",
+      "run_corredor_nacional_send_telegram_report"
+    ],
+    "53": [
+      "run_miner_arequipa",
+      "run_miner_arequipa_ejecutar_mineria",
+      "run_miner_arequipa_extraer_modulos"
+    ],
+    "54": [
+      "run_pdf_ingestion",
+      "run_pdf_ingestion_extract_prompt_from_master",
+      "run_pdf_ingestion_main"
+    ],
+    "55": [
+      "run_qa_verifier",
+      "run_qa_verifier_main",
+      "run_qa_verifier_validate_json_content"
+    ],
+    "56": [
+      "test_graphrag_query",
+      "test_graphrag_query_get_local_embedding",
+      "test_graphrag_query_main"
+    ],
+    "57": [
+      "test_quantum_routing",
+      "test_quantum_routing_main",
+      "test_quantum_routing_quantum_route_evaluator"
+    ],
+    "58": [
+      "agent_infraestructura_aventura",
+      "agent_infraestructura_aventura_ejecutar_mapeo"
+    ],
+    "59": [
+      "agent_intel",
+      "agent_intel_generar_boletin_inteligencia"
+    ],
+    "60": [
+      "clean_sales_dna",
+      "clean_sales_dna_clean_sales_dna"
+    ],
+    "61": [
+      "count_db_fqsas",
+      "count_db_fqsas_main"
+    ],
+    "62": [
+      "init_vertex_search",
+      "init_vertex_search_init_vector_search"
+    ],
+    "63": [
+      "normalize_pentur",
+      "normalize_pentur_main"
+    ],
+    "64": [
+      "run_corredor_sur",
+      "run_corredor_sur_main"
+    ],
+    "65": [
+      "run_national_expansion",
+      "run_national_expansion_main"
+    ],
+    "66": [
+      "test_divs_retrieval",
+      "test_divs_retrieval_test_query"
+    ],
+    "67": [
+      "test_ecosistema_completo",
+      "test_ecosistema_completo_test_ecosistema"
+    ],
+    "68": [
+      "test_knowledge",
+      "test_knowledge_buscar"
+    ],
+    "69": [
+      "test_macro_query",
+      "test_macro_query_run_macro_regional_test"
+    ],
+    "70": [
+      "test_max_internal",
+      "test_max_internal_test_api"
+    ],
+    "71": [
+      "test_partner_api",
+      "test_partner_api_test_lifextreme_api"
+    ],
+    "72": [
+      "test_real_world",
+      "test_real_world_test_mundo_real"
+    ],
+    "73": [
+      "test_telegram",
+      "test_telegram_send_telegram_message"
+    ],
+    "74": [
+      "test_user_query_cusco_puno",
+      "test_user_query_cusco_puno_test_cusco_puno"
+    ],
+    "75": [
+      "test_user_query_cusco_puno_full",
+      "test_user_query_cusco_puno_full_test_full_ecosystem_query"
+    ],
+    "76": [
+      "upload_infrastructure_seed",
+      "upload_infrastructure_seed_upload_seed_data"
+    ],
+    "77": [
+      "build_embeddings"
+    ],
+    "78": [
+      "convert_cixtur"
+    ],
+    "79": [
+      "ingest_json_dataset"
+    ],
+    "80": [
+      "inject_widget"
+    ],
+    "81": [
+      "orquestador_sudamerica"
+    ],
+    "82": [
+      "setup_flyers_prereqs"
+    ],
+    "83": [
+      "sync_pdfs"
+    ],
+    "84": [
+      "test_rag"
+    ],
+    "85": [
+      "test_scraper"
+    ]
+  },
+  "cohesion": {
+    "0": 0.15217391304347827,
+    "1": 0.1631578947368421,
+    "2": 0.1736842105263158,
+    "3": 0.26666666666666666,
+    "4": 0.2727272727272727,
+    "5": 0.35555555555555557,
+    "6": 0.3888888888888889,
+    "7": 0.39285714285714285,
+    "8": 0.5238095238095238,
+    "9": 0.47619047619047616,
+    "10": 0.3333333333333333,
+    "11": 0.42857142857142855,
+    "12": 0.42857142857142855,
+    "13": 0.6,
+    "14": 0.4666666666666667,
+    "15": 0.6,
+    "16": 0.6,
+    "17": 0.5333333333333333,
+    "18": 0.6,
+    "19": 0.6,
+    "20": 0.7,
+    "21": 0.7,
+    "22": 0.7,
+    "23": 0.7,
+    "24": 0.6,
+    "25": 0.7,
+    "26": 0.8333333333333334,
+    "27": 0.5,
+    "28": 0.5,
+    "29": 0.8333333333333334,
+    "30": 0.5,
+    "31": 0.5,
+    "32": 0.5,
+    "33": 0.8333333333333334,
+    "34": 0.8333333333333334,
+    "35": 0.8333333333333334,
+    "36": 0.8333333333333334,
+    "37": 1.0,
+    "38": 1.0,
+    "39": 0.6666666666666666,
+    "40": 1.0,
+    "41": 0.6666666666666666,
+    "42": 0.6666666666666666,
+    "43": 1.0,
+    "44": 1.0,
+    "45": 1.0,
+    "46": 1.0,
+    "47": 1.0,
+    "48": 1.0,
+    "49": 1.0,
+    "50": 1.0,
+    "51": 1.0,
+    "52": 1.0,
+    "53": 1.0,
+    "54": 1.0,
+    "55": 1.0,
+    "56": 1.0,
+    "57": 1.0,
+    "58": 1.0,
+    "59": 1.0,
+    "60": 1.0,
+    "61": 1.0,
+    "62": 1.0,
+    "63": 1.0,
+    "64": 1.0,
+    "65": 1.0,
+    "66": 1.0,
+    "67": 1.0,
+    "68": 1.0,
+    "69": 1.0,
+    "70": 1.0,
+    "71": 1.0,
+    "72": 1.0,
+    "73": 1.0,
+    "74": 1.0,
+    "75": 1.0,
+    "76": 1.0,
+    "77": 1.0,
+    "78": 1.0,
+    "79": 1.0,
+    "80": 1.0,
+    "81": 1.0,
+    "82": 1.0,
+    "83": 1.0,
+    "84": 1.0,
+    "85": 1.0
+  },
+  "gods": [
+    {
+      "id": "agent_flyer_hunter_main",
+      "label": "main()",
+      "degree": 11
+    },
+    {
+      "id": "divs_ingestion_pipeline_process_pdfs_batch",
+      "label": "process_pdfs_batch()",
+      "degree": 7
+    },
+    {
+      "id": "ingestion_rules_chunkmetadata",
+      "label": "ChunkMetadata",
+      "degree": 7
+    },
+    {
+      "id": "run_miner_latam_orchestrator_run_orchestrator",
+      "label": "run_orchestrator()",
+      "degree": 7
+    },
+    {
+      "id": "agent_seo_writer_main",
+      "label": "main()",
+      "degree": 6
+    },
+    {
+      "id": "blog_agent_blogarticle",
+      "label": "BlogArticle",
+      "degree": 6
+    },
+    {
+      "id": "blog_agent_generar_articulo",
+      "label": "generar_articulo()",
+      "degree": 6
+    },
+    {
+      "id": "chile_ingestion_pipeline_process_chile_pdfs",
+      "label": "process_chile_pdfs()",
+      "degree": 6
+    },
+    {
+      "id": "telegram_notifier_send_message",
+      "label": "send_message()",
+      "degree": 6
+    },
+    {
+      "id": "agent_flyer_hunter_process_and_upload",
+      "label": "process_and_upload()",
+      "degree": 5
+    }
+  ],
+  "surprises": [
+    {
+      "source": "tarea_diaria()",
+      "target": "generar_articulo()",
+      "source_files": [
+        "blog_scheduler.py",
+        "blog_agent.py"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories"
+    },
+    {
+      "source": "tarea_diaria()",
+      "target": "main()",
+      "source_files": [
+        "blog_scheduler.py",
+        "blog_agent.py"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories"
+    },
+    {
+      "source": "process_chile_pdfs()",
+      "target": "ChunkMetadata",
+      "source_files": [
+        "chile_ingestion_pipeline.py",
+        "ingestion_rules.py"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories"
+    },
+    {
+      "source": "process_pdfs_batch()",
+      "target": "ChunkMetadata",
+      "source_files": [
+        "divs_ingestion_pipeline.py",
+        "ingestion_rules.py"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories"
+    },
+    {
+      "source": "run_orchestrator()",
+      "target": "notify_department_complete()",
+      "source_files": [
+        "run_miner_latam_orchestrator.py",
+        "telegram_notifier.py"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories"
+    }
+  ],
+  "tokens": {
+    "input": 0,
+    "output": 0
+  }
+}

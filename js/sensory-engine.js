@@ -64,6 +64,8 @@ const SensoryEngine = {
         const variant = this.activeTour.sensoryVariants[type];
         if (!variant) return;
 
+        this.lastTriggeredVariant = type;
+
         // Transición suave
         targetEl.classList.add('sensory-hidden');
 

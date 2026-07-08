@@ -2,17 +2,18 @@ import os
 import sys
 import re
 import argparse
+import requests
 from pathlib import Path
 from dotenv import load_dotenv
-from google import genai
-from google.genai.types import HttpOptions, GenerateContentConfig
 
 def extract_prompt_from_master():
     master_path = Path("data/knowledge/prompts/pipeline_prompts_maestros.md")
     with open(master_path, 'r', encoding='utf-8') as f:
         content = f.read()
     bloque2_match = re.search(r'# BLOQUE 2 — PROMPT AGENTE CARTÓGRAFO.*?```(.*?)```', content, re.DOTALL)
-    return bloque2_match.group(1).strip()
+    if bloque2_match:
+        return bloque2_match.group(1).strip()
+    return "Extrae 15 módulos TIER 2."
 
 def main():
     load_dotenv()
@@ -61,21 +62,18 @@ def main():
     ================================================================================================
     """
     
-    prompt = prompt.replace("PASO 1 — DIAGNÓSTICO DEL DESTINO", instruccion_b2 + "\nPASO 1 — DIAGNÓSTICO DEL DESTINO")
+    final_prompt = prompt.replace("PASO 1 — DIAGNÓSTICO DEL DESTINO", instruccion_b2 + "\nPASO 1 — DIAGNÓSTICO DEL DESTINO")
     
-    os.environ['GOOGLE_CLOUD_PROJECT'] = 'lifextreme-arequipa-agent'
-    os.environ['GOOGLE_CLOUD_LOCATION'] = 'us-central1'
-    os.environ['GOOGLE_GENAI_USE_VERTEXAI'] = 'True'
-    
-    print(f"[+] Conectando a Vertex AI Nativo (SDK Nuevo)...")
+    print(f"[+] Conectando a Ollama Local (llama3)...")
     try:
-        client = genai.Client(http_options=HttpOptions(api_version='v1'))
-        response = client.models.generate_content(
-            model="gemini-2.5-flash",
-            contents=prompt,
-            config=GenerateContentConfig(temperature=0.4, max_output_tokens=8192)
-        )
-        respuesta_texto = response.text
+        response = requests.post("http://localhost:11434/api/generate", json={
+            "model": "llama3",
+            "prompt": final_prompt,
+            "stream": False,
+            "options": {"temperature": 0.4, "num_ctx": 8192}
+        })
+        response.raise_for_status()
+        respuesta_texto = response.json().get("response", "")
     except Exception as e:
         print(f"[-] Error fatal: {e}")
         sys.exit(1)

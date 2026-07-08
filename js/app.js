@@ -17,7 +17,7 @@ let wishlist = JSON.parse(localStorage.getItem('lifextreme_wishlist')) || [];
 
 let completedTours = [
     { id: 1, title: 'Inca Trail 4D', ratings: { guide: 5, equipment: 4, difficulty: 5 } },
-    { id: 2, title: 'Salkantay Trek 5D', dept: 'Cusco', img: 'https://images.unsplash.com/photo-1590520611221-998bd104f6ed', ratings: null },
+    { id: 2, title: 'Salkantay Trek a Machu Picchu 4D', dept: 'Cusco', img: 'https://images.unsplash.com/photo-1590520611221-998bd104f6ed', ratings: null },
     { id: 6, title: 'Santa Cruz Trek 4D', ratings: { guide: 5, equipment: 5, difficulty: 4 } },
     { id: 21, title: 'Sandboarding Huacachina', ratings: null }
 ];
@@ -356,6 +356,31 @@ function openBooking(tourId) {
         </div>
     `).join('') || '<div class="p-4 bg-slate-50 rounded-2xl text-[10px] italic text-slate-400">Detalles de misión clasificados. Ver en el punto de encuentro.</div>';
 
+    // AI AEO Block
+    const aeoBlock = document.getElementById('ai-aeo-block');
+    const daElement = document.getElementById('b-direct-answer');
+    const faqsContainer = document.getElementById('faqs-container');
+    const faqsList = document.getElementById('b-faqs');
+    
+    if (activeTour.direct_answer_block) {
+        if(aeoBlock) aeoBlock.classList.remove('hidden');
+        if(daElement) daElement.innerText = activeTour.direct_answer_block;
+        
+        if (activeTour.faqs && activeTour.faqs.length > 0) {
+            if(faqsContainer) faqsContainer.classList.remove('hidden');
+            if(faqsList) faqsList.innerHTML = activeTour.faqs.map(faq => `
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                    <p class="text-xs font-black text-slate-800 mb-1">Q: ${faq.q}</p>
+                    <p class="text-[11px] font-medium text-slate-600">${faq.a}</p>
+                </div>
+            `).join('');
+        } else {
+            if(faqsContainer) faqsContainer.classList.add('hidden');
+        }
+    } else {
+        if(aeoBlock) aeoBlock.classList.add('hidden');
+    }
+
     // Tools for Step 2
     renderStep2Tools();
 
@@ -612,8 +637,9 @@ function addToCartFinal() {
 
     // 3. 📲 REDIRECCIÓN A WHATSAPP (CIERRE DE VENTA)
     const contact = window.currentContact || { name: 'Viajero' };
+    const activeVariant = (window.SensoryEngine && window.SensoryEngine.lastTriggeredVariant) ? window.SensoryEngine.lastTriggeredVariant : 'none';
     const waMessage = `Hola Lifextreme! 🏔️ Soy *${contact.name}*.\nQuiero confirmar mi reserva:\n\n📍 *Tour:* ${activeTour.title}\n📅 *Fecha:* ${fullDate}\n👥 *Pax:* ${participants}\n💰 *Total:* S/ ${item.price}\n\nQuedo atento para realizar el pago. 🚀`;
-    const waUrl = `https://wa.me/51958050928?text=${encodeURIComponent(waMessage)}`; // ✅ Número actualizado del Ceo
+    const waUrl = `https://wa.me/51958050928?text=${encodeURIComponent(waMessage)}&utm_source=web&utm_medium=whatsapp&utm_campaign=sensory_booking&utm_content=${activeVariant}`; // ✅ Número actualizado del Ceo
 
     // Abrir WhatsApp en nueva pestaña
     window.open(waUrl, '_blank');
@@ -1778,4 +1804,58 @@ document.addEventListener('DOMContentLoaded', () => {
             filterDestinations(formattedRegion);
         }, 300); // Small delay to ensure renderAll is ready and DOM is parsed
     }
+});
+
+// --- V10 SEO DIRECTIVE: JSON-LD GENERATION ---
+function injectStructuredData() {
+    if (typeof tours === 'undefined') return;
+    
+    // Generate an ItemList of Tours
+    const itemList = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "itemListElement": tours.map((tour, index) => {
+            const item = {
+                "@type": "TouristTrip",
+                "name": tour.title,
+                "description": tour.direct_answer_block || tour.detail,
+                "touristType": [
+                    "Adventure",
+                    "Mountain"
+                ],
+                "offers": {
+                    "@type": "Offer",
+                    "price": tour.price,
+                    "priceCurrency": "USD"
+                }
+            };
+            if (tour.faqs && tour.faqs.length > 0) {
+                item.subjectOf = {
+                    "@type": "FAQPage",
+                    "mainEntity": tour.faqs.map(faq => ({
+                        "@type": "Question",
+                        "name": faq.q,
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": faq.a
+                        }
+                    }))
+                };
+            }
+            return {
+                "@type": "ListItem",
+                "position": index + 1,
+                "item": item
+            };
+        })
+    };
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(itemList);
+    document.head.appendChild(script);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(injectStructuredData, 1000); // Give it a slight delay to ensure tours are loaded
 });

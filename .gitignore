@@ -1,7 +1,12 @@
-# Local Netlify folder
+# ============================================================
+# .gitignore OPTIMIZADO — Lifextreme Web AI
+# Actualizado: 2026-06-26 | Objetivo: evitar cuelgues del IDE
+# ============================================================
+
+# ── NETLIFY ─────────────────────────────────────────────────
 .netlify
 
-# Python
+# ── PYTHON — Caché y compilados ─────────────────────────────
 __pycache__/
 *.py[cod]
 *$py.class
@@ -25,8 +30,20 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+.pytest_cache/
+.benchmarks/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+pytest.ini
+pytest-cache/
 
-# Node.js
+# ── NODE.JS ──────────────────────────────────────────────────
 node_modules/
 npm-debug.log*
 yarn-debug.log*
@@ -34,47 +51,85 @@ yarn-error.log*
 package-lock.json
 .npm
 .yarn-integrity
+*.tsbuildinfo
 
-# IDEs
+# ── IDEs ─────────────────────────────────────────────────────
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 
-# Environment variables
+# ── VARIABLES DE ENTORNO Y CREDENCIALES ─────────────────────
 .env
 .env.local
 .env.*.local
 service_account.json
+gcp-ai-key.json
 
-# Logs
+# ── LOGS ─────────────────────────────────────────────────────
 logs/
 *.log
+logs_ingesta*.txt
+output.txt
 
-# OS
+# ── SISTEMA OPERATIVO ────────────────────────────────────────
 Thumbs.db
 .DS_Store
+desktop.ini
 
-# Temporary files
+# ── ARCHIVOS TEMPORALES ──────────────────────────────────────
 *.tmp
 *.temp
 tmp/
+scratch/
 .cache/
+*.gstmp
 
-# Build outputs
+# ── BUILD OUTPUTS ────────────────────────────────────────────
 dist/
 build/
 *.min.js
 *.min.css
+*.map
 
+# ── DEPLOY ───────────────────────────────────────────────────
 .vercel
+.firebase/
+.firebaserc
 
-# Lifextreme Massive Knowledge Base
-/data/knowledge/sources_master/
+# ── VECTOR DATABASE (ChromaDB) — MUY PESADO ─────────────────
+# 172 MB — No necesita estar en git ni indexado por el IDE
+chroma_db/
 
-# Backups
+# ── KNOWLEDGE BASE / DATOS MASIVOS ──────────────────────────
+# 4.5 GB de PDFs + JSONs masivos — Solo necesitas el código
+data/raw_pdfs/
+data/knowledge/
+data/_control/
+data/social/
+data/news/
+data/guides/
+data/blog/
+
+# Archivos JSONL grandes de conocimiento
+*.jsonl
+
+# CSV masivo de FAQs (1.7 MB — innecesario en git)
+tours_faq.csv
+
+# ── BACKUPS Y ZIPS ───────────────────────────────────────────
 *.zip
+Lifextreme_AI_Respaldo_*.zip
 
-data/
-!data/blog/
+# ── ARCHIVOS DE ESTADO DE INGESTA ───────────────────────────
+ingestion_state.json
+revectorize_checkpoint.json
+
+# ── IMÁGENES PESADAS (HEIC / archivos locales) ───────────────
+*.HEIC
+*.heic
+
+# ── SOURCE MAPS DE NODE (543 archivos = 13.8 MB inútiles) ────
+**/*.js.map
+**/*.css.map

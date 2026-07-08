@@ -4,122 +4,132 @@ const tours = [
     // CUSCO (5)
     {
         id: 1,
-        title: 'Inca Trail 4D',
+        title: 'Camino Inca a Machu Picchu 4D',
         dept: 'Cusco',
         price: 2450,
         duration: '4 días',
         difficulty: 'Alta',
         img: 'https://images.unsplash.com/photo-1587547131116-a0655a526190',
-        detail: 'La ruta más icónica del mundo hacia Machu Picchu.',
+        detail: 'El "Holy Grail" del trekking. La ruta más famosa de América hacia Machu Picchu.',
+        last_verified: '2026-06-30',
+        direct_answer_block: 'El Camino Inca a Machu Picchu de 4 días tiene una dificultad alta y un precio desde $2,450. Se recorren 43 km alcanzando los 4,215 msnm. Requiere reserva con 6 meses de anticipación por normas gubernamentales. La mejor temporada es de mayo a octubre (temporada seca).',
+        faqs: [
+            { q: '¿Con cuánta anticipación debo reservar?', a: 'Por regulaciones del gobierno peruano (solo 500 cupos diarios), se requiere reservar con al menos 6 meses de antelación.' },
+            { q: '¿Qué tan difícil es el Camino Inca?', a: 'Es de dificultad alta. El Día 2 incluye un ascenso prolongado hasta los 4,215 metros sobre el nivel del mar.' },
+            { q: '¿Están incluidas las entradas a Machu Picchu?', a: 'Sí, el paquete incluye los permisos del Camino Inca, el ingreso a la ciudadela y el tren de retorno.' },
+            { q: '¿Qué hacer con el mal de altura?', a: 'Nuestros guías llevan oxígeno portátil. Es obligatorio aclimatarse en Cusco al menos 2 días antes del inicio.' },
+            { q: '¿Qué equipo de campamento proveen?', a: 'Proveemos carpas de montaña para 4 estaciones, colchonetas y todo el equipo de comedor.' }
+        ],
         genInfo: {
-            cancelPolicy: 'Esta actividad no es reembolsable',
-            duration: '4 días',
-            availability: 'Comprueba la disponibilidad para ver los horarios de inicio',
+            cancelPolicy: 'Actividad no reembolsable (Regulación de Gobierno)',
+            duration: '4 días / 3 noches',
+            availability: 'Requiere reserva con 6 meses de anticipación',
             guide: 'Inglés, Español',
             groupSize: 'Máximo 9 participantes'
         },
         whatYouDo: [
-            'Bicicleta en Abra Málaga a 4,316 metros',
-            'Aprende y participa en el tostado de café artesanal',
-            'Relájate en las relajantes aguas termales de Cocalmayo',
-            'Explora la ciudadela de Machu Picchu con guía experto'
+            'Caminata por el original Qhapaq Ñan (Camino Inca)',
+            'Exploración de ruinas intactas en el bosque nuboso',
+            'Despertar en campamentos con vista a nevados',
+            'Entrada triunfal a Machu Picchu por la Puerta del Sol (Inti Punku)'
         ],
         fullItinerary: [
-            {
-                day: 1,
-                desc: 'El Día 1 comienza con un servicio de recogida a las 6:00 AM en la Plaza Mayor de Cuzco. Viaja a través del Valle Sagrado hasta el paso de Abra Málaga (4,316m). Se inicia un descenso en bicicleta de unas 3 horas (50 km) por zonas de puna y bosque nuboso hasta las ruinas de Huaman Marq\'a. Pasaremos la noche en una casa ecológica en Pispitayoc con cena incluida.'
-            },
-            {
-                day: 2,
-                desc: 'El segundo día comienza con un desayuno y clases de tostado de café. Caminaremos por parte del Camino Inca (Qhapaq Ñan) con vistas de aves y plantaciones frutales. Llegaremos al mirador de Huancarcasa (1,750m) para vistas panorámicas. El descenso nos lleva a Qellomayo para almorzar y finalmente a las termas de Cocalmayo antes de dormir en Santa Teresa.'
-            },
-            {
-                day: 3,
-                desc: 'Caminata de 3 horas por plantaciones de café y coca hasta llegar a Hidroeléctrica (1,900m). Después del almuerzo, seguimos 3 horas más por la vía del tren hasta Aguas Calientes (1,950m). Tarde libre para ocio y preparación para la ascensión final a Machu Picchu.'
-            },
-            {
-                day: 4,
-                desc: 'Subida temprana a las 4:00 AM hacia Machu Picchu (2,400m). Tour guiado de 2 horas por los sectores más significativos de la ciudadela. Tiempo libre de exploración antes de retornar a Aguas Calientes para el tren a Ollantaytambo y bus de retorno a Cusco.'
-            }
+            { day: 1, desc: 'Día 1: El Paso de los Incas. Inicio en el Km 82. Caminata por el valle del río Urubamba hasta llegar al campamento de Wayllabamba.' },
+            { day: 2, desc: 'Día 2: El Desafío del Dead Woman\'s Pass. Ascenso letal a 4,215 msnm. El día más duro pero más gratificante. Descenso al valle de Pacaymayo.' },
+            { day: 3, desc: 'Día 3: Viaje en el Tiempo. Caminata por la selva nubosa pasando por ruinas intactas (Runkurakay, Sayacmarca, Wiñay Wayna). El día visualmente más hermoso.' },
+            { day: 4, desc: 'Día 4: La Puerta del Sol. Despertar a las 3:30 AM para cruzar la Puerta del Sol (Inti Punku) y ver el amanecer sobre Machu Picchu. Retorno a Cusco en tren.' }
         ],
         inc: [
-            'Briefing el día anterior',
-            'Recogida en el centro de Cusco (Plaza de Armas)',
-            'Transporte Cusco - Abra Málaga - Santa María',
-            'Bicicleta Kona, coderas, rodilleras, guantes, casco',
-            '3 desayunos / 3 almuerzos / 3 cenas',
-            'Tickets de entrada a Machu Picchu',
-            'Guía profesional bilingüe (inglés-español)',
-            'Bus de retorno Ollantaytambo - Cusco'
+            'Ticket de ingreso oficial al Camino Inca y Machu Picchu',
+            'Guía profesional bilingüe experto en historia Inca',
+            'Porteros para el equipo de campamento y comida',
+            '3 desayunos / 3 almuerzos / 3 cenas de alta montaña',
+            'Equipos de campamento (Carpas, colchonetas)',
+            'Tren de retorno a Ollantaytambo y bus a Cusco'
         ],
-        notSuitable: ['Embarazadas', 'Personas con problemas de espalda', 'Personas en silla de ruedas'],
-        meetingPoint: 'Plaza Mayor de Cuzco (El guía tendrá la chaqueta oficial Lifextreme)',
-        importantInfo: 'Llevar pasaporte o documento de identidad original (se acepta copia)',
-        steps: [{ n: 'G', t: 'Cusco Hotel', d: '06:00 AM' }, { n: 'ri-map-pin-2-fill', t: 'Abra Málaga', d: 'Descenso Bici' }, { n: 'dot', t: 'Machu Picchu', d: 'Final' }],
+        notSuitable: ['Embarazadas', 'Personas con problemas de espalda', 'Personas con movilidad reducida'],
+        meetingPoint: 'Plaza Mayor de Cuzco (Briefing 1 día antes)',
+        importantInfo: 'Llevar pasaporte original (Obligatorio en controles del gobierno), botas impermeables y sleeping bag de plumas.',
+        steps: [{ n: 'G', t: 'Km 82', d: 'Inicio' }, { n: 'ri-map-pin-2-fill', t: 'Inti Punku', d: 'Amanecer' }, { n: 'dot', t: 'Machu Picchu', d: 'Final' }],
         sensoryVariants: {
-            landscape: 'Siente la inmensidad de los Andes bajo tus pies mientras el aire puro de la montaña renueva cada célula de tu cuerpo.',
-            comfort: 'Sumérgete en la calidez de un refugio ecológico, donde el aroma del café recién tostado te abraza después de la jornada.',
-            action: 'Siente la adrenalina pura en el descenso de Abra Málaga, donde el viento ruge y la libertad se vuelve absoluta.'
+            landscape: 'Siente la energía ancestral bajo tus pies mientras la neblina se levanta y revela la ciudad sagrada ante tus ojos.',
+            comfort: 'Disfruta de comida gourmet preparada por nuestros chefs en medio de las montañas más remotas de los Andes.',
+            action: 'Conquista el paso de la Mujer Muerta a 4,215m y demuestra que tu cuerpo y mente no tienen límites.'
         }
     },
     {
         id: 2,
-        title: 'Salkantay Trek Elite',
+        title: 'Salkantay Trek a Machu Picchu 4D',
         dept: 'Cusco',
         price: 1850,
-        duration: '5 días',
+        duration: '4 días',
         difficulty: 'Extrema',
         img: 'https://images.unsplash.com/photo-1596395819057-033f7b2c5897',
-        detail: 'Ruta alternativa de alta montaña por nevados y selva alta.',
+        detail: 'Ruta de alta montaña por nevados y selva alta (Alternativa al Camino Inca).',
+        last_verified: '2026-06-30',
+        direct_answer_block: 'El Salkantay Trek a Machu Picchu (4 días) tiene dificultad extrema y cuesta $1,850. Es la mejor alternativa sin reserva previa. Ascenderás hasta el Paso Salkantay (4,600m) cruzando glaciares y descendiendo a la selva tropical. Disponible todo el año, ideal de abril a noviembre.',
+        faqs: [
+            { q: '¿Necesito reservar con meses de anticipación?', a: 'No, a diferencia del Camino Inca, Salkantay no tiene límite estricto gubernamental. Puedes reservar con poca antelación.' },
+            { q: '¿Es más difícil que el Camino Inca?', a: 'Sí, físicamente es más exigente. Se alcanza mayor altitud (4,600m) y las caminatas diarias son más largas.' },
+            { q: '¿Las mulas llevan mi mochila?', a: 'Sí, incluimos caballos de carga que llevarán hasta 7kg de tu equipo personal.' },
+            { q: '¿Visitamos la Laguna Humantay?', a: 'Absolutamente, el primer día incluye el ascenso a esta icónica laguna glaciar a 4,200m.' },
+            { q: '¿Cómo regresamos a Cusco?', a: 'El tour incluye tren Expedition desde Aguas Calientes hasta Ollantaytambo y bus a Cusco.' }
+        ],
         genInfo: {
             cancelPolicy: 'Reembolso parcial hasta 7 días antes',
-            duration: '5 días',
+            duration: '4 días / 3 noches',
             availability: 'Salidas diarias confirmadas',
             guide: 'Inglés, Español, Francés',
             groupSize: 'Máximo 12 participantes'
         },
         whatYouDo: [
-            'Ascenso al paso Salkantay a 4,630 metros',
-            'Visita a la Laguna Humantay turquesa',
-            'Caminata por ceja de selva y plantaciones',
-            'Llegada triunfal a Machu Picchu'
+            'Conquistar el Abra Salkantay a 4,600 msnm',
+            'Visitar la majestuosa Laguna Humantay',
+            'Caminata por ceja de selva y plantaciones de café',
+            'Exploración de la Ciudadela Inca al amanecer'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Recogida en Cusco y viaje a Mollepata. Caminata de ascenso hacia Soraypampa con vistas del nevado Humantay. Visita a la laguna Humantay por la tarde.' },
-            { day: 2, desc: 'El día más difícil: ascenso al Paso Salkantay (4,630m). Vistas espectaculares de la cordillera Vilcabamba antes de descender hacia Chaullay.' },
-            { day: 3, desc: 'Caminata por la selva alta (ceja de selva). Veremos cascadas, aves y plantaciones de café y frutas tropicales. Noche en La Playa o Lucmabamba.' },
-            { day: 4, desc: 'Ascenso hacia Llactapata para una vista única de Machu Picchu desde la distancia. Descenso a Hidroeléctrica y caminata final a Aguas Calientes.' },
-            { day: 5, desc: 'Exploración completa de Machu Picchu al amanecer. Retorno a Cusco por la tarde en tren y bus.' }
+            { day: 1, desc: 'Día 1: El Desafío Comienza. Recogida a las 4:30 AM, caminata hacia Soraypampa (3,900m) y ascenso a la Laguna Humantay (4,200m). Noche en campamento.' },
+            { day: 2, desc: 'Día 2: El Paso del Glaciar. Ascenso de 4 horas al Abra Salkantay (4,600m) frente al nevado. Descenso radical hacia el bosque nuboso en Chaullay.' },
+            { day: 3, desc: 'Día 3: Inmersión en la Selva. Trekking rodeados de orquídeas y café hasta Lucmabamba. Caminata por el Camino Inca original hacia Llactapata y tren a Aguas Calientes.' },
+            { day: 4, desc: 'Día 4: La Victoria. Exploración guiada de Machu Picchu al amanecer. Por la tarde, retorno a Cusco en tren y bus.' }
         ],
         inc: [
-            'Recogida en hotel',
+            'Recogida en hotel (04:30 AM)',
             'Guía profesional especializado en montaña',
-            'Cocinero y asistentes especializados',
-            'Caballos para equipo y 7kg personales',
-            '4 desayunos / 4 almuerzos / 4 cenas',
+            'Caballos de carga (7kg personales)',
+            '3 desayunos / 3 almuerzos / 3 cenas',
             'Equipo de campamento de alta montaña',
-            'Ticket de entrada a Machu Picchu',
-            'Tren de retorno y bus a Cusco'
+            'Ticket de entrada a Machu Picchu y tren de retorno'
         ],
         notSuitable: ['Menores de 12 años', 'Personas con asma severa', 'Problemas de rodilla'],
-        meetingPoint: 'Recepción de su hotel en Cusco (04:30 AM)',
-        importantInfo: 'Llevar ropa térmica, bloqueador solar y calzado de trekking ya usado (break-in).',
-        steps: [{ n: 'G', t: 'Mollepata', d: 'Inicio' }, { n: 'dot', t: 'Machu Picchu', d: 'Final' }],
+        meetingPoint: 'Recepción de su hotel en Cusco',
+        importantInfo: 'Llevar botas ya usadas (break-in), ropa térmica para los días 1 y 2, y ropa ligera para la selva.',
+        steps: [{ n: 'G', t: 'Mollepata', d: 'Inicio' }, { n: 'ri-mountain-fill', t: 'Paso Salkantay', d: '4,600m' }, { n: 'dot', t: 'Machu Picchu', d: 'Final' }],
         sensoryVariants: {
-            landscape: 'Respira la esencia de los glaciares y deja que el silencio de la alta montaña calme tu mente y despierte tus sentidos.',
-            comfort: 'Déjate envolver por el calor de las aguas termales de Cocalmayo, un bálsamo turquesa en medio de la selva alta.',
-            action: 'Conquista el paso Salkantay a 4,630m y siente el poder de las nubes al alcance de tu mano.'
+            landscape: 'Respira la esencia de los glaciares a 4,600m y siente el poder del nevado protegiendo tu camino hacia la selva tropical.',
+            comfort: 'Duerme bajo un cielo andino completamente estrellado tras superar el mayor desafío físico de tu viaje.',
+            action: 'Supera el Paso Salkantay y siente la adrenalina pura del descenso extremo hacia la amazonía.'
         }
     },
     {
         id: 3,
-        title: 'Vinicunca Speed Run',
+        title: 'Montaña de los 7 Colores Express',
         dept: 'Cusco',
         price: 450,
         duration: '1 día',
         difficulty: 'Media-Alta',
         img: 'https://images.unsplash.com/photo-1547483238-2c6036746654',
-        detail: 'Ascenso táctico a la Montaña de 7 Colores.',
+        detail: 'Conquista el rey de Instagram a 5,200 metros de altitud.',
+        last_verified: '2026-06-30',
+        direct_answer_block: 'El tour a la Montaña de 7 Colores (Vinicunca) dura 1 día (12 horas), tiene dificultad media-alta por la altitud y cuesta $450. Se asciende a 5,200 msnm, por lo que requiere aclimatación previa. Salidas diarias con recojo a las 4:00 AM. Incluye desayuno y almuerzo buffet.',
+        faqs: [
+            { q: '¿Cuánto dura la caminata?', a: 'La caminata es de aproximadamente 1.5 a 2 horas de subida y 1 hora de bajada.' },
+            { q: '¿Qué pasa si no puedo caminar a esa altitud?', a: 'Puedes alquilar caballos a los comuneros locales en el punto de inicio por un costo adicional.' },
+            { q: '¿Hace mucho frío en la cumbre?', a: 'Sí, debido a los 5,200m de altitud y vientos fuertes, la temperatura suele rondar los 0°C a 5°C. Llevar ropa térmica.' },
+            { q: '¿El tour incluye alimentación?', a: 'Sí, incluimos desayuno andino antes del trekking y almuerzo buffet al retorno.' },
+            { q: '¿Llevan oxígeno de emergencia?', a: 'Todos nuestros grupos viajan equipados con balones de oxígeno portátiles y botiquines de primeros auxilios.' }
+        ],
         genInfo: {
             cancelPolicy: 'Cancelación gratuita hasta 24h antes',
             duration: '12-14 horas',
@@ -130,27 +140,36 @@ const tours = [
         whatYouDo: [
             'Conquista la cumbre a 5,200 metros sobre el nivel del mar',
             'Observa el Nevado Ausangate en todo su esplendor',
-            'Interactúa con comunidades locales de pastores de alpacas',
-            'Desayuno y almuerzo buffet en valle andino'
+            'Interactúa con comunidades locales y alpacas',
+            'Desayuno y almuerzo buffet andino incluido'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Recojo 4:00 AM. 3 horas de viaje hasta Cusipata. Desayuno buffet. Inicio de caminata de 1.5 horas hasta la cima de Vinicunca. Tiempo para fotos y vistas. Descenso, almuerzo buffet y retorno a Cusco a las 17:00.' }
+            { day: 1, desc: 'Día 1: Conquista la Cumbre. Recojo a las 4:00 AM para ganarle a las multitudes. Desayuno buffet en Cusipata. Caminata de 1.5 horas desafiando la altitud hasta el mirador de Vinicunca (5,200m). Descenso, almuerzo y retorno a Cusco a las 5:00 PM.' }
         ],
-        inc: ['Transporte turístico', 'Guía profesional', 'Oxígeno de emergencia', 'Desayuno y Almuerzo Buffet'],
+        inc: ['Transporte turístico de primera', 'Guía profesional bilingüe', 'Balón de oxígeno de emergencia', 'Desayuno y Almuerzo Buffet andino'],
         notSuitable: ['Personas con asma', 'Menores de 8 años', 'Hipertensos'],
         meetingPoint: 'Recepción de su hotel (Centro Histórico)',
-        importantInfo: 'Llevar ropa de abrigo extrema, bloqueador y mucha agua.',
-        steps: [{ n: 'G', t: 'Cusco', d: '04:00 AM' }, { n: 'ri-mountain-fill', t: 'Cumbre', d: '5,200m' }, { n: 'dot', t: 'Cusco', d: 'Retorno' }]
+        importantInfo: 'Llevar lentes de sol UV, cortavientos, guantes térmicos (mucho viento en cumbre) y hojas de coca.',
+        steps: [{ n: 'G', t: 'Cusco', d: '04:00 AM' }, { n: 'ri-mountain-fill', t: 'Vinicunca', d: '5,200m' }, { n: 'dot', t: 'Cusco', d: 'Retorno' }]
     },
     {
         id: 4,
-        title: 'Choquequirao Expedition',
+        title: 'Trekking Choquequirao 4D',
         dept: 'Cusco',
         price: 3200,
         duration: '4 días',
         difficulty: 'Experto',
         img: 'https://images.unsplash.com/photo-1583032353423-04fd96ef2211',
-        detail: 'La verdadera ciudad perdida de los Incas.',
+        detail: 'Turismo de Élite. Explora la última ciudad Inca sin multitudes.',
+        last_verified: '2026-06-30',
+        direct_answer_block: 'El Trekking a Choquequirao (4 días) tiene una dificultad experta y un costo de $3,200. Se cruza el profundo Cañón del Apurímac descendiendo y ascendiendo miles de metros. Es ideal para aventureros en excelente forma física que buscan ruinas incas sin las multitudes de Machu Picchu.',
+        faqs: [
+            { q: '¿Llegamos a Machu Picchu en este tour?', a: 'No, este tour de 4 días es exclusivamente a Choquequirao (la ciudad hermana de Machu Picchu). Existe una versión de 8 días que une ambas.' },
+            { q: '¿Es realmente tan difícil como dicen?', a: 'Sí. El desnivel es brutal. Bajarás al fondo del cañón del río Apurímac (1,500m) y volverás a subir a 3,000m bajo un sol fuerte.' },
+            { q: '¿Hay baños y duchas?', a: 'Las facilidades son muy rústicas. Hay campamentos con baños básicos de pozo ciego y lavabos fríos de agua de manantial.' },
+            { q: '¿Hay señal de celular?', a: 'No. El cañón está totalmente desconectado. Nuestro guía lleva radios de emergencia.' },
+            { q: '¿Quién lleva la comida y carpas?', a: 'Contamos con arrieros locales y mulas de carga que transportan todo el campamento y comida.' }
+        ],
         genInfo: {
             cancelPolicy: 'Reembolso del 50% hasta 15 días antes',
             duration: '4 días / 3 noches',
@@ -159,226 +178,317 @@ const tours = [
             groupSize: 'Máximo 8 aventureros'
         },
         whatYouDo: [
-            'Cruce del cañón del río Apurímac bajo el sol andino',
-            'Campamento bajo el cielo más estrellado de Cusco',
-            'Explora terrazas agrícolas con decoraciones de llamas',
-            'Visita la ciudadela de Choquequirao sin multitudes'
+            'Cruce del colosal Cañón del río Apurímac',
+            'Acampa bajo el cielo más estrellado y puro de Cusco',
+            'Explora las misteriosas terrazas de las llamas',
+            'Descubre la ciudadela hermana de Machu Picchu en total soledad'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Cusco a Capuliyoc. Descenso épico al cañón del Apurímac. Campamento en Chiquisca.' },
-            { day: 2, desc: 'Ascenso duro desde el río hasta Marampata. Llegada a las cercanías de Choquequirao.' },
-            { day: 3, desc: 'Día completo de exploración en Choquequirao. Atardecer en las terrazas de las llamas.' },
-            { day: 4, desc: 'Retorno por la misma ruta. Almuerzo final en Capuliyoc y regreso a Cusco.' }
+            { day: 1, desc: 'Día 1: Descenso al Infierno Verde. Caminata desde Capuliyoc bajando en picada hacia el ardiente Cañón del Apurímac. Campamento en Playa Rosalina.' },
+            { day: 2, desc: 'Día 2: La Pared Inclinada. Ascenso brutal en zigzag hacia Marampata. Llegada por la tarde al campamento base de Choquequirao.' },
+            { day: 3, desc: 'Día 3: La Ciudad Perdida. Día completo para explorar a solas esta megaestructura inca. Atardecer mágico en las terrazas agrícolas.' },
+            { day: 4, desc: 'Día 4: El Retorno del Guerrero. Descenso al cañón y último ascenso de regreso a la civilización (Cachora). Retorno a Cusco.' }
         ],
-        inc: ['Equipo de campamento Pro', 'Arrieros y mulas', 'Pensión completa', 'Entradas a Choquequirao'],
+        inc: ['Equipo de campamento Pro', 'Arrieros y mulas de carga', 'Pensión completa con chef', 'Entradas oficiales'],
         notSuitable: ['Personas sin experiencia en trekking', 'Menores de 15 años'],
         meetingPoint: 'Plaza Regocijo, Cusco (05:00 AM)',
-        importantInfo: 'Entrenamiento previo requerido. Ruta físicamente devastadora pero gratificante.',
-        steps: [{ n: 'G', t: 'Capuliyoc', d: 'Inicio' }, { n: 'dot', t: 'Cachora', d: 'Retorno' }]
+        importantInfo: 'Ruta físicamente devastadora. Traer bastones de trekking (vital para rodillas) y bloqueador FPS 100.',
+        steps: [{ n: 'G', t: 'Capuliyoc', d: 'Inicio' }, { n: 'ri-building-4-fill', t: 'Choquequirao', d: 'Ciudadela' }, { n: 'dot', t: 'Cachora', d: 'Retorno' }]
     },
     {
         id: 5,
-        title: 'Ausangate Glaciar Challenge',
+        title: 'Circuito Ausangate 6D',
         dept: 'Cusco',
         price: 2100,
         duration: '6 días',
         difficulty: 'Técnica',
         img: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b',
-        detail: 'Alta ruta alrededor del Apu Ausangate.',
+        detail: 'Expedición mística de alta montaña rodeando el Apu sagrado.',
+        last_verified: '2026-06-30',
+        direct_answer_block: 'El Circuito Ausangate (6 días) es de dificultad técnica con un precio de $2,100. Es un trek de gran altitud permanente (siempre por encima de 4,000m, con pasos de hasta 5,100m). No recomendado sin aclimatación previa estricta. Verás glaciares, lagunas turquesas y vicuñas salvajes.',
+        faqs: [
+            { q: '¿Necesito experiencia técnica de escalada?', a: 'No requiere escalada en hielo ni cuerdas, pero sí excelente resistencia física y experiencia previa en trekking de altura.' },
+            { q: '¿Cuál es el punto más alto?', a: 'El Paso Palomani a 5,100 metros sobre el nivel del mar.' },
+            { q: '¿Qué tan frías son las noches?', a: 'Extremadamente frías. Las temperaturas pueden caer a -10°C o -15°C. Necesitas un sleeping bag de 4 estaciones.' },
+            { q: '¿Veremos la Montaña de 7 Colores?', a: 'Este itinerario rodea el Ausangate; Vinicunca (7 colores) puede añadirse como extensión, pero el enfoque son las lagunas glaciares.' },
+            { q: '¿Está incluido el caballo de rescate?', a: 'Sí, todas nuestras expediciones llevan caballos logísticos extra por si algún pasajero no puede continuar.' }
+        ],
         genInfo: {
             cancelPolicy: 'Actividad no reembolsable',
-            duration: '6 días',
+            duration: '6 días / 5 noches',
             availability: 'Temporada de Abril a Octubre',
-            guide: 'Guía AGMP (Asoc. Guías Montaña)',
+            guide: 'Guía de Alta Montaña (AGMP)',
             groupSize: 'Expedición privada o máx 6'
         },
         whatYouDo: [
-            'Circuito completo al Apu más sagrado de Cusco',
-            'Noches a más de 4,000 metros en lodges o carpas térmicas',
-            'Baños termales naturales en medio de glaciares',
-            'Cruce de pasos de montaña a 5,100 metros'
+            'Rodea el Apu más sagrado y alto de Cusco (Ausangate)',
+            'Duerme a más de 4,000 metros junto a glaciares milenarios',
+            'Relájate en aguas termales naturales',
+            'Cruza pasos de montaña por encima de los 5,100 metros'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Cusco a Tinki. Inicio de expedición hacia Upis. Termas naturales.' },
-            { day: 2, desc: 'Paso Arapa y Laguna Jatun Pucacocha con vistas del glaciar.' },
-            { day: 3, desc: 'Paso Palomani (5,100m) el punto más alto del circuito tradicional.' },
-            { day: 4, desc: 'Valle de Chilca y avistamiento de manadas de vicuñas silvestres.' },
-            { day: 5, desc: 'Laguna Comercocha y descenso hacia Pacchanta.' },
-            { day: 6, desc: 'Retorno a Tinki y bus de vuelta a la ciudad del Cusco.' }
+            { day: 1, desc: 'Días 1-2: Aguas Termales y Glaciares. De Tinki hacia Upis. Baño termal frente al glaciar. Cruce del primer paso (Arapa) a 4,850m.' },
+            { day: 2, desc: 'Días 3-4: El Techo del Mundo. Cruce del paso Palomani (5,100 msnm), el punto más alto. Observación de vicuñas salvajes.' },
+            { day: 3, desc: 'Días 5-6: Las Lagunas Turquesas. Descenso pasando por las espectaculares 7 lagunas hasta Pacchanta y retorno a Cusco.' }
         ],
-        inc: ['Caballos de carga', 'Carpas de alta montaña', 'Oxígeno y Botiquín', 'Alimentación Pro'],
-        notSuitable: ['Personas no aclimatadas', 'Problemas de corazón'],
-        meetingPoint: 'Hotel en Cusco (06:00 AM)',
-        importantInfo: 'Se requiere aclimatación mínima de 3 días en Cusco antes de iniciar.',
-        steps: [{ n: 'G', t: 'Tinqui', d: 'Base' }, { n: 'dot', t: 'Tinqui', d: 'Retorno' }]
+        inc: ['Caballos de carga logísticos', 'Carpas térmicas 4 estaciones', 'Balón de oxígeno', 'Alimentación Pro Alta Montaña'],
+        notSuitable: ['Personas no aclimatadas', 'Problemas cardíacos'],
+        meetingPoint: 'Recepción de su hotel (06:00 AM)',
+        importantInfo: 'Requiere aclimatación mínima de 3 días en Cusco. Necesitas un sleeping bag para -15°C.',
+        steps: [{ n: 'G', t: 'Tinqui', d: 'Base' }, { n: 'ri-temp-cold-fill', t: 'Palomani', d: '5,100m' }, { n: 'dot', t: 'Tinqui', d: 'Retorno' }]
     },
 
     // HUARAZ (5)
     {
         id: 6,
-        title: 'Santa Cruz Trek 4D',
+        title: 'Trekking Santa Cruz 4D',
         dept: 'Huaraz',
         price: 1200,
         duration: '4 días',
-        difficulty: 'Media',
+        difficulty: 'Media-Alta',
         img: 'https://images.unsplash.com/photo-1544198365-f5d60b6d8190',
-        detail: 'El circuito clásico de la Cordillera Blanca.',
+        detail: 'El circuito clásico más espectacular de la Cordillera Blanca.',
+        last_verified: '2026-06-30',
+        direct_answer_block: 'El Trekking Santa Cruz (4 días) tiene dificultad media-alta y cuesta $1,200. Cruza la Cordillera Blanca por valles glaciares, alcanzando su punto máximo en el Paso Punta Unión (4,750m). Apto para senderistas con aclimatación previa. Salidas lunes y jueves.',
+        faqs: [
+            { q: '¿Qué tan frío es por las noches?', a: 'Las temperaturas bajan a -5°C. Se requiere sleeping bag de plumas.' },
+            { q: '¿Cuál es la altitud máxima?', a: 'Se alcanza el mítico Paso Punta Unión a 4,750 metros sobre el nivel del mar.' },
+            { q: '¿Quién carga las carpas y comida?', a: 'Nuestros arrieros y burros transportan todo el campamento y hasta 5kg de tu equipo personal.' },
+            { q: '¿Veremos el nevado Alpamayo?', a: 'Sí, pasaremos por su valle e incluye unas vistas majestuosas del Alpamayo y Taulliraju.' },
+            { q: '¿Se requiere oxígeno?', a: 'Es una caminata desafiante pero el guía siempre lleva oxígeno de emergencia.' }
+        ],
         genInfo: {
-            cancelPolicy: 'Gratis hasta 7 días antes',
-            duration: '4 días',
+            cancelPolicy: 'Reembolso parcial hasta 7 días antes',
+            duration: '4 días / 3 noches',
             availability: 'Salidas confirmadas lunes y jueves',
-            guide: 'Guía certificado UIAGM',
-            groupSize: '10 personas máx'
+            guide: 'Guía oficial de Trekking (AGMP)',
+            groupSize: 'Máximo 10 aventureros'
         },
         whatYouDo: [
-            'Vista panorámica del Alpamayo (la montaña más bella)',
-            'Cruce del Paso Punta Unión a 4,750m',
-            'Caminata por valles glaciares de color turquesa',
-            'Campamentos bajo picos de más de 6,000m'
+            'Cruce del mítico Paso Punta Unión a 4,750 msnm',
+            'Despertar frente al Nevado Alpamayo, "la montaña más bella del mundo"',
+            'Caminata por valles glaciares de intenso color turquesa',
+            'Campamentos bajo picos de hielo de más de 6,000 metros'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Huaraz a Cashapampa. Caminata inicial por el valle de Santa Cruz hasta Llamacorral.' },
-            { day: 2, desc: 'Laguna Ichiccocha y Jatuncocha. Campamento base de Alpamayo en Taullipampa.' },
-            { day: 3, desc: 'El día clave: Paso Punta Unión (4,750m). Vistas del Taulliraju. Descenso a Paria.' },
-            { day: 4, desc: 'Caminata final hacia Vaquería. Transporte de retorno a Huaraz vía Portachuelo.' }
+            { day: 1, desc: 'Día 1: Hacia el Valle. Salida de Huaraz a Cashapampa. Caminata inicial por el profundo valle de Santa Cruz hasta el campamento en Llamacorral.' },
+            { day: 2, desc: 'Día 2: El Espejo de los Andes. Pasamos por las lagunas Ichiccocha y Jatuncocha. Llegada al Campamento base de Alpamayo (Taullipampa).' },
+            { day: 3, desc: 'Día 3: El Techo de la Cordillera. Ascenso duro y gratificante al Paso Punta Unión (4,750m). Vistas espectaculares del Taulliraju. Descenso brutal a Paria.' },
+            { day: 4, desc: 'Día 4: El Retorno. Caminata final hacia Vaquería atravesando queñuales andinos. Transporte panorámico de retorno a Huaraz cruzando el paso Portachuelo.' }
         ],
-        inc: ['Transporte privado', 'Burros de carga', 'Cocinero de montaña', 'Entrada al PNAS'],
-        notSuitable: ['Menores de 10 años', 'Problemas severos de rodilla'],
+        inc: [
+            'Transporte privado Huaraz - Cashapampa / Vaquería - Huaraz',
+            'Burros de carga (hasta 5kg de equipo personal)',
+            'Cocinero experto en alta montaña (Pensión completa)',
+            'Tickets de ingreso al Parque Nacional Huascarán'
+        ],
+        notSuitable: ['Menores de 10 años', 'Personas con problemas articulares de rodilla', 'Viajeros no aclimatados'],
         meetingPoint: 'Oficina Lifextreme Huaraz (06:00 AM)',
-        importantInfo: 'Traer saco de dormir de pluma (disponible para renta).',
-        steps: [{ n: 'G', t: 'Cashapampa', d: 'Inicio' }, { n: 'dot', t: 'Vaqueria', d: 'Final' }]
+        importantInfo: 'Traer sleeping bag de plumas para -10°C (disponible para renta) y bloqueador extremo.',
+        steps: [{ n: 'G', t: 'Cashapampa', d: 'Inicio' }, { n: 'ri-mountain-fill', t: 'Punta Unión', d: '4,750m' }, { n: 'dot', t: 'Vaquería', d: 'Final' }],
+        sensoryVariants: {
+            landscape: 'Maravíllate ante los picos nevados más imponentes de los Andes, reflejados en lagunas cristalinas.',
+            comfort: 'Duerme rodeado de glaciares colosales mientras nuestro chef andino prepara cenas calientes en medio de la nada.',
+            action: 'Desafía tus pulmones en el ascenso al Paso Punta Unión y siente la recompensa de la cumbre.'
+        }
     },
     {
         id: 7,
-        title: 'Huascarán Summit View',
+        title: 'Expedición Nevado Huascarán 7D',
         dept: 'Huaraz',
         price: 4500,
         duration: '7 días',
         difficulty: 'Experto',
         img: 'https://images.unsplash.com/photo-1522163182402-834f60b58e26',
-        detail: 'Ascenso técnico por el glaciar más alto.',
+        detail: 'Conquista la montaña tropical más alta del mundo (6,768m).',
+        last_verified: '2026-06-30',
+        direct_answer_block: 'La expedición al Huascarán (7 días) es para alpinistas expertos y tiene un precio de $4,500. Se escala la montaña más alta del Perú (6,768m) cruzando paredes de hielo y grietas, con guías UIAGM (1x2). Requiere aclimatación y experiencia en hielo.',
+        faqs: [
+            { q: '¿Puedo ir si no tengo experiencia técnica?', a: 'No. El Huascarán requiere uso avanzado de piolets, crampones y progresión en cuerda por grietas.' },
+            { q: '¿Cuál es el tramo más peligroso?', a: 'El cruce de "La Canaleta" hacia La Garganta debido al riesgo de desprendimiento de seracs.' },
+            { q: '¿Cuántos días de aclimatación necesito?', a: 'Mínimo 5 a 7 días en montañas de 5,000m en Huaraz antes de intentar el Huascarán.' },
+            { q: '¿Están incluidos los equipos de hielo?', a: 'El costo incluye cuerdas y mosquetones. El equipo personal (botas, piolet, arnés) corre por tu cuenta.' },
+            { q: '¿Es 100% segura la cumbre?', a: 'Ninguna expedición garantiza la cumbre. Depende del clima, la aclimatación y el estado del hielo.' }
+        ],
         genInfo: {
-            cancelPolicy: 'No reembolsable',
-            duration: '7 días',
-            availability: 'Solo Junio y Julio',
-            guide: 'Guía UIAGM (1 guía por 2 pax)',
-            groupSize: 'Expedición técnica reducida'
+            cancelPolicy: 'Actividad no reembolsable (Logística Extrema)',
+            duration: '7 días / 6 noches',
+            availability: 'Temporada Seca (Junio a Agosto)',
+            guide: 'Guía UIAGM (1 guía por cada 2 escaladores)',
+            groupSize: 'Expedición técnica súper reducida'
         },
         whatYouDo: [
-            'Escalada técnica en hielo y grietas glaciares',
-            'Noches en campos de altura sobre los 5,000m',
-            'Conquista el punto más alto del Perú (Cumbre Sur)',
-            'Uso de equipo de rescate y seguridad Pro'
+            'Escalada técnica en hielo puro y grietas glaciares',
+            'Supervivencia en campos de altura sobre los 5,000 y 6,000 metros',
+            'Conquista el punto más alto del Perú (Cumbre Sur 6,768m)',
+            'Cruza el paso extremo de "La Canaleta" y "La Garganta"'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Huaraz - Musho. Caminata al Campo Base (4,200m).' },
-            { day: 2, desc: 'Acenso por la morrena hasta el Campo 1 (5,300m) sobre el glaciar.' },
-            { day: 3, desc: 'Cruce de "La Canaleta" y llegada al Campo 2 (Garganta - 6,000m).' },
-            { day: 4, desc: 'Día de Cumbre. Ascenso final a los 6,768m. Retorno a La Garganta.' },
-            { day: 5, desc: 'Día extra por mal tiempo o descanso.' },
-            { day: 6, desc: 'Descenso al Campo Base.' },
-            { day: 7, desc: 'Retorno a Musho y transporte a Huaraz.' }
+            { day: 1, desc: 'Día 1: Hacia la Morrena. Salida de Huaraz a Musho. Caminata dura al Campo Base (4,200m).' },
+            { day: 2, desc: 'Día 2: El Hielo. Ascenso técnico por la morrena hasta el Campo 1 (5,300m) directamente sobre el glaciar.' },
+            { day: 3, desc: 'Día 3: El Abismo. Cruce táctico de "La Canaleta" evadiendo seracs y llegada al Campo 2 (La Garganta a 6,000m).' },
+            { day: 4, desc: 'Día 4: Ataque a la Cumbre. Ascenso final a medianoche a los 6,768m. Retorno al Campo 2 (Día extenuante de 12 horas).' },
+            { day: 5, desc: 'Día 5: Día de Seguridad. Día extra reservado por mal clima o descanso necesario.' },
+            { day: 6, desc: 'Día 6: El Descenso. Descenso cuidadoso desde el Campo 2 hasta el Campo Base.' },
+            { day: 7, desc: 'Día 7: La Victoria. Retorno a Musho y transporte a Huaraz.' }
         ],
-        inc: ['Guías UIAGM', 'Cuerdas y equipo técnico de grupo', 'Porteros de altura', 'Alimentación Alta Energía'],
-        notSuitable: ['Principiantes', 'Personas sin experiencia en cramponaje'],
-        meetingPoint: 'Huaraz Center (05:00 AM)',
-        importantInfo: 'Requiere aclimatación previa en picos de 5,000m (e.g. Ishinca).',
-        steps: [{ n: 'G', t: 'Musho', d: 'Base' }, { n: 'dot', t: 'Cumbre', d: 'Cumbre' }]
+        inc: [
+            'Guías Oficiales UIAGM (Equipamiento de seguridad garantizado)',
+            'Cuerdas dinámicas, estacas, tornillos de hielo',
+            'Porteros de altura y carpas de expedición',
+            'Alimentación de Alta Energía y gas propano'
+        ],
+        notSuitable: ['Principiantes', 'Personas sin experiencia en cramponaje', 'Mala aclimatación'],
+        meetingPoint: 'Centro Base Lifextreme Huaraz (05:00 AM)',
+        importantInfo: 'Requiere entrenamiento técnico y aclimatación previa en picos de 5,000m.',
+        steps: [{ n: 'G', t: 'Musho', d: 'Base' }, { n: 'ri-vip-crown-fill', t: 'Cumbre Sur', d: '6,768m' }, { n: 'dot', t: 'Huaraz', d: 'Retorno' }],
+        sensoryVariants: {
+            landscape: 'Siente que tocas el cielo estando en el punto más cercano al sol de toda la zona tropical del planeta.',
+            comfort: 'Confía en nuestro equipo técnico UIAGM mientras te refugias en carpas de 4 estaciones en la Garganta.',
+            action: 'Desafía el hielo vertical y supera el agotamiento absoluto; esta es la máxima prueba de resistencia.'
+        }
     },
     {
         id: 8,
-        title: 'Laguna 69 Ultra',
+        title: 'Trekking Laguna 69 y Llanganuco',
         dept: 'Huaraz',
         price: 350,
         duration: '1 día',
         difficulty: 'Alta',
         img: 'https://images.unsplash.com/photo-1527004013197-29007328905b',
-        detail: 'Aclimatación extrema a 4,600m.',
+        detail: 'El desafío de aclimatación más hermoso de la Cordillera Blanca.',
+        last_verified: '2026-06-30',
+        direct_answer_block: 'El Trekking a Laguna 69 es de 1 día (dificultad alta) y cuesta $350. Sube hasta los 4,600 msnm para ver una espectacular laguna turquesa. Son 14 km ida y vuelta. Imprescindible buena condición física y aclimatación previa.',
+        faqs: [
+            { q: '¿Cuántas horas de caminata son?', a: 'Aproximadamente 3 horas de subida pronunciada y 2 horas de bajada.' },
+            { q: '¿Me puede dar mal de altura?', a: 'Sí, llegarás a 4,600m. Si es tu primer día en Huaraz, te recomendamos primero ir a Pastoruri.' },
+            { q: '¿Se puede ir con niños?', a: 'No se recomienda para menores de 12 años ni adultos sin entrenamiento.' },
+            { q: '¿Incluye almuerzo?', a: 'El tour no incluye almuerzo pero ofrecemos un box lunch opcional.' },
+            { q: '¿A qué hora salimos de Huaraz?', a: 'El recojo inicia a las 5:00 AM para aprovechar el clima despejado.' }
+        ],
         genInfo: {
-            cancelPolicy: 'Gratis hasta 24h antes',
-            duration: '1 día (12 horas)',
-            availability: 'Salidas diarias',
+            cancelPolicy: 'Cancelación gratuita hasta 24h antes',
+            duration: '1 día (12 horas intensas)',
+            availability: 'Salidas diarias garantizadas',
             guide: 'Guía local experto',
-            groupSize: 'Máximo 18 personas'
+            groupSize: 'Máximo 15 participantes'
         },
         whatYouDo: [
-            'Caminata bajo el Nevado Huascarán y Huandoy',
-            'Visita a las lagunas de Llanganuco (Chinancocha)',
-            'Alcanza una de las lagunas más azules del mundo a 4,600m',
-            'Prueba de resistencia física y aclimatación'
+            'Caminata espectacular bajo los picos del Nevado Chacraraju y Pisco',
+            'Fotografía las aguas esmeraldas de las lagunas de Llanganuco',
+            'Alcanza la impresionante Laguna 69 a 4,600 metros de altitud',
+            'Supera una dura prueba de resistencia cardiovascular'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Salida de Huaraz 5:00 AM. Desayuno en Yungay. Parada en Lagunas de Llanganuco. Inicio de caminata en Cebollapampa. 3 horas de ascenso. 1 hora en la laguna. Descenso y retorno a Huaraz.' }
+            { day: 1, desc: 'Día 1: Desafío a los 4,600m. Salida 5:00 AM. Parada fotográfica en Lagunas de Llanganuco. Inicio en Cebollapampa (3,900m). Ascenso pronunciado de 3 horas. Contemplación en Laguna 69. Retorno a Huaraz.' }
         ],
-        inc: ['Transporte compartido', 'Guía de grupo', 'Oxígeno portátil'],
-        notSuitable: ['Personas mayores de 65 años sin entrenamiento', 'Problemas respiratorios'],
-        meetingPoint: 'Plaza de Armas de Huaraz',
-        importantInfo: 'Traer impermeable, snacks y mucha determinación.',
-        steps: [{ n: 'G', t: 'Cebollapampa', d: 'Ascenso' }, { n: 'dot', t: 'Huaraz', d: 'Descanso' }]
+        inc: ['Transporte turístico compartido', 'Guía capacitado en primeros auxilios', 'Oxígeno portátil y botiquín', 'Tickets de ingreso'],
+        notSuitable: ['Personas mayores de 65 años sin entrenamiento', 'Problemas respiratorios', 'Sedentarios'],
+        meetingPoint: 'Plaza de Armas de Huaraz (05:00 AM)',
+        importantInfo: 'Llevar impermeable, snacks, hidratación y determinación.',
+        steps: [{ n: 'G', t: 'Cebollapampa', d: 'Ascenso' }, { n: 'ri-drop-fill', t: 'Laguna 69', d: '4,600m' }, { n: 'dot', t: 'Huaraz', d: 'Retorno' }],
+        sensoryVariants: {
+            landscape: 'Camina entre cascadas glaciales hasta descubrir una de las lagunas más turquesas prístinas de la Tierra.',
+            comfort: 'Disfruta del traslado en asientos reclinables mientras te preparamos mentalmente para el ascenso.',
+            action: 'Siente cómo tu corazón late más fuerte con cada zigzag; la recompensa al llegar superará tu agotamiento.'
+        }
     },
     {
         id: 9,
-        title: 'Pastoruri Ice Wall',
+        title: 'Glaciar Pastoruri y Puya Raimondi',
         dept: 'Huaraz',
         price: 280,
         duration: '1 día',
         difficulty: 'Baja',
         img: 'https://images.unsplash.com/photo-1544198365-f5d60b6d8190',
-        detail: 'Ruta del Cambio Climático y Puya Raimondi.',
+        detail: 'Ruta del Cambio Climático y aclimatación familiar.',
+        last_verified: '2026-06-30',
+        direct_answer_block: 'El tour al Glaciar Pastoruri dura medio día (baja dificultad física, pero altitud extrema a 5,000m) y cuesta $280. Ideal como primera excursión para aclimatar el cuerpo. Incluye parada para ver las famosas Puyas de Raimondi.',
+        faqs: [
+            { q: '¿Hay que caminar mucho?', a: 'No. El bus llega cerca del glaciar y la caminata dura solo 45 minutos.' },
+            { q: '¿Es apto para toda la familia?', a: 'Sí, la ruta está pavimentada en partes, pero cuidado con el mal de altura (5,000m).' },
+            { q: '¿Hace falta equipo técnico?', a: 'No. Solo necesitas ropa abrigadora y buenos zapatos impermeables.' },
+            { q: '¿Por qué la llaman ruta del Cambio Climático?', a: 'Porque el glaciar está en franco retroceso y podrás ver evidencia directa del deshielo mundial.' },
+            { q: '¿A qué hora terminamos?', a: 'Normalmente retornamos a Huaraz alrededor de las 3:00 o 4:00 PM.' }
+        ],
         genInfo: {
-            cancelPolicy: 'Gratis hasta 12h antes',
-            duration: '7 horas',
-            availability: 'Salidas diarias 09:00 AM',
-            guide: 'Guía bilingüe',
-            groupSize: 'Grupo familiar o pro'
+            cancelPolicy: 'Cancelación gratuita hasta 12h antes',
+            duration: '7 horas de recorrido',
+            availability: 'Salidas diarias a las 09:00 AM',
+            guide: 'Guía bilingüe de historia natural',
+            groupSize: 'Ideal para familias'
         },
         whatYouDo: [
-            'Camina sobre un glaciar de fácil acceso a 5,000m',
-            'Conoce la planta milenaria Puya Raimondi',
-            'Observa pinturas rupestres pre-incas',
-            'Ideal para primer día de aclimatación en Huaraz'
+            'Camina sobre el hielo de un glaciar milenario en retroceso',
+            'Conoce la planta andina más alta del mundo: Puya Raimondi',
+            'Observa pinturas rupestres pre-incas en el valle',
+            'Toca la nieve y el hielo a más de 5,000 metros sin escalar'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Viaje hacia el sur de Huaraz. Parada en Puya Raimondi. Llegada al estacionamiento del glaciar. Caminata suave de 30 min. Tiempo de exploración en el hielo y la laguna congelada. Retorno.' }
+            { day: 1, desc: 'Día 1: El Glaciar. Parada en el bosque de Puya Raimondi y aguas gasificadas de Pumapampa. Llegada a la base del Pastoruri (4,800m). Caminata de 45 min al frente glaciar. Retorno a Huaraz.' }
         ],
-        inc: ['Bus turístico', 'Certificado de altitud', 'Guía bilingüe'],
-        notSuitable: ['Personas con mala oxigenación inmediata'],
-        meetingPoint: 'Recojo en hotel (09:00 AM)',
-        importantInfo: 'Ruta con poco esfuerzo físico pero alta altitud.',
-        steps: [{ n: 'G', t: 'Huaraz', d: 'Salida' }, { n: 'dot', t: 'Pastoruri', d: 'Final' }]
+        inc: ['Bus turístico panorámico', 'Paradas fotográficas', 'Guía bilingüe experto'],
+        notSuitable: ['Personas que sufren de mal de altura severo'],
+        meetingPoint: 'Recojo en hotel en Huaraz (09:00 AM)',
+        importantInfo: 'Ruta con poco esfuerzo físico pero altitud extrema (5,000m).',
+        steps: [{ n: 'G', t: 'Huaraz', d: 'Salida' }, { n: 'ri-snowy-fill', t: 'Pastoruri', d: 'Glaciar' }, { n: 'dot', t: 'Huaraz', d: 'Retorno' }],
+        sensoryVariants: {
+            landscape: 'Pisa un gigante de hielo que se desvanece; una experiencia visual única sobre nuestro planeta.',
+            comfort: 'Aclimatación perfecta para tu primer día, con paradas constantes y transporte sumamente cómodo.',
+            action: 'Juega con la nieve a más de 5,000 metros sin necesidad de piolets ni experiencia.'
+        }
     },
     {
         id: 10,
-        title: 'Ishinca Base Camp',
+        title: 'Nevado Ishinca Base Camp 3D',
         dept: 'Huaraz',
         price: 1600,
         duration: '3 días',
         difficulty: 'Técnica',
         img: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b',
-        detail: 'Entrenamiento técnico para 6ks.',
+        detail: 'Tu primer "Cincomil" y entrenamiento de cuerdas en glaciar.',
+        last_verified: '2026-06-30',
+        direct_answer_block: 'La expedición Ishinca Base Camp (3 días) tiene dificultad técnica básica y precio de $1,600. Es el "cincomil" (5,530m) ideal para iniciarse en montañismo, durmiendo en un cómodo refugio andino y practicando técnicas de hielo con guías certificados.',
+        faqs: [
+            { q: '¿Necesito botas cramponables?', a: 'Sí, es obligatorio el uso de botas de alta montaña rígidas compatibles con crampones.' },
+            { q: '¿Dormiremos en carpas?', a: 'No, este tour incluye la estadía en el Refugio Andino Ishinca, brindando mayor comodidad.' },
+            { q: '¿Me darán clases técnicas?', a: 'Sí. El tour incluye entrenamiento de nudos, progresión en ensamble y manejo básico de piolet.' },
+            { q: '¿Quién lleva mi equipo pesado?', a: 'Contamos con arrieros (burros) que suben tu equipo desde el transporte hasta el refugio.' },
+            { q: '¿Si no hago cumbre, me reembolsan?', a: 'No. Los costos operativos de refugio y guías se cubren independientemente del éxito de la cumbre.' }
+        ],
         genInfo: {
-            cancelPolicy: 'Reembolso 30% hasta 5 días antes',
+            cancelPolicy: 'Reembolso del 50% hasta 5 días antes',
             duration: '3 días / 2 noches',
-            availability: 'Bajo pedido o fechas fijas',
-            guide: 'Guía aspirante AGMP',
+            availability: 'Salidas programadas o bajo pedido',
+            guide: 'Guía Aspirante / UIAGM',
             groupSize: 'Máximo 4 personas por guía'
         },
         whatYouDo: [
-            'Alojamiento en refugio andino de alta montaña',
-            'Escalada técnica básica en los picos Ishinca o Urus',
-            'Taller de uso de cuerdas y crampones en glaciar real',
-            'Vistas de 360 grados de la Cordillera Blanca'
+            'Alojamiento estilo europeo en Refugio Andino Ishinca',
+            'Escalada técnica al pico Ishinca (5,530m)',
+            'Taller intensivo de cuerdas, piolets y crampones',
+            'Vistas panorámicas 360° de la Cordillera Blanca'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Transporte a Pashpa. Caminata al Refugio Ishinca (4,350m).' },
-            { day: 2, desc: 'Día de cumbre Ishinca (5,530m) o prácticas técnicas en glaciar. Retorno al refugio.' },
-            { day: 3, desc: 'Descenso a Pashpa y retorno a Huaraz.' }
+            { day: 1, desc: 'Día 1: El Refugio. Caminata al Refugio Ishinca (4,350m). Prácticas de nudos.' },
+            { day: 2, desc: 'Día 2: El Ataque. Salida de madrugada hacia el Nevado Ishinca. Prácticas en glaciar, progresión en ensamble. Cumbre y retorno.' },
+            { day: 3, desc: 'Día 3: El Descenso. Desayuno andino y retorno en vehículo privado a Huaraz.' }
         ],
-        inc: ['Estadía en Refugio Ishinca', 'Cenas calientes', 'Guía técnico', 'Burros'],
-        notSuitable: ['Personas sin calzado de montaña profesional'],
+        inc: [
+            'Estadía en Refugio Ishinca',
+            'Cenas calientes tipo alpinista',
+            'Guía técnico (Entrenamiento)',
+            'Burros de carga'
+        ],
+        notSuitable: ['Personas sin botas cramponables'],
         meetingPoint: 'Huaraz Basecamp Office',
-        importantInfo: 'Es el mejor entrenamiento antes de intentar el Huascarán.',
-        steps: [{ n: 'G', t: 'Pashpa', d: 'Caminata' }, { n: 'dot', t: 'Refugio', d: 'Base' }]
+        importantInfo: 'Ideal como entrenamiento antes de intentar retos como Huascarán.',
+        steps: [{ n: 'G', t: 'Pashpa', d: 'Inicio' }, { n: 'ri-vip-crown-fill', t: 'Ishinca', d: '5,530m' }, { n: 'dot', t: 'Huaraz', d: 'Retorno' }],
+        sensoryVariants: {
+            landscape: 'Despierta rodeado de paredes de hielo vertical que quitan el aliento.',
+            comfort: 'Disfruta del calor de un refugio de montaña sin necesidad de armar carpas.',
+            action: 'Aprende a clavar tus crampones y manejar el piolet en tu primer ascenso técnico.'
+        }
     },
 
     // IQUITOS (5)
