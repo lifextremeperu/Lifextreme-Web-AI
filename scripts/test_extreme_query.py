@@ -7,8 +7,8 @@ from dotenv import load_dotenv
 
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
-# Supabase Client
-from supabase import create_client, Client
+# Qdrant Client
+from qdrant_client import QdrantClient
 
 # ==========================================
 # SENSORES EN TIEMPO REAL (LIFEXTREME)
@@ -18,12 +18,8 @@ from src.integrations.sensors.logistics.sutran_service import SutranService
 from src.integrations.sensors.risk.gdelt_sensor import GdeltCrisisSensor
 from src.integrations.risk_correlator import RiskCorrelator
 
-def init_supabase():
-    load_dotenv()
-    supabase_url = os.getenv("SUPABASE_URL")
-    supabase_key = os.getenv("SUPABASE_KEY")
-    supabase: Client = create_client(supabase_url, supabase_key)
-    return supabase
+def init_qdrant():
+    return QdrantClient("http://localhost:6333")
 
 def get_local_embedding(text):
     """Convierte la pregunta en vector usando Ollama (nomic-embed-text)"""
@@ -50,7 +46,7 @@ def chat_with_deepseek(prompt):
 
 def run_extreme_test():
     sys.stdout.reconfigure(encoding='utf-8')
-    supabase = init_supabase()
+    qdrant = init_qdrant()
     
     print("=======================================================================================")
     print(" 🚨 SIMULACIÓN EXTREMA: RAG (SUPABASE) + SENSORES EN TIEMPO REAL + IA LOCAL")
@@ -84,18 +80,20 @@ def run_extreme_test():
         print(f"[-] Advertencia con los sensores: {e}")
         riesgo = 15 # Valor por defecto
 
-    print("=> 3. Buscando Conocimiento Estratégico en Supabase (Vectores)...")
+    print("=> 3. Buscando Conocimiento Estratégico en Qdrant (Vectores Locales)...")
     query_vector = get_local_embedding(query)
     
-    response = supabase.rpc("match_knowledge_vectors", {
-        "query_embedding": query_vector,
-        "match_threshold": 0.3, 
-        "match_count": 3 
-    }).execute()
+    response = qdrant.query_points(
+        collection_name="Lifextreme_Knowledge",
+        query=query_vector,
+        limit=3
+    )
+    hits = response.points
     
     contexto_db = ""
-    for match in response.data:
-        contexto_db += f"- [{match['modulo_nombre']}]: {match['text_content']}\n"
+    for hit in hits:
+        payload = hit.payload
+        contexto_db += f"- [{payload.get('modulo_nombre', 'N/A')}]: {payload.get('text_content', 'N/A')}\n"
     
     print("=> 4. Conectando con Deepseek-v2 (Cerebro Local) para Resolución Estratégica...")
     
