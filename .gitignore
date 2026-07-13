@@ -133,3 +133,6 @@ revectorize_checkpoint.json
 # ── SOURCE MAPS DE NODE (543 archivos = 13.8 MB inútiles) ────
 **/*.js.map
 **/*.css.map
+
+*.parquet
+*.jsonl
