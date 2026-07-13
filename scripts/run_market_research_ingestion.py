@@ -55,18 +55,23 @@ Eres el Asesor Experto en Turismo de Aventura de Lifextreme.
 Analiza este extracto de Investigación de Mercado / Ontología de {region.upper()}.
 
 OBJETIVO CRÍTICO:
-Extrae absolutamente TODA la información relevante sobre el destino, sin repetir datos obvios ni alucinar. Analiza a fondo y extrae:
+Extrae absolutamente TODA la información relevante sobre el destino, sin repetir datos obvios ni alucinar. Extrae SOLO lo que está literalmente en el texto:
 1. Destinos turísticos específicos y rutas detalladas.
 2. Parques de Aventura, Palestras (muros de escalada) y zonas de camping.
 3. Deportes de aventura que se practican en la zona (escalada, trekking, sandboard, etc.).
 4. Logística, tiempos de viaje, distancias y vías de transporte (carreteras, estado de las vías).
 5. Proveedores, operadores locales y precios de servicios o infraestructura técnica disponible.
 
-Genera un JSON con la clave "insights" que contenga una lista de textos. 
-Cada texto debe ser un dato real y específico extraído del texto, detallando como experto.
-Ej: {{"insights": ["El parque de aventura Y tiene palestras de 15 metros y se llega por la vía Z en 2 horas.", "El deporte X se practica en la locación W, operado por la empresa V a un costo promedio de..."]}}
+REGLA DE ORO ESTRICTA:
+Si el texto NO CONTIENE menciones explícitas a deportes de aventura, rutas o logística turística (por ejemplo, si es solo una introducción, marco legal, índice, etc.), DEBES devolver un arreglo "insights" completamente vacío: {{"insights": []}}.
+BAJO NINGUNA CIRCUNSTANCIA generes frases negativas como "No hay información relevante" o inventes datos. Tampoco copies los ejemplos mostrados a continuación.
 
-No devuelvas NADA MÁS que el objeto JSON puro, sin explicaciones ni alucinaciones. Extrae SOLO lo que está en el texto original.
+FORMATO JSON ESPERADO:
+Genera un JSON con la clave "insights" que contenga una lista de textos.
+Ejemplo de un insight válido (SOLO si existe en el texto):
+{{"insights": ["El parque de aventura en la provincia de Pallasca tiene palestras de 15 metros operado por la empresa Aventura360."]}}
+
+No devuelvas NADA MÁS que el objeto JSON puro. Extrae SOLO lo que está en el texto original.
 
 TEXTO DEL PDF (Fragmento):
 {pdf_text}
@@ -160,8 +165,17 @@ def process_pdf(pdf_path, qdrant_info, test_mode=False):
         insights_chunk = extract_knowledge_llama3(pdf_text_chunk[:25000], region)
         
         if insights_chunk:
-            all_insights.extend(insights_chunk)
-            print(f"        -> Se extrajeron {len(insights_chunk)} datos de este bloque.")
+            valid_insights = []
+            for insight in insights_chunk:
+                lower_insight = insight.lower()
+                # Filtrar alucinaciones conocidas
+                if any(bad in lower_insight for bad in ["no hay información", "parque de aventura y", "deporte x", "no se menciona", "no hay mencion"]):
+                    continue
+                valid_insights.append(insight)
+                
+            if valid_insights:
+                all_insights.extend(valid_insights)
+                print(f"        -> Se extrajeron {len(valid_insights)} datos válidos de este bloque (ignorados {len(insights_chunk) - len(valid_insights)} falsos).")
             
     if not all_insights:
         print("[-] No se pudo extraer conocimiento nuevo de todo el documento.")

@@ -1,18 +1,19 @@
 import os
 import sys
+from dotenv import load_dotenv
+load_dotenv() # <--- CARGAR LLAVES ANTES DE LANGFUSE
+
 import requests
 import json
 import uuid
 import datetime
-from dotenv import load_dotenv
 from supabase import create_client
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from bs4 import BeautifulSoup
+from langfuse import observe
 
 sys.stdout.reconfigure(encoding='utf-8')
-
-load_dotenv()
 supabase = create_client(os.getenv('SUPABASE_URL'), os.getenv('SUPABASE_KEY'))
 
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
@@ -21,8 +22,17 @@ CORS(app)
 
 OLLAMA_URL = "http://localhost:11434/api/chat"
 
+@observe(as_type="generation")
+def call_ollama(model: str, messages: list, tools: list = None, timeout: int = 45):
+    payload = {"model": model, "messages": messages, "stream": False}
+    if tools:
+        payload["tools"] = tools
+    response = requests.post(OLLAMA_URL, json=payload, timeout=timeout)
+    return response.json()
+
 # --- HERRAMIENTAS (TOOLS) ---
 
+@observe(as_type="retrieval")
 def tool_search_rag(destino):
     print(f"      [🛠️ TOOL EJECUTADO] Buscando destino exacto en Supabase: '{destino}'")
     try:
@@ -48,6 +58,7 @@ def tool_search_rag(destino):
     except Exception as e:
         return f"Error en la base de datos: {e}"
 
+@observe(as_type="retrieval")
 def tool_analyze_website(url):
     print(f"      [🌐 TOOL EJECUTADO] Escaneando sitio web: '{url}'")
     try:
@@ -63,6 +74,7 @@ def tool_analyze_website(url):
     except Exception as e:
         return f"Error al escanear: {e}"
 
+@observe(as_type="retrieval")
 def tool_check_sutran(region):
     print(f"      [🛠️ TOOL EJECUTADO] Consultando API SUTRAN para región: '{region}'")
     if region.lower() in ['puno', 'juliaca', 'ayaviri']:
@@ -70,6 +82,7 @@ def tool_check_sutran(region):
     else:
         return f"SUTRAN: Vías despejadas y operando con normalidad en la región {region}."
 
+@observe(as_type="retrieval")
 def tool_crear_reserva(destino, fecha, pasajeros, nombre_cliente):
     print(f"      [💳 TOOL EJECUTADO] Creando reserva para {nombre_cliente} a {destino} ({pasajeros} pax) - Fecha: {fecha}")
     try:
@@ -186,6 +199,7 @@ def serve_static(path):
     return send_from_directory(PROJECT_ROOT, path)
 
 @app.route('/chat', methods=['POST', 'OPTIONS'])
+@observe(name="b2c_chat_endpoint")
 def chat_endpoint():
     if request.method == 'OPTIONS':
         return '', 204
@@ -196,16 +210,12 @@ def chat_endpoint():
     # FASE 1: RAZONAMIENTO LÓGICO (QWEN 2.5)
     print("    -> Fase 1: Qwen2.5 analizando intención y decidiendo herramientas...")
     try:
-        response = requests.post(OLLAMA_URL, json={
-            "model": "qwen2.5:7b",
-            "messages": [{"role": "user", "content": msg}],
-            "tools": TOOLS_SCHEMA,
-            "stream": False
-        }, timeout=30)
-        resp_data = response.json()
+        resp_data = call_ollama(model="qwen2.5:7b", messages=[{"role": "user", "content": msg}], tools=TOOLS_SCHEMA, timeout=30)
         message_obj = resp_data.get('message', {})
     except Exception as e:
-        return jsonify({"mensaje_principal": "Error al contactar al Cerebro Qwen2.5", "fuentes_utilizadas": []})
+        import traceback
+        traceback.print_exc()
+        return jsonify({"mensaje_principal": f"Error al contactar al Cerebro Qwen2.5: {str(e)}", "fuentes_utilizadas": []})
         
     tool_results = ""
     fuentes_usadas = []
@@ -252,12 +262,8 @@ Tu tarea:
          final_prompt = f"Eres MAX, Asesor de Lifextreme. El usuario dijo: {msg}. Si el usuario quiere comprar pero le faltan datos (destino, pasajeros, fecha, nombre), pideselos. Responde corto y carismático."
     
     try:
-        final_response = requests.post(OLLAMA_URL, json={
-            "model": "phi3:latest", 
-            "messages": [{"role": "system", "content": final_prompt}],
-            "stream": False
-        }, timeout=45)
-        respuesta = final_response.json()['message']['content']
+        resp_data = call_ollama(model="phi3:latest", messages=[{"role": "system", "content": final_prompt}], timeout=45)
+        respuesta = resp_data['message']['content']
     except Exception as e:
         respuesta = "Error generando la síntesis final de ventas."
         
@@ -272,6 +278,7 @@ Tu tarea:
     })
 
 @app.route('/api/v1/b2b/query', methods=['POST', 'OPTIONS'])
+@observe(name="b2b_query_endpoint")
 def b2b_query_endpoint():
     if request.method == 'OPTIONS':
         return '', 204
@@ -301,13 +308,7 @@ def b2b_query_endpoint():
     # FASE 1: RAZONAMIENTO LOGÍSTICO/B2B (QWEN 2.5)
     print("    -> Fase 1 (B2B): Qwen2.5 analizando intención...")
     try:
-        response = requests.post(OLLAMA_URL, json={
-            "model": "qwen2.5:7b",
-            "messages": [{"role": "user", "content": f"Contexto Operador B2B: {msg}"}],
-            "tools": TOOLS_SCHEMA,
-            "stream": False
-        }, timeout=120)
-        resp_data = response.json()
+        resp_data = call_ollama(model="qwen2.5:7b", messages=[{"role": "user", "content": f"Contexto Operador B2B: {msg}"}], tools=TOOLS_SCHEMA, timeout=120)
         message_obj = resp_data.get('message', {})
     except Exception as e:
         print(f"Ollama Error: {e}")
@@ -347,12 +348,8 @@ Tu tarea: Debes estructurar tu respuesta rígidamente en 2 partes:
 2. TÁCTICAS DE GUERRILLA: Da 3 a 5 acciones inmediatas e hiper-específicas que solucionen su problema o aumenten sus ventas. Estas acciones deben estar directamente conectadas con lo que encontraste en su web (ej. 'Vi que ofreces el Camino Inca a $500 pero no tienes recojo, habla con 5 hoteles...'). No uses lenguaje de libro de texto. Sé rudo, práctico y al grano. Usa viñetas cortas."""
 
     try:
-        final_response = requests.post(OLLAMA_URL, json={
-            "model": "phi3:latest", 
-            "messages": [{"role": "system", "content": final_prompt}],
-            "stream": False
-        }, timeout=300)
-        respuesta = final_response.json()['message']['content']
+        resp_data = call_ollama(model="phi3:latest", messages=[{"role": "system", "content": final_prompt}], timeout=300)
+        respuesta = resp_data['message']['content']
     except Exception as e:
         respuesta = "Error generando la síntesis analítica B2B."
         

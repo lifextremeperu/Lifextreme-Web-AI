@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifextreme AI - Tech Stack 3D</title>
+    <style>
+        body { margin: 0; padding: 0; overflow: hidden; background-color: #050505; font-family: 'Inter', sans-serif; }
+        #graph-container { width: 100vw; height: 100vh; }
+        #ui-overlay {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #fff;
+            pointer-events: none;
+            z-index: 10;
+        }
+        h1 { margin: 0; font-size: 24px; letter-spacing: 2px; text-transform: uppercase; text-shadow: 0 0 10px rgba(0,255,255,0.5); }
+        p { margin: 5px 0 0 0; font-size: 14px; color: #aaa; }
+    </style>
+    <!-- Librerías estables -->
+    <script src="https://unpkg.com/3d-force-graph"></script>
+</head>
+<body>
+    <div id="ui-overlay">
+        <h1>Lifextreme V10</h1>
+        <p>Arquitectura Neuronal Híbrida (RAG + Agentes)</p>
+    </div>
+    <div id="graph-container"></div>
+
+    <script>
+        const techStackData = {
+            nodes: [
+                { id: "Cliente Web (Portal)", group: 1, val: 30, color: "#00d2ff" },
+                { id: "FastAPI (Motor MAX)", group: 2, val: 40, color: "#ff007f" },
+                { id: "Ollama Local", group: 3, val: 25, color: "#7a00ff" },
+                { id: "Qwen 2.5 (Razonamiento)", group: 3, val: 20, color: "#b052ff" },
+                { id: "Phi-3 (Mini Agentes)", group: 3, val: 20, color: "#b052ff" },
+                { id: "Qdrant (Vectores RAG)", group: 4, val: 35, color: "#00ff88" },
+                { id: "Supabase (PostgreSQL)", group: 4, val: 30, color: "#3ecf8e" },
+                { id: "Langfuse (Observabilidad)", group: 5, val: 25, color: "#ffaa00" },
+                { id: "Agente Ventas", group: 6, val: 15, color: "#ff4444" },
+                { id: "Agente Seguridad", group: 6, val: 15, color: "#ff4444" },
+                { id: "Sensor Clima (Senamhi)", group: 7, val: 10, color: "#44aaff" },
+                { id: "Sensor Tráfico (Sutran)", group: 7, val: 10, color: "#44aaff" }
+            ],
+            links: [
+                { source: "Cliente Web (Portal)", target: "FastAPI (Motor MAX)" },
+                { source: "FastAPI (Motor MAX)", target: "Ollama Local" },
+                { source: "Ollama Local", target: "Qwen 2.5 (Razonamiento)" },
+                { source: "Ollama Local", target: "Phi-3 (Mini Agentes)" },
+                { source: "FastAPI (Motor MAX)", target: "Qdrant (Vectores RAG)" },
+                { source: "FastAPI (Motor MAX)", target: "Supabase (PostgreSQL)" },
+                { source: "FastAPI (Motor MAX)", target: "Langfuse (Observabilidad)" },
+                { source: "Ollama Local", target: "Langfuse (Observabilidad)" },
+                { source: "Qdrant (Vectores RAG)", target: "Langfuse (Observabilidad)" },
+                { source: "FastAPI (Motor MAX)", target: "Agente Ventas" },
+                { source: "FastAPI (Motor MAX)", target: "Agente Seguridad" },
+                { source: "Agente Seguridad", target: "Sensor Clima (Senamhi)" },
+                { source: "Agente Seguridad", target: "Sensor Tráfico (Sutran)" }
+            ]
+        };
+
+        const Graph = ForceGraph3D()
+            (document.getElementById('graph-container'))
+            .graphData(techStackData)
+            .nodeLabel('id')
+            .nodeColor('color')
+            .nodeVal('val')
+            .linkColor(() => 'rgba(255,255,255,0.2)')
+            .linkWidth(2)
+            .linkDirectionalParticles(4)
+            .linkDirectionalParticleWidth(3)
+            .linkDirectionalParticleSpeed(0.005);
+
+        let angle = 0;
+        const distance = 300;
+        setInterval(() => {
+            Graph.cameraPosition({
+                x: distance * Math.sin(angle),
+                z: distance * Math.cos(angle)
+            });
+            angle += 0.003;
+        }, 16);
+    </script>
+</body>
+</html>

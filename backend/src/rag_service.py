@@ -72,17 +72,35 @@ async def search_knowledge(
             score_threshold=min_similarity
         )
         
-        # 4. Formatear la respuesta para el agente
+        # 4. Formatear la respuesta para el agente y aplicar Boosting por Tier
         results = []
         for scored_point in search_result:
             payload = scored_point.payload or {}
+            tier = payload.get("tier", 3)
+            
+            # Mathematical Boosting
+            multiplier = 1.0
+            if tier == 1:
+                multiplier = 1.15
+            elif tier == 2:
+                multiplier = 1.00
+            elif tier >= 3:
+                multiplier = 0.85
+                
+            boosted_score = scored_point.score * multiplier
+            
             results.append({
                 "id": scored_point.id,
                 "region": payload.get("region", ""),
+                "tier": tier,
                 "modulo_nombre": payload.get("modulo_nombre", ""),
                 "text_content": payload.get("text_content", ""),
-                "similarity": round(scored_point.score, 4)
+                "similarity": round(boosted_score, 4),
+                "raw_score": round(scored_point.score, 4)
             })
+            
+        # Reordenar por el score boosteado
+        results.sort(key=lambda x: x["similarity"], reverse=True)
             
         return results
 
