@@ -12,6 +12,9 @@ from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from bs4 import BeautifulSoup
 from langfuse import observe
+from flashrank import Ranker, RerankRequest
+from pydantic import BaseModel, Field, ValidationError
+from qdrant_client import QdrantClient
 
 sys.stdout.reconfigure(encoding='utf-8')
 supabase = create_client(os.getenv('SUPABASE_URL'), os.getenv('SUPABASE_KEY'))
@@ -32,31 +35,62 @@ def call_ollama(model: str, messages: list, tools: list = None, timeout: int = 4
 
 # --- HERRAMIENTAS (TOOLS) ---
 
+# Variables Globales RAG Enterprise
+QDRANT_URL_LOCAL = "http://127.0.0.1:6333"
+COLLECTION_NAME = "Lifextreme_Knowledge"
+try:
+    ranker = Ranker()
+except Exception as e:
+    print(f"[-] FlashRank init error: {e}")
+    ranker = None
+qclient = QdrantClient(url=QDRANT_URL_LOCAL)
+
 @observe(as_type="retrieval")
 def tool_search_rag(destino):
-    print(f"      [🛠️ TOOL EJECUTADO] Buscando destino exacto en Supabase: '{destino}'")
+    print(f"      [🛠️ TOOL EJECUTADO] Buscando destino en Qdrant (RAG Enterprise): '{destino}'")
     try:
         res_emb = requests.post("http://localhost:11434/api/embed", json={
             "model": "nomic-embed-text",
             "input": [destino]
         })
-        emb = res_emb.json()['embeddings'][0]
+        emb = res_emb.json().get('embeddings', [[]])[0]
         
-        res = supabase.rpc("match_knowledge_vectors", {
-            "query_embedding": emb,
-            "match_threshold": 0.65,
-            "match_count": 3
-        }).execute()
+        # 1. Búsqueda con Umbral Duro (0.80)
+        response = qclient.query_points(
+            collection_name=COLLECTION_NAME,
+            query=emb,
+            limit=10,
+            score_threshold=0.75 # Tolerancia estricta
+        )
+        hits = response.points
         
-        if not res.data:
-            return f"No se encontró información en la base de datos sobre {destino}."
+        if not hits:
+            return f"No se encontró información verificada en la base de datos oficial (Score bajo) para {destino}. Por favor solicita derivar con un operador humano."
+            
+        # 2. FlashRank Re-Rankeo Matemático
+        passages = []
+        for i, hit in enumerate(hits):
+            passages.append({
+                "id": i,
+                "text": hit.payload.get("text_content", ""),
+                "meta": hit.payload
+            })
+            
+        if ranker and passages:
+            rerank_req = RerankRequest(query=destino, passages=passages)
+            ranked_results = ranker.rerank(rerank_req)
+            top_results = ranked_results[:3]
+        else:
+            top_results = passages[:3]
             
         context = ""
-        for match in res.data:
-            context += f"- {match.get('text_content', '')}\n"
+        for res in top_results:
+            context += f"- {res['text']}\n"
         return context
     except Exception as e:
-        return f"Error en la base de datos: {e}"
+        import traceback
+        traceback.print_exc()
+        return f"Error en la base de datos vectorial: {e}"
 
 @observe(as_type="retrieval")
 def tool_analyze_website(url):
@@ -244,8 +278,12 @@ def chat_endpoint():
     else:
         print("    -> Fase 2: Qwen decidió que no requiere usar herramientas.")
         
-    # FASE 3: SÍNTESIS DE VENTAS (PHI-3)
-    print("    -> Fase 3: Sintetizando respuesta de ventas...")
+    # FASE 3: SÍNTESIS DE VENTAS (PHI-3) CON GUARDRAILS
+    print("    -> Fase 3: Sintetizando respuesta de ventas con Guardrails...")
+    
+    class SalidaMAX(BaseModel):
+        respuesta_cliente: str = Field(description="La respuesta carismática para el usuario.")
+        alerta_alucinacion: bool = Field(description="True si crees que la información pedida no estaba en el contexto, False si estaba cubierta.")
     
     if tool_results:
         final_prompt = f"""Eres MAX, el Agente Experto en Ventas de Lifextreme.
@@ -254,18 +292,36 @@ El cliente dijo: "{msg}"
 Resultados crudos de las herramientas ejecutadas:
 {tool_results}
 
-Tu tarea:
-1. Responde de forma muy natural y carismática usando SÓLO los datos de arriba.
-2. SI EL RESULTADO CRUDO INCLUYE UN ENLACE HTTP DE PAGO, ¡TIENES QUE DARLE ESE ENLACE EXACTO AL CLIENTE EN TU RESPUESTA! Dile: "Aquí tienes el enlace seguro para finalizar tu pago: [Enlace]". NO modifiques el enlace.
+Tu tarea (JSON ESTRICTO):
+1. Responde usando SÓLO los datos de arriba.
+2. NUNCA inventes precios ni modifiques políticas (esto es Tier 0).
+3. SI EL RESULTADO CRUDO INCLUYE UN ENLACE HTTP DE PAGO, TIENES QUE DARLE ESE ENLACE EXACTO.
+4. Devuelve EXACTAMENTE este formato JSON: {{"respuesta_cliente": "tu respuesta aquí", "alerta_alucinacion": false}}
 """
     else:
-         final_prompt = f"Eres MAX, Asesor de Lifextreme. El usuario dijo: {msg}. Si el usuario quiere comprar pero le faltan datos (destino, pasajeros, fecha, nombre), pideselos. Responde corto y carismático."
+         final_prompt = f"Eres MAX, Asesor de Lifextreme. El usuario dijo: {msg}. Si el usuario quiere comprar pero le faltan datos, pideselos. Devuelve formato JSON: {{\"respuesta_cliente\": \"tu respuesta\", \"alerta_alucinacion\": false}}"
     
-    try:
-        resp_data = call_ollama(model="phi3:latest", messages=[{"role": "system", "content": final_prompt}], timeout=45)
-        respuesta = resp_data['message']['content']
-    except Exception as e:
-        respuesta = "Error generando la síntesis final de ventas."
+    respuesta = "Error generando la síntesis final de ventas."
+    for intento in range(2): # 2 Intentos de Guardrails
+        try:
+            # Usando llama3 para la síntesis comercial final, que es mejor siguiendo JSON strict
+            payload_llm = {"model": "llama3", "messages": [{"role": "system", "content": final_prompt}], "stream": False, "format": "json"}
+            resp = requests.post(OLLAMA_URL, json=payload_llm, timeout=45)
+            content_str = resp.json().get('message', {}).get('content', '{}')
+            
+            # Validación Pydantic
+            salida_validada = SalidaMAX.model_validate_json(content_str)
+            
+            if salida_validada.alerta_alucinacion:
+                respuesta = salida_validada.respuesta_cliente + "\n\n*(Nota: He restringido parte de la información para no especular. Un humano te contactará)*"
+            else:
+                respuesta = salida_validada.respuesta_cliente
+            break # Éxito, salir del loop
+        except ValidationError as ve:
+            print(f"    [!] Guardrail Interceptó falla de esquema: {ve}. Reintentando...")
+        except Exception as e:
+            print(f"    [!] Error en síntesis: {e}")
+            break
         
     print("    -> Respuesta lista y enviada al cliente.")
     

@@ -136,3 +136,7 @@ revectorize_checkpoint.json
 
 *.parquet
 *.jsonl
+
+# Auditoria y QA
+.deepeval/
+docker/

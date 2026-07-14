@@ -1,0 +1,22 @@
+[
+  {
+    "input": "¿A qué hora recogen del hotel para el City Tour en Cusco?",
+    "expected_output": "El recojo para el City Tour en Cusco generalmente inicia entre las 13:00 y 13:30 horas desde los hoteles céntricos."
+  },
+  {
+    "input": "¿Cuánto es el precio de entrada a Machu Picchu en 2026 para peruanos?",
+    "expected_output": "Para peruanos, la tarifa de entrada general a Machu Picchu suele rondar los 64 soles."
+  },
+  {
+    "input": "¿Es seguro viajar a Juliaca (Puno) en temporada de protestas agrarias?",
+    "expected_output": "Puede haber bloqueos en vías como la Longitudinal de la Sierra Sur (SUTRAN). Se recomienda consultar reportes oficiales o viajar por vías alternas."
+  },
+  {
+    "input": "¿Necesito llevar pasaporte para entrar al Salar de Uyuni si soy de Perú?",
+    "expected_output": "No es necesario pasaporte si eres peruano; puedes ingresar a Bolivia únicamente presentando tu DNI vigente gracias a los convenios de la Comunidad Andina."
+  },
+  {
+    "input": "¿Cuál es la dificultad de la ruta Salkantay?",
+    "expected_output": "El Salkantay Trek es de dificultad alta, alcanzando altitudes superiores a los 4,600 msnm. Requiere excelente condición física y aclimatación previa en Cusco."
+  }
+]
