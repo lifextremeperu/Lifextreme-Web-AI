@@ -3,10 +3,14 @@ version: '3.8'
 services:
   qdrant:
     image: qdrant/qdrant:latest
-    container_name: qdrant_local
+    container_name: rag_lifextreme
     ports:
       - "6333:6333"
       - "6334:6334"
     volumes:
-      - D:\QdrantData:/qdrant/storage
+      - rag_lifextreme_data:/qdrant/storage
     restart: always
+
+volumes:
+  rag_lifextreme_data:
+    name: rag_lifextreme_data
