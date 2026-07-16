@@ -1,0 +1,29 @@
+# Backend Python y Scripts de IA
+scripts/
+src/
+functions/
+api/
+backend/
+sql/
+
+# Bases de Datos y Vectores
+data/
+chroma_db/
+logs/
+scratch/
+*.csv
+*.json
+*.sql
+
+# Logs y Archivos Pesados Locales
+logs_ingesta.txt
+reporte_archivos_valiosos.txt
+*.log
+
+# Scripts de Sistema
+*.bat
+*.ps1
+*.py
+
+# Documentación Interna y Markdown
+*.md
