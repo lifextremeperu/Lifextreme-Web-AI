@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -165,6 +165,44 @@
                             class="w-full border border-white/20 hover:bg-white/10 text-white font-semibold py-3 rounded-lg transition-colors text-sm">
                             Chatear con el Experto
                         </button>
+                    </div>
+
+                    <!-- Widget: Lead Magnet (Captura de Correos) -->
+                    <div class="bg-gradient-to-tr from-accent to-yellow-400 p-8 rounded-2xl shadow-xl border border-yellow-200 text-slate-900 text-center relative overflow-hidden">
+                        <!-- Decoración -->
+                        <div class="absolute -top-6 -right-6 w-24 h-24 bg-white opacity-20 rounded-full blur-xl"></div>
+                        
+                        <div class="mb-4">
+                            <i class="ri-file-pdf-2-fill text-5xl text-slate-900 drop-shadow-md"></i>
+                        </div>
+                        <h3 class="text-xl font-black mb-2 leading-tight">Guía Secreta PDF</h3>
+                        <p class="text-sm font-medium mb-6 opacity-90">
+                            Descarga el <strong>Expediente Técnico de Riesgos y Leyes 2026</strong>. Exclusivo para agencias y guías.
+                        </p>
+                        
+                        <form id="lead-magnet-form" class="space-y-3">
+                            <div class="relative text-left">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="ri-mail-line text-gray-500"></i>
+                                </div>
+                                <input type="email" id="lm-email" required
+                                    class="w-full pl-10 pr-4 py-3 rounded-xl border-none shadow-inner focus:ring-2 focus:ring-slate-900 text-sm font-medium bg-white/90"
+                                    placeholder="Tu correo corporativo">
+                            </div>
+                            <button type="submit" id="lm-btn"
+                                class="w-full bg-slate-900 hover:bg-slate-800 text-white font-black py-3 rounded-xl transition-all hover:-translate-y-1 hover:shadow-lg flex items-center justify-center gap-2 text-sm uppercase tracking-wide">
+                                <i class="ri-lock-unlock-fill"></i> Desbloquear PDF
+                            </button>
+                        </form>
+
+                        <!-- Mensaje de Éxito Oculto -->
+                        <div id="lm-success" class="hidden mt-2 bg-green-500 text-white p-4 rounded-xl border border-green-600 shadow-inner">
+                            <i class="ri-check-double-line text-2xl mb-1 block"></i>
+                            <p class="text-sm font-bold mb-3">¡Desbloqueado con éxito!</p>
+                            <a href="#" class="inline-block bg-white text-green-700 px-4 py-2 rounded-lg text-xs font-black uppercase tracking-wider hover:bg-gray-50 transition-colors shadow-sm">
+                                <i class="ri-download-cloud-2-line"></i> Descargar Ahora
+                            </a>
+                        </div>
                     </div>
 
                 </div>

@@ -1,0 +1,182 @@
+[
+    {
+        "id": 1,
+        "question": "PROMPT",
+        "expected_answer_snippet": "COMPLETION...",
+        "full_answer": "COMPLETION"
+    },
+    {
+        "id": 2,
+        "question": "¿Qué es el City Tour en Cusco?",
+        "expected_answer_snippet": "Es una excursión guiada que recorre la ciudad de Cusco y sus sitios arqueológicos circundantes más i...",
+        "full_answer": "Es una excursión guiada que recorre la ciudad de Cusco y sus sitios arqueológicos circundantes más importantes."
+    },
+    {
+        "id": 3,
+        "question": "¿Cuál es la duración aproximada del City Tour en Cusco?",
+        "expected_answer_snippet": "Aproximadamente de cuatro a cinco horas, siendo un tour de medio día....",
+        "full_answer": "Aproximadamente de cuatro a cinco horas, siendo un tour de medio día."
+    },
+    {
+        "id": 4,
+        "question": "¿Qué sitios arqueológicos principales se visitan combinados en el City Tour?",
+        "expected_answer_snippet": "Qorikancha (Templo del Sol), Sacsayhuamán, Qenqo, Puka Pukara y Tambomachay....",
+        "full_answer": "Qorikancha (Templo del Sol), Sacsayhuamán, Qenqo, Puka Pukara y Tambomachay."
+    },
+    {
+        "id": 5,
+        "question": "¿La Catedral de Cusco siempre está incluida en el City Tour estándar?",
+        "expected_answer_snippet": "No siempre; su inclusión varía según el operador turístico y el paquete....",
+        "full_answer": "No siempre; su inclusión varía según el operador turístico y el paquete."
+    },
+    {
+        "id": 6,
+        "question": "¿Por qué se recomienda el City Tour para el primer día en Cusco?",
+        "expected_answer_snippet": "Porque su baja exigencia física ayuda a los visitantes a aclimatarse gradualmente a la altitud....",
+        "full_answer": "Porque su baja exigencia física ayuda a los visitantes a aclimatarse gradualmente a la altitud."
+    },
+    {
+        "id": 7,
+        "question": "¿Cómo ayuda el City Tour a la aclimatación a la altitud?",
+        "expected_answer_snippet": "Al ser una actividad relativamente suave, permite que el cuerpo se adapte a la altura antes de excur...",
+        "full_answer": "Al ser una actividad relativamente suave, permite que el cuerpo se adapte a la altura antes de excursiones más exigentes."
+    },
+    {
+        "id": 8,
+        "question": "¿Cuáles son los horarios de inicio más comunes para el City Tour?",
+        "expected_answer_snippet": "Por la mañana (entre 8:00-10:00 a.m.) y por la tarde (entre 1:00-2:00 p.m.)....",
+        "full_answer": "Por la mañana (entre 8:00-10:00 a.m.) y por la tarde (entre 1:00-2:00 p.m.)."
+    },
+    {
+        "id": 9,
+        "question": "¿Hay alguna diferencia entre el tour de la mañana y el de la tarde en cuanto a afluencia de gente?",
+        "expected_answer_snippet": "Sí, el tour de la tarde tiende a ser más popular y podría tener más visitantes....",
+        "full_answer": "Sí, el tour de la tarde tiende a ser más popular y podría tener más visitantes."
+    },
+    {
+        "id": 10,
+        "question": "¿Cuál es la mejor época del año para realizar el City Tour en Cusco?",
+        "expected_answer_snippet": "Se puede realizar todo el año, pero la temporada seca (abril/mayo a octubre/diciembre) es la más rec...",
+        "full_answer": "Se puede realizar todo el año, pero la temporada seca (abril/mayo a octubre/diciembre) es la más recomendada."
+    },
+    {
+        "id": 11,
+        "question": "¿Se puede realizar el City Tour durante la temporada de lluvias?",
+        "expected_answer_snippet": "Sí, los tours continúan operando durante la temporada de lluvias (noviembre/diciembre a marzo)....",
+        "full_answer": "Sí, los tours continúan operando durante la temporada de lluvias (noviembre/diciembre a marzo)."
+    },
+    {
+        "id": 12,
+        "question": "¿Qué ventajas podría tener visitar Cusco durante la temporada de lluvias?",
+        "expected_answer_snippet": "Menor cantidad de turistas y paisajes más verdes....",
+        "full_answer": "Menor cantidad de turistas y paisajes más verdes."
+    },
+    {
+        "id": 13,
+        "question": "¿Sobre qué antigua construcción inca se edificó la Catedral de Cusco?",
+        "expected_answer_snippet": "Sobre los cimientos del antiguo palacio inca de Wiracocha....",
+        "full_answer": "Sobre los cimientos del antiguo palacio inca de Wiracocha."
+    },
+    {
+        "id": 14,
+        "question": "¿Qué estilos arquitectónicos se combinan en la Catedral de Cusco?",
+        "expected_answer_snippet": "Estilos renacentista y barroco andino....",
+        "full_answer": "Estilos renacentista y barroco andino."
+    },
+    {
+        "id": 15,
+        "question": "¿Qué obra de arte destacada se encuentra en la Catedral que incluye un cuy?",
+        "expected_answer_snippet": "\"La Última Cena\" de Marcos Zapata, donde se representa un cuy....",
+        "full_answer": "\"La Última Cena\" de Marcos Zapata, donde se representa un cuy."
+    },
+    {
+        "id": 16,
+        "question": "¿La entrada a la Catedral de Cusco está incluida en el Boleto Turístico?",
+        "expected_answer_snippet": "No, generalmente la entrada a la Catedral se paga aparte....",
+        "full_answer": "No, generalmente la entrada a la Catedral se paga aparte."
+    },
+    {
+        "id": 17,
+        "question": "¿Cuál es el costo aproximado de la entrada a la Catedral de Cusco para extranjeros?",
+        "expected_answer_snippet": "Aproximadamente S/ 40 por persona....",
+        "full_answer": "Aproximadamente S/ 40 por persona."
+    },
+    {
+        "id": 18,
+        "question": "¿Se permite tomar fotografías dentro de la Catedral de Cusco?",
+        "expected_answer_snippet": "Generalmente no, especialmente con flash, para proteger las obras de arte....",
+        "full_answer": "Generalmente no, especialmente con flash, para proteger las obras de arte."
+    },
+    {
+        "id": 19,
+        "question": "¿Qué significa \"Qorikancha\" en quechua?",
+        "expected_answer_snippet": "\"Recinto de Oro\"....",
+        "full_answer": "\"Recinto de Oro\"."
+    },
+    {
+        "id": 20,
+        "question": "¿A qué deidad inca estaba dedicada principalmente el Qorikancha?",
+        "expected_answer_snippet": "A Inti, el dios Sol....",
+        "full_answer": "A Inti, el dios Sol."
+    },
+    {
+        "id": 21,
+        "question": "¿Qué construcción española se edificó sobre las bases del Qorikancha?",
+        "expected_answer_snippet": "El Convento de Santo Domingo....",
+        "full_answer": "El Convento de Santo Domingo."
+    },
+    {
+        "id": 22,
+        "question": "¿La entrada al Qorikancha está incluida en el Boleto Turístico del Cusco?",
+        "expected_answer_snippet": "No, la entrada al Qorikancha generalmente se paga por separado....",
+        "full_answer": "No, la entrada al Qorikancha generalmente se paga por separado."
+    },
+    {
+        "id": 23,
+        "question": "¿Cuál es el costo aproximado de la entrada al Qorikancha para extranjeros?",
+        "expected_answer_snippet": "Varía entre S/ 15 y S/ 20....",
+        "full_answer": "Varía entre S/ 15 y S/ 20."
+    },
+    {
+        "id": 24,
+        "question": "¿Qué caracteriza a la mampostería inca del Qorikancha?",
+        "expected_answer_snippet": "Es de calidad excepcional, con muros que alguna vez estuvieron recubiertos de oro....",
+        "full_answer": "Es de calidad excepcional, con muros que alguna vez estuvieron recubiertos de oro."
+    },
+    {
+        "id": 25,
+        "question": "¿Qué es Sacsayhuamán y dónde se ubica?",
+        "expected_answer_snippet": "Una imponente fortaleza y complejo arqueológico inca situado en una colina que domina Cusco....",
+        "full_answer": "Una imponente fortaleza y complejo arqueológico inca situado en una colina que domina Cusco."
+    },
+    {
+        "id": 26,
+        "question": "¿Por qué es mundialmente reconocido Sacsayhuamán?",
+        "expected_answer_snippet": "Por sus enormes murales construidos con bloques de piedra poligonales de dimensiones colosales....",
+        "full_answer": "Por sus enormes murales construidos con bloques de piedra poligonales de dimensiones colosales."
+    },
+    {
+        "id": 27,
+        "question": "¿Qué funciones se cree que cumplió Sacsayhuamán?",
+        "expected_answer_snippet": "Funciones militares, ceremoniales y religiosas....",
+        "full_answer": "Funciones militares, ceremoniales y religiosas."
+    },
+    {
+        "id": 28,
+        "question": "¿La entrada a Sacsayhuamán está incluida en el Boleto Turístico?",
+        "expected_answer_snippet": "Sí, está incluido en el Circuito I del Boleto Turístico Parcial....",
+        "full_answer": "Sí, está incluido en el Circuito I del Boleto Turístico Parcial."
+    },
+    {
+        "id": 29,
+        "question": "¿Qué importante festividad se celebra anualmente en Sacsayhuamán?",
+        "expected_answer_snippet": "El Inti Raymi o Fiesta del Sol, el 24 de junio....",
+        "full_answer": "El Inti Raymi o Fiesta del Sol, el 24 de junio."
+    },
+    {
+        "id": 30,
+        "question": "¿Qué significa \"Qenqo\" en quechua?",
+        "expected_answer_snippet": "\"Laberinto\"....",
+        "full_answer": "\"Laberinto\"."
+    }
+]

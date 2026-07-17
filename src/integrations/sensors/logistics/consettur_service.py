@@ -24,18 +24,23 @@ class ConsetturService:
             response = requests.get(self.url, headers=self.headers, timeout=10)
             
             if response.status_code == 200:
-                html_real = response.text.lower()
+                from bs4 import BeautifulSoup
+                soup = BeautifulSoup(response.text, 'html.parser')
+                texto_web = soup.get_text().lower()
                 
-                alerta_detectada = any(kw in html_real for kw in self.keywords_riesgo)
+                alerta_detectada = any(kw in texto_web for kw in self.keywords_riesgo)
                 
                 if alerta_detectada:
-                    print(f"       -> [CONSETTUR] 🚨 ALERTA CRÍTICA: Se detectó un bloqueo real en la web de buses.")
+                    # Detectar palabra clave exacta
+                    motivo = next((kw for kw in self.keywords_riesgo if kw in texto_web), "Alerta no especificada")
+                    
+                    print(f"       -> [CONSETTUR] 🚨 ALERTA CRÍTICA: Se detectó '{motivo}' en la web de buses.")
                     try:
                         evento_validado = LifextremeSchema(
                             source_id="CONSETTUR",
                             category="RISK", 
                             location={"lat": -13.1631, "lng": -72.5450, "country": "Perú", "region": "Machu Picchu"},
-                            payload={"alerta": "Suspensión real de buses detectada", "ruta_afectada": "Aguas Calientes - Machu Picchu"},
+                            payload={"alerta": motivo.title(), "ruta_afectada": "Aguas Calientes - Machu Picchu"},
                             confidence_score=1.0
                         )
                         pubsub.publish(evento_validado.model_dump_json())

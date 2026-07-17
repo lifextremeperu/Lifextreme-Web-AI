@@ -26,18 +26,21 @@ class SernanpService:
             response = requests.get(self.url, headers=self.headers, timeout=10)
             
             if response.status_code == 200:
-                html_real = response.text.lower()
+                from bs4 import BeautifulSoup
+                soup = BeautifulSoup(response.text, 'html.parser')
+                texto_web = soup.get_text().lower()
                 
-                alerta_detectada = any(kw in html_real for kw in self.keywords_riesgo)
+                alerta_detectada = any(kw in texto_web for kw in self.keywords_riesgo)
                 
                 if alerta_detectada:
-                    print(f"       -> [SERNANP] 🚨 ALERTA CRÍTICA: Se detectó un aviso de cierre/suspensión en el parque nacional.")
+                    motivo = next((kw for kw in self.keywords_riesgo if kw in texto_web), "Alerta no especificada")
+                    print(f"       -> [SERNANP] 🚨 ALERTA CRÍTICA: Se detectó '{motivo}' en el portal de áreas naturales.")
                     try:
                         evento_validado = LifextremeSchema(
                             source_id="SERNANP",
                             category="RISK", 
-                            location={"lat": -13.1631, "lng": -72.5450, "country": "Perú", "region": "Cusco"},
-                            payload={"alerta": "Alerta encontrada en web oficial", "ruta_afectada": "Parques Nacionales"},
+                            location={"lat": -13.1631, "lng": -72.5450, "country": "Perú", "region": "Nacional"},
+                            payload={"alerta": motivo.title(), "ruta_afectada": "Parques Nacionales"},
                             confidence_score=1.0
                         )
                         pubsub.publish(evento_validado.model_dump_json())

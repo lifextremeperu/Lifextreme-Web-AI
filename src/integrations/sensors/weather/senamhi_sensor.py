@@ -17,23 +17,56 @@ class SenamhiWeatherSensor:
         
     def fetch_weather_alerts(self, region: str):
         """
-        Extrae avisos meteorológicos.
-        Simularemos la extracción de una alerta para demostrar la lógica de prevención turística.
+        Extrae avisos meteorológicos de SENAMHI usando BeautifulSoup.
         """
-        print(f"[SENSOR-CLIMA] 🌩️  Escaneando avisos meteorológicos oficiales para: {region}...")
-        time.sleep(1) # Simular scraping
+        print(f"[SENSOR-CLIMA] 🌩️  Escaneando avisos meteorológicos oficiales en la web para: {region}...")
         
-        # Simulación: Puno suele tener alertas por Heladas (Nevadas) o Lluvias intensas
-        # Vamos a simular que encontramos una "Alerta Naranja"
-        alerta_simulada = {
-            "region": region,
-            "nivel": "Naranja", # Puede ser Amarillo, Naranja, Rojo
-            "fenomeno": "Nevadas y Descenso Extremo de Temperatura",
-            "validez": "Próximas 48 horas",
-            "zonas_afectadas": ["Juliaca", "Lampa", "Carabaya"]
-        }
-        
-        return alerta_simulada
+        try:
+            import requests
+            from bs4 import BeautifulSoup
+            
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36',
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8'
+            }
+            # Intentamos conectarnos al portal principal
+            response = requests.get(self.base_url, headers=headers, timeout=10)
+            
+            if response.status_code == 200:
+                soup = BeautifulSoup(response.text, 'html.parser')
+                texto_web = soup.get_text().lower()
+                
+                # Buscar si la región y palabras de alerta están en la página actual
+                if region.lower() in texto_web and ("alerta" in texto_web or "aviso" in texto_web):
+                    # Determinar severidad basada en texto
+                    nivel = "Amarillo"
+                    if "rojo" in texto_web or "roja" in texto_web:
+                        nivel = "Rojo"
+                    elif "naranja" in texto_web:
+                        nivel = "Naranja"
+                        
+                    fenomeno = "Condición climática adversa (Lluvia/Nevada)"
+                    if "nieve" in texto_web or "nevada" in texto_web or "helada" in texto_web:
+                        fenomeno = "Nevadas y Descenso Extremo de Temperatura"
+                    elif "lluvia" in texto_web or "precipitación" in texto_web:
+                        fenomeno = "Lluvias Intensas"
+                        
+                    return {
+                        "region": region,
+                        "nivel": nivel,
+                        "fenomeno": fenomeno,
+                        "validez": "Próximas 24-48 horas",
+                        "zonas_afectadas": [region]
+                    }
+                else:
+                    return None # No hay alertas graves para esta región
+            else:
+                print(f"[SENSOR-CLIMA] ⚠️ No se pudo acceder a SENAMHI (HTTP {response.status_code}).")
+                return None
+                
+        except Exception as e:
+            print(f"[SENSOR-CLIMA] ⚠️ Error de conexión BeautifulSoup: {e}")
+            return None
 
     def ejecutar_monitoreo(self, region: str):
         cache_key = f"weather_alert_{region.lower()}"

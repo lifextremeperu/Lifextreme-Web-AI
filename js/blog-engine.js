@@ -193,6 +193,41 @@ const postsDB = [
         ]
     },
     {
+        id: 'huaraz-alta-montana-2026',
+        title: "Huaraz 2026: Guía Legal de Riesgos y Protocolos de Alta Montaña",
+        category: "Seguridad y Normativas",
+        cover_image: "https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?q=80&w=1200&auto=format&fit=crop",
+        author: "Lifextreme AI Intelligence",
+        date: "Julio 2026",
+        readTime: "9 min",
+        intro: `
+            <p class="lead text-xl text-slate-600 mb-6"><strong>La región de Áncash es la meca del andinismo mundial, pero un error de logística aquí cuesta caro.</strong></p>
+            <p>Con picos que superan los 6,000 msnm, la Cordillera Blanca no perdona la improvisación. Este expediente revela las normas de SERNANP, tácticas logísticas de rescate y zonas restringidas que toda agencia y turista independiente debe dominar en 2026.</p>
+        `,
+        content: `
+            <h2>1. Permisos y Zonas de Alta Protección (SERNANP)</h2>
+            <p>El Parque Nacional Huascarán tiene zonas de protección estricta (usualmente áreas de investigación glaciar) donde el paso turístico está <strong>absolutamente prohibido</strong>. Salirse de los senderos señalizados puede derivar en multas severas o la expulsión del parque.</p>
+
+            <h2>2. La Filosofía "No Deje Rastro" y Equipamiento Exigido</h2>
+            <p>En Áncash, la ley ambiental es férrea. Está prohibido hacer fogatas (para prevenir incendios forestales) y es obligatorio llevar toda tu basura (incluyendo desechos orgánicos).</p>
+            <div class="bg-red-50 p-6 rounded-2xl border-l-4 border-red-500 my-6">
+                <h4 class="text-red-700 font-bold mb-2">Alerta Logística: Equipo Obligatorio</h4>
+                <p class="text-sm text-red-800">Para rutas técnicas, los guías locales te exigirán certificar tu equipo: crampones, piolet, arnés, casco, cuerda y mosquetones. No contar con ellos es motivo de cancelación del tour en el punto de inicio sin derecho a reembolso.</p>
+            </div>
+
+            <h2>3. Protocolos de Rescate y Evacuación Médica</h2>
+            <p>Si ocurre una emergencia en la Cordillera Blanca, la <strong>Policía de Alta Montaña (USAM)</strong> coordina el rescate, pero <strong>los costos son asumidos por el turista o la agencia</strong>. Si no cuentas con un seguro que cubra un mínimo de $50,000 USD (con cláusula específica para rescate alpino), podrías enfrentar la ruina financiera.</p>
+
+            <h2>4. Registro de Itinerarios y Taxis Seguros</h2>
+            <p>Aunque no te multen por no hacerlo, es una regla de oro: <strong>Registra siempre tu itinerario en las oficinas de SERNANP o la Policía en Huaraz</strong>. Además, para moverte de madrugada hacia los puntos de inicio (trailheads), nunca tomes taxis informales de la calle, coordina transporte validado.</p>
+        `,
+        faqs: [
+            { q: "¿Hay una edad mínima para subir a la montaña?", a: "La ley no fija una edad, pero las agencias serias restringen ascensiones técnicas a menores de 18 sin experiencia." },
+            { q: "¿Exigen Certificado Médico Oficial?", a: "No es un requisito de ley para entrar al parque, pero sí un requisito comercial de las mejores agencias por temas de seguros." },
+            { q: "¿Dónde abastecerme antes de subir?", a: "El Mercado Central de Huaraz es el punto estratégico más económico para frutos secos, pan y queso andino." }
+        ]
+    },
+    {
         id: 'default',
         title: "Artículo no encontrado",
         category: "Error",
@@ -280,5 +315,30 @@ function initArticlePage() {
 
 // Auto-run if on article page
 if (document.getElementById('article-title')) {
-    document.addEventListener('DOMContentLoaded', initArticlePage);
+    document.addEventListener('DOMContentLoaded', () => {
+        initArticlePage();
+        
+        // Lead Magnet Logic
+        const lmForm = document.getElementById('lead-magnet-form');
+        const lmSuccess = document.getElementById('lm-success');
+        
+        if (lmForm) {
+            lmForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const email = document.getElementById('lm-email').value;
+                if (email) {
+                    // Simular guardado en Supabase / Backend
+                    console.log(`[Lead Capture] Email guardado: ${email}`);
+                    
+                    // UX: Ocultar form, mostrar éxito
+                    lmForm.style.display = 'none';
+                    lmSuccess.classList.remove('hidden');
+                    
+                    // Pequeña animación
+                    lmSuccess.classList.add('animate-pulse');
+                    setTimeout(() => lmSuccess.classList.remove('animate-pulse'), 1000);
+                }
+            });
+        }
+    });
 }
