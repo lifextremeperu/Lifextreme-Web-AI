@@ -495,8 +495,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     token = session ? session.access_token : '';
                 }
 
-                // 3. Llamar a la API B2B Local vía Tailscale (Seguro HTTPS)
-                const response = await fetch('https://desktop-sedhoop.tail883d62.ts.net/api/v1/b2b/query', {
+                // 3. Llamar a la API B2B Local
+                const response = await fetch('http://127.0.0.1:8000/api/v1/b2b/query', {
                     method: 'POST',
                     headers: { 
                         'Content-Type': 'application/json',
@@ -634,10 +634,7 @@ document.addEventListener('DOMContentLoaded', () => {
         printWindow.document.close();
     }
 
-        chatHistory.appendChild(msgDiv);
-        chatHistory.scrollTop = chatHistory.scrollHeight;
-        if (window.lucide) window.lucide.createIcons({ root: msgDiv });
-    }
+
 
     function appendLoading() {
         const id = 'loading-' + Date.now();

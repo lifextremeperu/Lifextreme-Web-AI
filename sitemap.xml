@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<?xml version='1.0' encoding='utf-8'?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
-  <!-- Página Principal -->
+  
   <url>
     <loc>https://www.lifextreme.store/</loc>
     <lastmod>2026-01-08</lastmod>
@@ -10,7 +9,7 @@
     <priority>1.0</priority>
   </url>
   
-  <!-- Portal Partners - Landing -->
+  
   <url>
     <loc>https://www.lifextreme.store/partners/</loc>
     <lastmod>2026-01-08</lastmod>
@@ -18,7 +17,7 @@
     <priority>0.9</priority>
   </url>
   
-  <!-- Portal Partners - Login -->
+  
   <url>
     <loc>https://www.lifextreme.store/partners/login.html</loc>
     <lastmod>2026-01-08</lastmod>
@@ -26,7 +25,7 @@
     <priority>0.7</priority>
   </url>
   
-  <!-- Portal Partners - Registro -->
+  
   <url>
     <loc>https://www.lifextreme.store/partners/registro.html</loc>
     <lastmod>2026-01-08</lastmod>
@@ -34,7 +33,7 @@
     <priority>0.8</priority>
   </url>
   
-  <!-- Portal Partners - Dashboard -->
+  
   <url>
     <loc>https://www.lifextreme.store/partners/dashboard.html</loc>
     <lastmod>2026-01-08</lastmod>
@@ -42,7 +41,7 @@
     <priority>0.6</priority>
   </url>
   
-  <!-- Política de Privacidad -->
+  
   <url>
     <loc>https://www.lifextreme.store/privacidad.html</loc>
     <lastmod>2026-01-08</lastmod>
@@ -50,7 +49,7 @@
     <priority>0.3</priority>
   </url>
   
-  <!-- Términos y Condiciones -->
+  
   <url>
     <loc>https://www.lifextreme.store/terminos.html</loc>
     <lastmod>2026-01-08</lastmod>
@@ -58,7 +57,7 @@
     <priority>0.3</priority>
   </url>
 
-  <!-- Blog -->
+  
   <url>
     <loc>https://www.lifextreme.store/blog.html</loc>
     <lastmod>2026-01-08</lastmod>
@@ -73,4 +72,4 @@
     <priority>0.7</priority>
   </url>
 
-</urlset>
+<url><loc>https://www.lifextreme.store/destinos/global.html</loc><lastmod>2026-07-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.lifextreme.store/destinos/arequipa.html</loc><lastmod>2026-07-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.lifextreme.store/destinos/peru.html</loc><lastmod>2026-07-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.lifextreme.store/destinos/cusco.html</loc><lastmod>2026-07-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.lifextreme.store/destinos/amazonas.html</loc><lastmod>2026-07-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.lifextreme.store/destinos/lima provincias.html</loc><lastmod>2026-07-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.lifextreme.store/destinos/ancash.html</loc><lastmod>2026-07-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.lifextreme.store/destinos/fqsas.html</loc><lastmod>2026-07-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.lifextreme.store/destinos/turismo.html</loc><lastmod>2026-07-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.lifextreme.store/destinos/lima.html</loc><lastmod>2026-07-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.lifextreme.store/destinos/piura.html</loc><lastmod>2026-07-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url></urlset>
