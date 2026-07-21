@@ -425,4 +425,4 @@ if __name__ == '__main__':
     print("🗣️ Voz Comercial (Síntesis)   : phi3:latest")
     print("⚙️ Módulo Habilitado          : Generación de Links de Pago")
     print("👉 Entra a: http://127.0.0.1:8000")
-    app.run(port=8000, debug=False)
+    app.run(port=8001, debug=False)
