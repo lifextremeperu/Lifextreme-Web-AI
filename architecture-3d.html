@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifextreme - Arquitectura 3D</title>
+    <!-- Three.js y OrbitControls -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
+    <style>
+        body { margin: 0; padding: 0; overflow: hidden; background-color: #020617; font-family: 'Inter', sans-serif; }
+        #canvas-container { width: 100vw; height: 100vh; cursor: crosshair; }
+        
+        #title-overlay {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            z-index: 10;
+            background: rgba(2, 6, 23, 0.75);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            max-width: 400px;
+            pointer-events: none; /* Dejar pasar clics */
+        }
+        h1 { margin: 0; font-size: 32px; font-weight: 900; letter-spacing: -1px; color: #f8fafc; text-transform: uppercase; }
+        .gradient-text {
+            background: linear-gradient(to right, #0ea5e9, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        p { margin: 12px 0 20px 0; color: #94a3b8; font-size: 14px; line-height: 1.6; }
+        
+        .layer-info { margin-bottom: 15px; padding-left: 15px; border-left: 3px solid #334155; }
+        .layer-info h4 { margin: 0 0 5px 0; color: #f8fafc; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
+        .layer-info span { color: #64748b; font-size: 12px; }
+        
+        .c-front { border-color: #0ea5e9; }
+        .c-tunnel { border-color: #f59e0b; }
+        .c-brain { border-color: #a855f7; }
+        .c-data { border-color: #10b981; }
+
+        .instruction { color: #3b82f6; font-weight: 600; margin-top: 25px; font-size: 12px; display: flex; align-items: center; gap: 8px; }
+        .pulse { width: 8px; height: 8px; background: #3b82f6; border-radius: 50%; box-shadow: 0 0 10px #3b82f6; animation: blink 1s infinite; }
+        
+        #close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: white;
+            font-size: 20px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+            pointer-events: auto; /* Clickable */
+        }
+        #close-btn:hover { background: rgba(255,255,255,0.2); }
+
+        @keyframes blink { 50% { opacity: 0.3; } }
+
+        /* Adaptación MÓVIL para dejar la pantalla libre a la vista 3D */
+        @media (max-width: 768px) {
+            #title-overlay {
+                top: auto;
+                bottom: 20px;
+                left: 20px;
+                right: 20px;
+                padding: 20px;
+                max-width: none;
+                background: rgba(2, 6, 23, 0.9);
+            }
+            h1 { font-size: 22px; }
+            p { font-size: 12px; margin-top: 8px; margin-bottom: 12px; }
+            .layer-info { margin-bottom: 10px; padding-left: 10px; }
+            .layer-info h4 { font-size: 12px; }
+            .layer-info span { font-size: 10px; }
+            .instruction { margin-top: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <div id="title-overlay">
+        <button id="close-btn" onclick="document.getElementById('title-overlay').style.display='none'">&times;</button>
+        <h1>SYSTEM <span class="gradient-text">STACK</span></h1>
+        <p>Arquitectura Tecnol&oacute;gica en Capas de Lifextreme. Sistemas distribuidos para Inteligencia Artificial B2B y B2C.</p>
+        
+        <div class="layer-info c-front">
+            <h4>1. Capa Cliente (Frontend)</h4>
+            <span>React / Vercel Edge Network / TailwindCSS</span>
+        </div>
+        <div class="layer-info c-tunnel">
+            <h4>2. Capa Conectividad</h4>
+            <span>Cloudflare Zero Trust / Endpoints Cifrados</span>
+        </div>
+        <div class="layer-info c-brain">
+            <h4>3. Motor IA (Backend)</h4>
+            <span>FastAPI / Flask / Qwen / Phi-3 / Python</span>
+        </div>
+        <div class="layer-info c-data">
+            <h4>4. Motores de Datos</h4>
+            <span>Qdrant (Vectores) / Supabase (PostgreSQL)</span>
+        </div>
+
+        <div class="instruction"><div class="pulse"></div> EN L&Iacute;NEA - ARRASTRA PARA EXPLORAR</div>
+    </div>
+    
+    <div id="canvas-container"></div>
+
+    <script>
+        // 1. Setup Básico Three.js
+        const container = document.getElementById('canvas-container');
+        const scene = new THREE.Scene();
+        // Neblina suave
+        scene.fog = new THREE.FogExp2(0x020617, 0.0015);
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 2000);
+        // Ángulo isométrico/picado
+        camera.position.set(300, 250, 400);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        container.appendChild(renderer.domElement);
+
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.autoRotate = true;
+        controls.autoRotateSpeed = 1.0;
+        controls.maxPolarAngle = Math.PI / 2 + 0.1; // No dejar ver por debajo
+        controls.minDistance = 200;
+        controls.maxDistance = 800;
+
+        // 2. Luces
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+        scene.add(ambientLight);
+
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+        directionalLight.position.set(100, 300, 100);
+        scene.add(directionalLight);
+
+        // 3. Crear las Capas (Plataformas Geométricas)
+        const layers = [
+            { y: 120, color: 0x0ea5e9, label: 'Frontend' }, // Cliente
+            { y: 40, color: 0xf59e0b, label: 'Tunnels' },   // Conectividad
+            { y: -40, color: 0xa855f7, label: 'IA Brain' }, // Motor IA
+            { y: -120, color: 0x10b981, label: 'Database' } // Datos
+        ];
+
+        const platformGeometry = new THREE.BoxGeometry(160, 4, 160);
+        // Borde brillante
+        const edgesGeometry = new THREE.EdgesGeometry(platformGeometry);
+
+        layers.forEach(layer => {
+            // Material de cristal (vidrio tintado)
+            const material = new THREE.MeshPhysicalMaterial({
+                color: layer.color,
+                transparent: true,
+                opacity: 0.2,
+                roughness: 0.1,
+                metalness: 0.1,
+                side: THREE.DoubleSide
+            });
+            const mesh = new THREE.Mesh(platformGeometry, material);
+            mesh.position.y = layer.y;
+            scene.add(mesh);
+
+            // Borde
+            const lineMaterial = new THREE.LineBasicMaterial({ color: layer.color, linewidth: 2 });
+            const edges = new THREE.LineSegments(edgesGeometry, lineMaterial);
+            edges.position.y = layer.y;
+            scene.add(edges);
+
+            // Añadir algunos "servidores" (cubos pequeños) sobre cada plataforma
+            for (let i = 0; i < 4; i++) {
+                const serverGeo = new THREE.BoxGeometry(15, 20, 15);
+                const serverMat = new THREE.MeshPhongMaterial({ color: layer.color, transparent: true, opacity: 0.8 });
+                const server = new THREE.Mesh(serverGeo, serverMat);
+                // Posiciones aleatorias sobre la plataforma
+                server.position.set(
+                    (Math.random() - 0.5) * 100,
+                    layer.y + 12,
+                    (Math.random() - 0.5) * 100
+                );
+                scene.add(server);
+            }
+        });
+
+        // 4. Partículas (Datos fluyendo)
+        const particleCount = 200;
+        const particlesGeometry = new THREE.BufferGeometry();
+        const particlesPositions = new Float32Array(particleCount * 3);
+        const particlesVelocities = [];
+
+        for(let i=0; i<particleCount; i++) {
+            particlesPositions[i*3] = (Math.random() - 0.5) * 100;
+            particlesPositions[i*3+1] = (Math.random() - 0.5) * 240; // Rango Y
+            particlesPositions[i*3+2] = (Math.random() - 0.5) * 100;
+            particlesVelocities.push((Math.random() * 0.5 + 0.5)); // Velocidad hacia arriba o abajo
+        }
+
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(particlesPositions, 3));
+        const particleMaterial = new THREE.PointsMaterial({
+            color: 0xffffff,
+            size: 2,
+            transparent: true,
+            opacity: 0.8
+        });
+        const particleSystem = new THREE.Points(particlesGeometry, particleMaterial);
+        scene.add(particleSystem);
+
+        // 5. Animación Loop
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+
+            // Animar partículas fluyendo de abajo hacia arriba (flujo de datos)
+            const positions = particleSystem.geometry.attributes.position.array;
+            for(let i=0; i<particleCount; i++) {
+                positions[i*3+1] += particlesVelocities[i];
+                if (positions[i*3+1] > 140) { // Si pasa el Frontend, vuelve a Base de Datos
+                    positions[i*3+1] = -140;
+                }
+            }
+            particleSystem.geometry.attributes.position.needsUpdate = true;
+
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // 6. Responsive Resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+</body>
+</html>
