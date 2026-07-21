@@ -30,11 +30,7 @@ import { supabase } from '../../js/supabase-client.js';
 })();
 
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Si llegamos aquí, asumimos que protectRoute está corriendo, 
-    // pero inicializamos la UI de todos modos.
-    // En una app SPA real, haríamos render condicional.
-
+function initDashboard() {
     if (window.lucide) window.lucide.createIcons();
     initSidebar();
     initMobileSidebar();
@@ -44,7 +40,14 @@ document.addEventListener('DOMContentLoaded', () => {
     loadDashboardStats(); // Cargar estadísticas del resumen principal
     loadBookings(); 
     loadActivities();
-});
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDashboard);
+} else {
+    // Si el DOM ya cargó (típico en type="module"), inicializar inmediatamente
+    initDashboard();
+}
 
 // Actualizar datos del usuario en la UI
 function updateUserProfile(user) {
