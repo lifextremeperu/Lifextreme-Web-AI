@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifextreme - AI Knowledge Brain 3D</title>
+    <!-- Load Three.js then 3d-force-graph -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://unpkg.com/three-spritetext@1.6.5/dist/three-spritetext.min.js"></script>
+    <script src="https://unpkg.com/3d-force-graph@1.73.3/dist/3d-force-graph.min.js"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
+    <style>
+        body { margin: 0; padding: 0; overflow: hidden; background-color: #020617; font-family: 'Inter', sans-serif; }
+        #3d-graph { width: 100vw; height: 100vh; cursor: crosshair; }
+        
+        #title-overlay {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            z-index: 10;
+            pointer-events: none;
+            background: rgba(2, 6, 23, 0.7);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        h1 { margin: 0; font-size: 32px; font-weight: 900; letter-spacing: -1px; color: #f8fafc; text-transform: uppercase; }
+        .gradient-text {
+            background: linear-gradient(to right, #a855f7, #0ea5e9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        p { margin: 12px 0 0 0; color: #94a3b8; font-size: 14px; max-width: 380px; line-height: 1.6; }
+        .stats { display: flex; gap: 20px; margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+        .stat-box h4 { margin: 0; font-size: 24px; color: #f8fafc; }
+        .stat-box span { font-size: 11px; color: #64748b; text-transform: uppercase; font-weight: 600; letter-spacing: 1px; }
+        .instruction { color: #10b981; font-weight: 600; margin-top: 25px; font-size: 12px; display: flex; align-items: center; gap: 8px; }
+        .pulse { width: 8px; height: 8px; background: #10b981; border-radius: 50%; box-shadow: 0 0 10px #10b981; animation: blink 1s infinite; }
+        
+        @keyframes blink { 50% { opacity: 0.3; } }
+    </style>
+</head>
+<body>
+    <div id="title-overlay">
+        <h1>LIFEXTREME <span class="gradient-text">CORE</span></h1>
+        <p>Topolog&iacute;a Neuronal en Tiempo Real. Red B2B procesando vectores log&iacute;sticos, normativos y ambientales a nivel nacional.</p>
+        <div class="stats">
+            <div class="stat-box"><h4>244K+</h4><span>Vectores (RAG)</span></div>
+            <div class="stat-box"><h4>24</h4><span>Regiones Activas</span></div>
+            <div class="stat-box"><h4>20</h4><span>Nodos de Control</span></div>
+        </div>
+        <div class="instruction"><div class="pulse"></div> EN L&Iacute;NEA - ORBITA PARA EXPLORAR</div>
+    </div>
+    
+    <div id="3d-graph"></div>
+
+    <script>
+        const data = {"nodes": [{"id": "CORE", "name": "LIFEXTREME BRAIN\n(Qdrant RAG)", "group": 0, "val": 40, "color": "#a855f7"}, {"id": "DEP_Amazonas", "name": "Amazonas", "group": 1, "val": 15, "color": "#0ea5e9"}, {"id": "DEP_Ancash", "name": "Ancash", "group": 1, "val": 15, "color": "#0ea5e9"}, {"id": "DEP_Apurimac", "name": "Apurimac", "group": 1, "val": 15, "color": "#0ea5e9"}, {"id": "DEP_Arequipa", "name": "Arequipa", "group": 1, "val": 15, "color": "#0ea5e9"}, {"id": "DEP_Ayacucho", "name": "Ayacucho", "group": 1, "val": 15, "color": "#0ea5e9"}, {"id": "DEP_Cajamarca", "name": "Cajamarca", "group": 1, "val": 15, "color": "#0ea5e9"}, {"id": "DEP_Callao", "name": "Callao", "group": 1, "val": 15, "color": "#0ea5e9"}, {"id": "DEP_Cusco", "name": "Cusco", "group": 1, "val": 15, "color": "#0ea5e9"}, {"id": "DEP_Huancavelica", "name": "Huancavelica", "group": 1, "val": 15, "color": "#0ea5e9"}, {"id": "DEP_Huanuco", "name": "Huanuco", "group": 1, "val": 15, "color": "#0ea5e9"}, {"id": "DEP_Ica", "name": "Ica", "group": 1, "val": 15, "color": "#0ea5e9"}, {"id": "DEP_Junin", "name": "Junin", "group": 1, "val": 15, "color": "#0ea5e9"}, {"id": "DEP_La Libertad", "name": "La Libertad", "group": 1, "val": 15, "color": "#0ea5e9"}, {"id": "DEP_Lambayeque", "name": "Lambayeque", "group": 1, "val": 15, "color": "#0ea5e9"}, {"id": "DEP_Lima", "name": "Lima", "group": 1, "val": 15, "color": "#0ea5e9"}, {"id": "DEP_Loreto", "name": "Loreto", "group": 1, "val": 15, "color": "#0ea5e9"}, {"id": "DEP_Madre de Dios", "name": "Madre de Dios", "group": 1, "val": 15, "color": "#0ea5e9"}, {"id": "DEP_Moquegua", "name": "Moquegua", "group": 1, "val": 15, "color": "#0ea5e9"}, {"id": "DEP_Pasco", "name": "Pasco", "group": 1, "val": 15, "color": "#0ea5e9"}, {"id": "DEP_Piura", "name": "Piura", "group": 1, "val": 15, "color": "#0ea5e9"}, {"id": "DEP_Puno", "name": "Puno", "group": 1, "val": 15, "color": "#0ea5e9"}, {"id": "DEP_San Martin", "name": "San Martin", "group": 1, "val": 15, "color": "#0ea5e9"}, {"id": "DEP_Tacna", "name": "Tacna", "group": 1, "val": 15, "color": "#0ea5e9"}, {"id": "DEP_Tumbes", "name": "Tumbes", "group": 1, "val": 15, "color": "#0ea5e9"}, {"id": "MOD_MINCETUR", "name": "MINCETUR", "group": 2, "val": 10, "color": "#10b981"}, {"id": "MOD_TUPA", "name": "TUPA", "group": 2, "val": 10, "color": "#10b981"}, {"id": "MOD_INDECOPI", "name": "INDECOPI", "group": 2, "val": 10, "color": "#10b981"}, {"id": "MOD_PENTUR", "name": "PENTUR", "group": 2, "val": 10, "color": "#10b981"}, {"id": "MOD_SUTRAN", "name": "SUTRAN", "group": 2, "val": 10, "color": "#ef4444"}, {"id": "MOD_MTC", "name": "MTC", "group": 2, "val": 10, "color": "#ef4444"}, {"id": "MOD_SENAMHI", "name": "SENAMHI", "group": 2, "val": 10, "color": "#ef4444"}, {"id": "MOD_GDELT", "name": "GDELT", "group": 2, "val": 10, "color": "#ef4444"}, {"id": "MOD_SERNANP", "name": "SERNANP", "group": 2, "val": 10, "color": "#22c55e"}, {"id": "MOD_SERFOR", "name": "SERFOR", "group": 2, "val": 10, "color": "#22c55e"}, {"id": "MOD_MINAM", "name": "MINAM", "group": 2, "val": 10, "color": "#22c55e"}, {"id": "MOD_OSINERGMIN", "name": "OSINERGMIN", "group": 2, "val": 10, "color": "#22c55e"}, {"id": "MOD_PROMPERU", "name": "PROMPERU", "group": 2, "val": 10, "color": "#f59e0b"}, {"id": "MOD_CIXTUR", "name": "CIXTUR", "group": 2, "val": 10, "color": "#f59e0b"}, {"id": "MOD_RIVALS", "name": "RIVALS", "group": 2, "val": 10, "color": "#f59e0b"}, {"id": "MOD_GREEN", "name": "GREEN FUNDS", "group": 2, "val": 10, "color": "#f59e0b"}, {"id": "MOD_COMUNIDADES", "name": "COMUNIDADES", "group": 2, "val": 10, "color": "#3b82f6"}, {"id": "MOD_INFRA", "name": "INFRAESTRUCTURA", "group": 2, "val": 10, "color": "#3b82f6"}, {"id": "MOD_FQSAS", "name": "FQSAS", "group": 2, "val": 10, "color": "#3b82f6"}, {"id": "MOD_SALES", "name": "SALES DNA", "group": 2, "val": 10, "color": "#3b82f6"}], "links": [{"source": "DEP_Amazonas", "target": "CORE"}, {"source": "DEP_Ancash", "target": "CORE"}, {"source": "DEP_Apurimac", "target": "CORE"}, {"source": "DEP_Arequipa", "target": "CORE"}, {"source": "DEP_Ayacucho", "target": "CORE"}, {"source": "DEP_Cajamarca", "target": "CORE"}, {"source": "DEP_Callao", "target": "CORE"}, {"source": "DEP_Cusco", "target": "CORE"}, {"source": "DEP_Huancavelica", "target": "CORE"}, {"source": "DEP_Huanuco", "target": "CORE"}, {"source": "DEP_Ica", "target": "CORE"}, {"source": "DEP_Junin", "target": "CORE"}, {"source": "DEP_La Libertad", "target": "CORE"}, {"source": "DEP_Lambayeque", "target": "CORE"}, {"source": "DEP_Lima", "target": "CORE"}, {"source": "DEP_Loreto", "target": "CORE"}, {"source": "DEP_Madre de Dios", "target": "CORE"}, {"source": "DEP_Moquegua", "target": "CORE"}, {"source": "DEP_Pasco", "target": "CORE"}, {"source": "DEP_Piura", "target": "CORE"}, {"source": "DEP_Puno", "target": "CORE"}, {"source": "DEP_San Martin", "target": "CORE"}, {"source": "DEP_Tacna", "target": "CORE"}, {"source": "DEP_Tumbes", "target": "CORE"}, {"source": "MOD_MINCETUR", "target": "CORE"}, {"source": "MOD_TUPA", "target": "CORE"}, {"source": "MOD_INDECOPI", "target": "CORE"}, {"source": "MOD_PENTUR", "target": "CORE"}, {"source": "MOD_SUTRAN", "target": "CORE"}, {"source": "MOD_MTC", "target": "CORE"}, {"source": "MOD_SENAMHI", "target": "CORE"}, {"source": "MOD_GDELT", "target": "CORE"}, {"source": "MOD_SERNANP", "target": "CORE"}, {"source": "MOD_SERFOR", "target": "CORE"}, {"source": "MOD_MINAM", "target": "CORE"}, {"source": "MOD_OSINERGMIN", "target": "CORE"}, {"source": "MOD_PROMPERU", "target": "CORE"}, {"source": "MOD_CIXTUR", "target": "CORE"}, {"source": "MOD_RIVALS", "target": "CORE"}, {"source": "MOD_GREEN", "target": "CORE"}, {"source": "MOD_COMUNIDADES", "target": "CORE"}, {"source": "MOD_INFRA", "target": "CORE"}, {"source": "MOD_FQSAS", "target": "CORE"}, {"source": "MOD_SALES", "target": "CORE"}, {"source": "MOD_PENTUR", "target": "DEP_Amazonas"}, {"source": "MOD_MINCETUR", "target": "DEP_Amazonas"}, {"source": "MOD_SERNANP", "target": "DEP_Amazonas"}, {"source": "MOD_GDELT", "target": "DEP_Amazonas"}, {"source": "MOD_COMUNIDADES", "target": "DEP_Amazonas"}, {"source": "MOD_INDECOPI", "target": "DEP_Amazonas"}, {"source": "MOD_OSINERGMIN", "target": "DEP_Amazonas"}, {"source": "MOD_TUPA", "target": "DEP_Amazonas"}, {"source": "MOD_MINAM", "target": "DEP_Amazonas"}, {"source": "MOD_INFRA", "target": "DEP_Ancash"}, {"source": "MOD_INDECOPI", "target": "DEP_Ancash"}, {"source": "MOD_CIXTUR", "target": "DEP_Ancash"}, {"source": "MOD_TUPA", "target": "DEP_Ancash"}, {"source": "MOD_MINCETUR", "target": "DEP_Ancash"}, {"source": "MOD_COMUNIDADES", "target": "DEP_Ancash"}, {"source": "MOD_PENTUR", "target": "DEP_Ancash"}, {"source": "MOD_SALES", "target": "DEP_Ancash"}, {"source": "MOD_SERNANP", "target": "DEP_Ancash"}, {"source": "MOD_MINCETUR", "target": "DEP_Apurimac"}, {"source": "MOD_INFRA", "target": "DEP_Apurimac"}, {"source": "MOD_SENAMHI", "target": "DEP_Apurimac"}, {"source": "MOD_CIXTUR", "target": "DEP_Apurimac"}, {"source": "MOD_GDELT", "target": "DEP_Apurimac"}, {"source": "MOD_GREEN", "target": "DEP_Apurimac"}, {"source": "MOD_SERFOR", "target": "DEP_Apurimac"}, {"source": "MOD_SUTRAN", "target": "DEP_Apurimac"}, {"source": "MOD_MTC", "target": "DEP_Arequipa"}, {"source": "MOD_CIXTUR", "target": "DEP_Arequipa"}, {"source": "MOD_MINAM", "target": "DEP_Arequipa"}, {"source": "MOD_SERNANP", "target": "DEP_Arequipa"}, {"source": "MOD_SENAMHI", "target": "DEP_Ayacucho"}, {"source": "MOD_MINAM", "target": "DEP_Ayacucho"}, {"source": "MOD_PENTUR", "target": "DEP_Ayacucho"}, {"source": "MOD_INDECOPI", "target": "DEP_Ayacucho"}, {"source": "MOD_PROMPERU", "target": "DEP_Ayacucho"}, {"source": "MOD_OSINERGMIN", "target": "DEP_Cajamarca"}, {"source": "MOD_SALES", "target": "DEP_Cajamarca"}, {"source": "MOD_SERNANP", "target": "DEP_Cajamarca"}, {"source": "MOD_TUPA", "target": "DEP_Cajamarca"}, {"source": "MOD_RIVALS", "target": "DEP_Callao"}, {"source": "MOD_INFRA", "target": "DEP_Callao"}, {"source": "MOD_PENTUR", "target": "DEP_Callao"}, {"source": "MOD_PROMPERU", "target": "DEP_Callao"}, {"source": "MOD_INDECOPI", "target": "DEP_Callao"}, {"source": "MOD_SERNANP", "target": "DEP_Callao"}, {"source": "MOD_SUTRAN", "target": "DEP_Callao"}, {"source": "MOD_MINAM", "target": "DEP_Callao"}, {"source": "MOD_SERFOR", "target": "DEP_Callao"}, {"source": "MOD_FQSAS", "target": "DEP_Cusco"}, {"source": "MOD_SENAMHI", "target": "DEP_Cusco"}, {"source": "MOD_INDECOPI", "target": "DEP_Cusco"}, {"source": "MOD_TUPA", "target": "DEP_Cusco"}, {"source": "MOD_GDELT", "target": "DEP_Cusco"}, {"source": "MOD_PROMPERU", "target": "DEP_Cusco"}, {"source": "MOD_INDECOPI", "target": "DEP_Huancavelica"}, {"source": "MOD_GDELT", "target": "DEP_Huancavelica"}, {"source": "MOD_PENTUR", "target": "DEP_Huancavelica"}, {"source": "MOD_PROMPERU", "target": "DEP_Huancavelica"}, {"source": "MOD_SERNANP", "target": "DEP_Huancavelica"}, {"source": "MOD_FQSAS", "target": "DEP_Huancavelica"}, {"source": "MOD_OSINERGMIN", "target": "DEP_Huanuco"}, {"source": "MOD_MTC", "target": "DEP_Huanuco"}, {"source": "MOD_SALES", "target": "DEP_Huanuco"}, {"source": "MOD_INFRA", "target": "DEP_Huanuco"}, {"source": "MOD_SENAMHI", "target": "DEP_Huanuco"}, {"source": "MOD_MINAM", "target": "DEP_Huanuco"}, {"source": "MOD_SUTRAN", "target": "DEP_Huanuco"}, {"source": "MOD_COMUNIDADES", "target": "DEP_Huanuco"}, {"source": "MOD_RIVALS", "target": "DEP_Huanuco"}, {"source": "MOD_INDECOPI", "target": "DEP_Ica"}, {"source": "MOD_MTC", "target": "DEP_Ica"}, {"source": "MOD_INFRA", "target": "DEP_Ica"}, {"source": "MOD_GDELT", "target": "DEP_Ica"}, {"source": "MOD_FQSAS", "target": "DEP_Ica"}, {"source": "MOD_COMUNIDADES", "target": "DEP_Ica"}, {"source": "MOD_SENAMHI", "target": "DEP_Ica"}, {"source": "MOD_SUTRAN", "target": "DEP_Ica"}, {"source": "MOD_MINAM", "target": "DEP_Ica"}, {"source": "MOD_INFRA", "target": "DEP_Junin"}, {"source": "MOD_GDELT", "target": "DEP_Junin"}, {"source": "MOD_MINAM", "target": "DEP_Junin"}, {"source": "MOD_TUPA", "target": "DEP_Junin"}, {"source": "MOD_FQSAS", "target": "DEP_Junin"}, {"source": "MOD_CIXTUR", "target": "DEP_Junin"}, {"source": "MOD_MINCETUR", "target": "DEP_Junin"}, {"source": "MOD_PROMPERU", "target": "DEP_Junin"}, {"source": "MOD_MTC", "target": "DEP_Junin"}, {"source": "MOD_SERNANP", "target": "DEP_La Libertad"}, {"source": "MOD_INDECOPI", "target": "DEP_La Libertad"}, {"source": "MOD_SENAMHI", "target": "DEP_La Libertad"}, {"source": "MOD_MINAM", "target": "DEP_La Libertad"}, {"source": "MOD_INFRA", "target": "DEP_La Libertad"}, {"source": "MOD_COMUNIDADES", "target": "DEP_La Libertad"}, {"source": "MOD_GDELT", "target": "DEP_La Libertad"}, {"source": "MOD_RIVALS", "target": "DEP_Lambayeque"}, {"source": "MOD_SUTRAN", "target": "DEP_Lambayeque"}, {"source": "MOD_SERNANP", "target": "DEP_Lambayeque"}, {"source": "MOD_FQSAS", "target": "DEP_Lambayeque"}, {"source": "MOD_GDELT", "target": "DEP_Lambayeque"}, {"source": "MOD_OSINERGMIN", "target": "DEP_Lambayeque"}, {"source": "MOD_INFRA", "target": "DEP_Lambayeque"}, {"source": "MOD_SERNANP", "target": "DEP_Lima"}, {"source": "MOD_FQSAS", "target": "DEP_Lima"}, {"source": "MOD_CIXTUR", "target": "DEP_Lima"}, {"source": "MOD_PROMPERU", "target": "DEP_Lima"}, {"source": "MOD_OSINERGMIN", "target": "DEP_Lima"}, {"source": "MOD_PENTUR", "target": "DEP_Lima"}, {"source": "MOD_INDECOPI", "target": "DEP_Lima"}, {"source": "MOD_SALES", "target": "DEP_Lima"}, {"source": "MOD_INDECOPI", "target": "DEP_Loreto"}, {"source": "MOD_TUPA", "target": "DEP_Loreto"}, {"source": "MOD_PENTUR", "target": "DEP_Loreto"}, {"source": "MOD_SUTRAN", "target": "DEP_Loreto"}, {"source": "MOD_MTC", "target": "DEP_Loreto"}, {"source": "MOD_PROMPERU", "target": "DEP_Loreto"}, {"source": "MOD_MINAM", "target": "DEP_Loreto"}, {"source": "MOD_SALES", "target": "DEP_Madre de Dios"}, {"source": "MOD_INDECOPI", "target": "DEP_Madre de Dios"}, {"source": "MOD_PROMPERU", "target": "DEP_Madre de Dios"}, {"source": "MOD_INFRA", "target": "DEP_Madre de Dios"}, {"source": "MOD_RIVALS", "target": "DEP_Madre de Dios"}, {"source": "MOD_SERNANP", "target": "DEP_Madre de Dios"}, {"source": "MOD_SUTRAN", "target": "DEP_Madre de Dios"}, {"source": "MOD_MINCETUR", "target": "DEP_Moquegua"}, {"source": "MOD_PENTUR", "target": "DEP_Moquegua"}, {"source": "MOD_INFRA", "target": "DEP_Moquegua"}, {"source": "MOD_SERNANP", "target": "DEP_Moquegua"}, {"source": "MOD_MINAM", "target": "DEP_Moquegua"}, {"source": "MOD_TUPA", "target": "DEP_Moquegua"}, {"source": "MOD_SUTRAN", "target": "DEP_Moquegua"}, {"source": "MOD_SENAMHI", "target": "DEP_Moquegua"}, {"source": "MOD_RIVALS", "target": "DEP_Pasco"}, {"source": "MOD_MINCETUR", "target": "DEP_Pasco"}, {"source": "MOD_SERNANP", "target": "DEP_Pasco"}, {"source": "MOD_COMUNIDADES", "target": "DEP_Pasco"}, {"source": "MOD_MTC", "target": "DEP_Pasco"}, {"source": "MOD_PENTUR", "target": "DEP_Piura"}, {"source": "MOD_SERFOR", "target": "DEP_Piura"}, {"source": "MOD_COMUNIDADES", "target": "DEP_Piura"}, {"source": "MOD_SENAMHI", "target": "DEP_Piura"}, {"source": "MOD_SUTRAN", "target": "DEP_Piura"}, {"source": "MOD_MTC", "target": "DEP_Piura"}, {"source": "MOD_PROMPERU", "target": "DEP_Piura"}, {"source": "MOD_INDECOPI", "target": "DEP_Piura"}, {"source": "MOD_COMUNIDADES", "target": "DEP_Puno"}, {"source": "MOD_MINCETUR", "target": "DEP_Puno"}, {"source": "MOD_MINAM", "target": "DEP_Puno"}, {"source": "MOD_GREEN", "target": "DEP_Puno"}, {"source": "MOD_FQSAS", "target": "DEP_Puno"}, {"source": "MOD_TUPA", "target": "DEP_Puno"}, {"source": "MOD_MTC", "target": "DEP_Puno"}, {"source": "MOD_PROMPERU", "target": "DEP_Puno"}, {"source": "MOD_GDELT", "target": "DEP_San Martin"}, {"source": "MOD_TUPA", "target": "DEP_San Martin"}, {"source": "MOD_SALES", "target": "DEP_San Martin"}, {"source": "MOD_INDECOPI", "target": "DEP_San Martin"}, {"source": "MOD_COMUNIDADES", "target": "DEP_San Martin"}, {"source": "MOD_OSINERGMIN", "target": "DEP_San Martin"}, {"source": "MOD_INDECOPI", "target": "DEP_Tacna"}, {"source": "MOD_INFRA", "target": "DEP_Tacna"}, {"source": "MOD_SUTRAN", "target": "DEP_Tacna"}, {"source": "MOD_FQSAS", "target": "DEP_Tacna"}, {"source": "MOD_GREEN", "target": "DEP_Tacna"}, {"source": "MOD_SERNANP", "target": "DEP_Tacna"}, {"source": "MOD_SALES", "target": "DEP_Tacna"}, {"source": "MOD_COMUNIDADES", "target": "DEP_Tumbes"}, {"source": "MOD_CIXTUR", "target": "DEP_Tumbes"}, {"source": "MOD_SENAMHI", "target": "DEP_Tumbes"}, {"source": "MOD_INFRA", "target": "DEP_Tumbes"}, {"source": "MOD_SERFOR", "target": "DEP_Tumbes"}, {"source": "MOD_SALES", "target": "DEP_Tumbes"}, {"source": "MOD_SERNANP", "target": "DEP_Cusco"}, {"source": "MOD_SERNANP", "target": "DEP_Arequipa"}, {"source": "MOD_SUTRAN", "target": "DEP_Cusco"}, {"source": "MOD_SUTRAN", "target": "DEP_Arequipa"}, {"source": "MOD_MINCETUR", "target": "DEP_Cusco"}, {"source": "MOD_MINCETUR", "target": "DEP_Arequipa"}, {"source": "MOD_FQSAS", "target": "DEP_Cusco"}, {"source": "MOD_FQSAS", "target": "DEP_Arequipa"}, {"source": "MOD_GDELT", "target": "DEP_Cusco"}, {"source": "MOD_GDELT", "target": "DEP_Arequipa"}]};
+
+        const Graph = ForceGraph3D()
+        (document.getElementById('3d-graph'))
+            .graphData(data)
+            .nodeThreeObject(node => {
+                const group = new THREE.Group();
+                
+                // Sphere
+                const geometry = new THREE.SphereGeometry(node.val * 0.8, 32, 32);
+                const material = new THREE.MeshPhysicalMaterial({
+                    color: node.color,
+                    transparent: true,
+                    opacity: 0.85,
+                    roughness: 0.1,
+                    transmission: 0.5,
+                    emissive: node.color,
+                    emissiveIntensity: node.id === 'CORE' ? 0.8 : 0.4
+                });
+                const sphere = new THREE.Mesh(geometry, material);
+                group.add(sphere);
+
+                // Add a glow/halo for CORE
+                if (node.id === 'CORE') {
+                    const haloGeo = new THREE.SphereGeometry(node.val * 1.1, 32, 32);
+                    const haloMat = new THREE.MeshBasicMaterial({
+                        color: node.color,
+                        transparent: true,
+                        opacity: 0.15,
+                        side: THREE.BackSide
+                    });
+                    const halo = new THREE.Mesh(haloGeo, haloMat);
+                    group.add(halo);
+                }
+
+                // Holographic Text
+                try {
+                    const sprite = new SpriteText(node.name);
+                    sprite.color = '#ffffff';
+                    sprite.textHeight = node.id === 'CORE' ? 6 : 4;
+                    sprite.fontWeight = 'bold';
+                    sprite.fontFace = 'Inter';
+                    sprite.position.y = node.val * 0.8 + (node.id === 'CORE' ? 8 : 4);
+                    group.add(sprite);
+                } catch (err) {}
+                
+                return group;
+            })
+            .linkColor(link => {
+                // Color the links based on the source node group
+                const sourceNode = data.nodes.find(n => n.id === link.source.id || n.id === link.source);
+                if (sourceNode && sourceNode.group === 2) return sourceNode.color;
+                return 'rgba(255, 255, 255, 0.1)';
+            })
+            .linkWidth(link => link.source === 'CORE' || link.target === 'CORE' ? 1.5 : 0.5)
+            .linkDirectionalParticles(link => link.source === 'CORE' || link.target === 'CORE' ? 4 : 2)
+            .linkDirectionalParticleWidth(link => link.source === 'CORE' || link.target === 'CORE' ? 3 : 1.5)
+            .linkDirectionalParticleColor(link => {
+                const sourceNode = data.nodes.find(n => n.id === link.source.id || n.id === link.source);
+                return sourceNode ? sourceNode.color : '#ffffff';
+            })
+            .linkDirectionalParticleSpeed(0.005)
+            .backgroundColor('#020617')
+            .showNavInfo(false);
+            
+        // Environment
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+        Graph.scene().add(ambientLight);
+        
+        const pointLight = new THREE.PointLight(0xffffff, 1);
+        pointLight.position.set(200, 200, 200);
+        Graph.scene().add(pointLight);
+
+        // Core light
+        const coreLight = new THREE.PointLight(0xa855f7, 2, 800);
+        coreLight.position.set(0, 0, 0);
+        Graph.scene().add(coreLight);
+            
+        // Auto-rotate camera
+        let angle = 0;
+        const distance = 800;
+        setTimeout(() => {
+            setInterval(() => {
+                try {
+                    Graph.cameraPosition({
+                        x: distance * Math.sin(angle),
+                        z: distance * Math.cos(angle)
+                    });
+                    angle += Math.PI / 2500;
+                } catch(e) {}
+            }, 30);
+        }, 2000);
+    </script>
+</body>
+</html>
