@@ -136,20 +136,19 @@
         coreLight.position.set(0, 0, 0);
         Graph.scene().add(coreLight);
             
-        // Auto-rotate camera
-        let angle = 0;
-        const distance = 800;
+        // Expandir la red neuronal (físicas)
+        Graph.d3Force('charge').strength(-400);
+        Graph.d3Force('link').distance(70);
+
+        // Auto-rotate usando controles nativos (permite zoom y paneo manual)
         setTimeout(() => {
-            setInterval(() => {
-                try {
-                    Graph.cameraPosition({
-                        x: distance * Math.sin(angle),
-                        z: distance * Math.cos(angle)
-                    });
-                    angle += Math.PI / 2500;
-                } catch(e) {}
-            }, 30);
-        }, 2000);
+            const controls = Graph.controls();
+            controls.autoRotate = true;
+            controls.autoRotateSpeed = 1.5;
+            
+            // Acercar la cámara inicial para mayor impacto
+            Graph.cameraPosition({ z: 500 });
+        }, 1500);
     </script>
 </body>
 </html>
