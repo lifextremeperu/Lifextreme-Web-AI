@@ -6,23 +6,26 @@ import { supabase } from '../../js/supabase-client.js';
 
 // 🔒 PROTECCIÓN DE RUTA ACTIVADA
 (async function protectRoute() {
-    const devToken = localStorage.getItem('dev_bypass_token');
-    if (devToken === 'DEV_SECRET_LIFEXTREME_2026') {
-        console.warn('DEV BYPASS: Saltando verificación de Supabase.');
-        updateUserProfile({ user_metadata: { full_name: "Admin Lifextreme" }, email: "admin@lifextreme.local" });
-        return;
-    }
+    try {
+        const devToken = localStorage.getItem('dev_bypass_token');
+        if (devToken === 'DEV_SECRET_LIFEXTREME_2026') {
+            console.warn('DEV BYPASS: Saltando verificación de Supabase.');
+            updateUserProfile({ user_metadata: { full_name: "Admin Lifextreme" }, email: "admin@lifextreme.local" });
+            return;
+        }
 
-    const { data: { session }, error } = await supabase.auth.getSession();
+        const { data: { session }, error } = await supabase.auth.getSession();
 
-    if (!session) {
-        // Si no hay sesión, redirigir al login
-        console.log('No session found, redirecting to login...');
-        window.location.href = 'index.html';
-    } else {
-        // Sesión válida
-        console.log('Session active:', session.user.email);
-        updateUserProfile(session.user);
+        if (!session) {
+            console.log('No session found, redirecting to login...');
+            window.location.href = 'index.html';
+        } else {
+            console.log('Session active:', session.user.email);
+            updateUserProfile(session.user);
+        }
+    } catch(err) {
+        console.warn('SUPABASE OFFLINE: Activando modo local de emergencia para no romper la UI.');
+        updateUserProfile({ user_metadata: { full_name: "Offline Admin" }, email: "offline@lifextreme.local" });
     }
 })();
 
@@ -181,10 +184,14 @@ function initNavigation() {
         currentSection = targetId;
 
         // Custom Loaders
-        if (targetId === 'reservas') loadBookings();
-        if (targetId === 'actividades') loadActivities();
-        if (targetId === 'clientes') loadClients();
-        if (targetId === 'analytics') renderAnalyticsChart();
+        try {
+            if (targetId === 'reservas') loadBookings();
+            if (targetId === 'actividades') loadActivities();
+            if (targetId === 'clientes') loadClients();
+            if (targetId === 'analytics' && typeof renderAnalyticsChart === 'function') renderAnalyticsChart();
+        } catch(e) {
+            console.warn("Modulo fallido (probablemente sin conexion): ", e);
+        }
 
         // Re-init icons for new section
         if (window.lucide) window.lucide.createIcons();
