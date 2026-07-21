@@ -41,6 +41,24 @@
         .pulse { width: 8px; height: 8px; background: #10b981; border-radius: 50%; box-shadow: 0 0 10px #10b981; animation: blink 1s infinite; }
         
         @keyframes blink { 50% { opacity: 0.3; } }
+
+        /* Adaptación MÓVIL para dejar la pantalla libre a la red neuronal */
+        @media (max-width: 768px) {
+            #title-overlay {
+                top: auto;
+                bottom: 20px;
+                left: 20px;
+                right: 20px;
+                padding: 20px;
+                background: rgba(2, 6, 23, 0.85); /* Un poco más oscuro para contraste */
+            }
+            h1 { font-size: 22px; }
+            p { font-size: 12px; margin-top: 8px; }
+            .stats { gap: 10px; margin-top: 15px; padding-top: 15px; }
+            .stat-box h4 { font-size: 18px; }
+            .stat-box span { font-size: 9px; }
+            .instruction { margin-top: 15px; }
+        }
     </style>
 </head>
 <body>
