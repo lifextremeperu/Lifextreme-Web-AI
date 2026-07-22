@@ -63,10 +63,10 @@ async def search_knowledge(
                 ]
             )
 
-        # 3. Buscar similitud en Qdrant
-        search_result = await qdrant_client.search(
+        # 3. Buscar similitud en Qdrant usando API moderna
+        search_result = await qdrant_client.query_points(
             collection_name=COLLECTION,
-            query_vector=query_vector,
+            query=query_vector,
             query_filter=query_filter,
             limit=limit,
             score_threshold=min_similarity
@@ -74,7 +74,7 @@ async def search_knowledge(
         
         # 4. Formatear la respuesta para el agente y aplicar Boosting por Tier
         results = []
-        for scored_point in search_result:
+        for scored_point in search_result.points:
             payload = scored_point.payload or {}
             tier = payload.get("tier", 3)
             
