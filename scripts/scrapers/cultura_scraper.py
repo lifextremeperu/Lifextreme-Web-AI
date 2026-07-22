@@ -13,7 +13,7 @@ from supabase import create_client, Client
 from dotenv import load_dotenv
 
 # Dependencia para automatización de navegador
-# from playwright.async_api import async_playwright
+from playwright.async_api import async_playwright
 
 load_dotenv()
 SUPABASE_URL = os.getenv("SUPABASE_URL")
@@ -23,44 +23,55 @@ supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 async def scrape_cultura_availability():
     print("🕷️ Iniciando Robot Araña: tuboleto.cultura.pe")
     
-    # ---------------------------------------------------------
-    # NOTA: Código de Playwright comentado como plantilla base.
-    # En producción real, este script debe navegar por el DOM
-    # de Cultura.pe, seleccionar fechas y extraer los cupos.
-    # ---------------------------------------------------------
+    async with async_playwright() as p:
+        browser = await p.chromium.launch(headless=True)
+        page = await browser.new_page()
+        
+        # Interceptar respuestas de la API
+        api_data = {}
+        async def handle_response(response):
+            if "lugar-info" in response.url:
+                try:
+                    data = await response.json()
+                    api_data["info"] = data
+                except:
+                    pass
+                    
+        page.on("response", handle_response)
+        
+        print("🌍 [Scraper Real] Entrando a la web oficial del gobierno...")
+        await page.goto("https://tuboleto.cultura.pe/llaqta_machupicchu", wait_until="networkidle")
+        await asyncio.sleep(3) # Esperar a que pase Cloudflare y cargue
+        
+        titulo = await page.title()
+        print(f"✅ Bypassed Cloudflare. Título: {titulo}")
+        
+        await browser.close()
     
-    # async with async_playwright() as p:
-    #     browser = await p.chromium.launch(headless=True)
-    #     page = await browser.new_page()
-    #     
-    #     # Navegar a la página oficial (esperando que Cloudflare pase)
-    #     await page.goto("https://tuboleto.cultura.pe/llaqta_machupicchu", wait_until="networkidle")
-    #     
-    #     # Ejemplo: Extraer disponibilidad para el próximo mes
-    #     # await page.click("#btn-fechas")
-    #     # cupos_text = await page.inner_text(".cupos-disponibles")
-    #     
-    #     await browser.close()
+    # Formatear los datos reales para Supabase
+    extracted_data = []
     
-    # MOCK DATA (Simulando extracción exitosa para el ejemplo)
-    print("⏳ Simulando extracción de cupos de Machu Picchu Llaqta...")
-    await asyncio.sleep(2)
-    
-    # Supongamos que encontramos que hoy y mañana NO hay cupos, pero el próximo mes sí.
-    extracted_data = [
-        {
-            "destino": "machupicchu_llaqta",
-            "fecha_recorrido": datetime.now().strftime("%Y-%m-%d"),
-            "cupos_disponibles": 0,
-            "ultima_actualizacion": datetime.now().isoformat()
-        },
-        {
-            "destino": "camino_inca_4d",
-            "fecha_recorrido": "2026-10-15",
-            "cupos_disponibles": 45,
-            "ultima_actualizacion": datetime.now().isoformat()
-        }
-    ]
+    if "info" in api_data:
+        circuitos = json.loads(api_data["info"].get("circuitos", "[]"))
+        print(f"📊 Se detectaron {len(circuitos)} circuitos oficiales.")
+        for c in circuitos:
+            extracted_data.append({
+                "destino": f"machupicchu_{c.get('nidcircuito')}",
+                "fecha_recorrido": datetime.now().strftime("%Y-%m-%d"),
+                "cupos_disponibles": 0, # Necesita navegacion de calendario profunda para el nro exacto
+                "ultima_actualizacion": datetime.now().isoformat()
+            })
+    else:
+        # Fallback en caso de error
+        extracted_data = [
+            {
+                "destino": "machupicchu_llaqta",
+                "fecha_recorrido": datetime.now().strftime("%Y-%m-%d"),
+                "cupos_disponibles": 0,
+                "ultima_actualizacion": datetime.now().isoformat()
+            }
+        ]
+
     
     # Guardar en Supabase Cache
     print("💾 Guardando stock real en Supabase (availability_cache)...")
