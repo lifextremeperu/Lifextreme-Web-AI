@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ===== SEO (migrado 1:1 de page-libro-reclamaciones.php) ===== -->
+  <title>Libro de Reclamaciones Digital Perú | Cumple Indecopi | Altimea</title>
+  <meta name="description" content="Libro de Reclamaciones Digital conforme a Indecopi. Automatiza reclamos, cumple los 15 días hábiles y evita multas de hasta 450 UIT. Demo gratuita.">
+  <link rel="canonical" href="https://www.altimea.com/libro-reclamaciones-digital/">
+
+  <!-- ===== Open Graph ===== -->
+  <meta property="og:type"        content="website">
+  <meta property="og:site_name"   content="Altimea">
+  <meta property="og:title"       content="Libro de Reclamaciones Digital Perú | Cumple Indecopi | Altimea">
+  <meta property="og:description" content="Libro de Reclamaciones Digital conforme a Indecopi. Automatiza reclamos, cumple los 15 días hábiles y evita multas de hasta 450 UIT.">
+  <meta property="og:url"         content="https://www.altimea.com/libro-reclamaciones-digital/">
+<meta property="og:locale"      content="es_PE">
+
+  <!-- ===== Twitter Card ===== -->
+<meta name="twitter:title"       content="Libro de Reclamaciones Digital Perú | Cumple Indecopi | Altimea">
+  <meta name="twitter:description" content="Libro de Reclamaciones Digital conforme a Indecopi. Demo gratuita.">
+<!-- ===== Theme + favicon ===== -->
+  <meta name="theme-color" content="#0E2B67">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/isotipo-altimea-blanco.png">
+  <link rel="apple-touch-icon" href="/assets/img/isotipo-altimea-blanco.png">
+
+  <!-- ===== Fonts ===== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Lato:wght@300;400;700&family=Poppins:wght@600;700&display=optional">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Lato:wght@300;400;700&family=Poppins:wght@600;700&display=optional" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Lato:wght@300;400;700&family=Poppins:wght@600;700&display=optional"></noscript>
+
+  <!-- ===== Styles =====
+       main.css: mega-menú V2 + footer + tokens DS V2 + .btn base
+       libro-reclamaciones-digital.css: estilos específicos de la landing -->
+  <link rel="preload" href="/assets/css/styles.bundle.9dd74e1584.css" as="style">
+  <link rel="stylesheet" href="/assets/css/styles.bundle.9dd74e1584.css">
+  <link rel="stylesheet" href="/assets/css/libro-reclamaciones-digital.css?v=20260417b">
+
+  <!-- ===== JSON-LD SoftwareApplication (migrado 1:1) ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Libro de Reclamaciones Digital — Altimea",
+    "description": "Libro de Reclamaciones Digital conforme a Indecopi, con respuesta en 15 días hábiles y cumplimiento de la Ley 29571 y la Ley 32495.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "url": "https://www.altimea.com/libro-reclamaciones-digital",
+    "provider": {
+      "@type": "Organization",
+      "name": "Altimea",
+      "url": "https://www.altimea.com",
+      "areaServed": ["PE"]
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "80",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.altimea.com/libro-reclamaciones-digital/",
+      "businessFunction": "https://schema.org/Sell"
+    }
+  }
+  </script>
+
+  <!-- ===== JSON-LD FAQPage (sincronizado 1:1 con .faq) ===== -->
+  <!-- FAQ-JSON-LD:START -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Es obligatorio tener un libro de reclamaciones en Perú?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. La Ley 29571 (Código de Protección y Defensa del Consumidor) obliga a todas las empresas que venden productos o servicios a mantener un libro de reclamaciones. Indecopi supervisa el cumplimiento y sanciona incumplimientos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál es el plazo legal para responder un reclamo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "15 días hábiles desde la presentación del reclamo. El Decreto Supremo 011-2011-PCM especifica que los días festivos no se cuentan. Nuestro sistema calcula automáticamente con calendario festivo personalizable."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál es la multa por no tener libro de reclamaciones?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Las infracciones van desde 50 UIT hasta 450 UIT (dependiendo de la gravedad). A 2026, 1 UIT = S/ 5,370. Eso significa multas de hasta S/ 2,416,500. Nuestro sistema asegura cumplimiento 100%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo seguir usando un cuaderno físico o Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Legalmente es posible, pero Indecopi considera más seguro y trazable un sistema digital. Además, papel y Excel son vulnerables a pérdida de datos, errores manuales y no tienen auditoría clara. Una solución digital como la nuestra es el estándar de compliance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuáles son los 4 datos obligatorios en un reclamo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Según la Ley 29571, un reclamo debe incluir: (1) Datos del reclamante (nombres, DNI, domicilio, teléfono, correo), (2) Identificación del bien o servicio (descripción, monto, local), (3) Detalle de la reclamación y pedido específico, (4) Observaciones del proveedor. Nuestro formulario captura todos en las 4 secciones de INDECOPI."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo garantiza Altimea la seguridad de los datos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cada cliente tiene su propia instancia en AWS aislada. Datos sensibles (DNI, teléfono, domicilio, correo) están encriptados en base de datos. Contraseñas se hashean con bcrypt. Cumplimos la Ley 29733 de Protección de Datos Personales. Backups automáticos garantizan recuperación ante desastres."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué reportes puedo exportar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "5 reportes en Excel: (1) Reporte Maestro (detalle completo), (2) Número de Reclamaciones Atendidas (por período), (3) Reclamaciones por Unidad (desglose organizacional), (4) Tiempo Empleado en Contestar (análisis de transiciones), (5) Reporte de Auditoría (registro de todas las acciones del sistema)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto tiempo toma implementar el sistema?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La implementación típica toma 5-10 días hábiles. Incluye: configuración de tu empresa y locales, integración de calendario festivo, entrenamiento de tu equipo y validación de compliance. Nuestro equipo de Altimea gestiona todo el proceso."
+      }
+    }
+  ]
+}
+</script>
+<!-- FAQ-JSON-LD:END -->
+<!-- ALTIMEA OG (auto) -->
+<meta property="og:image" content="https://www.altimea.com/assets/og/libro-reclamaciones-digital.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Cero multas Indecopi por Libro de Reclamaciones mal gestionado. · Altimea">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.altimea.com/assets/og/libro-reclamaciones-digital.png">
+<!-- /ALTIMEA OG -->
+<!-- ALTIMEA TRACKING (auto) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+  "event": "page_view",
+  "language": "es",
+  "page_type": "saas",
+  "page_subtype": "libro-reclamaciones-digital",
+  "personality": "landing",
+  "accent": "cyan"
+});
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){window.dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'analytics_storage': 'denied',
+    'functionality_storage': 'granted',
+    'personalization_storage': 'denied',
+    'security_storage': 'granted',
+    'wait_for_update': 500
+  });
+</script>
+<script>
+  (function () {
+    var COOKIE_NAME = 'altimea_consent';
+    var SCHEMA_VERSION = 1;
+    var match = document.cookie.match(new RegExp('(?:^|;\\s*)' + COOKIE_NAME + '=([^;]*)'));
+    if (!match) return;
+    var data;
+    try { data = JSON.parse(decodeURIComponent(match[1])); } catch (_) { return; }
+    if (!data || data.v !== SCHEMA_VERSION) return;
+    var anyGranted = data.analytics === 'granted' || data.marketing === 'granted';
+    if (!anyGranted) return;
+    function gtag(){window.dataLayer.push(arguments);}
+    gtag('consent', 'update', {
+      analytics_storage:       data.analytics === 'granted' ? 'granted' : 'denied',
+      ad_storage:              data.marketing === 'granted' ? 'granted' : 'denied',
+      ad_user_data:            data.marketing === 'granted' ? 'granted' : 'denied',
+      ad_personalization:      data.marketing === 'granted' ? 'granted' : 'denied',
+      personalization_storage: data.marketing === 'granted' ? 'granted' : 'denied'
+    });
+  })();
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5PSDFDST');</script>
+<!-- End Google Tag Manager -->
+<!-- /ALTIMEA TRACKING -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicon-192.png">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+</head>
+<body>
+<!-- ALTIMEA TRACKING BODY (auto) -->
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5PSDFDST"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<script src="/assets/js/section-observer.js" defer></script>
+<script src="/assets/js/engagement-timer.js" defer></script>
+<script src="/assets/js/calendly-listener.js" defer></script>
+<script src="/assets/js/calendly-popup.js" defer></script>
+<script src="/assets/js/consent-banner.js" defer></script>
+<!-- HubSpot Tracking (46308823) — inyectado dinámicamente por consent-banner.js cuando consent_marketing=granted -->
+<!-- /ALTIMEA TRACKING BODY -->
+
+  <!-- Skip link -->
+<a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+<header class="site-header" role="banner">
+    <nav class="site-nav" aria-label="Navegación principal">
+      <a href="/" class="nav-logo" aria-label="Altimea — Inicio">
+        <picture>
+          <source type="image/avif" srcset="/assets/img/optimized/logo-altimea-blanco-1x.avif 1x, /assets/img/optimized/logo-altimea-blanco-2x.avif 2x">
+          <source type="image/webp" srcset="/assets/img/optimized/logo-altimea-blanco-1x.webp 1x, /assets/img/optimized/logo-altimea-blanco-2x.webp 2x">
+          <img src="/assets/img/optimized/logo-altimea-blanco-1x.png"
+               srcset="/assets/img/optimized/logo-altimea-blanco-1x.png 1x, /assets/img/optimized/logo-altimea-blanco-2x.png 2x"
+               alt="Altimea" width="120" height="28" loading="eager" fetchpriority="high" decoding="async">
+        </picture>
+      </a>
+      <ul class="nav-links">
+        <li style="position: static;">
+          <button type="button"
+                  aria-haspopup="true" aria-expanded="false"
+                  aria-controls="megamenu-servicios"
+                  data-megamenu-trigger>
+            Servicios y Soluciones
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+        </li>
+        <li><a href="/casos-de-exito/">Casos de éxito</a></li>
+        <li><a href="/nosotros/"        >Nosotros</a></li>
+        <li><a href="/blog/"            >Blog</a></li>
+        <li><a href="/contacto/"         class="nav-cta">Hablemos</a></li>
+      </ul>
+
+      <section id="megamenu-servicios" class="megamenu"
+           aria-label="Servicios y Soluciones" data-megamenu-panel data-open="false">
+        <div class="megamenu-inner">
+          <div class="mm-left">
+            <a href="/cto-on-demand/" class="mm-hero">
+              <span class="badge">Para empresas en crecimiento</span>
+              <h3>CTO On-Demand</h3>
+              <p class="mm-tagline">Estrategia técnica continua, precio fijo.</p>
+              <span class="mm-hero-cta">
+                Conoce más
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;stroke-width:2;">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </span>
+            </a>
+            <a href="/odoo/" class="mm-hero-alt">
+              <div class="hero-row">
+                <div>
+                  <span class="badge-alt">Precio imbatible</span>
+                  <h3>Odoo</h3>
+                  <p class="mm-tagline">ERP empresarial, implementado en semanas.</p>
+                </div>
+                <span class="mm-hero-cta" aria-hidden="true">→</span>
+              </div>
+            </a>
+            <div>
+              <p class="mm-saas-label">Productos SaaS</p>
+              <div class="mm-saas-grid">
+                <a href="/ai-forge-seo/" class="mm-saas-tile">
+                  <span class="mm-saas-tag">SaaS</span><span class="mm-saas-tag" style="background: var(--mint); color: var(--navy); margin-left: 4px;">Nuevo</span>
+                  <h4>AI-Forge SEO</h4>
+                  <p>Auditoría SEO automática para PYMEs.</p>
+                </a>
+                <a href="/libro-reclamaciones-digital/" class="mm-saas-tile" aria-current="page">
+                  <span class="mm-saas-tag">SaaS</span>
+                  <h4>Libro de Reclamaciones Digital</h4>
+                  <p>Cumplimiento digital Indecopi.</p>
+                </a>
+                <a href="/reconocimiento-biometrico/" class="mm-saas-tile">
+                  <span class="mm-saas-tag">SaaS</span>
+                  <h4>Reconocimiento Biométrico</h4>
+                  <p>Control de acceso corporativo.</p>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="mm-right">
+            <p class="mm-section-label">Servicios</p>
+            <ul class="mm-services">
+              <li class="mm-service-item">
+                <a href="/desarrollo-a-medida/">
+                  <span class="mm-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <polyline points="16 18 22 12 16 6"></polyline>
+                      <polyline points="8 6 2 12 8 18"></polyline>
+                      <line x1="14" y1="4" x2="10" y2="20"></line>
+                    </svg>
+                  </span>
+                  <span class="mm-service-text">
+                    <h4>Desarrollo a medida</h4>
+                    <p>Producto digital diseñado y construido de cero, UX incluida.</p>
+                  </span>
+                </a>
+              </li>
+              <li class="mm-service-item">
+                <a href="/ia-automatizacion/">
+                  <span class="mm-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <rect x="4" y="6" width="16" height="12" rx="2"></rect>
+                      <circle cx="9"  cy="12" r="1.2" fill="currentColor" stroke="none"></circle>
+                      <circle cx="15" cy="12" r="1.2" fill="currentColor" stroke="none"></circle>
+                      <line x1="12" y1="3"  x2="12" y2="6"></line>
+                      <line x1="8"  y1="18" x2="8"  y2="21"></line>
+                      <line x1="16" y1="18" x2="16" y2="21"></line>
+                    </svg>
+                  </span>
+                  <span class="mm-service-text">
+                    <h4>IA y Automatización</h4>
+                    <p>Agentes, modelos y automatizaciones que liberan horas al equipo.</p>
+                  </span>
+                </a>
+              </li>
+              <li class="mm-service-item">
+                <a href="/modernizacion-cloud/">
+                  <span class="mm-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M7 18a5 5 0 1 1 1.5-9.8A6 6 0 0 1 20 11a4 4 0 0 1-1 7H7z"></path>
+                      <polyline points="9 14 12 11 15 14"></polyline>
+                      <line x1="12" y1="11" x2="12" y2="18"></line>
+                    </svg>
+                  </span>
+                  <span class="mm-service-text">
+                    <h4>Modernización Cloud</h4>
+                    <p>Migración, infraestructura y arquitecturas cloud-native.</p>
+                  </span>
+                </a>
+              </li>
+              <li class="mm-service-item">
+                <a href="/equipos-dedicados/">
+                  <span class="mm-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <circle cx="9" cy="8" r="3"></circle>
+                      <path d="M3 20a6 6 0 0 1 12 0"></path>
+                      <circle cx="17" cy="10" r="2.5"></circle>
+                      <path d="M14 20a4 4 0 0 1 7 0"></path>
+                    </svg>
+                  </span>
+                  <span class="mm-service-text">
+                    <h4>Equipos Dedicados</h4>
+                    <p>Squads de ingeniería como extensión de tu equipo: nearshore, offshore u on-site.</p>
+                  </span>
+                </a>
+              </li>
+              <li class="mm-service-item">
+                <a href="/auditoria-tech/">
+                  <span class="mm-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <circle cx="11" cy="11" r="7"></circle>
+                      <line x1="21" y1="21" x2="16.5" y2="16.5"></line>
+                      <polyline points="8 11 10.5 13.5 14 9"></polyline>
+                    </svg>
+                  </span>
+                  <span class="mm-service-text">
+                    <h4>Auditoría Tech</h4>
+                    <p>Diagnóstico técnico de tu stack, seguridad y deuda tecnológica.</p>
+                  </span>
+                </a>
+              </li>
+              <li class="mm-service-item">
+                <a href="/consultoria-ux/">
+                  <span class="mm-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <rect x="3" y="3" width="18" height="18" rx="3"></rect>
+                      <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                      <path d="M21 15l-5-5L5 21"></path>
+                    </svg>
+                  </span>
+                  <span class="mm-service-text">
+                    <h4>Consultoría UX/CX</h4>
+                    <p>Auditoría de experiencia, diseño de interfaces y estrategia de conversión.</p>
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mm-footer">
+          <span>¿No sabes por dónde empezar? Agenda un <a href="/contacto/?origen=diagnostico-express"><strong>Diagnóstico Express gratuito</strong></a>.</span>
+          <ul class="mm-footer-links">
+            <li><a href="/soluciones/">Ver todos los servicios y soluciones <span class="mm-footer-arrow">→</span></a></li>
+            <li><a href="/contacto/">Hablar con un experto  <span class="mm-footer-arrow">→</span></a></li>
+          </ul>
+        </div>
+      </section>
+    </nav>
+
+    <!-- Mobile nav -->
+    <nav class="mobile-nav" aria-label="Navegación móvil">
+      <a href="/" class="nav-logo" aria-label="Altimea — Inicio">
+        <picture>
+          <source type="image/avif" srcset="/assets/img/optimized/logo-altimea-blanco-1x.avif 1x, /assets/img/optimized/logo-altimea-blanco-2x.avif 2x">
+          <source type="image/webp" srcset="/assets/img/optimized/logo-altimea-blanco-1x.webp 1x, /assets/img/optimized/logo-altimea-blanco-2x.webp 2x">
+          <img src="/assets/img/optimized/logo-altimea-blanco-1x.png"
+               srcset="/assets/img/optimized/logo-altimea-blanco-1x.png 1x, /assets/img/optimized/logo-altimea-blanco-2x.png 2x"
+               alt="Altimea" width="94" height="22" loading="eager" decoding="async">
+        </picture>
+      </a>
+      <button type="button" class="mobile-burger"
+              aria-label="Abrir menú" aria-expanded="false"
+              aria-controls="mobile-drawer" data-drawer-trigger>
+        <svg class="icon-open" viewBox="0 0 24 24" aria-hidden="true">
+          <line x1="4" y1="7"  x2="20" y2="7"></line>
+          <line x1="4" y1="12" x2="20" y2="12"></line>
+          <line x1="4" y1="17" x2="20" y2="17"></line>
+        </svg>
+        <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true">
+          <line x1="6"  y1="6"  x2="18" y2="18"></line>
+          <line x1="18" y1="6"  x2="6"  y2="18"></line>
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Mobile drawer -->
+    <section id="mobile-drawer" class="mobile-drawer"
+         aria-label="Menú móvil" data-drawer-panel data-open="false">
+      <ul class="mobile-drawer-nav">
+        <li>
+          <button type="button" class="mobile-top-item"
+                  aria-expanded="false" aria-controls="mobile-accordion-servicios"
+                  data-accordion-trigger>
+            <span>Servicios y Soluciones</span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div id="mobile-accordion-servicios" class="mobile-accordion" data-open="false">
+            <a href="/cto-on-demand/" class="mm-hero-mobile">
+              <span class="badge">Para empresas en crecimiento</span>
+              <h3>CTO On-Demand</h3>
+              <p class="mm-tagline">Estrategia técnica continua, precio fijo.</p>
+              <span class="mm-hero-cta">
+                Conoce más
+                <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </span>
+            </a>
+            <a href="/odoo/" class="mm-hero-alt-mobile">
+              <div class="hero-row">
+                <div>
+                  <span class="badge-alt">Precio imbatible</span>
+                  <h3>Odoo</h3>
+                  <p class="mm-tagline">ERP empresarial, listo en semanas.</p>
+                </div>
+                <span class="mm-hero-cta" aria-hidden="true">→</span>
+              </div>
+            </a>
+            <p class="mm-saas-label">Productos SaaS</p>
+            <div class="mm-saas-stack">
+              <a href="/ai-forge-seo/" class="mm-saas-tile">
+                <span class="mm-saas-tag">SaaS</span><span class="mm-saas-tag" style="background: var(--mint); color: var(--navy); margin-left: 4px;">Nuevo</span>
+                <h4>AI-Forge SEO</h4>
+                <p>Auditoría SEO automática para PYMEs.</p>
+              </a>
+              <a href="/libro-reclamaciones-digital/" class="mm-saas-tile" aria-current="page">
+                <span class="mm-saas-tag">SaaS</span>
+                <h4>Libro de Reclamaciones Digital</h4>
+                <p>Cumplimiento Indecopi.</p>
+              </a>
+              <a href="/reconocimiento-biometrico/" class="mm-saas-tile">
+                <span class="mm-saas-tag">SaaS</span>
+                <h4>Reconocimiento Biométrico</h4>
+                <p>Control de acceso.</p>
+              </a>
+            </div>
+            <p class="mobile-services-label">Servicios</p>
+            <ul class="mobile-services">
+              <li>
+                <a href="/desarrollo-a-medida/">
+                  <span class="mm-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <polyline points="16 18 22 12 16 6"></polyline>
+                      <polyline points="8 6 2 12 8 18"></polyline>
+                      <line x1="14" y1="4" x2="10" y2="20"></line>
+                    </svg>
+                  </span>
+                  <span><h4>Desarrollo a medida</h4><p>Producto digital de cero, UX incluida.</p></span>
+                </a>
+              </li>
+              <li>
+                <a href="/ia-automatizacion/">
+                  <span class="mm-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <rect x="4" y="6" width="16" height="12" rx="2"></rect>
+                      <circle cx="9"  cy="12" r="1.2" fill="currentColor" stroke="none"></circle>
+                      <circle cx="15" cy="12" r="1.2" fill="currentColor" stroke="none"></circle>
+                      <line x1="12" y1="3" x2="12" y2="6"></line>
+                    </svg>
+                  </span>
+                  <span><h4>IA y Automatización</h4><p>Agentes, modelos y automatizaciones.</p></span>
+                </a>
+              </li>
+              <li>
+                <a href="/modernizacion-cloud/">
+                  <span class="mm-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M7 18a5 5 0 1 1 1.5-9.8A6 6 0 0 1 20 11a4 4 0 0 1-1 7H7z"></path>
+                      <polyline points="9 14 12 11 15 14"></polyline>
+                      <line x1="12" y1="11" x2="12" y2="18"></line>
+                    </svg>
+                  </span>
+                  <span><h4>Modernización Cloud</h4><p>Migración e infraestructura cloud-native.</p></span>
+                </a>
+              </li>
+              <li>
+                <a href="/equipos-dedicados/">
+                  <span class="mm-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <circle cx="9" cy="8" r="3"></circle>
+                      <path d="M3 20a6 6 0 0 1 12 0"></path>
+                      <circle cx="17" cy="10" r="2.5"></circle>
+                      <path d="M14 20a4 4 0 0 1 7 0"></path>
+                    </svg>
+                  </span>
+                  <span><h4>Equipos Dedicados</h4><p>Squads como extensión de tu equipo.</p></span>
+                </a>
+              </li>
+              <li>
+                <a href="/auditoria-tech/">
+                  <span class="mm-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <circle cx="11" cy="11" r="7"></circle>
+                      <line x1="21" y1="21" x2="16.5" y2="16.5"></line>
+                      <polyline points="8 11 10.5 13.5 14 9"></polyline>
+                    </svg>
+                  </span>
+                  <span><h4>Auditoría Tech</h4><p>Diagnóstico técnico del stack y seguridad.</p></span>
+                </a>
+              </li>
+              <li>
+                <a href="/consultoria-ux/">
+                  <span class="mm-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <rect x="3" y="3" width="18" height="18" rx="3"></rect>
+                      <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                      <path d="M21 15l-5-5L5 21"></path>
+                    </svg>
+                  </span>
+                  <span><h4>Consultoría UX/CX</h4><p>Experiencia de usuario y conversión.</p></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <a href="/casos-de-exito/" class="mobile-top-item" data-link>
+            <span>Casos de éxito</span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="/nosotros/" class="mobile-top-item" data-link>
+            <span>Nosotros</span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="/blog/" class="mobile-top-item" data-link>
+            <span>Blog</span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </a>
+        </li>
+      </ul>
+
+      <div class="mobile-cta-block">
+        <a href="https://calendly.com/cgarcias/30min" data-calendly-popup
+           class="btn btn-primary" rel="noopener">Agenda tu diagnóstico</a>
+        <a href="/contacto/" class="btn btn-ghost-dark">Hablemos</a>
+      </div>
+    </section>
+  </header>
+
+
+  <!-- ============================================================
+       MAIN — LIBRO DE RECLAMACIONES DIGITAL LANDING
+       ============================================================ -->
+  <main class="lr-landing" id="main-content" aria-label="Contenido principal">
+
+
+    <!-- 1 · HERO =============================================== -->
+    <section class="hero">
+      <div class="lr-container">
+
+        <div class="hero-content">
+          <div class="hero-badge">
+            <!-- Feather: zap (rayo, icono de alerta regulatoria) -->
+            <svg viewBox="0 0 24 24" aria-hidden="true"
+                 style="width:14px;height:14px;stroke:#FBBF24;stroke-width:2;fill:#FBBF24;">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+            Ley 29571 y Nueva Ley 32495 — Obligatorias para Comercios Digitales
+          </div>
+          <h1>Tu <span>Libro de Reclamaciones Digital</span> conforme a Indecopi</h1>
+          <p class="hero-desc">Automatiza la gestión de reclamos, cumple con los 15 días hábiles sin excepción y evita multas de hasta 450 UIT. Todo en una plataforma integrada.</p>
+          <div class="hero-buttons">
+            <a href="https://calendly.com/cgarcias/30min" data-calendly-popup
+               target="_blank" rel="noopener" class="btn btn-primary">Agendar Demo Gratuita<span class="sr-only"> (se abre en nueva pestaña)</span></a>
+            <a href="/blog/libro-de-reclamaciones-digital-peru/" class="btn btn-secondary">Leer Guía Completa</a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-visual-card" aria-hidden="true">
+            <div class="hero-visual-title">Panel en Tiempo Real</div>
+            <div class="stat-row">
+              <span class="stat-label">Reclamos Recibidos</span>
+              <span class="stat-value">247</span>
+            </div>
+            <div class="stat-row">
+              <span class="stat-label">Atendidos en Plazo</span>
+              <span class="stat-value">100%</span>
+            </div>
+            <div class="stat-row">
+              <span class="stat-label">Días Transcurridos Prom.</span>
+              <span class="stat-value">8.2</span>
+            </div>
+            <div class="stat-row">
+              <span class="stat-label">Próximos a Vencer</span>
+              <span class="stat-value alert">5</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- 2 · TRUST BAR ========================================== -->
+    <section class="trust-bar" aria-label="Cifras clave">
+      <div class="lr-container">
+        <div class="trust-item">
+          <div class="trust-number">15</div>
+          <div class="trust-label">Días hábiles de plazo legal</div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-number">450</div>
+          <div class="trust-label">UIT máximo de multa</div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-number">100%</div>
+          <div class="trust-label">Reclamos atendidos en plazo</div>
+        </div>
+        <div class="trust-item" style="grid-column: 2 / span 2;">
+          <div class="trust-number">5</div>
+          <div class="trust-label">Reportes exportables</div>
+        </div>
+        <div class="trust-item" style="grid-column: 4 / span 2;">
+          <div class="trust-number">3</div>
+          <div class="trust-label">Alertas automáticas por correo</div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 3 · PAIN POINTS ======================================== -->
+    <section class="pain">
+      <div class="lr-container">
+        <div class="section-label on-light">Desafíos actuales</div>
+        <h2>El Costo de No Digitalizar tu Libro de Reclamaciones</h2>
+        <p class="lead">Con la Ley 29571 y la nueva Ley 32495, todas las empresas con presencia digital en Perú están obligadas a contar con un libro de reclamaciones virtual. El Indecopi supervisa activamente y las multas llegan hasta 450 UIT.</p>
+
+        <div class="pain-grid">
+
+          <!-- Pain 1 · Multas · Feather: shield -->
+          <div class="pain-card">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <h3>Multas hasta 450 UIT</h3>
+            <p>Incumplimiento de la Ley 29571 puede resultar en sanciones económicas severas de hasta 450 Unidades Impositivas Tributarias.</p>
+          </div>
+
+          <!-- Pain 2 · Trazabilidad · Feather: file-minus (docs dispersos) -->
+          <div class="pain-card">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="9" y1="15" x2="15" y2="15"></line>
+              </svg>
+            </div>
+            <h3>Pérdida de Trazabilidad</h3>
+            <p>Sin registro digital, no tienes evidencia clara para Indecopi. Papel y Excel son inseguros y fácilmente cuestionables.</p>
+          </div>
+
+          <!-- Pain 3 · Plazos · Feather: clock -->
+          <div class="pain-card">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <h3>Incumplimiento de Plazos</h3>
+            <p>Los 15 días hábiles de plazo legal requieren cálculo exacto. Exceder el plazo genera auditorías de Indecopi y penalizaciones.</p>
+          </div>
+
+          <!-- Pain 4 · Manual ineficiente · Feather: align-justify -->
+          <div class="pain-card">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <line x1="3" y1="6"  x2="21" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+                <line x1="3" y1="14" x2="21" y2="14"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </svg>
+            </div>
+            <h3>Gestión Manual Ineficiente</h3>
+            <p>Cada reclamo manejado en Excel o papel es propenso a errores. Sin automatización no escalas ni garantizas compliance.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 4 · SOLUTION =========================================== -->
+    <section class="solution">
+      <div class="lr-container">
+
+        <div class="solution-content">
+          <div class="section-label on-light">Nuestra solución</div>
+          <h2>Convierte un Requisito Legal en Ventaja Competitiva</h2>
+          <p>El Libro de Reclamaciones Digital de Altimea es una plataforma integral diseñada específicamente para cumplir con la Ley 29571 y el Decreto Supremo 011-2011-PCM. Automatiza el ciclo completo del reclamo con trazabilidad que sirve como respaldo ante fiscalizaciones de Indecopi.</p>
+          <p>Cada empresa obtiene su propia instancia en la nube, totalmente aislada y segura. Tus datos están protegidos con encriptación y cumplimiento de la Ley 29733 de Protección de Datos Personales.</p>
+          <a href="https://calendly.com/cgarcias/30min" data-calendly-popup
+             target="_blank" rel="noopener" class="btn btn-primary btn-sm">Agendar Demo →<span class="sr-only"> (se abre en nueva pestaña)</span></a>
+        </div>
+
+        <div class="solution-visual">
+          <div>
+
+            <!-- Feature 1 · Feather: check-circle -->
+            <div class="solution-feature">
+              <div class="icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h3>Formulario Conforme a Indecopi</h3>
+                <p>4 secciones obligatorias: datos del reclamante, identificación del bien, detalle de reclamo y observaciones del proveedor.</p>
+              </div>
+            </div>
+
+            <!-- Feature 2 · Feather: list -->
+            <div class="solution-feature">
+              <div class="icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <line x1="8" y1="6"  x2="21" y2="6"></line>
+                  <line x1="8" y1="12" x2="21" y2="12"></line>
+                  <line x1="8" y1="18" x2="21" y2="18"></line>
+                  <line x1="3" y1="6"  x2="3.01" y2="6"></line>
+                  <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                  <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                </svg>
+              </div>
+              <div>
+                <h3>Panel de Gestión Centralizado</h3>
+                <p>Tabla paginada con filtros avanzados, vista detalle, actualización de estados y descarga masiva en Excel.</p>
+              </div>
+            </div>
+
+            <!-- Feature 3 · Feather: alert-circle -->
+            <div class="solution-feature">
+              <div class="icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8"  x2="12" y2="12"></line>
+                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+              </div>
+              <div>
+                <h3>Alertas de Vencimiento Automáticas</h3>
+                <p>Notificaciones a los 10 y 5 días para garantizar que nunca pierdas un plazo legal de los 15 días hábiles.</p>
+              </div>
+            </div>
+
+            <!-- Feature 4 · Feather: bar-chart-2 -->
+            <div class="solution-feature">
+              <div class="icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <line x1="18" y1="20" x2="18" y2="10"></line>
+                  <line x1="12" y1="20" x2="12" y2="4"></line>
+                  <line x1="6"  y1="20" x2="6"  y2="14"></line>
+                </svg>
+              </div>
+              <div>
+                <h3>5 Reportes Exportables en Excel</h3>
+                <p>Reporte Maestro, Reclamaciones Atendidas, por Unidad, Tiempo Empleado y Auditoría. Análisis completo de compliance.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- 5 · FEATURES =========================================== -->
+    <section class="features">
+      <div class="lr-container">
+        <div class="section-label on-light">Características clave</div>
+        <h2>Todo lo que Necesitas para Gestionar Reclamos de Forma Profesional</h2>
+
+        <div class="features-grid">
+
+          <!-- Feather: clipboard -->
+          <div class="feature-card">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"></path>
+                <rect x="9" y="3" width="6" height="4" rx="1"></rect>
+                <line x1="9"  y1="12" x2="15" y2="12"></line>
+                <line x1="9"  y1="16" x2="15" y2="16"></line>
+              </svg>
+            </div>
+            <h3>Formulario conforme a Indecopi</h3>
+            <p>Tus clientes registran su reclamo en minutos desde cualquier dispositivo. Las 4 secciones obligatorias ya están configuradas y listas.</p>
+          </div>
+
+          <!-- Feather: file-text -->
+          <div class="feature-card">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8"  y2="13"></line>
+                <line x1="16" y1="17" x2="8"  y2="17"></line>
+                <line x1="10" y1="9"  x2="8"  y2="9"></line>
+              </svg>
+            </div>
+            <h3>Código único y descarga PDF</h3>
+            <p>Cada reclamo genera un código correlativo automático. El consumidor descarga su Hoja de Reclamación en PDF al instante.</p>
+          </div>
+
+          <!-- Feather: bell -->
+          <div class="feature-card">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+            </div>
+            <h3>Alertas de vencimiento</h3>
+            <p>Recibe notificaciones automáticas cuando faltan 10 y 5 días para el plazo legal. Nunca más incumplas los 15 días hábiles.</p>
+          </div>
+
+          <!-- Feather: monitor -->
+          <div class="feature-card">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8"  y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </div>
+            <h3>Panel centralizado</h3>
+            <p>Visualiza todos los reclamos en una sola pantalla. Filtra por estado, fecha, local o tipo y encuentra cualquier caso en segundos.</p>
+          </div>
+
+          <!-- Feather: mail -->
+          <div class="feature-card">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
+            <h3>Notificaciones automáticas</h3>
+            <p>Tu equipo recibe un correo al instante cuando llega un reclamo. El consumidor recibe la respuesta oficial apenas la envías.</p>
+          </div>
+
+          <!-- Feather: calendar -->
+          <div class="feature-card">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2"  x2="16" y2="6"></line>
+                <line x1="8"  y1="2"  x2="8"  y2="6"></line>
+                <line x1="3"  y1="10" x2="21" y2="10"></line>
+              </svg>
+            </div>
+            <h3>Calendario festivo inteligente</h3>
+            <p>Registra feriados y el sistema los excluye automáticamente del cómputo de los 15 días hábiles. Plazos siempre exactos.</p>
+          </div>
+
+          <!-- Feather: activity -->
+          <div class="feature-card">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+              </svg>
+            </div>
+            <h3>5 reportes exportables</h3>
+            <p>Descarga en Excel reportes de detalle, atención, tiempos de respuesta, desglose por unidad y auditoría completa del sistema.</p>
+          </div>
+
+          <!-- Feather: shield -->
+          <div class="feature-card">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <h3>Seguridad y protección de datos</h3>
+            <p>Datos personales encriptados, infraestructura aislada por empresa y cumplimiento total de la Ley 29733 de Datos Personales.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 6 · WORKFLOW =========================================== -->
+    <section class="workflow">
+      <div class="lr-container">
+        <div class="section-label on-light">Cómo funciona</div>
+        <h2>De Reclamo a Resolución en 4 Pasos</h2>
+
+        <div class="workflow-steps">
+          <div class="step">
+            <div class="step-number" aria-hidden="true">1</div>
+            <h3>Registro</h3>
+            <p>El consumidor completa el formulario digital desde tu web. Recibe código único y descarga su Hoja de Reclamación en PDF.</p>
+          </div>
+          <div class="step">
+            <div class="step-number" aria-hidden="true">2</div>
+            <h3>Notificación</h3>
+            <p>Tu equipo recibe un correo al instante. El reclamo aparece en el panel con todos los datos organizados y el plazo calculado.</p>
+          </div>
+          <div class="step">
+            <div class="step-number" aria-hidden="true">3</div>
+            <h3>Gestión</h3>
+            <p>Tu operador cambia estados, agrega comentarios, usa respuestas predefinidas. Alertas automáticas antes del vencimiento.</p>
+          </div>
+          <div class="step">
+            <div class="step-number" aria-hidden="true">4</div>
+            <h3>Cierre</h3>
+            <p>Al marcar como "Enviado", el sistema envía la respuesta al reclamante con copia institucional. Caso cerrado dentro de plazo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 7 · SOCIAL PROOF ======================================= -->
+    <section class="social-proof">
+      <div class="lr-container">
+
+        <div style="text-align: center;">
+          <div class="section-label">Confianza y respaldo</div>
+          <h2>Empresas que Confían en Altimea</h2>
+        </div>
+
+        <div class="testimonial-slider">
+          <div class="testimonial-track">
+            <figure class="testimonial-card active">
+              <blockquote class="testimonial-quote">"Realizamos una auditoría para medir el nivel de madurez en al menos 30 equipos ágiles en Belcorp y Altimea fue el único equipo que obtuvo el máximo nivel de madurez: Alto Rendimiento (Nivel 4)."</blockquote>
+              <figcaption>
+                <div class="testimonial-author">Kairos Digital Solution</div>
+                <div class="testimonial-role">Auditoría de Madurez Ágil — Belcorp</div>
+              </figcaption>
+            </figure>
+            <figure class="testimonial-card">
+              <blockquote class="testimonial-quote">"Altimea, one of the leading digital consulting and transformation providers in Perú and Latin América, has been a key partner on Belcorp's business end."</blockquote>
+              <figcaption>
+                <div class="testimonial-author">Venkat Gopalan</div>
+                <div class="testimonial-role">CTO / CDO — Belcorp</div>
+              </figcaption>
+            </figure>
+            <figure class="testimonial-card">
+              <blockquote class="testimonial-quote">"Altimea nos ayudó a implementar una plataforma enfocada en crear una experiencia centrada en el usuario. Los recomiendo como aliados estratégicos para retos que busquen experiencias innovadoras."</blockquote>
+              <figcaption>
+                <div class="testimonial-author">Fiorella Diez</div>
+                <div class="testimonial-role">Fest Lead — La Victoria Lab, Grupo Intercorp</div>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="testimonial-dots" role="tablist" aria-label="Navegación de testimonios">
+            <button class="dot active" data-slide="0" role="tab" aria-selected="true"  aria-label="Testimonio 1"></button>
+            <button class="dot"        data-slide="1" role="tab" aria-selected="false" aria-label="Testimonio 2"></button>
+            <button class="dot"        data-slide="2" role="tab" aria-selected="false" aria-label="Testimonio 3"></button>
+          </div>
+        </div>
+
+        <div class="client-logos">
+          <img src="/assets/img/logos/belcorp.png"             alt="Logo Belcorp — Cliente de Altimea"             class="client-logo-img" loading="lazy" width="150" height="60" decoding="async">
+          <img src="/assets/img/logos/interbank.png"           alt="Logo Interbank — Cliente de Altimea"           class="client-logo-img" loading="lazy" width="150" height="60" decoding="async">
+          <img src="/assets/img/logos/entel.png"               alt="Logo Entel — Cliente de Altimea"               class="client-logo-img" loading="lazy" width="150" height="60" decoding="async">
+          <img src="/assets/img/logos/sodimac.png"             alt="Logo Sodimac — Cliente de Altimea"             class="client-logo-img" loading="lazy" width="150" height="60" decoding="async">
+          <img src="/assets/img/logos/cementos-pacasmayo.png"  alt="Logo Cementos Pacasmayo — Cliente de Altimea"  class="client-logo-img" loading="lazy" width="150" height="60" decoding="async">
+          <img src="/assets/img/logos/afp-integra.png"         alt="Logo Sura (AFP Integra) — Cliente de Altimea"  class="client-logo-img" loading="lazy" width="150" height="60" decoding="async">
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- 8 · PRICING ============================================ -->
+    <section class="pricing">
+      <div class="lr-container">
+
+        <div class="section-label on-light">Planes y precios</div>
+        <h2>Escalable según el Tamaño de tu Empresa</h2>
+        <p class="lead">Todos los planes incluyen soporte técnico, actualizaciones y cumplimiento legal completo.</p>
+
+        <div class="pricing-grid">
+
+          <!-- Starter -->
+          <div class="pricing-card">
+            <div class="pricing-name">Starter</div>
+            <div class="pricing-desc">Para pequeñas operaciones</div>
+            <div class="pricing-price">Consultar</div>
+            <ul class="pricing-features">
+              <li>Hasta 2 locales</li>
+              <li>2 usuarios activos</li>
+              <li>5 reportes exportables</li>
+              <li>Soporte por correo</li>
+              <li>Encriptación de datos</li>
+            </ul>
+            <a href="https://calendly.com/cgarcias/30min" data-calendly-popup
+               target="_blank" rel="noopener" class="btn btn-primary pricing-cta">Solicitar Demo<span class="sr-only"> (se abre en nueva pestaña)</span></a>
+          </div>
+
+          <!-- Business (featured) -->
+          <div class="pricing-card featured" aria-label="Plan Business, opción destacada Más Popular">
+            <div class="pricing-badge">Más Popular</div>
+            <div class="pricing-name">Business</div>
+            <div class="pricing-desc">Para empresas en crecimiento</div>
+            <div class="pricing-price">Consultar</div>
+            <ul class="pricing-features">
+              <li>Hasta 10 locales</li>
+              <li>10 usuarios activos</li>
+              <li>5 reportes exportables</li>
+              <li>Soporte prioritario 24/7</li>
+              <li>Calendario festivo configurable</li>
+              <li>Respuestas predefinidas</li>
+              <li>Alertas de vencimiento</li>
+            </ul>
+            <a href="https://calendly.com/cgarcias/30min" data-calendly-popup
+               target="_blank" rel="noopener" class="btn btn-primary pricing-cta">Solicitar Demo<span class="sr-only"> (se abre en nueva pestaña)</span></a>
+          </div>
+
+          <!-- Enterprise -->
+          <div class="pricing-card">
+            <div class="pricing-name">Enterprise</div>
+            <div class="pricing-desc">Para grandes corporaciones</div>
+            <div class="pricing-price">Consultar</div>
+            <ul class="pricing-features">
+              <li>Locales ilimitados</li>
+              <li>Usuarios ilimitados</li>
+              <li>5 reportes exportables</li>
+              <li>Soporte 24/7 dedicado</li>
+              <li>Todas las características</li>
+              <li>Backups automáticos diarios</li>
+              <li>Análisis personalizado</li>
+            </ul>
+            <a href="https://calendly.com/cgarcias/30min" data-calendly-popup
+               target="_blank" rel="noopener" class="btn btn-primary pricing-cta">Solicitar Demo<span class="sr-only"> (se abre en nueva pestaña)</span></a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 9 · FAQ ================================================ -->
+    <section class="faq">
+      <div class="lr-container">
+        <div class="section-label on-light">Preguntas frecuentes</div>
+        <h2>Todo lo que Necesitas Saber sobre el Libro de Reclamaciones Digital</h2>
+
+        <!-- FAQ:START -->
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>
+              <h3>¿Es obligatorio tener un libro de reclamaciones en Perú?</h3>
+              <svg class="faq-icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </summary>
+            <div class="faq-answer"><p>Sí. La Ley 29571 (Código de Protección y Defensa del Consumidor) obliga a todas las empresas que venden productos o servicios a mantener un libro de reclamaciones. Indecopi supervisa el cumplimiento y sanciona incumplimientos.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <h3>¿Cuál es el plazo legal para responder un reclamo?</h3>
+              <svg class="faq-icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </summary>
+            <div class="faq-answer"><p>15 días hábiles desde la presentación del reclamo. El Decreto Supremo 011-2011-PCM especifica que los días festivos no se cuentan. Nuestro sistema calcula automáticamente con calendario festivo personalizable.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <h3>¿Cuál es la multa por no tener libro de reclamaciones?</h3>
+              <svg class="faq-icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </summary>
+            <div class="faq-answer"><p>Las infracciones van desde 50 UIT hasta 450 UIT (dependiendo de la gravedad). A 2026, 1 UIT = S/ 5,370. Eso significa multas de hasta S/ 2,416,500. Nuestro sistema asegura cumplimiento 100%.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <h3>¿Puedo seguir usando un cuaderno físico o Excel?</h3>
+              <svg class="faq-icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </summary>
+            <div class="faq-answer"><p>Legalmente es posible, pero Indecopi considera más seguro y trazable un sistema digital. Además, papel y Excel son vulnerables a pérdida de datos, errores manuales y no tienen auditoría clara. Una solución digital como la nuestra es el estándar de compliance.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <h3>¿Cuáles son los 4 datos obligatorios en un reclamo?</h3>
+              <svg class="faq-icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </summary>
+            <div class="faq-answer"><p>Según la Ley 29571, un reclamo debe incluir: (1) Datos del reclamante (nombres, DNI, domicilio, teléfono, correo), (2) Identificación del bien o servicio (descripción, monto, local), (3) Detalle de la reclamación y pedido específico, (4) Observaciones del proveedor. Nuestro formulario captura todos en las 4 secciones de INDECOPI.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <h3>¿Cómo garantiza Altimea la seguridad de los datos?</h3>
+              <svg class="faq-icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </summary>
+            <div class="faq-answer"><p>Cada cliente tiene su propia instancia en AWS aislada. Datos sensibles (DNI, teléfono, domicilio, correo) están encriptados en base de datos. Contraseñas se hashean con bcrypt. Cumplimos la Ley 29733 de Protección de Datos Personales. Backups automáticos garantizan recuperación ante desastres.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <h3>¿Qué reportes puedo exportar?</h3>
+              <svg class="faq-icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </summary>
+            <div class="faq-answer"><p>5 reportes en Excel: (1) Reporte Maestro (detalle completo), (2) Número de Reclamaciones Atendidas (por período), (3) Reclamaciones por Unidad (desglose organizacional), (4) Tiempo Empleado en Contestar (análisis de transiciones), (5) Reporte de Auditoría (registro de todas las acciones del sistema).</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <h3>¿Cuánto tiempo toma implementar el sistema?</h3>
+              <svg class="faq-icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </summary>
+            <div class="faq-answer"><p>La implementación típica toma 5-10 días hábiles. Incluye: configuración de tu empresa y locales, integración de calendario festivo, entrenamiento de tu equipo y validación de compliance. Nuestro equipo de Altimea gestiona todo el proceso.</p></div>
+          </details>
+        </div>
+<!-- FAQ:END -->
+      </div>
+    </section>
+
+
+    <!-- 10 · CTA FINAL ========================================= -->
+    <section class="cta-final">
+      <div class="lr-container">
+        <div class="section-label">Da el siguiente paso</div>
+        <h2>Cumple con Indecopi Antes de la Próxima Fiscalización</h2>
+        <p>Agenda una reunión de 30 minutos con nuestro equipo. Te mostramos cómo funciona con tus datos reales. Sin compromiso.</p>
+        <div class="hero-buttons" style="justify-content: center;">
+          <a href="https://calendly.com/cgarcias/30min" data-calendly-popup
+             target="_blank" rel="noopener" class="btn btn-primary">Agenda tu Demo Gratuita →<span class="sr-only"> (se abre en nueva pestaña)</span></a>
+          <a href="/contacto/" class="btn btn-secondary">Escríbenos →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ============================================================
+       FOOTER — 4 col (fuente canónica: _templates/_footer.html)
+       ============================================================ -->
+  <footer class="site-footer" role="contentinfo">
+
+    <div class="site-footer-inner">
+
+      <div class="site-footer-brand">
+        <picture>
+          <source type="image/avif" srcset="/assets/img/optimized/logo-altimea-blanco-1x.avif 1x, /assets/img/optimized/logo-altimea-blanco-2x.avif 2x">
+          <source type="image/webp" srcset="/assets/img/optimized/logo-altimea-blanco-1x.webp 1x, /assets/img/optimized/logo-altimea-blanco-2x.webp 2x">
+          <img src="/assets/img/optimized/logo-altimea-blanco-1x.png"
+               srcset="/assets/img/optimized/logo-altimea-blanco-1x.png 1x, /assets/img/optimized/logo-altimea-blanco-2x.png 2x"
+               alt="Altimea" width="120" height="28" loading="lazy" decoding="async">
+        </picture>
+        <p>Hacemos de la tecnología un acelerador de cambios y crecimiento.<br><span class="footer-tagline-mint">Logramos que suceda.</span></p>
+        <address>
+          <strong>Oficina Comercial</strong>
+          Av. 28 de Julio 887 - Int. 1302<br>
+          Miraflores, Lima, Perú
+
+          <strong>Oficina de Operaciones</strong>
+          Juan de Arona 755 - Piso 2<br>
+          San Isidro, Lima, Perú
+        </address>
+      </div>
+
+      <nav class="footer-col" aria-label="Servicios">
+        <h3>Servicios</h3>
+        <ul>
+          <li><a href="/cto-on-demand/">CTO On-Demand</a></li>
+          <li><a href="/desarrollo-a-medida/">Desarrollo a medida</a></li>
+          <li><a href="/ia-automatizacion/">IA y Automatización</a></li>
+          <li><a href="/modernizacion-cloud/">Modernización Cloud</a></li>
+          <li><a href="/equipos-dedicados/">Equipos Dedicados</a></li>
+          <li><a href="/auditoria-tech/">Auditoría Tech</a></li>
+          <li><a href="/consultoria-ux/">Consultoría UX/CX</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-col" aria-label="Soluciones">
+        <h3>Soluciones</h3>
+        <ul>
+          <li><a href="/odoo/">Odoo</a></li>
+          <li><a href="/libro-reclamaciones-digital/" aria-current="page">Libro de Reclamaciones Digital</a></li>
+          <li><a href="/reconocimiento-biometrico/">Reconocimiento Biométrico</a></li>
+          <li><a href="/ai-forge-seo/">AI-Forge SEO</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-col" aria-label="Empresa">
+        <h3>Empresa</h3>
+        <ul>
+          <li><a href="/nosotros/">Nosotros</a></li>
+          <li><a href="/casos-de-exito/">Casos de éxito</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/contacto/">Contacto</a></li>
+          <li><a href="https://www.linkedin.com/company/altimea" rel="noopener" target="_blank">LinkedIn</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="site-footer-bottom">
+      <div class="site-footer-bottom-inner">
+        <span>© <span data-current-year>2026</span> Altimea. Todos los derechos reservados.</span>
+        <ul>
+          <li><a href="/privacidad/">Política de privacidad</a></li>
+          <li><a href="/politica-de-cookies/">Política de cookies</a></li>
+          <li><button type="button" data-cb-open-settings aria-haspopup="dialog" aria-controls="cb-modal">Configurar cookies</button></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ============================================================
+       SCRIPTS
+       ============================================================ -->
+  <script src="/assets/js/nav.js" defer></script>
+  <script src="/assets/js/libro-reclamaciones-digital.js" defer></script>
+  <script>
+    (function () {
+      var el = document.querySelector('[data-current-year]');
+      if (el) el.textContent = String(new Date().getFullYear());
+    })();
+  </script>
+<!-- ALTIMEA CONSENT BANNER (auto) -->
+<div id="consent-root" class="cb-hidden" data-consent-root>
+
+  <!-- Banner inicial (non-modal, fixed bottom). Sin role=dialog: es una banda
+       informativa con CTAs, no un dialog modal. aria-labelledby permite que el
+       lector de pantalla anuncie el contenido al recibir foco programatico. -->
+  <section id="cb-banner"
+           class="cb-banner cb-hidden"
+           aria-labelledby="cb-banner-body"
+           data-cb-banner>
+    <div class="cb-banner-inner">
+      <p id="cb-banner-body" class="cb-banner-body">
+        <strong>Usamos cookies.</strong> Las necesarias garantizan el funcionamiento del sitio; analítica y marketing requieren tu consentimiento. <a href="/privacidad/">Política de privacidad</a>.
+      </p>
+      <div class="cb-banner-actions">
+        <button type="button" class="cb-btn cb-btn-text" data-cb-action="reject-all">Rechazar</button>
+        <button type="button" class="cb-btn cb-btn-ghost" data-cb-action="open-settings">Configurar</button>
+        <button type="button" class="cb-btn cb-btn-primary" data-cb-action="accept-all">Aceptar todas</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal granular (overlay con backdrop) -->
+  <div id="cb-modal-backdrop"
+       class="cb-modal-backdrop cb-hidden"
+       data-cb-modal-backdrop
+       hidden></div>
+
+  <section id="cb-modal"
+           class="cb-modal cb-hidden"
+           role="dialog"
+           aria-modal="true"
+           aria-labelledby="cb-modal-title"
+           data-cb-modal
+           hidden>
+    <header class="cb-modal-header">
+      <h2 id="cb-modal-title" class="cb-modal-title">Configurar cookies</h2>
+      <button type="button"
+              class="cb-modal-close"
+              aria-label="Cerrar configuración de cookies"
+              data-cb-action="close-settings">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+        </svg>
+      </button>
+    </header>
+
+    <div class="cb-modal-body">
+
+      <!-- Necesarias (always granted) -->
+      <article class="cb-category">
+        <header class="cb-category-header">
+          <h3 class="cb-category-title">Necesarias</h3>
+          <span class="cb-category-status cb-category-status-locked">Siempre activas</span>
+        </header>
+        <p class="cb-category-desc">
+          Garantizan el funcionamiento del sitio (sesión, preferencias técnicas, seguridad).
+          No se pueden desactivar.
+        </p>
+      </article>
+
+      <!-- Analítica -->
+      <article class="cb-category">
+        <header class="cb-category-header">
+          <h3 class="cb-category-title" id="cb-cat-analytics-label">Analítica</h3>
+          <button type="button"
+                  class="cb-toggle"
+                  role="switch"
+                  aria-checked="false"
+                  aria-labelledby="cb-cat-analytics-label"
+                  aria-label="Activar cookies de analítica"
+                  data-cb-toggle="analytics">
+            <span class="cb-toggle-track" aria-hidden="true">
+              <span class="cb-toggle-thumb"></span>
+            </span>
+          </button>
+        </header>
+        <p class="cb-category-desc">
+          Nos ayudan a entender cómo se usa el sitio (páginas más visitadas, recorrido, tiempos)
+          para mejorarlo. Ej: Google Analytics, Microsoft Clarity.
+        </p>
+      </article>
+
+      <!-- Marketing -->
+      <article class="cb-category">
+        <header class="cb-category-header">
+          <h3 class="cb-category-title" id="cb-cat-marketing-label">Marketing</h3>
+          <button type="button"
+                  class="cb-toggle"
+                  role="switch"
+                  aria-checked="false"
+                  aria-labelledby="cb-cat-marketing-label"
+                  aria-label="Activar cookies de marketing"
+                  data-cb-toggle="marketing">
+            <span class="cb-toggle-track" aria-hidden="true">
+              <span class="cb-toggle-thumb"></span>
+            </span>
+          </button>
+        </header>
+        <p class="cb-category-desc">
+          Permiten medir y mostrar anuncios relevantes en otras plataformas.
+          Ej: Meta (Facebook/Instagram), LinkedIn.
+        </p>
+      </article>
+
+    </div>
+
+    <footer class="cb-modal-actions">
+      <button type="button" class="cb-btn cb-btn-text" data-cb-action="reject-all">Rechazar todas</button>
+      <button type="button" class="cb-btn cb-btn-primary" data-cb-action="save-custom">Guardar elección</button>
+    </footer>
+  </section>
+
+</div>
+<!-- /ALTIMEA CONSENT BANNER -->
+</body>
+</html>

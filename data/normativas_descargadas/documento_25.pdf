@@ -1,0 +1,590 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="ctl00_Head1"><title>
+	Superintendencia Nacional de Migraciones | Consultas en Línea
+</title><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon" />
+<!--<link href="/ConsultaTAMVirtual/Content/style.css" rel="stylesheet" type="text/css" />-->
+<link href="/ConsultaTAMVirtual/Content/custom-style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+<script src="/ConsultaTAMVirtual/Scripts/default.js" type="text/javascript"></script>
+<script src="/ConsultaTAMVirtual/Scripts/jquery.js" type="text/javascript"></script>
+<script src="/ConsultaTAMVirtual/Scripts/Validation.js" type="text/javascript"></script>
+
+    <!-- <link href="Content/styleTAM.css" rel="stylesheet" type="text/css" /> -->
+    <style>
+        .icon-button
+        {
+            padding: 10px 20px; /* Ajusta el padding según tus necesidades */
+            display: inline-block;
+            background-color: #007bff; /* Color de fondo del botón */
+            color: white; /* Color del texto */
+            text-decoration: none; /* Elimina el subrayado del enlace */
+            border-radius: 5px; /* Bordes redondeados */
+            border: none; /* Sin borde */
+            cursor: pointer; /* Manito cuando se pasa el ratón */
+            font-size: 16px; /* Tamaño de la fuente */
+        }
+        .icon-button:hover
+        {
+            background-color: #0056b3; /* Color de fondo al pasar el ratón */
+        }
+    </style>
+    <link href="Content/bootstrap.css" rel="stylesheet" type="text/css" />
+    <script src="jQueryUI/external/jquery/jquery.js" type="text/javascript"></script>
+    <script src="jQueryUI/jquery-ui.min.js" type="text/javascript"></script>
+    <link href="jQueryUI/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <script src="Scripts/sweetalert.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    function handleBackspace(input, event) {
+        // Detectar la tecla de retroceso
+        if (event.keyCode === 8) {
+            // Obtener la posición del cursor
+            let cursorPosition = input.selectionStart;
+
+            // Si el cursor está en la posición de un '/', mover el cursor hacia atrás
+            if (cursorPosition === 3 || cursorPosition === 6) {
+                input.setSelectionRange(cursorPosition - 1, cursorPosition - 1);
+                event.preventDefault(); // Prevenir la acción predeterminada de borrar
+            }
+        }
+    }
+
+    function formatInput(input) {
+        // Guardar la posición del cursor
+        let cursorPosition = input.selectionStart;
+        let value = input.value;
+
+        // Permitir solo números y "/"
+        value = value.replace(/[^\d]/g, '');
+
+        // Guardar la longitud antes del formateo
+        let lengthBefore = value.length;
+
+        // Formatear como dd/MM/yyyy
+        if (value.length > 2) {
+            value = value.slice(0, 2) + '/' + value.slice(2);
+        }
+        if (value.length > 5) {
+            value = value.slice(0, 5) + '/' + value.slice(5);
+        }
+
+        // Limitar la longitud a 10 caracteres (dd/MM/yyyy)
+        if (value.length > 10) {
+            value = value.slice(0, 10);
+        }
+
+        // Establecer el valor formateado en el campo de texto
+        input.value = value;
+
+        // Ajustar la posición del cursor después de la inserción del '/'
+        if (lengthBefore < value.length && (cursorPosition === 3 || cursorPosition === 6)) {
+            cursorPosition++;
+        } else if (lengthBefore > value.length && (cursorPosition === 4 || cursorPosition === 4)) {
+            cursorPosition--;
+        }
+
+        // Restaurar la posición del cursor
+        input.setSelectionRange(cursorPosition, cursorPosition);
+    }
+    </script>
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <img src="Images/logo-tam.png" height="90px" />
+            <h1 class="translation">Tarjeta Andina de Migración (TAM) Virtual</h1>
+        </div>
+        <div class="header-right">
+            <img src="Images/migraciones-logo-small.png" />
+        </div>
+    </header>
+    <div class="container">
+        
+    <form name="aspnetForm" method="post" action="./VerificarTAM" id="aspnetForm">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTk4NDYwMTczNg9kFgJmD2QWAgIDD2QWAgIBD2QWBAIBDxAPFgYeDkRhdGFWYWx1ZUZpZWxkBQtJZERvY3VtZW50bx4NRGF0YVRleHRGaWVsZAULRGVzY3JpcGNpb24eC18hRGF0YUJvdW5kZ2QPFgYCAQICAgMCBAIFAgYWBhAFFENBUk5FIERFIEVYVFJBTkpFUklBBQJDRWcQBRxET0MuIElERU5USUZJQ0FDSU9OIFBFUlNPTkFMBQNDSVBnEAUcQ8OzZGlnbyDDmm5pY28gZGUgRXh0cmFuamVybwUDQ1VFZxAFBUQuTi5JBQNETklnEAUJUEFTQVBPUlRFBQNQQVNnEAUNU0FMVk9DT05EVUNUTwUDU0xWZ2RkAgUPEA8WBh8ABQZJZFBhaXMfAQUGTm9tYnJlHwJnZA8W1AECAQICAgMCBAIFAgYCBwIIAgkCCgILAgwCDQIOAg8CEAIRAhICEwIUAhUCFgIXAhgCGQIaAhsCHAIdAh4CHwIgAiECIgIjAiQCJQImAicCKAIpAioCKwIsAi0CLgIvAjACMQIyAjMCNAI1AjYCNwI4AjkCOgI7AjwCPQI+Aj8CQAJBAkICQwJEAkUCRgJHAkgCSQJKAksCTAJNAk4CTwJQAlECUgJTAlQCVQJWAlcCWAJZAloCWwJcAl0CXgJfAmACYQJiAmMCZAJlAmYCZwJoAmkCagJrAmwCbQJuAm8CcAJxAnICcwJ0AnUCdgJ3AngCeQJ6AnsCfAJ9An4CfwKAAQKBAQKCAQKDAQKEAQKFAQKGAQKHAQKIAQKJAQKKAQKLAQKMAQKNAQKOAQKPAQKQAQKRAQKSAQKTAQKUAQKVAQKWAQKXAQKYAQKZAQKaAQKbAQKcAQKdAQKeAQKfAQKgAQKhAQKiAQKjAQKkAQKlAQKmAQKnAQKoAQKpAQKqAQKrAQKsAQKtAQKuAQKvAQKwAQKxAQKyAQKzAQK0AQK1AQK2AQK3AQK4AQK5AQK6AQK7AQK8AQK9AQK+AQK/AQLAAQLBAQLCAQLDAQLEAQLFAQLGAQLHAQLIAQLJAQLKAQLLAQLMAQLNAQLOAQLPAQLQAQLRAQLSAQLTAQLUARbUARAFC0FGR0hBTklTVEFOBQNBRkdnEAUHQUxCQU5JQQUDQUxCZxAFCEFMRU1BTklBBQNSRkFnEAUHQU5ET1JSQQUDQU5EZxAFBkFOR09MQQUDQU5HZxAFC0FOVC5CQVJCVURBBQNBTlRnEAUTQU5USUxMQVMgSE9MQU5ERVNBUwUDQUhPZxAFCEFQQVRSSURBBQNBUEFnEAUOQVJBQklBIFNBVURJVEEFA0FTQWcQBQdBUkdFTElBBQNBUkxnEAUJQVJHRU5USU5BBQNBUk5nEAUHQVJNRU5JQQUDQVJNZxAFBUFSVUJBBQNBUlVnEAUJQVVTVFJBTElBBQNBVUxnEAUHQVVTVFJJQQUDQVVSZxAFCkFaRVJCQUlZQU4FA0FaUmcQBQdCQUhBTUFTBQNCSE1nEAUHQkFIUkVJTgUDQkFIZxAFCkJBTkdMQURFU0gFA0JBTmcQBQhCQVJCQURPUwUDQkFSZxAFB0JFTEdJQ0EFA0JFTGcQBQZCRUxJQ0UFA0JMQ2cQBQVCRU5JTgUDQkVOZxAFCEJFUk1VREFTBQNCRVJnEAUGQkhVVEFOBQNCVVRnEAULQklFTE9SUlVTSUEFA0JMUmcQBQdCT0xJVklBBQNCT0xnEAUUQk9TTklBIFkgSEVSWkVHT1ZJTkEFA0JPU2cQBQhCT1RTV0FOQQUDQk9UZxAFBkJSQVNJTAUDQlJBZxAFBkJSVU5FSQUDQlJVZxAFCEJVTEdBUklBBQNCVUxnEAUMQlVSS0lOQSBGQVNPBQNCUktnEAUHQlVSVU5ESQUDQlVSZxAFCkNBQk8gVkVSREUFA0NWRWcQBQdDQU1CT1lBBQNDTUJnEAUHQ0FNRVJVTgUDQ01SZxAFBkNBTkFEQQUDQ0FOZxAFBENIQUQFA0NIQWcQBQVDSElMRQUDQ0hMZxAFC0NISU5BIChSLlApBQNDSE5nEAUGQ0hJUFJFBQNDSFBnEAUIQ09MT01CSUEFA0NPTGcQBQ1DT01PUkFTIChJU0wpBQNDT01nEAUFQ09OR08FA0NPTmcQBQ9DT1JFQSBERUwgTk9SVEUFA0NOT2cQBQ1DT1JFQSBERUwgU1VSBQNDU1VnEAUMQ09TVEEgTUFSRklMBQNDTUFnEAUKQ09TVEEgUklDQQUDQ1JJZxAFB0NST0FDSUEFA0NST2cQBQRDVUJBBQNDVUJnEAUHQ1VSQVpBTwUDQ1VSZxAFCURJTkFNQVJDQQUDRElOZxAFCERKSUJPVVRJBQNESklnEAUIRE9NSU5JQ0EFA0RPTWcQBQdFQ1VBRE9SBQNFQ1VnEAUFRUUuVVUFA1VTQWcQBQZFR0lQVE8FA0VHSWcQBQtFTCBTQUxWQURPUgUDU0FMZxAFFEVNSVJBVE9TIEFSQUJFUyBVTklEBQNFQVVnEAUHRVJJVFJFQQUDRVJJZxAFB0VTQ09DSUEFA0VTQ2cQBQpFU0xPVkFRVUlBBQNFU1ZnEAUJRVNMT1ZFTklBBQNFU0xnEAUHRVNQQcORQQUDRVNQZxAFB0VTVE9OSUEFA0VTVGcQBQdFVElPUElBBQNFVElnEAUSRVggUi5ZVUcuTUFDRURPTklBBQNNQUNnEAUERklKSQUDRklKZxAFCUZJTElQSU5BUwUDRklMZxAFCUZJTkxBTkRJQQUDRklOZxAFB0ZSQU5DSUEFA0ZSQWcQBQVHQUJPTgUDR0FCZxAFBkdBTUJJQQUDR0FNZxAFB0dFT1JHSUEFA0dFT2cQBQVHSEFOQQUDR0hBZxAFDUdSQU4gQlJFVEHDkUEFA0dSQmcQBQdHUkFOQURBBQNHUkFnEAUGR1JFQ0lBBQNHUkVnEAULR1JPRU5MQU5ESUEFA0dST2cQBQlHVUFURU1BTEEFA0dVQWcQBQZHVUlORUEFA0dVTmcQBQ1HVUlORUEgQklTU0FVBQNHQklnEAURR1VJTkVBIEVDVUFUT1JJQUwFA0dFQ2cQBQZHVVlBTkEFA0dVWWcQBQ9HVVlBTkEgRlJBTkNFU0EFA0dVRmcQBQVIQUlUSQUDSEFJZxAFB0hPTEFOREEFA0hPTGcQBQhIT05EVVJBUwUDSE9OZxAFCUhPTkcgS09ORwUDSE5LZxAFB0hVTkdSSUEFA0hVTmcQBQVJTkRJQQUDSURJZxAFCUlORE9ORVNJQQUDSURPZxAFCklOR0xBVEVSUkEFA0lOR2cQBQRJUkFOBQNJUk5nEAUESVJBUQUDSVJLZxAFB0lSTEFOREEFA0lSTGcQBQ9JU0xBTkQgTUFSU0hBTEwFA0lTTWcQBQhJU0xBTkRJQQUDSVNMZxAFBklTUkFFTAUDSVNSZxAFBklUQUxJQQUDSVRBZxAFB0pBTUFJQ0EFA0pBTWcQBQVKQVBPTgUDSkFQZxAFCEpPUkRBTklBBQNKT1JnEAUJS0FaQUpTVEFOBQNLQVpnEAUFS0VOSUEFA0tFTmcQBQpLSVJHVUlTVEFOBQNLUkdnEAUIS0lSSUJBVEkFA0tJUmcQBQZLT1NPVk8FA0tPU2cQBQZLVVdBSVQFA0tVV2cQBQRMQU9TBQNMQU9nEAUHTEVTT1RITwUDTEVTZxAFB0xFVE9OSUEFA0xFVGcQBQZMSUJBTk8FA0xCQWcQBQdMSUJFUklBBQNMQkVnEAUFTElCSUEFA0xCSWcQBQ1MSUVDSFRFTlNURUlOBQNMSUVnEAUITElUVUFOSUEFA0xJVGcQBQpMVVhFTUJVUkdPBQNMVVhnEAUFTUFDQU8FA01DVWcQBQpNQURBR0FTQ0FSBQNNQURnEAUHTUFMQVNJQQUDTUxCZxAFBk1BTEFXSQUDTUxXZxAFCE1BTERJVkFTBQNNQUxnEAUETUFMSQUDTUxJZxAFBU1BTFRBBQNNTFRnEAUJTUFSUlVFQ09TBQNNQVJnEAUITUFVUklDSU8FA01BVWcQBQpNQVVSSVRBTklBBQNNQVRnEAUGTUVYSUNPBQNNRVhnEAUKTUlDUk9ORVNJQQUDTUlDZxAFCE1PTERBVklBBQNNTERnEAUGTU9OQUNPBQNNTkNnEAUITU9OR09MSUEFA01OR2cQBQpNT05URU5FR1JPBQNNTkVnEAUKTU9aQU1CSVFVRQUDTU9aZxAFB01ZQU5NQVIFA01ZQWcQBQdOQU1JQklBBQNOQU1nEAUFTkFVUlUFA05BVWcQBQVORVBBTAUDTkVQZxAFCU5JQ0FSQUdVQQUDTklDZxAFBU5JR0VSBQNOR1JnEAUHTklHRVJJQQUDTklBZxAFB05PUlVFR0EFA05PUmcQBQ5OVUVWQSBaRUxBTkRJQQUDTlpFZxAFBE9NQU4FA09NQWcQBQxQQUlTRVMgQkFKT1MFA1BCQWcQBQhQQUtJU1RBTgUDUEFLZxAFBlBBTEFPUwUDUExXZxAFCVBBTEVTVElOQQUDUEFMZxAFBlBBTkFNQQUDUEFOZxAFClBBUFVBIChORykFA1BBUGcQBQhQQVJBR1VBWQUDUEFSZxAFBFBFUlUFA1BFUmcQBRJQT0xJTkVTSUEgRlJBTkNFU0EFA1BZRmcQBQdQT0xPTklBBQNQT0xnEAUIUE9SVFVHQUwFA1BPUmcQBQhQVE8uUklDTwUDUFJJZxAFBVFBVEFSBQNRQVRnEAUPUkVQLiBET01JTklDQU5BBQNSRE9nEAUOUkVQLkNFTlRST0FGUkkFA1JDRWcQBQlSRVAuQ0hFQ0EFA0NIRWcQBQtSRVAuTU9MRE9WQQUDTU9MZxAFH1JFUFVCTElDQSBERU1PQ1JBVElDQSBERUwgQ09OR08FA1JEQ2cQBQdSVU1BTklBBQNSVU1nEAUFUlVTSUEFA1JVU2cQBQZSV0FOREEFA1JXQWcQBQhTQUhBUkFVSQUDRVNIZxAFDFNBTE9NT04gSVNMQQUDSVNBZxAFEFNBTU9BIE9DQ0lERU5UQUwFA1NBTWcQBRZTQU4gQ1JJU1RPQkFMIFkgTklFVkVTBQNTQ05nEAUKU0FOIE1BUklOTwUDU01SZxAFDVNBTiBWSUMuR1JBTkEFA1NWR2cQBQtTQU5UQSBMVUNJQQUDU0xVZxAFB1NFTkVHQUwFA1NFTmcQBQZTRVJCSUEFA1NSQmcQBQpTRVlDSEVMTEVTBQNTRVlnEAUMU0lFUlJBIExFT05BBQNTTEVnEAUIU0lOR0FQVVIFA1NJTmcQBQVTSVJJQQUDU0lSZxAFB1NPTUFMSUEFA1NPTWcQBQlTUkkgTEFOS0EFA1NSSWcQBRNTVE8uVE9NRSBZIFBSSU5DSVBFBQNTVFBnEAUJU1VEQUZSSUNBBQNTQUZnEAUFU1VEQU4FA1NVRGcQBQZTVUVDSUEFA1NVRWcQBQVTVUlaQQUDU1VJZxAFB1NVUklOQU0FA1NVUmcQBQtTV0FaSUxBTkRJQQUDU1dBZxAFCVRBSUxBTkRJQQUDVExEZxAFDFRBSVdBTiAoQ0hOKQUDVFdOZxAFCFRBTlpBTklBBQNUQVpnEAUKVEFZSUtJU1RBTgUDVEFZZxAFDlRJTU9SIE9SSUVOVEFMBQNUTFNnEAUEVE9HTwUDVE9HZxAFBVRPTkdBBQNUT05nEAULVFJJTkkuVE9CQUcFA1RSSWcQBQVUVU5FWgUDVFVOZxAFDFRVUktNRU5JU1RBTgUDVFJLZxAFB1RVUlFVSUEFA1RVUmcQBQZUVVZBTFUFA1RVVmcQBQdVQ1JBTklBBQNVQ1JnEAUGVUdBTkRBBQNVR0FnEAUHVVJVR1VBWQUDVVJVZxAFClVaQkVLSVNUQU4FA1VaQmcQBQdWQU5VQVRVBQNWQU5nEAUIVkFUSUNBTk8FA1ZBVGcQBQlWRU5FWlVFTEEFA1ZFTmcQBQdWSUVUTkFNBQNWSUVnEAUFWUVNRU4FA1lSQWcQBQZaQU1CSUEFA1pBTWcQBQhaSU1CQUJXRQUDWklNZ2RkGAIFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYBBRhjdGwwMCRib2R5cGFnZSRjaGtTYWxpZGEFFWN0bDAwJGJvZHlwYWdlJGNjSm9pbg8FJGY3MWRlMGY0LTM5NTEtNDI5Yi05NTdkLTQyZTg3MjEzOTEyZmQHVVZiGpjwV6sEtTpJ6GRB407gZfpNBWVYIkQRhS+//A==" />
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="7DE6E3D1" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="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" />
+    <script src="Scripts/jsTAM.js" type="text/javascript"></script>
+    <div class="row" style="text-align: left; margin-right: 8px;">
+        Esta página también está&nbsp;<a href="#" id="languageToggle" onclick="toggleLanguage()"
+            class="spaced-link"> Disponible en inglés</a>
+    </div>
+    <div class="row">
+        <div class="col text-content">
+            <h4 class="translation">
+                Descárgala para:</h4>
+            <ul>
+                <li><i class="fa-solid fa-check"></i><span class="translation">Conocer tu permanencia autorizada</span></li>
+                <li><i class="fa-solid fa-check"></i><span class="translation">Acreditar tu ingreso regular al Perú</span></li>
+                <li><i class="fa-solid fa-check"></i><span class="translation">Otros fines en los que sea solicitada</span></li>
+            </ul>
+            <h4 class="translation">
+                Recomendaciones:</h4>
+            <ul>
+                <li><i class="fa-solid fa-check"></i><span class="translation">Ingrese sólo números
+                    y letras (sin puntos ni guiones)</span></li>
+                <li><i class="fa-solid fa-check"></i><span class="translation">En caso de inconvenientes,
+                    reportarlo a</span> <a href="mailto:consultastamvirtual@migraciones.gob.pe" target="_blank">
+                        consultastamvirtual@migraciones.gob.pe</a></li>
+            </ul>
+        </div>
+        <div class="col form-content">
+            <h3 class="translation">
+                Datos del solicitante</h3>
+            <select name="ctl00$bodypage$cboTipoDocumento1" id="ctl00_bodypage_cboTipoDocumento1" class="form-control font-in text-uppercase custom-select translate-options">
+	<option selected="selected" value="-1">Tipo de documento (*)</option>
+	<option value="CE">CARNE DE EXTRANJERIA</option>
+	<option value="CIP">DOC. IDENTIFICACION PERSONAL</option>
+	<option value="CUE">C&#243;digo &#218;nico de Extranjero</option>
+	<option value="DNI">D.N.I</option>
+	<option value="PAS">PASAPORTE</option>
+	<option value="SLV">SALVOCONDUCTO</option>
+
+</select>
+            <input name="ctl00$bodypage$txtNumeroDoc" type="text" id="ctl00_bodypage_txtNumeroDoc" class="form-control font-in text-uppercase translate-placeholder" placeholder="Número de documento (*)" />
+            <select name="ctl00$bodypage$cboPais" id="ctl00_bodypage_cboPais" class="form-control font-in text-uppercase custom-select translate-options">
+	<option selected="selected" value="-1">Nacionalidad (*)</option>
+	<option value="AFG">AFGHANISTAN</option>
+	<option value="ALB">ALBANIA</option>
+	<option value="RFA">ALEMANIA</option>
+	<option value="AND">ANDORRA</option>
+	<option value="ANG">ANGOLA</option>
+	<option value="ANT">ANT.BARBUDA</option>
+	<option value="AHO">ANTILLAS HOLANDESAS</option>
+	<option value="APA">APATRIDA</option>
+	<option value="ASA">ARABIA SAUDITA</option>
+	<option value="ARL">ARGELIA</option>
+	<option value="ARN">ARGENTINA</option>
+	<option value="ARM">ARMENIA</option>
+	<option value="ARU">ARUBA</option>
+	<option value="AUL">AUSTRALIA</option>
+	<option value="AUR">AUSTRIA</option>
+	<option value="AZR">AZERBAIYAN</option>
+	<option value="BHM">BAHAMAS</option>
+	<option value="BAH">BAHREIN</option>
+	<option value="BAN">BANGLADESH</option>
+	<option value="BAR">BARBADOS</option>
+	<option value="BEL">BELGICA</option>
+	<option value="BLC">BELICE</option>
+	<option value="BEN">BENIN</option>
+	<option value="BER">BERMUDAS</option>
+	<option value="BUT">BHUTAN</option>
+	<option value="BLR">BIELORRUSIA</option>
+	<option value="BOL">BOLIVIA</option>
+	<option value="BOS">BOSNIA Y HERZEGOVINA</option>
+	<option value="BOT">BOTSWANA</option>
+	<option value="BRA">BRASIL</option>
+	<option value="BRU">BRUNEI</option>
+	<option value="BUL">BULGARIA</option>
+	<option value="BRK">BURKINA FASO</option>
+	<option value="BUR">BURUNDI</option>
+	<option value="CVE">CABO VERDE</option>
+	<option value="CMB">CAMBOYA</option>
+	<option value="CMR">CAMERUN</option>
+	<option value="CAN">CANADA</option>
+	<option value="CHA">CHAD</option>
+	<option value="CHL">CHILE</option>
+	<option value="CHN">CHINA (R.P)</option>
+	<option value="CHP">CHIPRE</option>
+	<option value="COL">COLOMBIA</option>
+	<option value="COM">COMORAS (ISL)</option>
+	<option value="CON">CONGO</option>
+	<option value="CNO">COREA DEL NORTE</option>
+	<option value="CSU">COREA DEL SUR</option>
+	<option value="CMA">COSTA MARFIL</option>
+	<option value="CRI">COSTA RICA</option>
+	<option value="CRO">CROACIA</option>
+	<option value="CUB">CUBA</option>
+	<option value="CUR">CURAZAO</option>
+	<option value="DIN">DINAMARCA</option>
+	<option value="DJI">DJIBOUTI</option>
+	<option value="DOM">DOMINICA</option>
+	<option value="ECU">ECUADOR</option>
+	<option value="USA">EE.UU</option>
+	<option value="EGI">EGIPTO</option>
+	<option value="SAL">EL SALVADOR</option>
+	<option value="EAU">EMIRATOS ARABES UNID</option>
+	<option value="ERI">ERITREA</option>
+	<option value="ESC">ESCOCIA</option>
+	<option value="ESV">ESLOVAQUIA</option>
+	<option value="ESL">ESLOVENIA</option>
+	<option value="ESP">ESPA&#209;A</option>
+	<option value="EST">ESTONIA</option>
+	<option value="ETI">ETIOPIA</option>
+	<option value="MAC">EX R.YUG.MACEDONIA</option>
+	<option value="FIJ">FIJI</option>
+	<option value="FIL">FILIPINAS</option>
+	<option value="FIN">FINLANDIA</option>
+	<option value="FRA">FRANCIA</option>
+	<option value="GAB">GABON</option>
+	<option value="GAM">GAMBIA</option>
+	<option value="GEO">GEORGIA</option>
+	<option value="GHA">GHANA</option>
+	<option value="GRB">GRAN BRETA&#209;A</option>
+	<option value="GRA">GRANADA</option>
+	<option value="GRE">GRECIA</option>
+	<option value="GRO">GROENLANDIA</option>
+	<option value="GUA">GUATEMALA</option>
+	<option value="GUN">GUINEA</option>
+	<option value="GBI">GUINEA BISSAU</option>
+	<option value="GEC">GUINEA ECUATORIAL</option>
+	<option value="GUY">GUYANA</option>
+	<option value="GUF">GUYANA FRANCESA</option>
+	<option value="HAI">HAITI</option>
+	<option value="HOL">HOLANDA</option>
+	<option value="HON">HONDURAS</option>
+	<option value="HNK">HONG KONG</option>
+	<option value="HUN">HUNGRIA</option>
+	<option value="IDI">INDIA</option>
+	<option value="IDO">INDONESIA</option>
+	<option value="ING">INGLATERRA</option>
+	<option value="IRN">IRAN</option>
+	<option value="IRK">IRAQ</option>
+	<option value="IRL">IRLANDA</option>
+	<option value="ISM">ISLAND MARSHALL</option>
+	<option value="ISL">ISLANDIA</option>
+	<option value="ISR">ISRAEL</option>
+	<option value="ITA">ITALIA</option>
+	<option value="JAM">JAMAICA</option>
+	<option value="JAP">JAPON</option>
+	<option value="JOR">JORDANIA</option>
+	<option value="KAZ">KAZAJSTAN</option>
+	<option value="KEN">KENIA</option>
+	<option value="KRG">KIRGUISTAN</option>
+	<option value="KIR">KIRIBATI</option>
+	<option value="KOS">KOSOVO</option>
+	<option value="KUW">KUWAIT</option>
+	<option value="LAO">LAOS</option>
+	<option value="LES">LESOTHO</option>
+	<option value="LET">LETONIA</option>
+	<option value="LBA">LIBANO</option>
+	<option value="LBE">LIBERIA</option>
+	<option value="LBI">LIBIA</option>
+	<option value="LIE">LIECHTENSTEIN</option>
+	<option value="LIT">LITUANIA</option>
+	<option value="LUX">LUXEMBURGO</option>
+	<option value="MCU">MACAO</option>
+	<option value="MAD">MADAGASCAR</option>
+	<option value="MLB">MALASIA</option>
+	<option value="MLW">MALAWI</option>
+	<option value="MAL">MALDIVAS</option>
+	<option value="MLI">MALI</option>
+	<option value="MLT">MALTA</option>
+	<option value="MAR">MARRUECOS</option>
+	<option value="MAU">MAURICIO</option>
+	<option value="MAT">MAURITANIA</option>
+	<option value="MEX">MEXICO</option>
+	<option value="MIC">MICRONESIA</option>
+	<option value="MLD">MOLDAVIA</option>
+	<option value="MNC">MONACO</option>
+	<option value="MNG">MONGOLIA</option>
+	<option value="MNE">MONTENEGRO</option>
+	<option value="MOZ">MOZAMBIQUE</option>
+	<option value="MYA">MYANMAR</option>
+	<option value="NAM">NAMIBIA</option>
+	<option value="NAU">NAURU</option>
+	<option value="NEP">NEPAL</option>
+	<option value="NIC">NICARAGUA</option>
+	<option value="NGR">NIGER</option>
+	<option value="NIA">NIGERIA</option>
+	<option value="NOR">NORUEGA</option>
+	<option value="NZE">NUEVA ZELANDIA</option>
+	<option value="OMA">OMAN</option>
+	<option value="PBA">PAISES BAJOS</option>
+	<option value="PAK">PAKISTAN</option>
+	<option value="PLW">PALAOS</option>
+	<option value="PAL">PALESTINA</option>
+	<option value="PAN">PANAMA</option>
+	<option value="PAP">PAPUA (NG)</option>
+	<option value="PAR">PARAGUAY</option>
+	<option value="PER">PERU</option>
+	<option value="PYF">POLINESIA FRANCESA</option>
+	<option value="POL">POLONIA</option>
+	<option value="POR">PORTUGAL</option>
+	<option value="PRI">PTO.RICO</option>
+	<option value="QAT">QATAR</option>
+	<option value="RDO">REP. DOMINICANA</option>
+	<option value="RCE">REP.CENTROAFRI</option>
+	<option value="CHE">REP.CHECA</option>
+	<option value="MOL">REP.MOLDOVA</option>
+	<option value="RDC">REPUBLICA DEMOCRATICA DEL CONGO</option>
+	<option value="RUM">RUMANIA</option>
+	<option value="RUS">RUSIA</option>
+	<option value="RWA">RWANDA</option>
+	<option value="ESH">SAHARAUI</option>
+	<option value="ISA">SALOMON ISLA</option>
+	<option value="SAM">SAMOA OCCIDENTAL</option>
+	<option value="SCN">SAN CRISTOBAL Y NIEVES</option>
+	<option value="SMR">SAN MARINO</option>
+	<option value="SVG">SAN VIC.GRANA</option>
+	<option value="SLU">SANTA LUCIA</option>
+	<option value="SEN">SENEGAL</option>
+	<option value="SRB">SERBIA</option>
+	<option value="SEY">SEYCHELLES</option>
+	<option value="SLE">SIERRA LEONA</option>
+	<option value="SIN">SINGAPUR</option>
+	<option value="SIR">SIRIA</option>
+	<option value="SOM">SOMALIA</option>
+	<option value="SRI">SRI LANKA</option>
+	<option value="STP">STO.TOME Y PRINCIPE</option>
+	<option value="SAF">SUDAFRICA</option>
+	<option value="SUD">SUDAN</option>
+	<option value="SUE">SUECIA</option>
+	<option value="SUI">SUIZA</option>
+	<option value="SUR">SURINAM</option>
+	<option value="SWA">SWAZILANDIA</option>
+	<option value="TLD">TAILANDIA</option>
+	<option value="TWN">TAIWAN (CHN)</option>
+	<option value="TAZ">TANZANIA</option>
+	<option value="TAY">TAYIKISTAN</option>
+	<option value="TLS">TIMOR ORIENTAL</option>
+	<option value="TOG">TOGO</option>
+	<option value="TON">TONGA</option>
+	<option value="TRI">TRINI.TOBAG</option>
+	<option value="TUN">TUNEZ</option>
+	<option value="TRK">TURKMENISTAN</option>
+	<option value="TUR">TURQUIA</option>
+	<option value="TUV">TUVALU</option>
+	<option value="UCR">UCRANIA</option>
+	<option value="UGA">UGANDA</option>
+	<option value="URU">URUGUAY</option>
+	<option value="UZB">UZBEKISTAN</option>
+	<option value="VAN">VANUATU</option>
+	<option value="VAT">VATICANO</option>
+	<option value="VEN">VENEZUELA</option>
+	<option value="VIE">VIETNAM</option>
+	<option value="YRA">YEMEN</option>
+	<option value="ZAM">ZAMBIA</option>
+	<option value="ZIM">ZIMBABWE</option>
+
+</select>
+            <input name="ctl00$bodypage$txtFechaViaje" type="text" id="ctl00_bodypage_txtFechaViaje" class="form-control font-in text-uppercase translate-placeholder" placeholder="Fecha de llegada o salida (*)" oninput="formatInput(this)" onkeydown="handleBackspace(this, event)" />
+            <span Class="font-in text-uppercase custom-checkbox"><input id="ctl00_bodypage_chkSalida" type="checkbox" name="ctl00$bodypage$chkSalida" /><label for="ctl00_bodypage_chkSalida">TAM Virtual de Salida</label></span>
+            <div style='border-width:1px;border-style:Solid;border-color:GrayText;background-color:WhiteSmoke;'><img src="CaptchaImage.axd?guid=f71de0f4-3951-429b-957d-42e87213912f" border='0' width=200 height=60></div>
+            <input name="ctl00$bodypage$txtvalidator" type="text" maxlength="5" id="ctl00_bodypage_txtvalidator" class="form-control font-in text-uppercase translate-placeholder" placeholder="Ingresar caracteres (*)" onpaste="return false" />
+            <div class="custom-buttons">
+                <input type="submit" name="ctl00$bodypage$btnVerificar" value="Verificar" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$bodypage$btnVerificar&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="ctl00_bodypage_btnVerificar" class="translation" style="margin-right: 10px;" />
+                <input type="submit" name="ctl00$bodypage$btnLimpiar" value="Limpiar" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$bodypage$btnLimpiar&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="ctl00_bodypage_btnLimpiar" class="translation" />
+            </div>
+            <span id="ctl00_bodypage_lblObligatorio" class="translation etiqueta">(*) Campos obligatorios</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col result-content">
+            <h4 class="translation">
+                Resultados de búsqueda</h4>
+            <div class="alerta" style="text-align: center;">
+                
+                <br />
+                
+            </div>
+        </div>
+    </div>
+    
+    <div id="fade" class="overlay" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">
+    </div>
+    <div id="light" class="modal">
+        <div class="msg-titulo">
+            <div id="msg-titulo">
+            </div>
+        </div>
+        <div class="msg-contenido">
+            <div id="msg-contenido">
+            </div>
+        </div>
+        <div class="msg-pie">
+            <div id="msg-pie">
+                <div id="msg-boton" onclick="cerrar();">
+                    Aceptar</div>
+                <input type="hidden" id="txt_opcion" name="txt_opcion" />
+            </div>
+        </div>
+    </div>
+    </form>
+    <script>
+        var translationsToEnglish = {
+            "Descárgala para:": "Download it to:",
+            "Conocer tu permanencia autorizada": "Know your authorized stay",
+            "Acreditar tu ingreso regular al Perú": "Provide your regular entry to Peru",
+            "Otros fines en los que sea solicitada": "Other purposes for which it is requested",
+            "Recomendaciones:": "Recommendations:",
+            "Ingrese sólo números y letras (sin puntos ni guiones)": "Enter only numbers and letters (no periods or dashes)",
+            "En caso de inconvenientes, reportarlo a": "In case of inconvenience, report it to",
+            "Datos del solicitante": "Applicant details",
+            "Tipo de documento (*)": "Document type (*)",
+            "Número de documento (*)": "Document number (*)",
+            "Nacionalidad (*)": "Nationality (*)",
+            "Fecha de llegada o salida (*)": "Arrival or departure date (*)",
+            "TAM Virtual de Salida": "Virtual Output TAM",
+            "Ingresar caracteres (*)": "Enter characters (*)",
+            "Verificar": "Check",
+            "Limpiar": "Clear",
+            "(*) Campos obligatorios": "(*) Required fields",
+            "Resultados de búsqueda": "Search results",
+            "Descargar tam": "Download TAM",
+            "Tarjeta Andina de Migración (TAM) Virtual": "Andean Migration Card (TAM) Virtual"
+        };
+
+        var translationsToSpanish = {
+            "Download it to:": "Descárgala para:",
+            "Know your authorized stay": "Conocer tu permanencia autorizada",
+            "Provide your regular entry to Peru": "Acreditar tu ingreso regular al Perú",
+            "Other purposes for which it is requested": "Otros fines en los que sea solicitada",
+            "Recommendations:": "Recomendaciones:",
+            "Enter only numbers and letters (no periods or dashes)": "Ingrese sólo números y letras (sin puntos ni guiones)",
+            "In case of inconvenience, report it to": "En caso de inconvenientes, reportarlo a",
+            "Applicant details": "Datos del solicitante",
+            "Document type (*)": "Tipo de documento (*)",
+            "Document number (*)": "Número de documento (*)",
+            "Nationality (*)": "Nacionalidad (*)",
+            "Arrival or departure date (*)": "Fecha de llegada o salida (*)",
+            "Virtual Output TAM": "TAM Virtual de Salida",
+            "Enter characters (*)": "Ingresar caracteres (*)",
+            "Check": "Verificar",
+            "Clear": "Limpiar",
+            "(*) Required fields": "(*) Campos obligatorios",
+            "Search results": "Resultados de búsqueda",
+            "Download TAM": "Descargar tam",
+            "Andean Migration Card (TAM) Virtual": "Tarjeta Andina de Migración (TAM) Virtual"
+        };
+
+        function translateText(language) {
+            var translations = (language === 'english') ? translationsToEnglish : translationsToSpanish;
+
+            // Seleccionar todos los elementos con la clase 'translation'
+            var elements = document.querySelectorAll('.translation');
+
+            elements.forEach(function (element) {
+                var text = element.innerText.trim(); // Obtener el texto sin espacios adicionales
+
+                // Intentar obtener la traducción exacta
+                if (translations[text]) {
+                    element.innerText = translations[text];
+                } else {
+                    // Intentar capitalizar la primera letra y buscar nuevamente
+                    var capitalizedText = text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
+                    if (translations[capitalizedText]) {
+                        element.innerText = translations[capitalizedText];
+                    } else {
+                        // Convertir el texto a minúsculas para búsqueda inicial
+                        var lowerCaseText = text.toLowerCase();
+                        if (translations[lowerCaseText]) {
+                            element.innerText = translations[lowerCaseText];
+                        } else {
+                            // Si no se encuentra ninguna traducción, mantener el texto original
+                            console.log('No se encontró traducción para: ' + text);
+                        }
+                    }
+                }
+            });
+
+
+
+            //traducir botones
+            var cboTipoDocumento = document.querySelector('[id$="cboTipoDocumento1"]');
+            if (cboTipoDocumento) {
+                var options = cboTipoDocumento.options;
+                    var optionText = options[0].textContent.trim();
+                    if (translations[optionText]) {
+                        options[0].textContent = translations[optionText];
+                    }
+                
+            }
+            var cboPais_ = document.querySelector('[id$="cboPais"]');
+            if (cboPais_) {
+                var options = cboPais_.options;
+                    var optionText = options[0].textContent.trim();
+                    if (translations[optionText]) {
+                        options[0].textContent = translations[optionText];
+                    }
+                
+            }
+
+                //placeholder
+                var inputNumeroDoc = document.querySelector('[id$="txtNumeroDoc"]');
+                if (inputNumeroDoc) {
+                    var placeholderText = inputNumeroDoc.getAttribute('placeholder').trim();
+                    if (translations[placeholderText]) {
+                        inputNumeroDoc.setAttribute('placeholder', translations[placeholderText]);
+                    }
+                }
+
+                var inputFechaLLegada = document.querySelector('[id$="txtFechaViaje"]');
+                if (inputFechaLLegada) {
+                    var placeholderText = inputFechaLLegada.getAttribute('placeholder').trim();
+                    if (translations[placeholderText]) {
+                        inputFechaLLegada.setAttribute('placeholder', translations[placeholderText]);
+                    }
+                }
+
+                var inputValidator = document.querySelector('[id$="txtvalidator"]');
+                if (inputValidator) {
+                    var placeholderText = inputValidator.getAttribute('placeholder').trim();
+                    if (translations[placeholderText]) {
+                        inputValidator.setAttribute('placeholder', translations[placeholderText]);
+                    }
+                }
+
+                var labelElement = document.querySelector('label[for="ctl00_bodypage_chkSalida"]');
+                if (labelElement) {
+                    var labelText = labelElement.textContent.trim();
+                    if (translations[labelText]) {
+                        labelElement.textContent = translations[labelText];
+                    }
+                }
+
+
+//                var h1Element = document.querySelector('.translation');
+//                if (h1Element) {
+//                    var text = h1Element.textContent.trim();
+//                    if (translations[text]) {
+//                        h1Element.textContent = translations[text];
+//                    }
+//                }
+
+            // Traducir el texto de los botones si están presentes
+            var verifyButton = document.querySelector('[id$="btnVerificar"]');
+            var clearButton = document.querySelector('[id$="btnLimpiar"]');
+
+            if (verifyButton) {
+                var verifyButtonText = verifyButton.getAttribute('value').trim();
+                if (translations[verifyButtonText]) {
+                    verifyButton.setAttribute('value', translations[verifyButtonText]);
+                }
+            }
+
+            if (clearButton) {
+                var clearButtonText = clearButton.getAttribute('value').trim();
+                if (translations[clearButtonText]) {
+                    clearButton.setAttribute('value', translations[clearButtonText]);
+                }
+            }
+        }
+
+        function toggleLanguage() {
+            var currentLanguage = document.documentElement.lang;
+            var newLanguage = (currentLanguage === 'en') ? 'es' : 'en';
+            document.documentElement.lang = newLanguage;
+
+
+            // Cambiar el texto del enlace
+            var link = document.getElementById('languageToggle');
+            link.innerText = (newLanguage === 'en') ? 'Disponible en español' : 'Disponible en inglés';
+
+            translateText(newLanguage === 'en' ? 'english' : 'spanish');
+        }
+    </script>
+        
+    </div>
+    <footer>
+        <p>
+            Superintendencia Nacional de Migraciones © Todos los derechos reservados<br />
+            Av. España Nº 734 - Breña - Lima | Central Telefónica 2001000 | Fax Virtual 2001001
+        </p>
+    </footer>
+
+</body>
+</html>

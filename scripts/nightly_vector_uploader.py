@@ -6,22 +6,25 @@ import time
 import requests
 from pathlib import Path
 from dotenv import load_dotenv
+import uuid
 
-# Supabase Client
-from supabase import create_client, Client
+from qdrant_client import QdrantClient
+from qdrant_client.http.models import Distance, VectorParams, PointStruct
 
-def init_supabase():
-    load_dotenv()
+QDRANT_URL = "http://127.0.0.1:6333"
+COLLECTION = "Lifextreme_Knowledge"
+TENANT_ID = "lifextreme"
+
+def init_qdrant():
+    qclient = QdrantClient(url=QDRANT_URL)
     
-    # Init Supabase
-    supabase_url = os.getenv("SUPABASE_URL")
-    supabase_key = os.getenv("SUPABASE_KEY")
-    if not supabase_url or not supabase_key:
-        print("[-] Faltan credenciales de Supabase en el .env")
-        sys.exit(1)
-    
-    supabase: Client = create_client(supabase_url, supabase_key)
-    return supabase
+    if not qclient.collection_exists(COLLECTION):
+        print(f"[*] Colección {COLLECTION} no existe, creándola...")
+        qclient.create_collection(
+            collection_name=COLLECTION,
+            vectors_config=VectorParams(size=768, distance=Distance.COSINE),
+        )
+    return qclient
 
 def get_peru_tourism_jsons():
     base_dir = Path("data/knowledge/peru")
@@ -88,10 +91,10 @@ def generate_local_embeddings(texts):
 def main():
     sys.stdout.reconfigure(encoding='utf-8')
     print("===================================================================")
-    print(" >>> INICIANDO MOTOR DE INGESTA A SUPABASE (LOCAL OLLAMA + PERÚ) ")
+    print(" >>> INICIANDO MOTOR DE INGESTA A QDRANT LOCAL (OLLAMA + PERÚ) ")
     print("===================================================================")
     
-    supabase = init_supabase()
+    qclient = init_qdrant()
     
     print("[+] Escaneando Módulos B2C (JSONs) de PERÚ...")
     all_files = get_peru_tourism_jsons()
@@ -108,7 +111,7 @@ def main():
         print("[-] No hay datos para subir. Saliendo.")
         sys.exit(0)
         
-    print("[+] Generando Embeddings (LOCAL OLLAMA) y subiendo a Supabase...")
+    print("[+] Generando Embeddings (LOCAL OLLAMA) y subiendo a QDRANT...")
     
     # Procesar de a 50 textos para no saturar la memoria RAM local
     BATCH_SIZE = 50
@@ -125,25 +128,36 @@ def main():
             # 1. Generar vectores matemáticos (Ollama local)
             embeddings = generate_local_embeddings(texts)
             
-            # 2. Preparar payload para Supabase
-            supabase_records = []
+            # 2. Preparar payload para Qdrant
+            points = []
             for idx, emb in enumerate(embeddings):
                 record = batch[idx]
-                record["embedding"] = emb
-                supabase_records.append(record)
+                vector_uuid = str(uuid.uuid5(uuid.NAMESPACE_DNS, record["vector_id"]))
                 
-            # 3. Insertar en Supabase
-            res = supabase.table("knowledge_vectors").upsert(supabase_records, on_conflict="vector_id").execute()
+                # Adding tenant_id for multitenancy
+                record["tenant_id"] = TENANT_ID
+                
+                points.append(PointStruct(
+                    id=vector_uuid,
+                    vector=emb,
+                    payload=record
+                ))
+                
+            # 3. Insertar en Qdrant
+            qclient.upsert(
+                collection_name=COLLECTION,
+                points=points
+            )
             
-            vectores_subidos += len(supabase_records)
+            vectores_subidos += len(points)
             
         except Exception as e:
             print(f"    [-] Error en el lote {i//BATCH_SIZE + 1}: {e}")
             time.sleep(2)
             
     print("===================================================================")
-    print(f" ✅ INGESTA A SUPABASE COMPLETADA (USANDO OLLAMA LOCAL).")
-    print(f" ✅ Total Vectores Guardados en Supabase: {vectores_subidos}")
+    print(f" ✅ INGESTA A QDRANT COMPLETADA (USANDO OLLAMA LOCAL).")
+    print(f" ✅ Total Vectores Guardados en Qdrant: {vectores_subidos}")
     print("===================================================================")
 
 if __name__ == "__main__":

@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="es-PE">
+<head>
+    
+    <title>Turismo In - No disponible</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/x-icon" href="https://www.promperu.gob.pe/TurismoIn/Images/promperu-favicon.png">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="PROMPERÚ">
+    <meta property="og:locale" content="es_PE" />
+    <meta property="og:site_name" content="PROMPERÚ TurismoIn" />
+    <meta name="twitter:site" content="PROMPERÚ TurismoIn" />
+
+    <style>
+
+      
+
+        @-moz-document url-prefix() {
+            select {
+                font-family: "Arial Narrow" !important;
+                font-weight: bold !important;
+            }
+        }
+    </style>
+
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet">
+    <script type="text/javascript">
+        var urlRaiz = "https://www.promperu.gob.pe/TurismoIn";
+    </script>
+    <!-- Css Boostrap -->
+    <link href="/TurismoIN/Content/bootstrap.min.css" rel="stylesheet"/>
+<link href="/TurismoIN/Content/fontawesome/css/all.css" rel="stylesheet"/>
+<link href="/TurismoIN/Content/hamburgers.min.css" rel="stylesheet"/>
+<link href="/TurismoIN/Content/slick/slick.css" rel="stylesheet"/>
+<link href="/TurismoIN/Content/slick/slick-theme.css" rel="stylesheet"/>
+<link href="/TurismoIN/Content/slick/slick-lightbox.css" rel="stylesheet"/>
+
+
+
+
+    <!-- Css styles -->
+        <link rel="stylesheet" href="/TurismoIN/Content/actualidad.css?v=1.10" />
+
+    <link rel="stylesheet" href="/TurismoIN/Content/style.css?v=1.10" />
+    <style>
+        #lnkReenviarCorreoConfirmacion {
+            color: darkblue;
+            cursor: pointer;
+        }
+
+        .backdropModal {
+            position: fixed;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 9999999998;
+            background-color: rgb(0,0,0,0.2);
+        }
+
+        .loader {
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #C4122F;
+            border-bottom: 16px solid #C4122F;
+            width: 120px;
+            height: 120px;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+            margin: auto;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            position: fixed;
+            z-index: 9999999999;
+        }
+
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+
+        .toast-error {
+            background-color: #BD362F !important;
+        }
+
+        .toast-success {
+            background-color: #51A351 !important;
+        }
+    </style>
+
+
+    <script src="https://www.google.com/recaptcha/api.js" async="async" defer="defer"></script>
+    <script>
+        window.addEventListener('load', function () {
+            //redirectBoletin();
+            var MIni_Html = $("#divMIni").data("html");
+            $("#divMIni").append(MIni_Html);
+        });
+
+        function redirectBoletin() {
+            var error = $('#msg_error').data('error');
+            if (error == 1) {
+                console.log("se detecto error");
+
+                const url = window.location.search;
+                const urlParams = new URLSearchParams(url);
+
+                if (urlParams.has('boletin') == true) {
+                    console.log("Existe param boletin");
+                    if (urlParams.has('pagina') == false) {
+                        console.log("No Existe param pagina");
+                        var redirect = url + "&pagina=1";
+                        console.log("redirigiendo a :"+redirect);
+                        window.location.href = redirect;
+                    }
+                }
+
+            } else {
+                console.log("No capturo error");
+            }
+        }
+
+        var client;
+        var vPayLoad;
+
+        
+
+        function validacionRegistro() {
+            console.log("validacion de registro en curso");
+            alert("Espere un momento! \n Validando Informacion ...");
+        }
+        function validacionLogin() {
+            console.log("validacion de login en ");
+            alert(" Un momento! \n Validando Credenciales ...");
+        }
+        function statusChangeCallback(response) {
+            if (response.status === 'connected') {
+            }
+        }
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4SVES8RR8N"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-4SVES8RR8N');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start':
+                    new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-KHL48LT');
+    </script>
+    <!-- End Google Tag Manager -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KHL48LT" height="0" width="0" style="display: none; visibility: hidden"></iframe>
+    </noscript>
+
+
+    <input type="hidden" name="name" value="" id="hdUrlActual" />
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Start Header 1,2,3-->
+
+
+
+<style>
+    #btnWhatsAppHome {
+        /*display: none;*/
+        position: fixed;
+        bottom: 20px;
+        right: 30px;
+        z-index: 99;
+        font-size: 18px;
+        border: none;
+        outline: none;
+        background-color: #0DBE43;
+        color: white;
+        cursor: pointer;
+        padding: 2px;
+        border-radius: 50px;
+    }
+
+        #btnWhatsAppHome img {
+            width: 70px;
+        }
+
+        #btnWhatsAppHome:hover {
+            background-color: white;
+        }
+</style>
+<div class="header">
+
+        <div id="btnWhatsAppHome" title="Escríbenos a nuestro WhatsApp">
+            <img src="/TurismoIN/Images/WhatsAppHome.png" alt="Inicio">
+        </div>
+
+
+
+    <!-- Start Header 1 -->
+    <!-- End Header 1 -->
+    <!-- Start Header 2 -->
+    <nav class="navbar navbar-expand-lg header-2" aria-label="Navbar">
+        <div class="container-lg">
+            <div class="d-flex align-items-center justify-content-center">
+                <button class="navbar-toggler hamburger hamburger--squeeze js-hamburger" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false"
+                        aria-label="Toggle navigation">
+
+                    <div class="hamburger-box">
+                        <div class="hamburger-inner"></div>
+                    </div>
+
+                </button>
+                <div class="logos">
+                    <img src="/TurismoIN/Images/promperu.png" id="promperu">
+                    <a href="https://www.promperu.gob.pe/turismoin">
+                        <img src="/TurismoIN/Images/turismoin.png" id="turismoin">
+                    </a>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center">
+                <div class="search">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSearch"
+                            aria-controls="navbarSearch" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div class="user">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarUser"
+                            aria-controls="navbarUser" aria-expanded="false" aria-label="Toggle navigation">
+                        <div class="avatar">
+                            <p>LP</p>
+                        </div>
+                        <div class="login">
+                            <a href="#"><img src="/TurismoIN/Images/login.png" width="18" height="18" alt="login-icon"></a>
+                        </div>
+                    </button>
+                </div>
+
+
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbarSearch">
+                <form class="w-100 me-3 " action="https://www.promperu.gob.pe/TurismoIn/Buscador" style="display:flex; flex-direction:row">
+                    <input type="search" class="form-control icon" placeholder="¿Qué estás buscando?" aria-label="Search" name="q" id="q" autocomplete="off">
+                </form>
+            </div>
+            <div class="collapse navbar-collapse" id="">
+            </div>
+
+                <div class="collapse navbar-collapse" id="navbarUser">
+                    <div class="login">
+                        <div class="registrate"><img src="/TurismoIN/Images/registrate.png" width="18" height="17" alt="registrate-icon"> Reg&iacute;strate</div>
+                        <div class="logeate"><img src="/TurismoIN/Images/login.png" width="18" height="18" alt="login-icon"> Iniciar sesión</div>
+                    </div>
+                </div>
+        </div>
+        <div class="collapse" id="buscador">
+            <div class="buscador-content">
+                <div class="buscador-result" id="ContentBuscadorPalabras">
+
+                </div>
+                <div class="buscador-other">
+                    <p>Otras opciones para ti</p>
+                    <ul class="list-btn">
+                            <li><a href="https://www.promperu.gob.pe/TurismoIn/Buscador?q=vacacionista nacional">vacacionista nacional</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- End Header 2 -->
+    <!-- Start Header 3 -->
+
+    <nav class="navbar navbar-expand-lg header-3" aria-label="Navbar">
+        <div class="container position-relative">
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <div class="d-flex d-lg-none nav-item" id="navbaraulavirtual">
+                    <img src="/TurismoIN/Images/navbaraulavirtual.png" />
+                    <a href="https://aulavirtualturismo.promperu.gob.pe/" target="_blank">Aula virtual</a>
+                </div>
+
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                    <a class="nav-link nav-main " aria-current="page" href="https://www.promperu.gob.pe/TurismoIn/" id="Inicio">Inicio</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link nav-main dropdown-toggle " href="#" id="Cifrasyreportes" data-bs-toggle="dropdown"
+                                   aria-expanded="false">Cifras y reportes</a>
+                                <div class="dropdown-menu">
+                                    <ul class="nav nav-tabs" id="nav-Ayudas" role="tablist">
+
+
+                                                <li class="nav-item" role="presentation">
+                                                    <a class="nav-link  nav-submenu-click" id="2-tab" href="https://www.promperu.gob.pe/TurismoIn/Cifras"
+                                                       title="Ir a Cifras">
+                                                        <div class="nav-link-item Cifras">
+                                                            <div class="icon">
+                                                                <img src="https://www.promperu.gob.pe/TurismoIn/archivos/Iconos/cifras.png" alt="Cifras" width="30px" />
+                                                            </div>
+                                                            <div class="title">
+                                                                
+                                                                    <p>Cifras<span>Accede a estad&#237;sticas tur&#237;sticas mundiales</span></p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item" role="presentation">
+                                                    <a class="nav-link  nav-submenu-click" id="2-tab" href="https://www.promperu.gob.pe/TurismoIn/Reportes"
+                                                       title="Ir a Reportes">
+                                                        <div class="nav-link-item Reportes">
+                                                            <div class="icon">
+                                                                <img src="https://www.promperu.gob.pe/TurismoIn/archivos/Iconos/reportes.png" alt="Reportes" width="30px" />
+                                                            </div>
+                                                            <div class="title">
+                                                                
+                                                                    <p>Reportes<span>Descubre las &#250;ltimas tendencias del sector</span></p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                    <a class="nav-link nav-main " aria-current="page" href="https://www.promperu.gob.pe/TurismoIn/Boletines" id="Boletines">Boletines</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link nav-main dropdown-toggle " href="#" id="Formacióncomercial" data-bs-toggle="dropdown"
+                                   aria-expanded="false">Formación comercial</a>
+                                <div class="dropdown-menu">
+                                    <ul class="nav nav-tabs" id="nav-Ayudas" role="tablist">
+
+
+                                                <li class="nav-item" role="presentation">
+                                                    <a class="nav-link  nav-submenu-click" id="4-tab" href="https://www.promperu.gob.pe/TurismoIn/Capacitaciones#aulavirtualdeturismo_6"
+                                                       title="Ir a Aula Virtual de Turismo">
+                                                        <div class="nav-link-item Aula Virtual de Turismo">
+                                                            <div class="icon">
+                                                                <img src="https://www.promperu.gob.pe/TurismoIn/archivos/Iconos/empresarios.png" alt="Aula Virtual de Turismo" width="30px" />
+                                                            </div>
+                                                            <div class="title">
+                                                                
+                                                                    <p>Aula Virtual de Turismo<span>Capac&#237;tate con los contenidos que tenemos para t&#237;</span></p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item" role="presentation">
+                                                    <a class="nav-link  nav-submenu-click" id="4-tab" href="https://www.promperu.gob.pe/TurismoIn/Capacitaciones#programacomercial_8_8_8_8"
+                                                       title="Ir a Programa comercial para empresas tur&#237;sticas">
+                                                        <div class="nav-link-item Programa comercial para empresas tur&#237;sticas">
+                                                            <div class="icon">
+                                                                <img src="https://www.promperu.gob.pe/TurismoIn/archivos/Iconos/aula-virtual.png" alt="Programa comercial para empresas tur&#237;sticas" width="30px" />
+                                                            </div>
+                                                            <div class="title">
+                                                                
+                                                                    <p>Programa comercial para empresas tur&#237;sticas<span>Fortalece tus competencias con m&#243;dulos exclusivos</span></p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item" role="presentation">
+                                                    <a class="nav-link  nav-submenu-click" id="4-tab" href="https://www.promperu.gob.pe/TurismoIn/Capacitaciones#turismoinday"
+                                                       title="Ir a Turismo In Day">
+                                                        <div class="nav-link-item Turismo In Day">
+                                                            <div class="icon">
+                                                                <img src="https://www.promperu.gob.pe/TurismoIn/archivos/Iconos/TID.png" alt="Turismo In Day" width="30px" />
+                                                            </div>
+                                                            <div class="title">
+                                                                
+                                                                    <p>Turismo In Day<span>Esp&#233;ranos en la siguiente edici&#243;n de julio 2026</span></p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item" role="presentation">
+                                                    <a class="nav-link  nav-submenu-click" id="4-tab" href="https://www.promperu.gob.pe/TurismoIn/Capacitaciones#guiasymanualesdemarketing"
+                                                       title="Ir a Gu&#237;as y manuales de marketing">
+                                                        <div class="nav-link-item Gu&#237;as y manuales de marketing">
+                                                            <div class="icon">
+                                                                <img src="https://www.promperu.gob.pe/TurismoIn/archivos/Iconos/guias.png" alt="Gu&#237;as y manuales de marketing" width="30px" />
+                                                            </div>
+                                                            <div class="title">
+                                                                
+                                                                    <p>Gu&#237;as y manuales de marketing<span>Mejora tus capacidades con ejemplos paso a paso</span></p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link nav-main dropdown-toggle " href="#" id="Videosypodcasts" data-bs-toggle="dropdown"
+                                   aria-expanded="false">Videos y   podcasts</a>
+                                <div class="dropdown-menu">
+                                    <ul class="nav nav-tabs" id="nav-Ayudas" role="tablist">
+
+
+                                                <li class="nav-item" role="presentation">
+                                                    <a class="nav-link  nav-submenu-click" id="5-tab" href="https://www.promperu.gob.pe/TurismoIn/Multimedia#videos"
+                                                       title="Ir a Videos">
+                                                        <div class="nav-link-item Videos">
+                                                            <div class="icon">
+                                                                <img src="https://www.promperu.gob.pe/TurismoIn/archivos/Iconos/videos.png" alt="Videos" width="30px" />
+                                                            </div>
+                                                            <div class="title">
+                                                                
+                                                                    <p>Videos<span>Descubre contenido videogr&#225;fico para formarte y actualizarte.</span></p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item" role="presentation">
+                                                    <a class="nav-link  nav-submenu-click" id="5-tab" href="https://www.promperu.gob.pe/TurismoIn/Multimedia#podcast"
+                                                       title="Ir a Podcasts">
+                                                        <div class="nav-link-item Podcasts">
+                                                            <div class="icon">
+                                                                <img src="https://www.promperu.gob.pe/TurismoIn/archivos/Iconos/podcasts.png" alt="Podcasts" width="30px" />
+                                                            </div>
+                                                            <div class="title">
+                                                                
+                                                                    <p><i>Podcasts</i><span>Accede a episodios dise&#241;ados para mejorar tu toma de decisiones.
+</span></p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                    <a class="nav-link nav-main " aria-current="page" href="https://www.promperu.gob.pe/TurismoIn/Eventos" id="Eventos">Eventos</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link nav-main dropdown-toggle " href="#" id="Ayuda" data-bs-toggle="dropdown"
+                                   aria-expanded="false">Ayuda</a>
+                                <div class="dropdown-menu">
+                                    <ul class="nav nav-tabs" id="nav-Ayudas" role="tablist">
+
+
+                                                <li class="nav-item" role="presentation">
+                                                    <a class="nav-link  nav-submenu-click" id="7-tab" href="https://www.promperu.gob.pe/TurismoIn/Ayuda/#turidiccionario"
+                                                       title="Ir a Turidiccionario">
+                                                        <div class="nav-link-item Turidiccionario">
+                                                            <div class="icon">
+                                                                <img src="https://www.promperu.gob.pe/TurismoIn/archivos/Iconos/turidiccionario.png" alt="Turidiccionario" width="30px" />
+                                                            </div>
+                                                            <div class="title">
+                                                                
+                                                                    <p>Turidiccionario<span>Explora nuestro glosario tur&#237;stico
+</span></p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item" role="presentation">
+                                                    <a class="nav-link  nav-submenu-click" id="7-tab" href="https://www.promperu.gob.pe/TurismoIn/Ayuda/#faqs"
+                                                       title="Ir a Preguntas frecuentes">
+                                                        <div class="nav-link-item Preguntas frecuentes">
+                                                            <div class="icon">
+                                                                <img src="https://www.promperu.gob.pe/TurismoIn/archivos/Iconos/preguntas.png" alt="Preguntas frecuentes" width="30px" />
+                                                            </div>
+                                                            <div class="title">
+                                                                
+                                                                    <p>Preguntas frecuentes<span>Resuelve tus dudas acerca de Turismo In</span></p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item" role="presentation">
+                                                    <a class="nav-link  nav-submenu-click" id="7-tab" href="https://www.promperu.gob.pe/TurismoIn/Ayuda/#contacto"
+                                                       title="Ir a Contacto">
+                                                        <div class="nav-link-item Contacto">
+                                                            <div class="icon">
+                                                                <img src="https://www.promperu.gob.pe/TurismoIn/archivos/Iconos/contacto.png" alt="Contacto" width="30px" />
+                                                            </div>
+                                                            <div class="title">
+                                                                
+                                                                    <p>Contacto<span>Comun&#237;cate con nosotros</span></p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item" role="presentation">
+                                                    <a class="nav-link  nav-submenu-click" id="7-tab" href="https://www.promperu.gob.pe/TurismoIn/Ayuda/#whatsapp"
+                                                       title="Ir a WhatsApp">
+                                                        <div class="nav-link-item WhatsApp">
+                                                            <div class="icon">
+                                                                <img src="https://www.promperu.gob.pe/TurismoIn/archivos/Iconos/whatsapp.png" alt="WhatsApp" width="30px" />
+                                                            </div>
+                                                            <div class="title">
+                                                                
+                                                                    <p>WhatsApp<span>Comun&#237;cate con nosotros</span></p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+
+                                    </ul>
+                                </div>
+                            </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End Header 3 -->
+</div>
+
+<script>
+
+    var urlWhatsApp = "https://api.whatsapp.com/send?phone=51980901074&amp;text=&#161;Hola%20Turismo%20In!%20Quisiera%20obtener%20m&#225;s%20informaci&#243;n.";
+
+    window.addEventListener('load', function () {
+        $(".nav-submenu-click .Reportes").parent().click(LimpiarLocalStorageReportes);
+        //$("#2-tab").hide();
+        $("#btnWhatsAppHome").on("click", () => {
+            window.open(urlWhatsApp, '_blank');
+        });
+    });
+
+    function LimpiarLocalStorageReportes(){
+        localStorage.removeItem("anio");
+        localStorage.removeItem("aniob");
+        localStorage.removeItem("active");
+        localStorage.removeItem("category");
+    }
+
+
+
+
+
+
+</script>
+    <!-- End Header 1,2,3 -->
+    <!-- Start Main -->
+
+
+    
+    <div class="main">
+        <div class="backdropModal" style="display:none;">
+            <div class="loader"></div>
+        </div>
+        
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+<style>
+    #loader {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .alert {
+        display: none;
+        width: 80%;
+        margin-left: 10%;
+        margin-top: 30px;
+    }
+
+    .content {
+        height: 350px;
+    }
+
+
+    #divMensaje{
+        margin-top:80px;
+    }
+    #divMensaje h4,svg{
+        display:inline-block;
+    }
+
+</style>
+<div class="content">
+
+    <div class="alert alert-warning" role="alert" id="divMensaje">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+            <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+        </svg>
+        <h4 class="alert-heading">No disponible</h4>
+        <p>
+            No se logró completar la acción, contacte con el administrador.
+        </p>
+    </div>
+
+    
+    <div id="loader">
+        <i class="fas fa-spinner fa-spin fa-2x text-primary"></i>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+     $(document).ready(function () {        
+        $('#loader').show();
+        setTimeout(function () {
+            $('#loader').hide();
+            $("#divMensaje").show();            
+        }, 1500);
+
+    });
+</script>
+
+
+
+
+
+
+
+
+
+        <!-- Registrate -->
+        <div class="registrate">
+            <div class="container">
+                <img src="/TurismoIN/Images/promperu.png" width="85" height="37" alt="promperu" />
+                <div class="text">
+                    <p>&Uacute;nete a nosotros y recibe nuestro bolet&iacute;n mensual</p>
+                    <button id="irRegistroFooter">Reg&iacute;strate</button>
+                </div>
+            </div>
+        </div>
+        <!-- End Registrate -->
+    </div>
+    <!-- Modal pin -->
+    <div class="modal fade pin-modal" id="NuevoTableroModal" tabindex="-1" role="dialog" aria-labelledby="pinModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-pin" role="document">
+            <div class="modal-content">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="title">
+                            <p>Nuevo tablero</p>
+                        </div>
+                        <br />
+                    </div>
+                    <div class="col-12">
+                        <input type="text" id="txtNombreTablero" placeholder="Nombre de tablero">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="submit">
+                        <button type="submit" class="btnGuadarNuevoTablero">Crear Tablero</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Main -->
+    <!-- Footer -->
+
+<div class="footer">
+    <div class="container">
+        <div class="info">
+            <p class="title">Comisi&#243;n de Promoci&#243;n del Per&#250; para la Exportaci&#243;n y el Turismo</p>
+            <div class="phone">
+                <img src="/TurismoIN/Images/phone.png" width="18" height="18" alt="phone" />
+                <p>Central telefónica: (511) 616-7300 / 616-7400</p>
+            </div>
+            <div class="direction">
+                <img src="/TurismoIN/Images/map.png" width="19" height="18" alt="map" />
+                <p>Calle Uno Oeste 50, edificio Mincetur, pisos 13 y 14, San Isidro - Lima
+(Mesa de Partes (piso 1) | De lunes a viernes de 9:00 a 17:00 horas</p>
+            </div>
+        </div>
+        <div class="help">
+            <div class="text">
+                <p class="title">¿Necesitas ayuda?</p>
+                <p class="description">Comunícate con nosotros</p>
+            </div>
+            <div class="enlace">
+                <a href="mailto:turismoin@promperu.gob.pe">
+                    <img src="/TurismoIN/Images/mail.png" width="22" height="18" alt="mail" />
+                </a>
+                <a href="https://api.whatsapp.com/send?phone=51980901074&amp;text=&#161;Hola%20Turismo%20In!%20Quisiera%20obtener%20m&#225;s%20informaci&#243;n." target="_blank">
+                    <img src="/TurismoIN/Images/whatsapp.png" width="19" height="18" alt="whatsapp" />
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- End Footer -->
+    <!-- Copyright -->
+    <div class="copyright">
+        <div class="container">
+            <p>Copyright 2026 PROMPER&Uacute;</p>
+            <img src="/TurismoIN/Images/Bitmap1.png" width="168" height="31" alt="" />
+        </div>
+    </div>
+    <!-- End Copyright -->
+    <!-- Modal Login -->
+
+<div class="modal fade login-modal" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+        <div class="modal-content">
+            <button type="button" class="close closeLoginModal" data-dismiss="modal" aria-label="Close" id="closeLoginModal">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="first-content">
+            </div>
+            <div class="second-content form">
+                <h5 style="text-align:center">¡Hola! Inicia sesión</h5>
+<form action="/TurismoIN/Base/Login" enctype="multipart/form-data" id="login-form" method="post"><input name="__RequestVerificationToken" type="hidden" value="1SyeyAUuVBD_ELFcXSLPY2qNOQ3YyRj3O-6nyovC8A8ZWy1d5j3zuCFgsS0cea_j4muxacgDNjaUWIClOvXWmWsK5TujNV3fLQEH_Csbil01" />                    <div id="mensajeError" style="color:#ed2929; margin: 10px 0px; font-size: 16px;"></div>
+                    <label>Correo electrónico</label>
+                    <input type="text" id="Usua_Correo_Log" name="Usua_Correo" placeholder="tucorreo@mail.com">
+                    <label>Contraseña</label>
+                    <div class="content-password">
+                        <input id="Usua_Clave_Log" name="Usua_Clave" type="password" class="form-control">
+                        <span toggle="#Usua_Clave_Log" class="fa fa-fw fa-eye field-icon toggle-password toggle-password-log"></span>
+                    </div>
+                    <button id="btnLoginAuth" type="submit">Ingresar</button>
+</form>                <p class="logeate"><a href="https://www.promperu.gob.pe/TurismoIn/Home/OlvideContrasena" onclick="location.href = 'https://www.promperu.gob.pe/TurismoIn/Home/OlvideContrasena';">¿Olvidaste tu contraseña?</a></p>
+                <div class="login-social" style="display:none">
+                    <p>Ingresa también con:</p>
+                    <div class="login-social-button">
+                        <button id="login-fb" onlogin="statusChangeCallback();" onclick="loginFB()"><img src="/TurismoIN/Images/form-facebook.png"> facebook</button>
+                        <button id="login-google" onclick="initLoginClient()"><img src="/TurismoIN/Images/form-google.png"> Google</button>
+                    </div>
+                    <p class="logeate closeLoginModal" data-dismiss="modal" aria-label="Close" id="irRegistro">¿No tienes una cuenta? <span>Regístrate</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<button type="button" class="btn btn-primary" data-toggle="modal" id="btnUsuarioMigradoModal" data-target="#usuarioMigradoModal" hidden>Launch demo modal</button>
+<div class="modal fade" id="usuarioMigradoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel" style="color: red">Por favor, actualiza tu contraseña</h5>
+                <button type="button" class="close cerrarModalUsuarioMigradoModal" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <br />
+                <p>Renovamos la web para mejorar el servicio. Por favor, actualiza tu contraseña desde el enlace que enviamos a tu correo.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger cerrarModalUsuarioMigradoModal" data-dismiss="modal">OK</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Modal Registrate -->
+
+
+<style>
+    @-moz-document url-prefix() {
+        select {
+            font-size: 15px !important; 
+        }
+    }
+</style>
+
+<div class="modal fade login-modal" id="registrateModal" tabindex="-1" role="dialog" aria-labelledby="registrateModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+        <div class="modal-content">
+            <button type="button" class="close closeRegistrateModal" data-dismiss="modal" aria-label="Close" id="closeRegistrateModal">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="first-content">
+                <p>Regístrate en dos simples pasos y accede a los beneficios que te brinda PROMPERÚ</p>
+                <div class="group-elements">
+                    <div class="element">
+                        <div class="element-img">
+                            <img src="/TurismoIN/Images/descarga.png" width="55" height="" alt="47" />
+                        </div>
+                        <p>Descarga reportes actualizados</p>
+                    </div>
+                    <div class="element">
+                        <div class="element-img">
+                            <img src="/TurismoIN/Images/info-fav.png" width="48" height="39" alt="" />
+                        </div>
+                        <p>Guarda tu información favorita</p>
+                    </div>
+                    <div class="element">
+                        <div class="element-img">
+                            <img src="/TurismoIN/Images/capacitate.png" width="51" height="51" alt="" />
+                        </div>
+                        <p>Capacítate y fórmate constantemente</p>
+                    </div>
+                </div>
+            </div>
+            <div class="second-content form">
+                <h5 style="text-align:center">Regístrate</h5>
+                <form id="registrate-email" action="#">
+                    <input name="__RequestVerificationToken" type="hidden" value="Hn6CMsVSeGp5vSRRj4KzwyRcGZ-P1gSc64ZuPv2bMcTtpM1Db3dRScsQL7YVAoeRXOxmgAEdAY2zJ63Na3sjcSZgt0XY_AMOE8pOWT-00lM1" />
+
+                    <div id="mensajeErrorCorreo" style="color: red; margin: 10px 0px; font-size: 16px;"></div>
+                    <label>Ingresa tu correo electrónico:</label>
+                    <input type="email" class="Usua_CorreoRegister" id="Usua_Correo" name="Usua_Correo" placeholder="tucorreo@mail.com">
+                    <label>Crea una contraseña:</label>
+                    <div class="content-password">
+                        <input id="Usua_Clave" name="Usua_Clave" type="password" class="form-control">
+                        <span toggle="#Usua_Clave" class="fa fa-fw fa-eye field-icon toggle-password toggle-password-reg"></span>
+                    </div>
+                    <button type="submit">Continuar</button>
+                </form>
+                <div class="login-social" style="display:none">
+                    <p>Regístrate también con:</p>
+                    <div class="login-social-button">
+                        <button id="login-fb-2" onlogin="statusChangeCallback();" onclick="registerFB()"><img src="/TurismoIN/Images/form-facebook.png"> facebook</button>
+                        <button id="login-google-2" onclick="initRegisterClient()"><img src="/TurismoIN/Images/form-google.png"> Google</button>
+                    </div>
+                    <p class="registrate closeRegistrateModal" data-dismiss="modal" aria-label="Close" id="irLogin">¿Ya tienes una cuenta? <span>Inicia sesión</span></p>
+                </div>
+            </div>
+            <div class="third-content form" style="overflow: auto;">
+                <h5 style="text-align:center">Estás a un paso de crear tu cuenta</h5>
+                <form id="registrate-data" action="#">
+                    <input name="__RequestVerificationToken" type="hidden" value="iDQ07MsWXp1teshgAsempc4GQEMM0JQ5CCS4R5q_jDcO8SsI6RGeBCojzbgGyHmtuoZB2SsDcFI5KfpQsL45b5O3IPR97-mIIWvkmy52sbc1" />
+
+                    <div id="mensajeErrorRegister" style="color: red; margin: 10px 0px; font-size: 16px;"></div>
+
+                    <label>Nombres:</label>
+                    <input type="text" id="Usua_Nombres" name="Usua_Nombres" maxlength="60" required>
+                    <label>Apellidos:</label>
+                    <input type="text" id="Usua_Apellidos" name="Usua_Apellidos" maxlength="60" required>
+                    <label>País:</label>
+                    <select class="form-select form-control" id="Pais_Id" name="Pais_Id" required=""><option value="1">Afganist&#225;n</option>
+<option value="2">Albania</option>
+<option value="3">Alemania</option>
+<option value="4">Angola</option>
+<option value="5">Antigua y Barbuda</option>
+<option value="6">Arabia Saudita</option>
+<option value="7">Argelia</option>
+<option value="8">Argentina</option>
+<option value="9">Armenia</option>
+<option value="10">Australia</option>
+<option value="11">Austria</option>
+<option value="12">Azerbay&#225;n</option>
+<option value="13">Bahamas</option>
+<option value="14">Bahrein</option>
+<option value="15">Bangladesh</option>
+<option value="16">Barbados</option>
+<option value="17">Belar&#250;s</option>
+<option value="18">B&#233;lgica</option>
+<option value="19">Belice</option>
+<option value="20">Benin</option>
+<option value="21">Bolivia</option>
+<option value="22">Bosnia Herzegovina</option>
+<option value="23">Botswana</option>
+<option value="24">Brasil</option>
+<option value="25">Brunei Darussalam</option>
+<option value="26">Bulgaria</option>
+<option value="27">Burkina Faso</option>
+<option value="28">Burundi</option>
+<option value="29">Buth&#225;n</option>
+<option value="30">Cabo Verde</option>
+<option value="31">Cambodia</option>
+<option value="32">Camer&#250;n</option>
+<option value="33">Canad&#225;</option>
+<option value="34">Chad</option>
+<option value="35">Chile</option>
+<option value="36">China</option>
+<option value="37">Chipre</option>
+<option value="38">Colombia</option>
+<option value="39">Comoras</option>
+<option value="40">Congo</option>
+<option value="41">Corea del Sur</option>
+<option value="42">Costa de Marfil</option>
+<option value="43">Costa Rica</option>
+<option value="44">Croacia</option>
+<option value="45">Cuba</option>
+<option value="46">Dinamarca</option>
+<option value="47">Djibouti</option>
+<option value="48">Dominica</option>
+<option value="49">Ecuador</option>
+<option value="50">Egipto</option>
+<option value="51">El Salvador</option>
+<option value="52">Emiratos &#193;rabes</option>
+<option value="53">Escocia</option>
+<option value="54">Eslovenia</option>
+<option value="55">Espa&#241;a</option>
+<option value="56">Estados Unidos</option>
+<option value="57">Estonia</option>
+<option value="58">Etiop&#237;a</option>
+<option value="59">Fiji</option>
+<option value="60">Finlandia</option>
+<option value="61">Francia</option>
+<option value="62">Gab&#243;n</option>
+<option value="63">Gales</option>
+<option value="64">Gambia</option>
+<option value="65">Georgia</option>
+<option value="66">Ghana</option>
+<option value="67">Granada</option>
+<option value="68">Grecia</option>
+<option value="69">Guatemala</option>
+<option value="70">Guinea</option>
+<option value="71">Guinea Bissau</option>
+<option value="72">Guinea Ecuatorial</option>
+<option value="73">Guyana</option>
+<option value="74">Hait&#237;</option>
+<option value="75">Holanda</option>
+<option value="76">Honduras</option>
+<option value="1102">Hong Kong</option>
+<option value="77">Hungr&#237;a</option>
+<option value="78">India</option>
+<option value="79">Indonesia</option>
+<option value="81">Iraq</option>
+<option value="82">Irlanda</option>
+<option value="83">Islandia</option>
+<option value="84">Islas Maldivas</option>
+<option value="85">Islas Marshall</option>
+<option value="86">Islas Salomon</option>
+<option value="87">Islas Seychelles</option>
+<option value="88">Israel</option>
+<option value="89">Italia</option>
+<option value="90">Jamaica</option>
+<option value="91">Jap&#243;n</option>
+<option value="92">Jordania</option>
+<option value="93">Kazajst&#225;n</option>
+<option value="94">Kenya</option>
+<option value="95">Kirguist&#225;n</option>
+<option value="96">Kuwait</option>
+<option value="97">Laos</option>
+<option value="98">Leshoto</option>
+<option value="99">Letonia</option>
+<option value="100">L&#237;bano</option>
+<option value="101">Liberia</option>
+<option value="102">Libia</option>
+<option value="103">Liechtenstein</option>
+<option value="104">Lituania</option>
+<option value="105">Luxemburgo</option>
+<option value="106">Madagascar</option>
+<option value="107">Malasia</option>
+<option value="108">Malawi</option>
+<option value="109">Mali</option>
+<option value="110">Malta</option>
+<option value="111">Marruecos</option>
+<option value="112">Mauritania</option>
+<option value="113">M&#233;xico</option>
+<option value="114">Mongolia</option>
+<option value="115">Montenegro</option>
+<option value="116">Mozambique</option>
+<option value="117">Namibia</option>
+<option value="118">Nepal</option>
+<option value="119">Nicaragua</option>
+<option value="120">N&#237;ger</option>
+<option value="121">Nigeria</option>
+<option value="122">Noruega</option>
+<option value="123">Nueva Zelandia</option>
+<option value="124">Om&#225;n</option>
+<option value="1100">Otro</option>
+<option value="1101">Pa&#237;ses Bajos</option>
+<option value="125">Pakist&#225;n</option>
+<option value="126">Palestina</option>
+<option value="127">Panam&#225;</option>
+<option value="128">Pap&#250;a Nueva Guinea</option>
+<option value="129">Paraguay</option>
+<option selected="selected" value="130">Per&#250;</option>
+<option value="131">Polonia</option>
+<option value="132">Portugal</option>
+<option value="133">Qatar</option>
+<option value="80">Reino Unido</option>
+<option value="134">Rep. Democr. Congo</option>
+<option value="135">Rep. Dominicana</option>
+<option value="136">Rep. Isl&#225;mica Ir&#225;n</option>
+<option value="137">Rep. Pop. Dem. Corea</option>
+<option value="138">Rep&#250;blica Checa</option>
+<option value="139">Rep&#250;blica Serbia</option>
+<option value="140">Ruman&#237;a</option>
+<option value="141">Rusia</option>
+<option value="142">Rwanda</option>
+<option value="143">S. Vicente-Granadin</option>
+<option value="144">Santa Luc&#237;a</option>
+<option value="145">Senegal</option>
+<option value="146">Sierra Leona</option>
+<option value="147">Singapur</option>
+<option value="148">Siria</option>
+<option value="149">Somalia</option>
+<option value="150">Sri Lanka</option>
+<option value="151">Sud&#225;frica</option>
+<option value="152">Sud&#225;n</option>
+<option value="153">Suecia</option>
+<option value="154">Suiza</option>
+<option value="155">Suriname</option>
+<option value="156">Swazilandia</option>
+<option value="1103">Taip&#233;i</option>
+<option value="157">Tanzania</option>
+<option value="158">Tayikist&#225;n</option>
+<option value="159">Thailandia</option>
+<option value="160">Togo</option>
+<option value="161">Trinidad Tobago</option>
+<option value="162">T&#250;nez</option>
+<option value="163">Turkmenist&#225;n</option>
+<option value="164">Turqu&#237;a</option>
+<option value="165">Ucrania</option>
+<option value="166">Uganda</option>
+<option value="167">Uruguay</option>
+<option value="168">Uzbekist&#225;n</option>
+<option value="169">Vanuato</option>
+<option value="170">Venezuela</option>
+<option value="171">Viet Nam</option>
+<option value="172">Yemen</option>
+<option value="173">Yugoslavia</option>
+<option value="174">Zambia</option>
+<option value="175">Zimbabwe</option>
+</select>
+                    <div class="registrate-departamento">
+                        <label>Departamento:</label>
+                        <select class="form-select form-control" id="Depa_Id" name="Depa_Id"><option value="4">Amazonas</option>
+<option value="5">&#193;ncash</option>
+<option value="7">Apur&#237;mac</option>
+<option value="8">Arequipa</option>
+<option value="9">Ayacucho</option>
+<option value="10">Cajamarca</option>
+<option value="11">Callao</option>
+<option value="12">Cusco</option>
+<option value="13">Huancavelica</option>
+<option value="14">Hu&#225;nuco</option>
+<option value="15">Ica</option>
+<option value="16">Jun&#237;n</option>
+<option value="17">La Libertad</option>
+<option value="18">Lambayeque</option>
+<option value="31">Lima</option>
+<option value="21">Loreto</option>
+<option value="22">Madre de Dios</option>
+<option value="23">Moquegua</option>
+<option value="24">Pasco</option>
+<option value="25">Piura</option>
+<option value="26">Puno</option>
+<option value="27">San Mart&#237;n</option>
+<option value="28">Tacna</option>
+<option value="29">Tumbes</option>
+<option value="30">Ucayali</option>
+</select>
+                    </div>
+                    <label>Teléfono:</label>
+                    <div class="content-telefono">
+                        <input style="width: 15%; text-align: left; background-color: #fff;" type="text" class="form-control" id="Usua_TelCodNacion" name="Usua_TelCodNacion" value="+51" readonly>
+                        <input style="width:85%" type="text" class="form-control soloNumero" id="Usua_Telefono" name="Usua_Telefono" maxlength="12" required>
+                    </div>
+                    <label>Fecha de nacimiento:</label>
+                    <input type="date" id="Usua_FechaNacimiento" name="Usua_FechaNacimiento" required value="2000-01-01" style="margin-bottom:18px;">
+
+
+                    <input type="checkbox" id="Usua_SuscribeBoletinMensual" style="margin-bottom:15px;" name="Usua_SuscribeBoletinMensual" checked><label class="after-checkbox" for="Usua_SuscribeBoletinMensual">Deseo suscribirme al boletín mensual y a invitaciones de eventos de Turismo In.</label>
+                    
+                    
+
+                    <p class="logeate">Al ingresar estoy aceptando los <a href="#" target="_blank" onclick="window.open('https://www.promperu.gob.pe/TurismoIn/home/terminos', '_blank').focus();">términos y condiciones</a> y la <a href="#" target="_blank" onclick="window.open('https://www.promperu.gob.pe/TurismoIn/home/politicas', '_blank').focus();"> política de protección de datos personales</a></p>
+                    <button class="g-recaptcha" data-sitekey="6LfPBoEpAAAAANzeQeV1w8ztw2efJqenzxhYetaw" data-callback='onSubmitRegistrate' data-action='submit'>Regístrate</button>
+                </form>
+            </div>
+            <div class="fourth-content form">
+                <form id="registrate-sector" action="#">
+                    <h5>¿A qué sector perteneces?</h5>
+                    <div class="content">
+                        <p>Selecciona tu sector:</p>
+                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link" id="pills-sector-privado-tab" tag="1" data-bs-toggle="tab" data-bs-target="#pills-sector-privado" role="tab" aria-controls="pills-sector-privado" aria-selected="false">
+                                        <div class="nav-subitem">
+                                            <img src="/TurismoIN/Images/sector-privado-icon.png" width="38" height="40" alt="" />
+                                            <p>Sector privado</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="pills-sector-academico-tab" tag="2" data-bs-toggle="tab" data-bs-target="#pills-sector-academico" role="tab" aria-controls="pills-sector-academico" aria-selected="false">
+                                        <div class="nav-subitem">
+                                            <img src="/TurismoIN/Images/sector-academico-icon.png" width="38" height="40" alt="" />
+                                            <p>Sector acad&#233;mico</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="pills-sector-publico-tab" tag="3" data-bs-toggle="tab" data-bs-target="#pills-sector-publico" role="tab" aria-controls="pills-sector-publico" aria-selected="false">
+                                        <div class="nav-subitem">
+                                            <img src="/TurismoIN/Images/sector-publico-icon.png" width="38" height="40" alt="" />
+                                            <p>Sector p&#250;blico</p>
+                                        </div>
+                                    </a>
+                                </li>
+                        </ul>
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade" id="pills-sector-privado" role="tabpanel" aria-labelledby="pills-sector-privado-tab">
+                                <p>Rubro</p>
+                                <ul>
+                                            <li tag="1">Agencia de viajes / Tour operador</li>
+                                            <li tag="2">Alojamiento</li>
+                                            <li tag="3">Alimentos y bebidas</li>
+                                            <li tag="4">Startup de turismo</li>
+                                            <li tag="5">Transporte terrestre</li>
+                                            <li tag="6">Transporte a&#233;reo</li>
+                                            <li tag="7">Gu&#237;a de turismo</li>
+                                            <li tag="8">Profesional independiente / Consultor</li>
+                                            <li tag="10">Otro</li>
+                                </ul>
+                            </div>
+                            <div class="tab-pane fade" id="pills-sector-academico" role="tabpanel" aria-labelledby="pills-sector-academico-tab">
+                                <p>Rubro:</p>
+                                <ul>
+                                            <li tag="11">Estudiante</li>
+                                            <li tag="12">Docente</li>
+                                            <li tag="13">Investigador</li>
+                                            <li tag="14">Otro</li>
+                                </ul>
+                            </div>
+                            <div class="tab-pane fade" id="pills-sector-publico" role="tabpanel" aria-labelledby="pills-sector-publico-tab">
+                                <p>Rubro:</p>
+                                <ul>
+                                            <li tag="15">Oficina de turismo</li>
+                                            <li tag="16">Funcionario P&#250;blico</li>
+                                            <li tag="17">Otro</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="submit">
+                        <button type="submit" hidden>Omitir</button>
+                        <button type="submit">Regístrate<i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <button id="btnCerrarModalConfirmacionCorreo" class="btn btn-primary" style="visibility:hidden">Cerrar</button>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</div>
+    
+    
+    <script>
+
+
+
+    function initLoginClient() {
+        
+    }
+
+    function handleLoginCredentialResponse(response) {
+        //$.ajax({
+        //    url: "https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=" + response.access_token,
+        //    contentType: "application/json; charset=utf-8",
+        //    success: function (googleUser) {
+        //        onSignIn(googleUser);
+        //    },
+        //    error: function (XMLHttpRequest, textStatus, errorThrown) {
+        //        console.log(textStatus);
+        //        console.log(errorThrown);
+        //    }
+        //});
+    }
+
+    function onSignIn(profile) {
+        //var name = profile.name;
+        //var email = profile.email;
+        //var firstName = profile.given_name;
+        //var lastName = profile.family_name;
+        //$.ajax({
+        //    type: "POST",
+        //    url: "/Home/LoginGoogle",
+        //    data: JSON.stringify({
+        //        Usua_Correo: email,
+        //        Usua_Nombres: firstName,
+        //        Usua_Apellidos: lastName
+        //    }),
+        //    contentType: "application/json; charset=utf-8",
+        //    dataType: "json",
+        //    success: function (msg) {
+        //        if (msg.Success) {
+        //            $("#mensajeError").html("");
+        //            $('#loginModal').modal('hide');
+        //            location.reload();
+        //        } else {
+        //            $("#mensajeError").html(msg.Mesajes);
+        //        }
+        //    },
+        //    error: function (XMLHttpRequest, textStatus, errorThrown) {
+        //        console.log(textStatus);
+        //        console.log(errorThrown);
+        //    }
+        //});
+    }
+
+    function initRegisterClient() {
+        //client = google.accounts.oauth2.initTokenClient({
+        //    client_id: '704875642252-6u8brfmim633bg47ui5vuqjsv7v04j8p.apps.googleusercontent.com',
+        //    scope: 'https://www.googleapis.com/auth/userinfo.profile',
+        //    callback: handleRegisterCredentialResponse // defined at request time
+        //});
+        //client.requestAccessToken();
+    }
+
+    function handleRegisterCredentialResponse(response) {
+        //$.ajax({
+        //    url: "https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=" + response.access_token,
+        //    contentType: "application/json; charset=utf-8",
+        //    success: function (googleUser) {
+        //        onRegisterIn(googleUser);
+        //    },
+        //    error: function (XMLHttpRequest, textStatus, errorThrown) {
+        //        console.log(textStatus);
+        //        console.log(errorThrown);
+        //    }
+        //});
+    }
+
+    function onRegisterIn(profile) {
+        var name = profile.name;
+        var email = profile.email;
+        var firstName = profile.given_name;
+        var lastName = profile.family_name;
+        $("#Usua_Correo").val(email);
+        $("#Usua_Nombres").val(firstName);
+        $("#Usua_Apellidos").val(lastName);
+    }
+    </script>
+    
+    <!-- Jquery -->
+    <script src="/TurismoIN/Scripts/jquery-3.6.0.min.js"></script>
+<script src="/TurismoIN/Scripts/jquery.validate.min.js"></script>
+<script src="/TurismoIN/Scripts/jquery.validate.additional-methods.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="/TurismoIN/Scripts/bootstrap.bundle.min.js"></script>
+    <!-- Script -->
+    <script src="/TurismoIN/Scripts/slick/slick.min.js"></script>
+<script src="/TurismoIN/Scripts/slick/slick-lightbox.js"></script>
+
+    <script src="/TurismoIN/Scripts/main.js?v=1.10"></script>
+
+        <script src="/TurismoIN/Scripts/perfil.js?v=1.10"></script>
+    <script>
+    const CONTROLADOR_ACTUAL = "home";
+
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <!-- Script Canonical-->
+    <script>
+
+        $(() => {
+            $("#hdUrlActual").val(location.href);
+        });
+
+        var urlcanonical = window.location.href;
+        var url404cn = window.location.href.split('/')[4];
+
+        if (url404cn == '404') {
+        }
+        else {
+            $('head').append('<link id="canonico_url" hreflang="es-PE" rel="canonical" />');
+            document.getElementById("canonico_url").setAttribute("href", urlcanonical);
+            $('head').append('<link id="canonico_alt" hreflang="es-PE" rel="alternate" />');
+            document.getElementById("canonico_alt").setAttribute("href", urlcanonical);
+        }
+
+        
+
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var hash = window.location.hash.toLowerCase().trim();
+            if (hash.indexOf("?") > -1) {
+                hash = hash.split('?')[0];
+            }
+            switch (hash) {
+                case '#registro':
+                    var registrateButton = document.querySelector('.login .registrate');
+                    if (registrateButton) { registrateButton.click(); }
+                    break;
+                case '#login':
+                    var loginButton = document.querySelector('.logeate');
+                    if (loginButton) { loginButton.click(); }
+                    break;
+                default:
+            }
+        });
+    </script>
+</body>
+</html>
