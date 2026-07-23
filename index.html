@@ -2,6 +2,12 @@
 <html lang="es">
 
 <head>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://www.lifextreme.store/logo.png">
+    
+    <!-- Sitemap -->
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+
     <!-- Google Analytics 4 (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KW625TWP91"></script>
     <script>
@@ -98,10 +104,216 @@
     <script src="https://static.readdy.ai/static/e.js" async></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Lifextreme - Turismo de Aventura B2B e IA. Experiencias extremas en Perú impulsadas por Inteligencia Artificial.">
-    <meta name="keywords" content="Lifextreme, turismo de aventura, B2B turismo, Inteligencia artificial, tours, Perú, Qdrant, RAG">
-    <!-- LLM specific metatags -->
-    <meta name="llm-context" content="Lifextreme is a B2B and B2C adventure tourism platform in Peru powered by AI and GraphRAG.">
+    
+    <link rel="llms-txt" href="/llms.txt">
+<!-- Meta Tags Básicos -->
+<meta name="description"
+  content="Lifextreme - La plataforma líder en turismo de aventura en Perú. Descubre experiencias extremas en Cusco, Huaraz y más. Reserva tours de trekking, escalada, rafting y aventuras únicas con IA personalizada.">
+<meta name="keywords"
+  content="turismo aventura Perú, tours extremos Cusco, trekking Huaraz, rafting Perú, escalada montaña, deportes extremos, aventura Machu Picchu, tours personalizados IA">
+<meta name="author" content="Lifextreme Peru">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://www.lifextreme.store/">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.lifextreme.store/">
+<meta property="og:title" content="Lifextreme - Turismo de Aventura en Perú | Experiencias Extremas con IA">
+<meta property="og:description"
+  content="Descubre las mejores aventuras extremas en Perú. Trekking, escalada, rafting y más. Plataforma con IA que personaliza tu experiencia. ¡Reserva ahora!">
+<meta property="og:image" content="https://www.lifextreme.store/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Lifextreme">
+<meta property="og:locale" content="es_PE">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://www.lifextreme.store/">
+<meta name="twitter:title" content="Lifextreme - Turismo de Aventura en Perú">
+<meta name="twitter:description"
+  content="Descubre las mejores aventuras extremas en Perú. Trekking, escalada, rafting y más con IA personalizada.">
+<meta name="twitter:image" content="https://www.lifextreme.store/twitter-card.jpg">
+<meta name="twitter:creator" content="@lifextremeperu">
+
+<!-- Geo Tags -->
+<meta name="geo.region" content="PE-CUS">
+<meta name="geo.placename" content="Cusco, Perú">
+<meta name="geo.position" content="-13.531950;-71.967463">
+<meta name="ICBM" content="-13.531950, -71.967463">
+
+<!-- Mobile Optimization -->
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Lifextreme">
+
+<!-- Theme Color -->
+<meta name="theme-color" content="#4338ca">
+<meta name="msapplication-TileColor" content="#4338ca">
+
+<!-- Preconnect para Performance -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.tailwindcss.com">
+<link rel="preconnect" href="https://unpkg.com">
+<link rel="dns-prefetch" href="https://www.googletagmanager.com">
+<link rel="dns-prefetch" href="https://analytics.google.com">
+
+<!-- Alternate Languages (si tienes versiones en otros idiomas) -->
+<link rel="alternate" hreflang="es" href="https://www.lifextreme.store/">
+<link rel="alternate" hreflang="en" href="https://www.lifextreme.store/en/">
+<link rel="alternate" hreflang="x-default" href="https://www.lifextreme.store/">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TravelAgency",
+  "name": "Lifextreme",
+  "description": "Plataforma líder en turismo de aventura en Perú con IA personalizada",
+  "url": "https://www.lifextreme.store",
+  "logo": "https://www.lifextreme.store/logo.png",
+  "image": "https://www.lifextreme.store/og-image.jpg",
+  "telephone": "+51-XXX-XXX-XXX",
+  "email": "contacto@lifextreme.pe",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Dirección",
+    "addressLocality": "Cusco",
+    "addressRegion": "Cusco",
+    "postalCode": "08000",
+    "addressCountry": "PE"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "-13.531950",
+    "longitude": "-71.967463"
+  },
+  "sameAs": [
+    "https://www.facebook.com/lifextremeperu",
+    "https://www.instagram.com/lifextremeperu",
+    "https://twitter.com/lifextremeperu"
+  ],
+  "priceRange": "$$",
+  "areaServed": {
+    "@type": "Country",
+    "name": "Perú"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Tours de Aventura",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "TouristTrip",
+          "name": "Trekking Camino Inca",
+          "description": "4 días de aventura hacia Machu Picchu"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "TouristTrip",
+          "name": "Rafting en Urubamba",
+          "description": "Adrenalina en rápidos nivel 3-4"
+        }
+      }
+    ]
+  }
+}
+</script>
+
+<!-- Breadcrumb Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://www.lifextreme.store/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Portal Partners",
+      "item": "https://www.lifextreme.store/partners/"
+    }
+  ]
+}
+</script>
+
+<!-- Organization Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Lifextreme",
+  "url": "https://www.lifextreme.store",
+  "logo": "https://www.lifextreme.store/logo.png",
+  "foundingDate": "2018",
+  "founders": [
+    {
+      "@type": "Person",
+      "name": "Lifextreme Team"
+    }
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+51-XXX-XXX-XXX",
+    "contactType": "Customer Service",
+    "areaServed": "PE",
+    "availableLanguage": ["Spanish", "English"]
+  },
+  "sameAs": [
+    "https://www.facebook.com/lifextremeperu",
+    "https://www.instagram.com/lifextremeperu",
+    "https://twitter.com/lifextremeperu"
+  ]
+}
+</script>
+
+<!-- FAQ Schema Dual Persona (B2C + B2B + Eventos) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Es seguro practicar deportes de aventura, surf y trekking extremo con Lifextreme en Perú?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, para el viajero (B2C), Lifextreme garantiza que todas las rutas y eventos (Camino Inca, Surf, Ciclismo) están operados bajo cálculos algorítmicos de seguridad y guías certificados UIAGM / ISA, alineados a regulaciones del MINCETUR y Marina de Guerra del Perú."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo actúa Lifextreme como DMC (Destination Management Company) y Socio Mayorista para agencias extranjeras?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Para empresas extranjeras (B2B), Lifextreme es el representante y auditor legal en Perú. Utilizamos nuestro motor RAG para certificar que los operadores locales y productoras de eventos cumplan al 100% las normativas de seguridad, mitigando cualquier riesgo legal para el operador internacional."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué tipo de logística legal se maneja para los Eventos Deportivos (Ciclismo Downhill, Running, 4x4)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gestionamos permisos municipales, planes de contingencia médica (Ambulancias Tipo II obligatorias), cálculo de aforos y permisos ambientales SERNANP para ultra maratones y travesías 4x4, garantizando un entorno legal impecable para deportistas y sponsors."
+      }
+    }
+  ]
+}
+</script>
+
     <title>LIFEXTREME | Aventura Extrema e IA</title>
     <!-- 🔒 CONTENT SECURITY POLICY (HARDENING) -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; 
@@ -556,7 +768,7 @@
                             Active</p>
                         <p class="text-xs font-black">Alex R.</p>
                     </div>
-                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100"
+                    <img src="https://images.unsplash.com/photo-=&fm=webp&q=60"
                         alt="Avatar Alex R." width="40" height="40"
                         class="w-10 h-10 rounded-xl object-cover border border-slate-100" loading="lazy">
                 </div>
@@ -644,10 +856,8 @@
                         <span data-i18n="hero_tag"
                             class="bg-indigo-50 text-primary px-4 py-2 rounded-full text-[9px] font-black uppercase tracking-[0.4em] mb-8 inline-block italic">Aventura
                             de Alta Gama</span>
-                        <h1
-                            class="text-4xl lg:text-7xl font-black text-slate-900 leading-[0.9] mb-8 tracking-tighter italic reveal-on-scroll">
-                            <span data-i18n="hero_title_1">Explora. Vive.</span><br><span class="logo-gradient"
-                                data-i18n="hero_title_2">Viaja.</span>
+                        <h1 class="text-4xl lg:text-7xl font-black text-slate-900 leading-[0.9] mb-8 tracking-tighter italic reveal-on-scroll">
+                            Deportes de Aventura y <br><span class="logo-gradient">Logística de Eventos Extremos</span> en Perú
                         </h1>
                         <p class="text-md lg:text-lg text-slate-500 font-medium mb-12 max-w-lg mx-auto lg:mx-0"
                             data-i18n="hero_desc">Únete al Club Exclusivo de Viajeros. Desafía lo imposible y convierte cada ruta en tu propia hazaña personal.</p>
@@ -668,10 +878,10 @@
                         <!-- Social Proof -->
                         <div class="mt-8 flex items-center justify-center lg:justify-start gap-4 mb-4">
                             <div class="flex -space-x-3">
-                                <img class="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100" alt="User">
-                                <img class="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100" alt="User">
-                                <img class="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" alt="User">
-                                <img class="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100" alt="User">
+                                <img class="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-=&fm=webp&q=60" alt="User">
+                                <img class="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-=&fm=webp&q=60" alt="User">
+                                <img class="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-=&fm=webp&q=60" alt="User">
+                                <img class="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-=&fm=webp&q=60" alt="User">
                                 <div class="w-10 h-10 rounded-full border-2 border-white bg-slate-100 flex items-center justify-center text-[8px] font-black text-slate-500 shadow-sm">+15k</div>
                             </div>
                             <div class="text-[10px] font-black text-slate-500 uppercase tracking-widest leading-tight">
@@ -697,7 +907,7 @@
                         onclick="window.location.href='community.html'">
                         <!-- Image -->
                         <div class="absolute inset-0">
-                            <img src="https://images.unsplash.com/photo-1528543666838-56ccac0f7193?q=80&w=1200"
+                            <img src="https://images.unsplash.com/photo-1528543666838-56ccac0f7193?w=1200&fm=webp&q=60"
                                 alt="Equipo de Expedición Social de Lifextreme en la montaña" width="1200" height="600"
                                 fetchpriority="high"
                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
@@ -1366,7 +1576,7 @@
                             <div
                                 class="bg-slate-900 text-white rounded-[40px] p-8 aspect-[1.6/1] flex flex-col justify-between relative overflow-hidden shadow-2xl">
                                 <!-- Background Image (Overlay) -->
-                                <img src="https://images.unsplash.com/photo-1502444330042-d1a1ddf9bb5b?w=600"
+                                <img src="https://images.unsplash.com/photo-=&fm=webp&q=60"
                                     alt="Fondo de Gift Card - Aventura Lifextreme" width="600" height="375"
                                     class="absolute inset-0 w-full h-full object-cover opacity-50 mix-blend-overlay"
                                     loading="lazy">
@@ -1747,7 +1957,7 @@
             <div class="container mx-auto px-6 max-w-6xl">
                 <div class="flex flex-col lg:flex-row gap-12 items-start">
                     <div class="w-full lg:w-1/3 bg-white rounded-[48px] p-10 border border-slate-100 text-center">
-                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300"
+                        <img src="https://images.unsplash.com/photo-=&fm=webp&q=60"
                             class="w-24 h-24 rounded-3xl mx-auto shadow-2xl mb-6">
                         <h2 class="text-2xl font-black italic mb-1">Alex R.</h2>
                         <p class="text-[10px] font-black text-primary uppercase tracking-widest mb-8">Socio Elite Active

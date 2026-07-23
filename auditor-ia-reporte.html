@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifextreme AI Auditor - Reporte Confidencial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f8fafc; }
+        .glass-panel { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .neon-text { background: linear-gradient(90deg, #3b82f6, #a855f7); -webkit-background-clip: text; color: transparent; }
+        .critical-glow { box-shadow: 0 0 20px rgba(239, 68, 68, 0.2); }
+        .success-glow { box-shadow: 0 0 20px rgba(16, 185, 129, 0.2); }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-8">
+
+    <!-- Header -->
+    <header class="max-w-5xl mx-auto flex justify-between items-center mb-12 border-b border-slate-800 pb-6">
+        <div class="flex items-center gap-3">
+            <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/30">
+                <i class="ri-radar-line text-white text-2xl animate-pulse"></i>
+            </div>
+            <div>
+                <h1 class="text-2xl font-black tracking-tight">LIFEXTREME <span class="neon-text">AI AUDITOR</span></h1>
+                <p class="text-xs text-slate-400 uppercase tracking-widest">Análisis de Posicionamiento Algorítmico (GEO)</p>
+            </div>
+        </div>
+        <div class="text-right">
+            <p class="text-sm font-bold">Objetivo: <span class="text-white">www.agencia-competencia.com</span></p>
+            <p class="text-xs text-red-400 font-mono mt-1"><i class="ri-error-warning-fill"></i> RIESGO CRÍTICO DETECTADO</p>
+        </div>
+    </header>
+
+    <!-- Main Score Grid -->
+    <main class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        
+        <!-- Score 1: AI Blindness -->
+        <div class="glass-panel rounded-3xl p-6 critical-glow relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-24 h-24 bg-red-500/10 rounded-full blur-2xl"></div>
+            <h3 class="text-xs font-black uppercase tracking-widest text-slate-400 mb-2">Visibilidad en ChatGPT (GEO)</h3>
+            <div class="flex items-end gap-2 mb-4">
+                <span class="text-6xl font-black text-red-500">0</span><span class="text-xl text-slate-500 mb-1">/100</span>
+            </div>
+            <div class="space-y-3">
+                <div class="flex justify-between items-center text-sm border-b border-slate-800 pb-2">
+                    <span class="text-slate-300"><i class="ri-close-circle-fill text-red-500 mr-2"></i>Archivo llms.txt</span>
+                    <span class="font-mono text-red-400">Ausente</span>
+                </div>
+                <div class="flex justify-between items-center text-sm border-b border-slate-800 pb-2">
+                    <span class="text-slate-300"><i class="ri-close-circle-fill text-red-500 mr-2"></i>FAQ Schema AEO</span>
+                    <span class="font-mono text-red-400">Ausente</span>
+                </div>
+            </div>
+            <p class="text-xs text-slate-400 mt-4 leading-relaxed">
+                <strong class="text-white">Diagnóstico:</strong> Ceguera algorítmica. Cuando un turista usa Inteligencia Artificial para buscar agencias, su marca no es escaneada.
+            </p>
+        </div>
+
+        <!-- Score 2: Legal RAG -->
+        <div class="glass-panel rounded-3xl p-6 critical-glow relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-24 h-24 bg-orange-500/10 rounded-full blur-2xl"></div>
+            <h3 class="text-xs font-black uppercase tracking-widest text-slate-400 mb-2">Gobernanza y Leyes (E-E-A-T)</h3>
+            <div class="flex items-end gap-2 mb-4">
+                <span class="text-6xl font-black text-orange-500">12</span><span class="text-xl text-slate-500 mb-1">/100</span>
+            </div>
+            <div class="space-y-3">
+                <div class="flex justify-between items-center text-sm border-b border-slate-800 pb-2">
+                    <span class="text-slate-300"><i class="ri-close-circle-fill text-red-500 mr-2"></i>Citas MINCETUR</span>
+                    <span class="font-mono text-red-400">0 detectadas</span>
+                </div>
+                <div class="flex justify-between items-center text-sm border-b border-slate-800 pb-2">
+                    <span class="text-slate-300"><i class="ri-close-circle-fill text-red-500 mr-2"></i>Validación SERNANP</span>
+                    <span class="font-mono text-red-400">Ausente</span>
+                </div>
+            </div>
+            <p class="text-xs text-slate-400 mt-4 leading-relaxed">
+                <strong class="text-white">Riesgo B2B:</strong> Alta probabilidad de rechazo por agencias extranjeras. Ausencia de integración RAG para validar seguridad operativa.
+            </p>
+        </div>
+
+        <!-- Score 3: Core Web Vitals -->
+        <div class="glass-panel rounded-3xl p-6 success-glow relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-24 h-24 bg-emerald-500/10 rounded-full blur-2xl"></div>
+            <h3 class="text-xs font-black uppercase tracking-widest text-slate-400 mb-2">Velocidad (Google SEO)</h3>
+            <div class="flex items-end gap-2 mb-4">
+                <span class="text-6xl font-black text-emerald-500">85</span><span class="text-xl text-slate-500 mb-1">/100</span>
+            </div>
+            <div class="space-y-3">
+                <div class="flex justify-between items-center text-sm border-b border-slate-800 pb-2">
+                    <span class="text-slate-300"><i class="ri-checkbox-circle-fill text-emerald-500 mr-2"></i>LCP (Carga)</span>
+                    <span class="font-mono text-emerald-400">1.2s</span>
+                </div>
+                <div class="flex justify-between items-center text-sm border-b border-slate-800 pb-2">
+                    <span class="text-slate-300"><i class="ri-close-circle-fill text-red-500 mr-2"></i>Imágenes WebP</span>
+                    <span class="font-mono text-red-400">Faltan</span>
+                </div>
+            </div>
+            <p class="text-xs text-slate-400 mt-4 leading-relaxed">
+                <strong class="text-white">Estado:</strong> Aceptable para SEO tradicional, pero irrelevante sin visibilidad en motores generativos.
+            </p>
+        </div>
+    </main>
+
+    <!-- The Solution / Pitch -->
+    <section class="max-w-5xl mx-auto glass-panel rounded-[2rem] p-8 md:p-12 relative overflow-hidden">
+        <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-blue-600/20 rounded-full blur-3xl"></div>
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">Solución B2B Lifextreme</span>
+                <h2 class="text-3xl font-black mt-4 mb-4">Inyección de Autoridad RAG</h2>
+                <p class="text-slate-400 text-sm leading-relaxed mb-8">
+                    Mientras compites por clics en Google, las IAs están desviando a tus clientes. 
+                    En <strong>Lifextreme</strong> poseemos la única base vectorial (291,000 vectores) con la gobernanza turística del Perú. 
+                    Integraremos nuestra API en tu web para inyectar esquemas AEO, archivos `llms.txt` y validación legal automática.
+                </p>
+                <button class="bg-white text-slate-900 px-8 py-4 rounded-xl font-black text-xs uppercase tracking-widest hover:scale-105 transition-transform flex items-center gap-3">
+                    <i class="ri-macbook-line text-lg"></i> Iniciar Integración Técnica
+                </button>
+            </div>
+            <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800 font-mono text-xs text-emerald-400 shadow-inner">
+                <p class="text-slate-500 mb-2">// Código que inyectaremos en tu sitio:</p>
+                <p><span class="text-pink-400">&lt;script</span> <span class="text-blue-300">type</span>=<span class="text-yellow-300">"application/ld+json"</span><span class="text-pink-400">&gt;</span></p>
+                <p class="pl-4 text-slate-300">{</p>
+                <p class="pl-8"><span class="text-blue-300">"@context"</span>: <span class="text-yellow-300">"https://schema.org"</span>,</p>
+                <p class="pl-8"><span class="text-blue-300">"@type"</span>: <span class="text-yellow-300">"FAQPage"</span>,</p>
+                <p class="pl-8 text-slate-500">// Validación por Base Vectorial Lifextreme</p>
+                <p class="pl-8"><span class="text-blue-300">"authority"</span>: <span class="text-yellow-300">"Resolución SERNANP-2026"</span></p>
+                <p class="pl-4 text-slate-300">}</p>
+                <p><span class="text-pink-400">&lt;/script&gt;</span></p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

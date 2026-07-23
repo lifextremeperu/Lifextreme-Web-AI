@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifextreme AI Auditor - Escáner GEO</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #020617; color: #f8fafc; overflow: hidden; }
+        .glass-input { background: rgba(30, 41, 59, 0.4); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .neon-text { background: linear-gradient(90deg, #3b82f6, #a855f7); -webkit-background-clip: text; color: transparent; }
+        .scan-line {
+            width: 100%;
+            height: 2px;
+            background: #3b82f6;
+            box-shadow: 0 0 20px #3b82f6, 0 0 40px #a855f7;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: scan 2s linear infinite;
+            display: none;
+        }
+        @keyframes scan {
+            0% { top: 0; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center relative">
+
+    <!-- Background Effects -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <main class="w-full max-w-3xl px-6 relative z-10 text-center">
+        <!-- Logo -->
+        <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-600 rounded-2xl mb-8 shadow-[0_0_40px_rgba(37,99,235,0.4)]">
+            <i class="ri-radar-line text-white text-3xl animate-pulse"></i>
+        </div>
+
+        <!-- Copywriting -->
+        <h1 class="text-4xl md:text-6xl font-black tracking-tight mb-4">
+            Auditor de <span class="neon-text">Inteligencia Artificial</span>
+        </h1>
+        <p class="text-slate-400 text-sm md:text-base mb-12 max-w-xl mx-auto leading-relaxed">
+            Descubre si tu agencia de viajes es visible para ChatGPT, Gemini y Siri. Escanearemos tu dominio buscando arquitectura RAG y cumplimiento legal E-E-A-T.
+        </p>
+
+        <!-- Search UI -->
+        <div class="relative max-w-2xl mx-auto group">
+            <div class="scan-line" id="scanLine"></div>
+            <div class="glass-input p-2 rounded-full flex items-center shadow-2xl transition-all duration-300 focus-within:border-blue-500/50 focus-within:bg-slate-800/80">
+                <i class="ri-global-line text-slate-500 text-xl ml-4 mr-2"></i>
+                <input type="text" id="domainInput" placeholder="www.tu-agencia.com" class="w-full bg-transparent border-none outline-none text-white placeholder-slate-500 px-2 text-lg">
+                <button onclick="startScan()" class="bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-full font-black text-xs uppercase tracking-widest transition-colors flex items-center gap-2 shrink-0">
+                    <i class="ri-search-eye-line text-lg"></i> Auditar Web
+                </button>
+            </div>
+        </div>
+
+        <!-- Scanning Status (Hidden initially) -->
+        <div id="scanStatus" class="mt-8 text-xs font-mono text-blue-400 hidden flex-col items-center gap-2">
+            <div class="flex items-center gap-2">
+                <i class="ri-loader-4-line animate-spin text-lg"></i>
+                <span id="scanText">Iniciando escaneo de metadatos...</span>
+            </div>
+            <div class="w-64 h-1 bg-slate-800 rounded-full mt-2 overflow-hidden">
+                <div id="scanProgress" class="h-full bg-blue-500 w-0 transition-all duration-300"></div>
+            </div>
+        </div>
+
+        <!-- Social Proof -->
+        <p class="mt-12 text-[10px] text-slate-600 font-bold uppercase tracking-widest flex items-center justify-center gap-2">
+            <i class="ri-shield-check-fill text-slate-500"></i> Tecnología impulsada por la base vectorial de Lifextreme
+        </p>
+    </main>
+
+    <script>
+        async function startScan() {
+            const input = document.getElementById('domainInput').value;
+            if(!input) {
+                alert('Por favor ingresa el dominio de tu agencia.');
+                return;
+            }
+
+            // UI Changes
+            document.getElementById('scanLine').style.display = 'block';
+            const status = document.getElementById('scanStatus');
+            const text = document.getElementById('scanText');
+            const progress = document.getElementById('scanProgress');
+            
+            status.classList.remove('hidden');
+            status.classList.add('flex');
+
+            // Fake Scanning Sequence for UI
+            setTimeout(() => { text.innerText = "Conectando al servidor..."; progress.style.width = '30%'; }, 500);
+            setTimeout(() => { text.innerText = "Escaneando metadatos y RAG..."; progress.style.width = '60%'; }, 1500);
+
+            try {
+                // LLAMADA REAL A LA API BACKEND (FastAPI)
+                const response = await fetch('http://127.0.0.1:5000/api/audit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ url: input })
+                });
+
+                if (!response.ok) throw new Error("Error en la auditoría");
+
+                const data = await response.json();
+                
+                text.innerText = "Generando Reporte..."; 
+                progress.style.width = '100%';
+                
+                // Sobrescribir toda la pantalla con el HTML dinámico devuelto por la API
+                setTimeout(() => {
+                    document.open();
+                    document.write(data.html);
+                    document.close();
+                }, 1000);
+
+            } catch (error) {
+                text.innerText = "Error de conexión. Asegúrate que la API esté corriendo.";
+                progress.classList.replace('bg-blue-500', 'bg-red-500');
+                console.error(error);
+            }
+        }
+
+        // Allow Enter key
+        document.getElementById('domainInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                startScan();
+            }
+        });
+    </script>
+</body>
+</html>
