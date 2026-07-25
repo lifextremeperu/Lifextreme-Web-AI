@@ -1,0 +1,19 @@
+services:
+  openserp:
+    image: karust/openserp:latest
+    container_name: lifextreme-openserp
+    ports:
+      - "7000:7000"
+    command: serve -a 0.0.0.0 -p 7000
+    restart: unless-stopped
+
+  searxng:
+    image: searxng/searxng:latest
+    container_name: lifextreme-searxng
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./searxng:/etc/searxng
+    environment:
+      - SEARXNG_BASE_URL=http://localhost:8080/
+    restart: unless-stopped
