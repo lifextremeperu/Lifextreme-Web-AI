@@ -101,7 +101,9 @@
                     if(article.category && article.category.toLowerCase().includes('bungee')) { icon = 'ri-arrow-down-double-line'; color = 'bg-red-100 text-red-600'; }
                     
                     card.innerHTML = `
-                        <div class="absolute -right-10 -top-10 w-32 h-32 bg-slate-50 rounded-full group-hover:scale-150 transition-transform duration-500"></div>
+                        ${article.image ? `<div class="w-full h-44 rounded-2xl overflow-hidden mb-5 -mt-1">
+                            <img src="/${article.image}" alt="${article.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>` : '<div class="absolute -right-10 -top-10 w-32 h-32 bg-slate-50 rounded-full group-hover:scale-150 transition-transform duration-500"></div>'}
                         <div class="relative z-10">
                             <div class="flex items-center gap-3 mb-4">
                                 <div class="w-10 h-10 rounded-xl ${color} flex items-center justify-center">

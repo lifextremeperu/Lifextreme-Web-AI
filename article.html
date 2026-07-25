@@ -154,10 +154,32 @@
                 
                 let markdown = await mdResponse.text();
                 
-                // Si el markdown incluye el título H1 al inicio, lo removemos para que no se duplique con el encabezado de la página
-                if(markdown.startsWith('# ')) {
+                // Limpiar frontmatter YAML (--- ... --- al inicio)
+                if (markdown.trimStart().startsWith('---')) {
+                    const end = markdown.indexOf('---', 3);
+                    if (end !== -1) markdown = markdown.slice(end + 3).trimStart();
+                }
+
+                // Limpiar líneas de metadatos sueltas (title:, slug:, keywords:, etc.)
+                markdown = markdown.replace(/^(title|slug|meta_description|keywords|author|date|image|category|location)\s*:.*$/gm, '');
+
+                // Limpiar separadores --- sueltos que puedan quedar
+                markdown = markdown.replace(/^-{3,}$/gm, '');
+
+                // Limpiar líneas tipo "**Frontmatter:**" o "yaml:" que pueden quedar
+                markdown = markdown.replace(/^\*\*Frontmatter:\*\*.*$/gm, '');
+                markdown = markdown.replace(/^yaml\s*:.*$/gm, '');
+                markdown = markdown.replace(/^A continuación te presento.*$/gm, '');
+                markdown = markdown.replace(/^Me aseguré de eliminar.*$/gm, '');
+
+                // Quitar líneas vacías al inicio
+                markdown = markdown.replace(/^\s*\n/, '').trimStart();
+
+                // Si el markdown incluye el título H1 al inicio, lo removemos para que no se duplique
+                if (markdown.startsWith('# ')) {
                     markdown = markdown.substring(markdown.indexOf('\n') + 1);
                 }
+
 
                 // Renderizar usando marked
                 document.getElementById('article-content').innerHTML = marked.parse(markdown);
