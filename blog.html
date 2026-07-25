@@ -73,7 +73,7 @@
         document.addEventListener('DOMContentLoaded', async () => {
             try {
                 // Agregar timestamp (Date.now) a la URL de fetch para evitar que el navegador guarde cache del JSON viejo
-                const response = await fetch(`data/blog/index.json?t=${Date.now()}`);
+                const response = await fetch(`/data/blog/index.json?t=${Date.now()}`);
                 
                 if (!response.ok) throw new Error('No se pudo cargar el índice del blog');
                 

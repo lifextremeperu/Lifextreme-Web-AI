@@ -131,7 +131,7 @@
             try {
                 // Fetch the article index to get meta info
                 // We append a timestamp to ensure fresh data
-                const indexResponse = await fetch(`data/blog/index.json?t=${Date.now()}`);
+                const indexResponse = await fetch(`/data/blog/index.json?t=${Date.now()}`);
                 if (indexResponse.ok) {
                     const articles = await indexResponse.json();
                     const articleMeta = articles.find(a => a.slug === slug);
@@ -149,7 +149,7 @@
                 }
 
                 // Fetch the markdown content
-                const mdResponse = await fetch(`data/blog/articles/${slug}.md?t=${Date.now()}`);
+                const mdResponse = await fetch(`/data/blog/articles/${slug}.md?t=${Date.now()}`);
                 if (!mdResponse.ok) throw new Error('Markdown file not found');
                 
                 let markdown = await mdResponse.text();
