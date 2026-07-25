@@ -96,27 +96,6 @@ build/
 # ── DEPLOY ───────────────────────────────────────────────────
 .vercel
 .firebase/
-.firebaserc
-
-# ── VECTOR DATABASE (ChromaDB) — MUY PESADO ─────────────────
-# 172 MB — No necesita estar en git ni indexado por el IDE
-chroma_db/
-
-# ── KNOWLEDGE BASE / DATOS MASIVOS ──────────────────────────
-# 4.5 GB de PDFs + JSONs masivos — Solo necesitas el código
-data/raw_pdfs/
-data/knowledge/
-data/_control/
-data/social/
-data/news/
-data/guides/
-data/blog/
-
-# Archivos JSONL grandes de conocimiento
-*.jsonl
-
-# CSV masivo de FAQs (1.7 MB — innecesario en git)
-tours_faq.csv
 
 # ── BACKUPS Y ZIPS ───────────────────────────────────────────
 *.zip
@@ -140,3 +119,4 @@ revectorize_checkpoint.json
 # Auditoria y QA
 .deepeval/
 docker/
+.env*.local
