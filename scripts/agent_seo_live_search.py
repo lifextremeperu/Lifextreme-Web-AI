@@ -31,11 +31,23 @@ KEYWORDS_SEMILLAS = [
 
 def buscar_en_searxng(query):
     try:
-        res = requests.get(f"{SEARXNG_URL}?q={requests.utils.quote(query)}", timeout=5)
-        if res.status_code == 200:
-            data = res.json()
-            if isinstance(data, list) and len(data) > 1:
-                return data[1] 
+        # Búsqueda normal + Búsquedas en Foros (Modo Espía AEO)
+        queries_espia = [
+            query, 
+            f"{query} site:reddit.com", 
+            f"{query} site:tripadvisor.com"
+        ]
+        
+        sugerencias_totales = []
+        for q in queries_espia:
+            res = requests.get(f"{SEARXNG_URL}?q={requests.utils.quote(q)}", timeout=5)
+            if res.status_code == 200:
+                data = res.json()
+                if isinstance(data, list) and len(data) > 1:
+                    sugerencias_totales.extend(data[1])
+                    
+        # Eliminar duplicados y devolver las primeras
+        return list(set(sugerencias_totales))[:8]
     except Exception as e:
         print(f"[!] Error contactando SearxNG: {e}")
     return []
