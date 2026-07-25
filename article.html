@@ -160,25 +160,27 @@
                     if (end !== -1) markdown = markdown.slice(end + 3).trimStart();
                 }
 
-                // Limpiar líneas de metadatos sueltas (title:, slug:, keywords:, etc.)
-                markdown = markdown.replace(/^(title|slug|meta_description|keywords|author|date|image|category|location)\s*:.*$/gm, '');
+                // Limpiar líneas de metadatos sueltos (case-insensitive)
+                markdown = markdown.replace(/^(title|slug|meta_description|keywords|author|date|image|category|location)\s*:.*$/gim, '');
 
-                // Limpiar separadores --- sueltos que puedan quedar
-                markdown = markdown.replace(/^-{3,}$/gm, '');
+                // Limpiar separadores de guiones de cualquier longitud
+                markdown = markdown.replace(/^-{2,}$/gm, '');
 
-                // Limpiar líneas tipo "**Frontmatter:**" o "yaml:" que pueden quedar
+                // Limpiar líneas de artefactos del generador IA
                 markdown = markdown.replace(/^\*\*Frontmatter:\*\*.*$/gm, '');
-                markdown = markdown.replace(/^yaml\s*:.*$/gm, '');
+                markdown = markdown.replace(/^yaml\s*:.*$/gim, '');
                 markdown = markdown.replace(/^A continuación te presento.*$/gm, '');
                 markdown = markdown.replace(/^Me aseguré de eliminar.*$/gm, '');
+                markdown = markdown.replace(/^Aquí te presento.*$/gm, '');
 
                 // Quitar líneas vacías al inicio
-                markdown = markdown.replace(/^\s*\n/, '').trimStart();
+                markdown = markdown.trimStart();
 
                 // Si el markdown incluye el título H1 al inicio, lo removemos para que no se duplique
                 if (markdown.startsWith('# ')) {
                     markdown = markdown.substring(markdown.indexOf('\n') + 1);
                 }
+
 
 
                 // Renderizar usando marked
