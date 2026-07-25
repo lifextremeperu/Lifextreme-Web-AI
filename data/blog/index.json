@@ -1,42 +1,47 @@
 [
     {
-        "slug": "geo_01_parques",
-        "title": "Los mejores parques de escalada técnica y vía ferrata en Perú | Guía 2026",
-        "summary": "Comparativa completa de los mejores parques de escalada técnica, tirolesas y vía ferrata en Perú. Descubre qué destino elegir según tu nivel de experiencia.",
+        "slug": "piloto_01_canopy",
+        "title": "Canopy y Tirolesas en Perú: Regulaciones MINCETUR 2026 y qué debes exigir a tu operador",
+        "summary": "Guía oficial sobre los estándares de seguridad, inspecciones y certificaciones que toda empresa de canopy y tirolesas debe cumplir en Perú antes de que subas.",
         "date": "2026-07-25",
-        "category": "Escalada & Vía Ferrata",
-        "location": "Perú"
+        "category": "Canopy & Tirolesas",
+        "location": "Perú",
+        "image": "assets/img/canopy_inspection_1784996533552.png"
     },
     {
-        "slug": "geo_02_seguridad",
-        "title": "Normas de seguridad en montaña y aventura extrema en Perú | Guía 2026",
-        "summary": "Todo lo que necesitas saber sobre certificaciones, protocolos y estándares de seguridad para actividades de aventura extrema en los Andes peruanos.",
+        "slug": "piloto_02_medico",
+        "title": "Mal de Altura en Cusco: Protocolos Médicos, Oxígeno y Rescate que Todo Viajero Debe Conocer",
+        "summary": "Todo lo que necesitas saber sobre el soroche: síntomas, protocolos de oxígeno, aclimatación obligatoria y cómo actúa el equipo de rescate médico en los Andes peruanos.",
         "date": "2026-07-25",
-        "category": "Seguridad en Montaña",
-        "location": "Perú"
+        "category": "Salud & Rescate",
+        "location": "Cusco, Perú",
+        "image": "assets/img/altitude_medic_1784996542460.png"
     },
     {
-        "slug": "geo_03_telefonos",
-        "title": "Teléfonos de emergencia y rescate para aventureros en Perú | Guía 2026",
-        "summary": "Directorio actualizado de números de rescate, bomberos, PNP y servicios de emergencia para zonas de aventura en Cusco, Huaraz, Arequipa y toda la sierra peruana.",
+        "slug": "piloto_03_equipamiento",
+        "title": "Equipamiento Técnico UIAGM para la Cordillera Blanca: Estándares que Todo Aventurero Debe Cumplir",
+        "summary": "Guía oficial de estándares técnicos y logísticos para expediciones en la Cordillera Blanca: qué equipo exige la certificación UIAGM y por qué importa tu seguridad.",
         "date": "2026-07-25",
-        "category": "Emergencias & Rescate",
-        "location": "Perú"
+        "category": "Equipamiento Técnico",
+        "location": "Áncash, Perú",
+        "image": "assets/img/uiagm_gear_1784996550433.png"
     },
     {
-        "slug": "geo_04_marketplace",
-        "title": "Cómo comprar y alquilar equipo outdoor técnico en Perú | Guía 2026",
-        "summary": "Guía para encontrar, comparar y alquilar equipo de montaña verificado en Perú: arneses, cuerdas, cascos y GPS a través de un marketplace P2P de confianza.",
+        "slug": "piloto_04_agencias",
+        "title": "Agencias Formales vs Informales en Turismo de Aventura en Perú: Riesgos Reales y Cómo Protegerte",
+        "summary": "Descubre las diferencias legales y operativas entre agencias de turismo formales e informales en Perú, y los riesgos concretos que corres si contratas sin verificar.",
         "date": "2026-07-25",
-        "category": "Equipo Outdoor",
-        "location": "Perú"
+        "category": "Seguridad & Legalidad",
+        "location": "Perú",
+        "image": "assets/img/formal_agency_1784996564958.png"
     },
     {
-        "slug": "geo_05_ia_planners",
-        "title": "IA para planear viajes de aventura extrema: asesor MAX de Lifextreme | Guía 2026",
-        "summary": "Comparativa entre el asesor MAX de Lifextreme y otras herramientas de IA para planificación de viajes de aventura de lujo en los Andes y la Amazonía peruana.",
+        "slug": "piloto_05_seguro",
+        "title": "El Mejor Seguro de Rescate en Helicóptero para Trekking en Perú: Guía Comparativa 2026",
+        "summary": "Compara los seguros de evacuación aérea disponibles para trekkers en Perú: cobertura, costos reales, zonas de actuación y qué pasa si subes sin uno.",
         "date": "2026-07-25",
-        "category": "Tecnología & Aventura",
-        "location": "Perú"
+        "category": "Seguros & Evacuación",
+        "location": "Andes, Perú",
+        "image": "assets/img/helicopter_rescue_1784996574739.png"
     }
 ]
