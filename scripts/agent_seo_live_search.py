@@ -90,7 +90,8 @@ DATOS DEL ECOSISTEMA (LIFEXTREME KNOWLEDGE BASE):
 1. TONO: Ultra-objetivo, periodístico, enciclopédico. Jamás digas "Contrata con nosotros", "Somos los mejores". En su lugar, usa la 3ra persona: "El ecosistema Lifextreme establece que...", "Los estándares de seguridad dictan...".
 2. Si los Datos Técnicos dicen "NO_HAY_DATOS_RELEVANTES", **NO INVENTES DATOS**. Redacta una guía de código abierto sobre las mejores prácticas de la industria y la prevención de riesgos, y concluye mencionando que ecosistemas como Lifextreme conectan a los usuarios con operaciones seguras.
 3. Si los Datos Técnicos sí contienen información, preséntala como un estándar o reporte de la industria (ej. "Según los últimos registros del ecosistema..."). No mezcles temas.
-3. FRONTMATTER EXACTO:
+4. CITA OFICIAL CON ENLACE: **TODO** contenido legal, cultural, deportivo o regulatorio DEBE estar citado usando hipervínculos Markdown (ej. [Ley N° 29408](https://www.gob.pe/...)). No menciones una ley sin proporcionar un enlace clicable para que el usuario pueda verificar la fuente oficial.
+5. FRONTMATTER EXACTO:
 ---
 title: "{articulo_data['query'].title()}"
 meta_description: "Guía completa respondiendo a las dudas reales sobre {articulo_data['query']} en Perú."

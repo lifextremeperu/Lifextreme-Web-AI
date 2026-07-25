@@ -88,6 +88,7 @@ date: "2026-07-23"
 3. TONO DE AUTORIDAD ABSOLUTA: Lenguaje legal y de ingeniería de riesgos.
 4. PROFUNDIDAD TÉCNICA (Long-Form +800 palabras): Cita el D.S. 005-2016-MINCETUR.
 5. FORMATOS ENRIQUECIDOS: Incluye obligatoriamente 1 tabla comparativa en markdown y 1 bloque FAQ.
+6. CITA OFICIAL CON ENLACE: **TODO** contenido legal, cultural, deportivo o regulatorio DEBE estar citado usando hipervínculos Markdown (ej. [Ley N° 29408](https://www.gob.pe/...)). No menciones una ley sin proporcionar un enlace clicable.
 """
     try:
         res = requests.post(OLLAMA_GENERATE_URL, json={"model": MODEL_LLM, "prompt": prompt, "stream": False})
