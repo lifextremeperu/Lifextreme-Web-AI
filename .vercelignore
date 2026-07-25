@@ -1,4 +1,4 @@
-# Backend Python y Scripts de IA
+# ── Backend Python y Scripts de IA ───────────────────────────
 scripts/
 src/
 functions/
@@ -6,23 +6,33 @@ api/
 backend/
 sql/
 
-# Bases de Datos y Vectores (EXCEPTO blog - necesario para el sitio)
+# ── Bases de Datos y Vectores (EXCEPTO data/blog) ────────────
 data/lifextreme_brain_web
 data/chroma
+data/raw_pdfs
+data/knowledge
+data/_control
+data/social
+data/news
+data/guides
 chroma_db/
 logs/
 scratch/
+
+# ── Archivos de datos masivos ─────────────────────────────────
 *.csv
 *.sql
+*.jsonl
+*.parquet
 
-# Entorno virtual Python (MUY PESADO)
+# ── Entorno virtual Python (MUY PESADO) ──────────────────────
 .venv/
 .deepeval/
 
-# Backups ZIP gigantes
+# ── Backups ZIP gigantes ──────────────────────────────────────
 *.zip
 
-# Logs y Archivos Pesados Locales
+# ── Logs y Archivos de texto pesados ─────────────────────────
 logs_ingesta.txt
 logs_ingesta_chile.txt
 reporte_archivos_valiosos.txt
@@ -31,25 +41,21 @@ output.txt
 qdrant_stats_output.txt
 *.log
 
-# Scripts de Sistema
+# ── Scripts de Sistema (no necesarios en producción) ─────────
 *.bat
 *.ps1
 *.py
 
-# Documentación Interna y Markdown
-*.md
-
-# Archivos de configuración interna
-*.json
+# ── Credenciales (NUNCA en producción) ───────────────────────
 gcp-ai-key.json
 service_account.json
 config/
 
-# Docker
+# ── Docker ────────────────────────────────────────────────────
 docker/
 docker-compose*.yml
 
-# Directorios pesados de agentes e inversores
+# ── Directorios internos pesados ─────────────────────────────
 agents/
 investors_pitch/
 graphify-out/
