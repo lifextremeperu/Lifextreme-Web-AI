@@ -12,12 +12,22 @@ chroma_db/
 logs/
 scratch/
 *.csv
-*.json
 *.sql
+
+# Entorno virtual Python (MUY PESADO)
+.venv/
+.deepeval/
+
+# Backups ZIP gigantes
+*.zip
 
 # Logs y Archivos Pesados Locales
 logs_ingesta.txt
+logs_ingesta_chile.txt
 reporte_archivos_valiosos.txt
+expansion_log.txt
+output.txt
+qdrant_stats_output.txt
 *.log
 
 # Scripts de Sistema
@@ -27,3 +37,21 @@ reporte_archivos_valiosos.txt
 
 # Documentación Interna y Markdown
 *.md
+
+# Archivos de configuración interna
+*.json
+gcp-ai-key.json
+service_account.json
+config/
+
+# Docker
+docker/
+docker-compose*.yml
+
+# Directorios pesados de agentes e inversores
+agents/
+investors_pitch/
+graphify-out/
+tmp/
+tools/
+docs/
