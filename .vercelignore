@@ -6,8 +6,9 @@ api/
 backend/
 sql/
 
-# Bases de Datos y Vectores
-data/
+# Bases de Datos y Vectores (EXCEPTO blog - necesario para el sitio)
+data/lifextreme_brain_web
+data/chroma
 chroma_db/
 logs/
 scratch/
