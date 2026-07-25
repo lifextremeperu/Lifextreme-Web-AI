@@ -153,35 +153,39 @@
                 if (!mdResponse.ok) throw new Error('Markdown file not found');
                 
                 let markdown = await mdResponse.text();
-                
-                // Limpiar frontmatter YAML (--- ... --- al inicio)
-                if (markdown.trimStart().startsWith('---')) {
-                    const end = markdown.indexOf('---', 3);
-                    if (end !== -1) markdown = markdown.slice(end + 3).trimStart();
+
+                // --- LIMPIEZA ROBUSTA DE FRONTMATTER ---
+                // Procesar línea por línea y descartar todo hasta llegar a contenido real
+                const lines = markdown.split('\n');
+                const cleanLines = [];
+                let contentStarted = false;
+
+                for (const line of lines) {
+                    const trimmed = line.trim();
+
+                    // Saltar líneas que son solo guiones (separadores)
+                    if (/^-+$/.test(trimmed)) continue;
+
+                    // Saltar líneas de metadatos: "Clave: valor" o "**Clave:**"
+                    if (/^[A-Za-záéíóúÁÉÍÓÚñÑ_]+\s*:\s*.+$/.test(trimmed)) continue;
+
+                    // Saltar líneas de artefactos IA
+                    if (/^(A continuación|Me aseguré|Aquí te presento|Note:|Nota:|This document|---)/i.test(trimmed)) continue;
+
+                    // Saltar líneas vacías al inicio (antes de que empiece el contenido real)
+                    if (!contentStarted && trimmed === '') continue;
+
+                    // A partir de aquí es contenido real
+                    contentStarted = true;
+                    cleanLines.push(line);
                 }
 
-                // Limpiar líneas de metadatos sueltos (case-insensitive)
-                markdown = markdown.replace(/^(title|slug|meta_description|keywords|author|date|image|category|location)\s*:.*$/gim, '');
+                markdown = cleanLines.join('\n').trimStart();
 
-                // Limpiar separadores de guiones de cualquier longitud
-                markdown = markdown.replace(/^-{2,}$/gm, '');
-
-                // Limpiar líneas de artefactos del generador IA
-                markdown = markdown.replace(/^\*\*Frontmatter:\*\*.*$/gm, '');
-                markdown = markdown.replace(/^yaml\s*:.*$/gim, '');
-                markdown = markdown.replace(/^A continuación te presento.*$/gm, '');
-                markdown = markdown.replace(/^Me aseguré de eliminar.*$/gm, '');
-                markdown = markdown.replace(/^Aquí te presento.*$/gm, '');
-
-                // Quitar líneas vacías al inicio
-                markdown = markdown.trimStart();
-
-                // Si el markdown incluye el título H1 al inicio, lo removemos para que no se duplique
+                // Quitar H1 duplicado si existe (ya se muestra en el header)
                 if (markdown.startsWith('# ')) {
-                    markdown = markdown.substring(markdown.indexOf('\n') + 1);
+                    markdown = markdown.substring(markdown.indexOf('\n') + 1).trimStart();
                 }
-
-
 
                 // Renderizar usando marked
                 document.getElementById('article-content').innerHTML = marked.parse(markdown);
