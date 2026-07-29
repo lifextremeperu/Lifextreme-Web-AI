@@ -1,0 +1,177 @@
+<diagnostico>
+PERFIL: Huancavelica es una región andina central del Perú, con una superficie de 22,131 km² y altitudes entre 1,900 y 5,303 m.s.n.m. Su capital, Huancavelica, se ubica a 3,676 m.s.n.m. En 2018, recibió 220,910 visitantes, mayoritariamente nacionales (99.32%), con un crecimiento del 11.58% en actividades de alojamiento y restaurantes. Su vocación turística se centra en Naturaleza, Folklore y Cultura.
+MACROREGION: Sierra
+MADUREZ_TURISTICA: EMERGENTE
+VISITANTES_ANUALES_EST: 220,910 (2018)
+PESO_CATEGORIAS:
+  - Destinos y patrimonio: 35%
+  - Aventura y deportes: 5%
+  - Gastronomía y cultura: 20%
+  - Naturaleza y ecosistemas: 30%
+  - Misticismo y festividades: 10%
+  - Logística y servicios: 0%
+  - Otros: 0%
+  TOTAL: 100%
+PERFIL_VISITANTE_DOMINANTE: Turista nacional, entre 38 y 45 años, de nivel socioeconómico C/B, viaja en pareja o familia, con educación superior, proveniente principalmente de Lima y Junín, motivado por visitas a familiares/amigos y vacaciones.
+MERCADOS_INTERNACIONALES: Chile, Estados Unidos, Argentina
+VENTANA_OPTIMA: Mayo-Octubre (estación seca), con picos en Junio-Julio, ideal para actividades al aire libre y festividades.
+PROBLEMA_NO_RESUELTO: La limitada competitividad turística de la región, derivada de una oferta de productos y servicios turísticos con deficiencias en calidad, infraestructura y promoción, así como una gestión turística fragmentada.
+DESTINOS_CANONICOS_COMPARTIDOS: Junín, Ayacucho, Apurímac
+</diagnostico>
+
+<modulos_generados>
+---
+ID: A-01
+MÓDULO: Mina Santa Bárbara: Historia y Patrimonio Minero
+SUBTÍTULO: Exploración de la mina histórica de mercurio y su impacto cultural.
+SEGMENTO_PRINCIPAL: Científico
+SEGMENTO_SECUNDARIO: Familia
+TIPO_DE_DATO: Cultural
+VENTANA_TEMPORAL: Todo el año
+VERIFICABILIDAD: BAJA
+GANCHO_EMOCIONAL: ¿Cómo fue la vida en la mina de mercurio que impulsó el Virreinato?
+CANONICAL_REF: propio
+HUMAN_REVIEW: true
+---
+ID: A-02
+MÓDULO: Templo Inca de Huaytará: Arquitectura y Sincretismo
+SUBTÍTULO: Descubriendo el palacio inca y su transformación en iglesia colonial.
+SEGMENTO_PRINCIPAL: Familia
+SEGMENTO_SECUNDARIO: Mochilero
+TIPO_DE_DATO: Cultural
+VENTANA_TEMPORAL: Todo el año
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Qué secretos guardan las piedras que unieron dos imperios?
+CANONICAL_REF: propio
+HUMAN_REVIEW: true
+---
+ID: D-01
+MÓDULO: Danza de las Tijeras: Patrimonio Inmaterial de la Humanidad
+SUBTÍTULO: Inmersión en la expresión cultural más emblemática de Huancavelica.
+SEGMENTO_PRINCIPAL: Mochilero
+SEGMENTO_SECUNDARIO: Familia
+TIPO_DE_DATO: Cultural
+VENTANA_TEMPORAL: Julio-Enero (temporada de fiestas)
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Serás testigo de la magia y el desafío de los danzantes de tijeras?
+CANONICAL_REF: propio
+HUMAN_REVIEW: true
+---
+ID: F-01
+MÓDULO: Tren Macho: Aventura Ferroviaria por los Andes
+SUBTÍTULO: Recorrido escénico en el histórico ferrocarril Huancayo-Huancavelica.
+SEGMENTO_PRINCIPAL: Mochilero
+SEGMENTO_SECUNDARIO: Familia
+TIPO_DE_DATO: Logístico
+VENTANA_TEMPORAL: Todo el año (sujeto a operatividad)
+VERIFICABILIDAD: BAJA
+GANCHO_EMOCIONAL: ¿Te atreverás a revivir la ruta del legendario Tren Macho?
+CANONICAL_REF: propio
+HUMAN_REVIEW: true
+---
+ID: J-01
+MÓDULO: Aguas Termales de San Cristóbal: Bienestar y Relajo Andino
+SUBTÍTULO: Disfrute de las propiedades curativas de las aguas termales locales.
+SEGMENTO_PRINCIPAL: Familia
+SEGMENTO_SECUNDARIO: Mochilero
+TIPO_DE_DATO: Experiencial
+VENTANA_TEMPORAL: Todo el año
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Cómo recargar energías en las cálidas aguas de los Andes?
+CANONICAL_REF: propio
+HUMAN_REVIEW: true
+---
+ID: L-01
+MÓDULO: Artesanía Textil de Huancavelica: Tradición y Color
+SUBTÍTULO: Exploración de técnicas ancestrales de tejido y sus mercados.
+SEGMENTO_PRINCIPAL: Mochilero
+SEGMENTO_SECUNDARIO: Familia
+TIPO_DE_DATO: Cultural
+VENTANA_TEMPORAL: Todo el año
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Qué historia tejerán tus manos en los telares andinos?
+CANONICAL_REF: propio
+HUMAN_REVIEW: true
+---
+ID: B-01
+MÓDULO: Bosque de Puyas Raymondi: Gigantes del Ande
+SUBTÍTULO: Observación de la flora única de las Puyas Raymondi en su hábitat natural.
+SEGMENTO_PRINCIPAL: Científico
+SEGMENTO_SECUNDARIO: Mochilero
+TIPO_DE_DATO: Experiencial
+VENTANA_TEMPORAL: Mayo-Octubre
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Podrás capturar la majestuosidad de las Puyas Raymondi en flor?
+CANONICAL_REF: propio
+HUMAN_REVIEW: true
+---
+ID: B-02
+MÓDULO: Laguna Choclococha: Espejo de los Andes
+SUBTÍTULO: Paisajes de alta montaña y biodiversidad en la Ruta de los Espejos.
+SEGMENTO_PRINCIPAL: Mochilero
+SEGMENTO_SECUNDARIO: Familia
+TIPO_DE_DATO: Experiencial
+VENTANA_TEMPORAL: Mayo-Octubre
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Qué reflejos te esperan en el espejo de agua más grande de Huancavelica?
+CANONICAL_REF: propio
+HUMAN_REVIEW: true
+---
+ID: A-03
+MÓDULO: Complejo Arqueológico de Uchkus Inkañan: Observatorio Inca
+SUBTÍTULO: Descubriendo el centro de experimentación agrícola y astronómica inca.
+SEGMENTO_PRINCIPAL: Científico
+SEGMENTO_SECUNDARIO: Familia
+TIPO_DE_DATO: Cultural
+VENTANA_TEMPORAL: Todo el año
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Cómo los incas leían el cielo y cultivaban en las alturas?
+CANONICAL_REF: propio
+HUMAN_REVIEW: true
+---
+ID: A-04
+MÓDULO: Pueblo de Sacsamarca: Arquitectura Colonial y Tradición
+SUBTÍTULO: Inmersión en un pueblo con casas de piedra y teja, testigo de la minería.
+SEGMENTO_PRINCIPAL: Familia
+SEGMENTO_SECUNDARIO: Mochilero
+TIPO_DE_DATO: Cultural
+VENTANA_TEMPORAL: Todo el año
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Qué historias susurran las calles de piedra de Sacsamarca?
+CANONICAL_REF: propio
+HUMAN_REVIEW: true
+---
+ID: E-01
+MÓDULO: Festividades Religiosas y Costumbristas de Huancavelica
+SUBTÍTULO: Calendario de celebraciones, carnavales y rituales andinos.
+SEGMENTO_PRINCIPAL: Mochilero
+SEGMENTO_SECUNDARIO: Familia
+TIPO_DE_DATO: Cultural
+VENTANA_TEMPORAL: Enero-Diciembre (según festividad)
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Cuándo vivirás la pasión y el color de las fiestas de Huancavelica?
+CANONICAL_REF: propio
+HUMAN_REVIEW: true
+---
+ID: C-01
+MÓDULO: Trekking y Aventura en los Paisajes de Huancavelica
+SUBTÍTULO: Rutas de senderismo y actividades al aire libre en entornos naturales.
+SEGMENTO_PRINCIPAL: Aventura
+SEGMENTO_SECUNDARIO: Mochilero
+TIPO_DE_DATO: Experiencial
+VENTANA_TEMPORAL: Mayo-Octubre
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Qué cumbres y valles te esperan en tu próxima aventura andina?
+CANONICAL_REF: propio
+HUMAN_REVIEW: true
+---
+ID: F-02
+MÓDULO: Conectividad Vial y Acceso a Recursos Turísticos
+SUBTÍTULO: Análisis de la infraestructura de transporte terrestre para el turismo.
+SEGMENTO_PRINCIPAL: Digital_Nomad
+SEGMENTO_SECUNDARIO: Mochilero
+TIPO_DE_DATO: Logístico
+VENTANA_TEMPORAL: Todo el año
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Cómo llegar a los tesoros escondidos de Huancavelica?
+CAN

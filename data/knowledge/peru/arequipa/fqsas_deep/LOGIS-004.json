@@ -1,0 +1,354 @@
+{
+    "destino_id": "LOGIS-004",
+    "modulo_contexto": "ID: LOGIS-004 MÓDULO: Logística de Transporte Independiente e Infraestructura de Conectividad SUBTÍTULO: Precios reales de taxis (InDrive/Uber), miniv...",
+    "fqsas": {
+        "1_Precios_Presupuestos_Moneda": [
+            {
+                "pregunta": "¿Cuánto cuesta un taxi de InDrive o Uber desde el aeropuerto de Arequipa al centro histórico en 2024?",
+                "respuesta": "Un viaje en InDrive o Uber desde el Aeropuerto Rodríguez Ballón de Arequipa hasta el centro histórico suele costar entre 15 y 25 Soles peruanos, dependiendo de la hora y la demanda. Es la opción más segura y con precio fijado para turistas."
+            },
+            {
+                "pregunta": "¿Cuál es el precio del pasaje en minivan de Arequipa a Chivay para visitar el Cañón del Colca sin tour?",
+                "respuesta": "El pasaje en minivan desde el Terminal Terrestre de Arequipa a Chivay cuesta entre 17 y 25 Soles. Empresas como 'Reyna' o 'Andoriña' ofrecen salidas frecuentes, aproximadamente cada 30-60 minutos, desde las 3:00 AM hasta las 4:00 PM."
+            },
+            {
+                "pregunta": "¿Cuánto vale el pasaje en minivan desde Arequipa a Mollendo para ir a la playa en temporada baja?",
+                "respuesta": "El pasaje en minivan de Arequipa a Mollendo cuesta entre 15 y 20 Soles en temporada baja. Las minivanes salen del Terminal Terrestre y el viaje dura aproximadamente 2 horas. En temporada de verano, los precios pueden subir ligeramente."
+            },
+            {
+                "pregunta": "¿Qué precio tienen los pasajes de combi o bus local para moverse por el centro y alrededores de Arequipa?",
+                "respuesta": "El pasaje de combi o bus local dentro de la ciudad de Arequipa tiene un costo fijo de 1 Sol. Para rutas más largas dentro del área metropolitana, el precio puede ser 1.50 Soles. Se paga directamente al cobrador al subir al vehículo."
+            },
+            {
+                "pregunta": "¿Cuál es el presupuesto diario recomendado para un mochilero en Arequipa incluyendo transporte, comida y alojamiento económico?",
+                "respuesta": "Un mochilero puede presupuestar entre 60 y 100 Soles peruanos al día en Arequipa. Esto cubre un hostal económico (30-40 Soles), comidas en mercados o menú del día (15-25 Soles) y transporte local (5-10 Soles)."
+            },
+            {
+                "pregunta": "¿Dónde puedo cambiar dólares o euros a Soles peruanos en Arequipa y qué tipo de cambio esperar?",
+                "respuesta": "Puedes cambiar dólares o euros a Soles peruanos en casas de cambio formales en la Calle Mercaderes o en el Portal de la Municipalidad, cerca de la Plaza de Armas. El tipo de cambio es generalmente mejor que en bancos, pero siempre compara antes de realizar la transacción."
+            },
+            {
+                "pregunta": "¿Cuánto cuesta un taxi desde el Terminal Terrestre de Arequipa hasta la Plaza de Armas o el centro histórico?",
+                "respuesta": "Un taxi desde el Terminal Terrestre de Arequipa hasta la Plaza de Armas o el centro histórico cuesta entre 10 y 15 Soles. Es recomendable negociar el precio antes de subir o usar aplicaciones como InDrive para un precio fijo y transparente."
+            },
+            {
+                "pregunta": "¿Cuánto dinero necesito para comer barato en Arequipa como un local en mercados o restaurantes económicos?",
+                "respuesta": "Para comer barato en Arequipa como un local, puedes encontrar menús del día (almuerzo) en mercados como San Camilo o restaurantes populares por 8 a 15 Soles. Una cena ligera o un plato en un 'huarique' puede costar entre 10 y 20 Soles."
+            },
+            {
+                "pregunta": "¿Qué bancos en Arequipa tienen cajeros automáticos con bajas comisiones para retirar dinero con tarjetas internacionales?",
+                "respuesta": "Los cajeros automáticos del BCP y BBVA suelen cobrar comisiones por retiros con tarjetas internacionales. Interbank y Scotiabank a veces tienen comisiones más bajas o nulas, pero esto puede variar. Siempre verifica las tarifas de tu propio banco antes de retirar."
+            },
+            {
+                "pregunta": "¿Cuál es el precio promedio de un viaje corto en taxi por el centro histórico de Arequipa o distancias cercanas?",
+                "respuesta": "Un viaje corto en taxi dentro del centro histórico de Arequipa o a distancias cercanas (ej. Yanahuara) suele costar entre 5 y 8 Soles. Siempre negocia el precio antes de iniciar el viaje o usa InDrive para mayor transparencia y seguridad."
+            }
+        ],
+        "2_Logistica_Transporte_Como_Llegar": [
+            {
+                "pregunta": "¿Cuánto cuesta un taxi InDrive o Uber desde el Aeropuerto de Arequipa al centro histórico en 2024?",
+                "respuesta": "Un viaje en InDrive o Uber desde el Aeropuerto Alfredo Rodríguez Ballón al centro histórico de Arequipa suele costar entre 15 y 25 Soles peruanos, dependiendo de la demanda y la hora del día. Es la opción más segura y transparente para los viajeros."
+            },
+            {
+                "pregunta": "¿Cuál es el precio promedio de un viaje en taxi por aplicación (InDrive/Uber) dentro del centro de Arequipa?",
+                "respuesta": "Para trayectos cortos dentro del centro de Arequipa o distritos cercanos como Yanahuara o Cayma, un viaje en InDrive o Uber generalmente oscila entre 7 y 12 Soles. Siempre verifica el precio estimado en la aplicación antes de confirmar el servicio."
+            },
+            {
+                "pregunta": "¿Cómo llegar al Terminal Terrestre de Arequipa desde la Plaza de Armas y cuánto cuesta el taxi?",
+                "respuesta": "Desde la Plaza de Armas de Arequipa, puedes tomar un taxi por aplicación (InDrive/Uber) que te costará entre 8 y 15 Soles, o un taxi de la calle por un precio similar, negociando previamente. El trayecto toma unos 15-20 minutos dependiendo del tráfico."
+            },
+            {
+                "pregunta": "¿Dónde se toman las minivanes para Chivay (Cañón del Colca) desde Arequipa y qué precio tienen?",
+                "respuesta": "Las minivanes a Chivay salen del Terminal Terrestre de Arequipa. El pasaje cuesta entre 18 y 25 Soles por persona y los servicios son frecuentes, saliendo cada 30-60 minutos desde la mañana hasta media tarde. Busca las empresas autorizadas dentro del terminal."
+            },
+            {
+                "pregunta": "¿Es seguro usar minivanes informales para ir a Chivay o Mollendo desde Arequipa, especialmente de noche?",
+                "respuesta": "Se recomienda encarecidamente evitar las minivanes informales, especialmente de noche, debido a la falta de seguridad, regulaciones y posibles riesgos. Siempre usa los servicios de empresas establecidas en el Terminal Terrestre de Arequipa para viajes a Chivay o Mollendo."
+            },
+            {
+                "pregunta": "¿Cuánto cuesta el pasaje en miniván de Arequipa a Mollendo o Mejía y dónde se abordan?",
+                "respuesta": "Para ir a Mollendo o Mejía desde Arequipa, debes dirigirte al Terminal Terrestre. El pasaje en miniván o bus cuesta entre 15 y 25 Soles, con salidas regulares durante el día. Asegúrate de comprar tu boleto en las ventanillas oficiales."
+            },
+            {
+                "pregunta": "¿Cómo funciona el transporte público (combis/buses) en Arequipa para turistas y cuál es el costo del pasaje?",
+                "respuesta": "El transporte público en Arequipa se realiza principalmente con combis y buses. El pasaje cuesta aproximadamente 1 Sol. Para usarlo, necesitas una tarjeta de transporte SIT (Sistema Integrado de Transporte) que se recarga, aunque en algunas rutas aún se acepta efectivo. Pregunta al cobrador tu destino."
+            },
+            {
+                "pregunta": "¿Cuál es la mejor manera de llegar a Arequipa en bus desde Lima o Cusco y qué terminal se usa?",
+                "respuesta": "Para llegar a Arequipa desde Lima o Cusco en bus, debes usar el Terminal Terrestre de Arequipa. Empresas como Cruz del Sur, Oltursa o Civa ofrecen servicios cómodos y seguros. Los precios varían según la empresa y el tipo de servicio, desde 60 hasta 150 Soles desde Cusco y 80 a 200 Soles desde Lima."
+            },
+            {
+                "pregunta": "¿Hay taxis compartidos (colectivos) desde Arequipa a destinos cercanos como Sabandia o la Campiña y cuánto cuestan?",
+                "respuesta": "Sí, existen colectivos o taxis compartidos para destinos cercanos. Por ejemplo, para Sabandia, puedes encontrar colectivos cerca del Puente Bolognesi o la Avenida Goyeneche por 3-5 Soles por persona. Para la Campiña, los precios son similares, pero es más común usar InDrive/Uber para mayor comodidad y seguridad."
+            },
+            {
+                "pregunta": "¿Qué precauciones debo tomar al usar taxis en Arequipa para evitar estafas o problemas de seguridad?",
+                "respuesta": "Para evitar estafas o problemas de seguridad en Arequipa, siempre prioriza el uso de aplicaciones como InDrive o Uber, que registran el viaje y el conductor. Si tomas un taxi de la calle, negocia el precio antes de subir, verifica que el auto tenga distintivos de taxi y evita taxis sin identificación clara, especialmente de noche."
+            }
+        ],
+        "3_Seguridad_Riesgos_Salud": [
+            {
+                "pregunta": "¿Es seguro usar aplicaciones como InDrive o Uber para taxis en Arequipa de noche, y qué precauciones de seguridad debo tomar como mochilero?",
+                "respuesta": "Sí, usar apps como InDrive o Uber es generalmente más seguro que tomar taxis de la calle en Arequipa, especialmente por la noche. Siempre verifica que la placa y el modelo del auto coincidan con la app, comparte tu viaje con alguien de confianza y evita pagar en efectivo si la app ofrece pago electrónico para mayor trazabilidad."
+            },
+            {
+                "pregunta": "¿Cuáles son los riesgos de seguridad y salud al viajar en minivanes informales de Arequipa a Chivay o Mollendo, y cómo puedo minimizarlos?",
+                "respuesta": "Las minivanes informales pueden carecer de seguros adecuados, mantenimiento vehicular y conductores certificados, aumentando el riesgo de accidentes. Para minimizarlos, siempre opta por empresas formales en el Terminal Terrestre de Arequipa, verifica que el vehículo esté en buen estado y evita viajar de noche en rutas poco transitadas."
+            },
+            {
+                "pregunta": "¿Qué medidas de seguridad debo seguir en el Terminal Terrestre de Arequipa para proteger mis pertenencias y evitar estafas?",
+                "respuesta": "En el Terminal Terrestre de Arequipa, mantén tus objetos de valor siempre a la vista o en un lugar seguro. Evita a los 'jaladores' o personas que ofrecen servicios de transporte fuera de las ventanillas oficiales. Compra tus boletos directamente en las boleterías de las empresas y desconfía de ofertas demasiado buenas para ser verdad."
+            },
+            {
+                "pregunta": "¿Cómo puedo prevenir el soroche o mal de altura al viajar en miniván desde Arequipa (2335m) hacia Chivay (3635m) y qué síntomas debo vigilar?",
+                "respuesta": "Para prevenir el soroche al subir de Arequipa a Chivay, hidrátate bien desde el día anterior, evita comidas pesadas y alcohol. Durante el viaje, mastica hojas de coca o toma pastillas para el soroche. Vigila síntomas como dolor de cabeza, náuseas, mareos o fatiga extrema; si persisten, busca atención médica."
+            },
+            {
+                "pregunta": "¿Por qué es peligroso usar terminales de transporte informales en Arequipa durante la noche y qué riesgos específicos enfrentan los turistas?",
+                "respuesta": "Los terminales informales en Arequipa, especialmente de noche, son peligrosos por la falta de iluminación, seguridad y control. Los turistas pueden ser víctimas de robos, asaltos o estafas con tarifas infladas. Siempre usa el Terminal Terrestre oficial y taxis de aplicaciones o de empresas reconocidas para tu seguridad."
+            },
+            {
+                "pregunta": "¿Qué tan seguras son las carreteras de Arequipa hacia el Colca o Mollendo para el transporte público y qué debo saber sobre la conducción local?",
+                "respuesta": "Las carreteras hacia el Colca o Mollendo, aunque escénicas, pueden ser sinuosas y con tramos de montaña. La seguridad depende mucho del conductor y el estado del vehículo. El riesgo principal es la velocidad excesiva o la imprudencia de algunos choferes. Elige empresas de transporte con buena reputación y vehículos modernos."
+            },
+            {
+                "pregunta": "¿En caso de una emergencia médica o de seguridad durante mi viaje en Arequipa o sus alrededores, ¿cuáles son los números de contacto esenciales para turistas?",
+                "respuesta": "Para emergencias en Arequipa, los números clave son: Policía Nacional del Perú al 105, Policía de Turismo al (054) 201200, y Bomberos al 116. También puedes contactar a tu embajada o consulado. Ten siempre a mano una copia de tu pasaporte y seguro de viaje."
+            },
+            {
+                "pregunta": "¿Qué precauciones de higiene y salud debo tomar al usar combis o buses locales en Arequipa para evitar contagios o malestares?",
+                "respuesta": "Al usar combis o buses locales en Arequipa, especialmente en horas punta, lleva siempre alcohol en gel y úsalo después de tocar superficies. Evita tocarte la cara y considera usar una mascarilla en espacios muy concurridos. Mantente hidratado y evita comer dentro del transporte para minimizar riesgos de salud."
+            },
+            {
+                "pregunta": "¿Cómo puedo identificar y evitar estafas comunes de transporte, como tarifas excesivas o rutas largas, al moverme por Arequipa en taxi o minivan?",
+                "respuesta": "Para evitar estafas en Arequipa, siempre pregunta y acuerda la tarifa antes de subir a un taxi o minivan. Usa apps como InDrive o Uber para tener un precio estimado y un registro del viaje. Desconfía de conductores que te ofrezcan 'tours' no solicitados o que insistan en rutas inusualmente largas."
+            },
+            {
+                "pregunta": "¿Qué riesgos de salud relacionados con el agua y la comida debo considerar al usar transporte local para visitar pueblos cercanos a Arequipa?",
+                "respuesta": "Al viajar a pueblos cercanos a Arequipa con transporte local, siempre bebe agua embotellada sellada. Evita el hielo en bebidas y la comida de puestos callejeros que no parezcan higiénicos. Lava tus manos frecuentemente y lleva contigo sales de rehidratación oral por si acaso, para prevenir problemas gastrointestinales."
+            }
+        ],
+        "4_Clima_Temporadas_Horarios": [
+            {
+                "pregunta": "¿Cuál es la mejor época del año para visitar Arequipa y evitar las lluvias, pensando en un viaje de mochilero?",
+                "respuesta": "La mejor época para visitar Arequipa es durante la estación seca, de abril a diciembre. En estos meses, el clima es predominantemente soleado y las precipitaciones son mínimas, lo que es ideal para explorar la ciudad y realizar excursiones al Cañón del Colca sin contratiempos por lluvias."
+            },
+            {
+                "pregunta": "¿Cómo es el clima en Arequipa durante la temporada de lluvias (enero a marzo) y qué actividades se ven afectadas para un nómada digital?",
+                "respuesta": "Durante la temporada de lluvias en Arequipa, de enero a marzo, las precipitaciones suelen ser por la tarde y no muy intensas en la ciudad. Sin embargo, pueden afectar las carreteras a destinos como el Cañón del Colca o el Misti, haciendo algunos caminos intransitables o peligrosos, lo que podría limitar excursiones para un nómada digital."
+            },
+            {
+                "pregunta": "¿A qué hora es más seguro tomar un taxi InDrive o Uber en Arequipa por la noche, especialmente si soy un mochilero global que busca precios reales?",
+                "respuesta": "Para un mochilero global en Arequipa, es más seguro usar InDrive o Uber hasta las 10:00 PM. Después de esa hora, la disponibilidad disminuye y es preferible optar por taxis de empresas conocidas con base o pedir uno en tu alojamiento para mayor seguridad, aunque el precio podría ser ligeramente mayor."
+            },
+            {
+                "pregunta": "¿Hasta qué hora operan las minivanes informales desde Arequipa hacia Chivay o Mollendo y es seguro viajar de noche para un viajero independiente?",
+                "respuesta": "Las minivanes a Chivay o Mollendo desde Arequipa suelen operar desde las 3:00 AM hasta las 6:00 PM aproximadamente desde el Terminal Terrestre. No se recomienda viajar en minivanes informales de noche debido a la falta de seguridad y la visibilidad reducida en las carreteras de montaña."
+            },
+            {
+                "pregunta": "¿Qué tipo de ropa debo llevar para viajar a Arequipa en invierno (junio-agosto) considerando las temperaturas diurnas y nocturnas para un mochilero?",
+                "respuesta": "En invierno en Arequipa (junio-agosto), los días son soleados y agradables, pero las noches son frías, con temperaturas que pueden bajar considerablemente. Debes llevar capas de ropa: camisetas, un suéter o polar, y una chaqueta abrigadora. No olvides protector solar y gafas de sol para el día, y un gorro para la noche."
+            },
+            {
+                "pregunta": "¿Cuál es el horario de atención del Terminal Terrestre de Arequipa para comprar pasajes a destinos como Cusco o Puno y planificar mi logística?",
+                "respuesta": "El Terminal Terrestre de Arequipa opera las 24 horas del día para la llegada y salida de buses. Sin embargo, las boleterías de las empresas de transporte suelen tener horarios específicos, generalmente desde las 5:00 AM hasta las 11:00 PM. Es recomendable comprar pasajes con antelación para viajes nocturnos."
+            },
+            {
+                "pregunta": "¿Es recomendable visitar el Cañón del Colca desde Arequipa durante la temporada de lluvias y qué precauciones debo tomar en cuanto a horarios?",
+                "respuesta": "Visitar el Cañón del Colca en temporada de lluvias (enero-marzo) es posible, pero las vistas pueden estar nubladas y los caminos resbaladizos. Se recomienda ir con un tour organizado o un conductor experimentado y verificar el estado de las carreteras antes de salir, preferiblemente en horarios de la mañana para evitar lluvias vespertinas."
+            },
+            {
+                "pregunta": "¿Hasta qué hora puedo encontrar transporte público (combis) para moverme dentro de la ciudad de Arequipa y evitar taxis caros?",
+                "respuesta": "Las combis y buses urbanos en Arequipa generalmente operan desde las 5:00 AM hasta las 10:00 PM. Después de esa hora, es más difícil encontrar transporte público y es preferible usar taxis formales o aplicaciones como InDrive, aunque sus tarifas pueden ser un poco más elevadas en la noche."
+            },
+            {
+                "pregunta": "¿Cómo afecta la altitud de Arequipa (2,335 msnm) a los visitantes durante las diferentes temporadas y qué horarios son mejores para aclimatarse?",
+                "respuesta": "La altitud de Arequipa puede causar soroche, especialmente a quienes vienen de zonas bajas. Es recomendable llegar temprano en el día para aclimatarse, evitar esfuerzos físicos intensos las primeras 24 horas y beber mucha agua. La estación seca (abril-diciembre) con su aire más seco puede acentuar la deshidratación, así que la hidratación es clave en cualquier temporada."
+            },
+            {
+                "pregunta": "¿Cuál es el horario más concurrido para el transporte en Arequipa (taxis, combis) y cómo puedo evitar los picos de tráfico como nómada digital?",
+                "respuesta": "Los horarios pico de tráfico en Arequipa son generalmente de 7:00 AM a 9:00 AM y de 6:00 PM a 8:00 PM. Para evitar demoras y optimizar tu tiempo como nómada digital, planifica tus viajes fuera de estas franjas horarias, especialmente si te diriges al Terminal Terrestre o al aeropuerto."
+            }
+        ],
+        "5_Historia_Cultura_Curiosidades": [
+            {
+                "pregunta": "¿Por qué Arequipa es conocida como la 'Ciudad Blanca' y cuál es la historia detrás de su arquitectura de sillar?",
+                "respuesta": "Arequipa recibe el apodo de 'Ciudad Blanca' por el uso predominante del sillar, una piedra volcánica porosa y de color claro, en la construcción de sus edificios coloniales. Este material, extraído de canteras cercanas como Añashuayco, le confiere una estética única y una resistencia notable a los terremotos, siendo un símbolo de la identidad arequipeña desde el siglo XVI."
+            },
+            {
+                "pregunta": "¿Cuáles son las curiosidades históricas más fascinantes del Monasterio de Santa Catalina en Arequipa y cómo era la vida de las monjas?",
+                "respuesta": "El Monasterio de Santa Catalina, fundado en 1579, es una 'ciudad dentro de otra ciudad'. Una curiosidad es que las monjas de clausura, muchas de familias adineradas, vivían con sirvientas y lujos hasta que en 1871 la Madre Superiora Josefa Cadena impuso una reforma estricta, obligándolas a vivir en pobreza y clausura real. Sus calles internas llevan nombres de ciudades españolas como 'Sevilla' y 'Córdoba'."
+            },
+            {
+                "pregunta": "¿Dónde puedo ver la Momia Juanita en Arequipa y cuál es la historia de su descubrimiento en el volcán Ampato?",
+                "respuesta": "La Momia Juanita, también conocida como 'La Dama de Ampato', se exhibe en el Museo Santuarios Andinos de la Universidad Católica de Santa María en Arequipa. Fue descubierta en 1995 por el arqueólogo Johan Reinhard en la cima del volcán Ampato, a más de 6,300 metros de altura. Es una niña inca sacrificada hace más de 500 años como ofrenda a los Apus, los dioses de las montañas, y su excelente estado de conservación se debe al frío extremo."
+            },
+            {
+                "pregunta": "¿Cuál es la tradición de las picanterías en Arequipa y qué platos típicos históricos debo probar en una auténtica?",
+                "respuesta": "Las picanterías son restaurantes tradicionales de Arequipa, con raíces que se remontan a la época colonial, donde se servían 'picantes' o platos con ají. Son famosas por su ambiente familiar y su cocina a leña. Debes probar el Rocoto Relleno, el Adobo Arequipeño (típicamente los domingos) y la Chicha de Jora, una bebida ancestral de maíz fermentado. La 'Chicha de Jora' se sirve en 'caporales' (vasos grandes)."
+            },
+            {
+                "pregunta": "¿Qué leyendas o mitos ancestrales se asocian al volcán Misti, el guardián de Arequipa, en la cultura local?",
+                "respuesta": "El volcán Misti es considerado un Apu o deidad tutelar por los antiguos pobladores y aún hoy por muchos arequipeños. Se le atribuyen leyendas como la de un gigante dormido que protege la ciudad. Se dice que su actividad volcánica es una manifestación de su 'humor' o advertencia. También se cree que su forma cónica perfecta es un símbolo de la fuerza y la belleza de la región."
+            },
+            {
+                "pregunta": "¿Cuál es la historia y el significado cultural de los arcos de sillar en el Mirador de Yanahuara en Arequipa?",
+                "respuesta": "Los arcos de sillar del Mirador de Yanahuara, construidos en el siglo XIX, son un ícono de Arequipa. Más allá de su belleza arquitectónica, cada arco lleva grabados fragmentos de poemas y pensamientos de ilustres arequipeños, convirtiéndolos en un 'libro abierto' de la cultura e historia local. Ofrecen una vista panorámica espectacular del Misti y la ciudad."
+            },
+            {
+                "pregunta": "¿Cuándo se fundó la ciudad de Arequipa y qué curiosidades históricas rodean su establecimiento por los españoles?",
+                "respuesta": "Arequipa fue fundada por los españoles el 15 de agosto de 1540 por Garcí Manuel de Carbajal, bajo el nombre de 'Villa Hermosa de Nuestra Señora de la Asunción'. Una curiosidad es que el nombre 'Arequipa' tiene varias teorías sobre su origen, siendo la más popular la quechua 'Ari-que-pay', que significa 'Sí, quedaos aquí', supuestamente pronunciada por el Inca Mayta Cápac al ver la belleza del valle."
+            },
+            {
+                "pregunta": "¿Cómo se celebra el Carnaval Arequipeño y cuáles son sus tradiciones culturales más curiosas y antiguas?",
+                "respuesta": "El Carnaval Arequipeño es una festividad llena de color y alegría, que combina tradiciones andinas y coloniales. Una curiosidad es el 'Cortamonte' o 'Yunza', donde se adorna un árbol con regalos y se tumba a hachazos mientras la gente baila alrededor. También son típicos los juegos con agua, talco y serpentinas, y la música de 'carnaval arequipeño' con sus letras picarescas y melodías contagiosas."
+            },
+            {
+                "pregunta": "¿Qué relación tiene el Premio Nobel Mario Vargas Llosa con Arequipa y dónde puedo conocer más sobre su vida en la ciudad?",
+                "respuesta": "Mario Vargas Llosa, Premio Nobel de Literatura 2010, nació en Arequipa en 1936. Aunque pasó parte de su infancia en Piura y Lima, Arequipa es su ciudad natal y ha influido en su obra. Puedes visitar la Casa Museo Mario Vargas Llosa, ubicada en la Av. Parra 101, donde se recrea su infancia y se exhiben objetos personales, ofreciendo un recorrido interactivo por su vida y obra."
+            },
+            {
+                "pregunta": "¿Cuáles son algunos 'arequipeñismos' o expresiones locales curiosas que usan los arequipeños y cuál es su significado?",
+                "respuesta": "Los arequipeños tienen un dialecto peculiar con expresiones únicas. Algunas curiosidades incluyen '¡Achó!' (expresión de asombro o dolor), '¡Causa!' (amigo, compañero), '¡Characato!' (gentilicio coloquial para arequipeño, especialmente del campo), '¡Guagua!' (niño pequeño, del quechua 'wawa'), y '¡Chapar!' (agarrar, coger). Estas palabras reflejan la rica mezcla cultural de la región."
+            }
+        ],
+        "6_Tips_Locales_Secretos": [
+            {
+                "pregunta": "¿Qué aplicación de taxi es más barata en Arequipa, InDrive o Uber, para moverse por el centro histórico?",
+                "respuesta": "Para trayectos cortos dentro de Arequipa, InDrive suele ser ligeramente más económico que Uber, ya que permite negociar el precio directamente con el conductor. Un viaje promedio por el centro o a Yanahuara cuesta entre 5 y 8 Soles."
+            },
+            {
+                "pregunta": "¿Dónde encuentro las minivanes informales más baratas para ir a Chivay desde Arequipa y cuánto cuestan?",
+                "respuesta": "Las minivanes a Chivay salen del Terminal Terrestre y también de paraderos informales cerca de la Av. Ejército o la Av. Kennedy. Busca las empresas 'Milagros' o 'Reyna'. El pasaje cuesta entre 15 y 20 Soles, pero evita estos paraderos informales de noche por seguridad."
+            },
+            {
+                "pregunta": "¿Cómo llegar a Mollendo desde Arequipa en transporte local y cuánto cuesta el pasaje en miniván o bus?",
+                "respuesta": "Para ir a Mollendo, busca las minivanes o buses pequeños que salen del Terminal Terrestre de Arequipa. Empresas como 'Cruz del Sur' o 'Flores' tienen servicios, pero también hay minivanes más económicas. El pasaje ronda los 15 a 25 Soles y el viaje dura unas 2.5 a 3 horas."
+            },
+            {
+                "pregunta": "¿Cuáles son los trucos para usar el Terminal Terrestre de Arequipa como un local y evitar estafas?",
+                "respuesta": "Siempre compra tu boleto directamente en las ventanillas oficiales de las empresas. Ignora a los 'jaladores' que te ofrecen pasajes fuera. Revisa que tu boleto tenga el sello de la empresa y el número de asiento. Para destinos como Chivay o Puno, busca empresas con buena reputación como 'Cruz del Sur' o 'Andoriña'."
+            },
+            {
+                "pregunta": "¿Cómo usar las combis locales en Arequipa para llegar a Yanahuara o Cayma sin pagar un tour privado?",
+                "respuesta": "Desde el centro de Arequipa, puedes tomar una combi o bus que diga 'Yanahuara' o 'Cayma' en su parabrisas. El paradero principal está en la Calle San Juan de Dios o en la Plaza de Armas. El pasaje cuesta 1 Sol. Pregunta al cobrador si va a tu destino exacto."
+            },
+            {
+                "pregunta": "¿Qué debo hacer para que los taxistas en Arequipa no me cobren de más, especialmente siendo turista extranjero?",
+                "respuesta": "Siempre negocia el precio antes de subirte al taxi. Si es posible, usa InDrive o Uber para tener una referencia del costo. Para trayectos cortos dentro del centro, no deberías pagar más de 5-7 Soles. Si te piden mucho, busca otro taxi o usa las apps."
+            },
+            {
+                "pregunta": "¿Es seguro tomar minivanes informales en Arequipa de noche para ir a pueblos cercanos como Yura o Sabandía?",
+                "respuesta": "No es recomendable usar minivanes informales de noche en Arequipa. Prioriza el Terminal Terrestre y empresas formales, especialmente después de las 7 PM, para garantizar tu seguridad y la de tus pertenencias."
+            },
+            {
+                "pregunta": "¿Cómo llegar al Molino de Sabandía desde el centro de Arequipa usando transporte público local y cuánto cuesta?",
+                "respuesta": "Para ir al Molino de Sabandía, toma una combi o bus en la Calle San Juan de Dios o en el Terminal Terrestre que vaya hacia 'Sabandía' o 'Characato'. El pasaje cuesta entre 1.50 y 2 Soles. Pide al cobrador que te avise en la parada más cercana al Molino."
+            },
+            {
+                "pregunta": "¿Cuánto cuesta y cómo tomar un bus local desde el centro de Arequipa al aeropuerto Rodríguez Ballón sin taxi?",
+                "respuesta": "No hay un bus local directo y conveniente desde el centro de Arequipa al aeropuerto. La opción más práctica y segura es un taxi (InDrive/Uber) que cuesta entre 15 y 25 Soles, dependiendo del tráfico y la hora. Evita los taxis 'pirata' fuera del aeropuerto."
+            },
+            {
+                "pregunta": "¿Cómo puedo identificar una minivan o combi informal segura para viajar desde Arequipa a destinos como Yura o Caylloma?",
+                "respuesta": "Para destinos como Yura o Caylloma, busca minivanes que operen desde paraderos semi-formales o el Terminal Terrestre. Las que tienen letreros claros con el destino y un cobrador visible suelen ser más confiables. Siempre pregunta el precio antes y verifica que el vehículo esté en buen estado. Evita las que no tienen identificación clara o parecen muy viejas."
+            }
+        ],
+        "7_Gastronomia_Alimentos_Supervivencia": [
+            {
+                "pregunta": "¿Dónde encontrar menús económicos y auténticos de comida arequipeña para mochileros en el centro de Arequipa?",
+                "respuesta": "Para menús económicos y auténticos en Arequipa, dirígete a las picanterías tradicionales fuera del circuito turístico principal, como 'La Nueva Palomino' o 'La Capitana' (aunque estas son un poco más caras, ofrecen la experiencia). Para opciones más baratas, el Mercado San Camilo tiene varios puestos de comida donde un 'menú del día' cuesta entre S/7 y S/12, incluyendo sopa, plato principal y bebida. También busca 'huecas' en calles como San Juan de Dios o Peral."
+            },
+            {
+                "pregunta": "¿Es seguro comer comida callejera en Arequipa para evitar problemas estomacales y qué puestos son recomendables?",
+                "respuesta": "Comer comida callejera en Arequipa puede ser seguro si sigues algunas reglas: elige puestos con alta rotación de clientes (donde la comida se cocina constantemente), asegúrate de que la comida esté bien caliente y evita ensaladas crudas o frutas sin pelar. Los 'emolienteros' (vendedores de emoliente) son generalmente seguros y sus bebidas son hervidas. Los 'anticuchos' (brochetas de corazón) de puestos concurridos y bien establecidos también suelen ser una opción segura. Evita puestos que parezcan poco higiénicos o con comida expuesta por mucho tiempo. Un emoliente cuesta S/1-2."
+            },
+            {
+                "pregunta": "¿Cómo conseguir agua potable segura y económica en Arequipa sin depender de botellas plásticas diarias?",
+                "respuesta": "Para conseguir agua potable segura y económica en Arequipa, puedes comprar 'bidones' de agua purificada de 20 litros en supermercados como Metro o Plaza Vea por aproximadamente S/8 a S/10, y rellenar tu propia botella. Otra opción es hervir el agua del grifo durante al menos 3 minutos si tienes acceso a una cocina, o usar una botella con filtro de agua portátil (tipo Lifestraw o Sawyer) que puedes comprar antes de tu viaje."
+            },
+            {
+                "pregunta": "¿Cuál es el mejor mercado en Arequipa para comprar alimentos frescos y platos preparados a bajo costo como un local?",
+                "respuesta": "El Mercado San Camilo es, sin duda, el mejor mercado en Arequipa para comprar alimentos frescos y platos preparados a bajo costo. Encontrarás frutas, verduras, carnes y quesos a precios muy competitivos. En la sección de comida preparada, puedes almorzar un 'menú del día' completo por S/7 a S/12. También hay puestos de jugos naturales (S/5-8) y postres tradicionales. Es un lugar vibrante y auténtico para experimentar la gastronomía local."
+            },
+            {
+                "pregunta": "¿Dónde desayunar barato y auténtico en Arequipa para un viajero con presupuesto ajustado?",
+                "respuesta": "Para un desayuno barato y auténtico en Arequipa, dirígete a las 'juguerías' dentro del Mercado San Camilo, donde puedes conseguir un jugo de frutas frescas y un 'pan con palta' o 'pan con huevo' por S/5 a S/10. También hay muchas 'panaderías' locales en el centro histórico que ofrecen pan recién horneado, café y sándwiches simples a precios económicos (un café con pan puede costar S/3-6). Busca lugares con clientela local."
+            },
+            {
+                "pregunta": "¿Existen opciones de comida vegetariana o vegana asequibles y fáciles de encontrar para un mochilero en Arequipa?",
+                "respuesta": "Sí, en Arequipa existen opciones vegetarianas y veganas asequibles. Muchos restaurantes que ofrecen 'menú del día' (almuerzo fijo) suelen tener una opción vegetariana, como 'sopa de verduras' y 'arroz con verduras' o 'guiso de lentejas', por S/8 a S/15. Hay algunos restaurantes vegetarianos específicos como 'Govinda's' (en la calle Puente Bolognesi) o 'El Buda Profano' (en Santa Catalina), que ofrecen menús completos por S/15-25, siendo una excelente relación calidad-precio para comida saludable. En el Mercado San Camilo, puedes encontrar jugos y frutas frescas."
+            },
+            {
+                "pregunta": "¿Qué alimentos básicos y económicos puedo comprar en cualquier 'bodega' de Arequipa para una emergencia o un día de bajo presupuesto?",
+                "respuesta": "Para una emergencia o un día de bajo presupuesto en Arequipa, en cualquier 'bodega' (tienda de abarrotes pequeña) puedes comprar pan (S/0.20-0.50 por unidad), queso fresco (S/5-8 por un trozo pequeño), atún enlatado (S/5-8), galletas (S/1-3), yogurt (S/3-5) y frutas de estación como plátanos o manzanas (S/1-2 por unidad). Estos son fáciles de encontrar y no requieren preparación."
+            },
+            {
+                "pregunta": "¿Qué bebidas locales no alcohólicas y económicas son seguras para probar en Arequipa y dónde comprarlas?",
+                "respuesta": "En Arequipa, las bebidas locales no alcohólicas seguras y económicas para probar son el 'emoliente' (una bebida caliente de hierbas, S/1-2 en puestos callejeros por la mañana y noche), la 'chicha morada' (bebida fría de maíz morado, S/2-4 en restaurantes y mercados) y los jugos de frutas naturales (S/5-8 en el Mercado San Camilo o 'juguerías'). Asegúrate de que el emoliente esté hirviendo y los jugos se preparen al momento con frutas frescas y agua purificada."
+            },
+            {
+                "pregunta": "¿Cuáles son los consejos clave para evitar la intoxicación alimentaria al comer en restaurantes económicos o mercados en Arequipa?",
+                "respuesta": "Para evitar la intoxicación alimentaria en Arequipa, especialmente en lugares económicos, sigue estos consejos: come donde veas a muchos locales, asegúrate de que la comida esté bien cocida y servida caliente, evita ensaladas crudas o frutas sin pelar a menos que las laves tú mismo con agua purificada. Opta por lugares con buena higiene visible y alta rotación de clientes. Siempre bebe agua embotellada o purificada. Si algo huele o sabe raro, no lo comas."
+            },
+            {
+                "pregunta": "¿Dónde comprar víveres frescos y baratos en Arequipa para cocinar mis propias comidas como nómada digital o mochilero?",
+                "respuesta": "Para comprar víveres frescos y baratos en Arequipa y cocinar tus propias comidas, tu mejor opción es el Mercado San Camilo, donde encontrarás frutas, verduras, carnes, huevos y lácteos a precios de local. Para productos envasados, abarrotes y artículos de limpieza, los supermercados como Metro (Av. Ejército) o Plaza Vea (varias ubicaciones) ofrecen mejores precios y variedad que las pequeñas 'bodegas'. Planifica tus compras para aprovechar los precios de temporada en el mercado."
+            }
+        ],
+        "8_Accesibilidad_Infraestructura": [
+            {
+                "pregunta": "ERROR",
+                "respuesta": "Expecting property name enclosed in double quotes: line 38 column 4 (char 4938)"
+            }
+        ],
+        "9_Reglas_Prohibiciones_Tramites": [
+            {
+                "pregunta": "¿Qué reglas de seguridad debo seguir al usar minivanes informales a Chivay o Mollendo desde Arequipa?",
+                "respuesta": "Se desaconseja fuertemente usar minivanes informales que no operen desde el Terminal Terrestre oficial de Arequipa, especialmente de noche, por la falta de seguros, permisos y controles de seguridad. Siempre verifica que el vehículo tenga placa visible y que el conductor sea de una empresa formal."
+            },
+            {
+                "pregunta": "¿Existen prohibiciones para turistas al usar aplicaciones de taxi como InDrive o Uber en Arequipa?",
+                "respuesta": "No hay prohibiciones directas para los turistas al usar InDrive o Uber en Arequipa. Sin embargo, se recomienda siempre verificar la calificación del conductor, la placa del vehículo y el nombre antes de abordar. Evita pagar en efectivo si la app permite pago con tarjeta para mayor seguridad y registro del viaje."
+            },
+            {
+                "pregunta": "¿Qué trámites o reglas debo considerar al comprar pasajes en el Terminal Terrestre de Arequipa para evitar estafas?",
+                "respuesta": "Para evitar estafas en el Terminal Terrestre de Arequipa, compra siempre tus pasajes directamente en las ventanillas de las empresas de transporte formales. Evita a los ‘jaladores’ o vendedores ambulantes que ofrecen pasajes fuera de las oficinas, ya que pueden ser informales o fraudulentos."
+            },
+            {
+                "pregunta": "¿Está prohibido abordar transporte interprovincial fuera del Terminal Terrestre oficial de Arequipa?",
+                "respuesta": "Sí, las autoridades de transporte en Arequipa prohíben el embarque de pasajeros para rutas interprovinciales en paraderos informales fuera del Terminal Terrestre. Esto se debe a razones de seguridad, fiscalización y para garantizar que los vehículos cumplan con las normativas."
+            },
+            {
+                "pregunta": "¿Hay alguna regla específica sobre el equipaje permitido en las combis o minivanes locales de Arequipa?",
+                "respuesta": "En las combis y minivanes locales de Arequipa, generalmente se permite equipaje de mano pequeño que no ocupe un asiento adicional. Para maletas grandes, es posible que debas pagar un asiento extra o que no sea aceptado, especialmente en rutas urbanas con alta demanda."
+            },
+            {
+                "pregunta": "¿Se prohíbe viajar en transporte informal de Arequipa a Chivay o Mollendo durante la noche?",
+                "respuesta": "Aunque no existe una prohibición legal explícita para el pasajero, se desaconseja fuertemente viajar de noche en transporte informal desde Arequipa a Chivay o Mollendo. Esto se debe a mayores riesgos de seguridad, asaltos y accidentes por la falta de control y las condiciones de las carreteras."
+            },
+            {
+                "pregunta": "¿Cómo puedo verificar si una miniván que ofrece transporte a Chivay desde Arequipa tiene los permisos necesarios?",
+                "respuesta": "Para verificar si una miniván tiene los permisos necesarios en Arequipa, busca que exhiba la tarjeta de circulación y los distintivos de la Sutran (Superintendencia de Transporte Terrestre de Personas, Carga y Mercancías). Las empresas formales suelen tener esta documentación visible y seguros de viaje."
+            },
+            {
+                "pregunta": "¿Qué reglas debo seguir si soy acosado por ‘jaladores’ o vendedores no autorizados en el Terminal Terrestre de Arequipa?",
+                "respuesta": "Si eres acosado por ‘jaladores’ o vendedores no autorizados en el Terminal Terrestre de Arequipa, la regla es ignorarlos y dirigirte directamente a las ventanillas de las empresas formales. Si el acoso persiste, reporta la situación al personal de seguridad del terminal."
+            },
+            {
+                "pregunta": "¿Existen reglas de seguridad o tarifas fijas para usar taxis colectivos en Arequipa?",
+                "respuesta": "Los taxis colectivos en Arequipa no tienen tarifas fijas reguladas y a menudo operan sin los permisos adecuados, lo que implica un riesgo. Se recomienda usar taxis por aplicativo o taxis oficiales con taxímetro para garantizar la seguridad y evitar sobreprecios."
+            },
+            {
+                "pregunta": "¿Qué métodos de pago están permitidos o prohibidos en las combis y minivanes locales de Arequipa?",
+                "respuesta": "En las combis y minivanes locales de Arequipa, el pago es casi exclusivamente en efectivo (Soles peruanos). No se aceptan tarjetas de crédito/débito ni pagos electrónicos. Asegúrate de llevar cambio exacto para el pasaje, ya que los conductores a veces no tienen para billetes grandes."
+            }
+        ],
+        "10_Alternativas_Plan_B": [
+            {
+                "pregunta": "ERROR",
+                "respuesta": "Unterminated string starting at: line 20 column 18 (char 1752)"
+            }
+        ]
+    }
+}

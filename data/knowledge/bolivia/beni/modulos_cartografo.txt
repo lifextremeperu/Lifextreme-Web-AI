@@ -1,0 +1,115 @@
+===============================================================
+AGENTE CARTÓGRAFO TURÍSTICO LATAM — Lifextreme v3.0 (Optimizador B2B)
+===============================================================
+
+**DESTINO OBJETIVO:** Beni, Bolivia
+
+---
+
+**PASO 1 — DIAGNÓSTICO DEL DESTINO**
+<diagnostico>
+PERFIL: Beni es un vasto territorio de llanos y Amazonía boliviana, caracterizado por su biodiversidad prístina, una rica herencia cultural indígena (Moxos) y una infraestructura turística incipiente pero con un enorme potencial para experiencias B2B de alto valor. El enfoque está en la aventura técnica fluvial y terrestre, la observación de fauna mayor (jaguares, anacondas, delfines rosados), el etnoturismo genuino con comunidades ancestrales y la exploración de sitios arqueológicos precolombinos (lomas artificiales). La hotelería conceptual se limita a eco-lodges y campamentos de expedición, ofreciendo inmersión profunda y exclusividad.
+MACROREGION: Amazonía Boliviana / Llanos Orientales.
+NIVEL_DE_RIESGO_B2B: MEDIO (Debido a la estacionalidad climática, la dependencia de logística especializada como vuelos chárter o embarcaciones fluviales robustas, y la necesidad de operadores altamente certificados y con experiencia en zonas remotas).
+PESO_CATEGORIAS:
+    Aventura y Deportes Técnicos: 40%
+    Misticismo y Etnoturismo Genuino: 30%
+    Rutas Off The Beaten Path: 20%
+    Hospedaje Conceptual: 10%
+PERFIL_VISITANTE_DOMINANTE: Viajero de alto poder adquisitivo, explorador cultural y naturalista, fotógrafo de vida silvestre, aventurero técnico, interesado en experiencias auténticas, sostenibles y de bajo impacto, con tolerancia a la infraestructura básica y búsqueda de exclusividad.
+VENTANA_OPTIMA: Mayo a Octubre (Estación seca, que facilita la accesibilidad terrestre y fluvial, y maximiza las oportunidades de observación de fauna debido a la concentración de animales en fuentes de agua).
+DESTINOS_DESCARTADOS:
+    *   Tours genéricos de "Pampas" sin enfoque técnico, guías especializados o valor agregado cultural/científico, que a menudo carecen de profundidad y sostenibilidad.
+    *   Visitas a la ciudad de Trinidad sin extensión a experiencias de naturaleza profunda o etnoturismo genuino en comunidades, ya que la ciudad por sí misma no ofrece el valor B2B de Lifextreme.
+    *   Rutas fluviales sin operadores certificados o embarcaciones adecuadas para expediciones de aventura técnica, priorizando la seguridad y la calidad sobre la oferta masiva.
+</diagnostico>
+
+---
+
+**PASO 2 — ÍNDICE MAESTRO DE MÓDULOS (CALIDAD EXTREMA)**
+<modulos_generados>
+---
+ID: A-01
+MÓDULO: Estación Biológica del Beni (EBB)
+SUBTÍTULO: Santuario de Biodiversidad y Laboratorio Natural
+VIABILIDAD_B2B: ALTA
+CANTIDAD_FQSAS_ESTIMADAS: 120
+GANCHO_COMERCIAL: Inmersión profunda en uno de los ecosistemas mejor conservados de la Amazonía boliviana, ideal para la observación científica de fauna y flora, con programas de conservación activos y guías naturalistas expertos.
+---
+ID: C-01
+MÓDULO: Expedición Fluvial de Fauna Mayor (Río Mamoré/Ibare)
+SUBTÍTULO: Tras las Huellas del Jaguar y la Anaconda en el Corazón del Beni
+VIABILIDAD_B2B: ALTA
+CANTIDAD_FQSAS_ESTIMADAS: 150
+GANCHO_COMERCIAL: Una aventura técnica de varios días en embarcaciones especializadas, con rastreadores expertos para avistar jaguares, anacondas, caimanes y una diversidad de aves, ofreciendo una experiencia de vida silvestre sin igual.
+---
+ID: B-01
+MÓDULO: Ruta de las Misiones Jesuíticas del Moxos (4x4)
+SUBTÍTULO: Explorando el Legado Colonial y la Cultura Moxeña
+VIABILIDAD_B2B: MEDIA
+CANTIDAD_FQSAS_ESTIMADAS: 100
+GANCHO_COMERCIAL: Un viaje off-road que combina historia, arquitectura colonial y el contacto auténtico con las comunidades indígenas Moxeñas, descubriendo iglesias barrocas y tradiciones ancestrales en los llanos benianos.
+---
+ID: D-01
+MÓDULO: Eco-lodge Sostenible en Zona de Conservación
+SUBTÍTULO: Confort Rústico y Conexión Total con la Naturaleza
+VIABILIDAD_B2B: ALTA
+CANTIDAD_FQSAS_ESTIMADAS: 90
+GANCHO_COMERCIAL: Alojamiento exclusivo en lodges de bajo impacto, diseñados para la observación de fauna y la inmersión en el entorno natural, con guías locales y gastronomía regional, garantizando una experiencia auténtica y sostenible.
+---
+ID: E-01
+MÓDULO: Convivencia y Etnoturismo con Comunidades Indígenas Tsimane/Moxeña
+SUBTÍTULO: Un Puente Genuino hacia la Cosmovisión Amazónica
+VIABILIDAD_B2B: ALTA
+CANTIDAD_FQSAS_ESTIMADAS: 130
+GANCHO_COMERCIAL: Experiencia de inmersión cultural profunda, compartiendo el día a día, tradiciones, medicina ancestral y técnicas de subsistencia con comunidades indígenas que mantienen vivas sus costumbres, bajo un modelo de respeto y beneficio mutuo.
+---
+ID: C-02
+MÓDULO: Pesca Deportiva Sostenible (Río Ibare/Mamoré)
+SUBTÍTULO: Desafío Técnico en Aguas Vírgenes por Especies Emblemáticas
+VIABILIDAD_B2B: MEDIA
+CANTIDAD_FQSAS_ESTIMADAS: 110
+GANCHO_COMERCIAL: Expediciones de pesca "catch & release" para especies como el dorado, pacú y tucunaré, utilizando técnicas especializadas y equipos de alta gama, en entornos fluviales prístinos con guías expertos.
+---
+ID: E-02
+MÓDULO: Exploración Arqueológica de las Lomas Prehispánicas de Moxos
+SUBTÍTULO: Descifrando la Ingeniosa Civilización Hidráulica del Beni
+VIABILIDAD_B2B: MEDIA
+CANTIDAD_FQSAS_ESTIMADAS: 100
+GANCHO_COMERCIAL: Un viaje a través del tiempo para explorar las monumentales obras de ingeniería precolombina (lomas, terraplenes, canales) de la cultura Moxos, revelando la sofisticación de una civilización adaptada a los ciclos de inundación.
+---
+ID: F-01
+MÓDULO: Logística Aérea Chárter y Fluvial Especializada
+SUBTÍTULO: Acceso Exclusivo a los Rincones Más Remotos del Beni
+VIABILIDAD_B2B: ALTA
+CANTIDAD_FQSAS_ESTIMADAS: 70
+GANCHO_COMERCIAL: Servicios de vuelos chárter a pistas remotas y embarcaciones fluviales de expedición con tripulación experta, garantizando la seguridad y eficiencia para llegar a destinos inaccesibles por otros medios.
+---
+ID: B-02
+MÓDULO: Expedición Fluvial Río Iténez/Guaporé (Frontera con Brasil)
+SUBTÍTULO: La Última Frontera Salvaje de la Amazonía Boliviana
+VIABILIDAD_B2B: MEDIA
+CANTIDAD_FQSAS_ESTIMADAS: 140
+GANCHO_COMERCIAL: Una ruta off-the-beaten-path por el río fronterizo, hogar de una biodiversidad excepcional y comunidades ribereñas aisladas, ideal para exploradores que buscan una aventura remota y auténtica en la selva profunda.
+---
+ID: D-02
+MÓDULO: Campamentos Fluviales de Lujo en Expedición
+SUBTÍTULO: Glamping Móvil en el Corazón de la Selva
+VIABILIDAD_B2B: MEDIA
+CANTIDAD_FQSAS_ESTIMADAS: 80
+GANCHO_COMERCIAL: Experiencia de alojamiento conceptual que combina la aventura de una expedición fluvial con el confort de un campamento de lujo, montado estratégicamente en playas o islas remotas, con servicios premium en plena naturaleza.
+---
+ID: F-02
+MÓDULO: Red de Guías Locales Certificados y Rastreadores Indígenas
+SUBTÍTULO: Conocimiento Ancestral y Seguridad en Cada Expedición
+VIABILIDAD_B2B: ALTA
+CANTIDAD_FQSAS_ESTIMADAS: 60
+GANCHO_COMERCIAL: Acceso a una red exclusiva de guías locales bilingües y rastreadores indígenas con profundo conocimiento del terreno, la fauna y la cultura, esenciales para la seguridad y la autenticidad de cualquier experiencia en Beni.
+---
+ID: A-02
+MÓDULO: Observación de Delfines Rosados y Avifauna Endémica (Río Ibare/Laguna Suárez)
+SUBTÍTULO: Encuentro Íntimo con la Fauna Acuática y Aérea del Beni
+VIABILIDAD_B2B: ALTA
+CANTIDAD_FQSAS_ESTIMADAS: 95
+GANCHO_COMERCIAL: Excursiones especializadas en embarcaciones pequeñas para el avistamiento garantizado del icónico delfín rosado de río y una vasta diversidad de aves acuáticas y migratorias, con guías expertos en ornitología y comportamiento animal.
+</modulos_generadas>

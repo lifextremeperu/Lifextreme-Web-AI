@@ -1,0 +1,155 @@
+<diagnostico>
+PERFIL: La Libertad es una región clave en el norte de Perú, reconocida por su rica herencia cultural prehispánica (Moche, Chimú), playas con olas de clase mundial para surf, y paisajes andinos diversos. Con una población de 1.78 millones (2017), aspira a ser el tercer destino nacional de turismo interno (11% de la demanda) y captar el 8% del turismo receptivo del Perú para 2028, superando un estancamiento de más de una década en su oferta turística.
+MACROREGION: Combinado
+MADUREZ_TURISTICA: EMERGENTE
+VISITANTES_ANUALES_EST: No especificado directamente en el PERTUR, pero con metas de crecimiento significativas para 2028.
+PESO_CATEGORIAS:
+  - Destinos y patrimonio: 30%
+  - Aventura y deportes: 20%
+  - Gastronomía y cultura: 15%
+  - Naturaleza y ecosistemas: 15%
+  - Misticismo y festividades: 5%
+  - Logística y servicios: 10%
+  - Sostenibilidad y comunidades: 5%
+  - Otros: 0%
+  TOTAL: 100%
+PERFIL_VISITANTE_DOMINANTE: Principalmente turista nacional y regional, con un fuerte potencial y objetivo de crecimiento en el mercado internacional, especialmente para segmentos culturales y de aventura.
+MERCADOS_INTERNACIONALES: Estados Unidos, Chile, Colombia
+VENTANA_OPTIMA: Todo el año, con picos en verano (playas) y festividades culturales como el Festival de la Marinera (enero) y la Papa con Miga (octubre).
+PROBLEMA_NO_RESUELTO: Escasa competitividad de la Región La Libertad y sus destinos turísticos en los mercados internos y receptivo, debido a la falta de inversión sostenida y una gestión pública-privada articulada.
+DESTINOS_CANONICOS_COMPARTIDOS: Ruta Moche (compartida con Lambayeque), Gran Pajatén (compartida con San Martín).
+</diagnostico>
+
+<modulos_generados>
+---
+ID: F-01
+MÓDULO: Fortalecimiento Institucional y Gobernanza Turística
+SUBTÍTULO: Estrategias para una gestión pública-privada eficiente y coordinada en turismo.
+SEGMENTO_PRINCIPAL: Científico
+SEGMENTO_SECUNDARIO: Digital_Nomad
+TIPO_DE_DATO: Logístico
+VENTANA_TEMPORAL: todo el año
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Cómo podemos construir un futuro turístico sólido y sostenible para La Libertad?
+CANONICAL_REF: propio
+HUMAN_REVIEW: true
+---
+ID: F-02
+MÓDULO: Planificación y Ordenamiento Territorial Turístico
+SUBTÍTULO: Desarrollo de un marco territorial que optimice el uso turístico y la conservación.
+SEGMENTO_PRINCIPAL: Científico
+SEGMENTO_SECUNDARIO: Digital_Nomad
+TIPO_DE_DATO: Logístico
+VENTANA_TEMPORAL: todo el año
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Cómo aseguramos que el crecimiento turístico beneficie a todos y preserve nuestro patrimonio?
+CANONICAL_REF: propio
+HUMAN_REVIEW: true
+---
+ID: A-03
+MÓDULO: Ruta Moche: Circuitos Arqueológicos y Culturales
+SUBTÍTULO: Exploración de los principales sitios arqueológicos Moche y Chimú de la región.
+SEGMENTO_PRINCIPAL: Familia
+SEGMENTO_SECUNDARIO: Lujo
+TIPO_DE_DATO: Cultural
+VENTANA_TEMPORAL: todo el año
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Qué secretos ancestrales guarda la cuna de las civilizaciones Moche y Chimú?
+CANONICAL_REF: Ruta Moche
+HUMAN_REVIEW: true
+---
+ID: C-04
+MÓDULO: Surf y Deportes Náuticos en la Costa Norte
+SUBTÍTULO: Experiencias de surf y otros deportes acuáticos en Huanchaco, Pacasmayo y Malabrigo.
+SEGMENTO_PRINCIPAL: Aventura
+SEGMENTO_SECUNDARIO: Mochilero
+TIPO_DE_DATO: Experiencial
+VENTANA_TEMPORAL: todo el año
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Dónde puedo encontrar las olas perfectas y la adrenalina del Pacífico peruano?
+CANONICAL_REF: propio
+HUMAN_REVIEW: true
+---
+ID: D-05
+MÓDULO: Gastronomía y Rutas Vitivinícolas de Cascas
+SUBTÍTULO: Descubrimiento de la oferta culinaria regional y la tradición vitivinícola de Gran Chimú.
+SEGMENTO_PRINCIPAL: Familia
+SEGMENTO_SECUNDARIO: Lujo
+TIPO_DE_DATO: Gastronómico
+VENTANA_TEMPORAL: todo el año
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Qué sabores auténticos y vinos inesperados me esperan en el corazón de La Libertad?
+CANONICAL_REF: propio
+HUMAN_REVIEW: true
+---
+ID: N-06
+MÓDULO: Ecoturismo y Vida Silvestre en Calipuy y Virú
+SUBTÍTULO: Exploración de la Reserva Nacional de Calipuy y la biodiversidad marina-costera de Virú.
+SEGMENTO_PRINCIPAL: Aventura
+SEGMENTO_SECUNDARIO: Científico
+TIPO_DE_DATO: Experiencial
+VENTANA_TEMPORAL: mayo-noviembre
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Dónde puedo conectar con la naturaleza virgen y observar especies únicas en La Libertad?
+CANONICAL_REF: Calipuy
+HUMAN_REVIEW: true
+---
+ID: L-07
+MÓDULO: Calidad de Servicios y Experiencias Turísticas
+SUBTÍTULO: Mejora de estándares de calidad en alojamientos, restaurantes y operadores turísticos.
+SEGMENTO_PRINCIPAL: Lujo
+SEGMENTO_SECUNDARIO: Familia
+TIPO_DE_DATO: Logístico
+VENTANA_TEMPORAL: todo el año
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Cómo puedo asegurar una experiencia de viaje cómoda y de alto nivel en La Libertad?
+CANONICAL_REF: propio
+HUMAN_REVIEW: true
+---
+ID: F-08
+MÓDULO: Conectividad y Acceso Vial Turístico Regional
+SUBTÍTULO: Optimización de la infraestructura vial y de transporte para destinos turísticos.
+SEGMENTO_PRINCIPAL: Digital_Nomad
+SEGMENTO_SECUNDARIO: Mochilero
+TIPO_DE_DATO: Logístico
+VENTANA_TEMPORAL: todo el año
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Cómo llego a los tesoros escondidos de La Libertad de manera segura y eficiente?
+CANONICAL_REF: propio
+HUMAN_REVIEW: true
+---
+ID: L-09
+MÓDULO: Inclusión y Desarrollo Comunitario Turístico
+SUBTÍTULO: Fomento del turismo vivencial y la participación de comunidades locales en la oferta.
+SEGMENTO_PRINCIPAL: Mochilero
+SEGMENTO_SECUNDARIO: Familia
+TIPO_DE_DATO: Experiencial
+VENTANA_TEMPORAL: todo el año
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Cómo puedo vivir una experiencia auténtica y contribuir al desarrollo local en La Libertad?
+CANONICAL_REF: propio
+HUMAN_REVIEW: true
+---
+ID: M-10
+MÓDULO: Seguridad y Protocolos Turísticos Regionales
+SUBTÍTULO: Implementación de medidas de seguridad y respuesta ante emergencias para visitantes.
+SEGMENTO_PRINCIPAL: Familia
+SEGMENTO_SECUNDARIO: Lujo
+TIPO_DE_DATO: Safety
+VENTANA_TEMPORAL: todo el año
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Es seguro viajar y explorar todos los rincones de La Libertad?
+CANONICAL_REF: propio
+HUMAN_REVIEW: true
+---
+ID: A-11
+MÓDULO: Centro Histórico de Trujillo y Patrimonio Colonial
+SUBTÍTULO: Recorrido por la arquitectura colonial y republicana de la capital regional.
+SEGMENTO_PRINCIPAL: Familia
+SEGMENTO_SECUNDARIO: Lujo
+TIPO_DE_DATO: Cultural
+VENTANA_TEMPORAL: todo el año
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Qué historias y belleza arquitectónica esconde la "Ciudad de la Eterna Primavera"?
+CANONICAL_REF: propio
+HUMAN_REVIEW: true

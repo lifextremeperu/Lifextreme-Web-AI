@@ -505,32 +505,59 @@ document.addEventListener('DOMContentLoaded', () => {
                     token = session ? session.access_token : '';
                 }
 
-                // 3. Llamar a la API B2B Local (Ahora en puerto 8001)
-                const response = await fetch('http://127.0.0.1:8001/api/v1/b2b/query', {
+                // 3. Llamar a la API B2B Streaming (Puerto 8000)
+                const response = await fetch('http://127.0.0.1:8000/webhook/b2b/stream', {
                     method: 'POST',
                     headers: { 
                         'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`,
-                        'X-API-Key': 'LIFEXTREME-TEST-KEY-2026'
+                        'Authorization': `Bearer ${token}`
                     },
-                    body: JSON.stringify({ message })
+                    body: JSON.stringify({ message, history: [] })
                 });
 
                 if (!response.ok) {
-                    const errorData = await response.json().catch(() => null);
-                    throw new Error(errorData?.detail || 'Error en la comunicación con LIFEXTREME-CORE (Status ' + response.status + ')');
+                    throw new Error('Error en la comunicación con LIFEXTREME-CORE (Status ' + response.status + ')');
                 }
-
-                const data = await response.json();
                 
-                // 4. Quitar loading y mostrar respuesta
+                // 4. Quitar loading y empezar streaming
                 removeLoading(loadingId);
-                appendMessage(data.mensaje_principal, 'ai', data.fuentes_utilizadas);
+                const botMsgDiv = appendMessage('', 'ai'); // Crea el contenedor vacío
+                
+                const reader = response.body.getReader();
+                const decoder = new TextDecoder('utf-8');
+                let fullText = '';
+                
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) break;
+                    
+                    const chunkStr = decoder.decode(value, { stream: true });
+                    const lines = chunkStr.split('\\n');
+                    
+                    for (const line of lines) {
+                        if (line.startsWith('data: ')) {
+                            try {
+                                const data = JSON.parse(line.substring(6));
+                                if (data.chunk) {
+                                    fullText += data.chunk;
+                                    botMsgDiv.innerHTML = formatMarkdown(fullText);
+                                    chatHistory.scrollTop = chatHistory.scrollHeight;
+                                } else if (data.error) {
+                                    console.error('[CORE] Stream error:', data.error);
+                                    fullText += `\\n[Error: ${data.error}]`;
+                                    botMsgDiv.innerHTML = formatMarkdown(fullText);
+                                }
+                            } catch (e) {
+                                // Ignorar JSON malformado por cortes en el stream
+                            }
+                        }
+                    }
+                }
                 
             } catch (error) {
                 console.error(error);
                 removeLoading(loadingId);
-                appendMessage('Error de conexión con el motor GraphRAG. Por favor, verifica que la API local esté corriendo.', 'error');
+                appendMessage('Error de conexión con el motor RAG. Por favor, verifica que el Backend esté corriendo en el puerto 8000.', 'error');
             }
         });
     }
@@ -538,6 +565,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function appendMessage(text, sender, sources = []) {
         const msgDiv = document.createElement('div');
         msgDiv.className = 'flex gap-4 animate-fade-in';
+        let contentDivToReturn = null;
         
         if (sender === 'user') {
             msgDiv.classList.add('flex-row-reverse');
@@ -550,26 +578,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
         } else if (sender === 'ai') {
-            let sourcesHtml = '';
-            if (sources && sources.length > 0) {
-                sourcesHtml = `<div class="mt-4 pt-3 border-t border-slate-700/50 flex flex-wrap gap-2">
-                    <span class="text-[10px] text-slate-500 uppercase tracking-widest font-bold w-full flex items-center gap-1"><i data-lucide="database" class="w-3 h-3"></i> Fuentes (GraphRAG):</span>
-                    ${sources.map(s => `<span class="bg-slate-900 px-2 py-1 rounded text-[10px] text-indigo-400 border border-slate-700">${escapeHtml(s)}</span>`).join('')}
-                </div>`;
-            }
-
             msgDiv.innerHTML = `
                 <div class="w-10 h-10 rounded-full bg-indigo-900 flex-shrink-0 flex items-center justify-center border border-indigo-700 mt-1 shadow-md">
                     <i data-lucide="cpu" class="w-5 h-5 text-indigo-400"></i>
                 </div>
-                <div class="bg-slate-800 rounded-2xl rounded-tl-none p-5 max-w-[95%] border border-slate-700 shadow-sm text-slate-200 relative group">
+                <div class="bg-slate-800 rounded-2xl rounded-tl-none p-5 max-w-[95%] border border-slate-700 shadow-sm text-slate-200 relative group w-full">
                     <button onclick="window.downloadReportAsPDF(this)" class="absolute top-4 right-4 bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-all flex items-center gap-2 shadow-lg text-xs font-bold" title="Descargar como PDF">
                         <i data-lucide="download" class="w-4 h-4"></i> Guardar PDF
                     </button>
                     <div class="report-content prose prose-invert prose-sm max-w-none prose-p:leading-relaxed prose-pre:bg-slate-900 prose-pre:border prose-pre:border-slate-700 prose-headings:text-indigo-300 prose-strong:text-emerald-400 prose-hr:border-slate-700">${formatMarkdown(text)}</div>
-                    ${sourcesHtml}
                 </div>
             `;
+            contentDivToReturn = msgDiv.querySelector('.report-content');
         } else {
             msgDiv.innerHTML = `
                 <div class="w-10 h-10 rounded-full bg-red-900/50 flex-shrink-0 flex items-center justify-center border border-red-700 mt-1">
@@ -584,6 +604,8 @@ document.addEventListener('DOMContentLoaded', () => {
         chatHistory.appendChild(msgDiv);
         chatHistory.scrollTop = chatHistory.scrollHeight;
         if (window.lucide) window.lucide.createIcons({ root: msgDiv });
+        
+        return contentDivToReturn || msgDiv;
     }
 
     // Funcionalidad para descargar PDF Oficial (se expone al window para onClick)

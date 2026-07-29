@@ -1,0 +1,344 @@
+[
+    {
+        "id_infraestructura": "INF-LIMA-001",
+        "nombre_oficial": "VERTICAL Gimnasio de escalada",
+        "tipo_categoria": "Palestra Indoor",
+        "descripcion_corta": "Gimnasio de escalada indoor con zonas de boulder, lead y academias formativas para niños y adultos.",
+        "ubicacion": {
+            "departamento": "Lima",
+            "provincia": "Lima",
+            "distrito": "Jesús María",
+            "direccion_exacta": "Zona urbana Jesús María",
+            "latitud": -12.077,
+            "longitud": -77.045
+        },
+        "website": "https://escaladavertical.com",
+        "operador_responsable": "VERTICAL",
+        "estado_actual": "Activo",
+        "certificaciones_seguridad": ["MINCETUR"]
+    },
+    {
+        "id_infraestructura": "INF-LIMA-002",
+        "nombre_oficial": "Base Camp Perú",
+        "tipo_categoria": "Palestra Indoor",
+        "descripcion_corta": "Palestra indoor de alto rendimiento para entrenamiento continuo.",
+        "ubicacion": {
+            "departamento": "Lima",
+            "provincia": "Lima",
+            "distrito": "Surquillo",
+            "direccion_exacta": "Av. Tomás Marsano 630",
+            "latitud": -12.115,
+            "longitud": -77.012
+        },
+        "website": "https://basecampperu.com",
+        "operador_responsable": "Base Camp Perú",
+        "estado_actual": "Activo",
+        "certificaciones_seguridad": ["MINCETUR"]
+    },
+    {
+        "id_infraestructura": "INF-LIMA-003",
+        "nombre_oficial": "Pirqa Academia de Escalada",
+        "tipo_categoria": "Palestra Indoor",
+        "descripcion_corta": "Academia de escalada indoor con zonas de boulder y espacios para cumpleaños.",
+        "ubicacion": {
+            "departamento": "Lima",
+            "provincia": "Lima",
+            "distrito": "Miraflores",
+            "direccion_exacta": "Calle José Gálvez 360",
+            "latitud": -12.121,
+            "longitud": -77.030
+        },
+        "website": "https://pirqa.com",
+        "operador_responsable": "Pirqa",
+        "estado_actual": "Activo",
+        "certificaciones_seguridad": ["MINCETUR"]
+    },
+    {
+        "id_infraestructura": "INF-LIMA-004",
+        "nombre_oficial": "Polideportivo Villa El Salvador",
+        "tipo_categoria": "Muro Competitivo",
+        "descripcion_corta": "Muro estatal de competencia de 9.76m x 4.2m administrado por FEDPE.",
+        "ubicacion": {
+            "departamento": "Lima",
+            "provincia": "Lima",
+            "distrito": "Villa El Salvador",
+            "direccion_exacta": "Polideportivo Legado VES",
+            "latitud": -12.214,
+            "longitud": -76.938
+        },
+        "website": "https://legado.gob.pe",
+        "operador_responsable": "Estatal/Municipal",
+        "estado_actual": "Activo",
+        "certificaciones_seguridad": ["Certificación Oficial FEDPE"]
+    },
+    {
+        "id_infraestructura": "INF-CUSCO-001",
+        "nombre_oficial": "7a Escuela de Escalada",
+        "tipo_categoria": "Palestra y Boulder",
+        "descripcion_corta": "Sala de boulder y base de operaciones para turismo vertical en roca.",
+        "ubicacion": {
+            "departamento": "Cusco",
+            "provincia": "Cusco",
+            "distrito": "Cusco",
+            "direccion_exacta": "Zona central Cusco",
+            "latitud": -13.518,
+            "longitud": -71.978
+        },
+        "website": "https://7aescueladescalada.wordpress.com",
+        "operador_responsable": "7a Escuela de Escalada",
+        "estado_actual": "Activo",
+        "certificaciones_seguridad": ["MINCETUR"]
+    },
+    {
+        "id_infraestructura": "INF-CUSCO-002",
+        "nombre_oficial": "Ludic Wasi",
+        "tipo_categoria": "Palestra Infantil",
+        "descripcion_corta": "Palestras infantiles modulares (resina/madera) enfocadas en desarrollo psicomotriz.",
+        "ubicacion": {
+            "departamento": "Cusco",
+            "provincia": "Cusco",
+            "distrito": "Cusco",
+            "direccion_exacta": "Jardínes del Inca G1, 08001",
+            "latitud": -13.525,
+            "longitud": -71.970
+        },
+        "website": "https://ludicwasi.org.pe",
+        "operador_responsable": "Ludic Wasi",
+        "estado_actual": "Activo",
+        "certificaciones_seguridad": []
+    },
+    {
+        "id_infraestructura": "INF-ANCASH-001",
+        "nombre_oficial": "Monkey Wasi Climbing Hostel",
+        "tipo_categoria": "Palestra Indoor y Alojamiento",
+        "descripcion_corta": "Muro de entrenamiento combinado con hostelería de bajo costo para alpinistas.",
+        "ubicacion": {
+            "departamento": "Áncash",
+            "provincia": "Huaraz",
+            "distrito": "Huaraz",
+            "direccion_exacta": "Zona metropolitana Huaraz",
+            "latitud": -9.529,
+            "longitud": -77.528
+        },
+        "website": "https://booking.com/monkeywasi",
+        "operador_responsable": "Monkey Wasi",
+        "estado_actual": "Activo",
+        "certificaciones_seguridad": []
+    },
+    {
+        "id_infraestructura": "INF-LIMA-005",
+        "nombre_oficial": "Guerrero Paintball",
+        "tipo_categoria": "Simulación Táctica",
+        "descripcion_corta": "Paintball, Gelsoft, Hidrogel y grabaciones con Drones 4K.",
+        "ubicacion": {
+            "departamento": "Lima",
+            "provincia": "Lima",
+            "distrito": "Chorrillos",
+            "direccion_exacta": "Av. Alameda del Premio Real",
+            "latitud": -12.193,
+            "longitud": -76.995
+        },
+        "website": "mailto:guerreropaintball@gmail.com",
+        "operador_responsable": "Guerrero Paintball",
+        "estado_actual": "Activo",
+        "certificaciones_seguridad": []
+    },
+    {
+        "id_infraestructura": "INF-LIMA-006",
+        "nombre_oficial": "Team Norte Paintball",
+        "tipo_categoria": "Simulación Táctica",
+        "descripcion_corta": "Paintball inmersivo con escenografía cerrada (Escenario Gulag).",
+        "ubicacion": {
+            "departamento": "Lima",
+            "provincia": "Lima",
+            "distrito": "Puente Piedra",
+            "direccion_exacta": "Calle Los Pinos Mz E Lte 15 / Jr. Cailloma 840",
+            "latitud": -11.868,
+            "longitud": -77.075
+        },
+        "website": "mailto:hola@teamnortepaintball.com",
+        "operador_responsable": "Team Norte Paintball",
+        "estado_actual": "Activo",
+        "certificaciones_seguridad": []
+    },
+    {
+        "id_infraestructura": "INF-LIMA-007",
+        "nombre_oficial": "Ares Extreme",
+        "tipo_categoria": "Simulación Táctica",
+        "descripcion_corta": "Campo móvil de paintball con cobertura en toda la capital.",
+        "ubicacion": {
+            "departamento": "Lima",
+            "provincia": "Lima",
+            "distrito": "Múltiples",
+            "direccion_exacta": "Cobertura Móvil",
+            "latitud": -12.046,
+            "longitud": -77.042
+        },
+        "website": "https://aresextreme.com",
+        "operador_responsable": "Ares Extreme",
+        "estado_actual": "Activo",
+        "certificaciones_seguridad": []
+    },
+    {
+        "id_infraestructura": "INF-AREQUIPA-001",
+        "nombre_oficial": "Club Internacional Arequipa",
+        "tipo_categoria": "Simulación Táctica",
+        "descripcion_corta": "Torneos institucionales de paintball.",
+        "ubicacion": {
+            "departamento": "Arequipa",
+            "provincia": "Arequipa",
+            "distrito": "Paucarpata",
+            "direccion_exacta": "Sede Principal Paucarpata",
+            "latitud": -16.417,
+            "longitud": -71.516
+        },
+        "website": "https://clubinter.org.pe",
+        "operador_responsable": "Club Internacional",
+        "estado_actual": "Activo",
+        "certificaciones_seguridad": []
+    },
+    {
+        "id_infraestructura": "INF-CUSCO-003",
+        "nombre_oficial": "Action Valley",
+        "tipo_categoria": "Bungee Jumping / Slingshot",
+        "descripcion_corta": "Plataforma de salto bungee y catapulta slingshot de máxima altura en los andes.",
+        "ubicacion": {
+            "departamento": "Cusco",
+            "provincia": "La Convención",
+            "distrito": "Santa Teresa",
+            "direccion_exacta": "Valle Sagrado / Santa Teresa",
+            "latitud": -13.125,
+            "longitud": -72.593
+        },
+        "website": "https://actionvalley.com",
+        "operador_responsable": "Action Valley",
+        "estado_actual": "Activo",
+        "certificaciones_seguridad": ["MINCETUR", "Normas Internacionales Bungee"]
+    },
+    {
+        "id_infraestructura": "INF-SANMARTIN-001",
+        "nombre_oficial": "Taytamaki Parque Forestal",
+        "tipo_categoria": "Canopy / Parque Cuerdas",
+        "descripcion_corta": "Circuito integrado forestal con múltiples plataformas en dosel amazónico.",
+        "ubicacion": {
+            "departamento": "San Martín",
+            "provincia": "San Martín",
+            "distrito": "Tarapoto",
+            "direccion_exacta": "Cuadrante GJXV+H4X",
+            "latitud": -6.485,
+            "longitud": -76.362
+        },
+        "website": "mailto:atencionalcliente@taytamaki.com",
+        "operador_responsable": "Taytamaki",
+        "estado_actual": "Activo",
+        "certificaciones_seguridad": ["MINCETUR"]
+    },
+    {
+        "id_infraestructura": "INF-LORETO-001",
+        "nombre_oficial": "Avatar Amazon Lodge & Canopy",
+        "tipo_categoria": "Canopy / Mirador",
+        "descripcion_corta": "Mirador a 80m de altitud, péndulo, malla, rappel y zipline en el dosel.",
+        "ubicacion": {
+            "departamento": "Loreto",
+            "provincia": "Maynas",
+            "distrito": "Iquitos",
+            "direccion_exacta": "Selva Amazónica Iquitos",
+            "latitud": -3.749,
+            "longitud": -73.253
+        },
+        "website": "mailto:contacto@condorxtreme.com",
+        "operador_responsable": "Avatar Amazon Lodge",
+        "estado_actual": "Activo",
+        "certificaciones_seguridad": ["MINCETUR"]
+    },
+    {
+        "id_infraestructura": "INF-JUNIN-001",
+        "nombre_oficial": "Gravedad Cero",
+        "tipo_categoria": "Zipline / Rappel",
+        "descripcion_corta": "Canopy, Rappel Flecha y Puente Colgante.",
+        "ubicacion": {
+            "departamento": "Junín",
+            "provincia": "Chanchamayo",
+            "distrito": "Chanchamayo",
+            "direccion_exacta": "Selva Central",
+            "latitud": -11.054,
+            "longitud": -75.320
+        },
+        "website": "https://selvacentral.com.pe",
+        "operador_responsable": "Alewa Company (20609057719)",
+        "estado_actual": "Activo",
+        "certificaciones_seguridad": ["MINCETUR"]
+    },
+    {
+        "id_infraestructura": "INF-PASCO-001",
+        "nombre_oficial": "Romero Adventure",
+        "tipo_categoria": "Tirolesa",
+        "descripcion_corta": "Tirolesa triangular de 700 metros utilizando equipos Petzl.",
+        "ubicacion": {
+            "departamento": "Pasco",
+            "provincia": "Oxapampa",
+            "distrito": "Oxapampa",
+            "direccion_exacta": "Sector Churumazu",
+            "latitud": -10.603,
+            "longitud": -75.390
+        },
+        "website": null,
+        "operador_responsable": "Romero Adventure",
+        "estado_actual": "Activo",
+        "certificaciones_seguridad": ["Equipos Petzl"]
+    },
+    {
+        "id_infraestructura": "INF-CAJAMARCA-001",
+        "nombre_oficial": "Apukantu",
+        "tipo_categoria": "Zipline Bike / Puentes",
+        "descripcion_corta": "Zipline Bike, Columpio, Puente Tibetano con vuelos de 80m y puentes de 120m.",
+        "ubicacion": {
+            "departamento": "Cajamarca",
+            "provincia": "Chota",
+            "distrito": "Chota",
+            "direccion_exacta": "Chuyabamba / Catarata Vizcamayo",
+            "latitud": -6.560,
+            "longitud": -78.647
+        },
+        "website": null,
+        "operador_responsable": "Operador Local",
+        "estado_actual": "Activo",
+        "certificaciones_seguridad": []
+    },
+    {
+        "id_infraestructura": "INF-PIURA-001",
+        "nombre_oficial": "Eco Fundo La Caprichosa",
+        "tipo_categoria": "Zipline",
+        "descripcion_corta": "Ziplines ubicados en el ecosistema de bosque seco desértico.",
+        "ubicacion": {
+            "departamento": "Piura",
+            "provincia": "Talara",
+            "distrito": "Máncora",
+            "direccion_exacta": "Máncora interior",
+            "latitud": -4.103,
+            "longitud": -81.045
+        },
+        "website": "mailto:reservas@ecofundolacaprichosa.com",
+        "operador_responsable": "La Caprichosa",
+        "estado_actual": "Activo",
+        "certificaciones_seguridad": ["MINCETUR"]
+    },
+    {
+        "id_infraestructura": "INF-AYACUCHO-001",
+        "nombre_oficial": "Canopy Cerro La Picota",
+        "tipo_categoria": "Zipline",
+        "descripcion_corta": "Vuelo panorámico de alta tensión entre 560 a 570 metros.",
+        "ubicacion": {
+            "departamento": "Ayacucho",
+            "provincia": "Huamanga",
+            "distrito": "Ayacucho",
+            "direccion_exacta": "Cerro La Picota",
+            "latitud": -13.158,
+            "longitud": -74.223
+        },
+        "website": "https://huancaraylla.com.pe",
+        "operador_responsable": "Huancaraylla Tours",
+        "estado_actual": "Activo",
+        "certificaciones_seguridad": ["MINCETUR"]
+    }
+]

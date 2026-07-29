@@ -1,0 +1,426 @@
+{
+    "destino_id": "D-03",
+    "modulo_contexto": "Mercado Central de Trujillo: Sabores Locales y Productos",
+    "fqsas": {
+        "1_Precios_Presupuestos_Moneda": [
+            {
+                "pregunta": "¿Cuánto cuesta comer un menú completo en el Mercado Central de Trujillo, Lalibertad, para un turista?",
+                "respuesta": "Un menú completo (entrada, plato principal, bebida) en los comedores del Mercado Central de Trujillo, Lalibertad, suele costar entre 8 y 15 Soles peruanos, dependiendo del plato y el puesto. Es una opción muy económica y auténtica."
+            },
+            {
+                "pregunta": "¿Cuál es el presupuesto estimado para comprar frutas exóticas y pequeños recuerdos en el Mercado Central de Trujillo, Lalibertad?",
+                "respuesta": "Para frutas exóticas, puedes gastar entre 5 y 10 Soles por una buena selección variada. Pequeños recuerdos como llaveros o artesanías sencillas pueden costar entre 3 y 15 Soles cada uno en el Mercado Central de Trujillo, Lalibertad. Un presupuesto de 20-30 Soles es suficiente para ambos."
+            },
+            {
+                "pregunta": "¿Qué tipo de moneda se acepta para pagar en los puestos del Mercado Central de Trujillo, Lalibertad?",
+                "respuesta": "En el Mercado Central de Trujillo, Lalibertad, la única moneda de curso legal y ampliamente aceptada es el Sol peruano (PEN). Es muy raro que los comerciantes acepten dólares estadounidenses u otras divisas directamente, por lo que siempre es mejor llevar Soles."
+            },
+            {
+                "pregunta": "¿Se puede pagar con tarjeta de crédito o débito en el Mercado Central de Trujillo, Lalibertad, o solo efectivo?",
+                "respuesta": "La gran mayoría de los puestos en el Mercado Central de Trujillo, Lalibertad, operan exclusivamente con efectivo (Soles peruanos). Es muy recomendable llevar suficiente dinero en efectivo, ya que son muy pocos los que disponen de terminales para tarjetas."
+            },
+            {
+                "pregunta": "¿Es común regatear los precios en el Mercado Central de Trujillo, Lalibertad, y cómo se hace?",
+                "respuesta": "En el Mercado Central de Trujillo, Lalibertad, el regateo es más común para compras grandes o productos no alimenticios como artesanías. Para alimentos básicos o menús, los precios suelen ser fijos. Si intentas regatear, hazlo con respeto y una sonrisa, y no esperes grandes descuentos."
+            },
+            {
+                "pregunta": "¿Cuánto cuesta llegar al Mercado Central de Trujillo, Lalibertad, desde el centro histórico en transporte público?",
+                "respuesta": "Desde el centro histórico de Trujillo, Lalibertad, un viaje en microbús o combi al Mercado Central cuesta entre 1.50 y 2.00 Soles peruanos. Un taxi puede costar entre 5 y 8 Soles, dependiendo de la hora y la distancia exacta desde tu punto de partida."
+            },
+            {
+                "pregunta": "¿Dónde puedo cambiar dólares a soles peruanos cerca del Mercado Central de Trujillo, Lalibertad, y cuál es el tipo de cambio?",
+                "respuesta": "Cerca del Mercado Central de Trujillo, Lalibertad, encontrarás casas de cambio o cambistas autorizados en las avenidas principales como España o Gamarra, a pocas cuadras. El tipo de cambio varía diariamente, pero suelen ofrecer tasas competitivas. Siempre compara antes de cambiar."
+            },
+            {
+                "pregunta": "¿Cuál sería un presupuesto razonable para un mochilero que quiera explorar y comer en el Mercado Central de Trujillo, Lalibertad, por medio día?",
+                "respuesta": "Un mochilero podría presupuestar entre 25 y 40 Soles peruanos para un medio día en el Mercado Central de Trujillo, Lalibertad. Esto incluiría un menú completo, algunas frutas, un snack típico y quizás un pequeño recuerdo o bebida."
+            },
+            {
+                "pregunta": "¿Cuánto cuestan los dulces o snacks típicos como los picarones o la chicha morada en el Mercado Central de Trujillo, Lalibertad?",
+                "respuesta": "En el Mercado Central de Trujillo, Lalibertad, un plato de picarones recién hechos suele costar entre 5 y 8 Soles. Un vaso grande de chicha morada fresca, una bebida tradicional, se encuentra entre 2 y 4 Soles."
+            },
+            {
+                "pregunta": "¿Hay cajeros automáticos (ATMs) cerca del Mercado Central de Trujillo, Lalibertad, para retirar efectivo?",
+                "respuesta": "Sí, hay varios cajeros automáticos de bancos importantes como BCP, BBVA o Interbank en las calles aledañas al Mercado Central de Trujillo, Lalibertad. Los encontrarás fácilmente en la Avenida España o Gamarra, a una distancia caminable de pocas cuadras."
+            }
+        ],
+        "2_Logistica_Transporte_Como_Llegar": [
+            {
+                "pregunta": "¿Cómo llegar al Mercado Central de Trujillo desde la Plaza de Armas de Lalibertad en transporte público?",
+                "respuesta": "Desde la Plaza de Armas de Trujillo, puedes caminar unas 5 a 7 cuadras hacia el este por el Jirón Bolívar o Jirón Pizarro hasta llegar al mercado. También puedes tomar un colectivo o microbús que pase por la Avenida España y baje en la intersección con el Jirón Gamarra, el costo es de S/ 1.50 a S/ 2.00."
+            },
+            {
+                "pregunta": "¿Cuánto cuesta un taxi desde el centro de Trujillo hasta el Mercado Central en Lalibertad?",
+                "respuesta": "Un taxi desde la Plaza de Armas o el centro histórico de Trujillo hasta el Mercado Central suele costar entre S/ 5.00 y S/ 8.00, dependiendo del tráfico y la hora del día. Es recomendable acordar el precio antes de subir."
+            },
+            {
+                "pregunta": "¿Es seguro caminar desde la Plaza de Armas de Trujillo hasta el Mercado Central en Lalibertad durante el día?",
+                "respuesta": "Sí, es generalmente seguro caminar desde la Plaza de Armas de Trujillo hasta el Mercado Central durante el día. La ruta es concurrida y atraviesa calles comerciales. Sin embargo, como en cualquier mercado, se recomienda estar atento a tus pertenencias y evitar exhibir objetos de valor."
+            },
+            {
+                "pregunta": "¿Hay estacionamiento disponible cerca del Mercado Central de Trujillo para visitantes en Lalibertad?",
+                "respuesta": "Sí, hay estacionamientos privados alrededor del Mercado Central de Trujillo, especialmente en las calles aledañas como el Jirón Gamarra o el Jirón Ayacucho. El costo por hora suele ser de S/ 3.00 a S/ 5.00. También hay zonas de parqueo regulado en la vía pública, pero suelen estar muy concurridas."
+            },
+            {
+                "pregunta": "¿Cuál es la forma más económica para un mochilero de llegar al Mercado Central de Trujillo en Lalibertad?",
+                "respuesta": "La forma más económica para un mochilero es caminar desde la Plaza de Armas de Trujillo, que está a solo unas cuadras. Si vienes de un punto más lejano, puedes usar los microbuses o colectivos urbanos por un costo de S/ 1.50 a S/ 2.00, que tienen paradas en las principales avenidas cercanas al mercado."
+            },
+            {
+                "pregunta": "¿Qué transporte es el más conveniente para una familia con niños pequeños para ir al Mercado Central de Trujillo en Lalibertad?",
+                "respuesta": "Para una familia con niños pequeños, la opción más conveniente es tomar un taxi. Es más cómodo, directo y seguro, evitando las aglomeraciones del transporte público. El costo desde el centro de Trujillo es de S/ 5.00 a S/ 8.00 y te dejará en la entrada del mercado."
+            },
+            {
+                "pregunta": "¿Cómo llegar al Mercado Central de Trujillo desde el Terminal Terrestre de Lalibertad?",
+                "respuesta": "Desde el Terminal Terrestre de Trujillo, puedes tomar un taxi que te llevará directamente al Mercado Central por un costo aproximado de S/ 10.00 a S/ 15.00. Otra opción es tomar un microbús que pase por la Avenida América Sur y te deje cerca del centro, para luego transbordar o caminar."
+            },
+            {
+                "pregunta": "¿Funcionan aplicaciones de transporte como Uber o Didi para ir al Mercado Central de Trujillo en Lalibertad?",
+                "respuesta": "Sí, aplicaciones de transporte como Uber, Didi o InDriver funcionan en Trujillo y pueden ser utilizadas para llegar al Mercado Central. Los precios suelen ser competitivos y ofrecen la ventaja de conocer el costo antes de iniciar el viaje, con un rango similar al de los taxis convencionales."
+            },
+            {
+                "pregunta": "¿Hasta qué hora opera el transporte público para llegar al Mercado Central de Trujillo en Lalibertad?",
+                "respuesta": "El transporte público en Trujillo, incluyendo los microbuses y colectivos que pasan cerca del Mercado Central, opera generalmente desde las 6:00 AM hasta las 10:00 PM o 11:00 PM. Después de esas horas, es más recomendable usar taxis o aplicaciones de transporte."
+            },
+            {
+                "pregunta": "¿Qué líneas de microbús o colectivo pasan cerca del Mercado Central de Trujillo en Lalibertad?",
+                "respuesta": "Varias líneas de microbús y colectivos pasan por las avenidas principales cercanas al Mercado Central de Trujillo, como la Avenida España y el Jirón Gamarra. Busca rutas que indiquen ‘Centro’ o ‘Mercado’ en su letrero. Puedes preguntar a los cobradores por ‘Mercado Central’ para asegurar la ruta correcta."
+            }
+        ],
+        "3_Seguridad_Riesgos_Salud": [
+            {
+                "pregunta": "¿Es seguro caminar por el Mercado Central de Trujillo en Lalibertad para un turista con mochila y qué precauciones debo tomar?",
+                "respuesta": "El Mercado Central de Trujillo es un lugar concurrido y vibrante. Se recomienda estar atento a sus pertenencias, especialmente en horas punta. Evite llevar objetos de valor a la vista, como cámaras costosas o joyas. Es preferible llevar la mochila por delante o usar una riñonera discreta. La zona puede ser propensa a pequeños hurtos, por lo que la vigilancia es clave."
+            },
+            {
+                "pregunta": "¿Qué precauciones de salud debo tomar al comer comida callejera o en puestos dentro del Mercado Central de Trujillo en Lalibertad?",
+                "respuesta": "Para minimizar riesgos, priorice puestos con alta rotación de clientes y observe la higiene general del lugar y del personal. Prefiera alimentos cocidos al momento y evite ensaladas, jugos con hielo o alimentos crudos si no está seguro de la procedencia del agua o ingredientes. Siempre beba agua embotellada sellada y evite el agua del grifo."
+            },
+            {
+                "pregunta": "¿Hay baños públicos limpios y seguros disponibles para turistas en el Mercado Central de Trujillo en Lalibertad y cuánto cuestan?",
+                "respuesta": "Sí, hay baños públicos dentro o en las inmediaciones del mercado, aunque su limpieza puede variar. Generalmente, tienen un costo simbólico que oscila entre 0.50 y 1.00 Sol. Es aconsejable llevar papel higiénico y gel desinfectante personal, ya que no siempre están disponibles."
+            },
+            {
+                "pregunta": "¿Dónde puedo encontrar ayuda de emergencia o seguridad cerca del Mercado Central de Trujillo en Lalibertad si tengo un problema?",
+                "respuesta": "En caso de una emergencia o problema de seguridad, puede dirigirse a la administración del mercado para solicitar asistencia. También es común ver a la policía municipal patrullando la zona. La Comisaría de Ayacucho está a pocas cuadras del mercado, en la Calle Ayacucho 400, Trujillo, Lalibertad."
+            },
+            {
+                "pregunta": "¿Es seguro beber agua del grifo en los alrededores del Mercado Central de Trujillo en Lalibertad o debo comprar agua embotellada?",
+                "respuesta": "No, bajo ninguna circunstancia se recomienda beber agua directamente del grifo en Trujillo o en cualquier parte de Lalibertad. El agua no es apta para el consumo humano directo. Siempre consuma agua embotellada sellada para evitar problemas gastrointestinales y asegúrese de que el sello no esté roto."
+            },
+            {
+                "pregunta": "¿Qué medidas de salud debo tomar para protegerme del sol y mantenerme hidratado al visitar el Mercado Central de Trujillo en Lalibertad?",
+                "respuesta": "Trujillo tiene un clima soleado la mayor parte del año. Es fundamental usar protector solar de al menos SPF 30, sombrero o gorra, y ropa ligera y transpirable. Manténgase hidratado bebiendo agua embotellada constantemente, especialmente entre las 10 a.m. y las 4 p.m., para evitar la deshidratación y golpes de calor."
+            },
+            {
+                "pregunta": "¿Hay riesgos de estafas o precios excesivos para turistas en el Mercado Central de Trujillo en Lalibertad y cómo puedo evitarlos?",
+                "respuesta": "Si bien el Mercado Central es principalmente para locales, algunos vendedores pueden intentar cobrar precios más altos a los turistas. Siempre pregunte el precio antes de comprar y, si es posible, negocie amablemente. Compare precios entre varios puestos antes de decidirse y no dude en retirarse si siente que el precio es desproporcionado."
+            },
+            {
+                "pregunta": "¿Es seguro usar taxis o transporte público para llegar y salir del Mercado Central de Trujillo en Lalibertad?",
+                "respuesta": "Para mayor seguridad, se recomienda usar taxis formales identificados o servicios de taxi por aplicación como Uber o InDriver. Evite tomar taxis informales sin identificación clara. Los microbuses son una opción económica y generalmente segura durante el día, pero siempre esté atento a sus pertenencias, especialmente en horas pico."
+            },
+            {
+                "pregunta": "¿Dónde está el hospital o centro de salud más cercano al Mercado Central de Trujillo en Lalibertad en caso de una emergencia médica?",
+                "respuesta": "En caso de una emergencia médica, el Hospital Regional Docente de Trujillo es uno de los más grandes y está relativamente cerca, ubicado en la Av. Mansiche S/N. También hay clínicas privadas con buena atención como la Clínica San Pablo, en la Av. Juan Pablo II 300, a unos 15-20 minutos en taxi desde el mercado."
+            },
+            {
+                "pregunta": "¿Qué consejos de seguridad general me darían para visitar el Mercado Central de Trujillo en Lalibertad como turista y evitar problemas?",
+                "respuesta": "Mantenga un perfil bajo, no exhiba grandes sumas de dinero, joyas o dispositivos electrónicos caros. Sea consciente de su entorno y evite distracciones como el uso excesivo del móvil. Si una situación le parece incómoda o sospechosa, retírese de inmediato. Es un lugar vibrante y auténtico, pero la precaución es su mejor aliada."
+            }
+        ],
+        "4_Clima_Temporadas_Horarios": [
+            {
+                "pregunta": "¿Cuál es el horario de atención del Mercado Central de Trujillo en Lalibertad para turistas?",
+                "respuesta": "El Mercado Central de Trujillo en Lalibertad generalmente abre sus puertas al público desde las 6:00 AM hasta las 6:00 PM de lunes a sábado, y los domingos hasta el mediodía, aproximadamente a la 1:00 PM. Es un horario bastante consistente durante todo el año."
+            },
+            {
+                "pregunta": "¿Cuál es el mejor horario para visitar el Mercado Central de Trujillo en Lalibertad y encontrar productos frescos?",
+                "respuesta": "Para encontrar los productos más frescos y evitar las mayores aglomeraciones, se recomienda visitar el Mercado Central de Trujillo en Lalibertad temprano por la mañana, entre las 7:00 AM y las 10:00 AM, especialmente de martes a viernes. Los lunes suelen ser días de menor variedad."
+            },
+            {
+                "pregunta": "¿Qué tipo de clima puedo esperar al visitar el Mercado Central de Trujillo en Lalibertad y cómo me preparo?",
+                "respuesta": "Trujillo, en Lalibertad, tiene un clima desértico costero, mayormente soleado y templado durante todo el año, con temperaturas promedio entre 18°C y 25°C. Se recomienda ropa ligera y cómoda, y quizás una chaqueta ligera para las mañanas frescas o las noches."
+            },
+            {
+                "pregunta": "¿Hay alguna temporada específica para encontrar productos agrícolas o marinos especiales en el Mercado Central de Trujillo en Lalibertad?",
+                "respuesta": "Sí, la disponibilidad de ciertos productos en el Mercado Central de Trujillo en Lalibertad varía por temporada. Por ejemplo, la temporada de mango es de diciembre a marzo, y la de uva de enero a abril. Los productos marinos frescos suelen ser abundantes todo el año, pero pueden variar según las vedas estacionales."
+            },
+            {
+                "pregunta": "¿El Mercado Central de Trujillo en Lalibertad tiene horarios especiales durante feriados o festividades locales?",
+                "respuesta": "Durante feriados nacionales como Año Nuevo, Fiestas Patrias (28 y 29 de julio) o Navidad, el Mercado Central de Trujillo en Lalibertad puede operar con horarios reducidos, generalmente cerrando más temprano, alrededor del mediodía o la 1:00 PM. Es aconsejable verificar localmente antes de su visita."
+            },
+            {
+                "pregunta": "¿Cómo afecta la temporada de lluvias la visita al Mercado Central de Trujillo en Lalibertad?",
+                "respuesta": "La temporada de lluvias en Trujillo, Lalibertad, es mínima y no suele afectar significativamente la visita al Mercado Central. Las lluvias son esporádicas y ligeras, concentrándose a veces entre diciembre y marzo, por lo que no se requieren precauciones especiales más allá de un paraguas pequeño si se desea."
+            },
+            {
+                "pregunta": "¿A qué hora es más concurrido el Mercado Central de Trujillo en Lalibertad para almorzar en sus puestos de comida?",
+                "respuesta": "Los puestos de comida en el Mercado Central de Trujillo en Lalibertad suelen ser más concurridos durante la hora del almuerzo, entre las 12:30 PM y las 2:30 PM, especialmente de lunes a viernes, cuando los trabajadores locales acuden a comer. Prepárese para encontrar más gente en ese lapso."
+            },
+            {
+                "pregunta": "¿Existe una temporada baja o alta para el turismo que afecte la experiencia en el Mercado Central de Trujillo en Lalibertad?",
+                "respuesta": "Aunque el Mercado Central de Trujillo en Lalibertad es un lugar de actividad local constante, la afluencia turística puede ser ligeramente mayor durante los meses de verano (diciembre a marzo) y Fiestas Patrias (julio). Sin embargo, esto no suele impactar negativamente la experiencia de compra o visita."
+            },
+            {
+                "pregunta": "¿Es seguro visitar el Mercado Central de Trujillo en Lalibertad cerca de su hora de cierre?",
+                "respuesta": "Visitar el Mercado Central de Trujillo en Lalibertad cerca de su hora de cierre, alrededor de las 5:00 PM a 6:00 PM, es generalmente seguro, pero la actividad disminuye y muchos puestos ya están cerrando o empacando. Para una experiencia completa y con más opciones, es mejor ir más temprano."
+            },
+            {
+                "pregunta": "¿Cómo es el clima nocturno en Trujillo, Lalibertad, si planeo cenar cerca del Mercado Central?",
+                "respuesta": "Las noches en Trujillo, Lalibertad, son frescas, incluso después de un día templado. Las temperaturas pueden descender a 15°C o 16°C, especialmente entre mayo y noviembre, por lo que se recomienda llevar una chaqueta o suéter ligero si planea cenar en los alrededores del Mercado Central."
+            }
+        ],
+        "5_Historia_Cultura_Curiosidades": [
+            {
+                "pregunta": "¿Cuál es la importancia histórica del Mercado Central de Trujillo en Lalibertad para el comercio local?",
+                "respuesta": "El Mercado Central de Trujillo en Lalibertad ha sido el corazón comercial de la ciudad desde su establecimiento a principios del siglo XX, sirviendo como punto de encuentro para comerciantes de la costa y la sierra, y reflejando la evolución económica y social de la región. Su estructura actual data de remodelaciones importantes en las décadas de 1950 y 1970."
+            },
+            {
+                "pregunta": "¿Qué costumbres o rituales culturales se observan al comprar en el Mercado Central de Trujillo en Lalibertad?",
+                "respuesta": "Es común ver a los compradores regatear amistosamente los precios, especialmente por grandes cantidades. También es una costumbre probar pequeñas muestras de frutas o quesos antes de comprar, y los vendedores suelen ofrecer 'la yapa', un extra de producto como gesto de buena voluntad, una tradición muy arraigada en Lalibertad."
+            },
+            {
+                "pregunta": "¿Hay algún producto o sección inusual que solo se encuentre en el Mercado Central de Trujillo en Lalibertad?",
+                "respuesta": "Sí, en la sección de hierbas medicinales, conocida como 'la botica natural', se pueden encontrar remedios ancestrales andinos y de la costa, como la 'uña de gato' o el 'sangre de grado', usados tradicionalmente para diversas dolencias, algo muy particular de la cultura local de Lalibertad."
+            },
+            {
+                "pregunta": "¿Cuál es la historia detrás de la arquitectura o diseño del Mercado Central de Trujillo en Lalibertad?",
+                "respuesta": "El diseño actual del Mercado Central de Trujillo, aunque funcional, ha pasado por varias etapas. Originalmente era una plaza abierta. Las estructuras de concreto y metal que vemos hoy fueron resultado de modernizaciones en el siglo XX para mejorar la higiene y la organización, buscando emular mercados europeos de la época, una curiosidad arquitectónica en Lalibertad."
+            },
+            {
+                "pregunta": "¿Cómo influye el Mercado Central de Trujillo en Lalibertad en la gastronomía local y las recetas tradicionales?",
+                "respuesta": "El mercado es la fuente principal de ingredientes frescos para los restaurantes y hogares trujillanos, asegurando la autenticidad de platos como el 'seco de cabrito' o la 'sopa teóloga'. Muchos cocineros tradicionales de Lalibertad visitan el mercado diariamente para seleccionar los mejores productos de temporada."
+            },
+            {
+                "pregunta": "¿Existe alguna leyenda o anécdota popular asociada al Mercado Central de Trujillo en Lalibertad?",
+                "respuesta": "Se cuenta que en los pasillos más antiguos del mercado, especialmente cerca de la sección de carnes, a veces se escuchan murmullos o se sienten presencias, atribuidas a los antiguos comerciantes que dedicaron su vida al lugar. Es una curiosidad que algunos vendedores más veteranos de Lalibertad comparten con una sonrisa."
+            },
+            {
+                "pregunta": "¿Qué tipo de interacción social es típica entre vendedores y compradores en el Mercado Central de Trujillo en Lalibertad?",
+                "respuesta": "La interacción es muy personal y cercana. Los vendedores suelen conocer a sus clientes habituales por nombre, y las conversaciones van más allá de la transacción, incluyendo chismes locales, consejos de cocina o comentarios sobre el clima. Es un reflejo de la calidez de la gente de Lalibertad."
+            },
+            {
+                "pregunta": "¿Cuál era el papel del Mercado Central de Trujillo en Lalibertad durante festividades importantes como la Semana Santa o Navidad?",
+                "respuesta": "Durante estas festividades, el mercado se transforma. En Semana Santa, aumenta la venta de pescado seco y hierbas para potajes tradicionales. En Navidad, abundan los pavos, lechones y frutas de temporada para las cenas familiares. Es un epicentro de preparación cultural para las celebraciones en Lalibertad."
+            },
+            {
+                "pregunta": "¿Hay algún dialecto o expresiones particulares que se escuchen frecuentemente en el Mercado Central de Trujillo en Lalibertad?",
+                "respuesta": "Sí, aunque se habla español, es común escuchar expresiones coloquiales trujillanas y algunas palabras de origen quechua, especialmente en la sección de frutas y verduras, como '¡casera!' para llamar a la vendedora, o '¡yapa!' para pedir un extra. Son parte del encanto lingüístico de Lalibertad."
+            },
+            {
+                "pregunta": "¿Qué objetos o herramientas antiguas aún se utilizan o se exhiben en el Mercado Central de Trujillo en Lalibertad como parte de su historia?",
+                "respuesta": "Aunque modernizado, algunos puestos de hierbas o especias todavía usan balanzas de platillo antiguas para pesar sus productos, y es posible ver canastas de mimbre tradicionales que han pasado de generación en generación, sirviendo como un guiño a la historia comercial de Lalibertad."
+            }
+        ],
+        "6_Tips_Locales_Secretos": [
+            {
+                "pregunta": "¿Cuál es el mejor horario para encontrar los productos más frescos y ofertas en el Mercado Central de Trujillo, Lalibertad, según los locales?",
+                "respuesta": "Los trujillanos recomiendan ir muy temprano, entre las 6:00 AM y 8:00 AM, especialmente los martes y viernes, cuando llega la mercadería más fresca de los agricultores de los valles cercanos. Es cuando hay más variedad y se pueden conseguir mejores precios antes de que suban."
+            },
+            {
+                "pregunta": "¿Dónde puedo probar la 'sopa teóloga' o el 'shambar' auténtico dentro del Mercado Central de Trujillo, Lalibertad, como un verdadero local?",
+                "respuesta": "Busca los pequeños comedores en el segundo piso o en los pasillos laterales. Pregunta por 'Doña Julia' o 'El Rincón del Sabor'. Suelen tener el menú del día que incluye shambar los lunes y sopa teóloga los domingos, platos que no siempre están a la vista del turista."
+            },
+            {
+                "pregunta": "¿Existen trucos o frases clave para regatear precios en el Mercado Central de Trujillo, Lalibertad, y conseguir mejores ofertas como lo hacen los residentes?",
+                "respuesta": "Sí, los locales suelen preguntar '¿Cuánto me dejas si llevo más?' o '¿Hay rebaja por ser casero?'. Siempre con una sonrisa y sin mostrar demasiada prisa. Evita regatear por montos muy pequeños; enfócate en compras de volumen para obtener descuentos significativos."
+            },
+            {
+                "pregunta": "¿Qué puestos o secciones específicas del Mercado Central de Trujillo, Lalibertad, son conocidos por la calidad superior de sus quesos o panes artesanales?",
+                "respuesta": "Para quesos frescos de la sierra, busca los puestos cerca de la entrada por la calle Pizarro, especialmente los que exhiben quesos de Cajamarca. Para panes artesanales, dirígete a la panadería 'El Buen Pan' en el sector de abarrotes, famosa por su pan de yema y pan de camote."
+            },
+            {
+                "pregunta": "¿Qué productos artesanales o souvenirs únicos de la región de Lalibertad, más allá de la comida, puedo encontrar en el Mercado Central de Trujillo que los turistas suelen pasar por alto?",
+                "respuesta": "Busca los pequeños puestos que venden sombreros de paja toquilla hechos a mano, cerámica mochica réplica de alta calidad o tejidos de algodón pima. A menudo están en los pasillos menos transitados, cerca de la sección de ropa y calzado, no en las entradas principales."
+            },
+            {
+                "pregunta": "¿Qué precauciones de seguridad o 'trampas' comunes debo evitar al visitar el Mercado Central de Trujillo, Lalibertad, para tener una experiencia tranquila como un local?",
+                "respuesta": "Mantén tus objetos de valor bien guardados y a la vista, preferiblemente en un bolso cruzado. Evita mostrar grandes sumas de dinero. No aceptes ayuda de personas no identificadas que se ofrezcan a cargar tus compras, ya que pueden ser oportunistas. Los locales son discretos."
+            },
+            {
+                "pregunta": "¿Cuál es la forma más económica y eficiente de llegar al Mercado Central de Trujillo, Lalibertad, desde el centro histórico, usando transporte público como un residente?",
+                "respuesta": "Desde la Plaza de Armas, puedes tomar cualquier microbús o combi que diga 'Mercado Mayorista' o 'Centro' por la Avenida España. El pasaje cuesta aproximadamente S/1.50 a S/2.00. Baja en la parada más cercana a la calle Zepita o Gamarra, que son las entradas principales."
+            },
+            {
+                "pregunta": "¿Hay algún día de la semana o momento específico para visitar el Mercado Central de Trujillo, Lalibertad, si quiero evitar las multitudes y disfrutar de una experiencia más auténtica?",
+                "respuesta": "Los días de semana por la tarde, entre las 2:00 PM y 4:00 PM, suelen ser menos concurridos que las mañanas o los fines de semana. Es ideal para pasear con calma, observar la vida local y conversar con los vendedores sin el ajetreo de las horas pico."
+            },
+            {
+                "pregunta": "¿Qué ingredientes exóticos o poco comunes de la gastronomía de Lalibertad puedo encontrar en el Mercado Central de Trujillo para llevarme y cocinar en casa?",
+                "respuesta": "Busca el auténtico ají mochero fresco o seco, yuca amarilla, chicha de jora fermentada (ideal para adobos), o hierbas aromáticas como el 'paico' y 'hierba luisa' para infusiones o guisos. Pregunta a los vendedores de verduras por 'productos de la chacra' para lo más local."
+            },
+            {
+                "pregunta": "¿Cómo debo interactuar con los vendedores en el Mercado Central de Trujillo, Lalibertad, para mostrar respeto y obtener un trato amigable, siguiendo las costumbres locales?",
+                "respuesta": "Saluda siempre con un 'Buenos días' o 'Buenas tardes' antes de preguntar. Pregunta el precio antes de tocar la mercadería. Sé amable y paciente, y un 'gracias' sincero al final de la compra es muy apreciado. Los locales valoran la cortesía y el buen trato."
+            }
+        ],
+        "7_Gastronomia_Alimentos_Supervivencia": [
+            {
+                "pregunta": "¿Es seguro comer la comida preparada en los puestos del Mercado Central de Trujillo para turistas en Lalibertad?",
+                "respuesta": "Generalmente sí, pero se recomienda elegir puestos con alta rotación de clientes y donde la comida se prepare al momento. Evita ensaladas crudas y prefiere platos calientes. Busca lugares donde veas a los locales comiendo, es una buena señal de higiene y sabor para un mochilero o familia."
+            },
+            {
+                "pregunta": "¿Cuáles son las opciones de comida más económicas para un mochilero en el Mercado Central de Trujillo, Lalibertad?",
+                "respuesta": "Para un mochilero o familia con presupuesto, los 'menús' del día son la mejor opción, suelen incluir sopa, plato de fondo y refresco por 8 a 12 Soles. También puedes encontrar 'emolientes' o 'jugos' frescos por 2 a 5 Soles y 'pan con relleno' por 3 a 6 Soles, ideales para un desayuno o merienda rápida y económica."
+            },
+            {
+                "pregunta": "¿Qué productos frescos puedo comprar en el Mercado Central de Trujillo para cocinar en mi alojamiento si estoy de viaje en Lalibertad?",
+                "respuesta": "Puedes encontrar una gran variedad de frutas de estación como mangos, lúcumas, chirimoyas, y verduras frescas como ajíes, papas de diversas variedades, y hierbas aromáticas. Los precios son muy económicos; por ejemplo, un kilo de papas puede costar 2-3 Soles y frutas como mangos 4-6 Soles el kilo, ideal para la supervivencia culinaria."
+            },
+            {
+                "pregunta": "¿Qué platos tradicionales de Trujillo debo probar en el Mercado Central de Trujillo para una experiencia auténtica en Lalibertad?",
+                "respuesta": "No dejes de probar el 'shambar' (sopa de trigo con carne, solo los lunes), 'seco de cabrito con frijoles', 'arroz con pato' y 'causa trujillana'. Estos platos los encuentras en los comedores del segundo piso o en los alrededores del mercado, ofreciendo una inmersión gastronómica completa."
+            },
+            {
+                "pregunta": "¿Dónde puedo encontrar bebidas locales refrescantes o jugos naturales en el Mercado Central de Trujillo, Lalibertad?",
+                "respuesta": "En la sección de jugos, cerca de la entrada principal por la calle Bolívar, encontrarás puestos que ofrecen 'jugos surtidos' (mezcla de frutas), 'jugo de papaya', 'jugo de lúcuma' y el tradicional 'emoliente'. Un vaso grande de jugo cuesta entre 5 y 8 Soles, perfecto para hidratarse y probar sabores locales."
+            },
+            {
+                "pregunta": "¿Qué aperitivos rápidos y económicos están disponibles en el Mercado Central de Trujillo para un día de exploración en Lalibertad?",
+                "respuesta": "Busca los puestos de 'pan con pejerrey' o 'pan con tortilla', que son muy populares y cuestan entre 3 y 5 Soles. También hay 'chifles' (plátano frito), 'canchita' (maíz tostado) y dulces tradicionales como 'king kong' o 'alfajores' en la zona de abarrotes, ideales para un 'lonche' o snack de supervivencia."
+            },
+            {
+                "pregunta": "¿Existen opciones de comida vegetariana o vegana fáciles de encontrar en el Mercado Central de Trujillo para turistas en Lalibertad?",
+                "respuesta": "Las opciones veganas son limitadas, pero puedes encontrar platos vegetarianos como 'tortillas de verduras', 'arroz con verduras' o 'menestras' (legumbres) en los comedores. Siempre pregunta si el plato lleva carne o caldo de carne. También puedes comprar frutas y verduras frescas para preparar tu propia comida."
+            },
+            {
+                "pregunta": "¿Cuál es el mejor momento del día para visitar el Mercado Central de Trujillo y encontrar la comida más fresca en Lalibertad?",
+                "respuesta": "Para la comida más fresca y la mayor variedad de opciones de almuerzo, lo ideal es visitar entre las 11:00 AM y la 1:30 PM. A esa hora, los comedores están en pleno apogeo y los productos recién llegados de las chacras están en exhibición, garantizando la mejor calidad para tu alimentación."
+            },
+            {
+                "pregunta": "¿Cuánto debería esperar pagar por un almuerzo típico o 'menú' en el Mercado Central de Trujillo, Lalibertad?",
+                "respuesta": "Un almuerzo completo o 'menú' en los comedores del Mercado Central de Trujillo suele costar entre 8 y 15 Soles, dependiendo del plato y el puesto. Incluye una sopa o entrada, un plato de fondo y una bebida. Es una opción muy económica y abundante para asegurar tu alimentación diaria."
+            },
+            {
+                "pregunta": "¿Puedes recomendar un puesto de comida específico en el Mercado Central de Trujillo conocido por su buena y segura comida en Lalibertad?",
+                "respuesta": "Aunque los nombres de los puestos pueden variar, busca los comedores en el segundo piso, especialmente aquellos que tienen carteles grandes y están llenos de gente local. 'El Rincón del Sabor' o 'Comedor Rosita' son ejemplos de nombres comunes para puestos bien valorados, pero la mejor recomendación es observar dónde comen los trujillanos para garantizar la calidad y seguridad de tu comida."
+            }
+        ],
+        "8_Accesibilidad_Infraestructura": [
+            {
+                "pregunta": "¿Cómo llegar al Mercado Central de Trujillo desde la Plaza de Armas de Trujillo, La Libertad, en transporte público?",
+                "respuesta": "Desde la Plaza de Armas de Trujillo, puedes tomar un taxi que te costará entre 5 y 8 soles, o caminar unas 6 a 8 cuadras hacia el este por el Jirón Bolívar hasta llegar a la Avenida España, donde se encuentra el mercado. También hay combis que pasan por calles aledañas."
+            },
+            {
+                "pregunta": "¿Hay estacionamiento seguro disponible cerca del Mercado Central de Trujillo para turistas que van en coche en La Libertad?",
+                "respuesta": "Sí, existen algunos estacionamientos privados de pago en los alrededores del Mercado Central de Trujillo, como los ubicados en la calle Sinchi Roca o en la Avenida España, con tarifas que rondan los 3 a 5 soles por hora. El estacionamiento en la vía pública es limitado y no siempre seguro."
+            },
+            {
+                "pregunta": "¿Es el Mercado Central de Trujillo accesible para personas en silla de ruedas o con movilidad reducida en La Libertad?",
+                "respuesta": "El Mercado Central de Trujillo presenta desafíos significativos para personas en silla de ruedas. Sus pasillos son estrechos, el piso es irregular y no cuenta con rampas o ascensores adecuados para acceder a todas las áreas, lo que dificulta la movilidad."
+            },
+            {
+                "pregunta": "¿Dónde se encuentran los baños públicos y cuál es su estado en el Mercado Central de Trujillo, La Libertad?",
+                "respuesta": "Dentro del Mercado Central de Trujillo, hay baños públicos ubicados generalmente en las zonas laterales o posteriores. Suelen tener un costo de uso de 0.50 a 1 sol y su limpieza puede variar, siendo recomendable llevar papel higiénico propio."
+            },
+            {
+                "pregunta": "¿Es seguro caminar por los alrededores del Mercado Central de Trujillo, La Libertad, durante el día y la tarde?",
+                "respuesta": "Durante el día, caminar por los alrededores del Mercado Central de Trujillo es generalmente seguro, aunque se recomienda estar atento a las pertenencias debido a la gran afluencia de gente. Por la tarde, especialmente después de las 6 PM, se aconseja mayor precaución y evitar calles poco transitadas."
+            },
+            {
+                "pregunta": "¿Cuáles son las principales calles de acceso al Mercado Central de Trujillo y cómo es el tráfico en La Libertad?",
+                "respuesta": "Las principales calles de acceso al Mercado Central de Trujillo son la Avenida España, el Jirón Sinchi Roca y el Jirón Gamarra. El tráfico en estas zonas es generalmente denso, especialmente en horas punta (mañana y mediodía), lo que puede dificultar el acceso en vehículo particular."
+            },
+            {
+                "pregunta": "¿Hay cajeros automáticos (ATMs) cerca del Mercado Central de Trujillo en La Libertad para retirar efectivo?",
+                "respuesta": "Sí, puedes encontrar cajeros automáticos de diferentes bancos como BCP, BBVA o Interbank a pocas cuadras del Mercado Central de Trujillo, principalmente en la Avenida España o en el Jirón Bolívar, a unos 5 minutos a pie."
+            },
+            {
+                "pregunta": "¿Qué líneas de transporte público o combis pasan directamente por el Mercado Central de Trujillo en La Libertad?",
+                "respuesta": "Varias líneas de combis y microbuses de Trujillo transitan por la Avenida España y calles aledañas como Sinchi Roca o Gamarra, que rodean el Mercado Central. Es común ver rutas que conectan con diferentes distritos de la ciudad. Pregunta a los cobradores por 'Mercado Central'."
+            },
+            {
+                "pregunta": "¿Existe acceso a Wi-Fi gratuito o de pago dentro o en los alrededores del Mercado Central de Trujillo, La Libertad?",
+                "respuesta": "No hay Wi-Fi gratuito público disponible dentro del Mercado Central de Trujillo. Algunos pequeños negocios o cafeterías en los alrededores podrían ofrecer Wi-Fi para clientes, pero no es una infraestructura generalizada del mercado. Se recomienda usar datos móviles."
+            },
+            {
+                "pregunta": "¿Cuáles son los horarios de apertura y cierre del Mercado Central de Trujillo para visitantes en La Libertad?",
+                "respuesta": "El Mercado Central de Trujillo generalmente abre sus puertas al público desde las 6:00 AM hasta las 7:00 PM de lunes a sábado. Los domingos, el horario puede ser reducido, usualmente hasta el mediodía o la 1:00 PM, aunque algunos puestos pueden cerrar antes."
+            }
+        ],
+        "9_Reglas_Prohibiciones_Tramites": [
+            {
+                "pregunta": "¿Hay alguna restricción para tomar fotos o videos dentro del Mercado Central de Trujillo en Lalibertad?",
+                "respuesta": "Generalmente, se permite tomar fotos y videos para uso personal en el Mercado Central de Trujillo en Lalibertad, pero es recomendable pedir permiso a los vendedores antes de fotografiar sus puestos o a las personas directamente para respetar su privacidad."
+            },
+            {
+                "pregunta": "¿Cómo debo negociar precios en el Mercado Central de Trujillo en Lalibertad sin ofender a los vendedores?",
+                "respuesta": "En el Mercado Central de Trujillo en Lalibertad, la negociación de precios es común, especialmente para compras grandes. Hazlo con respeto y una sonrisa. Ofrece un precio razonable y no insistas demasiado si el vendedor se niega. Es parte de la experiencia cultural."
+            },
+            {
+                "pregunta": "¿Está permitido probar la comida o frutas antes de comprar en el Mercado Central de Trujillo en Lalibertad?",
+                "respuesta": "Sí, en muchos puestos del Mercado Central de Trujillo en Lalibertad es común que los vendedores ofrezcan pequeñas muestras de frutas o quesos. Sin embargo, siempre es cortés preguntar primero: '¿Puedo probar?' o '¿Me permite una probadita?'."
+            },
+            {
+                "pregunta": "¿Se puede entrar con mascotas al Mercado Central de Trujillo en Lalibertad?",
+                "respuesta": "No, por razones de higiene y seguridad alimentaria, generalmente está prohibido el ingreso de mascotas al Mercado Central de Trujillo en Lalibertad. Es una regla común en la mayoría de los mercados de alimentos en Perú."
+            },
+            {
+                "pregunta": "¿Qué reglas hay sobre la basura o el mantenimiento de la limpieza en el Mercado Central de Trujillo en Lalibertad?",
+                "respuesta": "Se espera que los visitantes del Mercado Central de Trujillo en Lalibertad utilicen los tachos de basura designados y eviten arrojar desperdicios al suelo. Contribuir a la limpieza es una muestra de respeto por el espacio y los comerciantes."
+            },
+            {
+                "pregunta": "¿Está permitido fumar dentro o en los alrededores inmediatos del Mercado Central de Trujillo en Lalibertad?",
+                "respuesta": "No, está estrictamente prohibido fumar dentro del Mercado Central de Trujillo en Lalibertad y en sus áreas de comida. La normativa de salud pública peruana prohíbe fumar en espacios públicos cerrados y de concurrencia masiva."
+            },
+            {
+                "pregunta": "¿Qué precauciones debo tomar para evitar robos en el Mercado Central de Trujillo en Lalibertad?",
+                "respuesta": "Aunque no es una prohibición directa, se recomienda encarecidamente a los visitantes del Mercado Central de Trujillo en Lalibertad no exhibir objetos de valor como cámaras caras o joyas. Mantén tu mochila o bolso siempre al frente y tus pertenencias seguras para evitar cualquier incidente."
+            },
+            {
+                "pregunta": "¿Hay alguna regla sobre cómo interactuar con los vendedores si no estoy interesado en comprar en el Mercado Central de Trujillo en Lalibertad?",
+                "respuesta": "Si no estás interesado en comprar en un puesto del Mercado Central de Trujillo en Lalibertad, un simple 'Gracias, solo estoy mirando' o 'No, gracias' es suficiente. Evita ser grosero o ignorar por completo a los vendedores, ya que es una falta de respeto en la cultura local."
+            },
+            {
+                "pregunta": "¿Está permitido consumir bebidas alcohólicas dentro del Mercado Central de Trujillo en Lalibertad?",
+                "respuesta": "No, el consumo de bebidas alcohólicas está prohibido dentro del Mercado Central de Trujillo en Lalibertad. Es un espacio de comercio de alimentos y productos, y se mantiene un ambiente familiar y ordenado."
+            },
+            {
+                "pregunta": "¿Existe algún trámite especial si quiero comprar grandes cantidades de productos del Mercado Central de Trujillo en Lalibertad para llevar al extranjero?",
+                "respuesta": "Para compras grandes o productos que planees llevar al extranjero desde el Mercado Central de Trujillo en Lalibertad, es tu responsabilidad verificar las regulaciones aduaneras de tu país. Los vendedores del mercado no suelen gestionar trámites de exportación, pero pueden ayudarte a empacar adecuadamente."
+            }
+        ],
+        "10_Alternativas_Plan_B": [
+            {
+                "pregunta": "¿Si el Mercado Central de Trujillo está muy lleno, ¿dónde más puedo encontrar productos frescos y comida local auténtica en La Libertad?",
+                "respuesta": "Puedes visitar el Mercado Zonal Palermo, ubicado en la Av. Pumacahua, donde encontrarás una variedad similar de productos frescos y puestos de comida a precios accesibles, ideal para mochileros y familias. Abre desde las 6:00 AM."
+            },
+            {
+                "pregunta": "¿Qué restaurantes recomiendan para probar comida trujillana tradicional si no quiero comer en los puestos del Mercado Central de Trujillo en La Libertad?",
+                "respuesta": "Para una experiencia de restaurante, te sugiero 'El Mochica' en Jr. Bolívar 462, conocido por su seco de cabrito y shambar. Otra opción es 'Big Ben' en Av. Juan Pablo II 270, con platos marinos y criollos. Los precios de un plato principal varían entre 35 y 60 Soles."
+            },
+            {
+                "pregunta": "¿Dónde puedo comprar dulces y postres típicos de Trujillo, La Libertad, si no los encuentro o no me convencen en el Mercado Central?",
+                "respuesta": "Para dulces tradicionales, visita la 'Dulcería La Libertad' en Jr. Pizarro 710, famosa por sus alfajores y King Kong. También hay pequeñas panaderías en el centro histórico que ofrecen postres caseros como el 'frejol colado' o 'mazamorra morada' por unos 5 a 10 Soles la porción."
+            },
+            {
+                "pregunta": "¿Hay alguna opción de clase de cocina peruana en Trujillo, La Libertad, como alternativa a solo probar la comida en el mercado?",
+                "respuesta": "Sí, algunas agencias de turismo local como 'Trujillo Tours' o 'Go2Peru' ofrecen talleres de cocina peruana, donde puedes aprender a preparar platos como el ceviche o la causa. Los precios suelen rondar los 100 a 150 Soles por persona e incluyen los ingredientes y la degustación."
+            },
+            {
+                "pregunta": "¿Dónde puedo comprar productos gourmet o artesanales de la región de La Libertad como souvenirs, aparte del Mercado Central de Trujillo?",
+                "respuesta": "Explora las tiendas de artesanías en el centro histórico, especialmente cerca de la Plaza de Armas, donde a menudo venden café orgánico de la sierra liberteña, miel de abeja local o licores artesanales. También hay tiendas especializadas como 'Delicias de Trujillo' en Jr. Orbegoso 550."
+            },
+            {
+                "pregunta": "¿Cuáles son las mejores zonas para encontrar comida callejera económica y segura en Trujillo, La Libertad, si el Mercado Central no es mi opción?",
+                "respuesta": "Por las noches, la Av. España y sus alrededores se llenan de carritos de comida con anticuchos, salchipapas y brochetas a precios de 5 a 15 Soles. También, cerca de la Universidad Nacional de Trujillo, hay puestos con 'menús' económicos (almuerzos completos) por 8 a 12 Soles."
+            },
+            {
+                "pregunta": "¿Si quiero probar el 'shambar' o el 'seco de cabrito' en Trujillo, La Libertad, pero en un restaurante y no en el Mercado Central, ¿dónde debería ir?",
+                "respuesta": "Para el 'shambar' (solo los lunes), el restaurante 'El Celler de Cler' en Jr. San Martín 735 es muy recomendado. Para un excelente 'seco de cabrito', 'La Casona de Trujillo' en Jr. Pizarro 314 es una excelente elección. Ambos ofrecen un ambiente más formal."
+            },
+            {
+                "pregunta": "¿Existe algún mercado más pequeño y menos concurrido que el Mercado Central de Trujillo para una experiencia más tranquila en La Libertad?",
+                "respuesta": "Sí, el Mercado La Hermelinda es más grande y caótico, pero el Mercado Mayorista de Trujillo, aunque también grande, tiene secciones más organizadas. Para algo más local y pequeño, busca los mercados de barrio como el 'Mercado de Chicago' o el 'Mercado de Santa Rosa', donde la interacción es más directa."
+            },
+            {
+                "pregunta": "¿Dónde puedo tomar un buen café y probar algún bocadillo local en Trujillo, La Libertad, si busco una alternativa al ajetreo del Mercado Central?",
+                "respuesta": "Visita 'Café del Museo' en Jr. Junín 682, que ofrece café de altura de la región y postres caseros en un ambiente tranquilo. Otra opción es 'El Balcón de la Casona' en Jr. Pizarro 314, con vistas a la Plaza de Armas y opciones de desayuno y merienda con productos locales."
+            },
+            {
+                "pregunta": "¿Hay alguna opción para una experiencia 'de la granja a la mesa' o visitar una chacra cerca de Trujillo, La Libertad, para ver cómo se producen los alimentos?",
+                "respuesta": "Aunque no hay muchas opciones turísticas formales de 'chacra a la mesa' directamente en Trujillo, puedes contactar a operadores turísticos que organicen visitas a haciendas en el Valle de Moche o Chicama, donde a veces se ofrecen degustaciones de productos como la caña de azúcar o frutas de estación. Consulta con 'Trujillo Travel' para opciones personalizadas."
+            }
+        ]
+    }
+}

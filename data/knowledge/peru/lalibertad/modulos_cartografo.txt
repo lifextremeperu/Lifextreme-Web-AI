@@ -1,0 +1,201 @@
+<diagnostico>
+PERFIL: La Libertad es un departamento costero del norte de Perú, cuna de las culturas Moche y Chimú, destacando por el complejo arqueológico de Chan Chan (UNESCO) y las Huacas del Sol y la Luna. Su capital, Trujillo, es un vibrante centro colonial y cultural. La región atrae a 1.8 millones de visitantes anuales (est. 2019) interesados en historia, gastronomía y surf. Ofrece una diversidad geográfica desde playas con olas de clase mundial hasta paisajes andinos.
+MACROREGION: Combinado
+MADUREZ_TURISTICA: ALTA
+VISITANTES_ANUALES_EST: 1,800,000 (2019)
+PESO_CATEGORIAS:
+  - Destinos y patrimonio: 40%
+  - Aventura y deportes: 15%
+  - Gastronomía y cultura: 20%
+  - Naturaleza y ecosistemas: 10%
+  - Misticismo y festividades: 10%
+  - Logística y servicios: 3%
+  - Otros: 2%
+  TOTAL: 100%
+PERFIL_VISITANTE_DOMINANTE: Cultural e histórico, con interés en gastronomía y aventura moderada; familias y turistas nacionales.
+MERCADOS_INTERNACIONALES: USA, España, Alemania
+VENTANA_OPTIMA: Mayo-Octubre (clima seco para sitios arqueológicos y actividades al aire libre), Diciembre-Marzo (verano costero).
+PROBLEMA_NO_RESUELTO: Integración de circuitos turísticos que conecten la costa con la sierra liberteña, y diversificación de la oferta más allá del circuito arqueológico clásico.
+DESTINOS_CANONICOS_COMPARTIDOS: ninguno
+</diagnostico>
+
+<modulos_generados>
+---
+ID: A-01
+MÓDULO: Chan Chan: Ciudadela de Barro
+SUBTÍTULO: Exploración de la capital Chimú, Patrimonio UNESCO, y sus complejos arquitectónicos.
+SEGMENTO_PRINCIPAL: Familia
+SEGMENTO_SECUNDARIO: Científico
+TIPO_DE_DATO: Cultural
+VENTANA_TEMPORAL: todo el año (evitar lluvias intensas en verano)
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Cómo vivía una civilización tan avanzada en una ciudad de barro?
+CANONICAL_REF: propio
+HUMAN_REVIEW: false
+---
+ID: A-02
+MÓDULO: Huacas del Sol y la Luna: Centro Ceremonial Moche
+SUBTÍTULO: Descubrimiento de los templos Moche, murales policromados y el Museo Huacas de Moche.
+SEGMENTO_PRINCIPAL: Científico
+SEGMENTO_SECUNDARIO: Familia
+TIPO_DE_DATO: Cultural
+VENTANA_TEMPORAL: todo el año
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Qué secretos aún guardan los murales de los antiguos Moche?
+CANONICAL_REF: propio
+HUMAN_REVIEW: false
+---
+ID: A-03
+MÓDULO: Trujillo Colonial: Centro Histórico y Casonas
+SUBTÍTULO: Recorrido por la Plaza de Armas, casonas virreinales y balcones emblemáticos.
+SEGMENTO_PRINCIPAL: Familia
+SEGMENTO_SECUNDARIO: Digital_Nomad
+TIPO_DE_DATO: Cultural
+VENTANA_TEMPORAL: todo el año
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Qué historias se esconden detrás de las fachadas coloniales de Trujillo?
+CANONICAL_REF: propio
+HUMAN_REVIEW: false
+---
+ID: A-04
+MÓDULO: El Brujo y la Dama de Cao: Complejo Arqueológico
+SUBTÍTULO: Visita al sitio arqueológico El Brujo, Museo Cao y el legado de la Señora de Cao.
+SEGMENTO_PRINCIPAL: Científico
+SEGMENTO_SECUNDARIO: Familia
+TIPO_DE_DATO: Cultural
+VENTANA_TEMPORAL: todo el año
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Cómo una mujer gobernó con tanto poder en el antiguo Perú?
+CANONICAL_REF: propio
+HUMAN_REVIEW: false
+---
+ID: A-05
+MÓDULO: Ruta Moche: Circuito Arqueológico Integral
+SUBTÍTULO: Conexión y optimización de visitas a Chan Chan, Huacas, El Brujo y museos.
+SEGMENTO_PRINCIPAL: Familia
+SEGMENTO_SECUNDARIO: Científico
+TIPO_DE_DATO: Experiencial
+VENTANA_TEMPORAL: todo el año
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Cómo puedo optimizar mi tiempo para ver lo mejor de la cultura Moche y Chimú?
+CANONICAL_REF: propio
+HUMAN_REVIEW: false
+---
+ID: A-06
+MÓDULO: Pacasmayo y sus Casonas: Arquitectura Republicana
+SUBTÍTULO: Exploración de la arquitectura histórica de Pacasmayo y su malecón.
+SEGMENTO_PRINCIPAL: Familia
+SEGMENTO_SECUNDARIO: Digital_Nomad
+TIPO_DE_DATO: Cultural
+VENTANA_TEMPORAL: todo el año
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Qué otros pueblos costeros guardan la esencia del Perú antiguo?
+CANONICAL_REF: propio
+HUMAN_REVIEW: false
+---
+ID: D-01
+MÓDULO: Ceviche y Mariscos Trujillanos: Delicias Costeras
+SUBTÍTULO: Dónde probar los mejores ceviches, sudados y platos marinos de la región.
+SEGMENTO_PRINCIPAL: Familia
+SEGMENTO_SECUNDARIO: Digital_Nomad
+TIPO_DE_DATO: Gastronómico
+VENTANA_TEMPORAL: todo el año
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Dónde encontraré el ceviche más fresco y auténtico de la costa norte?
+CANONICAL_REF: propio
+HUMAN_REVIEW: false
+---
+ID: D-02
+MÓDULO: Chicherías y Bebidas Ancestrales: Tradición Fermentada
+SUBTÍTULO: Guía de chicherías tradicionales y la historia de la chicha de jora en La Libertad.
+SEGMENTO_PRINCIPAL: Mochilero
+SEGMENTO_SECUNDARIO: Digital_Nomad
+TIPO_DE_DATO: Gastronómico
+VENTANA_TEMPORAL: todo el año
+VERIFICABILIDAD: MEDIA
+GANCHO_EMOCIONAL: ¿Cómo se prepara la bebida ancestral que unía a los antiguos peruanos?
+CANONICAL_REF: propio
+HUMAN_REVIEW: false
+---
+ID: D-03
+MÓDULO: Mercado Central de Trujillo: Sabores Locales y Productos
+SUBTÍTULO: Experiencia en el mercado principal de Trujillo, productos frescos y comida local.
+SEGMENTO_PRINCIPAL: Mochilero
+SEGMENTO_SECUNDARIO: Familia
+TIPO_DE_DATO: Gastronómico
+VENTANA_TEMPORAL: todo el año
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Dónde puedo sumergirme en la vida cotidiana y los sabores auténticos de Trujillo?
+CANONICAL_REF: propio
+HUMAN_REVIEW: false
+---
+ID: C-01
+MÓDULO: Surf en Huanchaco y Chicama: Olas Perfectas
+SUBTÍTULO: Guía para surfistas en Huanchaco (caballitos de totora) y la ola izquierda de Chicama.
+SEGMENTO_PRINCIPAL: Aventura
+SEGMENTO_SECUNDARIO: Mochilero
+TIPO_DE_DATO: Experiencial
+VENTANA_TEMPORAL: Mayo-Octubre (mejores olas)
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Dónde puedo surfear la ola izquierda más larga del mundo?
+CANONICAL_REF: propio
+HUMAN_REVIEW: false
+---
+ID: C-02
+MÓDULO: Trekking en la Sierra Liberteña: Rutas Andinas
+SUBTÍTULO: Opciones de senderismo en Santiago de Chuco y otras zonas andinas de La Libertad.
+SEGMENTO_PRINCIPAL: Aventura
+SEGMENTO_SECUNDARIO: Mochilero
+TIPO_DE_DATO: Experiencial
+VENTANA_TEMPORAL: Mayo-Octubre (estación seca)
+VERIFICABILIDAD: MEDIA
+GANCHO_EMOCIONAL: ¿Qué paisajes andinos inexplorados me esperan más allá de la costa?
+CANONICAL_REF: propio
+HUMAN_REVIEW: false
+---
+ID: E-01
+MÓDULO: Festival Internacional de la Marinera: Danza y Tradición
+SUBTÍTULO: Calendario, sedes y significado del emblemático Festival de la Marinera en Trujillo.
+SEGMENTO_PRINCIPAL: Familia
+SEGMENTO_SECUNDARIO: Digital_Nomad
+TIPO_DE_DATO: Cultural
+VENTANA_TEMPORAL: Enero (principalmente)
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Cuándo y dónde puedo ver la danza más elegante del Perú?
+CANONICAL_REF: propio
+HUMAN_REVIEW: false
+---
+ID: F-01
+MÓDULO: Conectividad Terrestre y Aérea: Acceso a La Libertad
+SUBTÍTULO: Opciones de vuelos a Trujillo (TRU), rutas de bus y estado de carreteras principales.
+SEGMENTO_PRINCIPAL: Familia
+SEGMENTO_SECUNDARIO: Mochilero
+TIPO_DE_DATO: Logístico
+VENTANA_TEMPORAL: todo el año
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Cómo llego de la manera más eficiente y segura a Trujillo?
+CANONICAL_REF: propio
+HUMAN_REVIEW: false
+---
+ID: L-01
+MÓDULO: Turismo Vivencial en Comunidades Andinas: Experiencias Auténticas
+SUBTÍTULO: Opciones de inmersión cultural en comunidades rurales de la sierra liberteña.
+SEGMENTO_PRINCIPAL: Mochilero
+SEGMENTO_SECUNDARIO: Familia
+TIPO_DE_DATO: Experiencial
+VENTANA_TEMPORAL: Mayo-Octubre
+VERIFICABILIDAD: BAJA
+GANCHO_EMOCIONAL: ¿Cómo puedo conectar con la gente local y sus tradiciones más allá de los circuitos turísticos?
+CANONICAL_REF: propio
+HUMAN_REVIEW: false
+---
+ID: M-01
+MÓDULO: Seguridad Turística en Trujillo y Sitios Arqueológicos
+SUBTÍTULO: Zonas seguras, recomendaciones y contactos de emergencia para turistas.
+SEGMENTO_PRINCIPAL: Familia
+SEGMENTO_SECUNDARIO: Mochilero
+TIPO_DE_DATO: Safety
+VENTANA_TEMPORAL: todo el año
+VERIFICABILIDAD: ALTA
+GANCHO_EMOCIONAL: ¿Es seguro viajar por Trujillo y sus alrededores?
+CANONICAL_REF: propio

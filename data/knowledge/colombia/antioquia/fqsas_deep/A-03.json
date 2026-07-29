@@ -1,0 +1,426 @@
+{
+    "destino_id": "A-03",
+    "modulo_contexto": "Támesis, Suroeste Antioqueño",
+    "fqsas": {
+        "1_Precios_Presupuestos_Moneda": [
+            {
+                "pregunta": "¿Cuánto cuesta el pasaje de bus de Medellín a Támesis, Antioquia en 2024?",
+                "respuesta": "El pasaje de bus desde la Terminal del Sur de Medellín a Támesis, Antioquia, con empresas como Flota Occidental o Rápido Ochoa, cuesta entre $28.000 y $35.000 COP por trayecto en 2024, y el viaje dura aproximadamente 3 horas."
+            },
+            {
+                "pregunta": "¿Cuál es el precio promedio de una clase de escalada con guía en Támesis, Antioquia?",
+                "respuesta": "Una clase introductoria de escalada en roca con guía certificado en Támesis, Antioquia, incluyendo equipo básico, puede costar entre $150.000 y $250.000 COP por persona para medio día, dependiendo del grupo y la agencia especializada."
+            },
+            {
+                "pregunta": "¿Hay cajeros automáticos en Támesis, Antioquia y aceptan tarjetas internacionales?",
+                "respuesta": "Sí, Támesis, Antioquia, cuenta con cajeros automáticos de Bancolombia y Banco Agrario en el parque principal. Generalmente aceptan tarjetas de crédito y débito internacionales (Visa, MasterCard), pero es recomendable llevar algo de efectivo por precaución."
+            },
+            {
+                "pregunta": "¿Cuánto dinero necesito para un presupuesto diario económico en Támesis, Antioquia?",
+                "respuesta": "Para un presupuesto diario económico en Támesis, Antioquia, considerando alojamiento en hostal ($50.000-$80.000 COP), comidas locales ('corrientazo' $12.000-$20.000 COP) y transporte local mínimo, se estiman entre $100.000 y $150.000 COP por persona, sin incluir actividades de aventura costosas."
+            },
+            {
+                "pregunta": "¿Cuál es el costo de un vuelo en parapente biplaza en Támesis, Antioquia?",
+                "respuesta": "Un vuelo en parapente biplaza en Támesis, Antioquia, desde los puntos de despegue como el Cerro de Cristo Rey, tiene un costo aproximado de entre $200.000 y $300.000 COP por persona, incluyendo el equipo y el piloto certificado, con una duración de vuelo de 15 a 20 minutos."
+            },
+            {
+                "pregunta": "¿Se paga entrada para ver los petroglifos en Támesis, Antioquia y cuánto cuesta?",
+                "respuesta": "La mayoría de los sitios de petroglifos en Támesis, Antioquia, como los de la vereda La Oculta o el sector de La Fila, no tienen un costo de entrada directo. Sin embargo, si se contrata un guía local para una interpretación cultural, este servicio puede costar entre $50.000 y $80.000 COP por grupo."
+            },
+            {
+                "pregunta": "¿Cuánto vale alquilar equipo de escalada básico en Támesis, Antioquia por un día?",
+                "respuesta": "Alquilar equipo de escalada básico (arnés, casco, pies de gato, asegurador) en Támesis, Antioquia, si no se contrata un paquete con guía, puede costar entre $40.000 y $70.000 COP por persona por día en tiendas especializadas o con operadores locales."
+            },
+            {
+                "pregunta": "¿Qué opciones de alojamiento económico hay en Támesis, Antioquia y sus precios por noche?",
+                "respuesta": "En Támesis, Antioquia, hay opciones de alojamiento económico como hostales y fincas agroturísticas. Una cama en dormitorio compartido en un hostal puede costar entre $40.000 y $60.000 COP, mientras que una habitación privada sencilla en un hostal o finca puede estar entre $70.000 y $120.000 COP por noche."
+            },
+            {
+                "pregunta": "¿Cuál es el precio de una comida típica en un restaurante local de Támesis, Antioquia?",
+                "respuesta": "Una comida típica colombiana, conocida como 'corrientazo' o 'menú del día', en un restaurante local de Támesis, Antioquia, suele costar entre $12.000 y $20.000 COP. Incluye sopa, plato fuerte (carne, arroz, ensalada, papa o plátano) y bebida."
+            },
+            {
+                "pregunta": "¿Es común dar propina en Támesis, Antioquia y cuánto se acostumbra?",
+                "respuesta": "En Támesis, Antioquia, como en el resto de Colombia, dar propina no es obligatorio pero sí apreciado. En restaurantes, es común añadir un 10% si el servicio no está incluido en la cuenta. Para guías turísticos o de aventura, una propina de $10.000 a $30.000 COP por persona, dependiendo de la duración y calidad del servicio, es un buen gesto."
+            }
+        ],
+        "2_Logistica_Transporte_Como_Llegar": [
+            {
+                "pregunta": "¿Cómo puedo llegar a Támesis, Antioquia, desde Medellín en transporte público?",
+                "respuesta": "Para llegar a Támesis, Antioquia, desde Medellín, debes tomar un bus en la Terminal del Sur. Las empresas Transportes Támesis y Cootransuroeste ofrecen rutas directas con salidas frecuentes."
+            },
+            {
+                "pregunta": "¿Cuál es el precio aproximado del pasaje de bus de Medellín a Támesis, Antioquia, en 2024?",
+                "respuesta": "El costo del pasaje de bus de Medellín a Támesis, Antioquia, en 2024, oscila entre $30.000 y $35.000 COP, dependiendo de la empresa y la temporada."
+            },
+            {
+                "pregunta": "¿Cuánto tiempo se tarda en llegar a Támesis, Antioquia, desde Medellín en bus?",
+                "respuesta": "El viaje en bus desde Medellín hasta Támesis, Antioquia, tiene una duración aproximada de 2.5 a 3 horas, dependiendo del tráfico y las paradas intermedias."
+            },
+            {
+                "pregunta": "¿Es recomendable viajar en carro particular a Támesis, Antioquia, y cuáles son las condiciones de la carretera?",
+                "respuesta": "Sí, es recomendable viajar en carro particular a Támesis, Antioquia. La vía principal desde Medellín (Autopista Sur, luego Ruta 60) está pavimentada y en buenas condiciones generales, aunque con algunas curvas pronunciadas típicas de la topografía antioqueña."
+            },
+            {
+                "pregunta": "¿Qué opciones de transporte local hay para moverse por Támesis, Antioquia, y llegar a sitios como los petroglifos o zonas de escalada?",
+                "respuesta": "En Támesis, Antioquia, puedes moverte en mototaxis, taxis o chivas (buses escalera) que cubren rutas rurales. Para llegar a los petroglifos o zonas de escalada más alejadas, es común contratar un mototaxi o un servicio de transporte local."
+            },
+            {
+                "pregunta": "¿Cuál es el aeropuerto más cercano para llegar a Támesis, Antioquia, y cómo conecto con el pueblo?",
+                "respuesta": "El aeropuerto más cercano para llegar a Támesis, Antioquia, es el Aeropuerto Internacional José María Córdova (MDE) en Rionegro. Desde allí, debes tomar un taxi o bus hasta la Terminal del Sur de Medellín y luego un bus directo a Támesis."
+            },
+            {
+                "pregunta": "¿Con qué frecuencia salen los buses de Medellín a Támesis, Antioquia, y hasta qué hora operan?",
+                "respuesta": "Los buses de Medellín a Támesis, Antioquia, suelen salir cada hora o cada media hora en temporada alta, desde las 5:00 AM hasta las 7:00 PM aproximadamente, desde la Terminal del Sur."
+            },
+            {
+                "pregunta": "¿Cuánto cuesta un taxi o servicio de transporte privado desde Medellín hasta Támesis, Antioquia?",
+                "respuesta": "Un servicio de taxi o transporte privado desde Medellín hasta Támesis, Antioquia, puede costar entre $250.000 y $350.000 COP, dependiendo del tipo de vehículo y la negociación con el conductor."
+            },
+            {
+                "pregunta": "¿Cómo se llega a las principales zonas de escalada en roca de Támesis, Antioquia, desde el casco urbano?",
+                "respuesta": "Para llegar a las principales zonas de escalada en roca de Támesis, Antioquia, como 'La Peñola' o 'El Peñón', desde el casco urbano, puedes tomar un mototaxi o caminar. Algunos sitios están a 15-30 minutos en mototaxi o 1-2 horas caminando."
+            },
+            {
+                "pregunta": "¿Las carreteras a Támesis, Antioquia, son seguras durante la temporada de lluvias y hay riesgo de derrumbes?",
+                "respuesta": "Durante la temporada de lluvias, las carreteras a Támesis, Antioquia, pueden presentar mayor riesgo de deslizamientos o derrumbes menores, especialmente en tramos montañosos. Es recomendable conducir con precaución y consultar el estado de las vías antes de viajar."
+            }
+        ],
+        "3_Seguridad_Riesgos_Salud": [
+            {
+                "pregunta": "¿Qué medidas de seguridad debo considerar para escalar en Támesis, Antioquia, si soy principiante?",
+                "respuesta": "Para escalar en Támesis, Antioquia, si eres principiante, es crucial contratar guías certificados por la AAGM (Asociación Antioqueña de Guías de Montaña) o escuelas locales reconocidas. Asegúrate de que el equipo (arnés, cuerda, casco) esté homologado y en buen estado. Nunca escales solo y siempre informa tu ruta. Los costos de un guía certificado con equipo suelen rondar los 150.000 a 250.000 COP por persona por día, dependiendo del grupo."
+            },
+            {
+                "pregunta": "¿Es seguro beber agua del grifo en Támesis, Antioquia, o debo comprar agua embotellada para evitar problemas de salud?",
+                "respuesta": "En Támesis, Antioquia, generalmente el agua potable de la red municipal es tratada y considerada segura para el consumo. Sin embargo, para evitar cualquier riesgo gastrointestinal, especialmente si tienes un estómago sensible, se recomienda consumir agua embotellada o filtrada, disponible en tiendas y supermercados locales por aproximadamente 2.000 a 3.000 COP por botella de litro y medio."
+            },
+            {
+                "pregunta": "¿Existen riesgos de picaduras de insectos o encuentros con animales peligrosos al explorar los petroglifos en Támesis, Antioquia?",
+                "respuesta": "Al explorar los senderos hacia los petroglifos en Támesis, Antioquia, es posible encontrar insectos como mosquitos, garrapatas y algunas arañas. Se recomienda usar repelente, ropa de manga larga y pantalón. Los encuentros con serpientes venenosas son raros pero posibles; mantente en los senderos marcados. No hay grandes depredadores."
+            },
+            {
+                "pregunta": "¿Cuál es el nivel de seguridad general para turistas en el casco urbano de Támesis, Antioquia, especialmente por las noches?",
+                "respuesta": "El casco urbano de Támesis, Antioquia, es generalmente tranquilo y seguro para los turistas. Sin embargo, como en cualquier lugar, se aconseja precaución, especialmente por la noche. Evita caminar solo por calles poco iluminadas o desoladas. Guarda tus objetos de valor y no ostentes grandes sumas de dinero. La presencia policial es visible en el centro."
+            },
+            {
+                "pregunta": "¿Dónde se encuentra el hospital o centro de salud más cercano en Támesis, Antioquia, en caso de una emergencia médica?",
+                "respuesta": "En Támesis, Antioquia, el centro de salud más cercano es el Hospital San Juan de Dios, ubicado en la Carrera 10 # 10-30, en el centro del municipio. Ofrece servicios de urgencias 24 horas y atención básica. Para emergencias mayores o especializadas, el traslado a Medellín (aproximadamente 3 horas) sería necesario."
+            },
+            {
+                "pregunta": "¿Qué precauciones debo tomar por el clima y el terreno al hacer senderismo hacia los petroglifos o zonas de escalada en Támesis, Antioquia?",
+                "respuesta": "Al hacer senderismo o escalar en Támesis, Antioquia, prepárate para cambios climáticos repentinos; lleva impermeable y ropa adecuada. El terreno puede ser resbaladizo, especialmente en época de lluvias (abril-mayo y octubre-noviembre), por lo que se recomienda calzado con buen agarre. Mantente hidratado y lleva un botiquín básico."
+            },
+            {
+                "pregunta": "¿Es seguro el transporte público o los taxis para moverse dentro y fuera de Támesis, Antioquia?",
+                "respuesta": "El transporte público (buses intermunicipales) que conecta Támesis con Medellín y otros municipios de Antioquia es generalmente seguro y confiable. Dentro de Támesis, los mototaxis y taxis son una opción; asegúrate de acordar el precio antes de iniciar el viaje y usa los servicios de empresas reconocidas o conductores de confianza recomendados por tu alojamiento."
+            },
+            {
+                "pregunta": "¿Se requieren vacunas específicas o hay recomendaciones de salud importantes antes de viajar a Támesis, Antioquia?",
+                "respuesta": "Para viajar a Támesis, Antioquia, no se exigen vacunas específicas para la entrada al país. Sin embargo, se recomienda tener al día las vacunas básicas como tétanos y fiebre amarilla, especialmente si planeas actividades al aire libre en zonas rurales. Consulta a tu médico al menos un mes antes de tu viaje para recomendaciones personalizadas."
+            },
+            {
+                "pregunta": "¿Qué riesgos específicos de seguridad debo conocer para actividades como el parapente en Támesis, Antioquia?",
+                "respuesta": "Para el parapente en Támesis, Antioquia, el riesgo principal es inherente a los deportes extremos. Es fundamental volar únicamente con operadores certificados y con pilotos experimentados que utilicen equipos inspeccionados regularmente. Pregunta por las pólizas de seguro que cubren estas actividades. Las condiciones climáticas son cruciales; no vueles si el operador cancela por mal tiempo."
+            },
+            {
+                "pregunta": "¿Es obligatorio o altamente recomendable contratar un guía local para explorar las zonas de petroglifos o escalada en Támesis, Antioquia?",
+                "respuesta": "Para explorar las zonas de petroglifos y especialmente para escalar en Támesis, Antioquia, es altamente recomendable contratar un guía local. Los guías conocen los senderos, las condiciones del terreno, los puntos de interés y, lo más importante, las medidas de seguridad. Para escalada, un guía certificado es casi obligatorio para tu seguridad. Los costos varían, pero un guía local para senderismo puede costar entre 80.000 y 150.000 COP por grupo pequeño."
+            }
+        ],
+        "4_Clima_Temporadas_Horarios": [
+            {
+                "pregunta": "¿Cuál es el clima promedio en Támesis, Antioquia, y qué temperatura esperar para actividades de escalada en roca?",
+                "respuesta": "El clima en Támesis, Antioquia, es subtropical húmedo, con una temperatura promedio anual de 22-24°C. Durante los días de escalada, las mañanas suelen ser frescas (18-20°C) y las tardes cálidas (25-28°C), lo que permite escalar cómodamente en diferentes momentos del día."
+            },
+            {
+                "pregunta": "¿Cuál es la mejor época del año para visitar Támesis, Antioquia, y disfrutar de la escalada y el parapente sin lluvia?",
+                "respuesta": "La mejor época para visitar Támesis, Antioquia, y disfrutar de actividades al aire libre como escalada y parapente es durante los meses secos, que generalmente van de diciembre a marzo y de julio a agosto. Estos periodos ofrecen cielos más despejados y menos precipitaciones, ideales para la visibilidad y seguridad."
+            },
+            {
+                "pregunta": "¿Cuándo es la temporada de lluvias en Támesis, Antioquia, y cómo afecta esto a los senderos y sitios de petroglifos?",
+                "respuesta": "La temporada de lluvias en Támesis, Antioquia, se presenta principalmente de abril a junio y de septiembre a noviembre. Durante estos meses, los senderos pueden estar resbaladizos y el acceso a algunos petroglifos o zonas de escalada podría ser más desafiante o restringido por seguridad debido al barro y la humedad."
+            },
+            {
+                "pregunta": "¿Cuáles son los horarios recomendados para practicar escalada en roca en Támesis, Antioquia, especialmente en las zonas de El Peñol?",
+                "respuesta": "Para la escalada en roca en Támesis, Antioquia, especialmente en El Peñol, se recomienda iniciar temprano en la mañana, entre las 7:00 AM y las 11:00 AM, para evitar el calor intenso del mediodía. Las tardes, después de las 3:00 PM, también son buenas opciones cuando el sol empieza a bajar."
+            },
+            {
+                "pregunta": "¿Hay horarios específicos para visitar los sitios de petroglifos en Támesis, Antioquia, o se puede ir en cualquier momento del día?",
+                "respuesta": "Los sitios de petroglifos en Támesis, Antioquia, como los de San Antonio o La Fila, no tienen horarios de apertura o cierre formales, ya que son al aire libre. Sin embargo, se recomienda visitarlos durante el día, preferiblemente entre las 8:00 AM y las 5:00 PM, por seguridad, visibilidad y para aprovechar la luz natural para las fotografías."
+            },
+            {
+                "pregunta": "¿Qué condiciones climáticas son ideales para hacer parapente en Támesis, Antioquia, y en qué meses es más probable encontrarlas?",
+                "respuesta": "Para parapente en Támesis, Antioquia, se buscan días soleados con vientos suaves y estables, sin ráfagas fuertes ni tormentas. Los meses de diciembre a marzo y de julio a agosto suelen ofrecer las mejores condiciones térmicas y de viento, con menos probabilidad de lluvia y cielos más claros, ideales para vuelos prolongados."
+            },
+            {
+                "pregunta": "¿Hay alguna temporada alta o festividad en Támesis, Antioquia, que afecte la disponibilidad de alojamiento o los precios de los servicios turísticos?",
+                "respuesta": "Sí, Támesis, Antioquia, experimenta temporada alta durante Semana Santa, las vacaciones de mitad de año (junio-julio) y las festividades de fin de año (diciembre-enero). Durante estos periodos, la disponibilidad de alojamiento disminuye y los precios de servicios turísticos pueden aumentar significativamente, por lo que se recomienda reservar con antelación."
+            },
+            {
+                "pregunta": "¿Hasta qué hora operan los buses desde Medellín a Támesis, Antioquia, y con qué frecuencia salen de la terminal?",
+                "respuesta": "Los buses desde la Terminal del Sur de Medellín a Támesis, Antioquia, operan aproximadamente desde las 5:00 AM hasta las 7:00 PM. La frecuencia es de aproximadamente cada hora u hora y media, dependiendo de la empresa de transporte como Transportes Támesis o Cootransuroeste."
+            },
+            {
+                "pregunta": "¿Cómo es la humedad en Támesis, Antioquia, y cómo influye en la experiencia de senderismo o escalada durante el día?",
+                "respuesta": "La humedad en Támesis, Antioquia, es generalmente alta debido a su clima subtropical, especialmente en las mañanas y después de las lluvias. Esto puede hacer que las actividades como senderismo o escalada se sientan más exigentes físicamente. Se recomienda hidratarse constantemente y usar ropa ligera y transpirable para mayor comodidad."
+            },
+            {
+                "pregunta": "¿Cuál es el horario comercial habitual de tiendas y restaurantes en el centro de Támesis, Antioquia, durante la semana y los fines de semana?",
+                "respuesta": "En el centro de Támesis, Antioquia, las tiendas y comercios suelen abrir de 8:00 AM a 6:00 PM de lunes a sábado, con algunos cerrando al mediodía para el almuerzo. Los domingos, muchos abren solo por la mañana hasta la 1:00 PM. Los restaurantes suelen tener horarios más extendidos, hasta las 9:00 PM o 10:00 PM, especialmente los fines de semana."
+            }
+        ],
+        "5_Historia_Cultura_Curiosidades": [
+            {
+                "pregunta": "¿Dónde puedo encontrar los petroglifos más importantes en Támesis, Antioquia, y qué significado cultural tienen?",
+                "respuesta": "Los petroglifos más importantes en Támesis, Antioquia, se ubican principalmente en el Parque Arqueológico Los Petroglifos, específicamente en los sectores de El Tablazo y el Alto de la Cruz. Estas grabaciones rupestres, atribuidas a comunidades indígenas prehispánicas como los Emberá, representan figuras zoomorfas, antropomorfas y geométricas, y se cree que tenían un profundo significado ritual, astronómico o de marcación territorial."
+            },
+            {
+                "pregunta": "¿Qué grupos indígenas habitaron Támesis, Antioquia, antes de la colonización española y cuál fue su legado histórico?",
+                "respuesta": "Antes de la colonización española, el territorio de Támesis, Antioquia, estuvo habitado principalmente por grupos indígenas Emberá y posiblemente Zenúes. Su legado histórico más tangible son los numerosos petroglifos que se encuentran en la región, que son valiosos testimonios de su cosmovisión, arte rupestre y conocimiento del entorno natural, además de algunas prácticas agrícolas ancestrales."
+            },
+            {
+                "pregunta": "¿Cuál es la historia de la fundación de Támesis, Antioquia, y quiénes fueron sus principales colonos?",
+                "respuesta": "La historia de la fundación de Támesis, Antioquia, se remonta al 25 de julio de 1858, cuando fue fundado oficialmente por Don Pedro Orozco y un grupo de colonos antioqueños. Este asentamiento fue parte crucial del proceso de la 'Colonización Antioqueña', impulsado por la búsqueda de nuevas tierras fértiles para la agricultura, especialmente el café, y la minería."
+            },
+            {
+                "pregunta": "¿Tiene Támesis, Antioquia, alguna característica arquitectónica particular o es reconocido como pueblo patrimonio por su cultura?",
+                "respuesta": "Támesis, Antioquia, se distingue por su arquitectura tradicional antioqueña, caracterizada por casas de bahareque, balcones de madera coloridos y tejas de barro. Aunque no ha sido declarado oficialmente 'Pueblo Patrimonio' por el Ministerio de Cultura de Colombia, su centro histórico conserva un encanto colonial y republicano que refleja la rica cultura cafetera y lo hace muy atractivo para los visitantes."
+            },
+            {
+                "pregunta": "¿Cuáles son las festividades culturales más importantes que se celebran anualmente en Támesis, Antioquia, y en qué fechas?",
+                "respuesta": "Las festividades culturales más importantes que se celebran anualmente en Támesis, Antioquia, son las Fiestas del Cacao y el Café, que generalmente tienen lugar a mediados de año, entre junio y agosto, celebrando la riqueza agrícola de la región. También se conmemora la Semana Santa con procesiones tradicionales y las Fiestas Patronales de la Virgen del Carmen en el mes de julio."
+            },
+            {
+                "pregunta": "¿Existe algún plato típico o bebida tradicional con historia local que sea emblemático de la cultura de Támesis, Antioquia?",
+                "respuesta": "Sí, además de la omnipresente bandeja paisa, en Támesis, Antioquia, es muy tradicional el 'Sancocho de Gallina Criolla' preparado a leña, que es un plato con profundas raíces en la cultura rural. En cuanto a bebidas, destaca el 'Claro', una bebida fermentada de maíz, y el 'Chocolate de Támesis', elaborado con cacao local, que tiene una larga tradición en la gastronomía de la región."
+            },
+            {
+                "pregunta": "¿Hay alguna leyenda o mito popular asociado a los petroglifos o a la historia de Támesis, Antioquia, que se cuente entre sus habitantes?",
+                "respuesta": "Sí, en Támesis, Antioquia, existe la leyenda popular de que los petroglifos son mapas o mensajes dejados por seres ancestrales para guiar a los espíritus o para indicar la ubicación de tesoros ocultos. Otra curiosidad cultural es la persistencia de mitos como 'el Mohán' o 'la Patasola' en las zonas rurales, figuras míticas comunes en la tradición oral antioqueña que se transmiten de generación en generación."
+            },
+            {
+                "pregunta": "¿Cómo influyó el cultivo del café en la cultura y el desarrollo histórico de Támesis, Antioquia, a lo largo de los años?",
+                "respuesta": "El cultivo del café fue un pilar fundamental para el desarrollo histórico y cultural de Támesis, Antioquia. Desde finales del siglo XIX, transformó la economía local, atrajo a numerosos colonos y moldeó el paisaje, la arquitectura y las costumbres. La 'cultura cafetera' se arraigó profundamente, influyendo en la identidad de sus habitantes, sus tradiciones, su gastronomía y su ritmo de vida."
+            },
+            {
+                "pregunta": "¿Qué personajes históricos o ilustres son originarios de Támesis, Antioquia, y por qué son reconocidos en la cultura colombiana?",
+                "respuesta": "Támesis, Antioquia, es la cuna de varios personajes ilustres que han contribuido a la cultura colombiana. Entre ellos se destaca el poeta y educador Francisco Antonio Cano. Aunque el reconocido escritor Manuel Mejía Vallejo nació en Jericó, su familia tenía fuertes lazos con Támesis, y su obra a menudo refleja la idiosincrasia y la cultura antioqueña, incluyendo elementos de la región."
+            },
+            {
+                "pregunta": "¿Cuál es el origen del nombre 'Támesis' para este municipio de Antioquia y qué curiosidad histórica esconde?",
+                "respuesta": "El origen del nombre 'Támesis' para este municipio de Antioquia es una curiosidad histórica. Fue propuesto por el fundador Pedro Orozco en honor al río Támesis de Londres, Inglaterra. La razón fue la similitud que encontró entre el paisaje montañoso de la región y la presencia de un río local (el río Frío) con el famoso río europeo, lo que le evocó recuerdos de sus viajes. No tiene un significado indígena directo."
+            }
+        ],
+        "6_Tips_Locales_Secretos": [
+            {
+                "pregunta": "¿Cuál es el mejor mes para escalar en Támesis, Antioquia, y evitar las lluvias fuertes?",
+                "respuesta": "Los escaladores locales recomiendan los meses de diciembre a marzo y de julio a agosto para escalar en Támesis, Antioquia, ya que son los periodos con menos precipitaciones y temperaturas más agradables para la roca. Evita octubre y noviembre por ser los más lluviosos."
+            },
+            {
+                "pregunta": "¿Dónde puedo probar la comida más auténtica y económica en Támesis, Antioquia, fuera de los restaurantes turísticos?",
+                "respuesta": "Para una experiencia culinaria local en Támesis, Antioquia, busca el 'Comedor de Doña Rosa' cerca del parque principal, en la Calle 10 con Carrera 9. Su bandeja paisa y el sancocho de gallina son legendarios y cuestan entre 15.000 y 20.000 COP. Solo abre para almuerzos de lunes a sábado."
+            },
+            {
+                "pregunta": "¿Existe algún sendero poco conocido para ver petroglifos en Támesis, Antioquia, sin las multitudes habituales?",
+                "respuesta": "Sí, más allá de los sitios populares, los guías locales en Támesis, Antioquia, sugieren el sendero hacia la 'Piedra del Indio Escondida', un petroglifo menos concurrido. Para llegar, debes contratar un guía local certificado en la oficina de turismo del parque principal; el recorrido dura unas 3 horas y tiene un costo aproximado de 80.000 COP por grupo pequeño."
+            },
+            {
+                "pregunta": "¿Cómo puedo moverme entre las zonas de escalada y el pueblo de Támesis, Antioquia, de forma económica y segura?",
+                "respuesta": "Para moverte entre el pueblo de Támesis, Antioquia, y las zonas de escalada como 'La Danta' o 'La Danta Escondida', lo más económico es usar los 'mototaxis' locales. Acuerda la tarifa antes de subir; un viaje no debería costar más de 5.000 a 8.000 COP por persona, dependiendo de la distancia. Son más flexibles que los taxis convencionales."
+            },
+            {
+                "pregunta": "¿Qué artesanía o producto local único de Támesis, Antioquia, recomiendan comprar como recuerdo auténtico?",
+                "respuesta": "En Támesis, Antioquia, busca los 'sombreros de iraca' tejidos a mano por artesanos locales, especialmente en el taller de 'Don Pedro' en la Carrera 8, cerca del mercado. Son más auténticos y duraderos que los que se encuentran en tiendas genéricas, con precios que van desde 40.000 COP."
+            },
+            {
+                "pregunta": "¿Quién es el guía local más recomendado para escalada avanzada o parapente en Támesis, Antioquia, con experiencia real?",
+                "respuesta": "Para escalada avanzada o parapente en Támesis, Antioquia, pregunta por 'Carlos El Escalador' o 'María La Voladora'. Ambos son instructores certificados con años de experiencia local. Sus contactos se consiguen en la 'Tienda de Aventura Támesis' en la Calle 9, cerca del parque. Una sesión de parapente con ellos cuesta alrededor de 250.000 COP."
+            },
+            {
+                "pregunta": "¿Hay alguna cascada o charco natural secreto en Támesis, Antioquia, para refrescarse lejos de los turistas?",
+                "respuesta": "Sí, los locales de Támesis, Antioquia, conocen la 'Quebrada La Liboriana'. Sigue el sendero que sale de la vereda 'La Oculta' (pregunta por indicaciones exactas en el pueblo). Encontrarás varios charcos cristalinos y pequeñas cascadas, ideales para un baño refrescante y tranquilo. Es un lugar poco señalizado, así que pregunta a los lugareños."
+            },
+            {
+                "pregunta": "¿Cuándo es el mejor día para visitar el mercado campesino de Támesis, Antioquia, y vivir una experiencia cultural auténtica?",
+                "respuesta": "El mejor día para sumergirse en la cultura local de Támesis, Antioquia, es el domingo por la mañana. El mercado campesino se instala alrededor del parque principal y en la Calle 10. Es cuando los productores de las veredas bajan sus productos frescos y se puede interactuar con la gente local. Llega temprano, tipo 8 AM."
+            },
+            {
+                "pregunta": "¿Qué tipo de alojamiento único y con encanto recomiendan en Támesis, Antioquia, para una experiencia más auténtica que un hotel?",
+                "respuesta": "Para una experiencia auténtica en Támesis, Antioquia, busca alojarte en una 'finca cafetera' en las afueras del pueblo. Muchas ofrecen habitaciones con vistas espectaculares y la oportunidad de aprender sobre el proceso del café. La 'Finca La Milagrosa' (pregunta por ella en el parque) es muy recomendada y tiene precios desde 180.000 COP la noche."
+            },
+            {
+                "pregunta": "¿Hay alguna zona o situación específica que deba evitar un turista en Támesis, Antioquia, para garantizar su seguridad?",
+                "respuesta": "En Támesis, Antioquia, como en cualquier lugar, es prudente evitar caminar solo por senderos muy apartados o poco iluminados después del anochecer. Aunque es un pueblo tranquilo, siempre es mejor ir acompañado o con un guía local si exploras zonas rurales. Guarda tus objetos de valor y no los exhibas innecesariamente."
+            }
+        ],
+        "7_Gastronomia_Alimentos_Supervivencia": [
+            {
+                "pregunta": "¿Dónde puedo comprar provisiones básicas de alimentos para una expedición de escalada en Támesis, Antioquia?",
+                "respuesta": "En Támesis, Antioquia, puedes encontrar tiendas de abarrotes y supermercados pequeños como 'Supermercado La Cosecha' o 'Mercado Támesis' en el parque principal, donde venden pan, embutidos, enlatados, frutas y agua. Es recomendable comprar antes de ir a zonas de escalada."
+            },
+            {
+                "pregunta": "¿Hay tiendas en Támesis, Antioquia que vendan raciones de emergencia o alimentos energéticos para montañismo?",
+                "respuesta": "En Támesis, Antioquia, no hay tiendas especializadas en raciones de emergencia o alimentos de montañismo. Es crucial que los escaladores y aventureros traigan estos suministros desde Medellín o ciudades más grandes. Los supermercados locales solo ofrecen productos básicos."
+            },
+            {
+                "pregunta": "¿Cómo consigo agua potable segura cerca de las zonas de escalada o los petroglifos en Támesis, Antioquia?",
+                "respuesta": "En las zonas de escalada y petroglifos de Támesis, Antioquia, el acceso a agua potable es limitado. Se recomienda llevar suficiente agua embotellada desde el pueblo. Si necesitas reabastecerte de fuentes naturales, es indispensable usar filtros de agua portátiles o pastillas potabilizadoras para evitar problemas de salud."
+            },
+            {
+                "pregunta": "¿Existen frutas silvestres o plantas comestibles seguras para identificar y consumir en las rutas de senderismo de Támesis, Antioquia en caso de emergencia?",
+                "respuesta": "No se recomienda consumir frutas silvestres o plantas en las rutas de senderismo de Támesis, Antioquia, a menos que se tenga conocimiento experto en botánica local. Muchas plantas pueden ser tóxicas. Es mejor llevar siempre tus propias provisiones de alimentos y agua."
+            },
+            {
+                "pregunta": "¿Qué opciones de comida hay disponibles después de las 8 PM para aventureros que regresan tarde en Támesis, Antioquia?",
+                "respuesta": "En Támesis, Antioquia, la mayoría de los restaurantes y tiendas cierran temprano, alrededor de las 8 PM o 9 PM. Para comida después de esa hora, algunas panaderías o pequeñas tiendas en el parque principal pueden tener snacks o bebidas hasta más tarde, pero las opciones son muy limitadas. Es mejor planificar tus comidas con anticipación."
+            },
+            {
+                "pregunta": "¿Dónde puedo encargar un almuerzo para llevar o un picnic para mis excursiones a los petroglifos en Támesis, Antioquia?",
+                "respuesta": "En Támesis, Antioquia, puedes pedir almuerzos para llevar en algunos restaurantes locales como 'El Fogón de la Abuela' o 'Restaurante Sabor Paisa' en el centro. Es mejor encargarlos con antelación, especialmente si necesitas algo específico para un picnic en las zonas de petroglifos."
+            },
+            {
+                "pregunta": "¿Es posible encontrar alimentos vegetarianos o sin gluten para supervivencia en Támesis, Antioquia para una expedición?",
+                "respuesta": "En Támesis, Antioquia, encontrar alimentos vegetarianos o sin gluten específicos para supervivencia es un desafío. Los supermercados locales tienen opciones básicas como frutas, verduras y arroz. Para productos especializados, es indispensable traerlos desde Medellín."
+            },
+            {
+                "pregunta": "¿Cuál es el costo estimado de alimentos básicos para una persona durante 3 días de aventura en Támesis, Antioquia?",
+                "respuesta": "Para 3 días de alimentos básicos (pan, queso, embutidos, frutas, agua) en Támesis, Antioquia, una persona podría gastar entre 60.000 y 90.000 COP, comprando en supermercados locales. Esto no incluye comidas en restaurantes."
+            },
+            {
+                "pregunta": "¿Qué tan confiable es el suministro de alimentos en Támesis, Antioquia, especialmente fuera de temporada turística o en caso de lluvias fuertes?",
+                "respuesta": "El suministro de alimentos en Támesis, Antioquia, es generalmente estable, pero puede verse afectado por lluvias fuertes que dificulten el acceso por carretera. Fuera de temporada, algunos productos frescos pueden ser menos variados. Es prudente llevar un pequeño stock de emergencia si planeas una estancia prolongada o en épocas de riesgo."
+            },
+            {
+                "pregunta": "¿Cómo debo almacenar alimentos de forma segura para evitar animales o deterioro durante el camping en las zonas rurales de Támesis, Antioquia?",
+                "respuesta": "Para almacenar alimentos de forma segura durante el camping en Támesis, Antioquia, usa recipientes herméticos y cuélgalos de un árbol lejos de tu carpa para evitar animales. Mantén los alimentos perecederos en neveras portátiles con hielo y evita dejar restos de comida expuestos."
+            }
+        ],
+        "8_Accesibilidad_Infraestructura": [
+            {
+                "pregunta": "¿Cómo puedo llegar a Támesis, Antioquia, desde Medellín en transporte público y cuánto cuesta el pasaje?",
+                "respuesta": "Para llegar a Támesis, Antioquia, desde Medellín, puedes tomar un bus de la empresa Transportes Támesis o Rápido Ochoa desde la Terminal del Sur. El trayecto dura aproximadamente 3 horas y el costo del pasaje oscila entre 28.000 y 35.000 COP por persona, dependiendo de la empresa y el horario."
+            },
+            {
+                "pregunta": "¿Cuál es el estado de la carretera para viajar en carro particular a Támesis, Antioquia, y es seguro conducir de noche?",
+                "respuesta": "La carretera principal que conduce a Támesis, Antioquia, desde Medellín (vía La Pintada) está en buen estado general, pavimentada y bien señalizada. Sin embargo, se recomienda viajar de día debido a las curvas de la vía y la posible presencia de neblina o lluvia, especialmente en zonas montañosas."
+            },
+            {
+                "pregunta": "¿Hay opciones de transporte local en Támesis, Antioquia, para visitar los petroglifos o las zonas de escalada?",
+                "respuesta": "Sí, en Támesis, Antioquia, puedes encontrar mototaxis o taxis en el parque principal que te pueden llevar a los sitios de interés cercanos como los petroglifos de San Antonio o las zonas de escalada. Los precios varían según la distancia, pero un trayecto corto dentro del municipio puede costar entre 5.000 y 15.000 COP."
+            },
+            {
+                "pregunta": "¿Qué tipo de alojamiento puedo encontrar en Támesis, Antioquia, y es necesario reservar con antelación para un fin de semana?",
+                "respuesta": "En Támesis, Antioquia, encontrarás principalmente hoteles pequeños, hostales y fincas agroturísticas. Para fines de semana, especialmente festivos, es altamente recomendable reservar con varias semanas de antelación, ya que la disponibilidad puede ser limitada y los precios pueden subir."
+            },
+            {
+                "pregunta": "¿Cuál es la cobertura de internet y señal de celular en Támesis, Antioquia, para operadores como Claro o Tigo?",
+                "respuesta": "En el casco urbano de Támesis, Antioquia, la cobertura de señal de celular y datos móviles (4G) es generalmente buena para los principales operadores como Claro, Tigo y Movistar. Sin embargo, en zonas rurales o de montaña, como las áreas de escalada o petroglifos, la señal puede ser intermitente o nula."
+            },
+            {
+                "pregunta": "¿Dónde puedo encontrar cajeros automáticos o bancos en Támesis, Antioquia, para retirar efectivo?",
+                "respuesta": "En el casco urbano de Támesis, Antioquia, hay sucursales bancarias de Bancolombia y Banco Agrario, que cuentan con cajeros automáticos disponibles. Se recomienda llevar algo de efectivo, ya que no todos los establecimientos aceptan pagos con tarjeta, especialmente fuera del centro."
+            },
+            {
+                "pregunta": "¿Qué servicios de salud de emergencia están disponibles en Támesis, Antioquia, para turistas?",
+                "respuesta": "Támesis, Antioquia, cuenta con un hospital local, el Hospital San Juan de Dios, que ofrece servicios de urgencias básicas y atención médica primaria. Para emergencias mayores o tratamientos especializados, sería necesario el traslado a Medellín."
+            },
+            {
+                "pregunta": "¿Se puede alquilar equipo de escalada o contratar guías certificados en Támesis, Antioquia, para las rutas de roca?",
+                "respuesta": "Sí, en Támesis, Antioquia, existen operadores turísticos locales y guías certificados que ofrecen alquiler de equipo de escalada y servicios de guía para las rutas de roca. Es aconsejable contactarlos con antelación, especialmente en temporada alta, para asegurar disponibilidad y tarifas."
+            },
+            {
+                "pregunta": "¿Hay parqueaderos seguros y disponibles para visitantes que llegan en carro particular a Támesis, Antioquia?",
+                "respuesta": "Sí, en Támesis, Antioquia, hay varios parqueaderos públicos y privados disponibles en el casco urbano, algunos de ellos cerca del parque principal. Los precios por hora o por día son razonables, y ofrecen seguridad para los vehículos de los visitantes."
+            },
+            {
+                "pregunta": "¿Qué opciones de restaurantes y comida local hay en Támesis, Antioquia, para los turistas?",
+                "respuesta": "Támesis, Antioquia, ofrece una variedad de restaurantes que sirven comida típica antioqueña como la bandeja paisa, sancocho y frijoles, así como opciones más sencillas de comida rápida. Hay varios establecimientos alrededor del parque principal y en las calles aledañas, con precios accesibles."
+            }
+        ],
+        "9_Reglas_Prohibiciones_Tramites": [
+            {
+                "pregunta": "¿Se necesita algún permiso especial para practicar escalada en roca en Támesis, Antioquia, o se puede escalar libremente?",
+                "respuesta": "Para la escalada en roca en Támesis, Antioquia, no se requiere un permiso gubernamental específico para las zonas ya equipadas. Sin embargo, es altamente recomendable contratar guías locales certificados por la Asociación de Guías de Montaña de Antioquia (AGMA) y registrarse en las oficinas de turismo o con operadores locales para seguridad y seguimiento, especialmente en rutas nuevas o menos conocidas."
+            },
+            {
+                "pregunta": "¿Cuáles son los requisitos o trámites para volar en parapente en Támesis, Antioquia, si soy un piloto certificado?",
+                "respuesta": "Si eres un piloto certificado y deseas volar en parapente en Támesis, Antioquia, debes registrarte con los operadores locales o en la oficina de turismo municipal. Es obligatorio presentar tu licencia de piloto vigente (ej. FAI IPPI Card Nivel 4 o superior) y seguro de responsabilidad civil. Se deben respetar las zonas de despegue y aterrizaje designadas y las condiciones meteorológicas recomendadas por los expertos locales."
+            },
+            {
+                "pregunta": "¿Hay reglas específicas para visitar los petroglifos en Támesis, Antioquia, y cómo protegerlos de daños?",
+                "respuesta": "Sí, al visitar los petroglifos de Támesis, Antioquia, está estrictamente prohibido tocarlos, rayarlos o aplicarles cualquier sustancia. Se debe mantener una distancia prudente y seguir las indicaciones de los guías locales para su conservación. El acceso a algunas zonas puede estar restringido para proteger este valioso patrimonio arqueológico."
+            },
+            {
+                "pregunta": "¿Está permitido acampar libremente cerca de las zonas de escalada o petroglifos en Támesis, Antioquia, o hay restricciones?",
+                "respuesta": "No está permitido acampar libremente en cualquier lugar cerca de las zonas de escalada o petroglifos en Támesis, Antioquia. Se deben usar los campings autorizados o fincas que ofrecen este servicio. La prohibición busca proteger el ecosistema y evitar la contaminación. Infórmate en la Oficina de Turismo Municipal sobre las zonas designadas para acampar."
+            },
+            {
+                "pregunta": "¿Existen regulaciones para el uso de drones en las áreas naturales y culturales de Támesis, Antioquia, como los petroglifos?",
+                "respuesta": "Sí, existen regulaciones. El uso de drones en Támesis, Antioquia, especialmente cerca de zonas arqueológicas como los petroglifos o áreas de anidación de aves, puede estar restringido o requerir permisos especiales de la administración municipal. Siempre consulta con la Oficina de Turismo local antes de volar un dron para evitar multas o la confiscación del equipo."
+            },
+            {
+                "pregunta": "¿Qué reglas de manejo de residuos debo seguir al visitar los senderos y sitios de interés en Támesis, Antioquia?",
+                "respuesta": "Al visitar senderos y sitios de interés en Támesis, Antioquia, es obligatorio aplicar la política de 'No Deje Rastro'. Esto significa llevar contigo toda la basura generada, incluyendo orgánicos, y depositarla en los contenedores adecuados en el casco urbano. Está estrictamente prohibido dejar residuos en la naturaleza."
+            },
+            {
+                "pregunta": "¿Es obligatorio contratar un guía local para hacer senderismo o visitar sitios remotos en Támesis, Antioquia?",
+                "respuesta": "Si bien no es estrictamente obligatorio para todos los senderos en Támesis, Antioquia, es altamente recomendable, y en algunas rutas específicas o para acceder a propiedades privadas con petroglifos, puede ser un requisito del propietario o de la comunidad. Un guía local certificado garantiza seguridad, respeto por el entorno y un mayor conocimiento cultural."
+            },
+            {
+                "pregunta": "¿Hay horarios específicos o restricciones de acceso a los sitios de petroglifos o zonas de escalada en Támesis, Antioquia?",
+                "respuesta": "Sí, algunos sitios de petroglifos en Támesis, Antioquia, especialmente aquellos en propiedades privadas o con acceso controlado, pueden tener horarios de visita específicos, generalmente de 8:00 AM a 5:00 PM. Las zonas de escalada no suelen tener restricciones de horario, pero se desaconseja escalar de noche por seguridad. Siempre consulta con la Oficina de Turismo o guías locales."
+            },
+            {
+                "pregunta": "¿Qué prohibiciones existen respecto a la interacción con la fauna y flora local en Támesis, Antioquia?",
+                "respuesta": "En Támesis, Antioquia, está prohibido alimentar, molestar o capturar animales silvestres. También está prohibido recolectar plantas, flores o cualquier elemento natural de los ecosistemas, especialmente en áreas protegidas o de conservación. Se debe respetar la biodiversidad y mantener una distancia prudente de la fauna."
+            },
+            {
+                "pregunta": "¿Existen restricciones sobre el consumo de alcohol o niveles de ruido en espacios públicos o naturales de Támesis, Antioquia?",
+                "respuesta": "Sí, en Támesis, Antioquia, como en la mayoría de municipios colombianos, el consumo de alcohol en espacios públicos puede estar restringido por decretos municipales, especialmente en parques o cerca de instituciones educativas. Además, se espera un comportamiento respetuoso y se prohíbe el ruido excesivo que perturbe la tranquilidad de la comunidad o la fauna, especialmente en zonas naturales."
+            }
+        ],
+        "10_Alternativas_Plan_B": [
+            {
+                "pregunta": "¿Qué alternativas de plan B hay en Támesis, Antioquia, si llueve y no puedo hacer escalada en roca?",
+                "respuesta": "Si la lluvia impide la escalada, puedes visitar el 'Museo Arqueológico y Etnográfico de Támesis' en el Parque Principal, que exhibe piezas precolombinas. Otra opción es hacer un 'Tour del Café' en fincas cercanas como 'La Divisa', que ofrecen recorridos cubiertos y degustaciones por aproximadamente 30.000 COP por persona."
+            },
+            {
+                "pregunta": "Si el parapente se cancela por viento fuerte en Támesis, Antioquia, ¿qué actividades tranquilas puedo realizar?",
+                "respuesta": "Si el parapente se cancela, puedes optar por una caminata suave al 'Mirador de Cristo Rey' para vistas panorámicas sin esfuerzo extremo, o visitar la 'Casa de la Cultura' para conocer la historia local. También, disfrutar de la gastronomía en restaurantes como 'El Balcón de Támesis' es una excelente alternativa."
+            },
+            {
+                "pregunta": "¿Hay otros sitios de interés cultural o histórico en Támesis, Antioquia, si los petroglifos están temporalmente inaccesibles?",
+                "respuesta": "Sí, si los petroglifos no son accesibles, puedes explorar la 'Parroquia San Antonio de Padua' en el centro, una joya arquitectónica. También, busca talleres de artesanos locales en el Parque Principal que venden productos típicos, o visita la 'Biblioteca Pública Municipal' para exposiciones temporales."
+            },
+            {
+                "pregunta": "¿Qué opciones de aventura más suaves existen en Támesis, Antioquia, si la escalada es muy intensa para mi nivel físico?",
+                "respuesta": "Para una aventura más suave, considera una caminata ecológica guiada a las 'Cascadas de La Liboriana', con senderos de dificultad baja a moderada. También puedes hacer 'tubing' en el río 'Cartama' durante la temporada seca, una actividad refrescante y menos exigente que la escalada."
+            },
+            {
+                "pregunta": "¿Qué puedo hacer por mi cuenta en Támesis, Antioquia, si los tours de aventura están completamente reservados o no hay disponibilidad?",
+                "respuesta": "Si los tours están agotados, puedes pasear por el 'Parque Principal' y sus alrededores, visitar el 'Mercado Campesino' los fines de semana para productos frescos y artesanías, o simplemente disfrutar de un café de origen en alguna de las cafeterías locales como 'Café Támesis' observando la vida del pueblo."
+            },
+            {
+                "pregunta": "¿Qué actividades familiares alternativas hay en Támesis, Antioquia, si buscamos algo diferente a los deportes extremos?",
+                "respuesta": "Para familias, una excelente alternativa es visitar una 'finca agroturística' en las afueras, donde pueden interactuar con animales y aprender sobre cultivos. También, el 'Parque Recreativo Municipal' ofrece zonas verdes y juegos para niños. Pregunta en la oficina de turismo por 'rutas de senderismo fáciles' aptas para todas las edades."
+            },
+            {
+                "pregunta": "¿Dónde puedo experimentar la cultura local de Támesis, Antioquia, si mi interés principal es la inmersión cultural y no la adrenalina?",
+                "respuesta": "Para inmersión cultural, asiste a una 'misa dominical' en la Parroquia San Antonio de Padua para ver las costumbres locales. Busca 'talleres de elaboración de dulces típicos' o 'clases de baile folclórico' que a veces se ofrecen en la Casa de la Cultura. Pregunta por los 'festivales locales' si tu visita coincide con alguno."
+            },
+            {
+                "pregunta": "¿Qué lugares tranquilos para relajarme y disfrutar del paisaje hay en Támesis, Antioquia, si mi plan es simplemente descansar?",
+                "respuesta": "Para relajación, busca alojamientos tipo 'finca hotel' en las afueras que ofrecen piscinas y vistas espectaculares. Puedes ir al 'Mirador de La Ceja' para un atardecer tranquilo o simplemente sentarte en una banca del 'Parque Principal' con un buen libro y disfrutar del ambiente pausado del pueblo."
+            },
+            {
+                "pregunta": "¿Puedo visitar otros atractivos naturales en Támesis, Antioquia, si no consigo un guía para los petroglifos o están cerrados?",
+                "respuesta": "Sí, puedes explorar las 'Cascadas de La Liboriana' por tu cuenta (con precaución y preguntando a locales por el estado del sendero) o el 'Río Cartama' para un baño refrescante. También, hay varias 'rutas de senderismo autoguiadas' que te llevan a miradores naturales con vistas impresionantes de la cordillera."
+            },
+            {
+                "pregunta": "¿Qué pueblos cercanos a Támesis, Antioquia, valen la pena visitar si necesito un plan B de viaje o salir antes de lo previsto?",
+                "respuesta": "Si necesitas un plan B de viaje, considera visitar 'Jericó', famoso por sus carriel y la Madre Laura, a unas 2 horas en bus (aproximadamente 15.000 COP). 'Jardín', otro Pueblo Patrimonio, está a unas 3 horas (20.000 COP) y ofrece arquitectura colorida y cascadas. Ambos son excelentes alternativas culturales y paisajísticas."
+            }
+        ]
+    }
+}

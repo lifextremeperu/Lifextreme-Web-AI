@@ -1,0 +1,246 @@
+{
+    "destino_id": "ALOJA-002",
+    "modulo_contexto": "ID: ALOJA-002 MÓDULO: Hospedajes rurales comunitarios collaguas en Coporaque e Ichupampa SUBTÍTULO: Condiciones sanitarias básicas, calefacción rústic...",
+    "fqsas": {
+        "1_Precios_Presupuestos_Moneda": [
+            {
+                "pregunta": "ERROR",
+                "respuesta": "Unterminated string starting at: line 36 column 18 (char 4114)"
+            }
+        ],
+        "2_Logistica_Transporte_Como_Llegar": [
+            {
+                "pregunta": "¿Cómo puedo llegar a los hospedajes rurales comunitarios collaguas en Coporaque o Ichupampa desde la ciudad de Arequipa en transporte público?",
+                "respuesta": "Para llegar a los hospedajes rurales comunitarios en Coporaque o Ichupampa desde Arequipa, primero debes tomar un bus o minivan desde el Terminal Terrestre de Arequipa con destino a Chivay. Una vez en Chivay, puedes tomar un colectivo o taxi local que te lleve directamente a Coporaque o Ichupampa."
+            },
+            {
+                "pregunta": "¿Cuánto cuesta el pasaje en bus o minivan desde Arequipa hasta Chivay para ir a Coporaque o Ichupampa?",
+                "respuesta": "El costo del pasaje en bus o minivan desde el Terminal Terrestre de Arequipa hasta Chivay oscila entre 15 y 25 Soles por persona, dependiendo de la empresa y si es bus grande o minivan. Las empresas como Reyna o Milagros ofrecen estos servicios."
+            },
+            {
+                "pregunta": "¿Cuál es el tiempo de viaje estimado desde Arequipa hasta Chivay para luego ir a los hospedajes de Coporaque o Ichupampa?",
+                "respuesta": "El viaje en bus o minivan desde Arequipa hasta Chivay toma aproximadamente 3 a 4 horas, dependiendo de las paradas y las condiciones de la carretera. Desde Chivay a Coporaque o Ichupampa son unos 15 a 25 minutos adicionales en colectivo o taxi."
+            },
+            {
+                "pregunta": "¿Una vez en Chivay, qué opciones de transporte tengo para llegar a los hospedajes comunitarios en Coporaque o Ichupampa?",
+                "respuesta": "Desde el Terminal de Chivay, puedes tomar un colectivo que te dejará en Coporaque o Ichupampa por unos 3 a 5 Soles. También hay taxis que te cobrarán entre 8 y 15 Soles, ofreciendo mayor comodidad y rapidez directamente a tu hospedaje."
+            },
+            {
+                "pregunta": "¿Desde qué terminal de Arequipa salen los buses o minivans hacia Chivay para visitar los hospedajes collaguas?",
+                "respuesta": "Todos los buses y minivans que se dirigen a Chivay, y que te permitirán acceder a los hospedajes collaguas en Coporaque o Ichupampa, parten exclusivamente del Terminal Terrestre de Arequipa, ubicado en la Av. Andrés Avelino Cáceres."
+            },
+            {
+                "pregunta": "¿Con qué frecuencia salen los transportes de Arequipa a Chivay si quiero ir a Coporaque o Ichupampa?",
+                "respuesta": "Los buses y minivans desde Arequipa a Chivay tienen una alta frecuencia, saliendo aproximadamente cada 30 a 60 minutos desde las 3:00 AM hasta las 5:00 PM. Es recomendable ir temprano para asegurar tu viaje y conexión a Coporaque o Ichupampa."
+            },
+            {
+                "pregunta": "¿Hasta qué hora puedo encontrar transporte desde Chivay hacia Coporaque o Ichupampa para llegar a los hospedajes rurales?",
+                "respuesta": "Los colectivos y taxis desde Chivay hacia Coporaque o Ichupampa suelen operar hasta las 6:00 PM o 7:00 PM. Si llegas más tarde a Chivay, es posible que debas coordinar un taxi privado con antelación o pasar la noche en Chivay."
+            },
+            {
+                "pregunta": "¿Se puede caminar desde Chivay hasta Coporaque o Ichupampa para llegar a los hospedajes comunitarios en Arequipa?",
+                "respuesta": "Sí, es posible caminar desde Chivay hasta Coporaque o Ichupampa. Coporaque está a unos 5-6 km de Chivay (aproximadamente 1.5 horas a pie) e Ichupampa un poco más lejos. Es una caminata agradable si tienes tiempo y no llevas mucho equipaje."
+            },
+            {
+                "pregunta": "¿Es necesario reservar con anticipación los pasajes de bus o minivan de Arequipa a Chivay para ir a los hospedajes collaguas?",
+                "respuesta": "Generalmente no es necesario reservar con mucha anticipación los pasajes de Arequipa a Chivay, a menos que viajes en temporada alta (julio-agosto) o feriados largos. Puedes comprar tu boleto el mismo día en el Terminal Terrestre de Arequipa."
+            },
+            {
+                "pregunta": "¿Existe alguna opción de transporte privado o tour organizado para llegar directamente a los hospedajes rurales de Coporaque o Ichupampa desde Arequipa?",
+                "respuesta": "Sí, varias agencias de turismo en Arequipa ofrecen tours al Colca Canyon que incluyen transporte directo a los pueblos. También puedes contratar un taxi privado para todo el trayecto, lo cual es más costoso (aprox. 250-350 Soles) pero te lleva directamente a los hospedajes en Coporaque o Ichupampa."
+            }
+        ],
+        "3_Seguridad_Riesgos_Salud": [
+            {
+                "pregunta": "ERROR",
+                "respuesta": "Unterminated string starting at: line 39 column 17 (char 4503)"
+            }
+        ],
+        "4_Clima_Temporadas_Horarios": [
+            {
+                "pregunta": "¿Cuál es la mejor época del año para visitar los hospedajes rurales en Coporaque e Ichupampa, Arequipa, considerando el clima?",
+                "respuesta": "La mejor época es de abril a mayo y de septiembre a noviembre, cuando el clima en Coporaque e Ichupampa, Arequipa, es más templado y las noches no son tan frías como en invierno. De junio a agosto, aunque es temporada seca, las noches son extremadamente frías."
+            },
+            {
+                "pregunta": "¿Cómo es el clima nocturno en Coporaque e Ichupampa, Arequipa, durante los meses de junio a agosto?",
+                "respuesta": "Durante junio, julio y agosto, las noches en Coporaque e Ichupampa, Arequipa, son extremadamente frías, con temperaturas que pueden descender por debajo de los 0°C. Es la temporada de invierno andino, caracterizada por cielos despejados pero bajas temperaturas."
+            },
+            {
+                "pregunta": "¿Funcionan bien las duchas solares en los hospedajes comunitarios de Arequipa durante el invierno (junio-agosto)?",
+                "respuesta": "No, las duchas calientes solares en los hospedajes rurales de Coporaque e Ichupampa, Arequipa, pierden eficacia de junio a agosto debido al frío nocturno extremo. Es probable que el agua esté tibia o fría por las mañanas y noches en esos meses."
+            },
+            {
+                "pregunta": "¿Qué tipo de ropa debo llevar para el frío extremo en los hospedajes rurales de Arequipa, especialmente en las noches de invierno?",
+                "respuesta": "Para las noches de invierno (junio a agosto) en Coporaque e Ichupampa, Arequipa, debes llevar ropa de abrigo en capas: térmicas, forro polar, gorro, guantes, bufanda y una chaqueta gruesa. Las mantas tejidas a mano de los anfitriones son un buen complemento."
+            },
+            {
+                "pregunta": "¿Hay calefacción rústica disponible en los hospedajes de Coporaque e Ichupampa, Arequipa, para las noches frías?",
+                "respuesta": "Sí, los hospedajes rurales comunitarios en Coporaque e Ichupampa, Arequipa, suelen contar con calefacción rústica, como chimeneas o estufas a leña, para mitigar el frío nocturno, especialmente en la temporada de invierno."
+            },
+            {
+                "pregunta": "¿A qué hora suelen ser más frías las noches en los hospedajes rurales de Arequipa, como en Coporaque o Ichupampa?",
+                "respuesta": "Las horas más frías de la noche en los hospedajes rurales de Arequipa, como en Coporaque o Ichupampa, suelen ser entre la medianoche y las 6:00 AM, momento en que las temperaturas alcanzan sus mínimos, sobre todo de junio a agosto."
+            },
+            {
+                "pregunta": "¿Es recomendable viajar a los hospedajes comunitarios de Arequipa en la temporada de lluvias y qué meses abarca?",
+                "respuesta": "La temporada de lluvias en Arequipa y sus zonas rurales como Coporaque e Ichupampa va de diciembre a marzo. Aunque el paisaje es verde, las lluvias pueden dificultar el transporte y las actividades al aire libre, por lo que es menos recomendable para mochileros."
+            },
+            {
+                "pregunta": "¿Cuál es la temperatura promedio durante el día en Coporaque e Ichupampa, Arequipa, en la temporada seca?",
+                "respuesta": "Durante la temporada seca (abril a noviembre), las temperaturas diurnas en Coporaque e Ichupampa, Arequipa, suelen ser agradables, oscilando entre los 15°C y 22°C, con cielos despejados y mucho sol, ideal para actividades al aire libre."
+            },
+            {
+                "pregunta": "¿Cómo afecta el clima de altura a los viajeros en los hospedajes rurales de Arequipa y qué precauciones tomar?",
+                "respuesta": "El clima de altura en Coporaque e Ichupampa, Arequipa (alrededor de 3,600 msnm), puede causar soroche o mal de altura. Se recomienda aclimatarse un día en Arequipa ciudad, beber mate de coca y evitar esfuerzos físicos el primer día en la zona rural."
+            },
+            {
+                "pregunta": "¿Qué horarios son los mejores para realizar actividades al aire libre en los hospedajes rurales de Arequipa, evitando el frío o el calor extremo?",
+                "respuesta": "Los mejores horarios para actividades al aire libre en Coporaque e Ichupampa, Arequipa, son de 9:00 AM a 4:00 PM. Antes de las 9 AM y después de las 5 PM, las temperaturas bajan considerablemente, especialmente en invierno, haciendo el exterior muy frío."
+            }
+        ],
+        "5_Historia_Cultura_Curiosidades": [
+            {
+                "pregunta": "¿Cuál es la historia de los Collaguas en Coporaque e Ichupampa, Arequipa, y su relación con los Incas?",
+                "respuesta": "Los Collaguas son un grupo étnico pre-Inca que habitó el Valle del Colca en Arequipa mucho antes de la llegada de los Incas. Su cultura se caracterizó por su avanzada ingeniería hidráulica, construyendo andenes para la agricultura. Durante el Imperio Inca, fueron incorporados pacíficamente, manteniendo muchas de sus costumbres y su lengua, el quechua Collao. En Coporaque e Ichupampa, aún se pueden ver vestigios de esta historia en sus andenes y tradiciones."
+            },
+            {
+                "pregunta": "¿Qué tradiciones culturales andinas puedo experimentar al hospedarme con familias Collaguas en Coporaque, Arequipa?",
+                "respuesta": "Al hospedarte en Coporaque, Arequipa, podrás participar en actividades como el tejido de lana de alpaca y llama con técnicas ancestrales, la preparación de platos típicos con productos de la zona como la quinua y las papas nativas, y aprender sobre las faenas agrícolas diarias. También es común que compartan historias, música andina y, si coincide, participar en ceremonias de agradecimiento a la Pachamama o festividades locales."
+            },
+            {
+                "pregunta": "¿Cómo es un día típico en la vida de una familia Collagua en Ichupampa, Arequipa, y qué actividades comparten con los huéspedes?",
+                "respuesta": "Un día típico en Ichupampa, Arequipa, comienza temprano con el cuidado de los animales (llamas, alpacas, ovejas) y las labores agrícolas en los andenes. Las mujeres suelen dedicarse al tejido y la preparación de alimentos. Los huéspedes pueden unirse a estas actividades, como el pastoreo, la siembra o cosecha (según la temporada), la molienda de granos, o aprender a tejer. Las tardes suelen ser para compartir historias y la cena en familia."
+            },
+            {
+                "pregunta": "¿Qué platos típicos de la cultura Collagua se preparan en los hospedajes rurales de Coporaque, Arequipa, y qué ingredientes usan?",
+                "respuesta": "En los hospedajes rurales de Coporaque, Arequipa, se preparan platos con ingredientes locales y frescos. Destacan la 'sopa de quinua', el 'chupe de papas nativas' (con variedades como la papa 'oca' o 'ulluco'), la 'patasca' (sopa de mote), y ocasionalmente carne de alpaca o cordero. El desayuno suele incluir quinua, pan casero y mermeladas de frutas andinas. Todo se cocina de forma rústica, a menudo en fogones de leña."
+            },
+            {
+                "pregunta": "¿Qué idioma ancestral hablan los Collaguas en Coporaque e Ichupampa, Arequipa, además del español?",
+                "respuesta": "Los Collaguas en Coporaque e Ichupampa, Arequipa, conservan el quechua, específicamente el dialecto 'Collao' o 'Cusqueño-Collao', como su idioma ancestral. Aunque la mayoría de los adultos y jóvenes también hablan español, el quechua sigue siendo fundamental en la comunicación familiar y comunitaria, así como en sus ceremonias y canciones. Aprender algunas frases básicas en quechua es muy valorado por los anfitriones."
+            },
+            {
+                "pregunta": "¿Cuál es la arquitectura tradicional de las casas Collaguas en Ichupampa, Arequipa, y cómo se adaptan a los hospedajes comunitarios?",
+                "respuesta": "La arquitectura tradicional Collagua en Ichupampa, Arequipa, se caracteriza por el uso de adobe (ladrillos de barro secados al sol), techos de ichu (paja brava) o tejas de arcilla, y pequeñas ventanas para conservar el calor. En los hospedajes comunitarios, estas estructuras se mantienen, pero se adaptan con mejoras sanitarias básicas, como baños secos o letrinas mejoradas, y sistemas de calefacción rústica (como estufas a leña o 'tulpa') para las noches frías, manteniendo la esencia cultural."
+            },
+            {
+                "pregunta": "¿Qué festividades o ceremonias ancestrales celebran los Collaguas en Coporaque, Arequipa, y cuándo puedo presenciarlas?",
+                "respuesta": "Los Collaguas en Coporaque, Arequipa, celebran diversas festividades que mezclan tradiciones andinas y católicas. Destacan la 'Fiesta de la Cruz' en mayo, las 'Fiestas de la Cosecha' (Pachamama) en agosto, y las festividades patronales de cada pueblo (por ejemplo, San Santiago en julio). Estas celebraciones incluyen danzas típicas, música, ofrendas y procesiones. Las fechas varían ligeramente cada año, por lo que es recomendable consultar el calendario local antes de viajar."
+            },
+            {
+                "pregunta": "¿Qué tipo de artesanías y tejidos tradicionales elaboran los Collaguas en Coporaque, Arequipa, y dónde puedo comprarlos directamente?",
+                "respuesta": "En Coporaque, Arequipa, los Collaguas elaboran hermosos tejidos de lana de alpaca y llama, utilizando telares de cintura y tintes naturales. Producen mantas, ponchos, chullos (gorros andinos), fajas y bolsos con diseños geométricos y simbólicos propios de su cultura. Puedes comprar estas artesanías directamente a las familias en sus hospedajes o en pequeños mercados artesanales locales, asegurando un comercio justo y apoyando su economía."
+            },
+            {
+                "pregunta": "¿Cómo funciona la organización comunitaria en los pueblos Collaguas de Coporaque, Arequipa, y qué rol tiene el 'ayllu'?",
+                "respuesta": "La organización comunitaria en los pueblos Collaguas de Coporaque, Arequipa, se basa en el 'ayllu', una forma ancestral de organización social y económica. El 'ayllu' es una unidad familiar extensa con lazos de parentesco y territorio común, donde se practica la reciprocidad ('ayni') y el trabajo colectivo ('minka') para el beneficio de todos. Esta estructura garantiza la cohesión social, la ayuda mutua y la preservación de sus costumbres y tierras."
+            },
+            {
+                "pregunta": "¿Cuál es la importancia histórica del Valle del Colca para la cultura Collagua en Arequipa, más allá de los Incas?",
+                "respuesta": "El Valle del Colca es el corazón histórico de la cultura Collagua en Arequipa. Antes de los Incas, fue un centro de desarrollo agrícola y social, evidenciado por los miles de andenes que aún se cultivan. Estos andenes no solo son una proeza de ingeniería, sino que representan la profunda conexión de los Collaguas con la tierra y su capacidad de adaptación al entorno andino. El valle es su hogar ancestral y el pilar de su identidad cultural."
+            }
+        ],
+        "6_Tips_Locales_Secretos": [
+            {
+                "pregunta": "¿Qué debo saber sobre las duchas solares y la calefacción rústica en los hospedajes comunitarios de Coporaque, Arequipa, para no llevarme sorpresas?",
+                "respuesta": "Los meses de junio a agosto son los más fríos en Arequipa, y las duchas solares en Coporaque e Ichupampa pierden eficacia por las noches. Prepárate para agua tibia o fría después de las 5 PM. La calefacción rústica es a base de fogones o estufas a leña; pide a tus anfitriones que la enciendan temprano para calentar la habitación antes de dormir. Lleva ropa térmica."
+            },
+            {
+                "pregunta": "¿Cómo puedo interactuar auténticamente con las familias collaguas en Ichupampa, Arequipa, más allá de un simple saludo?",
+                "respuesta": "Un tip local es ofrecerte a ayudar en tareas cotidianas como pelar papas para la cena, alimentar a los animales o tejer. Pregunta sobre sus costumbres, pero con respeto. Un pequeño obsequio como útiles escolares para los niños o semillas para el huerto es bien recibido, pero no obligatorio. Evita dar dinero directamente a los niños."
+            },
+            {
+                "pregunta": "¿Cuáles son los platos locales más auténticos que debo pedir en un hospedaje rural de Coporaque, Arequipa, que no estén en los menús turísticos?",
+                "respuesta": "Pide un 'caldo de cabeza' o 'chupe de quinua' preparado con ingredientes de la chacra. Si es temporada, busca 'olluco con charqui' o 'rocoto relleno' casero. Evita pedir platos occidentales; tus anfitriones se sentirán más cómodos cocinando lo suyo. Pregunta por el 'pan de tres puntas' recién horneado."
+            },
+            {
+                "pregunta": "¿Cuál es la forma más económica y local de llegar a Coporaque o Ichupampa desde Arequipa sin un tour organizado?",
+                "respuesta": "Desde el Terminal Terrestre de Arequipa, toma un bus a Chivay (empresas como Reyna o Milagros, aprox. S/20-25). Una vez en Chivay, busca una combi o colectivo hacia Coporaque o Ichupampa (aprox. S/3-5). Salen de la plaza principal de Chivay. Pregunta a los locales por 'la parada de las combis a los pueblos altos'."
+            },
+            {
+                "pregunta": "¿Qué artículos esenciales debo empacar para una estancia en hospedajes rurales de Arequipa como Coporaque, considerando el clima y las condiciones básicas?",
+                "respuesta": "Lleva un buen saco de dormir (temperaturas bajo cero por la noche), linterna frontal, baterías externas para cargar dispositivos, toalla de microfibra, jabón biodegradable, pastillas potabilizadoras de agua y ropa térmica en capas. Un botiquín básico con analgésicos y protector labial es crucial. No olvides un gorro y guantes."
+            },
+            {
+                "pregunta": "¿Cómo puedo manejar la conectividad a internet y la carga de dispositivos siendo un nómada digital en los hospedajes comunitarios de Ichupampa, Arequipa?",
+                "respuesta": "La señal de internet móvil (Claro o Movistar) es intermitente y débil en Ichupampa y Coporaque. No esperes Wi-Fi. Compra un chip prepago en Arequipa. Lleva varias baterías externas de alta capacidad y un adaptador universal. La electricidad es limitada; carga tus dispositivos cuando haya luz solar o pide permiso para usar un enchufe en la cocina durante el día."
+            },
+            {
+                "pregunta": "¿Qué actividades auténticas y poco conocidas puedo hacer en los alrededores de Coporaque, Arequipa, que no sean las típicas del Cañón del Colca?",
+                "respuesta": "Un secreto local es participar en la 'minka' (trabajo comunitario) si coincide con tu visita, o visitar los andenes pre-incas de Yanque con un guía local de Coporaque. Pregunta por la 'ruta de las aguas termales secretas' cerca de Chivay, menos concurridas que las de La Calera. También puedes aprender a tejer con las mujeres de la comunidad."
+            },
+            {
+                "pregunta": "¿Es común el trueque o cómo debo manejar el dinero en efectivo en los hospedajes rurales de Coporaque, Arequipa?",
+                "respuesta": "El trueque no es común para el hospedaje, pero sí para pequeños intercambios de productos. Siempre lleva soles en efectivo de baja denominación (S/10, S/20), ya que no hay cajeros automáticos en Coporaque o Ichupampa y las familias no suelen tener cambio para billetes grandes. Negocia precios con respeto, pero no esperes grandes descuentos."
+            },
+            {
+                "pregunta": "¿Qué frases básicas en quechua o español local me ayudarían a conectar mejor con los anfitriones en los hospedajes de Ichupampa, Arequipa?",
+                "respuesta": "Aprende 'Rimaykullayki' (Hola), 'Allillanchu' (¿Cómo estás?), 'Allillanmi' (Estoy bien), 'Sulpayki' (Gracias) y 'Tupananchiskama' (Hasta luego). También es útil saber 'Imataq sutiyki?' (¿Cómo te llamas?). Mostrar interés en su idioma local es un gran gesto de respeto y abre puertas a conversaciones más profundas."
+            },
+            {
+                "pregunta": "¿Cuál es la mejor época para visitar los hospedajes rurales de Arequipa en Coporaque, considerando el clima y la experiencia de las duchas solares?",
+                "respuesta": "La mejor época es de abril a mayo y de septiembre a noviembre, cuando el clima es más templado y las duchas solares funcionan mejor. Evita junio a agosto si eres muy sensible al frío, ya que las noches son gélidas y el agua de las duchas puede ser muy fría. Diciembre a marzo es temporada de lluvias, lo que puede dificultar los caminos."
+            }
+        ],
+        "7_Gastronomia_Alimentos_Supervivencia": [
+            {
+                "pregunta": "ERROR",
+                "respuesta": "Unterminated string starting at: line 36 column 18 (char 4363)"
+            }
+        ],
+        "8_Accesibilidad_Infraestructura": [
+            {
+                "pregunta": "ERROR",
+                "respuesta": "Unterminated string starting at: line 36 column 18 (char 4384)"
+            }
+        ],
+        "9_Reglas_Prohibiciones_Tramites": [
+            {
+                "pregunta": "¿Qué reglas de convivencia cultural debo seguir al hospedarme en las casas rurales comunitarias collaguas de Coporaque o Ichupampa en Arequipa?",
+                "respuesta": "Es fundamental mostrar respeto por las costumbres locales. Siempre salude con un 'buenos días' o 'buenas tardes' en quechua si es posible ('allin p'unchaw', 'allin tuta'). Pida permiso antes de tomar fotografías a las personas, especialmente a niños y ancianos. Evite el consumo excesivo de alcohol en público y vístase de manera modesta, cubriendo hombros y rodillas, especialmente al visitar iglesias o participar en ceremonias. La participación en las actividades familiares debe ser siempre con invitación y respeto."
+            },
+            {
+                "pregunta": "¿Existen prohibiciones específicas sobre el manejo de residuos o el uso de recursos en los hospedajes rurales comunitarios de Coporaque e Ichupampa, Arequipa?",
+                "respuesta": "Sí, es una prohibición estricta dejar basura en la naturaleza. Los hospedajes comunitarios en Coporaque e Ichupampa promueven la sostenibilidad. Se le pedirá separar sus residuos orgánicos e inorgánicos y depositarlos en los contenedores designados. El uso del agua es limitado, especialmente en los meses secos (junio-agosto), por lo que se prohíbe el derroche y se recomienda duchas cortas."
+            },
+            {
+                "pregunta": "¿Cómo es el procedimiento de reserva y pago para los hospedajes rurales comunitarios collaguas en Coporaque o Ichupampa, Arequipa, y se requiere algún adelanto?",
+                "respuesta": "Generalmente, la reserva se realiza a través de agencias de turismo local en Chivay o Arequipa, o directamente contactando a las asociaciones de turismo comunitario. Se suele solicitar un adelanto del 30% al 50% del costo total para confirmar la estancia, pagadero vía transferencia bancaria o depósito. El saldo restante se abona en efectivo (Soles peruanos) al llegar al hospedaje. Es raro que acepten tarjetas de crédito directamente en las comunidades."
+            },
+            {
+                "pregunta": "¿Hay alguna regla o trámite de salud que deba considerar para prevenir el mal de altura en los hospedajes rurales de Coporaque e Ichupampa, Arequipa?",
+                "respuesta": "Aunque no es un 'trámite' formal, es una regla de oro para su seguridad: tómese el primer día con calma para aclimatarse, ya que Coporaque e Ichupampa están a más de 3,600 m.s.n.m. Se prohíbe el esfuerzo físico intenso al llegar. Beba abundante mate de coca o agua de muña que le ofrecerán sus anfitriones, evite el alcohol y comidas pesadas. Informe inmediatamente a su anfitrión si siente mareos o dolor de cabeza."
+            },
+            {
+                "pregunta": "¿Está prohibido tomar fotos o videos de las personas o actividades en los hospedajes rurales comunitarios collaguas de Coporaque e Ichupampa, Arequipa?",
+                "respuesta": "No está prohibido, pero es una regla de cortesía esencial pedir permiso explícito antes de fotografiar o grabar a cualquier persona, especialmente a los niños y durante ceremonias o actividades privadas. Respetar su decisión es crucial para una buena interacción. Algunos artesanos o participantes en rituales podrían pedir una pequeña contribución si desea una foto específica."
+            },
+            {
+                "pregunta": "¿Puedo llevar a mi mascota a los hospedajes rurales comunitarios collaguas de Coporaque o Ichupampa en Arequipa, o hay alguna prohibición?",
+                "respuesta": "Generalmente, está prohibido llevar mascotas a los hospedajes rurales comunitarios en Coporaque e Ichupampa debido a la presencia de animales de granja y la necesidad de mantener la higiene y tranquilidad de los espacios compartidos. Además, podría generar conflictos con los perros guardianes de las familias. Es mejor dejar a su mascota en casa o buscar un servicio de cuidado en Arequipa."
+            },
+            {
+                "pregunta": "¿Qué reglas de ruido o comportamiento nocturno debo seguir en los hospedajes rurales comunitarios de Coporaque e Ichupampa, Arequipa?",
+                "respuesta": "Es una regla no escrita pero fundamental mantener un bajo nivel de ruido, especialmente después de las 9:00 PM. Las comunidades andinas valoran la tranquilidad y el descanso. Se prohíben fiestas ruidosas o música a alto volumen. El respeto por el descanso de la familia anfitriona y los vecinos es primordial para una buena convivencia."
+            },
+            {
+                "pregunta": "¿Hay alguna prohibición sobre el consumo de alcohol o drogas en los hospedajes rurales comunitarios de Coporaque e Ichupampa, Arequipa?",
+                "respuesta": "El consumo de drogas ilícitas está estrictamente prohibido por ley en todo Perú. Respecto al alcohol, si bien se puede consumir con moderación en privado, está prohibido el consumo excesivo o ruidoso, especialmente en áreas comunes o en presencia de los anfitriones, por respeto a sus costumbres y a la tranquilidad del hogar."
+            },
+            {
+                "pregunta": "¿Cuáles son los trámites o reglas para el check-out de los hospedajes rurales comunitarios collaguas en Coporaque o Ichupampa, Arequipa?",
+                "respuesta": "El check-out suele ser flexible, pero se recomienda coordinar la hora de salida con su anfitrión el día anterior. Asegúrese de dejar la habitación ordenada y de haber saldado cualquier consumo adicional (bebidas, artesanías). Es una buena práctica despedirse personalmente de la familia anfitriona y agradecer su hospitalidad. No hay trámites formales de registro de salida como en hoteles urbanos."
+            },
+            {
+                "pregunta": "¿Existen reglas o prohibiciones sobre dar regalos o propinas a las familias en los hospedajes rurales comunitarios de Coporaque e Ichupampa, Arequipa?",
+                "respuesta": "No hay una prohibición, pero sí una etiqueta. Si desea dar un regalo, es preferible que sea algo útil para la familia (material escolar para los niños, alimentos no perecederos, ropa de abrigo) en lugar de dinero en efectivo, para no alterar la dinámica económica local. Entréguelo discretamente y con humildad. Las propinas son menos comunes que en hoteles urbanos, pero un gesto de agradecimiento por un servicio excepcional siempre es bienvenido."
+            }
+        ],
+        "10_Alternativas_Plan_B": [
+            {
+                "pregunta": "ERROR",
+                "respuesta": "Unterminated string starting at: line 4 column 18 (char 206)"
+            }
+        ]
+    }
+}

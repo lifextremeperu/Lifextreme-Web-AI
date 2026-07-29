@@ -1,0 +1,72 @@
+===============================================================
+AGENTE CARTÓGRAFO TURÍSTICO LATAM — Lifextreme v3.0 (Optimizador B2B)
+===============================================================
+
+<diagnostico>
+PERFIL: Chuquisaca ofrece una amalgama única de patrimonio cultural UNESCO (Sucre), aventura técnica accesible en valles interandinos, y etnoturismo genuino con comunidades ancestrales. Es un destino que combina la sofisticación colonial con la autenticidad rural y la geología prehistórica. La infraestructura es sólida en la capital y requiere logística especializada para las zonas rurales, ideal para un viajero que busca profundidad y experiencia real.
+MACROREGION: Valles Interandinos y Serranías Subandinas.
+NIVEL_DE_RIESGO_B2B: MEDIO (Requiere operadores locales especializados y vehículos 4x4 para rutas rurales, pero Sucre es de bajo riesgo).
+PESO_CATEGORIAS: Misticismo y Etnoturismo Genuino (35%), Destinos Estrella (Cultural/Histórico) (30%), Aventura y Deportes Técnicos (25%), Logística Crítica B2B (5%), Hospedaje Conceptual (5%).
+PERFIL_VISITANTE_DOMINANTE: Explorador Cultural Activo, Buscador de Autenticidad, Interesado en Patrimonio, Naturaleza y Experiencias Inmersivas.
+VENTANA_OPTIMA: Mayo a Octubre (Estación seca, ideal para trekking y condiciones de carretera).
+DESTINOS_DESCARTADOS: Rutas de trekking no mapeadas o sin soporte logístico comprobado; comunidades indígenas sin acuerdos de etnoturismo formalizados o infraestructura básica para visitantes, que a menudo se mencionan en blogs pero carecen de viabilidad B2B real.
+</diagnostico>
+
+<modulos_generados>
+---
+ID: A-01
+MÓDULO: Sucre, la Ciudad Blanca
+SUBTÍTULO: Patrimonio UNESCO y Base Logística de Excelencia
+VIABILIDAD_B2B: ALTA
+CANTIDAD_FQSAS_ESTIMADAS: 150
+GANCHO_COMERCIAL: La capital constitucional de Bolivia, un tesoro colonial declarado Patrimonio de la Humanidad. Ofrece una infraestructura hotelera de calidad, gastronomía refinada y es el punto de partida ideal para expediciones culturales y de aventura en la región. Sucre es la puerta de entrada a la autenticidad boliviana con confort y seguridad.
+---
+ID: B-01
+MÓDULO: Ruta del Cráter de Maragua y Huellas de Dinosaurios de Cal Orcko
+SUBTÍTULO: Trekking Geológico y Cultural con Impacto Prehistórico
+VIABILIDAD_B2B: MEDIA
+CANTIDAD_FQSAS_ESTIMADAS: 120
+GANCHO_COMERCIAL: Una ruta de trekking moderado que combina paisajes geológicos únicos (el cráter de Maragua, una formación sinclinal) con la visita a comunidades indígenas quechua y las impresionantes huellas de dinosaurios de Cal Orcko, el yacimiento más grande del mundo. Requiere 4x4 para acceso y guías locales especializados.
+---
+ID: E-01
+MÓDULO: Mercado de Tarabuco y Comunidad Yampará
+SUBTÍTULO: Inmersión en el Misticismo Textil y la Cultura Viva Yampará
+VIABILIDAD_B2B: MEDIA
+CANTIDAD_FQSAS_ESTIMADAS: 100
+GANCHO_COMERCIAL: Visita al auténtico mercado dominical de Tarabuco, donde se congregan comunidades Yampará con sus vestimentas tradicionales y artesanías. Una experiencia etnoturística genuina que permite interactuar con la cultura local, aprender sobre sus tejidos ancestrales y participar en ceremonias o rituales si se coordina con la comunidad.
+---
+ID: C-01
+MÓDULO: Mountain Bike en los Valles de Chuquisaca
+SUBTÍTULO: Descenso Técnico por Senderos Históricos y Paisajes Andinos
+VIABILIDAD_B2B: MEDIA
+CANTIDAD_FQSAS_ESTIMADAS: 90
+GANCHO_COMERCIAL: Rutas de mountain bike que aprovechan los senderos precolombinos y coloniales, ofreciendo descensos emocionantes a través de paisajes de valles, ríos y pequeños pueblos. Requiere equipo técnico, guías especializados y vehículos de apoyo 4x4. Ideal para ciclistas con experiencia intermedia a avanzada.
+---
+ID: D-01
+MÓDULO: Ecolodge en los Alrededores de Sucre (Ej. Finca El Refugio)
+SUBTÍTULO: Hospedaje Conceptual Sostenible con Vistas Panorámicas
+VIABILIDAD_B2B: MEDIA
+CANTIDAD_FQSAS_ESTIMADAS: 70
+GANCHO_COMERCIAL: Ofrece una experiencia de alojamiento única, combinando confort con sostenibilidad y conexión con la naturaleza. Ideal para viajeros que buscan tranquilidad, gastronomía local y un punto de partida exclusivo para explorar la región, lejos del bullicio de la ciudad pero con fácil acceso.
+---
+ID: F-01
+MÓDULO: Red de Operadores Locales Certificados (Sucre y Región)
+SUBTÍTULO: Logística B2B de Transporte 4x4 y Guías Especializados
+VIABILIDAD_B2B: ALTA
+CANTIDAD_FQSAS_ESTIMADAS: 150
+GANCHO_COMERCIAL: Acceso a una red verificada de proveedores de transporte 4x4 con mantenimiento riguroso y guías locales bilingües y certificados, expertos en cultura, historia y seguridad en rutas de aventura. Esencial para garantizar la viabilidad operativa y la calidad de la experiencia en las zonas rurales de Chuquisaca.
+---
+ID: E-02
+MÓDULO: Ceremonias Ancestrales y Cosmovisión Andina (Comunidades Seleccionadas)
+SUBTÍTULO: Experiencia Mística de Conexión con la Pachamama
+VIABILIDAD_B2B: MEDIA
+CANTIDAD_FQSAS_ESTIMADAS: 80
+GANCHO_COMERCIAL: Participación respetuosa en ceremonias ancestrales andinas (ej. ofrendas a la Pachamama, lectura de coca) guiadas por yatiris o líderes espirituales de comunidades con las que se tienen acuerdos de etnoturismo. Una oportunidad profunda para entender la cosmovisión andina y el misticismo local.
+---
+ID: B-02
+MÓDULO: Ruta de los Dinosaurios (Pre-histórica)
+SUBTÍTULO: Expedición Paleontológica y Geológica Activa
+VIABILIDAD_B2B: MEDIA
+CANTIDAD_FQSAS_ESTIMADAS: 110
+GANCHO_COMERCIAL: Más allá de Cal Orcko, esta ruta explora otros sitios con evidencia paleontológica en la región de Chuquisaca, combinando caminatas ligeras con explicaciones geológicas y paleontológicas. Ideal para entusiastas de la ciencia y la historia natural que buscan una perspectiva más profunda de la era mesozoica.
+</modulos_generadas>

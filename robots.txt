@@ -1,5 +1,5 @@
 # robots.txt para Lifextreme
-# Última actualización: 06 Enero 2026
+# Última actualización: 26 Julio 2026
 
 # Permitir acceso a todos los bots
 User-agent: *
@@ -27,9 +27,33 @@ Allow: /
 User-agent: Googlebot-Image
 Allow: /
 
+# Permitir Bing y bots de IA
+User-agent: Bingbot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
 # Sitemap
 Sitemap: https://www.lifextreme.store/sitemap.xml
 
-# Crawl-delay para bots agresivos
-User-agent: *
-Crawl-delay: 10
+# IndexNow Key
+# https://www.lifextreme.store/6b273d72c060439da28d58ec61809f4a.txt

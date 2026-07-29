@@ -1,0 +1,1039 @@
+[
+    {
+        "escenario_id": "SCENARIO_19",
+        "intencion_cliente": "Hola Paolo, cómo estás? Quería recordarte por favor mándame la información sobre la última cena y los hoteles. También podrías confirmar si nuestro pakete incluye transportación al aeropuerto de regreso?",
+        "respuesta_experta": "Hola Fresia mil disculpoas estuvimos fuera en una ruta de varios dias estamos regresando hoy a Cusco",
+        "etiquetas_venta": [
+            "Logistica_y_Operaciones",
+            "Cierre_de_Venta"
+        ],
+        "longitud_contexto": 203
+    },
+    {
+        "escenario_id": "SCENARIO_1",
+        "intencion_cliente": "Si estamos viendo un viaje a Peru este año. No estamos seguros de cuando vamos a ir pero queremos ir este año. En previas ocasiones hemos ido pero ciertos tours han estado cerrados",
+        "respuesta_experta": "A ok mucho gusto Fresia",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 180
+    },
+    {
+        "escenario_id": "SCENARIO_6",
+        "intencion_cliente": "Perfecto, muchas gracias. Unas preguntas. Cuál es el ingreso que no incluye en el último día en Cusco? Para cuando tendríamos que mandar la primera parte?",
+        "respuesta_experta": "El ingreso a la montaña de colores se cancela a la misma comunidad está 8 usd",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 154
+    },
+    {
+        "escenario_id": "SCENARIO_28",
+        "intencion_cliente": "Buenos días Paolo, para cuando voy a ver la información sobre la estadía, transporte, y la última cena? El itinerario está igual que la propuesta inicial.",
+        "respuesta_experta": "Fresia que tal buenos la información ya se subió quizás no se actualizo  ahora lo revisamos llegando a oficina por favor",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 154
+    },
+    {
+        "escenario_id": "SCENARIO_35",
+        "intencion_cliente": "Gracias! Y también la dirección de donde nos quedamos por favor. Estoy a punto de abordar cualquier cosa cuando llegue.",
+        "respuesta_experta": "Claro te enviamos la información detallada por esté medio",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 119
+    },
+    {
+        "escenario_id": "SCENARIO_107",
+        "intencion_cliente": "De qué número los llamarías para enviárselos y lo guarden. Porque no vayan a contestar pensando que es desconocido",
+        "respuesta_experta": "Este numero es de nuestra agencia con el cual se coordina todo",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 114
+    },
+    {
+        "escenario_id": "SCENARIO_18",
+        "intencion_cliente": "Buenas tardes. Una pregunta, para la cena del último día que estamos en lima. Ahí manera de añadir a 3 personas?",
+        "respuesta_experta": "Hola Fresia buenos días si claro se podría añadir en la reserva les enviamos los costos por persona y la carta ok",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 112
+    },
+    {
+        "escenario_id": "SCENARIO_24",
+        "intencion_cliente": "Buenas tardes, checkiando el itinerario no veo la cena de Central para el sábado. No se pudo confirmar?",
+        "respuesta_experta": "Si Fresia han cambiado la modalidad de reserva se tiene que hacer el mismo titular",
+        "etiquetas_venta": [
+            "Cierre_de_Venta"
+        ],
+        "longitud_contexto": 103
+    },
+    {
+        "escenario_id": "SCENARIO_10",
+        "intencion_cliente": "Buenos días , si intenté pero no me aceptó mis tarjetas. Me podrías dar tu PayPal y lo mando por ahí",
+        "respuesta_experta": "Está bien nuestra cuenta Paypal es [EMAIL]",
+        "etiquetas_venta": [
+            "Cierre_de_Venta"
+        ],
+        "longitud_contexto": 100
+    },
+    {
+        "escenario_id": "SCENARIO_8",
+        "intencion_cliente": "Mi esposo está de viaje y llega el lunes. Podría enviar la copia del pasaporte el lunes. Está bien?",
+        "respuesta_experta": "Si claro no hay problema",
+        "etiquetas_venta": [
+            "Logistica_y_Operaciones"
+        ],
+        "longitud_contexto": 99
+    },
+    {
+        "escenario_id": "SCENARIO_14",
+        "intencion_cliente": "Ok perfecto muchas gracias. Para central, nosotros hacemos las reservaciones o ustedes se encargan?",
+        "respuesta_experta": "Nosotros nos encargamos Fresia",
+        "etiquetas_venta": [
+            "Cierre_de_Venta"
+        ],
+        "longitud_contexto": 99
+    },
+    {
+        "escenario_id": "SCENARIO_44",
+        "intencion_cliente": "Buenos días, para nuestro tiempo en Cusco podríamos asegúranos de que estemos en hotels por favor.",
+        "respuesta_experta": "Hola Buenos días Fresia",
+        "etiquetas_venta": [
+            "Logistica_y_Operaciones"
+        ],
+        "longitud_contexto": 98
+    },
+    {
+        "escenario_id": "SCENARIO_74",
+        "intencion_cliente": "Hola Paolo, xfa no te vayas a olvidar hacer mi reserva o separar mis entradas y de la vía del tren",
+        "respuesta_experta": "Sra Ginger buenos días el día lunes se realizó la reserva de tickets a Machupicchu le enviamos la confirmación por correo ahora durante el día",
+        "etiquetas_venta": [
+            "Cierre_de_Venta"
+        ],
+        "longitud_contexto": 98
+    },
+    {
+        "escenario_id": "SCENARIO_108",
+        "intencion_cliente": "Confírmame a qué hora los van a recoger hoy para el citytour y a qué hora los van a recoger mañana",
+        "respuesta_experta": "Les indique el dia de ayer",
+        "etiquetas_venta": [
+            "Logistica_y_Operaciones"
+        ],
+        "longitud_contexto": 98
+    },
+    {
+        "escenario_id": "SCENARIO_27",
+        "intencion_cliente": "Si no se puede no ahí problema. Haremos una reservación para Astrid y Gastón a las 8 como suherio",
+        "respuesta_experta": "Sería mejor quizás están saturados  enviamos correo y no responden tampoco el teléfono",
+        "etiquetas_venta": [
+            "Manejo_de_Objeciones",
+            "Cierre_de_Venta"
+        ],
+        "longitud_contexto": 97
+    },
+    {
+        "escenario_id": "SCENARIO_5",
+        "intencion_cliente": "Una pregunta. Será posible añadir una reserva al restaurante Central mientras estamos en Lima?",
+        "respuesta_experta": "Hola Fresia disculpa la demora en la comunicación si claro podemos realizar la reserva para la fecha que están en Perú",
+        "etiquetas_venta": [
+            "Cierre_de_Venta"
+        ],
+        "longitud_contexto": 94
+    },
+    {
+        "escenario_id": "SCENARIO_45",
+        "intencion_cliente": "Cuando te da un chance me podrías mandar la confirmación del vuelo para poder hacer el checkin",
+        "respuesta_experta": "Si claro justo estabamos por enviarlo",
+        "etiquetas_venta": [
+            "Logistica_y_Operaciones"
+        ],
+        "longitud_contexto": 94
+    },
+    {
+        "escenario_id": "SCENARIO_16",
+        "intencion_cliente": "Hola Buenas Tardes. Quería confirmar que todo bien. No recibí la confirmación por email",
+        "respuesta_experta": "Hola Fresia buenas tardes",
+        "etiquetas_venta": [
+            "Cierre_de_Venta"
+        ],
+        "longitud_contexto": 87
+    },
+    {
+        "escenario_id": "SCENARIO_68",
+        "intencion_cliente": "Hola Paolo muchas gracias por la información! Justo estamos llegando a aguas calientes",
+        "respuesta_experta": "hoy por la tarde pueden visitar el museo de sitio, mariposario, los baños termales para que se relajen",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 86
+    },
+    {
+        "escenario_id": "SCENARIO_86",
+        "intencion_cliente": "Paolo por fa no te olvides el dpto para quedarnos hahu mismo hasta el domingo. Gracias",
+        "respuesta_experta": "Ahora en la mañana lo coordino",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 86
+    },
+    {
+        "escenario_id": "SCENARIO_88",
+        "intencion_cliente": "Ahora a que hora salimos? Y a que hora te doy mis maletitas? <Se editó este mensaje.>",
+        "respuesta_experta": "Pasarían por ustedes de 8.15am a 8.25am para la salida al Valle Sur",
+        "etiquetas_venta": [
+            "Logistica_y_Operaciones"
+        ],
+        "longitud_contexto": 85
+    },
+    {
+        "escenario_id": "SCENARIO_105",
+        "intencion_cliente": "O en todo caso podría usar su pasaporte , con el papel del trámite den DNI , no?",
+        "respuesta_experta": "Si claro hasta brevete",
+        "etiquetas_venta": [
+            "Logistica_y_Operaciones"
+        ],
+        "longitud_contexto": 80
+    },
+    {
+        "escenario_id": "SCENARIO_30",
+        "intencion_cliente": "Por ahora esto el lo me me están enseñando. Ni bien tengo el boleto te lo mando",
+        "respuesta_experta": "Entonces llegan el 11 en la noche entonces empezamos con ICA y Huacachina el día 12",
+        "etiquetas_venta": [
+            "Logistica_y_Operaciones"
+        ],
+        "longitud_contexto": 79
+    },
+    {
+        "escenario_id": "SCENARIO_66",
+        "intencion_cliente": "Estamos cenando pero cuando regresemos les dejo saber <Se editó este mensaje.>",
+        "respuesta_experta": "Acabo de conversar y la reserva estaba para descontarse con la tarjeta pero la recepcionista tiene otra indicación",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 78
+    },
+    {
+        "escenario_id": "SCENARIO_31",
+        "intencion_cliente": "Hola, estamos confirmados en el vuelo de las 3. Llegamos a lima a las 9:39 PM",
+        "respuesta_experta": "Fresia Confirmamos cambio de tren en horario indicado partida 15 y retorno 16",
+        "etiquetas_venta": [
+            "Logistica_y_Operaciones"
+        ],
+        "longitud_contexto": 77
+    },
+    {
+        "escenario_id": "SCENARIO_76",
+        "intencion_cliente": "Por siacaso te aviso si en caso hay algún problema por la edad de mis niñas",
+        "respuesta_experta": "No sé preocupe es con el DNI la reserva del ticket en el texto enviado hubo un error",
+        "etiquetas_venta": [
+            "Manejo_de_Objeciones"
+        ],
+        "longitud_contexto": 75
+    },
+    {
+        "escenario_id": "SCENARIO_58",
+        "intencion_cliente": "Ok listo! Entonces de la mañana llevamos todo para quedarnos la noche aya?",
+        "respuesta_experta": "Si una mochila para 1 noche",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 74
+    },
+    {
+        "escenario_id": "SCENARIO_96",
+        "intencion_cliente": "Paolo, disculpa  la hora, el presupuesto incluye todas las entradas no ??",
+        "respuesta_experta": "No incluye ingreso dia 1 y 2 esta 70 soles nacional para los 2 dias",
+        "etiquetas_venta": [
+            "Logistica_y_Operaciones"
+        ],
+        "longitud_contexto": 73
+    },
+    {
+        "escenario_id": "SCENARIO_17",
+        "intencion_cliente": "Ok, gracias. Por seguridad, alguna de nuestra información fue obtenida?",
+        "respuesta_experta": "Todo esta ok solo que estuvo en el tecnico",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 71
+    },
+    {
+        "escenario_id": "SCENARIO_92",
+        "intencion_cliente": "Y faltaría el de cusco + aguas calientes . Sin incluir el tren porfis 🙂",
+        "respuesta_experta": "No tenemos el servicio de tren local ya que no hay ticketd con 10 dias de anticipacion",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 71
+    },
+    {
+        "escenario_id": "SCENARIO_67",
+        "intencion_cliente": "Si entiendo. Antes gracias por lograr que veamos Machu Picchu mañana!",
+        "respuesta_experta": "Fresia me acaba den eviar las fotos 🙌🏼",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 69
+    },
+    {
+        "escenario_id": "SCENARIO_98",
+        "intencion_cliente": "Que sea en base a los 6 dias / 5 noches . Del 22/11 al 27/11. Gracias",
+        "respuesta_experta": "Buenos dias le enviamos el itinerario con todos los detalles",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 69
+    },
+    {
+        "escenario_id": "SCENARIO_114",
+        "intencion_cliente": "Y ya saben a qué hora de la noche  va Christian para que estén ahí ??",
+        "respuesta_experta": "Ahora que lleguen de su tour pasaremos a su hospedaje para brindarñes toda esa informacion",
+        "etiquetas_venta": [
+            "Logistica_y_Operaciones"
+        ],
+        "longitud_contexto": 69
+    },
+    {
+        "escenario_id": "SCENARIO_78",
+        "intencion_cliente": "Ok Paolo ya te abone los 1500 qué hablamos hoy en la mañana. Gracias",
+        "respuesta_experta": "Estimada Ginger Confirmamos reserva de tren 🙌",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 68
+    },
+    {
+        "escenario_id": "SCENARIO_49",
+        "intencion_cliente": "Creo que es la señal no me deja. Podrían hacerlo ustedes por favor",
+        "respuesta_experta": "Si debe ser eso no te preocupes nosotros lo realizamos",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 66
+    },
+    {
+        "escenario_id": "SCENARIO_50",
+        "intencion_cliente": "Ok, para confirmar. Mañana hacemos el checkout del Airbnb correcto",
+        "respuesta_experta": "Está hasta el 15 la reserva",
+        "etiquetas_venta": [
+            "Cierre_de_Venta"
+        ],
+        "longitud_contexto": 66
+    },
+    {
+        "escenario_id": "SCENARIO_103",
+        "intencion_cliente": "Cuando estimas que nos podrías mandar el detalle de los servicios",
+        "respuesta_experta": "Disculpa estamos regresando a Cusco de un circuito por davor te lo enviamos mañana son falta",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 65
+    },
+    {
+        "escenario_id": "SCENARIO_26",
+        "intencion_cliente": "Ahhh ok. Entonces no se va a poder no ahí espacio para el sabado",
+        "respuesta_experta": "Dejame revisar eniamos un correo hace  un tiempo para las fechas creo que podemos retomarlo",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 64
+    },
+    {
+        "escenario_id": "SCENARIO_64",
+        "intencion_cliente": "Una consulta. Nosotros estábamos supuestos a pagar por el hotel?",
+        "respuesta_experta": "No Fresia ya está pagado déjame ahora llamo",
+        "etiquetas_venta": [
+            "Logistica_y_Operaciones"
+        ],
+        "longitud_contexto": 64
+    },
+    {
+        "escenario_id": "SCENARIO_22",
+        "intencion_cliente": "Gracias! Sabe cuando me podrá mandar el link con el itinerario?",
+        "respuesta_experta": "Buenos días Fresia ahora te lo enviamos",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 63
+    },
+    {
+        "escenario_id": "SCENARIO_13",
+        "intencion_cliente": "Buenas Tardes, le acabo de mandar las fotos de los pasaportes",
+        "respuesta_experta": "Perfecto Fresia muchas gracias les confirmamos depósito y correo con documentos",
+        "etiquetas_venta": [
+            "Logistica_y_Operaciones"
+        ],
+        "longitud_contexto": 61
+    },
+    {
+        "escenario_id": "SCENARIO_21",
+        "intencion_cliente": "No ahí problem. Muchas gracias. La cita esta echa para mañana",
+        "respuesta_experta": "perfecto Fresia muchas gracias",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 61
+    },
+    {
+        "escenario_id": "SCENARIO_29",
+        "intencion_cliente": "Perfecto! Muchas gracias por el esfuerzo para arreglar esto?",
+        "respuesta_experta": "disculpanos los inconvenientes",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 60
+    },
+    {
+        "escenario_id": "SCENARIO_111",
+        "intencion_cliente": "A ver llámalos y de todas maneras . Yo les digo en un rato",
+        "respuesta_experta": "Maria ya logre comunicarme ✌️",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 58
+    },
+    {
+        "escenario_id": "SCENARIO_113",
+        "intencion_cliente": "Y el 25 ya ustedes los recogen para ir a Machupicchu no??",
+        "respuesta_experta": "Si claro Cristian va mañana en la noche para coordinar directamente todo para el dia siguiente",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 57
+    },
+    {
+        "escenario_id": "SCENARIO_34",
+        "intencion_cliente": "Y la información de quien nos recibe mañana por favor.",
+        "respuesta_experta": "Ahora  te la enviamos",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 54
+    },
+    {
+        "escenario_id": "SCENARIO_93",
+        "intencion_cliente": "Digo sin tren porque lo compraríamos nosotros a parte",
+        "respuesta_experta": "400 soles menos sin el tren",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 53
+    },
+    {
+        "escenario_id": "SCENARIO_23",
+        "intencion_cliente": "Muchas gracias! Si cuando llegue a casa lo mando hoy",
+        "respuesta_experta": "Envíanos el número nada mas",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 52
+    },
+    {
+        "escenario_id": "SCENARIO_20",
+        "intencion_cliente": "No ahí problema. Muchas gracias por la confirmación",
+        "respuesta_experta": "Fresia buenos dias dsiculpa la falta de comunicacion estuvimos dias fuera de la ciudad y con los cierres de mes ya estamos mas tranquilos",
+        "etiquetas_venta": [
+            "Manejo_de_Objeciones"
+        ],
+        "longitud_contexto": 51
+    },
+    {
+        "escenario_id": "SCENARIO_91",
+        "intencion_cliente": "Sería solo servicios, es decir sin Hotel y sin tren",
+        "respuesta_experta": "Ok ahora lo revisamos",
+        "etiquetas_venta": [
+            "Logistica_y_Operaciones"
+        ],
+        "longitud_contexto": 51
+    },
+    {
+        "escenario_id": "SCENARIO_47",
+        "intencion_cliente": "Ok, tenemos que añadir la maleta de mano nosotros?",
+        "respuesta_experta": "la reserva tiene incluida la maleta de 23kg que nos indicaron",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 50
+    },
+    {
+        "escenario_id": "SCENARIO_4",
+        "intencion_cliente": "Si me contó que tuvo una muy buena experiencia",
+        "respuesta_experta": "Que bueno intentamos que todos nuestros amigos tengan la mejor experiencia durante su viaje. Te enviaremos el link del formulario con estas consultas para personalizar mejor su viaje",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 46
+    },
+    {
+        "escenario_id": "SCENARIO_56",
+        "intencion_cliente": "Estamos just terminando. Por la plaza de armas",
+        "respuesta_experta": "Aya a las 2pm los van a ubicar al costado de la catedral de la plaza de armas",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 46
+    },
+    {
+        "escenario_id": "SCENARIO_101",
+        "intencion_cliente": "Me avisas a qué hora te puedo llamar. Gracias",
+        "respuesta_experta": "Disculpe estuce sin señal en ruta con pasajeros",
+        "etiquetas_venta": [
+            "Logistica_y_Operaciones"
+        ],
+        "longitud_contexto": 45
+    },
+    {
+        "escenario_id": "SCENARIO_52",
+        "intencion_cliente": "Buenos días acabamos de llegar al aeropuerto",
+        "respuesta_experta": "A su llegada los va a esperar  Richard",
+        "etiquetas_venta": [
+            "Logistica_y_Operaciones"
+        ],
+        "longitud_contexto": 44
+    },
+    {
+        "escenario_id": "SCENARIO_112",
+        "intencion_cliente": "Ok, coordino con ellos entonces . Gracias ☺️",
+        "respuesta_experta": "Maria disculpa que hotel tienen reservado en Machupicchu?",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 44
+    },
+    {
+        "escenario_id": "SCENARIO_3",
+        "intencion_cliente": "Si! La acabo de agendar para el 14 de Abril",
+        "respuesta_experta": "*TOURS PERU TOP 2025*",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 43
+    },
+    {
+        "escenario_id": "SCENARIO_62",
+        "intencion_cliente": "En Macchu Picchu, alguien nos va a recoger?",
+        "respuesta_experta": "Si Fresia para llevarlos a la los tickets de compra de los ingresos",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 43
+    },
+    {
+        "escenario_id": "SCENARIO_99",
+        "intencion_cliente": "‎PTT-20211026-WA0024.opus (archivo adjunto)",
+        "respuesta_experta": "‎IMG-20211026-WA0025.jpg (archivo adjunto)",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 43
+    },
+    {
+        "escenario_id": "SCENARIO_102",
+        "intencion_cliente": "‎PTT-20211028-WA0026.opus (archivo adjunto)",
+        "respuesta_experta": "‎DOC-20190705-WA0002.pdf (archivo adjunto)",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 43
+    },
+    {
+        "escenario_id": "SCENARIO_51",
+        "intencion_cliente": "Ese fue el plan original pero se nos quedó",
+        "respuesta_experta": "Mañana nos vemos en su hospedaje me indican el horario para visitarlos antes de su tour",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 42
+    },
+    {
+        "escenario_id": "SCENARIO_59",
+        "intencion_cliente": "Buenas, para el viernes ahí algo planeado?",
+        "respuesta_experta": "Hola Fresia el viernes me pidieron volar temprano de retorno a Lima",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 42
+    },
+    {
+        "escenario_id": "SCENARIO_104",
+        "intencion_cliente": "‎IMG-20211031-WA0013.jpg (archivo adjunto)",
+        "respuesta_experta": "Entonces sus datos completos",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 42
+    },
+    {
+        "escenario_id": "SCENARIO_110",
+        "intencion_cliente": "Mañana a qué hora pasan por mis suegros ??",
+        "respuesta_experta": "Buenas noches le pase la comunicacion por WhatsApp",
+        "etiquetas_venta": [
+            "Logistica_y_Operaciones"
+        ],
+        "longitud_contexto": 42
+    },
+    {
+        "escenario_id": "SCENARIO_79",
+        "intencion_cliente": "Paolo este lugar es donde estuvo Gianina?",
+        "respuesta_experta": "Es la misma zona pero no el mismo Airbnb como le indicamos tenemos varias locaciones en la misma zona de San blas",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 41
+    },
+    {
+        "escenario_id": "SCENARIO_38",
+        "intencion_cliente": "Hemos estado esperando todo este tiempo",
+        "respuesta_experta": "Wow. Con paciencia Jhonny los va a esperar hasta que salgan",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 39
+    },
+    {
+        "escenario_id": "SCENARIO_115",
+        "intencion_cliente": "Como indicas los 790 era solo servicios",
+        "respuesta_experta": "Muchas gracias Maria 🤗",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 39
+    },
+    {
+        "escenario_id": "SCENARIO_75",
+        "intencion_cliente": "Y si no tb me lo pueden mandar x waasa",
+        "respuesta_experta": "Sra Ginger buenas tardes",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 38
+    },
+    {
+        "escenario_id": "SCENARIO_11",
+        "intencion_cliente": "Debe haber llegado de RonZel Hendrix",
+        "respuesta_experta": "Ok ahora lo revisamos Fresia",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 36
+    },
+    {
+        "escenario_id": "SCENARIO_41",
+        "intencion_cliente": "Y mañana son solo las líneas verdad?",
+        "respuesta_experta": "Si es el sobrevuelo en las líneas fe Nazca",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 36
+    },
+    {
+        "escenario_id": "SCENARIO_2",
+        "intencion_cliente": "Perfecto! Entonces sería en Octubre",
+        "respuesta_experta": "Noviembre a marzo hay lluvias en todo el sur en Peru",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 35
+    },
+    {
+        "escenario_id": "SCENARIO_25",
+        "intencion_cliente": "Ok, esta es para el 12 de Noviembre",
+        "respuesta_experta": "No está realizada por que ahora es directo al cliente ya no con reserva de terceros",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 35
+    },
+    {
+        "escenario_id": "SCENARIO_57",
+        "intencion_cliente": "Hola, cuál es el plan para mañana?",
+        "respuesta_experta": "Fresia mañana pasan por ustedes en su hospedaje de 7:30 a 8an parar el tour del valle que termina en Ollantaytambo para tomar el tren a Machupicchu pueblo",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 34
+    },
+    {
+        "escenario_id": "SCENARIO_54",
+        "intencion_cliente": "Gracias! Si está bien a las 10:30",
+        "respuesta_experta": "Fresia estamos en recepción ya llegamos",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 33
+    },
+    {
+        "escenario_id": "SCENARIO_40",
+        "intencion_cliente": "Mañana estamos en grupo también?",
+        "respuesta_experta": "Mañana solo van los 2 Fresia con Luis el conductor de la Movilidad",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 32
+    },
+    {
+        "escenario_id": "SCENARIO_43",
+        "intencion_cliente": "Para el cobro de PayPal: [EMAIL]",
+        "respuesta_experta": "Perfecto muchas gracias ya lo enviamos",
+        "etiquetas_venta": [
+            "Cierre_de_Venta"
+        ],
+        "longitud_contexto": 32
+    },
+    {
+        "escenario_id": "SCENARIO_80",
+        "intencion_cliente": "Ok. Confío en ti Paolo. Gracias",
+        "respuesta_experta": "que tenga buena viaje 🙌🏻",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 31
+    },
+    {
+        "escenario_id": "SCENARIO_72",
+        "intencion_cliente": "Me mandas el presupuesto porfa",
+        "respuesta_experta": "Si a medio día se lo enviamos",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 30
+    },
+    {
+        "escenario_id": "SCENARIO_90",
+        "intencion_cliente": "Ah Paolo tb tengo una consulta",
+        "respuesta_experta": "*¡ATENCIÓN VIAJEROS* 🇵🇪✨",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 30
+    },
+    {
+        "escenario_id": "SCENARIO_109",
+        "intencion_cliente": "Hola Paolo, Mejor avísame a mi",
+        "respuesta_experta": "Ala 1 pm pasaran a recogerlos",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 30
+    },
+    {
+        "escenario_id": "SCENARIO_77",
+        "intencion_cliente": "Hola Paolo llamame por favor",
+        "respuesta_experta": "Estimafa Ginger buenos dias",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 28
+    },
+    {
+        "escenario_id": "SCENARIO_48",
+        "intencion_cliente": "Ok, pero no maleta de mano?",
+        "respuesta_experta": "si tambien adicional es la maleta de 23kg",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 27
+    },
+    {
+        "escenario_id": "SCENARIO_60",
+        "intencion_cliente": "Si, solo quería confirmaro",
+        "respuesta_experta": "*Hospedaje Machupicchu:* Hotel Horizonte",
+        "etiquetas_venta": [
+            "Cierre_de_Venta"
+        ],
+        "longitud_contexto": 26
+    },
+    {
+        "escenario_id": "SCENARIO_69",
+        "intencion_cliente": "Por fa me llamas si puedes",
+        "respuesta_experta": "Hola que tal buenas tardes mucho gusto",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 26
+    },
+    {
+        "escenario_id": "SCENARIO_70",
+        "intencion_cliente": "Me puedes llamar por favor",
+        "respuesta_experta": "Si por favor vamos a tomar su requerimineto y le enviamos una propuesta",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 26
+    },
+    {
+        "escenario_id": "SCENARIO_71",
+        "intencion_cliente": "Estoy a la espera. Gracias",
+        "respuesta_experta": "Buenos días disculpe ayer llegamos tarde de ruta está bien si le damos una llamada 9am por favor",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 26
+    },
+    {
+        "escenario_id": "SCENARIO_32",
+        "intencion_cliente": "Perfecto! Muchas gracias!",
+        "respuesta_experta": "confirmamos cambio en horario de recojo del aeropuerto",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 25
+    },
+    {
+        "escenario_id": "SCENARIO_7",
+        "intencion_cliente": "Cuál es el próximo paso?",
+        "respuesta_experta": "Perfecto Fresia entonces ya compraron sus vuelos correcto?",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 24
+    },
+    {
+        "escenario_id": "SCENARIO_106",
+        "intencion_cliente": "Estoy en llamada ahorita",
+        "respuesta_experta": "A ok Maria queria indicarte lo de la fecha para Machu`picchu",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 24
+    },
+    {
+        "escenario_id": "SCENARIO_37",
+        "intencion_cliente": "Perfecto muchas gracias",
+        "respuesta_experta": "Fresia me indica conductor que todavía no pasan migraciones",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 23
+    },
+    {
+        "escenario_id": "SCENARIO_46",
+        "intencion_cliente": "No me funciona ese link",
+        "respuesta_experta": "Prueba una vez mas si no nosotros lo hacemos no te preocupes quizas es la señala: https://booking.jetsmart.com/V2/Itinerary",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 23
+    },
+    {
+        "escenario_id": "SCENARIO_95",
+        "intencion_cliente": "Y el segundo circuito ?",
+        "respuesta_experta": "La diferencia del precio es minima - 40 soles sobre el precio total",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 23
+    },
+    {
+        "escenario_id": "SCENARIO_97",
+        "intencion_cliente": "Algo más por incluir ?",
+        "respuesta_experta": "El ingreso al Vinicunca se paga la misma comunidad 10 soles",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 22
+    },
+    {
+        "escenario_id": "SCENARIO_87",
+        "intencion_cliente": "Paolo ya puedes subir",
+        "respuesta_experta": "Sra Ginger buenas tardes como sigue su hijita si necesita algo me escribe por favor",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 21
+    },
+    {
+        "escenario_id": "SCENARIO_15",
+        "intencion_cliente": "Ok, muchas gracias!",
+        "respuesta_experta": "De la experiencia gastronómica que manejan",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 19
+    },
+    {
+        "escenario_id": "SCENARIO_42",
+        "intencion_cliente": "Ok perfecto gracias",
+        "respuesta_experta": "Fresia disculpa te puedo llamar un minuto?",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 19
+    },
+    {
+        "escenario_id": "SCENARIO_100",
+        "intencion_cliente": "El pago es al 100%?",
+        "respuesta_experta": "50% reserva y la diferencia al llegar",
+        "etiquetas_venta": [
+            "Cierre_de_Venta"
+        ],
+        "longitud_contexto": 19
+    },
+    {
+        "escenario_id": "SCENARIO_53",
+        "intencion_cliente": "Estamos embarcando",
+        "respuesta_experta": "Perfecto buen viaje 🙌",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 18
+    },
+    {
+        "escenario_id": "SCENARIO_55",
+        "intencion_cliente": "Ok, estamos vajand",
+        "respuesta_experta": "Nunay Raymi Fusión comida Criollan - Andino cerca a la plaza de armas por la piedra de los 12 ángulos la misma recta",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 18
+    },
+    {
+        "escenario_id": "SCENARIO_39",
+        "intencion_cliente": "Muchas gracias!",
+        "respuesta_experta": "Fresia buenas tardes mañana pasará por ustedes 5am para salir a Nazca Luis Campusano Telf: +51 [TELÉFONO]",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 15
+    },
+    {
+        "escenario_id": "SCENARIO_83",
+        "intencion_cliente": "Siii perfecto",
+        "respuesta_experta": "Buenas noches. Sra Ginger el día de mañana estarán pasando entre 07.20am a 07.35am para su circuito del Valle sagrado",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 13
+    },
+    {
+        "escenario_id": "SCENARIO_36",
+        "intencion_cliente": "airbnb12345",
+        "respuesta_experta": "Dame unos minutos y te envío el conductor",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 11
+    },
+    {
+        "escenario_id": "SCENARIO_63",
+        "intencion_cliente": "Ok gracias",
+        "respuesta_experta": "‎Ana Apaza Guías Mapi.vcf (archivo adjunto)",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 10
+    },
+    {
+        "escenario_id": "SCENARIO_65",
+        "intencion_cliente": "Ok gracias",
+        "respuesta_experta": "Luego del chekinn debería descontarse de nuestra tarjeta directamente está con esa opción",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 10
+    },
+    {
+        "escenario_id": "SCENARIO_84",
+        "intencion_cliente": "Q cuadra?",
+        "respuesta_experta": "Referencia frente puesta de emergencias del seguro de EsSalud",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 9
+    },
+    {
+        "escenario_id": "SCENARIO_9",
+        "intencion_cliente": "Gracias!",
+        "respuesta_experta": "Fresia nos indicas una direccion de correo para enviarte la confirmacion de su reserva por favor",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 8
+    },
+    {
+        "escenario_id": "SCENARIO_33",
+        "intencion_cliente": "Gracias!",
+        "respuesta_experta": "ahora vamos a gestionar los vuelos te confirmamos en 2 horas por favor",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 8
+    },
+    {
+        "escenario_id": "SCENARIO_61",
+        "intencion_cliente": "Gracias!",
+        "respuesta_experta": "Teléfono: +51 902 903 588",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 8
+    },
+    {
+        "escenario_id": "SCENARIO_73",
+        "intencion_cliente": "Genial 🤗",
+        "respuesta_experta": "considero 3 dias de touyr City Tour + Machupicchu 2/1 noches y 3 noches en Cusco para el concepto del hospedaje",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 8
+    },
+    {
+        "escenario_id": "SCENARIO_12",
+        "intencion_cliente": "[EMAIL]",
+        "respuesta_experta": "Perfecto estamos camino a la oficina te envíamos ahora la confirmación al correo",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 7
+    },
+    {
+        "escenario_id": "SCENARIO_81",
+        "intencion_cliente": "Gracias",
+        "respuesta_experta": "Estimada Ginger Seida estará esperándolos al confirmar nuevo horario de vuelo",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 7
+    },
+    {
+        "escenario_id": "SCENARIO_94",
+        "intencion_cliente": "Okiii",
+        "respuesta_experta": "Todos los precios son x persona",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 5
+    },
+    {
+        "escenario_id": "SCENARIO_82",
+        "intencion_cliente": "👍🏻👍🏻",
+        "respuesta_experta": "Sra Ginger buenos días como amanecieron?",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 4
+    },
+    {
+        "escenario_id": "SCENARIO_85",
+        "intencion_cliente": "Ok",
+        "respuesta_experta": "Me comunica como le fue por favor",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 2
+    },
+    {
+        "escenario_id": "SCENARIO_89",
+        "intencion_cliente": "👆🏻",
+        "respuesta_experta": "Es casi el mismo horario",
+        "etiquetas_venta": [
+            "Informacion_General"
+        ],
+        "longitud_contexto": 2
+    }
+]

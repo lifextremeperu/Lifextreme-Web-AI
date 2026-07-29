@@ -6,6 +6,7 @@ from fastapi import FastAPI, Request, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from .max_agent import process_message, process_message_stream
+from .partner_agent import process_b2b_stream
 import json
 import uvicorn
 import traceback
@@ -66,6 +67,36 @@ async def chat_webhook_stream(request: Request):
         async def event_generator():
             try:
                 async for chunk in process_message_stream(message, history, user_context):
+                    # SSE format: data: {"chunk": "..."}\n\n
+                    yield f"data: {json.dumps({'chunk': chunk})}\n\n"
+            except Exception as e:
+                yield f"data: {json.dumps({'error': str(e)})}\n\n"
+
+        return StreamingResponse(event_generator(), media_type="text/event-stream")
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        traceback.print_exc()
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/webhook/b2b/stream")
+async def chat_webhook_b2b_stream(request: Request):
+    """
+    Endpoint para el portal de Partners (B2B). Utiliza el Partner Agent.
+    """
+    try:
+        data = await request.json()
+        message = data.get("message", "").strip()
+        if not message:
+            raise HTTPException(status_code=400, detail="message is required")
+        
+        history = data.get("history", [])
+        user_context = data.get("profile", {})
+        
+        async def event_generator():
+            try:
+                async for chunk in process_b2b_stream(message, history, user_context):
                     # SSE format: data: {"chunk": "..."}\n\n
                     yield f"data: {json.dumps({'chunk': chunk})}\n\n"
             except Exception as e:

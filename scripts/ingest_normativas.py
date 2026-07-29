@@ -46,15 +46,28 @@ def extract_text_from_pdf(pdf_path: str) -> str:
         print(f"Error leyendo {pdf_path}: {e}")
     return text
 
-async def process_pdf(pdf_path: str, splitter: RecursiveCharacterTextSplitter, http_client: httpx.AsyncClient, sem: asyncio.Semaphore):
-    file_name = os.path.basename(pdf_path)
+from legal_chunker import chunk_legal_document
+
+def process_pdf_sync(pdf_path: str):
     text = extract_text_from_pdf(pdf_path)
     if not text.strip():
-        print(f"Advertencia: PDF vacío o escaneado -> {file_name}")
+        print(f"Advertencia: PDF vacío o escaneado -> {pdf_path}")
+        return []
+        
+    meta = {"entidad_emisora": "Estado Peruano"}
+    chunks = chunk_legal_document(text, meta)
+    return chunks
+
+async def process_pdf(pdf_path: str, http_client: httpx.AsyncClient, sem: asyncio.Semaphore):
+    file_name = os.path.basename(pdf_path)
+    # Ejecutamos la extraccion y chunking de forma síncrona
+    chunks_dict = process_pdf_sync(pdf_path)
+    
+    if not chunks_dict:
         return
 
-    chunks = splitter.split_text(text)
-    print(f"PDF {file_name} dividido en {len(chunks)} fragmentos.")
+    chunks = [c["text"] for c in chunks_dict]
+    print(f"PDF {file_name} dividido en {len(chunks)} fragmentos legales.")
 
     points = []
     
@@ -100,19 +113,14 @@ async def main():
 
     print(f"Encontrados {len(pdf_files)} archivos PDF normativos para procesar.")
 
-    splitter = RecursiveCharacterTextSplitter(
-        chunk_size=1200,
-        chunk_overlap=200,
-        separators=["\n\nArtículo", "\n\n", "\n", ".", " ", ""]
-    )
-
     sem = asyncio.Semaphore(5)
 
     async with httpx.AsyncClient() as http_client:
         for pdf in pdf_files:
-            await process_pdf(pdf, splitter, http_client, sem)
+            await process_pdf(pdf, http_client, sem)
             
     print("\n¡Proceso de ingesta normativo finalizado con éxito!")
 
 if __name__ == "__main__":
     asyncio.run(main())
+

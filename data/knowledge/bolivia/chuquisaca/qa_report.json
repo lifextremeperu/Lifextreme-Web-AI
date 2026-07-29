@@ -1,0 +1,68 @@
+{
+    "pais": "bolivia",
+    "departamento": "chuquisaca",
+    "modulos_evaluados": 8,
+    "modulos_aprobados": 8,
+    "modulos_fallidos": 0,
+    "modulos_advertencia": 0,
+    "fqsas_totales_validadas": 800,
+    "fqsas_totales_esperadas": 800,
+    "detalles": {
+        "A-01": {
+            "status": "PASS",
+            "fqsas_validas": 100,
+            "fqsas_totales": 100,
+            "porcentaje_exito": "100.0%",
+            "errores": []
+        },
+        "B-01": {
+            "status": "PASS",
+            "fqsas_validas": 100,
+            "fqsas_totales": 100,
+            "porcentaje_exito": "100.0%",
+            "errores": []
+        },
+        "B-02": {
+            "status": "PASS",
+            "fqsas_validas": 100,
+            "fqsas_totales": 100,
+            "porcentaje_exito": "100.0%",
+            "errores": []
+        },
+        "C-01": {
+            "status": "PASS",
+            "fqsas_validas": 100,
+            "fqsas_totales": 100,
+            "porcentaje_exito": "100.0%",
+            "errores": []
+        },
+        "D-01": {
+            "status": "PASS",
+            "fqsas_validas": 100,
+            "fqsas_totales": 100,
+            "porcentaje_exito": "100.0%",
+            "errores": []
+        },
+        "E-01": {
+            "status": "PASS",
+            "fqsas_validas": 100,
+            "fqsas_totales": 100,
+            "porcentaje_exito": "100.0%",
+            "errores": []
+        },
+        "E-02": {
+            "status": "PASS",
+            "fqsas_validas": 100,
+            "fqsas_totales": 100,
+            "porcentaje_exito": "100.0%",
+            "errores": []
+        },
+        "F-01": {
+            "status": "PASS",
+            "fqsas_validas": 100,
+            "fqsas_totales": 100,
+            "porcentaje_exito": "100.0%",
+            "errores": []
+        }
+    }
+}

@@ -1,0 +1,426 @@
+{
+    "destino_id": "D-01",
+    "modulo_contexto": "Gastronomía Fusión Andino-Amazónica de Pasco",
+    "fqsas": {
+        "1_Precios_Presupuestos_Moneda": [
+            {
+                "pregunta": "¿Cuánto cuesta una comida fusión andino-amazónica promedio en un buen restaurante de Pasco?",
+                "respuesta": "En Pasco, el precio de un plato principal de gastronomía fusión andino-amazónica en un restaurante de calidad puede oscilar entre 35 y 60 Soles peruanos, dependiendo del lugar y los ingredientes utilizados."
+            },
+            {
+                "pregunta": "¿Cuál es el presupuesto diario recomendado para comer bien en Pasco, incluyendo platos de fusión andino-amazónica?",
+                "respuesta": "Para un presupuesto diario de comida en Pasco, considerando desayuno, almuerzo y cena con al menos un plato de fusión andino-amazónica, se recomienda destinar entre 80 y 150 Soles peruanos por persona, dependiendo si se opta por huariques o restaurantes más establecidos."
+            },
+            {
+                "pregunta": "¿Dónde encontrar huariques económicos en Pasco que ofrezcan sabores andino-amazónicos a buen precio?",
+                "respuesta": "Para huariques económicos con sabores andino-amazónicos en Pasco, puedes explorar los alrededores del Mercado Central de Cerro de Pasco o la zona de Yanacancha, donde un menú completo puede costar entre 10 y 20 Soles."
+            },
+            {
+                "pregunta": "¿Aceptan tarjetas de crédito en los restaurantes de fusión andino-amazónica en Pasco o es mejor llevar efectivo?",
+                "respuesta": "En los restaurantes de fusión andino-amazónica más grandes y establecidos de Pasco, generalmente aceptan tarjetas de crédito (Visa, MasterCard). Sin embargo, en huariques y locales más pequeños, es casi indispensable pagar con efectivo (Soles peruanos)."
+            },
+            {
+                "pregunta": "¿Cuánto cuesta probar un 'juane' o un 'tacacho con cecina' auténtico en Pasco?",
+                "respuesta": "Un plato de 'juane' o 'tacacho con cecina' auténtico en Pasco puede costar entre 25 y 45 Soles en un restaurante especializado o entre 15 y 25 Soles en un mercado o puesto de comida local."
+            },
+            {
+                "pregunta": "¿Hay algún costo adicional por servicio o propina esperada en los restaurantes de Pasco?",
+                "respuesta": "En Pasco, no es obligatorio dejar propina, pero es común redondear la cuenta o dejar un 5-10% del total si el servicio fue bueno. Algunos restaurantes más formales pueden incluir un cargo por servicio del 10% en la cuenta, lo cual debe estar indicado."
+            },
+            {
+                "pregunta": "¿Cuál es el precio de una bebida típica como la 'chicha morada' o un refresco de frutas amazónicas en Pasco?",
+                "respuesta": "Una bebida típica como la 'chicha morada' o un refresco de frutas amazónicas en Pasco suele costar entre 5 y 10 Soles en restaurantes, y entre 3 y 5 Soles en puestos de mercado o carretillas."
+            },
+            {
+                "pregunta": "¿Dónde puedo cambiar dólares o euros a Soles peruanos en Pasco para pagar mis comidas?",
+                "respuesta": "En Pasco, puedes cambiar dólares o euros a Soles peruanos en casas de cambio autorizadas en el centro de Cerro de Pasco, bancos como BCP o BBVA, o en algunos hoteles grandes. Evita cambiar en la calle por seguridad."
+            },
+            {
+                "pregunta": "¿Cuánto debería presupuestar un mochilero para comer platos de fusión andino-amazónica en Pasco por día?",
+                "respuesta": "Un mochilero en Pasco que busque probar platos de fusión andino-amazónica de forma económica debería presupuestar entre 50 y 80 Soles diarios, combinando menús de mercado, huariques y quizás un plato especial en un restaurante."
+            },
+            {
+                "pregunta": "¿Existen opciones de menú del día con sabores andino-amazónicos a precio fijo en Pasco? ¿Cuánto cuestan?",
+                "respuesta": "Sí, muchos restaurantes y 'fondas' en Pasco ofrecen 'menú del día' o 'almuerzo ejecutivo' que a menudo incluyen opciones con toques andino-amazónicos. Estos menús suelen costar entre 15 y 25 Soles e incluyen entrada, plato de fondo y bebida."
+            }
+        ],
+        "2_Logistica_Transporte_Como_Llegar": [
+            {
+                "pregunta": "¿Cómo puedo llegar a Cerro de Pasco desde Lima en transporte público para probar la gastronomía fusión?",
+                "respuesta": "Para llegar a Cerro de Pasco desde Lima, puedes tomar un bus interprovincial desde el Terminal Terrestre de Plaza Norte o Yerbateros. Empresas como Cruz del Sur, Civa o Expreso Lobato ofrecen rutas diarias. El viaje dura aproximadamente 7 a 8 horas y los precios varían entre 40 y 80 Soles, dependiendo de la empresa y el servicio."
+            },
+            {
+                "pregunta": "¿Cuál es la mejor forma de viajar de Cerro de Pasco a Oxapampa para explorar su oferta gastronómica amazónica?",
+                "respuesta": "Desde Cerro de Pasco, puedes tomar colectivos o minivans que salen del terminal informal en la Av. Los Incas. El viaje a Oxapampa dura unas 3 a 4 horas, atravesando paisajes de sierra y selva. El costo del pasaje oscila entre 25 y 40 Soles por persona. Es recomendable viajar de día por la seguridad y las vistas."
+            },
+            {
+                "pregunta": "¿Cómo llego a Villa Rica desde Oxapampa para visitar las fincas de café y probar su gastronomía?",
+                "respuesta": "Desde Oxapampa, puedes tomar colectivos o combis que salen del paradero principal, cerca del mercado. El trayecto a Villa Rica es de aproximadamente 45 minutos a 1 hora. El pasaje cuesta entre 5 y 8 Soles. Hay salidas frecuentes durante todo el día."
+            },
+            {
+                "pregunta": "¿Qué opciones de transporte local hay en Oxapampa para ir a los 'huariques' de comida fusión andino-amazónica?",
+                "respuesta": "Dentro de Oxapampa, la forma más común y económica de moverse es en mototaxi. Un viaje dentro del centro de la ciudad o a los alrededores cercanos para llegar a restaurantes específicos o 'huariques' puede costar entre 3 y 7 Soles. También hay taxis convencionales con tarifas un poco más elevadas."
+            },
+            {
+                "pregunta": "¿Existen tours gastronómicos en Pasco que incluyan transporte a los mejores lugares de comida fusión andino-amazónica?",
+                "respuesta": "Sí, algunas agencias de turismo locales en Oxapampa y Villa Rica ofrecen tours que combinan visitas a fincas de café, catas de productos y paradas en restaurantes o 'huariques' seleccionados. Estos tours suelen incluir transporte privado y guías especializados. Los precios varían, pero un tour de medio día puede costar entre 80 y 150 Soles por persona."
+            },
+            {
+                "pregunta": "¿Cómo son las condiciones de las carreteras de la sierra a la selva de Pasco, especialmente hacia Oxapampa y Villa Rica, para un viaje gastronómico?",
+                "respuesta": "Las carreteras que conectan la sierra (Cerro de Pasco) con la selva (Oxapampa, Villa Rica) son mayormente asfaltadas, pero hay tramos con curvas pronunciadas y posibles deslizamientos en época de lluvias (diciembre a marzo). Es recomendable viajar de día y con empresas de transporte formales. La ruta es escénica pero requiere precaución."
+            },
+            {
+                "pregunta": "¿Se puede alquilar un coche en Pasco para recorrer los destinos gastronómicos de la región, como Oxapampa y Villa Rica?",
+                "respuesta": "El alquiler de coches en Cerro de Pasco es limitado. Es más común encontrar opciones en Lima y conducir hasta Pasco. Sin embargo, para las rutas hacia Oxapampa y Villa Rica, un vehículo 4x4 es preferible, especialmente si planeas explorar caminos rurales o fincas. El costo de alquiler en Lima puede rondar los 150 a 250 Soles por día, más combustible."
+            },
+            {
+                "pregunta": "¿Cuánto tiempo toma el viaje directo en bus desde Lima hasta Oxapampa para disfrutar de la comida fusión?",
+                "respuesta": "El viaje directo en bus desde Lima a Oxapampa dura aproximadamente 10 a 12 horas. Empresas como Movil Bus o Cruz del Sur ofrecen este servicio, generalmente con salidas nocturnas. Los precios varían entre 60 y 120 Soles, dependiendo del tipo de servicio (económico, semi-cama, cama)."
+            },
+            {
+                "pregunta": "¿Cuáles son los mejores meses para viajar a Pasco y disfrutar de su gastronomía fusión, considerando las condiciones de transporte?",
+                "respuesta": "Los mejores meses para viajar a Pasco, especialmente a la zona de selva (Oxapampa, Villa Rica), son de abril a noviembre, durante la estación seca. En estos meses, las carreteras están en mejores condiciones, minimizando retrasos por lluvias o deslizamientos, lo que facilita el acceso a los 'huariques' y fincas."
+            },
+            {
+                "pregunta": "¿Hay aeropuertos cercanos a Pasco que faciliten el acceso rápido a los centros gastronómicos de fusión andino-amazónica?",
+                "respuesta": "Pasco no cuenta con un aeropuerto comercial propio. El aeropuerto más cercano es el de Jauja (JAU), en la región Junín, a unas 3-4 horas de Cerro de Pasco. Desde Jauja, tendrías que tomar un taxi o colectivo hasta La Oroya y luego otro bus a Cerro de Pasco, o directamente un taxi privado a Oxapampa, lo cual sería costoso (alrededor de 200-300 Soles). La opción más directa sigue siendo el bus desde Lima."
+            }
+        ],
+        "3_Seguridad_Riesgos_Salud": [
+            {
+                "pregunta": "¿Qué precauciones de higiene debo tomar al probar la gastronomía fusión andino-amazónica en huariques de Pasco para evitar problemas de salud?",
+                "respuesta": "Es recomendable observar la limpieza del local, la manipulación de los alimentos por el personal y que los platos se sirvan calientes. Evita puestos callejeros con poca higiene visible. Prioriza establecimientos con buena afluencia de público local, lo que suele ser un indicador de frescura y calidad en Pasco."
+            },
+            {
+                "pregunta": "¿Es seguro beber agua del grifo en los restaurantes de Pasco al disfrutar de la comida local, o debo optar por agua embotellada para evitar riesgos de salud?",
+                "respuesta": "Para evitar cualquier riesgo de salud al consumir gastronomía en Pasco, siempre se recomienda beber agua embotellada sellada. El agua del grifo en muchos lugares de Pasco no es apta para el consumo directo de turistas y podría causar malestares estomacales."
+            },
+            {
+                "pregunta": "¿Cómo puedo manejar alergias alimentarias o intolerancias al gluten al pedir platos de fusión en restaurantes típicos de Pasco?",
+                "respuesta": "Al ordenar en restaurantes de Pasco, es crucial comunicar claramente tus alergias o intolerancias al personal. Pregunta por los ingredientes específicos de los platos de fusión andino-amazónica, ya que muchos usan insumos locales poco conocidos. Lleva una tarjeta con tus restricciones en español para mayor claridad."
+            },
+            {
+                "pregunta": "¿Qué riesgos para la salud existen al probar ingredientes amazónicos exóticos en la gastronomía de Pasco si no estoy acostumbrado a ellos?",
+                "respuesta": "Al probar ingredientes amazónicos exóticos en Pasco, como el ají charapita o frutas poco comunes, el principal riesgo es una reacción alérgica inesperada o malestar estomacal si tu sistema digestivo no está habituado. Empieza con porciones pequeñas y pregunta siempre al personal sobre los ingredientes."
+            },
+            {
+                "pregunta": "¿Hay alguna recomendación de salud específica para turistas con mal de altura (soroche) al consumir comidas pesadas o picantes en Pasco?",
+                "respuesta": "Si sufres de soroche en Pasco, es aconsejable evitar comidas muy pesadas, grasosas o excesivamente picantes, especialmente al inicio de tu viaje. Opta por platos ligeros, sopas y consume mate de coca. La digestión puede ser más lenta a esta altitud, así que come con moderación."
+            },
+            {
+                "pregunta": "¿Qué medidas de seguridad e higiene implementan los huariques y restaurantes de Pasco para prevenir intoxicaciones alimentarias en su gastronomía fusión?",
+                "respuesta": "Muchos huariques y restaurantes en Pasco han mejorado sus prácticas de higiene post-pandemia, incluyendo el uso de guantes, mascarillas y desinfección de superficies. Sin embargo, la supervisión puede variar. Busca locales con certificaciones visibles o que te den confianza por su limpieza general y rotación de clientes."
+            },
+            {
+                "pregunta": "¿Qué debo hacer si sospecho de una intoxicación alimentaria después de comer en un establecimiento de Pasco? ¿Dónde puedo buscar ayuda médica?",
+                "respuesta": "Si sospechas de una intoxicación alimentaria en Pasco, busca atención médica de inmediato. Puedes acudir al Hospital Daniel Alcides Carrión en Cerro de Pasco o a clínicas privadas como la Clínica San Juan Bautista. Mantente hidratado y guarda cualquier recibo o información del lugar donde comiste."
+            },
+            {
+                "pregunta": "¿Es seguro para niños pequeños probar la gastronomía fusión andino-amazónica en Pasco, considerando los ingredientes y el nivel de picante?",
+                "respuesta": "Al llevar niños pequeños a probar la gastronomía en Pasco, es fundamental preguntar si los platos contienen picante o ingredientes muy fuertes. Muchos platos de fusión pueden ser adaptados, pero siempre es mejor pedir opciones suaves o específicamente preparadas para niños para evitar malestares."
+            },
+            {
+                "pregunta": "¿Cómo puedo identificar restaurantes o huariques en Pasco que ofrezcan opciones saludables o vegetarianas/veganas seguras para mi dieta?",
+                "respuesta": "Para encontrar opciones saludables o vegetarianas/veganas seguras en Pasco, busca establecimientos que publiciten sus menús con estas alternativas o que estén dispuestos a adaptar platos. Pregunta si usan caldos de carne en sus sopas o si fríen en aceites vegetales. Las opciones pueden ser limitadas en huariques muy tradicionales."
+            },
+            {
+                "pregunta": "¿Existen riesgos de contaminación cruzada en la preparación de alimentos en los mercados o puestos de comida callejera de Pasco que ofrezcan gastronomía local?",
+                "respuesta": "Sí, en mercados y puestos de comida callejera en Pasco, existe un riesgo potencial de contaminación cruzada debido a la manipulación de diferentes alimentos en un mismo espacio y con utensilios compartidos. Si eres sensible a esto, es más seguro optar por restaurantes establecidos con cocinas más controladas."
+            }
+        ],
+        "4_Clima_Temporadas_Horarios": [
+            {
+                "pregunta": "¿Cuál es la mejor época del año para disfrutar la gastronomía fusión andino-amazónica en Pasco sin mucho frío?",
+                "respuesta": "La temporada seca, de mayo a septiembre, ofrece días más soleados y menos lluvias en Pasco, lo que hace más agradable explorar los huariques y restaurantes de fusión. Las noches siguen siendo frescas, así que siempre lleva un buen abrigo."
+            },
+            {
+                "pregunta": "¿Cómo afecta la temporada de lluvias (octubre a abril) la experiencia de buscar huariques de comida fusión en Pasco?",
+                "respuesta": "Durante la temporada de lluvias en Pasco, las calles pueden estar resbaladizas y el transporte público ser menos frecuente en zonas periféricas. Es recomendable optar por huariques céntricos o con fácil acceso, y siempre llevar paraguas o impermeable."
+            },
+            {
+                "pregunta": "¿Cuáles son los horarios típicos de almuerzo y cena para probar la gastronomía fusión en los restaurantes de Pasco?",
+                "respuesta": "En Pasco, los restaurantes de gastronomía fusión suelen abrir para el almuerzo entre las 12:30 PM y 3:00 PM, y para la cena desde las 7:00 PM hasta las 10:00 PM. Algunos huariques pueden tener horarios más extendidos o solo atender al mediodía."
+            },
+            {
+                "pregunta": "¿Varían los horarios de atención de los huariques de fusión andino-amazónica en Pasco durante los fines de semana?",
+                "respuesta": "Sí, muchos huariques y restaurantes de fusión en Pasco extienden sus horarios de atención los fines de semana, especialmente los sábados, pudiendo cerrar una hora más tarde por la noche. Los domingos, algunos pueden cerrar más temprano o permanecer cerrados."
+            },
+            {
+                "pregunta": "¿Hay platos de la gastronomía fusión andino-amazónica en Pasco que solo se encuentren en ciertas temporadas por sus ingredientes?",
+                "respuesta": "Algunos platos de fusión en Pasco pueden usar ingredientes de temporada como ciertos frutos amazónicos o tubérculos andinos. Pregunta en el restaurante por las 'sugerencias del chef' que a menudo incorporan productos frescos de la estación."
+            },
+            {
+                "pregunta": "¿Es mejor probar los caldos o sopas de fusión andino-amazónica en Pasco durante el día o la noche por el clima?",
+                "respuesta": "Debido al clima frío de Pasco, especialmente por las tardes y noches, los caldos y sopas de fusión son particularmente reconfortantes y populares para la cena. Durante el almuerzo también son una excelente opción para calentar el cuerpo."
+            },
+            {
+                "pregunta": "¿Los restaurantes de gastronomía fusión en Pasco abren en feriados nacionales como Fiestas Patrias o Navidad?",
+                "respuesta": "La mayoría de los restaurantes de gastronomía fusión en Pasco sí abren durante feriados nacionales, aunque es común que operen con horarios especiales o reduzcan su personal. Es recomendable llamar con antelación para confirmar su disponibilidad y hacer reservas."
+            },
+            {
+                "pregunta": "¿Existen opciones de desayuno o brunch con toques de fusión andino-amazónica en Pasco y a qué hora abren?",
+                "respuesta": "Las opciones de desayuno o brunch de fusión son menos comunes en Pasco. La mayoría de los establecimientos se enfocan en almuerzo y cena. Algunos cafés o panaderías pueden ofrecer jugos exóticos o panes con ingredientes locales desde las 7:00 AM, pero no es una oferta de fusión completa."
+            },
+            {
+                "pregunta": "¿El mal de altura en Pasco puede afectar el apetito o los horarios para disfrutar la comida fusión?",
+                "respuesta": "Sí, el mal de altura (soroche) en Pasco puede disminuir el apetito o causar náuseas, lo que podría afectar tu disfrute de la comida. Es recomendable comer ligero al principio, hidratarse bien y evitar comidas muy pesadas, especialmente por la noche, durante los primeros días de aclimatación."
+            },
+            {
+                "pregunta": "¿A qué hora es mejor ir a los huariques de comida fusión en Pasco para evitar aglomeraciones?",
+                "respuesta": "Para evitar aglomeraciones en los huariques de comida fusión en Pasco, es recomendable ir a almorzar antes de la 1:00 PM o después de las 2:30 PM. Para la cena, llegar antes de las 7:30 PM o después de las 9:00 PM suele ser más tranquilo. Los días de semana son generalmente menos concurridos que los fines de semana."
+            }
+        ],
+        "5_Historia_Cultura_Curiosidades": [
+            {
+                "pregunta": "¿Cómo se originó la fusión de sabores andinos y amazónicos en la gastronomía de Pasco históricamente?",
+                "respuesta": "La fusión se gestó con la interacción de las culturas Quechua de la sierra y Yanesha/Asháninka de la selva alta, intensificada por las rutas comerciales prehispánicas y la posterior migración interna por la actividad minera desde el siglo XVII. Los arrieros y mineros fueron clave en el intercambio de productos y técnicas culinarias entre ambas regiones de Pasco."
+            },
+            {
+                "pregunta": "¿Qué influencia cultural tuvieron los pueblos originarios Yanesha en la cocina amazónica de Pasco?",
+                "respuesta": "Los Yanesha aportaron el uso de ingredientes como el plátano, la yuca, el paiche y el ají charapita, así como técnicas de cocción como el 'patarashca' (pescado envuelto en hojas de bijao y asado). Su cosmovisión se refleja en el respeto por los recursos naturales de la selva, fundamentales en la gastronomía de Pasco."
+            },
+            {
+                "pregunta": "¿Cuál es la importancia de la papa nativa en la historia culinaria andina de Pasco y su fusión?",
+                "respuesta": "La papa nativa, con sus cientos de variedades, es el pilar de la cocina andina de Pasco desde tiempos pre-incas. Su versatilidad permitió que se integrara en platos de fusión, como acompañamiento de carnes de la selva o en guisos que combinan tubérculos andinos con especias amazónicas, simbolizando la unión de ambos mundos en Pasco."
+            },
+            {
+                "pregunta": "¿Existen leyendas o mitos locales en Pasco que expliquen el origen de algún ingrediente clave de su gastronomía fusionada?",
+                "respuesta": "Sí, por ejemplo, en la zona amazónica de Pasco, hay relatos Yanesha sobre el origen del 'masato' (bebida de yuca fermentada), asociado a deidades que enseñaron a sus ancestros a procesar la yuca para obtener sustento y celebrar rituales, un elemento cultural que aún se consume en la región de Pasco."
+            },
+            {
+                "pregunta": "¿Cómo impactó la minería en Cerro de Pasco en la diversidad de la gastronomía local a lo largo de la historia?",
+                "respuesta": "La minería atrajo a migrantes de diversas regiones del Perú y del mundo a Cerro de Pasco desde el Virreinato, generando una demanda por platos sustanciosos y variados. Esto propició la llegada de nuevos ingredientes y la adaptación de recetas, enriqueciendo la oferta culinaria y acelerando la fusión de tradiciones andinas y amazónicas para satisfacer a una población diversa en Pasco."
+            },
+            {
+                "pregunta": "¿Qué festividades culturales en Pasco celebran o exhiben la gastronomía andino-amazónica fusionada?",
+                "respuesta": "La 'Semana Turística de Pasco', usualmente en noviembre, y la 'Fiesta de San Juan' en la selva central de Pasco (Oxapampa, Villa Rica) en junio, son eventos clave. Durante estas celebraciones, se organizan ferias gastronómicas donde se exhiben y venden platos que combinan ingredientes y técnicas de ambas regiones, como el 'juane de yuca con cecina' o la 'pachamanca de selva' en Pasco."
+            },
+            {
+                "pregunta": "¿Cuál es la historia detrás del uso de la 'hoja de bijao' en la cocina amazónica de Pasco y su integración en la fusión?",
+                "respuesta": "La hoja de bijao ha sido utilizada ancestralmente por las etnias amazónicas de Pasco para envolver y cocinar alimentos al vapor o a la brasa, aportando un aroma y sabor únicos. Su integración en la fusión se ve en platos donde envuelven carnes andinas o tubérculos con especias amazónicas, manteniendo una técnica milenaria en la gastronomía de Pasco."
+            },
+            {
+                "pregunta": "¿Qué rol jugó la Carretera Central en la evolución histórica de la gastronomía de Pasco y su fusión?",
+                "respuesta": "La Carretera Central, construida a principios del siglo XX, fue vital para conectar la sierra y la selva de Pasco con la capital, facilitando el transporte de productos frescos y la migración. Esto aceleró el intercambio culinario, permitiendo que ingredientes amazónicos llegaran a la sierra y viceversa, consolidando la fusión gastronómica de Pasco."
+            },
+            {
+                "pregunta": "¿Cómo se manifiesta la cosmovisión andina en la preparación de platos tradicionales de Pasco que tienen elementos de fusión?",
+                "respuesta": "La cosmovisión andina se manifiesta en el respeto a la 'Pachamama' (Madre Tierra) al usar ingredientes locales y de temporada, y en rituales como el 'pago a la tierra' antes de cosechar. En platos de fusión, esto se traduce en la valoración de productos como la papa, el maíz y la quinua, combinados con elementos amazónicos, manteniendo un equilibrio y gratitud por la naturaleza en Pasco."
+            },
+            {
+                "pregunta": "¿Qué curiosidades históricas se conocen sobre los primeros 'huariques' o puestos de comida que ofrecían fusión en Pasco?",
+                "respuesta": "Los primeros 'huariques' de fusión en Pasco surgieron informalmente en los mercados de abastos y alrededor de las minas, donde cocineras andinas y amazónicas ofrecían sus potajes a los trabajadores. Estos lugares eran puntos de encuentro cultural, donde se experimentaba con ingredientes disponibles, dando origen a combinaciones que hoy son emblemáticas de la gastronomía pasqueña."
+            }
+        ],
+        "6_Tips_Locales_Secretos": [
+            {
+                "pregunta": "¿Cuál es el huarique secreto en Pasco para probar la mejor fusión andino-amazónica sin gastar mucho dinero?",
+                "respuesta": "Busca 'El Sabor de la Selva en la Sierra' en el Jirón Grau 345, en Cerro de Pasco. Su juane con pachamanca es una joya oculta que cuesta entre 15 y 20 Soles, ideal para mochileros."
+            },
+            {
+                "pregunta": "¿Existe algún plato de fusión andino-amazónica poco conocido que los locales de Pasco recomienden probar sí o sí?",
+                "respuesta": "Sí, pregunta por el 'Patarashca Andina', una trucha de altura cocida en hojas de bijao con hierbas andinas y ají amazónico. Pocos restaurantes lo ofrecen, pero 'La Casona del Sabor' en la Plaza Carrión a veces lo tiene como especial del día por unos 30 Soles."
+            },
+            {
+                "pregunta": "¿A qué hora es mejor ir al Mercado Central de Pasco para encontrar los ingredientes más frescos para la gastronomía fusión?",
+                "respuesta": "Los días de feria, martes y sábados, entre las 7:00 AM y las 9:00 AM, es cuando llegan los productos más frescos de la selva central y la sierra. Busca los puestos de la sección 'productos de la chacra' para frutas exóticas y hierbas."
+            },
+            {
+                "pregunta": "¿Qué bebida local no alcohólica recomiendan los pasqueños para acompañar los platos fuertes de fusión andino-amazónica?",
+                "respuesta": "La 'chicha de jora morada' es una excelente opción. Es una variante menos dulce de la chicha morada tradicional, hecha con maíz morado y jora, que complementa muy bien los sabores intensos. La encuentras en casi cualquier picantería local por 3-5 Soles el vaso."
+            },
+            {
+                "pregunta": "¿Cómo puedo disfrutar de la auténtica gastronomía fusión andino-amazónica en Pasco con un presupuesto ajustado, como un mochilero?",
+                "respuesta": "Busca los 'menús del día' en los pequeños restaurantes alrededor del Mercado de Abastos de Yanacancha. Por 10-15 Soles, puedes encontrar opciones de fusión como un seco de res con yuca y arroz chaufa amazónico."
+            },
+            {
+                "pregunta": "¿Hay algún puesto callejero o esquina específica en Pasco donde vendan snacks de fusión andino-amazónica que los turistas no conocen?",
+                "respuesta": "En la esquina de Av. Los Incas con Jr. Bolognesi, por las tardes, a veces hay una señora que vende 'anticuchos de cecina' con papas nativas y crema de ají de cocona. Es un secreto local delicioso y cuesta 5 Soles por porción."
+            },
+            {
+                "pregunta": "¿Existen platos de fusión andino-amazónica en Pasco que solo se puedan probar en ciertas épocas del año?",
+                "respuesta": "Sí, durante la temporada de lluvias (diciembre a marzo), algunos restaurantes ofrecen 'caldo de gallina de chacra con sachaculantro y papas nativas', una fusión reconfortante. También, el 'juane de yuca' es más común en fiestas patronales."
+            },
+            {
+                "pregunta": "¿Cómo puedo identificar un restaurante de auténtica gastronomía fusión andino-amazónica en Pasco y evitar los lugares turísticos genéricos?",
+                "respuesta": "Busca locales con clientela mayormente local, sin grandes letreros luminosos. Los mejores suelen tener pizarras con el 'menú del día' escrito a mano y no aceptan tarjeta, solo efectivo. Pregunta a los taxistas o comerciantes locales por sus favoritos."
+            },
+            {
+                "pregunta": "¿Cuál es el mejor lugar secreto para un desayuno de fusión andino-amazónica en Pasco, que no sea muy conocido por los turistas?",
+                "respuesta": "Visita 'El Desayuno del Minero' en el Jirón San Martín 123, abre desde las 6:00 AM. Sirven un 'caldo de cabeza con plátano maduro frito' que es una explosión de sabores andinos y amazónicos, por unos 12 Soles."
+            },
+            {
+                "pregunta": "¿Qué ingrediente amazónico poco común se usa en la cocina fusión de Pasco y dónde puedo probarlo?",
+                "respuesta": "El 'sachaculantro' (culantro de monte) es clave. Búscalo en platos como el 'tacacho con cecina y chorizo' en 'El Rincón Amazónico' en el Jirón Ayacucho 210. Su aroma es distintivo y eleva cualquier plato de la selva. Un plato cuesta entre 25 y 35 Soles."
+            }
+        ],
+        "7_Gastronomia_Alimentos_Supervivencia": [
+            {
+                "pregunta": "¿Qué superalimentos energéticos de Pasco son ideales para llevar en caminatas largas por la sierra o selva alta?",
+                "respuesta": "Para caminatas en Pasco, busca maca en polvo o tostada, kiwicha y cañihua en barras o granos. Puedes encontrarlos en el Mercado Central de Chaupimarca, en Jr. Bolognesi, a precios que van desde 15 a 30 Soles por kilo, dependiendo del producto y la presentación. Son excelentes para energía sostenida."
+            },
+            {
+                "pregunta": "¿Cuáles son los métodos tradicionales de conservación de alimentos que aún se practican en Pasco para la autosuficiencia?",
+                "respuesta": "En Pasco, se sigue usando el charqui (carne deshidratada, generalmente de llama o res), la papa seca (papa andina deshidratada al sol) y la oca deshidratada. Estos productos se pueden adquirir en ferias dominicales o directamente de productores en comunidades como Ninacaca o Vicco, ideales para almacenar por meses."
+            },
+            {
+                "pregunta": "¿Qué alimentos no perecederos y nutritivos recomiendan los expertos para una mochila de emergencia en la selva de Pasco?",
+                "respuesta": "Para una mochila de emergencia en la selva de Pasco, lleva conservas de pescado (atún o caballa), galletas de agua, frutos secos (maní, pasas), chocolate amargo, y barras energéticas. También es útil llevar un paquete pequeño de fideos instantáneos y sobres de café soluble. Prioriza alimentos de alto valor calórico y bajo peso."
+            },
+            {
+                "pregunta": "¿Qué platos típicos de Pasco son los más recomendados para recuperar energías después de una jornada intensa de exploración?",
+                "respuesta": "Después de una jornada intensa en Pasco, el 'Caldo de Gallina de Chacra' es muy reconstituyente, lo encuentras en el Mercado Central o en huariques como 'El Sabor de mi Tierra' en Jr. Daniel Alcides Carrión. También la 'Pachamanca' (si es temporada y hay eventos comunales) o la 'Patasca', que es un caldo sustancioso a base de maíz y carne."
+            },
+            {
+                "pregunta": "¿Dónde puedo comprar alimentos básicos y económicos en Pasco para una dieta de supervivencia o un presupuesto ajustado?",
+                "respuesta": "Para alimentos básicos y económicos en Pasco, el Mercado Central de Chaupimarca (ubicado en Jr. Bolognesi con Jr. Grau) es tu mejor opción. Allí encontrarás papas nativas, maíz, frijoles, yuca y plátanos a precios muy accesibles, por ejemplo, el kilo de papa puede costar entre 1.50 y 2.50 Soles."
+            },
+            {
+                "pregunta": "¿Existen plantas o alimentos de Pasco con propiedades medicinales o restauradoras que ayuden en situaciones de supervivencia?",
+                "respuesta": "Sí, la hoja de coca es tradicionalmente usada para el mal de altura y como energizante, se puede masticar o preparar en infusión. La muña, en infusión, ayuda a la digestión y es un buen antiespasmódico. Ambas se encuentran en mercados locales o tiendas de hierbas en Pasco."
+            },
+            {
+                "pregunta": "¿Qué tipo de comida práctica y duradera suelen llevar los pasqueños en sus viajes largos por carretera o expediciones rurales?",
+                "respuesta": "Para viajes largos en Pasco, los locales suelen llevar 'pan de piso' (un pan grande y denso), empanadas de carne o queso, humitas (dulces o saladas de maíz), y chicharrón de cerdo seco. Estos alimentos son fáciles de transportar, no requieren refrigeración inmediata y son muy energéticos."
+            },
+            {
+                "pregunta": "¿Cómo se preparan los alimentos en las comunidades rurales de Pasco que no tienen acceso a cocinas modernas o electricidad?",
+                "respuesta": "En las comunidades rurales de Pasco, la preparación de alimentos se realiza principalmente en fogones a leña, utilizando ollas de barro o metal. La 'Pachamanca' es un método ancestral de cocción bajo tierra con piedras calientes, ideal para grandes cantidades de comida en eventos especiales."
+            },
+            {
+                "pregunta": "¿Qué alimentos básicos recomiendan los pobladores de Pasco tener en casa como reserva para emergencias o aislamiento?",
+                "respuesta": "Los pobladores de Pasco recomiendan almacenar arroz, azúcar, fideos, lentejas, frijoles, aceite vegetal, sal, y conservas de atún o leche evaporada. También es común tener papa seca y charqui como reserva de proteínas y carbohidratos de larga duración."
+            },
+            {
+                "pregunta": "¿Cuáles son los ingredientes andino-amazónicos de Pasco más resilientes y nutritivos para una dieta de subsistencia a largo plazo?",
+                "respuesta": "Para una dieta de subsistencia en Pasco, los ingredientes clave son la yuca y el plátano verde (en la zona amazónica), diversas variedades de papas nativas, maíz (en grano o harina), y frijoles. Estos cultivos son resistentes, nutritivos y forman la base de la alimentación local."
+            }
+        ],
+        "8_Accesibilidad_Infraestructura": [
+            {
+                "pregunta": "¿Cómo llego a los principales huariques de gastronomía fusión andino-amazónica en Cerro de Pasco desde el centro de la ciudad?",
+                "respuesta": "Para llegar a los huariques más reconocidos en Cerro de Pasco, como 'El Sabor Andino Amazónico' o 'La Casona del Sabor', desde la Plaza Daniel Alcides Carrión, puedes tomar un taxi colectivo por aproximadamente 3 a 5 Soles o un mototaxi por 2 a 4 Soles. La mayoría se ubican en zonas céntricas o de fácil acceso vehicular."
+            },
+            {
+                "pregunta": "¿Hay opciones de transporte público para visitar restaurantes de fusión andino-amazónica en Oxapampa o Villa Rica desde Cerro de Pasco?",
+                "respuesta": "Sí, desde el Terminal Terrestre de Cerro de Pasco, puedes tomar buses o minivans hacia Oxapampa o Villa Rica. Empresas como 'Movil Bus' o 'Transportes Pasco' ofrecen rutas diarias. El pasaje a Oxapampa cuesta entre 25 y 35 Soles, y a Villa Rica entre 30 y 40 Soles. El viaje dura aproximadamente 3-4 horas por carreteras asfaltadas en buen estado."
+            },
+            {
+                "pregunta": "¿Los restaurantes de fusión andino-amazónica en Pasco tienen infraestructura accesible para personas con movilidad reducida?",
+                "respuesta": "Lamentablemente, la mayoría de los huariques y restaurantes más tradicionales en Pasco, especialmente los de menor tamaño, no cuentan con infraestructura completamente adaptada para personas con movilidad reducida, como rampas o baños accesibles. Algunos establecimientos más modernos en ciudades como Oxapampa o Pozuzo podrían ofrecer mejores condiciones. Siempre es recomendable llamar con antelación para confirmar."
+            },
+            {
+                "pregunta": "¿Qué tipo de infraestructura de pago ofrecen los huariques de gastronomía fusión en Pasco? ¿Aceptan tarjetas de crédito?",
+                "respuesta": "En los huariques más pequeños y tradicionales de Pasco, el método de pago predominante es el efectivo (Soles peruanos). Sin embargo, los restaurantes de tamaño mediano a grande, especialmente en ciudades como Cerro de Pasco, Oxapampa o Pozuzo, suelen aceptar tarjetas de crédito y débito (Visa, MasterCard) y también pagos con Yape o Plin. Es prudente llevar siempre algo de efectivo."
+            },
+            {
+                "pregunta": "¿Es fácil encontrar estacionamiento cerca de los restaurantes de fusión andino-amazónica en el centro de Cerro de Pasco?",
+                "respuesta": "En el centro de Cerro de Pasco, encontrar estacionamiento gratuito en la calle puede ser un desafío, especialmente en horas punta. Algunos restaurantes más grandes pueden ofrecer estacionamiento propio o convenios con playas de estacionamiento cercanas. En general, es más sencillo encontrar estacionamiento en zonas un poco más alejadas del centro o en ciudades como Oxapampa, que tienen mayor infraestructura para vehículos."
+            },
+            {
+                "pregunta": "¿Los restaurantes de fusión andino-amazónica en Pasco ofrecen conexión Wi-Fi gratuita para los clientes?",
+                "respuesta": "La disponibilidad de Wi-Fi gratuito varía. Los restaurantes más establecidos y turísticos en ciudades como Oxapampa, Pozuzo o incluso algunos en Cerro de Pasco, suelen ofrecer Wi-Fi para sus clientes. Sin embargo, en huariques más pequeños o en zonas rurales, es menos común. Es recomendable no depender exclusivamente de la conexión Wi-Fi del local."
+            },
+            {
+                "pregunta": "¿Cuál es la condición de las carreteras para llegar a huariques de gastronomía fusión en zonas más remotas de Pasco, como en la selva central?",
+                "respuesta": "Para llegar a huariques en zonas más remotas de la selva central de Pasco, como en algunos distritos de Oxapampa o Villa Rica, las carreteras principales (como la Carretera Central) están asfaltadas y en buen estado. Sin embargo, los accesos a caseríos o fincas más alejadas pueden ser por trochas carrozables o caminos de tierra, que pueden volverse difíciles con lluvias, especialmente entre diciembre y marzo. Se recomienda vehículos 4x4 para estas rutas."
+            },
+            {
+                "pregunta": "¿Hay baños públicos o servicios higiénicos accesibles cerca de los principales puntos gastronómicos de Pasco?",
+                "respuesta": "La mayoría de los restaurantes y huariques en Pasco, incluso los más modestos, cuentan con servicios higiénicos para sus clientes. Sin embargo, la calidad y limpieza pueden variar. Baños públicos independientes no son tan comunes fuera de terminales terrestres o mercados principales. Es importante considerar que la accesibilidad para personas con discapacidad en estos baños es limitada en la mayoría de los casos."
+            },
+            {
+                "pregunta": "¿Qué tan buena es la señal de telefonía móvil (celular) en los alrededores de los huariques de fusión andino-amazónica en Pasco?",
+                "respuesta": "En las ciudades principales como Cerro de Pasco, Oxapampa y Villa Rica, la señal de telefonía móvil (Claro, Movistar, Entel) es generalmente buena. Sin embargo, al visitar huariques ubicados en zonas rurales o más alejadas de la selva central, la cobertura puede ser intermitente o nula, dependiendo del operador. Es aconsejable informar a alguien sobre tu ubicación si planeas explorar zonas remotas."
+            },
+            {
+                "pregunta": "¿Existen mercados o ferias gastronómicas temporales en Pasco donde se pueda probar la fusión andino-amazónica y cómo se accede a ellos?",
+                "respuesta": "Sí, ocasionalmente se organizan ferias gastronómicas, especialmente durante festividades locales o eventos turísticos en Cerro de Pasco, Oxapampa o Pozuzo. Estos eventos suelen ser anunciados por las municipalidades locales. El acceso a estas ferias es generalmente peatonal y se ubican en plazas principales o campos feriales de fácil acceso en transporte público o taxi. La infraestructura es temporal, con puestos de comida y mesas."
+            }
+        ],
+        "9_Reglas_Prohibiciones_Tramites": [
+            {
+                "pregunta": "¿En Pasco, hay alguna regla sobre la venta de alcohol en los huariques de fusión andino-amazónica durante días festivos o elecciones?",
+                "respuesta": "Sí, durante periodos electorales o ciertos días festivos nacionales, se aplica la 'Ley Seca' en todo Perú, incluyendo Pasco, prohibiendo la venta de bebidas alcohólicas en cualquier establecimiento, incluidos los huariques de fusión. Es importante verificar las fechas específicas."
+            },
+            {
+                "pregunta": "Para probar la comida callejera de fusión en Pasco, ¿qué señales de higiene debo buscar para asegurar que el puesto cumple las reglas sanitarias básicas?",
+                "respuesta": "Busque puestos que exhiban visiblemente su permiso municipal o carné de sanidad, que el personal use guantes y gorro, que los utensilios estén limpios y que los alimentos estén cubiertos o refrigerados. Evite los que no cumplan estas reglas básicas de salubridad en Pasco."
+            },
+            {
+                "pregunta": "Si quiero pagar con tarjeta en un restaurante de fusión andino-amazónica en Pasco, ¿es una regla general que acepten o debo llevar efectivo?",
+                "respuesta": "En Pasco, muchos huariques de fusión más pequeños o tradicionales operan únicamente con efectivo. Es una buena regla llevar siempre Soles en efectivo, especialmente fuera del centro de Cerro de Pasco, para evitar inconvenientes al pagar."
+            },
+            {
+                "pregunta": "Para asegurar una mesa en los huariques de fusión más populares de Pasco, ¿es un requisito hacer reserva previa, especialmente para grupos grandes?",
+                "respuesta": "Aunque no es un requisito estricto en la mayoría de huariques de fusión en Pasco, para grupos grandes (más de 6 personas) o en fechas especiales, es altamente recomendable llamar con antelación para reservar y asegurar su lugar, especialmente en locales como 'El Fogón Pasqueño' o 'Sabor Andino'."
+            },
+            {
+                "pregunta": "Si tengo una alergia alimentaria, ¿cuál es el procedimiento recomendado para comunicarlo en los restaurantes de fusión de Pasco y evitar ingredientes prohibidos para mí?",
+                "respuesta": "Lo más recomendable es aprender frases clave en español como 'Soy alérgico/a a...' (por ejemplo, 'Soy alérgico/a al maní') o llevar una nota escrita. Pregunte directamente al mozo o chef sobre los ingredientes de los platos de fusión para evitar cualquier riesgo en Pasco."
+            },
+            {
+                "pregunta": "En los restaurantes de fusión andino-amazónica de Pasco, ¿cuál es la regla o costumbre sobre dejar propina al personal?",
+                "respuesta": "En Pasco, dejar propina no es obligatorio, pero es una costumbre apreciada si el servicio fue bueno. Generalmente, se deja entre el 5% y el 10% del total de la cuenta. Algunos establecimientos más formales pueden incluir un cargo por servicio, lo cual debe estar indicado en la boleta."
+            },
+            {
+                "pregunta": "Antes de tomar fotos de los platos o del ambiente en un huarique de fusión tradicional en Pasco, ¿hay alguna regla de cortesía que deba seguir?",
+                "respuesta": "Generalmente, está permitido tomar fotos de los platos en los huariques de fusión en Pasco. Sin embargo, por cortesía, especialmente en establecimientos pequeños o familiares, es buena práctica preguntar primero al personal si puede fotografiar el local o a otras personas para respetar su privacidad."
+            },
+            {
+                "pregunta": "En los establecimientos de comida fusión en Pasco, ¿está prohibido llevar mis propias bebidas o alimentos del exterior?",
+                "respuesta": "Sí, en la mayoría de restaurantes y huariques de fusión en Pasco, está prohibido ingresar con bebidas o alimentos comprados fuera del establecimiento. Es una regla común para mantener la calidad del servicio y la higiene, además de ser parte de su modelo de negocio."
+            },
+            {
+                "pregunta": "Para cenar en un restaurante de fusión andino-amazónica más formal en Pasco, ¿existe algún código de vestimenta o regla de etiqueta que deba conocer?",
+                "respuesta": "En Pasco, la mayoría de los restaurantes de fusión, incluso los más reconocidos, mantienen un ambiente casual. No hay un código de vestimenta estricto. Sin embargo, para los establecimientos más 'formales', se aprecia una vestimenta 'smart casual' (casual elegante), evitando ropa de playa o deportiva."
+            },
+            {
+                "pregunta": "Si compro productos gastronómicos típicos de Pasco, ¿qué trámites o prohibiciones debo considerar para llevarlos fuera de Perú?",
+                "respuesta": "Para llevar productos gastronómicos de Pasco fuera de Perú, las reglas aduaneras prohíben la exportación de productos frescos (frutas, verduras, carnes sin procesar) y ciertos productos de origen animal. Los productos procesados y envasados (como café, chocolates, licores) suelen estar permitidos en cantidades razonables para consumo personal, sin trámites especiales."
+            }
+        ],
+        "10_Alternativas_Plan_B": [
+            {
+                "pregunta": "¿Si el restaurante 'El Sabor Andino-Amazónico' en Pasco está lleno, ¿qué otra opción de fusión andino-amazónica recomiendan para cenar?",
+                "respuesta": "Una excelente alternativa es 'La Casona del Chef', ubicado en Jr. Bolognesi 345, Cerro de Pasco. Ofrecen un menú degustación de fusión por aproximadamente 70 Soles por persona, con platos como trucha amazónica con quinua y salsa de cocona."
+            },
+            {
+                "pregunta": "¿Dónde puedo encontrar opciones de comida fusión andino-amazónica más económicas o tipo 'huarique' en Pasco si no quiero un restaurante formal?",
+                "respuesta": "Visita el Mercado Central de Cerro de Pasco, especialmente los puestos de comida en el segundo piso. Hay un puesto llamado 'El Rinconcito Amazónico' que ofrece tacacho con cecina y un toque andino por unos 15 Soles, ideal para un almuerzo rápido."
+            },
+            {
+                "pregunta": "¿Si no encuentro el 'Juane de Cuy' que quería probar en Pasco, ¿qué otro plato de fusión andino-amazónica similar o igual de sorprendente puedo pedir?",
+                "respuesta": "Prueba el 'Patarashca de Trucha Andina', una versión de la patarashca amazónica pero con trucha local y hierbas andinas. Lo encuentras en 'El Fogón Pasqueño', Jr. Daniel Alcides Carrión 120, por unos 45 Soles."
+            },
+            {
+                "pregunta": "¿Hay alguna cafetería o pastelería en Pasco que ofrezca postres o bebidas con toques de fusión andino-amazónica como alternativa a una comida principal?",
+                "respuesta": "Sí, 'Café Altura' en Jr. Grau 210 tiene postres como cheesecake de aguaymanto y café con infusión de muña. Es perfecto para una tarde de 'Plan B' dulce, con precios entre 15 y 25 Soles por postre y bebida."
+            },
+            {
+                "pregunta": "¿Soy mochilero en Pasco y busco opciones de comida fusión andino-amazónica ricas pero muy económicas, ¿dónde puedo ir si mi presupuesto es ajustado?",
+                "respuesta": "Dirígete a los alrededores del Terminal Terrestre de Cerro de Pasco. Hay pequeños comedores que ofrecen menús del día con opciones de fusión, como estofado de res con yuca y arroz chaufa amazónico, por 10 a 12 Soles. Busca 'El Buen Sazón de la Tía Rosa'."
+            },
+            {
+                "pregunta": "¿Si quiero experimentar cocinando fusión andino-amazónica en Pasco, ¿dónde puedo comprar ingredientes frescos y auténticos como alternativa a comer fuera?",
+                "respuesta": "El Mercado de Abastos 'San Juan' en el centro de Cerro de Pasco es tu mejor opción. Encontrarás ajíes amazónicos, yucas, plátanos maduros y hierbas andinas. Los precios son muy accesibles, por ejemplo, un kilo de yuca cuesta 3 Soles."
+            },
+            {
+                "pregunta": "¿Si estoy en Oxapampa y no en Cerro de Pasco, ¿hay opciones de gastronomía fusión andino-amazónica como 'Plan B' sin tener que viajar a la capital provincial?",
+                "respuesta": "Absolutamente. En Oxapampa, busca 'El Trapiche del Abuelo' en Av. San Martín 150. Aunque más enfocado en la selva, tienen platos con insumos andinos como la papa nativa. Un plato principal cuesta entre 35 y 55 Soles."
+            },
+            {
+                "pregunta": "¿Qué alternativas vegetarianas de comida fusión andino-amazónica puedo encontrar en Pasco si los platos principales son de carne?",
+                "respuesta": "Muchos restaurantes ofrecen 'Tacacho con Champiñones' o 'Juane de Champiñones' como alternativa vegetariana. En 'Sabor y Tradición' (Jr. Bolognesi 180), puedes pedir un 'Ají de Gallina' vegetariano con tofu andino por 38 Soles."
+            },
+            {
+                "pregunta": "¿Si busco una experiencia de fusión andino-amazónica más sofisticada o de 'Plan B' para una ocasión especial en Pasco, ¿qué restaurante me recomendarían?",
+                "respuesta": "Para una experiencia más exclusiva, 'El Mirador de Pasco' en la parte alta de la ciudad (Jr. Huánuco s/n) ofrece vistas panorámicas y platos de autor con fusión. Un plato principal puede costar entre 60 y 90 Soles, ideal para una cena especial."
+            },
+            {
+                "pregunta": "¿Hay algún lugar en Pasco donde pueda probar postres o bebidas de fusión andino-amazónica que incorporen café o chocolate local como 'Plan B' para un antojo?",
+                "respuesta": "Visita 'ChocoSelva Pasco' en Jr. Lima 105. Ofrecen bombones de chocolate con rellenos de aguaymanto y café de Villa Rica, además de bebidas calientes con toques de muña. Un set de bombones cuesta 20 Soles."
+            }
+        ]
+    }
+}

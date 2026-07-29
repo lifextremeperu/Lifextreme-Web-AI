@@ -1,0 +1,426 @@
+{
+    "destino_id": "G-01",
+    "modulo_contexto": "Alojamiento en Lima: Opciones para cada viajero",
+    "fqsas": {
+        "1_Precios_Presupuestos_Moneda": [
+            {
+                "pregunta": "¿Cuánto cuesta una cama en un hostal económico en Miraflores o Barranco, Lima, por noche?",
+                "respuesta": "Una cama en un dormitorio compartido en hostales populares de Miraflores o Barranco, como el Pariwana Hostel o el Dragonfly Hostel, suele costar entre 35 y 60 Soles peruanos (aproximadamente 10 a 16 USD) por noche, dependiendo de la temporada y las comodidades."
+            },
+            {
+                "pregunta": "¿Cuál es el precio promedio por noche para un hotel de gama media en San Isidro, Lima?",
+                "respuesta": "En San Isidro, un hotel de gama media con buenas valoraciones, como el Hotel Novotel o el Atton San Isidro, puede costar entre 250 y 450 Soles peruanos (aproximadamente 65 a 120 USD) por noche, incluyendo desayuno en muchos casos."
+            },
+            {
+                "pregunta": "¿Qué tarifas nocturnas puedo esperar para hoteles de lujo de 5 estrellas en Miraflores o San Isidro, Lima?",
+                "respuesta": "Los hoteles de lujo de 5 estrellas en Miraflores (como el Belmond Miraflores Park o el JW Marriott Hotel Lima) y San Isidro (como el Country Club Lima Hotel) tienen tarifas que oscilan entre 800 y 2000 Soles peruanos (aproximadamente 210 a 550 USD) por noche, o incluso más para suites exclusivas."
+            },
+            {
+                "pregunta": "¿Cuánto debería presupuestar un mochilero por noche solo para alojamiento en Lima?",
+                "respuesta": "Un mochilero en Lima debería presupuestar entre 40 y 80 Soles peruanos (aproximadamente 11 a 22 USD) por noche para alojamiento, optando por camas en dormitorios de hostales o habitaciones privadas muy básicas en zonas como el Cercado de Lima o algunos hostales en Lince."
+            },
+            {
+                "pregunta": "¿Cuál es un presupuesto realista por noche para alojamiento de lujo en Lima para un viajero exigente?",
+                "respuesta": "Para un viajero de lujo, un presupuesto realista para alojamiento en Lima sería de 800 a 2500 Soles peruanos (aproximadamente 210 a 680 USD) por noche, lo que permite acceder a hoteles boutique exclusivos o suites en hoteles de 5 estrellas con servicios premium en Miraflores o San Isidro."
+            },
+            {
+                "pregunta": "¿Es mejor pagar los hoteles en Lima con Soles peruanos o Dólares estadounidenses? ¿Dónde puedo cambiar moneda de forma segura?",
+                "respuesta": "Aunque muchos hoteles aceptan Dólares estadounidenses, es recomendable pagar en Soles peruanos para evitar tipos de cambio desfavorables. Puede cambiar moneda de forma segura en casas de cambio autorizadas (Casas de Cambio) en Miraflores (Av. Larco, Calle Schell) o en bancos, evitando cambistas callejeros."
+            },
+            {
+                "pregunta": "¿La mayoría de los hoteles y hostales en Lima aceptan tarjetas de crédito o debo llevar efectivo (Soles)?",
+                "respuesta": "La gran mayoría de hoteles y hostales establecidos en Miraflores, Barranco y San Isidro aceptan tarjetas de crédito (Visa, MasterCard, American Express). Sin embargo, es prudente llevar algo de efectivo (Soles) para pequeños gastos, propinas o para hostales muy pequeños que a veces solo aceptan efectivo."
+            },
+            {
+                "pregunta": "¿Hay impuestos o cargos adicionales sobre los precios de alojamiento en Lima que deba conocer?",
+                "respuesta": "Sí, los precios de alojamiento en Perú generalmente no incluyen el 18% de IGV (Impuesto General a las Ventas) y un 10% de cargo por servicios. Los turistas extranjeros están exentos del IGV si su estadía es menor a 60 días y presentan su pasaporte y tarjeta de migración al check-in. Siempre confirme si los precios cotizados incluyen o excluyen estos impuestos."
+            },
+            {
+                "pregunta": "¿Qué zonas de Lima ofrecen las opciones de alojamiento más económicas para viajeros con bajo presupuesto?",
+                "respuesta": "Para alojamiento muy económico en Lima, además de algunos hostales en Miraflores y Barranco, puede encontrar opciones más baratas en distritos como Lince, Jesús María o el Cercado de Lima, aunque estos últimos pueden no tener la misma oferta turística o seguridad que las zonas más céntricas."
+            },
+            {
+                "pregunta": "¿Los precios de los hoteles en Lima varían mucho entre temporada alta y baja, y cuándo son estas temporadas?",
+                "respuesta": "Sí, los precios de alojamiento en Lima pueden variar. La temporada alta suele ser de diciembre a marzo (verano peruano) y durante festividades importantes como Semana Santa o Fiestas Patrias (julio), donde los precios pueden subir un 15-30%. La temporada baja es generalmente de abril a noviembre, excluyendo festivos, con precios más estables o ligeramente más bajos."
+            }
+        ],
+        "2_Logistica_Transporte_Como_Llegar": [
+            {
+                "pregunta": "¿Cómo llegar del aeropuerto Jorge Chávez de Lima a Miraflores de forma segura y económica?",
+                "respuesta": "Para llegar del aeropuerto de Lima a Miraflores, la opción más segura y económica es el servicio Airport Express Lima, con buses que salen cada hora y cuestan aproximadamente 8 USD (unos 30 Soles). También puedes usar aplicaciones como Uber, Cabify o Didi, con tarifas que varían entre 40 y 70 Soles dependiendo del tráfico y la hora. Evita taxis informales fuera del terminal."
+            },
+            {
+                "pregunta": "¿Cuál es la mejor forma de moverse entre Miraflores, Barranco y San Isidro en Lima usando transporte público?",
+                "respuesta": "El Metropolitano es la forma más eficiente. Puedes tomar el bus troncal en estaciones clave como 'Ricardo Palma' (Miraflores), 'Bulevar' (Barranco) o 'Canadá' (San Isidro). Necesitarás una tarjeta recargable (5 Soles la tarjeta, pasaje 3.20 Soles). También hay buses de transporte público convencional que conectan estos distritos por unos 2.50 Soles."
+            },
+            {
+                "pregunta": "¿Cuánto cuesta un taxi o Uber desde Miraflores hasta Barranco en Lima?",
+                "respuesta": "Un viaje en taxi o a través de aplicaciones como Uber, Cabify o Didi entre Miraflores y Barranco suele costar entre 10 y 18 Soles, dependiendo del tráfico y la hora del día. En horas punta, el precio puede ser ligeramente superior."
+            },
+            {
+                "pregunta": "¿Es seguro usar el transporte público en Lima para turistas, especialmente de noche?",
+                "respuesta": "Durante el día, el Metropolitano y los buses formales son generalmente seguros para turistas en Lima. Por la noche, especialmente si viajas solo, es más recomendable usar taxis de aplicaciones (Uber, Cabify, Didi) o taxis de empresas reconocidas, en lugar de taxis de la calle o transporte público, para mayor seguridad."
+            },
+            {
+                "pregunta": "¿Cómo llego desde el Terminal Terrestre Plaza Norte de Lima a mi hotel en San Isidro?",
+                "respuesta": "Desde el Terminal Terrestre Plaza Norte de Lima, la opción más directa y segura para llegar a San Isidro es tomar un taxi de aplicación (Uber, Cabify, Didi) o un taxi formal de una empresa dentro del terminal. El costo puede variar entre 35 y 60 Soles, y el viaje dura entre 30 y 60 minutos, dependiendo del tráfico."
+            },
+            {
+                "pregunta": "¿Se puede caminar o usar bicicleta para ir de Miraflores a Barranco en Lima?",
+                "respuesta": "Sí, es una actividad muy popular y agradable en Lima. Hay un hermoso malecón que conecta Miraflores con Barranco, ideal para caminar o andar en bicicleta con vistas al mar. El trayecto a pie dura unos 20-30 minutos y en bicicleta unos 10-15 minutos. Hay servicios de alquiler de bicicletas disponibles en ambos distritos."
+            },
+            {
+                "pregunta": "¿Qué líneas de bus me sirven para ir del Parque Kennedy en Miraflores al Puente de los Suspiros en Barranco, Lima?",
+                "respuesta": "Para ir del Parque Kennedy en Miraflores al Puente de los Suspiros en Barranco, puedes caminar hasta la Estación Ricardo Palma del Metropolitano y tomar un bus troncal hacia el sur hasta la Estación Bulevar en Barranco. Desde allí, el Puente de los Suspiros está a pocos minutos a pie. El pasaje cuesta 3.20 Soles."
+            },
+            {
+                "pregunta": "¿Debo reservar un traslado desde el aeropuerto Jorge Chávez de Lima a mi alojamiento en Miraflores con antelación?",
+                "respuesta": "No es estrictamente necesario reservar un traslado con antelación, ya que hay opciones como Airport Express Lima o taxis de aplicación disponibles al llegar al aeropuerto Jorge Chávez de Lima. Sin embargo, reservar un servicio de taxi formal o un traslado privado puede ofrecer mayor tranquilidad y un precio fijo, especialmente si llegas de madrugada."
+            },
+            {
+                "pregunta": "¿Cuánto cuesta la tarjeta del Metropolitano en Lima y dónde la compro?",
+                "respuesta": "La tarjeta del Metropolitano en Lima tiene un costo de 5 Soles y se puede adquirir y recargar en las taquillas de cualquier estación del Metropolitano. El pasaje para el servicio troncal cuesta 3.20 Soles por viaje."
+            },
+            {
+                "pregunta": "¿Cómo me muevo dentro del distrito de San Isidro en Lima si me hospedo allí?",
+                "respuesta": "San Isidro es un distrito bastante caminable en Lima, especialmente en sus zonas residenciales y comerciales como la Av. Conquistadores o el Bosque El Olivar. Para distancias más largas, puedes usar taxis de aplicación (Uber, Cabify), buses de transporte público que recorren las avenidas principales, o incluso bicicletas de alquiler."
+            }
+        ],
+        "3_Seguridad_Riesgos_Salud": [
+            {
+                "pregunta": "¿Es seguro caminar por la noche en Miraflores o Barranco, Lima, cerca de los hoteles y hostales?",
+                "respuesta": "Sí, en general es seguro caminar por la noche en las zonas turísticas de Miraflores y Barranco, especialmente en avenidas principales como Larco o la Costa Verde. Sin embargo, siempre se recomienda estar atento al entorno, evitar calles poco iluminadas y no exhibir objetos de valor. Para Barranco, la zona del Puente de los Suspiros y la Bajada de Baños es concurrida, pero más allá de eso, es mejor tomar un taxi seguro."
+            },
+            {
+                "pregunta": "¿Qué precauciones de seguridad debo tomar al usar taxis desde mi hotel o hostal en Lima, especialmente en Miraflores o San Isidro?",
+                "respuesta": "Siempre utiliza servicios de taxi solicitados a través de aplicaciones confiables como Uber, Cabify o Didi, o taxis de empresas formales que tu hotel puede recomendar. Evita tomar taxis de la calle sin identificación. Confirma la placa y el nombre del conductor antes de subir. Un viaje promedio dentro de Miraflores o a Barranco no debería exceder los 15-20 Soles."
+            },
+            {
+                "pregunta": "¿Es seguro beber agua del grifo en los hoteles de Lima, Perú, o debo comprar agua embotellada para evitar problemas de salud?",
+                "respuesta": "No se recomienda beber agua directamente del grifo en Lima, incluso en hoteles de lujo. Siempre es mejor consumir agua embotellada sellada. La mayoría de los hoteles proporcionan botellas de cortesía o tienen dispensadores de agua filtrada. Puedes comprar agua embotellada en cualquier supermercado o tienda de conveniencia por 2-5 Soles la botella grande."
+            },
+            {
+                "pregunta": "¿Hay hospitales o clínicas de emergencia confiables cerca de los alojamientos en Miraflores, Barranco o San Isidro, Lima, para turistas?",
+                "respuesta": "Sí, estas zonas cuentan con excelentes centros médicos. En Miraflores, tienes la Clínica Delgado (Av. Angamos Oeste 300) y la Clínica Good Hope (Av. Malecón Balta 956). En San Isidro, la Clínica Ricardo Palma (Av. Javier Prado Este 1066) es una opción de alta calidad. Todos ofrecen atención de emergencia 24/7 y aceptan seguros de viaje internacionales."
+            },
+            {
+                "pregunta": "¿Cuáles son las estafas o riesgos de seguridad más comunes que los turistas deben conocer cerca de sus alojamientos en Lima, Perú?",
+                "respuesta": "Ten cuidado con los 'jaladores' (personas que insisten en llevarte a tiendas o restaurantes específicos), los 'cambistas' de dinero en la calle (siempre usa casas de cambio formales o bancos), y los robos de celulares o carteras por descuido, especialmente en terrazas de restaurantes o lugares concurridos. Nunca dejes tus pertenencias desatendidas."
+            },
+            {
+                "pregunta": "¿Qué precauciones de seguridad sísmica deben considerar los turistas al elegir un hotel o hostal en Lima, Perú, debido a los terremotos?",
+                "respuesta": "Lima es una zona sísmica. Al elegir alojamiento, busca edificios modernos que cumplan con las normas de construcción antisísmicas. Familiarízate con las rutas de evacuación y los puntos de reunión seguros que cada establecimiento debe indicar. Mantén siempre un calzado cómodo y tus documentos importantes a mano en caso de una evacuación nocturna."
+            },
+            {
+                "pregunta": "¿Qué recomendaciones de salud hay sobre la comida callejera o restaurantes locales cerca de los alojamientos en Miraflores o Barranco, Lima?",
+                "respuesta": "Si bien la comida callejera puede ser deliciosa, para evitar problemas estomacales, se recomienda elegir puestos con alta rotación de clientes y que preparen los alimentos al momento. En restaurantes, opta por lugares con buena reputación y altos estándares de higiene. Evita ensaladas o frutas sin pelar si no estás seguro de cómo fueron lavadas."
+            },
+            {
+                "pregunta": "¿Qué riesgos de seguridad implica reservar alojamiento en Lima a través de plataformas no oficiales o directamente con particulares?",
+                "respuesta": "Reservar fuera de plataformas reconocidas o directamente con particulares puede aumentar el riesgo de estafas, alojamientos que no cumplen lo prometido, o incluso situaciones de inseguridad personal. Siempre utiliza plataformas como Booking.com, Airbnb (con anfitriones verificados) o las webs oficiales de hoteles para garantizar la veracidad y seguridad de tu reserva."
+            },
+            {
+                "pregunta": "¿Es fácil encontrar farmacias abiertas 24 horas cerca de los hoteles en Miraflores, Barranco o San Isidro, Lima, para emergencias de salud?",
+                "respuesta": "Sí, en estas zonas turísticas es muy fácil encontrar farmacias. Cadenas como Inkafarma y Mifarma tienen sucursales en casi cada esquina y muchas operan 24 horas. Por ejemplo, en Miraflores, hay una Inkafarma en Av. Larco 671 y otra en Av. Pardo 510, ambas suelen tener horarios extendidos o 24/7."
+            },
+            {
+                "pregunta": "¿Es seguro dejar objetos de valor en la caja fuerte de la habitación de un hotel o hostal en Lima, Perú?",
+                "respuesta": "La mayoría de los hoteles y hostales formales en Miraflores, Barranco y San Isidro ofrecen cajas fuertes en las habitaciones o en recepción. Es una buena práctica utilizarlas para guardar pasaportes, dinero extra y objetos de valor. Sin embargo, siempre es prudente no dejar grandes sumas de dinero o joyas extremadamente valiosas sin necesidad. La seguridad es generalmente alta en establecimientos reconocidos."
+            }
+        ],
+        "4_Clima_Temporadas_Horarios": [
+            {
+                "pregunta": "¿Cuál es la mejor época del año para visitar Lima y encontrar buen clima para mi alojamiento en Miraflores?",
+                "respuesta": "La mejor época para disfrutar de un clima soleado y cálido en Lima, ideal para tu estancia en Miraflores, es de diciembre a abril. Durante estos meses, las temperaturas oscilan entre 25°C y 30°C, con poca o ninguna garúa."
+            },
+            {
+                "pregunta": "¿Cómo influye el clima de Lima en los precios y la disponibilidad de hoteles de lujo en San Isidro durante la temporada alta?",
+                "respuesta": "La temporada alta en Lima, de diciembre a abril, coincide con el verano y el mejor clima. Esto eleva los precios de los hoteles de lujo en San Isidro entre un 15% y 30% y reduce significativamente la disponibilidad, por lo que se recomienda reservar con 3-4 meses de antelación."
+            },
+            {
+                "pregunta": "¿Hay una temporada de lluvias en Lima que afecte mi experiencia al hospedarme en un hostal en Barranco?",
+                "respuesta": "Lima no tiene una temporada de lluvias como tal. De mayo a noviembre, experimenta 'garúa' (neblina y llovizna ligera) y cielos grises. Esto no suele afectar la comodidad de los hostales en Barranco, pero sí puede limitar las vistas o actividades al aire libre."
+            },
+            {
+                "pregunta": "¿Cuáles son las temperaturas promedio en Lima durante el verano (diciembre a abril) para planificar mi viaje de lujo?",
+                "respuesta": "Durante el verano en Lima, de diciembre a abril, las temperaturas promedio diurnas varían entre 25°C y 30°C, con noches más frescas alrededor de 20°C. Es un clima ideal para disfrutar de las playas y piscinas de los hoteles de lujo."
+            },
+            {
+                "pregunta": "¿Es más económico reservar hostales para mochileros en Lima durante los meses de invierno (mayo a noviembre)?",
+                "respuesta": "Sí, generalmente es más económico reservar hostales para mochileros en Lima durante los meses de invierno (mayo a noviembre). La demanda turística es menor debido al clima más fresco y nublado, lo que puede resultar en tarifas hasta un 20% más bajas en zonas como el Centro Histórico o Barranco."
+            },
+            {
+                "pregunta": "¿Cómo afecta la 'garúa' invernal de Lima las actividades al aire libre cerca de los hoteles en San Isidro?",
+                "respuesta": "La 'garúa' invernal de Lima (mayo a noviembre) puede hacer que las mañanas sean frescas y nubladas, afectando actividades al aire libre como paseos por el Parque El Olivar o golf. Sin embargo, los hoteles en San Isidro suelen tener excelentes instalaciones interiores para compensar."
+            },
+            {
+                "pregunta": "¿Qué eventos o festivales en Lima hacen que el alojamiento sea más caro en ciertas épocas del año?",
+                "respuesta": "Eventos como la Semana Santa (marzo/abril), Fiestas Patrias (28 y 29 de julio) y la CADE Ejecutivos (noviembre) pueden disparar los precios de alojamiento en Lima, especialmente en hoteles de lujo y boutique. Es crucial reservar con mucha antelación para estas fechas."
+            },
+            {
+                "pregunta": "¿Cuál es el mejor horario del día para explorar Miraflores o Barranco si me hospedo allí, considerando el clima de Lima?",
+                "respuesta": "El mejor horario para explorar Miraflores o Barranco, aprovechando el clima de Lima, es por la tarde, entre las 3:00 p.m. y el atardecer. En verano, las mañanas pueden ser muy calurosas y en invierno, las mañanas suelen ser más grises por la garúa."
+            },
+            {
+                "pregunta": "¿La alta humedad de Lima afecta la comodidad en alojamientos económicos y cuándo es más pronunciada?",
+                "respuesta": "La alta humedad de Lima puede afectar la comodidad en alojamientos económicos si no tienen buena ventilación o aire acondicionado. Es más pronunciada durante los meses de verano, de diciembre a abril, cuando puede alcanzar niveles del 90-100%, haciendo el ambiente más bochornoso."
+            },
+            {
+                "pregunta": "¿Hay horarios específicos de check-in y check-out en los hoteles de Lima que varíen según la temporada turística?",
+                "respuesta": "Los horarios estándar de check-in (generalmente 3:00 p.m.) y check-out (12:00 p.m.) en los hoteles de Lima no suelen variar por temporada. Sin embargo, en temporada baja (mayo a noviembre), es más probable que te ofrezcan un early check-in o late check-out gratuito si lo solicitas."
+            }
+        ],
+        "5_Historia_Cultura_Curiosidades": [
+            {
+                "pregunta": "¿Cuál es la historia detrás de los famosos 'Balcones de Lima' en el Centro Histórico y dónde puedo ver los mejor conservados?",
+                "respuesta": "Los 'Balcones de Lima' son un legado colonial y republicano, construidos principalmente entre los siglos XVII y XIX. Servían para observar la vida de la calle sin ser vistos. Los mejor conservados se encuentran en el Jirón de la Unión y en la Casa de Pilatos (Jirón Áncash 390), muchos de ellos declarados Patrimonio Cultural por la UNESCO."
+            },
+            {
+                "pregunta": "¿Qué ruinas pre-incas puedo visitar en Lima, cerca de Miraflores, y cuál es su importancia histórica?",
+                "respuesta": "Cerca de Miraflores, puedes visitar la Huaca Pucllana, un centro ceremonial y administrativo de la cultura Lima (200-700 d.C.). Su importancia radica en ser un testimonio de una civilización pre-incaica avanzada en la costa central, con una pirámide trunca de adobe. La entrada general cuesta S/15.00 y está en la Calle General Borgoño cuadra 8, Miraflores."
+            },
+            {
+                "pregunta": "¿Qué festividades culturales únicas se celebran en Lima, Perú, que un turista podría experimentar, especialmente en octubre o julio?",
+                "respuesta": "En octubre, Lima celebra el 'Señor de los Milagros', una de las procesiones religiosas más grandes del mundo, con la imagen del Cristo Moreno recorriendo las calles. En julio, las 'Fiestas Patrias' (28 y 29 de julio) conmemoran la independencia, con desfiles militares en la Avenida Brasil y celebraciones populares en toda la ciudad."
+            },
+            {
+                "pregunta": "¿Dónde puedo encontrar ejemplos destacados de arquitectura colonial en Lima, más allá de la Plaza Mayor, y qué curiosidades esconden?",
+                "respuesta": "Además de la Plaza Mayor, visita el Palacio de Torre Tagle (Jirón Ucayali 363), un magnífico ejemplo de barroco limeño con balcones tallados. La Casa Aliaga (Jirón de la Unión 224) es otra joya, habitada por la misma familia desde 1535, siendo la casa más antigua de América ocupada ininterrumpidamente. Se requiere reserva para visitarla."
+            },
+            {
+                "pregunta": "¿Existen leyendas urbanas o historias de fantasmas interesantes asociadas con sitios históricos en Lima que un visitante debería conocer?",
+                "respuesta": "Sí, el Convento de San Francisco es famoso por sus catacumbas y se dice que alberga espíritus de antiguos frailes. La Casa Matusita (Av. Garcilaso de la Vega 1280) es conocida por leyendas de actividad paranormal extrema, aunque su historia real es más prosaica y se ha convertido en un mito popular."
+            },
+            {
+                "pregunta": "¿Cuál es el origen del apodo 'La Ciudad de los Reyes' para Lima y cómo se relaciona con su fundación histórica?",
+                "respuesta": "Lima fue fundada por Francisco Pizarro el 18 de enero de 1535, día de la Epifanía, festividad de los Reyes Magos. Por ello, se le dio el nombre de 'Ciudad de los Reyes'. Este nombre honra a los monarcas españoles y a los Reyes Magos, aunque el nombre 'Lima' (derivado del río Rímac) prevaleció popularmente."
+            },
+            {
+                "pregunta": "¿Qué museos en Lima ofrecen la mejor inmersión en la historia pre-colombina de Perú y cuáles son sus exhibiciones imperdibles?",
+                "respuesta": "El Museo Larco (Av. Bolívar 1515, Pueblo Libre) es esencial, con su impresionante colección de cerámica Moche y su galería de arte erótico precolombino. El Museo Nacional de Arqueología, Antropología e Historia del Perú (Plaza Bolívar s/n, Pueblo Libre) es el más antiguo y grande, con piezas de todas las culturas pre-incas e incas."
+            },
+            {
+                "pregunta": "¿Cuál es la importancia cultural de la danza de la 'Marinera' en Lima y dónde puedo presenciar una auténtica exhibición?",
+                "respuesta": "La Marinera es la danza nacional del Perú, declarada Patrimonio Cultural de la Nación. Simboliza el cortejo y la elegancia. Aunque su origen es norteño, en Lima se pueden ver exhibiciones en peñas folclóricas como 'Brisas del Titicaca' (Jirón Wakulski 168, Cercado de Lima) o durante concursos nacionales en enero."
+            },
+            {
+                "pregunta": "¿Hay alguna costumbre o superstición local peculiar en Lima que los turistas deberían conocer o que les resultaría curiosa?",
+                "respuesta": "Una curiosa superstición es la de comer 12 uvas a medianoche en Año Nuevo, pidiendo un deseo por cada una. También, es común ver 'curanderos' ofreciendo limpiezas energéticas en mercados tradicionales como el Mercado de Surquillo, una práctica arraigada en la cosmovisión andina."
+            },
+            {
+                "pregunta": "¿Qué hecho histórico poco conocido sobre Lima podría sorprender a los turistas y dónde se puede aprender más al respecto?",
+                "respuesta": "Lima tiene una extensa red de túneles subterráneos coloniales que conectaban iglesias y casonas, usados para escape o contrabando. Puedes explorar parte de ellos en el Convento de Santo Domingo (Jirón Camaná 170) o en el Convento de San Francisco, que ofrecen tours guiados revelando estos pasajes ocultos."
+            }
+        ],
+        "6_Tips_Locales_Secretos": [
+            {
+                "pregunta": "¿Cuál es el truco local para conseguir un mejor precio en hoteles boutique de lujo en Barranco, Lima, fuera de temporada alta?",
+                "respuesta": "El secreto es contactar directamente al hotel boutique, como 'Hotel B' o 'Casa Republica', durante los meses de temporada baja (abril-mayo o septiembre-octubre) y preguntar por tarifas corporativas o de estadía prolongada, incluso si tu viaje es corto. A menudo tienen descuentos no publicados en línea."
+            },
+            {
+                "pregunta": "¿Hay algún hostal en Miraflores, Lima, que ofrezca clases de surf o tours culturales auténticos incluidos en la tarifa o a bajo costo, que los turistas no suelen conocer?",
+                "respuesta": "Sí, el 'Pariwana Hostel Lima' en Miraflores (Calle La Paz 1045) a veces organiza clases de surf con instructores locales a precios reducidos para sus huéspedes. Para tours culturales auténticos, pregunta en la recepción por 'Free Walking Tours' que salen de Parque Kennedy, pero busca los que son guiados por estudiantes de turismo, no las grandes empresas."
+            },
+            {
+                "pregunta": "¿Cómo puedo evitar las tarifas de taxi infladas desde el aeropuerto de Lima a Miraflores o Barranco, usando un método de transporte local seguro y económico?",
+                "respuesta": "Para evitar taxis caros, usa el servicio 'Airport Express Lima' que te deja en puntos clave de Miraflores por unos 8 USD (30-35 Soles). Si buscas algo más local y económico, desde el aeropuerto puedes tomar un bus 'Corredor Azul' (ruta 301) hasta la estación 'Ricardo Palma' en Miraflores, y de ahí un taxi corto o caminar. Es más aventurero y cuesta menos de 5 Soles en total."
+            },
+            {
+                "pregunta": "¿Qué zonas específicas de Barranco, Lima, debería evitar al buscar alojamiento si quiero tranquilidad por la noche, incluso en hoteles de lujo?",
+                "respuesta": "Si buscas tranquilidad en Barranco, evita alojarte en las cuadras cercanas a la Bajada de Baños y la Plaza de Barranco (especialmente Calle San Francisco y Calle Ayacucho) los fines de semana. Estas zonas son el epicentro de la vida nocturna y pueden ser ruidosas hasta altas horas. Busca opciones más hacia el lado de la Avenida Grau o cerca del Malecón Paul Harris."
+            },
+            {
+                "pregunta": "¿Existe alguna lavandería en Miraflores o Barranco, Lima, que los locales usen y sea mucho más barata que los servicios de hotel para mochileros?",
+                "respuesta": "Absolutamente. En Miraflores, busca 'Lavandería El Sol' en Calle Colón 476. En Barranco, 'Lavandería La Perla' en Avenida Grau 400. Ambas ofrecen servicio por kilo (alrededor de 5-7 Soles por kilo) y son donde los residentes llevan su ropa, mucho más económico que los 20-30 Soles por prenda de los hoteles."
+            },
+            {
+                "pregunta": "¿Cuál es el mejor mes para encontrar ofertas en hoteles de lujo en San Isidro, Lima, y qué día de la semana es ideal para reservar directamente?",
+                "respuesta": "El mejor mes para ofertas en hoteles de lujo en San Isidro es febrero, debido a las vacaciones escolares y de verano en Lima, cuando muchos limeños viajan y la demanda corporativa baja. Para reservar directamente, intenta un martes o miércoles por la tarde; a menudo ajustan tarifas para llenar habitaciones a mitad de semana."
+            },
+            {
+                "pregunta": "¿Hay algún 'hostal secreto' en Lima con piscina o terraza con vista al mar que no aparezca en las primeras búsquedas de Booking.com para mochileros?",
+                "respuesta": "Sí, aunque no es un 'secreto' total, 'Kokopelli Hostel Barranco' (Calle Bermúdez 210) tiene una piscina y una terraza con vistas parciales al mar, y a menudo ofrece eventos sociales que no se publicitan ampliamente. Otro menos conocido es 'The Point Hostel Barranco' (Calle Alfonso Ugarte 200), que tiene una terraza con vistas y un ambiente más relajado, ideal para mochileros que buscan algo diferente."
+            },
+            {
+                "pregunta": "¿Cómo puedo conseguir un desayuno local auténtico y barato cerca de mi alojamiento en Miraflores, Lima, sin pagar precios de turista?",
+                "respuesta": "Para un desayuno local y barato en Miraflores, evita los cafés de la Av. Larco. Dirígete a los mercados locales como el 'Mercado N°1 de Surquillo' (a solo unas cuadras de Miraflores) o busca 'panaderías' pequeñas en calles secundarias como Calle Schell o Calle Cantuarias. Pide un 'pan con tortilla' o 'pan con palta' y un 'jugo de papaya' por menos de 10 Soles."
+            },
+            {
+                "pregunta": "¿Qué tipo de alojamiento 'oculto' recomiendan los limeños para una estadía de más de un mes en Lima, que no sean los típicos Airbnb o hoteles?",
+                "respuesta": "Para estadías largas, los limeños suelen recomendar 'apart-hoteles' o 'residenciales' que ofrecen tarifas mensuales con servicios básicos incluidos (limpieza, seguridad). Busca opciones en el distrito de Lince o Jesús María, como 'Hotel Carrera' o 'Hotel Estelar Apartamentos Bellavista', que son más económicos que Miraflores/San Isidro y bien conectados. A menudo tienen precios especiales si llamas directamente y mencionas una estadía prolongada."
+            },
+            {
+                "pregunta": "¿Hay alguna zona en Miraflores o San Isidro, Lima, donde el ruido de la calle es sorprendentemente alto por la noche, incluso en hoteles de lujo, que los turistas no suelen prever?",
+                "respuesta": "Sí, en Miraflores, las calles cercanas a la Avenida Larco y la Avenida Pardo, especialmente los fines de semana, pueden ser muy ruidosas debido al tráfico constante y la vida nocturna. En San Isidro, las avenidas principales como la Av. Javier Prado o la Av. Arequipa, incluso en hoteles de lujo, pueden tener ruido de tráfico. Para tranquilidad, busca hoteles en calles más internas y residenciales, como las que rodean el Parque Reducto en Miraflores o el Bosque El Olivar en San Isidro."
+            }
+        ],
+        "7_Gastronomia_Alimentos_Supervivencia": [
+            {
+                "pregunta": "¿Dónde puedo encontrar menús económicos y seguros para almorzar en Lima si soy mochilero?",
+                "respuesta": "En distritos como el Centro Histórico o Lince, busca restaurantes pequeños con carteles de 'Menú del Día' o 'Almuerzo Ejecutivo'. Por 10 a 15 Soles, obtendrás sopa, plato principal y refresco. Asegúrate de que el local tenga buena afluencia y apariencia limpia para garantizar la seguridad alimentaria."
+            },
+            {
+                "pregunta": "¿Es seguro beber agua del grifo en Lima o debo comprar agua embotellada para evitar problemas de salud?",
+                "respuesta": "No es recomendable beber agua directamente del grifo en Lima. Siempre compra agua embotellada. Puedes encontrar botellas de 2.5 litros por 3 a 5 Soles en supermercados como Wong, Metro o en bodegas pequeñas distribuidas por toda la ciudad."
+            },
+            {
+                "pregunta": "¿Dónde puedo comprar víveres básicos y agua embotellada a altas horas de la noche en Miraflores, Lima?",
+                "respuesta": "En Miraflores, busca las tiendas de conveniencia 'Tambos' o 'Listo!' que operan 24 horas. Están ubicadas estratégicamente en avenidas principales como Larco o Pardo y ofrecen agua, snacks, bebidas y algunos productos básicos de primera necesidad."
+            },
+            {
+                "pregunta": "¿Es seguro comer comida callejera en Lima y qué precauciones debo tomar para no enfermarme?",
+                "respuesta": "La comida callejera puede ser deliciosa pero arriesgada. Elige puestos con alta rotación de clientes, donde la comida se prepare al momento y esté visiblemente caliente. Evita salsas que no estén refrigeradas y prefiere bebidas embotelladas para minimizar riesgos."
+            },
+            {
+                "pregunta": "¿Cuánto dinero debo presupuestar diariamente para alimentación básica y segura como turista en Lima?",
+                "respuesta": "Para alimentación básica y segura, un mochilero debería presupuestar entre 30 y 50 Soles diarios. Esto incluye un menú económico para el almuerzo, agua embotellada y quizás un snack o cena ligera en un lugar sencillo y de confianza."
+            },
+            {
+                "pregunta": "¿Cuáles son los mejores mercados en Lima para comprar frutas y verduras frescas si quiero cocinar mi propia comida?",
+                "respuesta": "El Mercado de Surquillo N°1 (Av. Paseo de la República 5000) o el Mercado Central (cercano a Barrios Altos) son excelentes opciones. Ofrecen productos frescos a precios muy accesibles, ideales para quienes cocinan en su alojamiento y buscan calidad."
+            },
+            {
+                "pregunta": "¿Qué debo hacer si sufro de intoxicación alimentaria leve en Lima y dónde puedo conseguir medicamentos básicos?",
+                "respuesta": "Para una intoxicación leve, hidrátate bien con agua embotellada y suero oral. Puedes comprar medicamentos como sales de rehidratación o antidiarreicos suaves en cualquier farmacia como Inkafarma o Boticas y Salud, que están en casi cada esquina de los distritos principales."
+            },
+            {
+                "pregunta": "¿Dónde puedo desayunar barato y de forma segura en Lima sin gastar mucho dinero?",
+                "respuesta": "Busca panaderías o cafeterías locales pequeñas. Por 5 a 10 Soles puedes obtener un pan con algo (huevo, queso, jamón) y una bebida caliente. En Miraflores, 'La Lucha Sanguchería Criolla' ofrece opciones, aunque un poco más caras, pero con garantía de calidad."
+            },
+            {
+                "pregunta": "¿Qué tipo de comida local es más económica y segura para probar en Lima si tengo un presupuesto ajustado?",
+                "respuesta": "Los 'menús' de almuerzo son la mejor opción. También puedes buscar 'caldos de gallina' en mercados o pequeños restaurantes, que son nutritivos y económicos, costando entre 8 y 15 Soles, y son una opción segura si se sirven calientes."
+            },
+            {
+                "pregunta": "Si me alojo en un hostal con cocina compartida en Lima, ¿qué medidas de higiene debo tomar al almacenar alimentos?",
+                "respuesta": "Siempre etiqueta tus alimentos con tu nombre y fecha. Guarda los perecederos en el refrigerador en recipientes cerrados. Lava bien tus utensilios y el área de trabajo antes y después de usarla para evitar contaminación cruzada y mantener la higiene."
+            }
+        ],
+        "8_Accesibilidad_Infraestructura": [
+            {
+                "pregunta": "¿Cuál es la forma más eficiente y segura de llegar desde el Aeropuerto Jorge Chávez (LIM) a un hotel en Miraflores o Barranco en Lima?",
+                "respuesta": "Para llegar a Miraflores o Barranco desde el aeropuerto de Lima, la opción más segura y eficiente es usar un taxi oficial del aeropuerto (como Taxi Green o Taxi 365, con tarifas fijas de aproximadamente 60-80 Soles) o un servicio de transporte por aplicación como Uber o Cabify (costo similar, 50-75 Soles). El servicio de bus Airport Express Lima ofrece traslados directos a Miraflores por 20-25 Soles, con paradas en hoteles principales."
+            },
+            {
+                "pregunta": "¿Es fácil moverse en transporte público entre Miraflores, Barranco y San Isidro si me alojo en Lima?",
+                "respuesta": "Sí, es muy fácil. Puedes usar el Metropolitano, un sistema de buses rápidos, con estaciones clave como 'Ricardo Palma' en Miraflores, 'Bulevar' en Barranco y 'Canadá' en San Isidro. Necesitas una tarjeta recargable (5 Soles) y cada viaje cuesta 3.20 Soles. También hay buses urbanos y servicios de taxi o aplicaciones como Uber y Cabify, que son abundantes y económicos para distancias cortas."
+            },
+            {
+                "pregunta": "¿Qué tan seguro es caminar por Miraflores y Barranco de noche si me hospedo en un hostal en Lima?",
+                "respuesta": "Miraflores y Barranco son considerados los distritos más seguros de Lima para caminar, incluso de noche, especialmente en las zonas turísticas y comerciales. Hay presencia policial y de serenazgo. Sin embargo, siempre se recomienda estar atento a tus pertenencias, evitar calles muy solitarias y no exhibir objetos de valor."
+            },
+            {
+                "pregunta": "¿Los hoteles de lujo en San Isidro, Lima, ofrecen infraestructura para estacionamiento y acceso a vehículos privados?",
+                "respuesta": "Absolutamente. Los hoteles de lujo en San Isidro, como el Country Club Lima Hotel o el Swissôtel Lima, cuentan con amplios estacionamientos subterráneos, servicio de valet parking y accesos directos para vehículos privados, garantizando comodidad y seguridad para sus huéspedes."
+            },
+            {
+                "pregunta": "¿Qué tipo de infraestructura de servicios básicos (lavanderías, mercados) encuentro cerca de los hostales económicos en Barranco, Lima?",
+                "respuesta": "En Barranco, especialmente alrededor de la Plaza de Armas y el Puente de los Suspiros, hay una excelente infraestructura para mochileros. Encontrarás lavanderías de autoservicio o con servicio de entrega (costo promedio 15-25 Soles por carga), pequeños mercados locales como el Mercado de Barranco, y supermercados como Metro o Wong a poca distancia, ideales para comprar provisiones."
+            },
+            {
+                "pregunta": "¿Son accesibles los hoteles y hostales en Miraflores, Lima, para personas con movilidad reducida?",
+                "respuesta": "Muchos hoteles modernos y de categoría superior en Miraflores están adaptados con rampas, ascensores y habitaciones accesibles. Sin embargo, los hostales más antiguos o pequeños pueden tener limitaciones. Siempre es recomendable contactar directamente al alojamiento para confirmar la disponibilidad de infraestructura específica para movilidad reducida antes de reservar."
+            },
+            {
+                "pregunta": "¿Es buena la conexión a internet y Wi-Fi en los alojamientos de Miraflores, Barranco y San Isidro en Lima?",
+                "respuesta": "Sí, la infraestructura de internet en estas zonas turísticas de Lima es generalmente excelente. La mayoría de hoteles y hostales ofrecen Wi-Fi gratuito y de alta velocidad. Además, la cobertura de datos móviles (4G/5G) de operadores como Claro, Movistar o Entel es muy buena, permitiendo una conectividad constante."
+            },
+            {
+                "pregunta": "¿Hay hostales económicos en Lima que estén bien conectados con el Metropolitano para un viajero mochilero?",
+                "respuesta": "Sí, muchos hostales en Barranco y Miraflores están estratégicamente ubicados cerca de las estaciones del Metropolitano. Por ejemplo, en Barranco, hostales cercanos a la estación 'Bulevar' son populares. En Miraflores, la zona alrededor de la estación 'Ricardo Palma' ofrece varias opciones económicas con fácil acceso a este transporte clave."
+            },
+            {
+                "pregunta": "¿Es fácil conseguir taxis o servicios de app como Uber en Miraflores o San Isidro a altas horas de la noche en Lima?",
+                "respuesta": "Sí, en Miraflores y San Isidro es muy fácil conseguir taxis o servicios de aplicaciones como Uber, Cabify o Didi a cualquier hora de la noche. La demanda es constante y la oferta de vehículos es alta, aunque las tarifas pueden ser ligeramente más elevadas en horas punta o de madrugada."
+            },
+            {
+                "pregunta": "Si me alojo por una temporada larga en un apartamento en Miraflores, Lima, ¿qué tan buena es la infraestructura de supermercados y bancos?",
+                "respuesta": "La infraestructura en Miraflores para estancias largas es excelente. Hay numerosos supermercados grandes como Wong, Vivanda y Metro, así como bancos importantes (BCP, Interbank, BBVA) con cajeros automáticos en casi cada esquina. También encontrarás farmacias, gimnasios y centros comerciales, todo a poca distancia."
+            }
+        ],
+        "9_Reglas_Prohibiciones_Tramites": [
+            {
+                "pregunta": "¿Cuáles son los requisitos de identificación obligatorios para hacer check-in en hoteles o hostales en Miraflores, Lima, siendo extranjero?",
+                "respuesta": "Para el check-in en cualquier alojamiento en Lima, los extranjeros deben presentar su pasaporte vigente y la Tarjeta Andina de Migración (TAM) sellada al ingresar al país. Esto es crucial para la exoneración del IGV (Impuesto General a las Ventas) del 18% en servicios de alojamiento, un trámite estándar."
+            },
+            {
+                "pregunta": "¿Existe alguna tasa turística o impuesto adicional que deba pagar al alojarme en un hotel de lujo en San Isidro, Lima, además del precio de la habitación?",
+                "respuesta": "En Perú, los turistas extranjeros están exonerados del 18% del IGV en alojamiento si presentan su pasaporte y la Tarjeta Andina de Migración (TAM) al check-in. No hay una 'tasa turística' adicional específica como en otros países, pero algunos hoteles de lujo pueden aplicar cargos por servicio o 'resort fees' que deben estar claramente indicados en la reserva."
+            },
+            {
+                "pregunta": "¿Qué reglas de cancelación y modificación de reserva debo conocer para alojamientos en Barranco, Lima, especialmente en hoteles boutique o Airbnbs?",
+                "respuesta": "Las reglas varían mucho. Para hoteles boutique en Barranco, la mayoría exige cancelar con al menos 24 a 72 horas de anticipación para evitar cargos. En plataformas como Airbnb, las políticas son establecidas por cada anfitrión (flexible, moderada, estricta), por lo que es vital revisar los términos de cancelación antes de confirmar la reserva."
+            },
+            {
+                "pregunta": "¿A qué hora es el check-in y check-out estándar en la mayoría de los hoteles y hostales en Lima, y puedo solicitar horarios flexibles?",
+                "respuesta": "El check-in estándar en Lima suele ser a las 15:00 (3 PM) y el check-out a las 12:00 (mediodía). Muchos alojamientos, especialmente los de lujo, ofrecen 'early check-in' o 'late check-out' bajo disponibilidad y con posible costo adicional. En hostales, a veces son más flexibles si no hay mucha ocupación, pero siempre es una solicitud y no una regla."
+            },
+            {
+                "pregunta": "¿Está permitido fumar en las habitaciones de hotel o en áreas comunes de hostales en Miraflores, Lima, y cuáles son las sanciones?",
+                "respuesta": "La mayoría de los hoteles y hostales en Miraflores, y en Lima en general, tienen una política estricta de no fumar en las habitaciones y en la mayoría de las áreas comunes interiores. Fumar en estas zonas es una prohibición y puede acarrear multas significativas, que pueden ir desde 50 USD hasta el costo de una noche adicional para cubrir la limpieza y desodorización."
+            },
+            {
+                "pregunta": "¿Qué trámites o permisos necesito si quiero hospedar a un menor de edad sin sus padres en un hotel de Lima, por ejemplo, en un hostal en Barranco?",
+                "respuesta": "Un menor de edad solo puede hospedarse con un adulto que no sea su padre o madre presentando una autorización notarial de ambos padres, especificando el período y el adulto responsable. Sin este documento, el alojamiento tiene prohibido aceptar al menor, incluso si el adulto presenta su propio DNI o pasaporte, es una regla de protección al menor."
+            },
+            {
+                "pregunta": "¿Hay alguna prohibición sobre el ingreso de visitantes externos a las habitaciones de hoteles o hostales en Lima, especialmente en zonas como Miraflores?",
+                "respuesta": "Sí, la mayoría de los alojamientos en Lima tienen políticas estrictas sobre visitantes externos. Por seguridad, muchos hoteles y hostales prohíben el ingreso de personas no registradas a las habitaciones, o exigen que se registren en recepción y presenten identificación, con un horario límite para su permanencia. Es una regla común de seguridad."
+            },
+            {
+                "pregunta": "¿Cuáles son las reglas sobre mascotas en los alojamientos de lujo en San Isidro o en hostales económicos en Lima?",
+                "respuesta": "La política de mascotas varía. Muchos hoteles de lujo en San Isidro son 'pet-friendly' pero con restricciones de tamaño, razas y un costo adicional por limpieza. En hostales económicos, es menos común que acepten mascotas, y si lo hacen, suele ser solo para animales de servicio o con reglas muy específicas y estrictas. Siempre se debe consultar antes de reservar para evitar prohibiciones."
+            },
+            {
+                "pregunta": "¿Qué tipo de depósito de seguridad o garantía suelen pedir los hoteles en Lima, especialmente los de categoría superior en Miraflores, al hacer el check-in?",
+                "respuesta": "Es común que los hoteles de categoría superior en Miraflores soliciten una tarjeta de crédito como garantía al check-in, para cubrir posibles gastos extras (minibar, lavandería) o daños. A veces se retiene un monto temporalmente o se pide un depósito en efectivo, que es devuelto al check-out si no hay cargos adicionales, es un trámite estándar de seguridad."
+            },
+            {
+                "pregunta": "¿Existen regulaciones específicas sobre el ruido o fiestas en alojamientos de Lima, como en Airbnbs en zonas residenciales de Barranco o Miraflores?",
+                "respuesta": "Sí, las municipalidades de Barranco y Miraflores tienen ordenanzas que regulan el ruido, especialmente en zonas residenciales. Los Airbnbs y hostales deben respetar los horarios de silencio (generalmente de 10 PM a 7 AM). Las fiestas o ruidos excesivos son una prohibición y pueden resultar en quejas de vecinos, multas para el anfitrión y, en casos extremos, la expulsión del huésped."
+            }
+        ],
+        "10_Alternativas_Plan_B": [
+            {
+                "pregunta": "¿Qué alternativas de hoteles de lujo existen en Miraflores, Lima, si mi reserva original está sobrevendida o cancelada a última hora?",
+                "respuesta": "Si tu hotel de lujo en Miraflores, Lima, está sobrevendido, considera el Belmond Miraflores Park en Av. Malecón de la Reserva 1035 o el JW Marriott Hotel Lima en Malecón de la Reserva 615. Ambos ofrecen servicios de cinco estrellas, vistas al mar y están a poca distancia de los principales atractivos, con tarifas que suelen superar los 250 USD por noche."
+            },
+            {
+                "pregunta": "Si mi hostal en Barranco, Lima, está lleno, ¿qué opciones económicas alternativas hay cerca para mochileros?",
+                "respuesta": "Si tu hostal en Barranco, Lima, está lleno, busca alternativas como el Kokopelli Hostel Barranco en Calle Bermúdez 211 o el The Point Hostels Barranco en Jr. Sucre 285. Ambos ofrecen camas en dormitorios compartidos desde 15-20 USD y están en el corazón del distrito, cerca de bares y restaurantes."
+            },
+            {
+                "pregunta": "¿Dónde puedo encontrar alojamiento de última hora en San Isidro, Lima, si los hoteles principales están completos?",
+                "respuesta": "Para alojamiento de última hora en San Isidro, Lima, si los hoteles principales están completos, considera el Hotel Novotel Lima en Av. Víctor Andrés Belaúnde 198 o el Atton San Isidro en Av. Jorge Basadre 592. Son opciones de gama media-alta con buena ubicación y disponibilidad más flexible, con precios desde 100-150 USD por noche."
+            },
+            {
+                "pregunta": "¿Qué hoteles en Lima son seguros y confiables para una llegada muy tarde en la noche si mi reserva original no puede atenderme?",
+                "respuesta": "Para una llegada muy tarde en la noche a Lima, si tu reserva original falla, el Wyndham Costa del Sol Lima Airport es la opción más segura y práctica, ubicado directamente frente al aeropuerto Jorge Chávez. Ofrece traslados 24/7 y habitaciones desde 120 USD. Otra opción en Miraflores es el Hotel Estelar Miraflores, que tiene recepción 24 horas y seguridad constante."
+            },
+            {
+                "pregunta": "Si necesito extender mi estadía en Lima pero mi hotel actual no tiene disponibilidad, ¿qué alternativas de apartamentos o apart-hoteles recomiendan?",
+                "respuesta": "Si necesitas extender tu estadía en Lima y tu hotel no tiene disponibilidad, considera apart-hoteles como el Suites Larco 653 en Miraflores o el Qorianka Hotel en San Isidro. Ofrecen apartamentos equipados con cocina y servicios hoteleros, ideales para estancias más largas, con tarifas diarias desde 70-100 USD y descuentos por semana."
+            },
+            {
+                "pregunta": "¿Qué opciones de alojamiento súper económico existen en Lima para mochileros si los hostales de Miraflores son demasiado caros?",
+                "respuesta": "Si los hostales de Miraflores, Lima, son demasiado caros para tu presupuesto de mochilero, busca opciones en distritos como Lince o Pueblo Libre. Hostales como el Kaminu Backpackers Hostel en Lince ofrecen camas desde 10-12 USD, aunque la ubicación es menos turística y requiere más uso de transporte público."
+            },
+            {
+                "pregunta": "Si mi reserva de Airbnb en Lima se cancela a último momento, ¿qué hoteles o hostales ofrecen disponibilidad inmediata y buena relación calidad-precio?",
+                "respuesta": "Si tu Airbnb en Lima se cancela a último momento, busca hoteles con alta disponibilidad como el Ibis Larco Miraflores o el Selina Miraflores. Ambos suelen tener habitaciones disponibles, el Ibis desde 60-80 USD y Selina con opciones de hostal y habitaciones privadas desde 25-70 USD, y están bien ubicados para una solución rápida."
+            },
+            {
+                "pregunta": "¿Qué distrito alternativo a Miraflores o Barranco en Lima ofrece alojamiento más tranquilo y seguro para turistas?",
+                "respuesta": "Si buscas un distrito alternativo más tranquilo y seguro que Miraflores o Barranco en Lima, considera Pueblo Libre o Magdalena del Mar. Ofrecen hoteles boutique y casas de huéspedes como el B&B La Casa de Ana en Pueblo Libre, con tarifas más accesibles (desde 40-60 USD) y un ambiente residencial, aunque con menos vida nocturna."
+            },
+            {
+                "pregunta": "¿Qué alternativas de alojamiento pet-friendly existen en Lima si mi hotel original no permite mascotas?",
+                "respuesta": "Si tu hotel original en Lima no permite mascotas, busca alternativas pet-friendly como el Hotel B en Barranco o el AC Hotel by Marriott Lima Miraflores. Ambos son conocidos por aceptar mascotas pequeñas con un cargo adicional (aproximadamente 20-30 USD por noche) y ofrecen comodidades para tu compañero peludo."
+            },
+            {
+                "pregunta": "¿Qué opciones de alojamiento únicas y no tradicionales puedo encontrar en Lima si quiero algo diferente a un hotel o hostal?",
+                "respuesta": "Si buscas opciones de alojamiento únicas y no tradicionales en Lima, considera casas boutique como el Second Home Peru en Barranco (antigua casa de Mario Testino) o el Hotel Antigua Miraflores, que ofrecen una experiencia más personalizada y con encanto histórico. También hay apartamentos de lujo con servicios en edificios modernos como el 3B Barranco's Bed & Breakfast."
+            }
+        ]
+    }
+}

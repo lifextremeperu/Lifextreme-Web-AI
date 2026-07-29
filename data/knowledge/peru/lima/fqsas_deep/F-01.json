@@ -1,0 +1,426 @@
+{
+    "destino_id": "F-01",
+    "modulo_contexto": "Conectividad Aérea y Terrestre desde Lima",
+    "fqsas": {
+        "1_Precios_Presupuestos_Moneda": [
+            {
+                "pregunta": "¿Cuánto cuesta el transporte más económico desde el Aeropuerto Jorge Chávez de Lima hasta Miraflores para un mochilero?",
+                "respuesta": "La opción más económica es el bus Airport Express Lima, con un costo aproximado de 8 USD o 30 Soles por persona. También puedes tomar buses públicos (como el 73 o 71) desde fuera del aeropuerto por 2-3 Soles, pero son menos seguros y cómodos para turistas."
+            },
+            {
+                "pregunta": "¿Cuál es el precio estimado de un taxi o servicio de app desde el aeropuerto de Lima hasta Barranco?",
+                "respuesta": "Un taxi oficial del aeropuerto de Lima puede costar entre 60 y 80 Soles (aproximadamente 16-22 USD). Servicios de app como Uber o Cabify suelen ser un poco más económicos, entre 50 y 70 Soles, dependiendo del tráfico y la demanda en Lima."
+            },
+            {
+                "pregunta": "¿Cuánto vale el pasaje del bus Airport Express Lima para ir del aeropuerto a San Isidro?",
+                "respuesta": "El pasaje del Airport Express Lima tiene un costo fijo de 8 USD o su equivalente en Soles (aproximadamente 30 Soles) por trayecto, con paradas en puntos clave de Miraflores y San Isidro, siendo una opción directa y segura en Lima."
+            },
+            {
+                "pregunta": "¿Qué precio tiene un pasaje de bus de Lima a Paracas para un presupuesto mochilero en 2024?",
+                "respuesta": "Un pasaje de bus económico de Lima a Paracas con empresas como Cruz del Sur o Oltursa en servicio 'económico' o 'regular' puede costar entre 35 y 50 Soles (aproximadamente 9-13 USD) por trayecto, saliendo de terminales como Javier Prado en Lima."
+            },
+            {
+                "pregunta": "¿Cuál es el rango de precios para un bus de Lima a Huaraz, considerando diferentes niveles de comodidad para familias?",
+                "respuesta": "Para un bus de Lima a Huaraz, los precios varían: un asiento 'económico' o 'regular' cuesta entre 50 y 80 Soles. Un asiento 'semi-cama' o 'cama' para mayor comodidad familiar puede ir de 90 a 150 Soles, dependiendo de la empresa (Cruz del Sur, Oltursa, Movil Bus) y la antelación de la compra desde Lima."
+            },
+            {
+                "pregunta": "¿Cuánto debería presupuestar diariamente para transporte público (Metropolitano, buses) en Lima?",
+                "respuesta": "Para transporte público en Lima, un presupuesto diario razonable para un mochilero es de 5 a 10 Soles. Un pasaje de Metropolitano cuesta 3.20 Soles y los buses regulares entre 1.50 y 2.50 Soles. Necesitarás una tarjeta recargable para el Metropolitano (4.50 Soles iniciales)."
+            },
+            {
+                "pregunta": "¿Qué costo tiene un 'colectivo' o taxi compartido desde el terminal de buses de Javier Prado en Lima hasta el Centro Histórico?",
+                "respuesta": "Un taxi compartido o 'colectivo' desde el terminal de Javier Prado hasta el Centro Histórico de Lima es poco común y no recomendado por seguridad. Un taxi regular o de app costaría entre 15 y 25 Soles para este trayecto en Lima."
+            },
+            {
+                "pregunta": "¿Cuál es el tipo de cambio actual de dólares estadounidenses a Soles peruanos en Lima para un turista?",
+                "respuesta": "El tipo de cambio del dólar estadounidense a Soles peruanos en Lima fluctúa, pero generalmente se encuentra entre 3.70 y 3.80 Soles por cada dólar en casas de cambio formales o bancos. Evita cambiar en la calle por seguridad en Lima."
+            },
+            {
+                "pregunta": "¿Se aceptan tarjetas de crédito para pagar el transporte en Lima, o es mejor llevar efectivo en Soles?",
+                "respuesta": "Para taxis de app (Uber, Cabify) y el Airport Express Lima, sí se aceptan tarjetas de crédito. Sin embargo, para buses públicos, 'combis' y taxis de calle, es indispensable llevar efectivo (Soles) en billetes pequeños. Es recomendable tener siempre algo de efectivo en Lima."
+            },
+            {
+                "pregunta": "¿Cuál sería un presupuesto diario razonable para el transporte de una familia (4 personas) en Lima?",
+                "respuesta": "Para una familia de 4, un presupuesto diario para transporte en Lima podría ser de 50 a 100 Soles si usan principalmente taxis de app para distancias cortas o medias. Si optan por el Metropolitano o buses, el costo sería menor, alrededor de 20-30 Soles, pero menos cómodo para una familia en Lima."
+            }
+        ],
+        "2_Logistica_Transporte_Como_Llegar": [
+            {
+                "pregunta": "¿Cuál es la forma más segura y recomendada para ir del aeropuerto Jorge Chávez de Lima al centro de Miraflores con equipaje?",
+                "respuesta": "La opción más segura es usar taxis oficiales del aeropuerto como 'Taxi Green' o 'Taxi Directo', con tarifas fijas de aproximadamente S/ 60-70 a Miraflores. También puedes reservar un servicio de traslado privado con antelación. Evita taxis informales fuera del terminal para tu seguridad."
+            },
+            {
+                "pregunta": "¿Existe algún bus económico para ir desde el aeropuerto de Lima hasta el distrito de Barranco o Miraflores?",
+                "respuesta": "Sí, el 'Airport Express Lima' es un bus oficial que conecta el aeropuerto con Miraflores y Barranco, con paradas en hoteles principales. Cuesta S/ 20-25 por trayecto y es una opción segura y cómoda para mochileros y familias que buscan ahorrar."
+            },
+            {
+                "pregunta": "¿Cómo puedo usar el Metropolitano o los buses públicos para moverme por Lima de forma económica?",
+                "respuesta": "Para usar el Metropolitano (bus rápido) o los buses del Corredor en Lima, necesitas comprar una tarjeta recargable en las estaciones, que cuesta S/ 4.50. Cada viaje en Metropolitano cuesta S/ 3.20 y en Corredor S/ 2.50. Es eficiente para conectar distritos clave como Miraflores, Barranco y el Centro Histórico."
+            },
+            {
+                "pregunta": "¿Son seguras las aplicaciones de taxi como Uber o Cabify para moverse por Lima de noche?",
+                "respuesta": "Sí, las aplicaciones como Uber, Cabify o Didi son generalmente seguras y recomendadas para moverse por Lima, especialmente de noche. Permiten rastrear el viaje y compartir la ubicación con contactos. Los precios son competitivos y se pagan directamente en la app."
+            },
+            {
+                "pregunta": "¿Qué empresas de bus son las mejores para viajar de Lima a Paracas o Ica y cuánto cuestan los pasajes?",
+                "respuesta": "Para viajar de Lima a Paracas o Ica, las empresas más recomendadas son 'Cruz del Sur', 'Oltursa' y 'Perú Bus'. Salen de terminales como Javier Prado. Los pasajes a Paracas cuestan entre S/ 40-70 y a Ica entre S/ 50-90, dependiendo del servicio y la antelación de compra."
+            },
+            {
+                "pregunta": "¿Cómo llego desde Lima a Huaraz en bus y qué terminales debo considerar?",
+                "respuesta": "Para ir de Lima a Huaraz, debes dirigirte a los terminales terrestres de Plaza Norte o La Victoria. Empresas como 'Cruz del Sur', 'Oltursa' y 'Movil Bus' ofrecen servicios nocturnos con asientos cama. El viaje dura unas 8-9 horas y los pasajes varían de S/ 60 a S/ 150."
+            },
+            {
+                "pregunta": "¿Es mejor volar o tomar un bus de Lima a Cusco para una familia con niños?",
+                "respuesta": "Para una familia con niños, volar de Lima a Cusco es la opción más recomendable por la comodidad y el ahorro de tiempo (aproximadamente 1.5 horas de vuelo). El bus es un viaje de 22-24 horas, muy largo y cansado, aunque más económico. Las aerolíneas como Latam, Sky y Viva Air ofrecen vuelos diarios."
+            },
+            {
+                "pregunta": "¿Qué precauciones de seguridad debo tomar al usar el transporte público en Lima como turista?",
+                "respuesta": "Al usar transporte público en Lima, evita exhibir objetos de valor, mantén tus pertenencias seguras y usa mochilas por delante en horas punta. Prefiere taxis de aplicativo o formales. En buses, estate atento a tus bolsillos, especialmente en zonas concurridas como el Centro Histórico."
+            },
+            {
+                "pregunta": "¿Es recomendable alquilar un coche en Lima para moverse por la ciudad y sus alrededores?",
+                "respuesta": "Alquilar un coche en Lima no es muy recomendable para moverse por la ciudad debido al tráfico intenso, la señalización confusa y el estilo de conducción local. Para excursiones fuera de la ciudad, podría ser una opción, pero siempre con seguro completo y GPS."
+            },
+            {
+                "pregunta": "¿Cuál es la mejor manera de ir desde el centro de Lima o Miraflores al puerto del Callao para un crucero?",
+                "respuesta": "Para ir del centro de Lima o Miraflores al puerto del Callao, la opción más segura y eficiente es un taxi de aplicativo (Uber, Cabify) o un taxi oficial previamente coordinado. El trayecto puede durar entre 30-60 minutos dependiendo del tráfico y cuesta aproximadamente S/ 40-60."
+            }
+        ],
+        "3_Seguridad_Riesgos_Salud": [
+            {
+                "pregunta": "¿Es seguro tomar un taxi desde el Aeropuerto Jorge Chávez de Lima para ir al centro o Miraflores, especialmente de noche?",
+                "respuesta": "Sí, es seguro si usas servicios formales. En el aeropuerto de Lima, siempre opta por taxis autorizados como Taxi Green, Taxi Directo o Mitsui, que tienen módulos dentro de la terminal. Evita los taxis informales fuera del aeropuerto. El costo a Miraflores o San Isidro ronda los S/60-80 y al centro de Lima S/50-70, dependiendo del tráfico y la hora. De noche, la seguridad es mayor con estos servicios precontratados."
+            },
+            {
+                "pregunta": "¿Qué precauciones de seguridad debo tomar al usar el Metropolitano o buses públicos en Lima como mochilero con equipaje?",
+                "respuesta": "Al usar el Metropolitano o buses en Lima, especialmente en horas punta, mantén tu mochila o bolso siempre adelante y a la vista. Evita guardar objetos de valor en bolsillos traseros. Los carteristas son comunes en rutas concurridas. Si llevas equipaje grande, considera que los buses pueden estar muy llenos y dificultar tu movilidad y la de otros. Para trayectos largos con mucho equipaje, un taxi formal o app de movilidad es más seguro y cómodo."
+            },
+            {
+                "pregunta": "¿Existen riesgos de salud específicos al viajar en bus interprovincial desde Lima a destinos de altura como Huaraz o Cusco?",
+                "respuesta": "Sí, al viajar en bus desde Lima a destinos de altura como Huaraz o Cusco, el principal riesgo de salud es el 'soroche' o mal de altura. Se recomienda aclimatarse gradualmente, beber mucha agua, evitar comidas pesadas y alcohol. Algunas empresas como Cruz del Sur o Oltursa ofrecen buses con oxígeno suplementario en rutas específicas. Consulta a tu médico sobre medicamentos preventivos como la acetazolamida antes de tu viaje."
+            },
+            {
+                "pregunta": "¿Son seguras las apps de movilidad como Uber o Cabify para turistas en Lima, y qué debo verificar antes de subir?",
+                "respuesta": "Las apps de movilidad como Uber o Cabify son generalmente seguras en Lima y una opción recomendada para turistas. Antes de subir, siempre verifica que la placa del vehículo, el modelo y el nombre del conductor coincidan con los datos mostrados en la aplicación. Comparte tu viaje con un contacto de confianza. Evita cancelar el viaje y aceptar un 'trato' directo con el conductor fuera de la app, ya que perderías el respaldo de la plataforma."
+            },
+            {
+                "pregunta": "¿Qué tan seguro es caminar con equipaje por los alrededores de los terminales terrestres de Lima, como el de Plaza Norte o La Victoria?",
+                "respuesta": "Caminar con equipaje por los alrededores de terminales terrestres como Plaza Norte (Independencia) o los de La Victoria puede ser riesgoso, especialmente de noche o en zonas menos transitadas. Se han reportado casos de robos. Es recomendable usar taxis o apps de movilidad directamente desde o hacia la puerta del terminal. Evita exhibir objetos de valor y mantente alerta a tu entorno. Si debes caminar, hazlo en grupos y por calles concurridas."
+            },
+            {
+                "pregunta": "¿Qué debo hacer si sufro un robo o incidente de seguridad mientras me transporto en Lima o en un terminal?",
+                "respuesta": "Si sufres un robo o incidente de seguridad mientras te transportas en Lima, lo primero es mantener la calma y no oponer resistencia para evitar daños físicos. Luego, busca ayuda en la comisaría más cercana para presentar una denuncia. Puedes llamar a la Policía Nacional del Perú al 105. Si eres turista, también puedes contactar a la Policía de Turismo al (01) 460-1060 o a tu embajada/consulado para asistencia."
+            },
+            {
+                "pregunta": "¿Cuáles son los riesgos de usar 'colectivos' o taxis informales en Lima y cómo los identifico para evitarlos?",
+                "respuesta": "Los 'colectivos' o taxis informales en Lima conllevan riesgos significativos como robos, tarifas excesivas y falta de seguros en caso de accidentes. Se identifican porque no tienen taxímetro, no usan distintivos claros de empresa, o te ofrecen el servicio de forma insistente en la calle. Para evitarlos, siempre usa taxis de empresas reconocidas, apps de movilidad o taxis autorizados de paraderos. Nunca subas a un vehículo con otros pasajeros desconocidos si lo abordas en la calle."
+            },
+            {
+                "pregunta": "¿Es recomendable viajar en bus interprovincial desde Lima de noche para familias con niños, considerando la seguridad?",
+                "respuesta": "Para familias con niños, viajar en bus interprovincial desde Lima de noche puede ser una opción cómoda para aprovechar el tiempo, pero elige empresas de transporte de prestigio como Cruz del Sur, Oltursa, o Civa, que ofrecen servicios 'cama' o 'bus cama' con mayor seguridad y comodidad. Asegúrate de que el terminal de salida sea seguro y que el bus tenga cinturones de seguridad. Mantén los objetos de valor cerca y no los dejes en el compartimento superior. Considera que los niños pueden inquietarse durante la noche."
+            },
+            {
+                "pregunta": "¿Qué medidas de higiene y salud debo considerar al usar el transporte público en Lima para prevenir enfermedades?",
+                "respuesta": "Al usar el transporte público en Lima, como buses o el Metropolitano, es prudente llevar alcohol en gel y desinfectarse las manos antes y después del viaje. Considera usar mascarilla en épocas de alta incidencia de enfermedades respiratorias o si te sientes resfriado. Evita tocarte la cara y mantén una distancia prudente de otros pasajeros si es posible. Si viajas con niños, asegúrate de que también sigan estas prácticas de higiene."
+            },
+            {
+                "pregunta": "¿Hay zonas de Lima cercanas a terminales terrestres o estaciones de tren que sean particularmente inseguras para turistas?",
+                "respuesta": "Sí, algunas zonas de Lima cercanas a terminales terrestres o estaciones pueden ser particularmente inseguras, especialmente para turistas. Por ejemplo, los alrededores del Terminal Terrestre de La Victoria (como la zona de 28 de Julio o la Av. Paseo de la República) y ciertas áreas del Cercado de Lima pueden tener alta incidencia de robos. Se recomienda evitar caminar por estas zonas de noche y siempre usar transporte seguro y directo para llegar a tu destino."
+            }
+        ],
+        "4_Clima_Temporadas_Horarios": [
+            {
+                "pregunta": "¿Cuál es la mejor época para visitar Lima si quiero disfrutar de la playa y el sol, y qué temperaturas puedo esperar?",
+                "respuesta": "La mejor época para disfrutar del sol y la playa en Lima es durante el verano, de diciembre a abril, con temperaturas que oscilan entre 25°C y 30°C. Es ideal para visitar distritos costeros como Miraflores o Barranco y aprovechar sus malecones."
+            },
+            {
+                "pregunta": "¿Qué tipo de clima puedo esperar en Lima durante los meses de invierno, de mayo a noviembre, y qué ropa debo llevar?",
+                "respuesta": "Durante el invierno limeño, de mayo a noviembre, el clima es generalmente nublado, húmedo y fresco, con temperaturas entre 15°C y 20°C. Se recomienda llevar ropa abrigadora como casacas, chompas y bufandas, especialmente por las mañanas y noches."
+            },
+            {
+                "pregunta": "¿Es común la garúa o neblina en Lima y cómo afecta esto a las actividades turísticas en la ciudad durante ciertas temporadas?",
+                "respuesta": "Sí, la garúa o neblina es muy común en Lima, especialmente durante el invierno (mayo a noviembre). Aunque no es una lluvia fuerte, puede reducir la visibilidad y hacer que el ambiente se sienta más frío y húmedo, afectando la vista desde miradores pero no impidiendo la mayoría de actividades culturales o gastronómicas."
+            },
+            {
+                "pregunta": "¿Cuál es el horario ideal para realizar tours a pie por el Centro Histórico de Lima o Barranco, considerando el clima y la afluencia de gente?",
+                "respuesta": "Para tours a pie en el Centro Histórico o Barranco, los mejores horarios son por la mañana, entre 9:00 AM y 12:00 PM, o por la tarde, de 3:00 PM a 6:00 PM. Esto evita el calor más intenso del mediodía en verano y la mayor concentración de personas en horas pico, ofreciendo una experiencia más agradable."
+            },
+            {
+                "pregunta": "¿Hasta qué hora suelen estar abiertos los bares y restaurantes en Miraflores o Barranco en Lima, y es seguro salir de noche en esas zonas?",
+                "respuesta": "En Miraflores y Barranco, los bares suelen estar abiertos hasta las 2:00 AM o 3:00 AM los fines de semana, y los restaurantes hasta las 11:00 PM o 12:00 AM. Es generalmente seguro salir de noche en estas zonas turísticas, pero siempre se recomienda usar taxis de aplicaciones o servicios de confianza para el regreso."
+            },
+            {
+                "pregunta": "¿Cuáles son los horarios de apertura y cierre de los principales museos y sitios arqueológicos en Lima, como el Museo Larco o Huaca Pucllana?",
+                "respuesta": "El Museo Larco abre de 9:00 AM a 10:00 PM todos los días. Huaca Pucllana abre de miércoles a lunes de 9:00 AM a 5:00 PM, y ofrece tours nocturnos de miércoles a domingo de 7:00 PM a 10:00 PM. Siempre es recomendable verificar sus sitios web oficiales por posibles cambios."
+            },
+            {
+                "pregunta": "¿Hasta qué hora funciona el Metropolitano o los buses de transporte público en Lima para moverse por la ciudad de forma eficiente?",
+                "respuesta": "El Metropolitano opera generalmente de lunes a sábado de 5:00 AM a 11:00 PM, y los domingos hasta las 10:00 PM. Los buses de transporte público suelen funcionar hasta las 11:00 PM o medianoche, aunque la frecuencia disminuye considerablemente después de las 9:00 PM."
+            },
+            {
+                "pregunta": "¿Existen eventos o festividades importantes en Lima que dependan de una temporada específica y que un turista deba considerar al planificar su viaje?",
+                "respuesta": "Sí, la Semana Santa (marzo o abril), el Festival de la Vendimia en Ica (cerca de Lima) en marzo, y la Fiesta de Santa Rosa de Lima el 30 de agosto son importantes. En octubre, el Señor de los Milagros es una procesión masiva. Estos pueden afectar la disponibilidad de alojamiento y transporte."
+            },
+            {
+                "pregunta": "¿Cuál es la temporada alta de turismo en Lima y cómo afecta esto a los precios y la disponibilidad de servicios para mochileros y familias?",
+                "respuesta": "La temporada alta en Lima coincide con el verano (diciembre a abril) y las vacaciones de julio (Fiestas Patrias), así como Semana Santa. Durante estos periodos, los precios de alojamiento y vuelos pueden aumentar entre un 20% y 40%, y la disponibilidad de tours y restaurantes puede ser limitada sin reserva previa."
+            },
+            {
+                "pregunta": "¿Es necesario usar protector solar y sombrero en Lima durante todo el año, incluso en días nublados o en invierno, debido a la radiación UV?",
+                "respuesta": "Absolutamente. Debido a la cercanía de Lima a la línea ecuatorial y la altitud, la radiación UV es alta durante todo el año, incluso en días nublados o en invierno. Se recomienda usar protector solar con SPF 30+ y sombrero siempre que se esté al aire libre para protegerse adecuadamente."
+            }
+        ],
+        "5_Historia_Cultura_Curiosidades": [
+            {
+                "pregunta": "¿Qué vestigios pre-incas o incas importantes puedo visitar en Lima para entender su historia antigua?",
+                "respuesta": "En Lima, puedes visitar el sitio arqueológico de Huaca Pucllana en Miraflores, un centro ceremonial de la cultura Lima (200-700 d.C.), o la Huaca Mateo Salado en Breña, que fue ocupada por las culturas Lima, Wari e Inca. La entrada a Huaca Pucllana cuesta aproximadamente 15 Soles para adultos y ofrece visitas guiadas para una mejor comprensión histórica."
+            },
+            {
+                "pregunta": "¿Cuál es la historia detrás del 'Balcón de Huaura' y dónde puedo ver balcones coloniales famosos en Lima?",
+                "respuesta": "El 'Balcón de Huaura' no está en el Centro Histórico de Lima, sino en la ciudad de Huaura, al norte, desde donde San Martín proclamó la independencia en 1820. En Lima, los balcones coloniales más famosos y mejor conservados se encuentran en el Palacio de Torre Tagle o la Casa de la Riva-Agüero, ambos en el Centro Histórico, destacando la arquitectura virreinal."
+            },
+            {
+                "pregunta": "¿Dónde puedo ver arquitectura colonial bien conservada en Lima y cuál es su importancia histórica?",
+                "respuesta": "El Centro Histórico de Lima, declarado Patrimonio de la Humanidad por la UNESCO, alberga joyas como la Plaza Mayor, la Catedral de Lima, el Palacio de Gobierno y el Convento de San Francisco con sus catacumbas. La arquitectura colonial limeña, con sus balcones de cajón y patios interiores, refleja la opulencia del Virreinato del Perú, el más importante de Sudamérica."
+            },
+            {
+                "pregunta": "¿Existe alguna leyenda urbana o historia de fantasmas popular en Lima que los locales cuenten a los turistas?",
+                "respuesta": "Sí, una leyenda popular en Lima es la de 'La Perricholi' (María Micaela Villegas), una famosa actriz del siglo XVIII y amante del Virrey Amat y Juniet. Se dice que su espíritu aún vaga por el Palacio de la Perricholi en el Rímac o por el Paseo de Aguas. Otra es la 'Casa Matusita' en el Cercado de Lima, famosa por supuestos fenómenos paranormales."
+            },
+            {
+                "pregunta": "¿Qué platos típicos de Lima tienen una historia cultural interesante más allá de su sabor tradicional?",
+                "respuesta": "El 'Ceviche', plato bandera, tiene raíces precolombinas y se perfeccionó con la llegada de los cítricos españoles y la influencia japonesa. El 'Ají de Gallina' es una adaptación de recetas medievales españolas con ingredientes locales. Los 'Picarones', postre de camote y zapallo, nacieron durante el Virreinato como una alternativa económica a los buñuelos españoles."
+            },
+            {
+                "pregunta": "¿Cómo influyó la cultura afroperuana en la música y danzas tradicionales de Lima y dónde puedo experimentarlo?",
+                "respuesta": "La cultura afroperuana tuvo una influencia fundamental en la música y danzas de Lima. Ritmos como el 'Festejo', el 'Landó' y el 'Zapateo' nacieron en las haciendas costeñas y se popularizaron en la capital. Instrumentos como el cajón peruano son emblemas de esta herencia. Puedes ver espectáculos en peñas criollas del distrito de Barranco o en el Centro Histórico."
+            },
+            {
+                "pregunta": "¿Cuál es la historia del 'Puente de los Suspiros' en Barranco, Lima, y por qué es considerado un lugar romántico?",
+                "respuesta": "El 'Puente de los Suspiros' en Barranco, Lima, es un puente de madera construido en 1876 que cruza la Bajada de Baños. Su nombre se debe a que era un lugar de encuentro para parejas y poetas. La tradición dice que si lo cruzas por primera vez conteniendo la respiración y pidiendo un deseo, este se hará realidad. Es un ícono bohemio del distrito de Barranco."
+            },
+            {
+                "pregunta": "¿Qué museos en Lima ofrecen la mejor perspectiva sobre la época del Virreinato del Perú para un turista?",
+                "respuesta": "Para la época virreinal, el Museo de Arte de Lima (MALI) en el Parque de la Exposición tiene una excelente colección de arte colonial. El Museo de la Inquisición y del Congreso en la Plaza Bolívar ofrece una visión de la justicia colonial. El Museo de la Nación también tiene secciones dedicadas a la época, aunque su enfoque es más amplio y abarca otras culturas."
+            },
+            {
+                "pregunta": "¿Cómo se celebra la festividad del 'Señor de los Milagros' en Lima y cuál es su origen histórico?",
+                "respuesta": "La festividad del 'Señor de los Milagros' en Lima, en octubre, es una de las procesiones religiosas más grandes del mundo. Su origen se remonta al siglo XVII, cuando un esclavo angoleño pintó la imagen de Cristo en una pared de Pachacamilla. La imagen sobrevivió a terremotos devastadores, siendo considerada milagrosa. Los fieles visten de morado y acompañan la imagen por las calles del Centro Histórico."
+            },
+            {
+                "pregunta": "¿Qué curiosidades históricas o datos poco conocidos hay sobre la fundación de Lima por Francisco Pizarro?",
+                "respuesta": "Lima fue fundada por Francisco Pizarro el 18 de enero de 1535 como 'Ciudad de los Reyes', no por los Reyes Católicos, sino por la cercanía a la Epifanía (Día de Reyes). Se eligió el valle del Rímac por su acceso al agua dulce del río y su cercanía al mar, facilitando la comunicación con España. El damero de Pizarro, el diseño original de la ciudad, aún se puede apreciar en el Centro Histórico."
+            }
+        ],
+        "6_Tips_Locales_Secretos": [
+            {
+                "pregunta": "¿Cuál es el truco local para ir del aeropuerto Jorge Chávez a Miraflores en Lima sin pagar un taxi turístico caro?",
+                "respuesta": "El 'secreto' es salir caminando del aeropuerto hasta la Av. Faucett (unos 10-15 minutos) y allí tomar un taxi de la calle o un 'colectivo' que te lleve a un punto más céntrico como San Miguel o Pueblo Libre, desde donde es más fácil y barato conectar con Miraflores o Barranco. Otra opción segura y económica es el bus Airport Express Lima, que cuesta S/20-25 y te deja en varios puntos de Miraflores."
+            },
+            {
+                "pregunta": "¿Cómo puedo usar el Metropolitano o los Corredores de Lima como un local para ahorrar tiempo y dinero?",
+                "respuesta": "El 'tip' es comprar la 'Tarjeta Lima Pass' (S/4.50) en cualquier estación del Metropolitano o en tiendas autorizadas. Cárgala con saldo y úsala para todos los buses del Metropolitano y los Corredores Complementarios (Azul, Rojo, Morado). Evitarás las colas para comprar boletos y pagarás la tarifa exacta (S/2.50-S/5.00 por viaje, dependiendo de la ruta)."
+            },
+            {
+                "pregunta": "Para viajar desde Lima a Paracas o Ica, ¿qué empresas de bus recomiendan los limeños para seguridad y buen servicio?",
+                "respuesta": "Los 'secretos' para un viaje seguro y cómodo son elegir empresas como Cruz del Sur, Oltursa o Civa. Sus terminales principales están en Javier Prado (La Victoria) o Plaza Norte (Independencia). Evita los terminales informales; siempre compra tus boletos en sus agencias o webs oficiales para evitar estafas."
+            },
+            {
+                "pregunta": "¿Qué aplicación de taxi usan los locales en Lima para moverse de noche de forma segura y evitar sorpresas?",
+                "respuesta": "Además de las conocidas como Uber o Cabify, muchos limeños usan 'Beat' o 'Didi' por sus tarifas competitivas y la opción de compartir el viaje con contactos de confianza. Siempre verifica la placa y el nombre del conductor antes de subir."
+            },
+            {
+                "pregunta": "¿Existe alguna forma económica y segura de llegar a Callao Monumental desde Miraflores en Lima usando transporte público?",
+                "respuesta": "Sí, el 'secreto' es tomar el Corredor Rojo (línea 301 o 303) desde Miraflores (por ejemplo, en la Av. Arequipa) hasta el paradero 'La Paz' en San Miguel. Desde allí, puedes tomar un taxi corto (S/8-10) o un bus local (como la línea 4911 o 4916) que te dejará cerca de Callao Monumental."
+            },
+            {
+                "pregunta": "¿Dónde compran los peruanos sus pasajes de bus online para rutas desde Lima y conseguir mejores precios o asientos?",
+                "respuesta": "El 'tip' es usar plataformas como 'Redbus.pe' o 'Busportal.pe'. Permiten comparar precios, horarios y asientos de varias empresas de bus que operan desde Lima. Es ideal para reservar con antelación, especialmente en feriados o temporada alta, y a veces encuentras ofertas exclusivas online."
+            },
+            {
+                "pregunta": "¿Qué consejos dan los locales en Lima para asegurar el equipaje en los buses de larga distancia y evitar robos?",
+                "respuesta": "El 'secreto' es no guardar objetos de valor (electrónica, dinero, documentos) en la maleta que va en la bodega. Llévalos contigo en un bolso pequeño. Además, muchos locales usan candados en sus maletas y toman una foto del ticket de equipaje por si acaso."
+            },
+            {
+                "pregunta": "¿Hay algún 'secreto' para evitar el tráfico pesado en Lima al moverse entre distritos turísticos como Miraflores y el Centro Histórico?",
+                "respuesta": "El 'tip' es usar el Metropolitano para esa ruta, especialmente en horas punta (7-9 AM y 6-8 PM). Si vas en taxi o app, pide al conductor que evite la Vía Expresa y use rutas alternas por avenidas como Arequipa o Paseo de la República, aunque sean más largas, a veces son más fluidas."
+            },
+            {
+                "pregunta": "¿Cuándo es seguro y recomendable usar los 'colectivos' (taxis compartidos) en Lima como un local y cuándo no?",
+                "respuesta": "Los 'colectivos' son un 'secreto' para rutas fijas y cortas, como de la Av. Faucett al aeropuerto o entre distritos cercanos. Identifica los paraderos formales y vehículos con letreros claros. Evita usarlos de noche, para rutas largas o si viajas solo con mucho equipaje, ya que la seguridad es menor que en taxis por app."
+            },
+            {
+                "pregunta": "¿Cómo puedo llegar a las ruinas de Pachacamac desde el sur de Lima usando transporte público como un local?",
+                "respuesta": "El 'secreto' es tomar el Corredor Amarillo (línea 107) desde puntos como el Óvalo Higuereta en Surco o la Estación Matellini del Metropolitano en Chorrillos. Este bus va por la Panamericana Sur y te deja en el paradero 'Pachacamac', a pocos minutos a pie de la entrada al sitio arqueológico. El costo es de S/5.00."
+            }
+        ],
+        "7_Gastronomia_Alimentos_Supervivencia": [
+            {
+                "pregunta": "¿Es seguro comer comida callejera en Lima para turistas y cómo evitar problemas estomacales?",
+                "respuesta": "Comer comida callejera en Lima puede ser seguro si se eligen puestos con alta rotación de clientes, donde la comida se prepare al momento y esté caliente. Evite mariscos crudos o alimentos que hayan estado expuestos por mucho tiempo. Siempre prefiera agua embotellada. Busque puestos con buena higiene visible, como los de anticuchos o picarones en Miraflores o Barranco, pero siempre con precaución."
+            },
+            {
+                "pregunta": "¿Dónde encontrar opciones de comida barata y segura en Lima para mochileros con presupuesto ajustado?",
+                "respuesta": "Para mochileros, los 'menús del día' son la mejor opción, ofreciendo un plato de fondo, sopa y bebida por S/10-S/20. Los mercados locales como el Mercado de Surquillo o el Mercado Central ofrecen comida fresca y preparada a precios muy bajos. También hay 'huariques' (restaurantes pequeños y tradicionales) en barrios como Lince o Pueblo Libre que son económicos y auténticos. Siempre observe la higiene del lugar."
+            },
+            {
+                "pregunta": "¿Es seguro beber agua del grifo en Lima o debo comprar agua embotellada para evitar enfermedades?",
+                "respuesta": "No es recomendable beber agua directamente del grifo en Lima. Aunque el agua es tratada, el sistema de tuberías puede ser antiguo y la calidad varía. Siempre compre agua embotellada de marcas reconocidas como San Mateo, Cielo o San Luis, disponibles en supermercados (Wong, Vivanda, Plaza Vea) y tiendas de conveniencia (Tambos, Listo). Para cocinar, es preferible usar agua hervida o embotellada."
+            },
+            {
+                "pregunta": "¿Cómo manejar alergias alimentarias o dietas vegetarianas/veganas en restaurantes de Lima de forma segura?",
+                "respuesta": "Para alergias, es crucial comunicar claramente sus restricciones en español. Frases como 'Soy alérgico/a a...' (ej. 'Soy alérgico/a al maní') o 'No puedo comer...' (ej. 'No puedo comer gluten') son esenciales. Muchos restaurantes modernos en Miraflores, Barranco o San Isidro tienen opciones vegetarianas/veganas y están más familiarizados con alergias. En lugares más tradicionales, puede ser más difícil, pero siempre pregunte si el plato contiene carne, lácteos o el alérgeno específico."
+            },
+            {
+                "pregunta": "¿Qué opciones de comida hay disponibles en Lima si llego tarde en la noche o necesito algo rápido de emergencia?",
+                "respuesta": "Si llega tarde, las tiendas de conveniencia como Tambo+ o Listo (presentes en gasolineras y zonas céntricas) están abiertas 24/7 y ofrecen snacks, sándwiches envasados y bebidas. Las aplicaciones de delivery como Glovo o Rappi operan hasta altas horas de la noche en zonas como Miraflores, San Isidro y Barranco, con opciones de restaurantes de comida rápida o pizzerías. Algunos restaurantes de comida china ('chifas') también abren hasta tarde."
+            },
+            {
+                "pregunta": "¿Dónde puedo comprar alimentos y provisiones básicas en Lima para cocinar yo mismo si me alojo en un Airbnb?",
+                "respuesta": "Para comprar alimentos y provisiones en Lima, los supermercados son la mejor opción: Wong y Vivanda (más premium), Plaza Vea y Metro (más económicos). También puede visitar mercados locales como el Mercado de Surquillo (Av. Paseo de la República 5050) o el Mercado Central (cercano a la Plaza Mayor) para frutas, verduras, carnes y productos frescos a precios más bajos. Hay bodegas pequeñas en casi cada esquina para compras rápidas."
+            },
+            {
+                "pregunta": "¿Cuáles son los platos típicos de Lima que un turista debe probar y cómo asegurar que sean preparados higiénicamente?",
+                "respuesta": "Debe probar el ceviche, lomo saltado, ají de gallina y causa rellena. Para asegurar la higiene, elija restaurantes establecidos y con buena reputación, especialmente para el ceviche, que debe ser preparado con pescado fresco del día. Lugares como 'La Mar Cebichería' (Miraflores) o 'Pescados Capitales' (Miraflores) son excelentes opciones, aunque más caras. Para opciones más económicas, busque restaurantes concurridos y con certificaciones de higiene visibles."
+            },
+            {
+                "pregunta": "¿Qué debo hacer si sufro una intoxicación alimentaria en Lima y dónde buscar ayuda médica de emergencia?",
+                "respuesta": "Si sufre una intoxicación alimentaria en Lima, lo primero es mantenerse hidratado bebiendo agua embotellada o suero oral. Para ayuda médica, puede acudir a una farmacia (Inkafarma o Mifarma son las cadenas más grandes) para medicamentos básicos. Si los síntomas son severos (fiebre alta, deshidratación, dolor intenso), diríjase a una clínica privada como la Clínica Ricardo Palma (Av. Javier Prado Este 1066, San Isidro) o la Clínica Internacional (Jr. Washington 1471, Cercado de Lima), que ofrecen atención de emergencia y suelen tener personal bilingüe."
+            },
+            {
+                "pregunta": "¿Qué tipo de snacks locales y seguros puedo comprar en Lima para llevar en excursiones o viajes largos en bus?",
+                "respuesta": "Para excursiones o viajes largos desde Lima, puede comprar snacks seguros y locales. Opciones recomendadas incluyen frutas frescas (plátanos, manzanas, mandarinas) de supermercados o mercados, galletas envasadas (ej. 'Soda', 'Casino'), barras de cereales, frutos secos (maní, pasas) y los populares 'chifles' (plátano frito) o 'canchita' (maíz tostado). Evite sándwiches o alimentos perecederos que no puedan mantenerse refrigerados por mucho tiempo."
+            },
+            {
+                "pregunta": "¿Cómo puedo identificar restaurantes en Lima que ofrezcan comida segura y de calidad para evitar problemas de salud?",
+                "respuesta": "Para identificar restaurantes seguros y de calidad en Lima, busque establecimientos con buena reputación y reseñas positivas en plataformas como TripAdvisor o Google Maps. Observe la limpieza del local, la higiene del personal y si el lugar está concurrido (señal de frescura de los alimentos). Los restaurantes en zonas turísticas como Miraflores, Barranco y San Isidro suelen tener estándares más altos. Evite lugares con poca gente o que parezcan descuidados."
+            }
+        ],
+        "8_Accesibilidad_Infraestructura": [
+            {
+                "pregunta": "¿Cuál es la forma más segura y económica de ir del aeropuerto Jorge Chávez de Lima a Miraflores para un mochilero?",
+                "respuesta": "Para un mochilero en Lima, la opción más económica y segura desde el aeropuerto Jorge Chávez a Miraflores es el bus Airport Express Lima. Cuesta aproximadamente 8 USD o 30 Soles por persona, sale cada hora y tiene paradas en puntos clave de Miraflores como el Parque Kennedy. También puedes usar aplicaciones como Uber o Cabify, que cuestan entre 40 y 60 Soles."
+            },
+            {
+                "pregunta": "¿Desde qué terminal terrestre en Lima puedo tomar un bus a Paracas o Ica y cómo llego allí desde el centro de Lima?",
+                "respuesta": "Para viajar a Paracas o Ica desde Lima, debes dirigirte al Terminal Terrestre de Javier Prado. Desde el centro de Lima, puedes tomar un taxi o usar aplicaciones de transporte que te costarán entre 20 y 30 Soles, dependiendo del tráfico. Empresas como Cruz del Sur y Oltursa operan desde este terminal."
+            },
+            {
+                "pregunta": "¿Cuál es el terminal de buses principal en Lima para viajar al norte del Perú, como Huaraz o Trujillo, y cómo accedo a él?",
+                "respuesta": "El principal terminal terrestre en Lima para rutas hacia el norte, incluyendo Huaraz o Trujillo, es el Gran Terminal Terrestre Plaza Norte. Puedes llegar desde Miraflores o el centro de Lima usando el Metropolitano hasta la estación Tomás Valle y luego un taxi corto, o directamente con un taxi/aplicación de transporte por unos 30-50 Soles."
+            },
+            {
+                "pregunta": "¿Es el Metropolitano de Lima una buena opción para moverse entre Miraflores y el Centro Histórico para turistas con equipaje ligero?",
+                "respuesta": "Sí, el Metropolitano de Lima es una excelente opción para moverse entre Miraflores (estación Ricardo Palma o 28 de Julio) y el Centro Histórico (estación Jirón de la Unión o Colmena) si viajas con equipaje ligero. Necesitarás una tarjeta recargable que cuesta 4.50 Soles y cada viaje vale 3.20 Soles. Es rápido y eficiente, pero puede estar muy concurrido en horas punta."
+            },
+            {
+                "pregunta": "¿Qué tan seguro es usar taxis de calle o aplicaciones de transporte como Uber en Lima para familias que viajan de noche?",
+                "respuesta": "Para familias que viajan de noche en Lima, es mucho más seguro usar aplicaciones de transporte como Uber, Cabify o Didi, ya que registran al conductor y el trayecto. Evita tomar taxis de calle sin identificación o que no sean de empresas conocidas, especialmente de noche. Las tarifas nocturnas suelen ser un poco más altas, pero la seguridad es prioritaria."
+            },
+            {
+                "pregunta": "¿Cómo puedo comprar pasajes de bus confiables desde Lima a otras ciudades peruanas, como Arequipa, de forma anticipada?",
+                "respuesta": "Puedes comprar pasajes de bus confiables desde Lima a ciudades como Arequipa de forma anticipada directamente en las páginas web de las empresas de transporte (Cruz del Sur, Oltursa, Civa) o en sus terminales. También hay plataformas online como RedBus.pe que comparan precios y horarios. Se recomienda comprar con al menos un día de anticipación, especialmente para rutas populares o feriados."
+            },
+            {
+                "pregunta": "¿Cuánto cuesta un taxi o un servicio de aplicación desde el aeropuerto de Lima hasta el distrito de Barranco para una familia en 2024?",
+                "respuesta": "En 2024, un taxi o un servicio de aplicación como Uber o Cabify desde el aeropuerto Jorge Chávez de Lima hasta Barranco para una familia puede costar entre 50 y 70 Soles, dependiendo de la hora del día y el tráfico. Asegúrate de confirmar el precio antes de iniciar el viaje si tomas un taxi formal del aeropuerto."
+            },
+            {
+                "pregunta": "¿Qué opciones de transporte accesibles hay en Lima desde el aeropuerto para personas con movilidad reducida?",
+                "respuesta": "Las opciones de transporte accesibles desde el aeropuerto de Lima para personas con movilidad reducida son limitadas. Se recomienda reservar un taxi o van adaptada con antelación a través de empresas especializadas o coordinar directamente con tu hotel. El Airport Express Lima no está completamente adaptado para sillas de ruedas."
+            },
+            {
+                "pregunta": "¿Qué empresas de bus son las mejores para viajar de Lima a Huaraz y cuánto tiempo dura el trayecto?",
+                "respuesta": "Para viajar de Lima a Huaraz, las mejores empresas de bus son Cruz del Sur, Oltursa y Movil Bus, conocidas por su seguridad y comodidad. El trayecto dura aproximadamente 8 a 9 horas. Los pasajes varían entre 60 y 120 Soles, dependiendo del servicio (cama, semi-cama) y la anticipación de la compra. Salen principalmente del Gran Terminal Terrestre Plaza Norte."
+            },
+            {
+                "pregunta": "¿Es práctico viajar con una mochila grande o maleta en el Metropolitano o buses locales en Lima?",
+                "respuesta": "No es práctico viajar con una mochila grande o maleta voluminosa en el Metropolitano o buses locales (combis/micros) en Lima, especialmente en horas punta. Estos transportes suelen estar muy concurridos y el espacio es limitado. Es preferible usar taxis o aplicaciones de transporte para trayectos con equipaje pesado para mayor comodidad y seguridad."
+            }
+        ],
+        "9_Reglas_Prohibiciones_Tramites": [
+            {
+                "pregunta": "¿Cuáles son las reglas oficiales para tomar un taxi seguro desde el Aeropuerto Jorge Chávez de Lima hacia Miraflores para turistas?",
+                "respuesta": "En el Aeropuerto Jorge Chávez de Lima, la regla es usar únicamente taxis autorizados que operan dentro del terminal, como Taxi Green, Taxi Directo o CMV. Evite los taxistas informales que ofrecen servicios fuera de la zona de llegadas, ya que no cumplen con las regulaciones de seguridad y tarifas. Los mostradores de estas empresas están dentro del área de llegadas y el pago se realiza por adelantado."
+            },
+            {
+                "pregunta": "¿Existen prohibiciones o límites de equipaje específicos para mochileros en los buses interprovinciales que salen de Lima a Cusco o Arequipa?",
+                "respuesta": "Sí, la mayoría de las empresas de buses interprovinciales desde Lima (como Cruz del Sur, Oltursa, Civa) permiten un máximo de 20 kg a 25 kg de equipaje por pasajero en bodega, más un bolso de mano pequeño. Exceder este límite puede implicar un cargo adicional por kilo extra, que varía entre 1 a 2 Soles por kilo, y está prohibido llevar objetos inflamables o armas."
+            },
+            {
+                "pregunta": "¿Qué trámites o documentos necesito como extranjero para comprar un pasaje de bus interprovincial desde Lima a Paracas o Huaraz?",
+                "respuesta": "Para comprar un pasaje de bus interprovincial desde Lima, los extranjeros deben presentar su pasaporte o carné de extranjería. Algunas empresas también aceptan el DNI si se tiene residencia. Es un trámite obligatorio para la emisión del boleto, ya sea en ventanilla en terminales como Plaza Norte o Javier Prado, o al comprar online."
+            },
+            {
+                "pregunta": "¿Cuáles son las reglas de seguridad para el equipaje de mano en vuelos domésticos desde el aeropuerto de Lima, especialmente líquidos y objetos punzocortantes?",
+                "respuesta": "Para vuelos domésticos desde el Aeropuerto Jorge Chávez de Lima, la regla general prohíbe llevar líquidos en envases de más de 100 ml en el equipaje de mano. Objetos punzocortantes como cuchillos, tijeras grandes o navajas de afeitar están estrictamente prohibidos en cabina y deben ir en el equipaje facturado. Aerosoles y geles también están sujetos a la restricción de 100 ml."
+            },
+            {
+                "pregunta": "¿Hay alguna prohibición o regla sobre el uso de transporte público informal 'colectivo' desde los terminales terrestres de Lima hacia otras ciudades?",
+                "respuesta": "Sí, las autoridades peruanas prohíben y desaconsejan enfáticamente el uso de transporte informal 'colectivo' o 'pirata' que opera fuera de los terminales terrestres oficiales de Lima. Estos vehículos no cumplen con las regulaciones de seguridad, seguros ni licencias, lo que representa un alto riesgo para los pasajeros. Se recomienda usar solo buses de empresas formales."
+            },
+            {
+                "pregunta": "¿Qué reglas o permisos especiales se requieren para que un menor de edad viaje solo o con un solo padre en bus interprovincial desde Lima?",
+                "respuesta": "Para que un menor de edad viaje en bus interprovincial desde Lima con un solo padre, se requiere un permiso notarial del padre ausente. Si viaja solo o con un tercero, se necesita un permiso notarial de ambos padres. Este trámite es obligatorio y debe presentarse en el terminal terrestre antes de abordar el bus, junto con el DNI del menor y de los padres."
+            },
+            {
+                "pregunta": "¿Qué reglas debo seguir para usar el Metropolitano o Metro de Lima como turista, como la compra de tarjetas o restricciones de horario?",
+                "respuesta": "Como turista en Lima, la regla principal para usar el Metropolitano o el Metro de Lima es adquirir una tarjeta recargable (tarjeta del Metropolitano o tarjeta de la Línea 1 del Metro). No se acepta pago en efectivo. Las tarjetas se compran y recargan en las estaciones. Durante las horas punta (7-9 AM y 6-8 PM), los vagones pueden estar muy llenos, lo cual no es una prohibición pero sí una consideración importante."
+            },
+            {
+                "pregunta": "¿Existen prohibiciones o regulaciones sobre el transporte de mascotas en buses interprovinciales desde Lima a destinos nacionales?",
+                "respuesta": "Sí, la mayoría de las empresas de buses interprovinciales que operan desde Lima tienen regulaciones estrictas o prohibiciones sobre el transporte de mascotas. Generalmente, solo se permiten animales pequeños en jaulas especiales en la bodega del bus, con un costo adicional y previa coordinación. Algunas empresas prohíben completamente el transporte de animales vivos. Se debe consultar directamente con la empresa de bus."
+            },
+            {
+                "pregunta": "¿Cuáles son las reglas o procedimientos para asegurar mi equipaje en la bodega de un bus interprovincial saliendo de Lima para evitar robos?",
+                "respuesta": "Para asegurar su equipaje en la bodega de un bus interprovincial desde Lima, la regla es etiquetar claramente su maleta con su nombre y número de contacto. Al entregar su equipaje, asegúrese de recibir un ticket o comprobante con un número de serie que coincida con la etiqueta de su maleta. No deje objetos de valor (electrónica, dinero, documentos) en la bodega; llévelos consigo en el equipaje de mano."
+            },
+            {
+                "pregunta": "¿Hay alguna regla o prohibición sobre el uso de drones en las cercanías del Aeropuerto Jorge Chávez de Lima o en otras zonas de la ciudad?",
+                "respuesta": "Sí, existe una estricta prohibición de volar drones en las cercanías del Aeropuerto Jorge Chávez de Lima debido a la seguridad aérea. En general, para operar drones en Perú, se requiere una autorización de la Dirección General de Aeronáutica Civil (DGAC) para fines comerciales o recreativos en zonas urbanas o protegidas. Volar sin permiso puede acarrear multas y la confiscación del equipo."
+            }
+        ],
+        "10_Alternativas_Plan_B": [
+            {
+                "pregunta": "¿Mi taxi pre-reservado desde el Aeropuerto de Lima no llegó. ¿Qué alternativa segura y rápida tengo para ir a Miraflores con mi familia?",
+                "respuesta": "Si tu taxi falla, una excelente alternativa es el servicio Airport Express Lima. Sus buses salen cada hora desde el aeropuerto, tienen espacio para equipaje y te dejan en varios puntos clave de Miraflores y San Isidro. El costo es de aproximadamente 8 USD (unos 30 Soles) por persona y es muy seguro para familias."
+            },
+            {
+                "pregunta": "¿Soy mochilero en Lima y necesito una opción económica para salir del aeropuerto si las apps de taxi están muy caras. ¿Hay un 'Plan B' de transporte público barato?",
+                "respuesta": "Sí, un 'Plan B' muy económico es tomar el bus público. Desde las afueras del aeropuerto (caminando unos 10-15 minutos por la Av. Faucett), puedes tomar un bus de transporte público (como la línea 301 del Corredor Azul o buses que van a la Av. La Marina) que te acerque a estaciones del Metropolitano o a distritos céntricos. El pasaje cuesta alrededor de 2.50 a 3.50 Soles, pero es más lento y requiere transbordos."
+            },
+            {
+                "pregunta": "¿Llegué a un terminal terrestre en Lima (como Plaza Norte) y no encuentro taxis de confianza. ¿Cuál es mi 'Plan B' para llegar al centro de forma segura?",
+                "respuesta": "Si no encuentras taxis de confianza, tu 'Plan B' es usar las apps de movilidad como Uber, Cabify o Didi, solicitándolas desde dentro del terminal. Otra opción es buscar los paraderos de buses del Metropolitano o Corredor Azul cercanos; por ejemplo, desde Plaza Norte, la Estación Tomás Valle del Metropolitano está muy cerca y te conecta con el centro de Lima de forma segura."
+            },
+            {
+                "pregunta": "¿Quiero viajar desde Lima a Paracas, pero los buses de Cruz del Sur están agotados. ¿Qué 'Plan B' tengo para llegar a Paracas en el mismo día?",
+                "respuesta": "Si Cruz del Sur está lleno, tu 'Plan B' es buscar otras empresas de bus confiables como Oltursa, Civa o Soyuz (para Ica, y de ahí un taxi a Paracas). También puedes considerar los servicios de 'colectivos' o minivans compartidas que salen desde el Terminal Terrestre de Atocongo o la Av. México, aunque son menos regulados. Asegúrate de que el vehículo esté en buen estado y tenga todos los pasajeros antes de salir."
+            },
+            {
+                "pregunta": "¿Si el Metropolitano en Lima está muy lleno o no llega a mi destino, ¿qué alternativa de transporte público puedo usar como 'Plan B' para moverme por la ciudad?",
+                "respuesta": "Si el Metropolitano no es una opción, tu 'Plan B' son los Corredores Complementarios (como el Corredor Azul, Rojo o Morado) que cubren rutas importantes y son más organizados que los buses tradicionales. También puedes usar las apps de taxi o mototaxis en zonas periféricas, pero siempre verifica la seguridad y reputación del conductor."
+            },
+            {
+                "pregunta": "¿Estoy en Lima y necesito ir a Huaraz, pero hay un paro de transportistas que bloquea las carreteras. ¿Cuál es mi 'Plan B' para llegar a Huaraz?",
+                "respuesta": "En caso de paro de transportistas, tu 'Plan B' más viable es considerar un vuelo doméstico desde el Aeropuerto Jorge Chávez de Lima hacia el Aeropuerto de Anta (Huaraz). Empresas como LATAM o Star Peru operan esta ruta. Es más caro, pero es la única alternativa rápida y segura si las carreteras están bloqueadas."
+            },
+            {
+                "pregunta": "¿Si mi vuelo doméstico desde Lima se cancela, ¿qué 'Plan B' tengo para llegar a Cusco o Arequipa de forma urgente?",
+                "respuesta": "Si tu vuelo se cancela y necesitas llegar urgentemente, tu 'Plan B' es buscar vuelos de otras aerolíneas (Sky Airline, JetSmart, Star Peru) que operen la ruta ese mismo día. Como última opción, y solo si el tiempo lo permite, podrías considerar un bus cama de lujo (como Cruz del Sur o Oltursa) que tardaría entre 18-24 horas, pero es una opción muy larga."
+            },
+            {
+                "pregunta": "¿Soy una familia con niños pequeños en Lima y el taxi que pedimos es muy pequeño para nuestro equipaje. ¿Qué 'Plan B' existe para conseguir un vehículo más grande?",
+                "respuesta": "Si el taxi es pequeño, tu 'Plan B' es cancelar y solicitar un servicio de taxi por aplicación que ofrezca la opción de 'XL' o 'Van' (como Uber Van o Cabify Executive). También puedes buscar taxis autorizados en paraderos grandes o en el aeropuerto que suelen tener vehículos más amplios, especificando que necesitas espacio para equipaje."
+            },
+            {
+                "pregunta": "¿Necesito llegar a un terminal terrestre específico en Lima (ej. para buses a la selva) que está lejos del centro y las apps de taxi son caras. ¿Hay un 'Plan B' más económico?",
+                "respuesta": "Para terminales lejanos, tu 'Plan B' económico es combinar transporte público. Por ejemplo, si vas al Terminal de Yerbateros, puedes tomar el Metropolitano hasta la Estación Grau y de ahí un bus local o un taxi corto. Investiga las rutas de los Corredores Complementarios o buses locales que pasen cerca de tu terminal de destino."
+            },
+            {
+                "pregunta": "¿Si llego muy tarde al Aeropuerto de Lima y el Airport Express ya no opera, ¿cuál es mi 'Plan B' seguro para ir a Miraflores de madrugada?",
+                "respuesta": "Si llegas de madrugada y el Airport Express no opera, tu 'Plan B' más seguro es utilizar los servicios de taxi autorizados que operan dentro del aeropuerto las 24 horas, como Taxi Green o CMV. Aunque son más caros que las apps, ofrecen seguridad y confiabilidad a esas horas. Evita taxis informales fuera del terminal."
+            }
+        ]
+    }
+}

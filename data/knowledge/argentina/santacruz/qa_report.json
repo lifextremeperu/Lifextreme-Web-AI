@@ -1,0 +1,120 @@
+{
+    "pais": "argentina",
+    "departamento": "santacruz",
+    "modulos_evaluados": 14,
+    "modulos_aprobados": 14,
+    "modulos_fallidos": 0,
+    "modulos_advertencia": 0,
+    "fqsas_totales_validadas": 1339,
+    "fqsas_totales_esperadas": 1346,
+    "detalles": {
+        "A-01": {
+            "status": "PASS",
+            "fqsas_validas": 100,
+            "fqsas_totales": 100,
+            "porcentaje_exito": "100.0%",
+            "errores": []
+        },
+        "A-02": {
+            "status": "PASS",
+            "fqsas_validas": 100,
+            "fqsas_totales": 100,
+            "porcentaje_exito": "100.0%",
+            "errores": []
+        },
+        "B-01": {
+            "status": "PASS",
+            "fqsas_validas": 99,
+            "fqsas_totales": 100,
+            "porcentaje_exito": "99.0%",
+            "errores": [
+                "Error detectado en la extracción de 6_Tips_Locales_Secretos"
+            ]
+        },
+        "B-02": {
+            "status": "PASS",
+            "fqsas_validas": 100,
+            "fqsas_totales": 100,
+            "porcentaje_exito": "100.0%",
+            "errores": []
+        },
+        "C-01": {
+            "status": "PASS",
+            "fqsas_validas": 100,
+            "fqsas_totales": 100,
+            "porcentaje_exito": "100.0%",
+            "errores": []
+        },
+        "C-02": {
+            "status": "PASS",
+            "fqsas_validas": 100,
+            "fqsas_totales": 100,
+            "porcentaje_exito": "100.0%",
+            "errores": []
+        },
+        "C-03": {
+            "status": "PASS",
+            "fqsas_validas": 100,
+            "fqsas_totales": 100,
+            "porcentaje_exito": "100.0%",
+            "errores": []
+        },
+        "D-01": {
+            "status": "PASS",
+            "fqsas_validas": 100,
+            "fqsas_totales": 100,
+            "porcentaje_exito": "100.0%",
+            "errores": []
+        },
+        "D-02": {
+            "status": "PASS",
+            "fqsas_validas": 100,
+            "fqsas_totales": 100,
+            "porcentaje_exito": "100.0%",
+            "errores": []
+        },
+        "E-01": {
+            "status": "PASS",
+            "fqsas_validas": 100,
+            "fqsas_totales": 100,
+            "porcentaje_exito": "100.0%",
+            "errores": []
+        },
+        "E-02": {
+            "status": "PASS",
+            "fqsas_validas": 100,
+            "fqsas_totales": 100,
+            "porcentaje_exito": "100.0%",
+            "errores": []
+        },
+        "F-01": {
+            "status": "PASS",
+            "fqsas_validas": 100,
+            "fqsas_totales": 100,
+            "porcentaje_exito": "100.0%",
+            "errores": []
+        },
+        "F-02": {
+            "status": "PASS",
+            "fqsas_validas": 70,
+            "fqsas_totales": 73,
+            "porcentaje_exito": "95.9%",
+            "errores": [
+                "Respuesta muy corta o vacía en 8_Accesibilidad_Infraestructura: ERROR",
+                "Respuesta muy corta o vacía en 9_Reglas_Prohibiciones_Tramites: ERROR",
+                "Respuesta muy corta o vacía en 10_Alternativas_Plan_B: ERROR"
+            ]
+        },
+        "F-03": {
+            "status": "PASS",
+            "fqsas_validas": 70,
+            "fqsas_totales": 73,
+            "porcentaje_exito": "95.9%",
+            "errores": [
+                "Respuesta muy corta o vacía en 4_Clima_Temporadas_Horarios: ERROR",
+                "Respuesta muy corta o vacía en 7_Gastronomia_Alimentos_Supervivencia: ERROR",
+                "Respuesta muy corta o vacía en 9_Reglas_Prohibiciones_Tramites: ERROR"
+            ]
+        }
+    }
+}

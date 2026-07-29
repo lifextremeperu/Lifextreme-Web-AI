@@ -1,0 +1,112 @@
+<diagnostico>
+PERFIL: El Callao es la principal puerta de entrada marítima y aérea de Perú, albergando el Aeropuerto Internacional Jorge Chávez y el puerto más grande del país. Con una población de aproximadamente 1.1 millones de habitantes, es un centro neurálgico para el comercio y la logística. Su revitalizado centro histórico, Monumental Callao, atrae a visitantes por su arte urbano y galerías, mientras que las Islas Palomino ofrecen una experiencia única de nado con lobos marinos. La gastronomía marina, especialmente el ceviche, es un pilar fundamental de su oferta turística.
+MACROREGION: Costa
+MADUREZ_TURISTICA: MEDIA
+VISITANTES_ANUALES_EST: 450000 (2023)
+PESO_CATEGORIAS:
+  - Destinos y patrimonio: 30%
+  - Aventura y deportes: 15%
+  - Gastronomía y cultura: 25%
+  - Naturaleza y ecosistemas: 15%
+  - Misticismo y festividades: 5%
+  - Logística y servicios: 8%
+  - Otros: 2%
+  TOTAL: 100%
+PERFIL_VISITANTE_DOMINANTE: Viajeros de paso con escalas largas, excursionistas de un día desde Lima, amantes de la cultura urbana y la gastronomía marina, entusiastas de la vida silvestre marina.
+MERCADOS_INTERNACIONALES: USA, España, Chile
+VENTANA_OPTIMA: Todo el año, con preferencia de verano (Dic-Abr) para actividades marinas y menor incidencia de neblina.
+PROBLEMA_NO_RESUELTO: La percepción de inseguridad limita la extensión de la estadía y la exploración autónoma más allá de las zonas turísticas consolidadas.
+DESTINOS_CANONICOS_COMPARTIDOS: Lima Metropolitana
+</diagnostico>
+
+
+[... MÓDULOS OMITIDOS AQUÍ ...]
+
+
+<inteligencia_cierre>
+TOP_5_TRAFICO_MASIVO:
+  - ID: A-01
+    razón: Es el principal punto de interés cultural revitalizado y más promocionado del Callao.
+  - ID: A-03
+    razón: Ofrece una experiencia única de naturaleza y aventura (lobos marinos) altamente demandada.
+  - ID: D-01
+    razón: La gastronomía marina, especialmente el ceviche, es un atractivo universal y muy buscado.
+  - ID: F-01
+    razón: El aeropuerto Jorge Chávez es la puerta de entrada para casi todos los visitantes internacionales.
+  - ID: A-02
+    razón: Un hito histórico importante y bien conservado, parte de muchos tours organizados.
+TOP_5_DIAMANTES_EN_BRUTO:
+  - ID: A-05
+    por_que_son_subestimados: Ofrecen una visión más auténtica y tranquila del Callao, con arquitectura y ambiente local fuera del circuito principal de Monumental.
+  - ID: H-01
+    por_que_son_subestimados: Aunque parte de Monumental, el arte urbano y las galerías específicas merecen un enfoque más profundo como atractivo cultural en sí mismo, no solo como telón de fondo.
+  - ID: D-02
+    por_que_son_subestimados: Representan la gastronomía local y auténtica, a menudo eclipsada por restaurantes más turísticos, ofreciendo una inmersión cultural más profunda.
+  - ID: C-02
+    por_que_son_subestimados: Ofrece una alternativa de aventura marina más accesible y menos masificada que el nado con lobos marinos, ideal para un público más amplio.
+  - ID: E-01
+    por_que_son_subestimados: Las festividades locales son una ventana a la cultura y tradición chalaca, pero a menudo son ignoradas por los turistas que buscan solo atracciones permanentes.
+MODULOS_MERCADO_INTERNACIONAL:
+  USA:
+    - C-01: Nado con Lobos Marinos (Experiencia única de aventura y naturaleza)
+    - A-03: Islas Palomino y Cavinzas (Naturaleza y vida silvestre)
+    - D-01: Ruta del Ceviche Chalaco (Gastronomía reconocida)
+    - A-01: Monumental Callao (Cultura urbana y revitalización)
+    - M-01: Seguridad y Zonas Recomendadas (Preocupación clave para este mercado)
+  Europa:
+    - A-01: Monumental Callao (Cultura, arte urbano, revitalización)
+    - A-02: Fortaleza del Real Felipe (Historia y patrimonio)
+    - D-01: Ruta del Ceviche Chalaco (Gastronomía de calidad)
+    - A-05: Barrios Tradicionales: La Punta y Chucuito (Autenticidad y vida local)
+    - H-01: Arte Urbano y Galerías Chalacas (Escena cultural emergente)
+  Asia:
+    - D-01: Ruta del Ceviche Chalaco (Gastronomía exótica y de calidad)
+    - C-01: Nado con Lobos Marinos (Experiencia única y fotogénica)
+    - A-03: Islas Palomino y Cavinzas (Naturaleza y vida silvestre)
+    - F-01: Conectividad Aeroportuaria Jorge Chávez (Eficiencia logística)
+    - A-01: Monumental Callao (Cultura y modernidad urbana)
+ALERTAS_VERIFICACION_CAMPO:
+  - ID: M-01 ⚠️
+    razón: La información sobre seguridad es altamente dinámica y requiere verificación constante en campo.
+  - ID: H-01 ⚠️
+    razón: La escena de arte urbano y galerías puede cambiar rápidamente con nuevas aperturas o cierres.
+  - ID: D-02 ⚠️
+    razón: La existencia y calidad de mercados y picanterías puede variar, requiriendo actualización frecuente.
+  - ID: E-01 ⚠️
+    razón: Las fechas de festividades religiosas varían anualmente y los detalles de los eventos pueden cambiar.
+  - ID: H-02 ⚠️
+    razón: La oferta de vida nocturna (bares, peñas) es muy dinámica y susceptible a cambios.
+MAPA_CALOR_CATEGORIAS:
+  - Categoría: Destinos y patrimonio
+    Módulos: A-01, A-02, A-03, A-05
+    % del total: 26.67%
+    Prioridad para Fase 2: ALTA
+  - Categoría: Gastronomía y cultura
+    Módulos: D-01, D-02
+    % del total: 13.33%
+    Prioridad para Fase 2: ALTA
+  - Categoría: Aventura y deportes
+    Módulos: C-01, C-02
+    % del total: 13.33%
+    Prioridad para Fase 2: MEDIA
+  - Categoría: Naturaleza y ecosistemas
+    Módulos: N-01
+    % del total: 6.67%
+    Prioridad para Fase 2: MEDIA
+  - Categoría: Misticismo y festividades
+    Módulos: E-01
+    % del total: 6.67%
+    Prioridad para Fase 2: BAJA
+  - Categoría: Logística y servicios
+    Módulos: F-01, F-02
+    % del total: 13.33%
+    Prioridad para Fase 2: ALTA
+  - Categoría: Vida urbana y escena cultural
+    Módulos: H-01, H-02
+    % del total: 13.33%
+    Prioridad para Fase 2: MEDIA
+  - Categoría: Seguridad y gestión de riesgo
+    Módulos: M-01
+    % del total: 6.67%
+    Prioridad para Fase 2: ALTA
+</inteligencia_cierre>
