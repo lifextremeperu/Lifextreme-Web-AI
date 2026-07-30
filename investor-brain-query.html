@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifextreme - AI Knowledge Brain 3D (Simulación Masiva)</title>
+    <script src="https://unpkg.com/three@0.134.0/build/three.min.js"></script>
+    <script src="https://unpkg.com/three-spritetext@1.6.5/dist/three-spritetext.min.js"></script>
+    <script src="https://unpkg.com/3d-force-graph@1.73.3/dist/3d-force-graph.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
+    <style>
+        body { margin: 0; padding: 0; overflow: hidden; background-color: #020617; font-family: 'Inter', sans-serif; }
+        #3d-graph { width: 100vw; height: 100vh; cursor: crosshair; }
+        
+        #title-overlay {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            z-index: 10;
+            pointer-events: none;
+            background: rgba(2, 6, 23, 0.7);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        h1 { margin: 0; font-size: 32px; font-weight: 900; letter-spacing: -1px; color: #f8fafc; text-transform: uppercase; }
+        .gradient-text {
+            background: linear-gradient(to right, #a855f7, #0ea5e9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        p { margin: 12px 0 0 0; color: #94a3b8; font-size: 14px; max-width: 380px; line-height: 1.6; }
+        
+        #query-box {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            background: rgba(2, 6, 23, 0.85);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            padding: 25px;
+            border-radius: 15px;
+            width: 450px;
+            z-index: 10;
+            box-shadow: 0 0 30px rgba(16, 185, 129, 0.15);
+            backdrop-filter: blur(10px);
+        }
+        #query-box h3 { margin: 0 0 15px 0; color: #10b981; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; }
+        #typing-text { font-family: 'Inter', sans-serif; font-size: 14px; color: #f8fafc; min-height: 80px; line-height: 1.6; }
+        #status { margin-top: 15px; font-size: 12px; color: #a855f7; display: none; font-weight: 600; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.1); }
+        .pulse-green { width: 8px; height: 8px; background: #10b981; border-radius: 50%; box-shadow: 0 0 10px #10b981; animation: blink 1s infinite; }
+
+        @keyframes blink { 50% { opacity: 0.3; } }
+
+        @media (max-width: 768px) {
+            #title-overlay { top: 20px; left: 20px; right: 20px; padding: 20px; }
+            h1 { font-size: 22px; }
+            #query-box { bottom: 20px; left: 20px; right: 20px; width: auto; padding: 15px; }
+            #typing-text { font-size: 13px; }
+        }
+    </style>
+</head>
+<body>
+    <div id="title-overlay">
+        <h1>LIFEXTREME <span class="gradient-text">CORE</span></h1>
+        <p>Democratización del Conocimiento: La IA cruzando miles de variables operativas, legales y ambientales en tiempo real para operadores B2B.</p>
+    </div>
+
+    <div id="query-box">
+        <h3><div class="pulse-green"></div> ENTRADA DE USUARIO B2B (SIMULADOR)</h3>
+        <div id="typing-text"></div>
+        <div id="status">&gt; Iniciando cascada de análisis vectorial en Qdrant...</div>
+    </div>
+    
+    <div id="3d-graph"></div>
+
+    <script>
+        const data = {"nodes": [
+            {"id": "CORE", "name": "LIFEXTREME BRAIN\n(Qdrant RAG)", "group": 0, "val": 40, "color": "#a855f7"}, 
+            {"id": "DEP_Amazonas", "name": "Amazonas", "group": 1, "val": 15, "color": "#0ea5e9"}, 
+            {"id": "DEP_Ancash", "name": "Ancash", "group": 1, "val": 15, "color": "#0ea5e9"}, 
+            {"id": "DEP_Apurimac", "name": "Apurimac", "group": 1, "val": 15, "color": "#0ea5e9"}, 
+            {"id": "DEP_Arequipa", "name": "Arequipa", "group": 1, "val": 15, "color": "#0ea5e9"}, 
+            {"id": "DEP_Cusco", "name": "Cusco", "group": 1, "val": 15, "color": "#0ea5e9"}, 
+            {"id": "MOD_MINCETUR", "name": "MINCETUR", "group": 2, "val": 10, "color": "#10b981"}, 
+            {"id": "MOD_INDECOPI", "name": "INDECOPI", "group": 2, "val": 10, "color": "#10b981"}, 
+            {"id": "MOD_SUTRAN", "name": "SUTRAN", "group": 2, "val": 10, "color": "#ef4444"}, 
+            {"id": "MOD_SENAMHI", "name": "SENAMHI", "group": 2, "val": 10, "color": "#ef4444"}, 
+            {"id": "MOD_SERNANP", "name": "SERNANP", "group": 2, "val": 10, "color": "#22c55e"}, 
+            {"id": "MOD_COMUNIDADES", "name": "COMUNIDADES", "group": 2, "val": 10, "color": "#3b82f6"},
+            // Nodos Nuevos
+            {"id": "MOD_AGMP", "name": "AGMP (Guías)", "group": 2, "val": 10, "color": "#f59e0b"},
+            {"id": "MOD_MINSA", "name": "MINSA", "group": 2, "val": 10, "color": "#ec4899"}
+        ], "links": [
+            {"source": "DEP_Amazonas", "target": "CORE"}, 
+            {"source": "DEP_Ancash", "target": "CORE"}, 
+            {"source": "DEP_Apurimac", "target": "CORE"}, 
+            {"source": "DEP_Arequipa", "target": "CORE"}, 
+            {"source": "DEP_Cusco", "target": "CORE"}, 
+            {"source": "MOD_MINCETUR", "target": "CORE"}, 
+            {"source": "MOD_INDECOPI", "target": "CORE"}, 
+            {"source": "MOD_SUTRAN", "target": "CORE"}, 
+            {"source": "MOD_SENAMHI", "target": "CORE"}, 
+            {"source": "MOD_SERNANP", "target": "CORE"}, 
+            {"source": "MOD_COMUNIDADES", "target": "CORE"},
+            {"source": "MOD_AGMP", "target": "CORE"},
+            {"source": "MOD_MINSA", "target": "CORE"}
+        ]};
+
+        // Incluimos todos los nuevos módulos mencionados en el post
+        const targetModules = ['MOD_SUTRAN', 'MOD_SENAMHI', 'MOD_SERNANP', 'MOD_MINCETUR', 'MOD_INDECOPI', 'MOD_AGMP', 'MOD_MINSA', 'MOD_COMUNIDADES'];
+        const activeNodesForQuery = ['CORE', 'DEP_Ancash', ...targetModules];
+        
+        let allActiveNodes = [...activeNodesForQuery]; 
+
+        const Graph = ForceGraph3D()
+        (document.getElementById('3d-graph'))
+            .graphData(data)
+            .nodeThreeObject(node => {
+                const group = new THREE.Group();
+                const isSubNode = node.id.startsWith('SUB_');
+                const sphereSize = isSubNode ? 2.5 : (node.val * 0.8); 
+                
+                const geometry = new THREE.SphereGeometry(sphereSize, 16, 16);
+                const material = new THREE.MeshPhysicalMaterial({
+                    color: node.color,
+                    transparent: true,
+                    opacity: 0.85,
+                    roughness: 0.1,
+                    transmission: 0.5,
+                    emissive: node.color,
+                    emissiveIntensity: node.id === 'CORE' ? 0.8 : (isSubNode ? 0 : 0.4)
+                });
+                const sphere = new THREE.Mesh(geometry, material);
+                group.add(sphere);
+
+                if (node.id === 'CORE') {
+                    const haloGeo = new THREE.SphereGeometry(node.val * 1.1, 32, 32);
+                    const haloMat = new THREE.MeshBasicMaterial({ color: node.color, transparent: true, opacity: 0.15, side: THREE.BackSide });
+                    const halo = new THREE.Mesh(haloGeo, haloMat);
+                    group.add(halo);
+                }
+
+                node.__material = material; 
+
+                // Holographic Text for all nodes
+                try {
+                    const sprite = new SpriteText(node.name);
+                    sprite.color = '#ffffff'; 
+                    sprite.strokeWidth = 1.5; 
+                    sprite.strokeColor = '#020617';
+                    sprite.textHeight = node.id === 'CORE' ? 8 : (isSubNode ? 3 : 5);
+                    sprite.fontWeight = 'bold';
+                    sprite.fontFace = 'Inter';
+                    sprite.position.y = 0; 
+                    sprite.material.depthTest = false; 
+                    sprite.renderOrder = 999;
+                    group.add(sprite);
+                    node.__sprite = sprite;
+                } catch (err) {}
+                
+                return group;
+            })
+            .linkColor(link => 'rgba(255, 255, 255, 0.1)')
+            .linkWidth(link => link.source === 'CORE' || link.target === 'CORE' ? 0.8 : 0.5)
+            .linkDirectionalParticles(link => 2)
+            .linkDirectionalParticleWidth(link => 1.5)
+            .linkDirectionalParticleColor(link => '#ffffff')
+            .linkDirectionalParticleSpeed(0.002)
+            .backgroundColor('#020617')
+            .showNavInfo(false);
+            
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+        Graph.scene().add(ambientLight);
+        
+        const pointLight = new THREE.PointLight(0xffffff, 1);
+        pointLight.position.set(200, 200, 200);
+        Graph.scene().add(pointLight);
+
+        const coreLight = new THREE.PointLight(0xa855f7, 2, 800);
+        coreLight.position.set(0, 0, 0);
+        Graph.scene().add(coreLight);
+            
+        Graph.d3Force('charge').strength(-400);
+        Graph.d3Force('link').distance(70);
+
+        const controls = Graph.controls();
+        controls.autoRotate = true;
+        controls.autoRotateSpeed = 1.0;
+        
+        setTimeout(() => { Graph.cameraPosition({ z: 450 }); }, 500);
+
+        const queryText = '"Solicitud B2B: Evaluación integral de riesgos y viabilidad legal para nueva expedición comercial de escalada en hielo en el Nevado Mateo (Ancash). Requiero cruzar datos de SUTRAN, SENAMHI, SERNANP, DIRCETUR, INDECOPI, AGMP, MINSA y Comunidades."';
+        let charIndex = 0;
+        
+        function typeWriter() {
+            if (charIndex < queryText.length) {
+                document.getElementById("typing-text").innerHTML += queryText.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeWriter, 25);
+            } else {
+                setTimeout(activateKnowledgeBrain, 600);
+            }
+        }
+
+        function activateKnowledgeBrain() {
+            document.getElementById('status').style.display = 'block';
+            
+            // Fuentes de conocimiento para poblar los subnodos (HACIENDO MATCH CON EL POST)
+            const fuentesSutran = ["Reporte_Huaraz", "Alerta_Deslizamiento", "GPS_Vias", "Restriccion_Carhuaz", "Cierre_MTC"];
+            const fuentesSenamhi = ["Tormenta_Naranja", "Nevadas_4500m", "Humedad_Aire", "Viento_Cumbre", "Peligro_Avalancha"];
+            const fuentesSernanp = ["Plan_Huascaran", "Capacidad_Carga", "Licencia_Uso", "Ticket_Extranjero", "Reglamento_Andinismo"];
+            const fuentesMincetur = ["TUPA_Agencias", "Directorio_PNT", "Defensa_Civil", "Licencia_Muni", "Reglamento_Aventura"];
+            const fuentesIndecopi = ["Seguro_Rescate", "Equipos_UIAA", "Proteccion_Pasajero", "Poliza_Extrema", "Responsabilidad_Civil"];
+            const fuentesAgmp = ["Guia_UIAGM_Oficial", "Certificacion_Altura", "Padron_Guias", "Reglamento_Cuerdas"];
+            const fuentesMinsa = ["Protocolo_Trauma", "Oxigeno_Presion", "Evacuacion_Aero", "Botiquin_Alta_Montaña"];
+            const fuentesComunidades = ["Permiso_Paso", "Acuerdo_Comunal", "Pago_Peaje_Local", "Impacto_Social"];
+            
+            let newNodes = [];
+            let newLinks = [];
+            
+            targetModules.forEach(modId => {
+                const parentNode = data.nodes.find(n => n.id === modId);
+                let textArray = [];
+                if(modId === 'MOD_SUTRAN') textArray = fuentesSutran;
+                else if(modId === 'MOD_SENAMHI') textArray = fuentesSenamhi;
+                else if(modId === 'MOD_SERNANP') textArray = fuentesSernanp;
+                else if(modId === 'MOD_MINCETUR') textArray = fuentesMincetur;
+                else if(modId === 'MOD_INDECOPI') textArray = fuentesIndecopi;
+                else if(modId === 'MOD_AGMP') textArray = fuentesAgmp;
+                else if(modId === 'MOD_MINSA') textArray = fuentesMinsa;
+                else if(modId === 'MOD_COMUNIDADES') textArray = fuentesComunidades;
+                else textArray = ["Vector_Local"];
+
+                if(parentNode) {
+                    for(let i=0; i<8; i++) {
+                        const subId = `SUB_${modId}_${i}`;
+                        const nodeName = textArray[i % textArray.length];
+                        newNodes.push({
+                            id: subId,
+                            name: nodeName,
+                            group: 3,
+                            val: 1.5,
+                            color: parentNode.color
+                        });
+                        newLinks.push({ source: subId, target: modId });
+                        newLinks.push({ source: subId, target: 'DEP_Ancash' });
+                        
+                        allActiveNodes.push(subId);
+                    }
+                }
+            });
+            
+            const updatedData = {
+                nodes: [...data.nodes, ...newNodes],
+                links: [...data.links, ...newLinks]
+            };
+            Graph.graphData(updatedData);
+
+            setTimeout(() => {
+                const currentNodes = Graph.graphData().nodes;
+                currentNodes.forEach(node => {
+                    if (!node.__material) return;
+                    
+                    if (allActiveNodes.includes(node.id)) {
+                        node.__material.opacity = 1.0;
+                        node.__material.emissiveIntensity = 2.0; 
+                        if(node.__sprite) node.__sprite.color = '#ffffff';
+                    } else {
+                        node.__material.opacity = 0.03;
+                        node.__material.emissiveIntensity = 0.0;
+                        if(node.__sprite) node.__sprite.color = 'rgba(255,255,255,0.02)';
+                    }
+                });
+
+                Graph
+                    .linkColor(link => {
+                        const sId = link.source.id || link.source;
+                        const tId = link.target.id || link.target;
+                        const isRelevant = allActiveNodes.includes(sId) && allActiveNodes.includes(tId);
+                        if(isRelevant) {
+                            if(sId.includes('SUTRAN') || sId.includes('SENAMHI')) return '#ef4444'; 
+                            if(sId.includes('SERNANP') || sId.includes('MINCETUR')) return '#10b981'; 
+                            return '#0ea5e9'; 
+                        }
+                        return 'rgba(255, 255, 255, 0.01)';
+                    })
+                    .linkWidth(link => {
+                        const sId = link.source.id || link.source;
+                        const tId = link.target.id || link.target;
+                        return (allActiveNodes.includes(sId) && allActiveNodes.includes(tId)) ? 2.5 : 0.2;
+                    })
+                    .linkDirectionalParticles(link => {
+                        const sId = link.source.id || link.source;
+                        const tId = link.target.id || link.target;
+                        return (allActiveNodes.includes(sId) && allActiveNodes.includes(tId)) ? 5 : 0;
+                    })
+                    .linkDirectionalParticleColor(link => {
+                        const sId = link.source.id || link.source;
+                        if(sId.includes('SUTRAN') || sId.includes('SENAMHI')) return '#ef4444';
+                        if(sId.includes('SERNANP') || sId.includes('MINCETUR')) return '#10b981';
+                        return '#ffffff';
+                    })
+                    .linkDirectionalParticleWidth(3)
+                    .linkDirectionalParticleSpeed(0.015);
+                    
+                setTimeout(() => {
+                    const statusEl = document.getElementById('status');
+                    statusEl.innerHTML = "&gt; <b>Respuesta generada (Viabilidad: CONDICIONAL)</b><br/>Se cruzaron 64 vectores normativos (MINSA, AGMP, SERNANP, Comunidades) y sensores operativos de Ancash.";
+                    statusEl.style.color = "#10b981";
+                    
+                    controls.autoRotateSpeed = 2.0;
+                    Graph.cameraPosition({ x: 0, y: 150, z: 250 }, { x: 0, y: 0, z: 0 }, 2500);
+                }, 3000);
+            }, 500);
+        }
+
+        setTimeout(typeWriter, 3000);
+    </script>
+</body>
+</html>

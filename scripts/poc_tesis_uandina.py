@@ -4,10 +4,10 @@ import json
 QDRANT_URL = "http://127.0.0.1:6333"
 OLLAMA_URL = "http://127.0.0.1:11434"
 MODEL_EMBEDDINGS = "nomic-embed-text"
-MODEL_GEN = "llama3:8b" # O el modelo que el usuario tenga descargado, fallback a lo que devuelva Ollama.
+MODEL_GEN = "mistral:latest" # Usando mistral porque llama3 tuvo timeout (es muy pesado).
 
-# Tema impactante para la UAC
-TESIS_TOPIC = "El impacto de la capacidad de carga estricta en el Santuario de Machupicchu frente a las expectativas de crecimiento económico y la demanda turística internacional al 2026."
+# Tema tecnológico innovador
+TESIS_TOPIC = "Modelo predictivo de Inteligencia Artificial y Big Data para la gestión dinámica de aforos y conservación de recursos naturales en el Santuario Histórico de Machupicchu, basado en la Ley N° 26821 y el Plan Maestro 2026-2031."
 
 print("INICIANDO EL ASISTENTE UNIVERSITARIO (U. ANDINA DEL CUSCO)")
 print(f"Tema de Tesis: {TESIS_TOPIC}")
@@ -58,7 +58,7 @@ def generate_thesis(context, topic):
             "model": MODEL_GEN,
             "prompt": prompt,
             "stream": False
-        }, timeout=120.0)
+        }, timeout=240.0)
         
         # Intentar obtener respuesta de llama3
         if response.status_code == 200:
