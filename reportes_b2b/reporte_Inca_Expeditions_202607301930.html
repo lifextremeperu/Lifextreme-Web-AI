@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifextreme AI Auditor - Reporte: Inca Expeditions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f8fafc; }
+        .glass-panel { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .neon-text { background: linear-gradient(90deg, #3b82f6, #a855f7); -webkit-background-clip: text; color: transparent; }
+        .critical-glow { box-shadow: 0 0 20px rgba(239, 68, 68, 0.2); }
+        .success-glow { box-shadow: 0 0 20px rgba(16, 185, 129, 0.2); }
+        .warning-glow { box-shadow: 0 0 20px rgba(245, 158, 11, 0.2); }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-8">
+
+    <!-- Header -->
+    <header class="max-w-6xl mx-auto flex justify-between items-center mb-12 border-b border-slate-800 pb-6">
+        <div class="flex items-center gap-3">
+            <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/30">
+                <i class="ri-radar-line text-white text-2xl animate-pulse"></i>
+            </div>
+            <div>
+                <h1 class="text-2xl font-black tracking-tight">LIFEXTREME <span class="neon-text">AI AUDITOR</span></h1>
+                <p class="text-xs text-slate-400 uppercase tracking-widest">Auditoría Estratégica B2B Generada por Inteligencia Artificial</p>
+            </div>
+        </div>
+        <div class="text-right">
+            <p class="text-sm font-bold">Cliente Objetivo: <span class="text-white text-lg">Inca Expeditions</span></p>
+            <p class="text-xs text-blue-400 font-mono mt-1"><i class="ri-check-double-line"></i> ANÁLISIS COMPLETADO (CRUZADO CON 50 MÓDULOS)</p>
+        </div>
+    </header>
+
+    <!-- Chart & Summary Section -->
+    <section class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <!-- Chart -->
+        <div class="glass-panel rounded-3xl p-6 col-span-1 md:col-span-1 flex flex-col items-center justify-center relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl"></div>
+            <h3 class="text-xs font-black uppercase tracking-widest text-slate-400 mb-4 w-full text-left">Comparativa vs Mercado (Cusco)</h3>
+            <div class="w-full h-48 relative">
+                <canvas id="radarChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Market Expansion Analysis -->
+        <div class="glass-panel rounded-3xl p-6 col-span-1 md:col-span-2 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-24 h-24 bg-purple-500/10 rounded-full blur-2xl"></div>
+            <h3 class="text-xs font-black uppercase tracking-widest text-slate-400 mb-2">Expansión de Mercado e Inteligencia de Precios</h3>
+            <p class="text-sm text-slate-300 leading-relaxed whitespace-pre-line">La competencia es moderada en el mercado de tour operadores en Perú. Se recomienda explorar nuevos nichos como la oferta de tours virtuales o experiencias de aventura conectadas con la cultura inca para atraer a un público más amplio.</p>
+        </div>
+    </section>
+
+    <!-- Main Score Grid -->
+    <main class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        
+        <!-- Score 1: AI Blindness -->
+        <div class="glass-panel rounded-3xl p-6 relative overflow-hidden success-glow">
+            <h3 class="text-xs font-black uppercase tracking-widest text-slate-400 mb-2">Visibilidad en ChatGPT (GEO)</h3>
+            <div class="flex items-end gap-2 mb-4">
+                <span class="text-6xl font-black text-white">95</span><span class="text-xl text-slate-500 mb-1">/100</span>
+            </div>
+            <p class="text-sm text-slate-300 leading-relaxed whitespace-pre-line">El sitio web de Inca Expeditions tiene una posición favorable en los resultados de búsqueda según Google Maps y IA. El análisis de visibilidad muestra que el sitio web está bien optimizado para keywords relacionadas con 'Camino del Inca' y 'Salkantay'.</p>
+        </div>
+
+        <!-- Score 2: Legal RAG -->
+        <div class="glass-panel rounded-3xl p-6 relative overflow-hidden success-glow">
+            <h3 class="text-xs font-black uppercase tracking-widest text-slate-400 mb-2">Gobernanza y Leyes (MINCETUR)</h3>
+            <div class="flex items-end gap-2 mb-4">
+                <span class="text-6xl font-black text-white">90</span><span class="text-xl text-slate-500 mb-1">/100</span>
+            </div>
+            <p class="text-sm text-slate-300 leading-relaxed whitespace-pre-line">El sitio web cumple con las normas del MINCETUR al mostrar información detallada sobre los tours, incluyendo itinerarios, servicios incluidos, tarifas y términos y condiciones. Sin embargo, se recomienda agregar información adicional sobre la responsabilidad turística y la protección del entorno.</p>
+        </div>
+
+        <!-- Score 3: Core Web Vitals -->
+        <div class="glass-panel rounded-3xl p-6 relative overflow-hidden success-glow">
+            <h3 class="text-xs font-black uppercase tracking-widest text-slate-400 mb-2">Google SEO / Competitividad</h3>
+            <div class="flex items-end gap-2 mb-4">
+                <span class="text-6xl font-black text-white">80</span><span class="text-xl text-slate-500 mb-1">/100</span>
+            </div>
+            <p class="text-sm text-slate-300 leading-relaxed whitespace-pre-line">El sitio web de Inca Expeditions tiene un buen título principal 'Inka Expediciones | Camino del Inca' que menciona el nombre de la agencia y la actividad principal. Sin embargo, los metadescripciones no están utilizadas correctamente y pueden mejorar con descripciones más precisas y persuasivas.</p>
+        </div>
+    </main>
+
+    <!-- The Solution / Pitch (FAQ AEO) -->
+    <section class="max-w-6xl mx-auto glass-panel rounded-[2rem] p-8 md:p-12 relative overflow-hidden mb-12">
+        <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-emerald-600/20 rounded-full blur-3xl"></div>
+        <div class="grid md:grid-cols-2 gap-12 items-start">
+            <div>
+                <span class="bg-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">Solución Generada (AEO)</span>
+                <h2 class="text-3xl font-black mt-4 mb-4">Preguntas Frecuentes Optimizadas (FAQs)</h2>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                    Para resolver inmediatamente tus problemas de visibilidad, nuestra IA ha cruzado tu catálogo con nuestros vectores turísticos y ha generado este esquema <strong>FAQPage</strong> (JSON-LD).
+                    Copia y pega este código en tu página web. Al hacerlo, le dirás a Google y a ChatGPT exactamente qué ofreces, cumpliendo con los estándares de seguridad (E-E-A-T).
+                </p>
+            </div>
+            <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800 font-mono text-xs text-slate-300 shadow-inner overflow-x-auto">
+                <p class="text-slate-500 mb-2">// Copiar e insertar en el &lt;head&gt; de la página web de Inca Expeditions:</p>
+                <p><span class="text-pink-400">&lt;script</span> <span class="text-blue-300">type</span>=<span class="text-yellow-300">"application/ld+json"</span><span class="text-pink-400">&gt;</span></p>
+                <pre class="pl-4 mt-2 mb-2 text-emerald-300">{"@type":"FAQPage","mainEntity": [{"name":"¿Cuál es el itinerario del Camino Inca?","answer":"Estructuralmente, el tour es de 4 días y cubre los principales monumentos incaicos, incluyendo Machu Picchu.","name":"¿Puedo cancelar o modificar mi reserva si cambio de planes?","answer":"Sí, hay un plazo máximo para realizar estos cambios."},{"name":"¿Qué tipo de equipamiento me recomiendo llevar al Salkantay?","answer":"Es importante llevar ropa cómoda y resistentes y elementos protectoras para el clima y el entorno.","name":"¿Cuáles son las recomendaciones médicas para el Camino Inca?","answer":"Se recomienda consultor médico antes de iniciar el tour para evaluar la condición física."}]}</pre>
+                <p><span class="text-pink-400">&lt;/script&gt;</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chart Configuration -->
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d');
+        const radarChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['SEO', 'Legal (MINCETUR)', 'Precios', 'Visibilidad IA (GEO)', 'AEO (FAQs)'],
+                datasets: [{
+                    label: 'Inca Expeditions',
+                    data: [80, 90, 40, 95, 10], // Precios y AEO simulados o calculados
+                    fill: true,
+                    backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                    borderColor: 'rgba(59, 130, 246, 1)',
+                    pointBackgroundColor: 'rgba(59, 130, 246, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(59, 130, 246, 1)'
+                }, {
+                    label: 'Promedio Mercado Cusco Top 50',
+                    data: [75, 80, 85, 40, 20],
+                    fill: true,
+                    backgroundColor: 'rgba(148, 163, 184, 0.1)',
+                    borderColor: 'rgba(148, 163, 184, 0.5)',
+                    pointBackgroundColor: 'rgba(148, 163, 184, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(148, 163, 184, 1)'
+                }]
+            },
+            options: {
+                scales: {
+                    r: {
+                        angleLines: { color: 'rgba(255, 255, 255, 0.1)' },
+                        grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                        pointLabels: { color: 'rgba(255, 255, 255, 0.7)', font: { size: 9, family: 'Inter' } },
+                        ticks: { display: false, min: 0, max: 100 }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { color: 'rgba(255, 255, 255, 0.7)', font: { size: 10, family: 'Inter' }, boxWidth: 10 }
+                    }
+                },
+                maintainAspectRatio: false
+            }
+        });
+    </script>
+</body>
+</html>

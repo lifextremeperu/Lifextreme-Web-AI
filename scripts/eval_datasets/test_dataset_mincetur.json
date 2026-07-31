@@ -1,0 +1,20 @@
+[
+    {
+        "question": "¿Puedo operar una ruta de canotaje clase V sin un guía oficial acreditado?",
+        "answer": "Sí, puedes operar la ruta siempre y cuando el cliente firme un consentimiento de riesgo.",
+        "contexts": ["Artículo 14. Del Canotaje Turístico: Toda operación de canotaje igual o superior a Clase IV requiere obligatoriamente la presencia de al menos un Guía Oficial de Turismo especializado en canotaje y un kayakista de rescate por cada dos balsas. No se permite eximir esta responsabilidad mediante consentimientos de riesgo."],
+        "ground_truth": "No, es obligatorio contar con un Guía Oficial especializado en canotaje y un kayakista de rescate para rutas Clase V."
+    },
+    {
+        "question": "¿Qué equipos de comunicación debe llevar una expedición de alta montaña según la ley peruana?",
+        "answer": "Según el MINCETUR, toda expedición de alta montaña debe llevar un teléfono satelital, radios VHF, y un botiquín de primeros auxilios avanzado.",
+        "contexts": ["Anexo 2 - Equipamiento de Alta Montaña: Las expediciones que superen los 4000 m.s.n.m en zonas sin cobertura celular deben contar obligatoriamente con un dispositivo de comunicación satelital (teléfono o mensajero inReach), radios de onda corta VHF para comunicación interna, y botiquín de primeros auxilios nivel 2."],
+        "ground_truth": "Debe llevar un dispositivo de comunicación satelital y radios VHF, además de un botiquín nivel 2."
+    },
+    {
+        "question": "¿Qué pasa si opero en la ruta Huaraz-Caraz y hay un bloqueo de SUTRAN?",
+        "answer": "Puedes tomar una ruta alterna de trocha que bordea el bloqueo para llegar a tiempo al destino.",
+        "contexts": ["Directiva de Seguridad SUTRAN N°05-2023: Ante un bloqueo total de la red vial nacional por factores sociales o climatológicos, las agencias de transporte turístico tienen terminantemente prohibido utilizar rutas alternas no asfaltadas o trochas carrozables que no estén certificadas por el MTC, debiendo suspender la operación inmediatamente."],
+        "ground_truth": "Está prohibido utilizar rutas alternas no asfaltadas. Se debe suspender la operación inmediatamente."
+    }
+]
