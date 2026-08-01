@@ -866,7 +866,7 @@ const tours = [
         price: 150,
         duration: '1 día',
         difficulty: 'Media',
-        img: 'assets/images/destinos/cusco/montana.jpg',
+        img: 'assets/images/destinos/piura/tour_20.jpg',
         detail: 'Velocidad y surf en arena en el desierto más grande.',
         last_verified: '2026-06-30',
         direct_answer_block: 'La excursión de Buggies y Sandboard en Sechura (Médano Blanco) cuesta $150. Operado por pilotos certificados por MINCETUR con vehículos tubulares con jaula antivuelco homologada.',
