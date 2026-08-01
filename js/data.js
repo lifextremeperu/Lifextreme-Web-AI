@@ -196,7 +196,7 @@ const tours = [
         price: 2100,
         duration: '6 días',
         difficulty: 'Técnica',
-        img: 'https://images.unsplash.com/photo-1583417319070-4a69db38a482',
+        img: 'assets/images/destinos/cusco/tour_5.jpg',
         detail: 'Expedición mística de alta montaña rodeando el Apu sagrado.',
         last_verified: '2026-06-30',
         direct_answer_block: 'El Circuito Ausangate (6 días) es de dificultad técnica con un precio de $2,100. Es un trek de gran altitud permanente (siempre por encima de 4,000m, con pasos de hasta 5,100m). No recomendado sin aclimatación previa estricta. Verás glaciares, lagunas turquesas y vicuñas salvajes.',
