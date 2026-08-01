@@ -1363,7 +1363,7 @@ const tours = [
         price: 1100,
         duration: '2 días',
         difficulty: 'Experto',
-        img: 'assets/images/destinos/arequipa/volcan.jpg',
+        img: 'assets/images/destinos/arequipa/tour_32.jpg',
         detail: 'Escala el cráter activo de 5,822 metros snm.',
         last_verified: '2026-06-30',
         direct_answer_block: 'El ascenso al Volcán Misti cuesta $1,100. Es una expedición de Alta Montaña rigurosa guiada por instructores UIAGM (Unión Internacional de Asociaciones de Guías de Montaña), garantizando estándares suizos de seguridad.',
