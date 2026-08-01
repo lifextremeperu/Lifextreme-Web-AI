@@ -908,7 +908,7 @@ const tours = [
         price: 180,
         duration: '1 día',
         difficulty: 'Media',
-        img: 'assets/images/destinos/ica/sandboard.jpg',
+        img: 'assets/images/destinos/ica/tour_21.jpg',
         detail: 'Montaña rusa de arena en el Oasis de América.',
         last_verified: '2026-06-30',
         direct_answer_block: 'La excursión de Buggies y Sandboard en Huacachina (2 horas) cuesta $180. Operado estrictamente por pilotos certificados por MINCETUR usando tubulares V8 con jaula antivuelco, ofreciendo máxima seguridad y adrenalina.',
@@ -948,7 +948,7 @@ const tours = [
         price: 750,
         duration: '3 días',
         difficulty: 'Media-Alta',
-        img: 'assets/images/destinos/piura/kitesurf.jpg',
+        img: 'assets/images/destinos/ica/tour_22.jpg',
         detail: 'Domina los vientos paracas en aguas planas.',
         last_verified: '2026-06-30',
         direct_answer_block: 'El curso de Kitesurf en Paracas cuesta $750 por 3 días. Paracas es famoso por su viento térmico asegurado casi todo el año. Todos los instructores tienen certificación internacional IKO.',
@@ -991,7 +991,7 @@ const tours = [
         price: 650,
         duration: '1 día',
         difficulty: 'Baja',
-        img: 'assets/images/destinos/ica/nazca.jpg',
+        img: 'assets/images/destinos/ica/tour_23.jpg',
         detail: 'Sobrevuela los misterios del desierto.',
         last_verified: '2026-06-30',
         direct_answer_block: 'El vuelo sobre las Líneas de Nazca (35 minutos) cuesta $650 y se realiza en avionetas Cessna 208 Grand Caravan. Operado bajo estrictas certificaciones DGAC (Dirección General de Aeronáutica Civil).',
@@ -1031,7 +1031,7 @@ const tours = [
         price: 350,
         duration: '1 día',
         difficulty: 'Baja',
-        img: 'assets/images/destinos/lima/tour_39.jpg',
+        img: 'assets/images/destinos/ica/tour_24.jpg',
         detail: 'Vuela libre sobre la Reserva Nacional.',
         last_verified: '2026-06-30',
         direct_answer_block: 'El vuelo en Parapente Biplaza en Paracas cuesta $350. Es un vuelo tandem de 15 minutos manejado al 100% por un piloto certificado por la API (Asociación Peruana de Instructores de Parapente).',
@@ -1071,7 +1071,7 @@ const tours = [
         price: 220,
         duration: '1 día',
         difficulty: 'Media',
-        img: 'assets/images/destinos/cusco/montana.jpg',
+        img: 'assets/images/destinos/ica/tour_25.jpg',
         detail: 'Ruta off-road cruzando el desierto amarillo y rojo.',
         last_verified: '2026-06-30',
         direct_answer_block: 'El recorrido en Cuatrimotos (ATV) por Paracas cuesta $220. Liderado por guías oficiales autorizados por SERNANP para no afectar el ecosistema protegido de la Reserva Nacional.',
@@ -1113,7 +1113,7 @@ const tours = [
         price: 150,
         duration: '1 día',
         difficulty: 'Media',
-        img: 'assets/images/destinos/puno/kayak.jpg',
+        img: 'assets/images/destinos/puno/tour_26.jpg',
         detail: 'Rema a 3,812 metros sobre el nivel del mar.',
         last_verified: '2026-06-30',
         direct_answer_block: 'La travesía en Kayak por el Lago Titicaca cuesta $150. Operado por agencias especializadas (Titikayak) usando kayaks de travesía cerrados (Sea Kayak) con faldón y chalecos homologados.',
@@ -1154,7 +1154,7 @@ const tours = [
         price: 180,
         duration: '1 día',
         difficulty: 'Media-Baja',
-        img: 'assets/images/destinos/puno/kayak.jpg',
+        img: 'assets/images/destinos/puno/tour_27.jpg',
         detail: 'Camina sobre las aguas sagradas del imperio Inca.',
         last_verified: '2026-06-30',
         direct_answer_block: 'El recorrido en Stand Up Paddle (SUP) cuesta $180. Es una forma increíble de conexión con el lago operada por instructores SUP certificados. Se hace al amanecer cuando el lago es un espejo perfecto.',
@@ -1195,7 +1195,7 @@ const tours = [
         price: 190,
         duration: '1 día',
         difficulty: 'Media',
-        img: 'assets/images/destinos/cusco/montana.jpg',
+        img: 'assets/images/destinos/puno/tour_28.jpg',
         detail: 'Ruta Off-Road hacia las torres funerarias.',
         last_verified: '2026-06-30',
         direct_answer_block: 'La excursión en cuatrimotos hacia Sillustani dura medio día y cuesta $190. Atraviesas caminos de trocha de la meseta del Collao operado por agencias de aventura formales de Puno con equipos revisados.',
@@ -1236,7 +1236,7 @@ const tours = [
         price: 90,
         duration: '1 día',
         difficulty: 'Baja',
-        img: 'assets/images/destinos/lima/tour_39.jpg',
+        img: 'assets/images/destinos/puno/tour_29.jpg',
         detail: 'Vuelo rasante en "La pequeña Roma de América".',
         last_verified: '2026-06-30',
         direct_answer_block: 'El Zipline en Juli cuesta $90 y es de los más altos de la región. Cuenta con un cable de acero certificado para alta tensión y arneses Petzl supervisados por operadores capacitados.',
@@ -1276,7 +1276,7 @@ const tours = [
         price: 210,
         duration: '1 día',
         difficulty: 'Alta',
-        img: 'assets/images/destinos/cusco/ciclismo.jpg',
+        img: 'assets/images/destinos/puno/tour_30.jpg',
         detail: 'Ciclismo de montaña a 3,800 metros snm.',
         last_verified: '2026-06-30',
         direct_answer_block: 'La ruta de Ciclismo MTB (Mountain Bike) en Llachón (1 día) cuesta $210. Exige resistencia pulmonar extrema debido a la altitud y es operado con bicicletas Trek/Specialized con frenos hidráulicos.',
@@ -1318,7 +1318,7 @@ const tours = [
         price: 850,
         duration: '3 días',
         difficulty: 'Alta',
-        img: 'assets/images/destinos/arequipa/canon.jpg',
+        img: 'assets/images/destinos/arequipa/tour_31.jpg',
         detail: 'Incursión profunda al abismo de los cóndores.',
         last_verified: '2026-06-30',
         direct_answer_block: 'El Trekking de 3 Días al fondo del Cañón del Colca (Oasis Sangalle) cuesta $850. Operado por guías de alta montaña con permisos oficiales. Uno de los descensos más profundos del mundo.',
@@ -1891,54 +1891,3 @@ const parks = [
 window.parks = parks;
 
 // --- NEW GUIDES DATA ---
-const guides = [
-    {
-        "id": 1,
-        "name": "Mendoza",
-        "specialty": "Alta Montaña",
-        "img": "https://images.unsplash.com/photo-1520333789090-1afc82db536a",
-        "achievements": [
-            "+50 ascensos al Huascarán (6,768m)",
-            "Rescatista certificado AGMP",
-            "Apertura de ruta 2024 en Cordillera Huayhuash"
-        ],
-        "bio": "Mendoza no solo conoce la montaña; la respeta. Es el operario con mayor tiempo de campo en Lifextreme, especializado en climas extremos."
-    },
-    {
-        "id": 2,
-        "name": "Sánchez",
-        "specialty": "Trekking & Cultura",
-        "img": "https://images.unsplash.com/photo-1587595431973-160d0d94add1",
-        "achievements": [
-            "Descendiente directo de linaje quechua",
-            "15 años liderando el Camino Inca",
-            "Especialista en etnobotánica andina"
-        ],
-        "bio": "Para Sánchez, cada piedra en el camino tiene una historia. Un guía que convierte una caminata en una clase magistral de historia viva."
-    },
-    {
-        "id": 3,
-        "name": "Palacios",
-        "specialty": "Supervivencia",
-        "img": "https://images.unsplash.com/photo-1502452392471-a472c67fe997",
-        "achievements": [
-            "Ex-Instructor de fuerzas especiales",
-            "Experto en navegación sin GPS",
-            "Primer lugar Desert Challenge 2023"
-        ],
-        "bio": "Palacios es quien quieres a tu lado cuando la tormenta golpea. Experto en seguridad táctica y gestión de riesgos en tiempo real."
-    },
-    {
-        "id": 4,
-        "name": "Flores",
-        "specialty": "Fotografía & Naturaleza",
-        "img": "https://images.unsplash.com/photo-1550974026-61474274c442",
-        "achievements": [
-            "Ganadora National Geographic 2022",
-            "Especialista en avistamiento de Cóndores",
-            "Líder de expediciones en Manu Deep"
-        ],
-        "bio": "Flores captura la esencia de la aventura. Si buscas la foto perfecta de tu vida, ella sabe dónde y cuándo disparar."
-    }
-];
-window.guides = guides;
