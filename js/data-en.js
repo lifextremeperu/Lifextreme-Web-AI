@@ -15,7 +15,7 @@ const tours = [
         direct_answer_block: 'El Camino Inca a Machu Picchu de 4 días tiene una dificultad alta y un precio desde $2,450. Se recorren 43 km alcanzando los 4,215 msnm. Requiere reserva con 6 meses de anticipación por normas gubernamentales. La mejor temporada es de mayo a octubre (temporada seca).',
         faqs: [
             { q: '¿Con cuánta anticipación debo reservar?', a: 'Por regulaciones del gobierno peruano (solo 500 cupos diarios), se requiere reservar con al menos 6 meses de antelación.' },
-            { q: '¿Qué tan difícil es el Camino Inca?', a: 'Es de dificultad alta. El Día 2 incluye un ascenso prolongado hasta los 4,215 metros sobre el nivel del mar.' },
+            { q: '¿Qué tan difícil es el Camino Inca?', a: 'Es de dificultad alta. El Day 2 incluye un ascenso prolongado hasta los 4,215 metros sobre el nivel del mar.' },
             { q: '¿Están incluidas las entradas a Machu Picchu?', a: 'Sí, el paquete incluye los permisos del Camino Inca, el ingreso a la ciudadela y el tren de retorno.' },
             { q: '¿Qué hacer con el mal de altura?', a: 'Nuestros guías llevan oxígeno portátil. Es obligatorio aclimatarse en Cusco al menos 2 días antes del inicio.' },
             { q: '¿Qué equipo de campamento proveen?', a: 'Proveemos carpas de montaña para 4 estaciones, colchonetas y todo el equipo de comedor.' }
@@ -28,16 +28,16 @@ const tours = [
             groupSize: 'Máximo 9 participantes'
         },
         whatYouDo: [
-            'Caminata por el original Qhapaq Ñan (Camino Inca)',
+            'Trekking por el original Qhapaq Ñan (Camino Inca)',
             'Exploración de ruinas intactas en el bosque nuboso',
             'Despertar en campamentos con vista a nevados',
             'Entrada triunfal a Machu Picchu por la Puerta del Sol (Inti Punku)'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Día 1: El Paso de los Incas. Inicio en el Km 82. Caminata por el valle del río Urubamba hasta llegar al campamento de Wayllabamba.' },
-            { day: 2, desc: 'Día 2: El Desafío del Dead Woman\'s Pass. Ascenso letal a 4,215 msnm. El día más duro pero más gratificante. Descenso al valle de Pacaymayo.' },
-            { day: 3, desc: 'Día 3: Viaje en el Tiempo. Caminata por la selva nubosa pasando por ruinas intactas (Runkurakay, Sayacmarca, Wiñay Wayna). El día visualmente más hermoso.' },
-            { day: 4, desc: 'Día 4: La Puerta del Sol. Despertar a las 3:30 AM para cruzar la Puerta del Sol (Inti Punku) y ver el amanecer sobre Machu Picchu. Retorno a Cusco en tren.' }
+            { day: 1, desc: 'Day 1: El Paso de los Incas. Inicio en el Km 82. Trekking por el valle del río Urubamba hasta llegar al campamento de Wayllabamba.' },
+            { day: 2, desc: 'Day 2: El Desafío del Dead Woman\'s Pass. Ascenso letal a 4,215 msnm. El día más duro pero más gratificante. Descenso al valle de Pacaymayo.' },
+            { day: 3, desc: 'Day 3: Viaje en el Tiempo. Trekking por la selva nubosa pasando por ruinas intactas (Runkurakay, Sayacmarca, Wiñay Wayna). El día visualmente más hermoso.' },
+            { day: 4, desc: 'Day 4: La Puerta del Sol. Despertar a las 3:30 AM para cruzar la Puerta del Sol (Inti Punku) y ver el amanecer sobre Machu Picchu. Retorno a Cusco en tren.' }
         ],
         inc: [
             'Ticket de ingreso oficial al Camino Inca y Machu Picchu',
@@ -87,7 +87,7 @@ const tours = [
             'Disfruta de vistas espectaculares del Valle Sagrado'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Día 1: Adrenalina pura. Salida de Cusco a las 7:00 AM hacia el Abra Málaga (4,316m). Breve charla de seguridad y entrega de equipo. Descenso de más de 3 horas en bicicleta hasta Huamanmarca. Almuerzo buffet y retorno a Cusco.' }
+            { day: 1, desc: 'Day 1: Adrenalina pura. Salida de Cusco a las 7:00 AM hacia el Abra Málaga (4,316m). Breve charla de seguridad y entrega de equipo. Descenso de más de 3 horas en bicicleta hasta Huamanmarca. Almuerzo buffet y retorno a Cusco.' }
         ],
         inc: [
             'Bicicleta de Montaña (Suspensión Completa)',
@@ -135,12 +135,12 @@ const tours = [
             'Conquista la cumbre a 5,200 metros sobre el nivel del mar',
             'Observa el Nevado Ausangate en todo su esplendor',
             'Interactúa con comunidades locales y alpacas',
-            'Desayuno y almuerzo buffet andino incluido'
+            'Breakfast y almuerzo buffet andino incluido'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Día 1: Conquista la Cumbre. Recojo a las 4:00 AM para ganarle a las multitudes. Desayuno buffet en Cusipata. Caminata de 1.5 horas desafiando la altitud hasta el mirador de Vinicunca (5,200m). Descenso, almuerzo y retorno a Cusco a las 5:00 PM.' }
+            { day: 1, desc: 'Day 1: Conquista la Cumbre. Recojo a las 4:00 AM para ganarle a las multitudes. Breakfast buffet en Cusipata. Trekking de 1.5 horas desafiando la altitud hasta el mirador de Vinicunca (5,200m). Descenso, almuerzo y retorno a Cusco a las 5:00 PM.' }
         ],
-        inc: ['Transporte turístico de primera', 'Guía profesional bilingüe', 'Balón de oxígeno de emergencia', 'Desayuno y Almuerzo Buffet andino'],
+        inc: ['Transporte turístico de primera', 'Guía profesional bilingüe', 'Balón de oxígeno de emergencia', 'Breakfast y Almuerzo Buffet andino'],
         notSuitable: ['Personas con asma', 'Menores de 8 años', 'Hipertensos'],
         meetingPoint: 'Recepción de su hotel (Centro Histórico)',
         importantInfo: 'Llevar lentes de sol UV, cortavientos, guantes térmicos (mucho viento en cumbre) y hojas de coca.',
@@ -178,10 +178,10 @@ const tours = [
             'Descubre la ciudadela hermana de Machu Picchu en total soledad'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Día 1: Descenso al Infierno Verde. Caminata desde Capuliyoc bajando en picada hacia el ardiente Cañón del Apurímac. Campamento en Playa Rosalina.' },
-            { day: 2, desc: 'Día 2: La Pared Inclinada. Ascenso brutal en zigzag hacia Marampata. Llegada por la tarde al campamento base de Choquequirao.' },
-            { day: 3, desc: 'Día 3: La Ciudad Perdida. Día completo para explorar a solas esta megaestructura inca. Atardecer mágico en las terrazas agrícolas.' },
-            { day: 4, desc: 'Día 4: El Retorno del Guerrero. Descenso al cañón y último ascenso de regreso a la civilización (Cachora). Retorno a Cusco.' }
+            { day: 1, desc: 'Day 1: Descenso al Infierno Verde. Trekking desde Capuliyoc bajando en picada hacia el ardiente Cañón del Apurímac. Campamento en Playa Rosalina.' },
+            { day: 2, desc: 'Day 2: La Pared Inclinada. Ascenso brutal en zigzag hacia Marampata. Llegada por la tarde al campamento base de Choquequirao.' },
+            { day: 3, desc: 'Day 3: La Ciudad Perdida. Day completo para explorar a solas esta megaestructura inca. Atardecer mágico en las terrazas agrícolas.' },
+            { day: 4, desc: 'Day 4: El Retorno del Guerrero. Descenso al cañón y último ascenso de regreso a la civilización (Cachora). Retorno a Cusco.' }
         ],
         inc: ['Equipo de campamento Pro', 'Arrieros y mulas de carga', 'Pensión completa con chef', 'Entradas oficiales'],
         notSuitable: ['Personas sin experiencia en trekking', 'Menores de 15 años'],
@@ -221,9 +221,9 @@ const tours = [
             'Cruza pasos de montaña por encima de los 5,100 metros'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Días 1-2: Aguas Termales y Glaciares. De Tinki hacia Upis. Baño termal frente al glaciar. Cruce del primer paso (Arapa) a 4,850m.' },
-            { day: 2, desc: 'Días 3-4: El Techo del Mundo. Cruce del paso Palomani (5,100 msnm), el punto más alto. Observación de vicuñas salvajes.' },
-            { day: 3, desc: 'Días 5-6: Las Lagunas Turquesas. Descenso pasando por las espectaculares 7 lagunas hasta Pacchanta y retorno a Cusco.' }
+            { day: 1, desc: 'Days 1-2: Aguas Termales y Glaciares. De Tinki hacia Upis. Baño termal frente al glaciar. Cruce del primer paso (Arapa) a 4,850m.' },
+            { day: 2, desc: 'Days 3-4: El Techo del Mundo. Cruce del paso Palomani (5,100 msnm), el punto más alto. Observación de vicuñas salvajes.' },
+            { day: 3, desc: 'Days 5-6: Las Lagunas Turquesas. Descenso pasando por las espectaculares 7 lagunas hasta Pacchanta y retorno a Cusco.' }
         ],
         inc: ['Caballos de carga logísticos', 'Carpas térmicas 4 estaciones', 'Balón de oxígeno', 'Alimentación Pro Alta Montaña'],
         notSuitable: ['Personas no aclimatadas', 'Problemas cardíacos'],
@@ -258,13 +258,13 @@ const tours = [
         whatYouDo: [
             'Cruce del mítico Paso Punta Unión a 4,750 msnm',
             'Despertar frente al Nevado Alpamayo',
-            'Caminata por valles glaciares turquesas'
+            'Trekking por valles glaciares turquesas'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Día 1 (Cashapampa a Llamacorral): 06:00 AM: Recojo en su hotel en Huaraz. 06:30 AM - 09:30 AM: Transporte privado hacia Cashapampa (2,900m). 10:00 AM: Inicio del trekking por el valle. 01:00 PM: Almuerzo campestre. 04:00 PM: Llegada al campamento Llamacorral (3,760m). 06:30 PM: Cena y pernocte.' },
-            { day: 2, desc: 'Día 2 (Llamacorral a Taullipampa): 06:00 AM: Despertar con mate de coca y desayuno. 07:30 AM: Trekking pasando por las lagunas Ichiccocha y Jatuncocha. 12:30 PM: Almuerzo frente a los glaciares. 03:30 PM: Llegada al campamento Taullipampa (4,250m) con vista al Alpamayo. 06:30 PM: Cena caliente.' },
-            { day: 3, desc: 'Día 3 (Taullipampa a Paria): 05:30 AM: Desayuno temprano. 06:30 AM: Inicio del duro ascenso al Paso Punta Unión (4,750m). 10:30 AM: Cumbre en el paso, fotos y descanso. 11:30 AM: Descenso abrupto. 01:30 PM: Almuerzo en ruta. 04:00 PM: Campamento Paria (3,870m).' },
-            { day: 4, desc: 'Día 4 (Paria a Vaquería y Retorno): 06:30 AM: Desayuno. 08:00 AM: Caminata final hacia el pueblo de Vaquería cruzando bosques de queñuales. 11:30 AM: Llegada a Vaquería. 12:00 PM: Transporte por el paso Portachuelo (espectaculares vistas de las lagunas de Llanganuco). 04:00 PM: Retorno a Huaraz y fin del servicio.' }
+            { day: 1, desc: 'Day 1 (Cashapampa a Llamacorral): 06:00 AM: Recojo en su hotel en Huaraz. 06:30 AM - 09:30 AM: Transporte privado hacia Cashapampa (2,900m). 10:00 AM: Inicio del trekking por el valle. 01:00 PM: Almuerzo campestre. 04:00 PM: Llegada al campamento Llamacorral (3,760m). 06:30 PM: Cena y pernocte.' },
+            { day: 2, desc: 'Day 2 (Llamacorral a Taullipampa): 06:00 AM: Despertar con mate de coca y desayuno. 07:30 AM: Trekking pasando por las lagunas Ichiccocha y Jatuncocha. 12:30 PM: Almuerzo frente a los glaciares. 03:30 PM: Llegada al campamento Taullipampa (4,250m) con vista al Alpamayo. 06:30 PM: Cena caliente.' },
+            { day: 3, desc: 'Day 3 (Taullipampa a Paria): 05:30 AM: Breakfast temprano. 06:30 AM: Inicio del duro ascenso al Paso Punta Unión (4,750m). 10:30 AM: Cumbre en el paso, fotos y descanso. 11:30 AM: Descenso abrupto. 01:30 PM: Almuerzo en ruta. 04:00 PM: Campamento Paria (3,870m).' },
+            { day: 4, desc: 'Day 4 (Paria a Vaquería y Retorno): 06:30 AM: Breakfast. 08:00 AM: Trekking final hacia el pueblo de Vaquería cruzando bosques de queñuales. 11:30 AM: Llegada a Vaquería. 12:00 PM: Transporte por el paso Portachuelo (espectaculares vistas de las lagunas de Llanganuco). 04:00 PM: Retorno a Huaraz y fin del servicio.' }
         ],
         inc: [
             'Recojo desde el hotel en Huaraz (06:00 AM)',
@@ -307,13 +307,13 @@ const tours = [
             'Conquista el Huascarán (6,768m)'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Día 1: 05:00 AM Recojo. 08:00 AM Llegada a Musho. 09:00 AM a 02:00 PM Ascenso al Campo Base (4,200m). Tarde de hidratación.' },
-            { day: 2, desc: 'Día 2: 07:00 AM Desayuno. 08:30 AM Ascenso por la morrena (rocas) hasta el Glaciar Campo 1 (5,300m). Llegada 02:00 PM. Armado de carpas sobre el hielo.' },
-            { day: 3, desc: 'Día 3: 06:00 AM Salida táctica sorteando grietas y escalando La Canaleta (zona de avalanchas). 01:00 PM Llegada al Campo 2 (La Garganta, 6,000m).' },
-            { day: 4, desc: 'Día 4: ¡Día de Cumbre! 12:00 AM (Medianoche): Despertar, mate caliente. 01:00 AM: Inicio del ataque a la cumbre en oscuridad total. 08:00 AM: ¡CUMBRE SUR (6,768m)! 09:00 AM a 03:00 PM: Descenso agotador de regreso al Campo 2 para descansar.' },
-            { day: 5, desc: 'Día 5: 08:00 AM Desayuno en La Garganta. Descenso técnico usando rápeles hasta el Campo 1 (5,300m).' },
-            { day: 6, desc: 'Día 6: Descenso final desde Campo 1 hasta el Campo Base.' },
-            { day: 7, desc: 'Día 7: 08:00 AM Caminata de retorno a Musho. 12:00 PM Vehículo de regreso. 02:00 PM Llegada a Huaraz. Celebración.' }
+            { day: 1, desc: 'Day 1: 05:00 AM Recojo. 08:00 AM Llegada a Musho. 09:00 AM a 02:00 PM Ascenso al Campo Base (4,200m). Tarde de hidratación.' },
+            { day: 2, desc: 'Day 2: 07:00 AM Breakfast. 08:30 AM Ascenso por la morrena (rocas) hasta el Glaciar Campo 1 (5,300m). Llegada 02:00 PM. Armado de carpas sobre el hielo.' },
+            { day: 3, desc: 'Day 3: 06:00 AM Salida táctica sorteando grietas y escalando La Canaleta (zona de avalanchas). 01:00 PM Llegada al Campo 2 (La Garganta, 6,000m).' },
+            { day: 4, desc: 'Day 4: ¡Day de Cumbre! 12:00 AM (Medianoche): Despertar, mate caliente. 01:00 AM: Inicio del ataque a la cumbre en oscuridad total. 08:00 AM: ¡CUMBRE SUR (6,768m)! 09:00 AM a 03:00 PM: Descenso agotador de regreso al Campo 2 para descansar.' },
+            { day: 5, desc: 'Day 5: 08:00 AM Breakfast en La Garganta. Descenso técnico usando rápeles hasta el Campo 1 (5,300m).' },
+            { day: 6, desc: 'Day 6: Descenso final desde Campo 1 hasta el Campo Base.' },
+            { day: 7, desc: 'Day 7: 08:00 AM Trekking de retorno a Musho. 12:00 PM Vehículo de regreso. 02:00 PM Llegada a Huaraz. Celebración.' }
         ],
         inc: [
             'Recojo desde el hotel (05:00 AM)',
@@ -351,7 +351,7 @@ const tours = [
             groupSize: 'Máximo 15 participantes'
         },
         whatYouDo: [
-            'Caminata espectacular bajo el Nevado Chacraraju',
+            'Trekking espectacular bajo el Nevado Chacraraju',
             'Fotografía las aguas esmeraldas de Llanganuco',
             'Alcanza la Laguna 69 a 4,600m'
         ],
@@ -366,7 +366,7 @@ const tours = [
         ],
         notSuitable: ['Sedentarios', 'Mala oxigenación'],
         meetingPoint: 'Recojo en hotel (05:00 AM)',
-        importantInfo: 'QUÉ LLEVAR: Agua (mínimo 2L), box lunch/snacks energéticos, casaca cortavientos, pastillas para el mal de altura. NO INCLUYE: Desayuno, almuerzo, caballos de emergencia.',
+        importantInfo: 'QUÉ LLEVAR: Agua (mínimo 2L), box lunch/snacks energéticos, casaca cortavientos, pastillas para el mal de altura. NO INCLUYE: Breakfast, almuerzo, caballos de emergencia.',
         steps: [{ n: 'G', t: 'Cebollapampa', d: 'Ascenso' }, { n: 'ri-drop-fill', t: 'Laguna 69', d: '4,600m' }, { n: 'dot', t: 'Huaraz', d: 'Retorno' }],
         sensoryVariants: { landscape: '', comfort: '', action: '' }
     },
@@ -396,7 +396,7 @@ const tours = [
             'Conoce la planta andina más alta del mundo: Puya Raimondi'
         ],
         fullItinerary: [
-            { day: 1, desc: '09:00 AM: Recojo en su hotel en Huaraz. 10:30 AM: Parada en el Valle de Pachacoto para degustar mate de coca. 11:30 AM: Parada en aguas gasificadas de Pumapampa y Puya Raimondi. 01:00 PM: Llegada al parqueo base del Pastoruri (4,800m). 01:00 a 02:00 PM: Caminata de ascenso hacia el glaciar (5,000m). 02:00 a 02:45 PM: Exploración de la cueva de hielo. 03:00 PM: Descenso al bus. 03:30 PM: Almuerzo en restaurante local (no incluido). 05:30 PM: Llegada a Huaraz.' }
+            { day: 1, desc: '09:00 AM: Recojo en su hotel en Huaraz. 10:30 AM: Parada en el Valle de Pachacoto para degustar mate de coca. 11:30 AM: Parada en aguas gasificadas de Pumapampa y Puya Raimondi. 01:00 PM: Llegada al parqueo base del Pastoruri (4,800m). 01:00 a 02:00 PM: Trekking de ascenso hacia el glaciar (5,000m). 02:00 a 02:45 PM: Exploración de la cueva de hielo. 03:00 PM: Descenso al bus. 03:30 PM: Almuerzo en restaurante local (no incluido). 05:30 PM: Llegada a Huaraz.' }
         ],
         inc: [
             'Recojo desde el hotel (09:00 AM)',
@@ -437,15 +437,15 @@ const tours = [
             'Taller intensivo de cuerdas, piolets y crampones'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Día 1: 08:00 AM: Recojo en hotel. 09:30 AM: Llegada a Pashpa (3,650m) e inicio de caminata de 4h. 02:00 PM: Llegada al Refugio Ishinca (4,350m). 03:00 a 05:00 PM: Clínica de nudos y uso de equipo. 06:30 PM: Cena en refugio.' },
-            { day: 2, desc: 'Día 2: 02:30 AM: Despertar y desayuno. 03:00 AM: Ascenso por morrena. 05:30 AM: Llegada al glaciar y encordamiento. 08:30 AM: Cumbre Nevado Ishinca (5,530m). 09:30 AM: Descenso al refugio. 01:00 PM: Retorno al refugio y descanso.' },
-            { day: 3, desc: 'Día 3: 08:00 AM: Desayuno montañero. 09:00 AM: Descenso hacia Pashpa. 01:00 PM: Encuentro con transporte. 02:30 PM: Retorno a su hotel en Huaraz.' }
+            { day: 1, desc: 'Day 1: 08:00 AM: Recojo en hotel. 09:30 AM: Llegada a Pashpa (3,650m) e inicio de caminata de 4h. 02:00 PM: Llegada al Refugio Ishinca (4,350m). 03:00 a 05:00 PM: Clínica de nudos y uso de equipo. 06:30 PM: Cena en refugio.' },
+            { day: 2, desc: 'Day 2: 02:30 AM: Despertar y desayuno. 03:00 AM: Ascenso por morrena. 05:30 AM: Llegada al glaciar y encordamiento. 08:30 AM: Cumbre Nevado Ishinca (5,530m). 09:30 AM: Descenso al refugio. 01:00 PM: Retorno al refugio y descanso.' },
+            { day: 3, desc: 'Day 3: 08:00 AM: Breakfast montañero. 09:00 AM: Descenso hacia Pashpa. 01:00 PM: Encuentro con transporte. 02:30 PM: Retorno a su hotel en Huaraz.' }
         ],
         inc: [
             'Recojo y retorno en vehículo privado (08:00 AM)',
             'Estadía (2 noches) en camas del Refugio Andino Ishinca',
             'Guía de Montaña Certificado (UIAGM o AGMP)',
-            'Alimentación completa (Almuerzo Día 1 hasta Desayuno Día 3)',
+            'Alimentación completa (Almuerzo Day 1 hasta Breakfast Day 3)',
             'Equipo técnico colectivo',
             'Burros de carga'
         ],
@@ -482,14 +482,14 @@ const tours = [
             'Navega en kayak por el bosque inundado',
             'Pesca de pirañas de manera tradicional',
             'Avistamiento de delfines rosados y perezosos',
-            'Caminatas de interpretación de flora medicinal'
+            'Trekkings de interpretación de flora medicinal'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Día 1: 07:00 AM Recojo en hotel/aeropuerto en Iquitos. 08:30 AM Viaje terrestre a Nauta. 10:30 AM Abordaje de lancha rápida. 02:00 PM Ingreso a la Reserva Pacaya Samiria. Almuerzo a bordo. 04:30 PM Llegada al campamento base. 06:30 PM Cena y expedición nocturna en canoa.' },
-            { day: 2, desc: 'Día 2: 05:30 AM Avistamiento de aves al amanecer. 08:00 AM Desayuno. 09:30 AM Kayak por los tributarios (búsqueda de nutrias gigantes). 01:00 PM Almuerzo estilo selva. 03:00 PM Pesca de pirañas. 07:00 PM Cena.' },
-            { day: 3, desc: 'Día 3: 07:00 AM Desayuno. 08:30 AM Caminata profunda de supervivencia (orientación y agua de lianas). 12:30 PM Almuerzo. 03:30 PM Búsqueda del delfín rosado. 07:30 PM Fogata y mitos de la selva.' },
-            { day: 4, desc: 'Día 4: 08:00 AM Desayuno. 09:30 AM Visita a comunidad ribereña para aprender técnicas de cerbatana y recolección. 01:00 PM Almuerzo. Tarde libre para nadar en zona segura.' },
-            { day: 5, desc: 'Día 5: 07:00 AM Desayuno. 08:00 AM Desmontaje de campamento. 09:00 AM Inicio del viaje de retorno por el río Marañón. 12:30 PM Llegada a Nauta y almuerzo. 03:30 PM Drop-off en Iquitos.' }
+            { day: 1, desc: 'Day 1: 07:00 AM Recojo en hotel/aeropuerto en Iquitos. 08:30 AM Viaje terrestre a Nauta. 10:30 AM Abordaje de lancha rápida. 02:00 PM Ingreso a la Reserva Pacaya Samiria. Almuerzo a bordo. 04:30 PM Llegada al campamento base. 06:30 PM Cena y expedición nocturna en canoa.' },
+            { day: 2, desc: 'Day 2: 05:30 AM Avistamiento de aves al amanecer. 08:00 AM Breakfast. 09:30 AM Kayak por los tributarios (búsqueda de nutrias gigantes). 01:00 PM Almuerzo estilo selva. 03:00 PM Pesca de pirañas. 07:00 PM Cena.' },
+            { day: 3, desc: 'Day 3: 07:00 AM Breakfast. 08:30 AM Trekking profunda de supervivencia (orientación y agua de lianas). 12:30 PM Almuerzo. 03:30 PM Búsqueda del delfín rosado. 07:30 PM Fogata y mitos de la selva.' },
+            { day: 4, desc: 'Day 4: 08:00 AM Breakfast. 09:30 AM Visita a comunidad ribereña para aprender técnicas de cerbatana y recolección. 01:00 PM Almuerzo. Tarde libre para nadar en zona segura.' },
+            { day: 5, desc: 'Day 5: 07:00 AM Breakfast. 08:00 AM Desmontaje de campamento. 09:00 AM Inicio del viaje de retorno por el río Marañón. 12:30 PM Llegada a Nauta y almuerzo. 03:30 PM Drop-off en Iquitos.' }
         ],
         inc: [
             'Recojo desde el aeropuerto u hotel (07:00 AM)',
@@ -533,13 +533,13 @@ const tours = [
             'Baños de florecimiento con plantas aromáticas'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Día 1: 09:00 AM Recojo y viaje en bote al centro holístico. 12:00 PM Llegada e instalación. 02:00 PM Charla de introducción. 04:00 PM Purga inicial con tabaco o plantas eméticas.' },
-            { day: 2, desc: 'Día 2: 08:00 AM Desayuno de dieta. 10:00 AM Consultas privadas con el chamán. 06:00 PM Preparación espiritual. 08:00 PM PRIMERA CEREMONIA DE AYAHUASCA. Silencio absoluto.' },
-            { day: 3, desc: 'Día 3: 09:00 AM Desayuno. 11:00 AM Círculo de integración grupal (análisis de visiones). Tarde de descanso en hamacas. Baños de florecimiento.' },
-            { day: 4, desc: 'Día 4: 08:00 AM Desayuno. Caminata por el jardín botánico de plantas maestras. 08:00 PM SEGUNDA CEREMONIA DE AYAHUASCA.' },
-            { day: 5, desc: 'Día 5: 10:00 AM Integración. Tarde libre para meditación y arteterapia en la selva.' },
-            { day: 6, desc: 'Día 6: 08:00 PM TERCERA Y ÚLTIMA CEREMONIA (Sellado y sanación final).' },
-            { day: 7, desc: 'Día 7: 08:00 AM Rompimiento de la dieta (comida normal). 10:00 AM Círculo de cierre. 12:00 PM Retorno a Iquitos.' }
+            { day: 1, desc: 'Day 1: 09:00 AM Recojo y viaje en bote al centro holístico. 12:00 PM Llegada e instalación. 02:00 PM Charla de introducción. 04:00 PM Purga inicial con tabaco o plantas eméticas.' },
+            { day: 2, desc: 'Day 2: 08:00 AM Breakfast de dieta. 10:00 AM Consultas privadas con el chamán. 06:00 PM Preparación espiritual. 08:00 PM PRIMERA CEREMONIA DE AYAHUASCA. Silencio absoluto.' },
+            { day: 3, desc: 'Day 3: 09:00 AM Breakfast. 11:00 AM Círculo de integración grupal (análisis de visiones). Tarde de descanso en hamacas. Baños de florecimiento.' },
+            { day: 4, desc: 'Day 4: 08:00 AM Breakfast. Trekking por el jardín botánico de plantas maestras. 08:00 PM SEGUNDA CEREMONIA DE AYAHUASCA.' },
+            { day: 5, desc: 'Day 5: 10:00 AM Integración. Tarde libre para meditación y arteterapia en la selva.' },
+            { day: 6, desc: 'Day 6: 08:00 PM TERCERA Y ÚLTIMA CEREMONIA (Sellado y sanación final).' },
+            { day: 7, desc: 'Day 7: 08:00 AM Rompimiento de la dieta (comida normal). 10:00 AM Círculo de cierre. 12:00 PM Retorno a Iquitos.' }
         ],
         inc: [
             'Transporte fluvial Iquitos - Centro Holístico',
@@ -570,7 +570,7 @@ const tours = [
         ],
         genInfo: {
             cancelPolicy: 'Gratis 24h antes',
-            duration: '6 horas (Tarde-Noche)',
+            duration: '6 horas (Tarde-Night)',
             availability: 'Salidas diarias',
             guide: 'Guía rastreador de fauna',
             groupSize: 'Máximo 8 personas'
@@ -625,7 +625,7 @@ const tours = [
             'Almuerzo típico selvático incluido'
         ],
         fullItinerary: [
-            { day: 1, desc: '07:30 AM: Recojo en hotel. 08:00 AM: Viaje en lancha rápida por el río Amazonas (1.5h). 09:30 AM: Llegada a la reserva privada. Caminata de 30 min por la selva primaria hasta la base del canopy. 10:00 AM: Ascenso a las plataformas. Recorrido de 1 hora por los puentes colgantes, escuchando monos aulladores y aves. 11:30 AM: Descenso. 12:30 PM: Almuerzo en el lodge ecológico. 02:00 PM: Visita a tribu Yagua cercana. 03:30 PM: Retorno a Iquitos.' }
+            { day: 1, desc: '07:30 AM: Recojo en hotel. 08:00 AM: Viaje en lancha rápida por el río Amazonas (1.5h). 09:30 AM: Llegada a la reserva privada. Trekking de 30 min por la selva primaria hasta la base del canopy. 10:00 AM: Ascenso a las plataformas. Recorrido de 1 hora por los puentes colgantes, escuchando monos aulladores y aves. 11:30 AM: Descenso. 12:30 PM: Almuerzo en el lodge ecológico. 02:00 PM: Visita a tribu Yagua cercana. 03:30 PM: Retorno a Iquitos.' }
         ],
         inc: [
             'Transporte fluvial rápido',
@@ -668,9 +668,9 @@ const tours = [
             'Navegación y orientación táctica sin GPS ni brújula'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Día 1: 06:00 AM Salida secreta. 09:00 AM Desembarco en una zona remota del río Amazonas. Abandono de tecnología y comida extra. Marcha por la selva virgen de 4 horas abriendo trocha a machete. 01:00 PM Práctica: Identificación de agua y plantas venenosas. 03:00 PM Construcción del campamento base (armar refugio con hojas). 06:00 PM Intento de hacer fuego y pesca nocturna básica. Pernocte en el suelo/hamaca improvisada.' },
-            { day: 2, desc: 'Día 2: 05:00 AM Despertar. Desayuno (lo que se haya cazado/pescado). 08:00 AM Taller de trampas para pequeños animales. 12:00 PM Pesca con arco y flecha nativa. Tarde de supervivencia de primer auxilios en selva (qué hacer ante mordedura de serpiente). Noche de guardia.' },
-            { day: 3, desc: 'Día 3: 06:00 AM Desarme del refugio (dejar sin huella). 08:00 AM Marcha de orientación (el participante lidera la salida al río guiándose por el sol y los árboles). 12:00 PM Extracción en bote. 03:00 PM Retorno a la civilización. Entrega de diploma de supervivencia.' }
+            { day: 1, desc: 'Day 1: 06:00 AM Salida secreta. 09:00 AM Desembarco en una zona remota del río Amazonas. Abandono de tecnología y comida extra. Marcha por la selva virgen de 4 horas abriendo trocha a machete. 01:00 PM Práctica: Identificación de agua y plantas venenosas. 03:00 PM Construcción del campamento base (armar refugio con hojas). 06:00 PM Intento de hacer fuego y pesca nocturna básica. Pernocte en el suelo/hamaca improvisada.' },
+            { day: 2, desc: 'Day 2: 05:00 AM Despertar. Breakfast (lo que se haya cazado/pescado). 08:00 AM Taller de trampas para pequeños animales. 12:00 PM Pesca con arco y flecha nativa. Tarde de supervivencia de primer auxilios en selva (qué hacer ante mordedura de serpiente). Night de guardia.' },
+            { day: 3, desc: 'Day 3: 06:00 AM Desarme del refugio (dejar sin huella). 08:00 AM Marcha de orientación (el participante lidera la salida al río guiándose por el sol y los árboles). 12:00 PM Extracción en bote. 03:00 PM Retorno a la civilización. Entrega de diploma de supervivencia.' }
         ],
         inc: [
             'Instrucción de supervivencia de élite',
@@ -715,9 +715,9 @@ const tours = [
             'Obtención del carnet IKO válido a nivel mundial'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Día 1: 09:00 AM Encuentro en la Escuela IKO Máncora. 09:30 AM Teoría de vientos y sistemas de seguridad. 10:30 AM a 12:30 PM Vuelo de kite de entrenamiento en la arena. Tarde libre.' },
-            { day: 2, desc: 'Día 2: 10:00 AM Ingreso al mar sin tabla (Body Drag). Aprender a usar la tracción del kite para desplazarse en el agua y recuperar la tabla perdida. 01:00 PM Fin de la sesión.' },
-            { day: 3, desc: 'Día 3: 11:00 AM ¡El Waterstart! Práctica de levantarse en la tabla y realizar los primeros metros navegando. 02:00 PM Entrega de certificación IKO internacional.' }
+            { day: 1, desc: 'Day 1: 09:00 AM Encuentro en la Escuela IKO Máncora. 09:30 AM Teoría de vientos y sistemas de seguridad. 10:30 AM a 12:30 PM Vuelo de kite de entrenamiento en la arena. Tarde libre.' },
+            { day: 2, desc: 'Day 2: 10:00 AM Ingreso al mar sin tabla (Body Drag). Aprender a usar la tracción del kite para desplazarse en el agua y recuperar la tabla perdida. 01:00 PM Fin de la sesión.' },
+            { day: 3, desc: 'Day 3: 11:00 AM ¡El Waterstart! Práctica de levantarse en la tabla y realizar los primeros metros navegando. 02:00 PM Entrega de certificación IKO internacional.' }
         ],
         inc: [
             'Kite, arnés, barra, leash y tabla profesional de última generación',
@@ -759,7 +759,7 @@ const tours = [
             'Navegación segura en lanchas equipadas con oxígeno de emergencia'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Día 1: 08:00 AM Encuentro en el Dive Center Los Órganos. Prueba de trajes (wetsuit de 5mm a 7mm). 09:00 AM Zarpe en lancha. 09:40 AM Primera inmersión (aprox 45 min, 18 metros). 10:30 AM Intervalo de superficie con frutas y rehidratación. 11:30 AM Segunda inmersión en locación diferente. 01:00 PM Retorno al muelle y logbook.' }
+            { day: 1, desc: 'Day 1: 08:00 AM Encuentro en el Dive Center Los Órganos. Prueba de trajes (wetsuit de 5mm a 7mm). 09:00 AM Zarpe en lancha. 09:40 AM Primera inmersión (aprox 45 min, 18 metros). 10:30 AM Intervalo de superficie con frutas y rehidratación. 11:30 AM Segunda inmersión en locación diferente. 01:00 PM Retorno al muelle y logbook.' }
         ],
         inc: [
             '2 Tanques de oxígeno y lastre',
@@ -802,13 +802,13 @@ const tours = [
             'Almuerzo en restaurante de pescadores ancestrales'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Día 1: 05:30 AM "Dawn Patrol": Salida temprano desde tu hotel hacia Cabo Blanco. 06:30 AM Llegada, análisis de la corriente y marea con tu coach ISA. 07:00 AM Primera sesión intensa de surf (tubos). 10:00 AM Salida, desayuno en la caleta y revisión de video. 11:30 AM Segunda sesión si las condiciones lo permiten. 01:30 PM Almuerzo cevichero. 03:00 PM Retorno al hotel.' }
+            { day: 1, desc: 'Day 1: 05:30 AM "Dawn Patrol": Salida temprano desde tu hotel hacia Cabo Blanco. 06:30 AM Llegada, análisis de la corriente y marea con tu coach ISA. 07:00 AM Primera sesión intensa de surf (tubos). 10:00 AM Salida, desayuno en la caleta y revisión de video. 11:30 AM Segunda sesión si las condiciones lo permiten. 01:30 PM Almuerzo cevichero. 03:00 PM Retorno al hotel.' }
         ],
         inc: [
             'Transporte 4x4 privado a Cabo Blanco',
             'Coach ISA Nivel 2 en el agua',
             'Sesión de video-análisis',
-            'Desayuno y almuerzo local'
+            'Breakfast y almuerzo local'
         ],
         notSuitable: ['Surfistas principiantes o personas con lesiones recientes'],
         meetingPoint: 'Recojo en su hotel en Máncora/Órganos (05:30 AM)',
@@ -845,7 +845,7 @@ const tours = [
             'Contribuye a la conservación liberando especies protegidas'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Día 1: 06:00 AM Embarque en el muelle de Cabo Blanco. 06:30 AM Zarpe mar adentro (aprox 1.5 horas). 08:00 AM Inicio de arrastre de señuelos (Trolling). 10:00 AM a 01:00 PM Acción de pesca y luchas (Pez Vela, Merlín, Atún). 01:00 PM Box lunch abordo. 02:00 PM Retorno al muelle. 03:30 PM Desembarque.' }
+            { day: 1, desc: 'Day 1: 06:00 AM Embarque en el muelle de Cabo Blanco. 06:30 AM Zarpe mar adentro (aprox 1.5 horas). 08:00 AM Inicio de arrastre de señuelos (Trolling). 10:00 AM a 01:00 PM Acción de pesca y luchas (Pez Vela, Merlín, Atún). 01:00 PM Box lunch abordo. 02:00 PM Retorno al muelle. 03:30 PM Desembarque.' }
         ],
         inc: [
             'Yate de pesca deportiva (Cabin cruiser, baño, fishfinder)',
@@ -887,7 +887,7 @@ const tours = [
             'Disfruta del atardecer en medio de un inmenso mar de arena'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Día 1: 03:00 PM Recojo en Piura o Sechura. 04:00 PM Llegada al inicio de las dunas del Médano Blanco. 04:15 PM Recorrido estilo montaña rusa en buggy por las inmensas dunas (45 min). 05:00 PM Inicio de la sesión de Sandboard. 06:00 PM Contemplación del atardecer desértico. 06:45 PM Retorno. 07:30 PM Llegada al punto de inicio.' }
+            { day: 1, desc: 'Day 1: 03:00 PM Recojo en Piura o Sechura. 04:00 PM Llegada al inicio de las dunas del Médano Blanco. 04:15 PM Recorrido estilo montaña rusa en buggy por las inmensas dunas (45 min). 05:00 PM Inicio de la sesión de Sandboard. 06:00 PM Contemplación del atardecer desértico. 06:45 PM Retorno. 07:30 PM Llegada al punto de inicio.' }
         ],
         inc: [
             'Paseo en Arenero (Tubular) certificado',
@@ -928,7 +928,7 @@ const tours = [
             'Disfruta de un atardecer dorado con vista panorámica al oasis'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Día 1: 04:00 PM Punto de encuentro en Huacachina. Charla de seguridad (Briefing). 04:15 PM Inicio del recorrido en las dunas con ascensos verticales y descensos rápidos. 05:00 PM Paradas en dunas altas para instrucción y práctica de sandboarding. 06:00 PM Contemplación del Sunset en lo alto del desierto. 06:30 PM Retorno al oasis.' }
+            { day: 1, desc: 'Day 1: 04:00 PM Punto de encuentro en Huacachina. Charla de seguridad (Briefing). 04:15 PM Inicio del recorrido en las dunas con ascensos verticales y descensos rápidos. 05:00 PM Paradas en dunas altas para instrucción y práctica de sandboarding. 06:00 PM Contemplación del Sunset en lo alto del desierto. 06:30 PM Retorno al oasis.' }
         ],
         inc: [
             'Asiento en Arenero (Tubular) certificado',
@@ -968,9 +968,9 @@ const tours = [
             'Ejecuta el "Waterstart" y navega tus primeros metros'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Día 1: 01:00 PM Teoría de vientos y armado de equipo. Práctica en la playa controlando el kite pequeño. 03:00 PM Fin de sesión.' },
-            { day: 2, desc: 'Día 2: 01:00 PM Body drag en el mar (usar el viento para arrastrarse sin tabla). Recuperación de tabla simulada.' },
-            { day: 3, desc: 'Día 3: 01:00 PM Waterstart (incorporarse sobre la tabla en el agua). Navegación guiada.' }
+            { day: 1, desc: 'Day 1: 01:00 PM Teoría de vientos y armado de equipo. Práctica en la playa controlando el kite pequeño. 03:00 PM Fin de sesión.' },
+            { day: 2, desc: 'Day 2: 01:00 PM Body drag en el mar (usar el viento para arrastrarse sin tabla). Recuperación de tabla simulada.' },
+            { day: 3, desc: 'Day 3: 01:00 PM Waterstart (incorporarse sobre la tabla en el agua). Navegación guiada.' }
         ],
         inc: [
             'Equipo de Kitesurf 2026 (Cometa, barra, arnés, tabla)',
@@ -1011,7 +1011,7 @@ const tours = [
             'Experimenta giros en picada ligera para la mejor toma fotográfica'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Día 1: 08:00 AM Check-in en el aeródromo Maria Reiche. Pesaje y pago de tasa aeroportuaria. 09:30 AM Abordaje a la avioneta Cessna. 09:40 AM Despegue y sobrevuelo de los valles, ingresando al polígono de geoglifos. Observación de la Ballena, Triángulos, Mono, Perro, Cóndor, etc. 10:15 AM Aterrizaje suave y entrega de certificado de vuelo.' }
+            { day: 1, desc: 'Day 1: 08:00 AM Check-in en el aeródromo Maria Reiche. Pesaje y pago de tasa aeroportuaria. 09:30 AM Abordaje a la avioneta Cessna. 09:40 AM Despegue y sobrevuelo de los valles, ingresando al polígono de geoglifos. Observación de la Ballena, Triángulos, Mono, Perro, Cóndor, etc. 10:15 AM Aterrizaje suave y entrega de certificado de vuelo.' }
         ],
         inc: [
             'Vuelo panorámico certificado',
@@ -1051,7 +1051,7 @@ const tours = [
             'Siente el silencio absoluto del vuelo sin motor'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Día 1: 02:00 PM Recojo en Paracas y traslado a los acantilados de la Reserva. 02:30 PM Preparación de la vela, arnés y charla técnica. 03:00 PM Despegue seguro hacia el abismo costero. Vuelo panorámico sostenido por brisa marina. 03:15 PM Aterrizaje en el mismo punto o en la playa inferior. 04:00 PM Retorno.' }
+            { day: 1, desc: 'Day 1: 02:00 PM Recojo en Paracas y traslado a los acantilados de la Reserva. 02:30 PM Preparación de la vela, arnés y charla técnica. 03:00 PM Despegue seguro hacia el abismo costero. Vuelo panorámico sostenido por brisa marina. 03:15 PM Aterrizaje en el mismo punto o en la playa inferior. 04:00 PM Retorno.' }
         ],
         inc: [
             'Vuelo Tandem (Piloto certificado)',
@@ -1091,7 +1091,7 @@ const tours = [
             'Siente el fuerte viento paracas en pleno desierto'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Día 1: 09:00 AM Encuentro en base de cuatrimotos. 09:15 AM Instrucción de uso, acelerador, frenos y entrega de equipo de protección. 09:30 AM Ingreso a la Reserva. Recorrido por el istmo de la península (trocha y arena afirmada). 10:30 AM Parada en Mirador Playa Yumaque y Playa Roja. 11:30 AM Retorno en convoy acelerado a la base.' }
+            { day: 1, desc: 'Day 1: 09:00 AM Encuentro en base de cuatrimotos. 09:15 AM Instrucción de uso, acelerador, frenos y entrega de equipo de protección. 09:30 AM Ingreso a la Reserva. Recorrido por el istmo de la península (trocha y arena afirmada). 10:30 AM Parada en Mirador Playa Yumaque y Playa Roja. 11:30 AM Retorno en convoy acelerado a la base.' }
         ],
         inc: [
             'Cuatrimoto personal automática / semi-automática',
@@ -1133,7 +1133,7 @@ const tours = [
             'Llegada a las Islas Flotantes de los Uros (sin motor)'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Día 1: 06:45 AM Recojo del hotel en Puno. 07:15 AM Charla técnica en la orilla sobre uso de remos, timón y medidas de rescate. 08:00 AM Inicio del remado hacia la Reserva de Totoras. 09:30 AM Llegada a las islas flotantes Uros y encuentro con las familias. 10:30 AM Descanso y snack andino. 11:30 AM Retorno remando al punto de partida o bote a motor (opcional). 12:30 PM Fin del tour.' }
+            { day: 1, desc: 'Day 1: 06:45 AM Recojo del hotel en Puno. 07:15 AM Charla técnica en la orilla sobre uso de remos, timón y medidas de rescate. 08:00 AM Inicio del remado hacia la Reserva de Totoras. 09:30 AM Llegada a las islas flotantes Uros y encuentro con las familias. 10:30 AM Descanso y snack andino. 11:30 AM Retorno remando al punto de partida o bote a motor (opcional). 12:30 PM Fin del tour.' }
         ],
         inc: [
             'Kayak cerrado de expedición',
@@ -1174,7 +1174,7 @@ const tours = [
             'Conecta con la naturaleza en silencio total'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Día 1: 05:45 AM Recojo del hotel. 06:00 AM Llegada a bahía y colocación del wetsuit. 06:15 AM Briefing en la orilla sobre equilibrio y técnica de paleo. 06:30 AM Ingreso al agua para ver el amanecer sobre las montañas de Bolivia. Remado suave hacia formaciones de totora. 08:30 AM Retorno a tierra, cambio de ropa y desayuno caliente en la orilla. 09:30 AM Fin de la actividad.' }
+            { day: 1, desc: 'Day 1: 05:45 AM Recojo del hotel. 06:00 AM Llegada a bahía y colocación del wetsuit. 06:15 AM Briefing en la orilla sobre equilibrio y técnica de paleo. 06:30 AM Ingreso al agua para ver el amanecer sobre las montañas de Bolivia. Remado suave hacia formaciones de totora. 08:30 AM Retorno a tierra, cambio de ropa y desayuno caliente en la orilla. 09:30 AM Fin de la actividad.' }
         ],
         inc: [
             'Tabla rígida SUP y remo ajustable',
@@ -1185,7 +1185,7 @@ const tours = [
         notSuitable: ['Personas que no saben nadar'],
         meetingPoint: 'Hotel en Puno (05:45 AM)',
         importantInfo: 'QUÉ LLEVAR: Ropa de baño para poner debajo del wetsuit, toalla, ropa abrigadora para después. NO INCLUYE: Fotografía profesional (costo extra).',
-        steps: [{ n: 'G', t: 'Puno', d: 'Amanecer' }, { n: 'ri-water-flash-fill', t: 'Espejo', d: 'SUP' }, { n: 'dot', t: 'Puno', d: 'Desayuno' }],
+        steps: [{ n: 'G', t: 'Puno', d: 'Amanecer' }, { n: 'ri-water-flash-fill', t: 'Espejo', d: 'SUP' }, { n: 'dot', t: 'Puno', d: 'Breakfast' }],
         sensoryVariants: { landscape: '', comfort: '', action: '' }
     },
     {
@@ -1215,7 +1215,7 @@ const tours = [
             'Visita la Laguna Umayo y el centro arqueológico de Sillustani'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Día 1: 08:00 AM Traslado desde Puno hasta el poblado de Atuncolla (Base). 08:45 AM Charla técnica y prueba de conducción en terreno plano. 09:15 AM Inicio de la expedición cruzando pampas y bordeando la Laguna Umayo. 10:30 AM Llegada a las Chullpas de Sillustani. Visita guiada caminando por la necrópolis inca y colla. 11:30 AM Retorno en cuatrimoto a la base. 12:30 PM Regreso a Puno en van.' }
+            { day: 1, desc: 'Day 1: 08:00 AM Traslado desde Puno hasta el poblado de Atuncolla (Base). 08:45 AM Charla técnica y prueba de conducción en terreno plano. 09:15 AM Inicio de la expedición cruzando pampas y bordeando la Laguna Umayo. 10:30 AM Llegada a las Chullpas de Sillustani. Visita guiada caminando por la necrópolis inca y colla. 11:30 AM Retorno en cuatrimoto a la base. 12:30 PM Regreso a Puno en van.' }
         ],
         inc: [
             'Cuatrimoto automática moderna',
@@ -1245,7 +1245,7 @@ const tours = [
         ],
         genInfo: {
             cancelPolicy: 'Gratis 12h antes',
-            duration: 'Medio Día',
+            duration: 'Medio Day',
             availability: 'Diario 09:00 AM',
             guide: 'Instructor de Cuerdas',
             groupSize: 'Grupal'
@@ -1256,7 +1256,7 @@ const tours = [
             'Disfruta de una vista privilegiada del lago Titicaca'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Día 1: 09:00 AM Viaje desde Puno hacia la localidad de Juli (1 hora). 10:00 AM Llegada al mirador y base de Canopy. 10:30 AM Equipamiento (arnés tipo silla, casco, mosquetones) e instrucción de posturas. 11:00 AM Salto individual o en tandem por el Zipline. 11:30 AM Descenso y caminata corta. Retorno a Puno al mediodía.' }
+            { day: 1, desc: 'Day 1: 09:00 AM Viaje desde Puno hacia la localidad de Juli (1 hora). 10:00 AM Llegada al mirador y base de Canopy. 10:30 AM Equipamiento (arnés tipo silla, casco, mosquetones) e instrucción de posturas. 11:00 AM Salto individual o en tandem por el Zipline. 11:30 AM Descenso y caminata corta. Retorno a Puno al mediodía.' }
         ],
         inc: [
             'Transporte ida y vuelta',
@@ -1296,7 +1296,7 @@ const tours = [
             'Almuerzo en casa de comuneros de Llachón'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Día 1: 08:00 AM Traslado a zona de inicio fuera del tráfico urbano. 09:00 AM Configuración de bicicletas (altura de asiento, presiones). 09:30 AM Inicio de pedaleo por trochas que bordean el lago. 12:00 PM Subidas fuertes hacia la península de Capachica. 01:30 PM Llegada a Llachón. Almuerzo trucha fresca. 03:00 PM Retorno a Puno en transporte (las bicis van en parrilla).' }
+            { day: 1, desc: 'Day 1: 08:00 AM Traslado a zona de inicio fuera del tráfico urbano. 09:00 AM Configuración de bicicletas (altura de asiento, presiones). 09:30 AM Inicio de pedaleo por trochas que bordean el lago. 12:00 PM Subidas fuertes hacia la península de Capachica. 01:30 PM Llegada a Llachón. Almuerzo trucha fresca. 03:00 PM Retorno a Puno en transporte (las bicis van en parrilla).' }
         ],
         inc: [
             'Mountain Bike aro 29, doble freno disco, suspensión delantera',
@@ -1321,7 +1321,7 @@ const tours = [
         img: 'assets/images/destinos/arequipa/canon.jpg',
         detail: 'Incursión profunda al abismo de los cóndores.',
         last_verified: '2026-06-30',
-        direct_answer_block: 'El Trekking de 3 Días al fondo del Cañón del Colca (Oasis Sangalle) cuesta $850. Operado por guías de alta montaña con permisos oficiales. Uno de los descensos más profundos del mundo.',
+        direct_answer_block: 'El Trekking de 3 Days al fondo del Cañón del Colca (Oasis Sangalle) cuesta $850. Operado por guías de alta montaña con permisos oficiales. Uno de los descensos más profundos del mundo.',
         faqs: [
             { q: '¿Es muy exigente?', a: 'Sí. Bajar destruye las rodillas y subir destruye los pulmones. Se requiere excelente estado físico.' }
         ],
@@ -1339,13 +1339,13 @@ const tours = [
             'Ataque de subida bajo las estrellas a las 04:00 AM'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Día 1: 03:00 AM Salida de Arequipa. 07:00 AM Parada en la Cruz del Cóndor. 09:30 AM Llegada a Cabanaconde e inicio del trekking en picada de bajada. 01:00 PM Llegada a San Juan de Chuccho (almuerzo). Caminata hasta Cosñirhua para cenar y dormir en lodge rústico.' },
-            { day: 2, desc: 'Día 2: 09:00 AM Caminata suave bajando al Oasis de Sangalle. 11:30 AM Llegada. Tarde de relajación total en las piscinas con agua de manantial rodeado de palmeras. Noche de descanso temprano.' },
-            { day: 3, desc: 'Día 3: 04:00 AM (Aún de noche) Inicio del ascenso vertical continuo por 3 horas. 07:30 AM Llegada al borde (Cabanaconde). Desayuno. 09:30 AM Viaje a Chivay (baños termales). 05:00 PM Llegada a Arequipa.' }
+            { day: 1, desc: 'Day 1: 03:00 AM Salida de Arequipa. 07:00 AM Parada en la Cruz del Cóndor. 09:30 AM Llegada a Cabanaconde e inicio del trekking en picada de bajada. 01:00 PM Llegada a San Juan de Chuccho (almuerzo). Trekking hasta Cosñirhua para cenar y dormir en lodge rústico.' },
+            { day: 2, desc: 'Day 2: 09:00 AM Trekking suave bajando al Oasis de Sangalle. 11:30 AM Llegada. Tarde de relajación total en las piscinas con agua de manantial rodeado de palmeras. Night de descanso temprano.' },
+            { day: 3, desc: 'Day 3: 04:00 AM (Aún de noche) Inicio del ascenso vertical continuo por 3 horas. 07:30 AM Llegada al borde (Cabanaconde). Breakfast. 09:30 AM Viaje a Chivay (baños termales). 05:00 PM Llegada a Arequipa.' }
         ],
         inc: [
             'Transporte ida y vuelta turístico',
-            '2 Noches de alojamiento (básico)',
+            '2 Nights de alojamiento (básico)',
             'Pensión completa (2D, 3A, 2C)',
             'Guía experto con balón de oxígeno/botiquín trauma',
             'Ticket turístico del Colca (BTC)'
@@ -1384,8 +1384,8 @@ const tours = [
             'Descenso brutal y rápido (sandboarding en ceniza)'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Día 1: 08:00 AM Salida de Arequipa en 4x4. Llegada a la base (3,300m). Inicio de caminata cargando equipo y agua (4-5 hrs). Llegada al campamento base Nido de Águilas (4,500m). Armado de carpas The North Face VE25. Cena ligera y a dormir a las 06:00 PM.' },
-            { day: 2, desc: 'Día 2: 01:00 AM Despertar helado. Mate de coca. 02:00 AM Inicio del ataque a la cumbre en oscuridad, con linternas frontales, avanzando un paso a la vez sobre ceniza volcánica. 07:00 AM Llegada a la Cumbre (5,822m) al amanecer. Olor a azufre. Fotos. 08:00 AM Descenso rápido en arena volcánica (2 hrs). 11:00 AM Campamento, empacar. 02:00 PM Retorno 4x4 a Arequipa.' }
+            { day: 1, desc: 'Day 1: 08:00 AM Salida de Arequipa en 4x4. Llegada a la base (3,300m). Inicio de caminata cargando equipo y agua (4-5 hrs). Llegada al campamento base Nido de Águilas (4,500m). Armado de carpas The North Face VE25. Cena ligera y a dormir a las 06:00 PM.' },
+            { day: 2, desc: 'Day 2: 01:00 AM Despertar helado. Mate de coca. 02:00 AM Inicio del ataque a la cumbre en oscuridad, con linternas frontales, avanzando un paso a la vez sobre ceniza volcánica. 07:00 AM Llegada a la Cumbre (5,822m) al amanecer. Olor a azufre. Fotos. 08:00 AM Descenso rápido en arena volcánica (2 hrs). 11:00 AM Campamento, empacar. 02:00 PM Retorno 4x4 a Arequipa.' }
         ],
         inc: [
             'Equipo de acampada (Carpa 4 estaciones, colchoneta térmica)',
@@ -1426,7 +1426,7 @@ const tours = [
             'Admira el cañón de Chilina resguardado por el Volcán Misti'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Día 1: Recojo de la Plaza de Armas. Viaje de 20 min hasta Charcani (Valle de Chilina). Entrega de wetsuit y equipamiento. Charla de seguridad vitalícia (cómo remar, cómo caer al agua y ser rescatado). Navegación extrema (6 km) de rápidos continuos. Llegada al puente Chilina y refrigerio de celebración. Retorno.' }
+            { day: 1, desc: 'Day 1: Recojo de la Plaza de Armas. Viaje de 20 min hasta Charcani (Valle de Chilina). Entrega de wetsuit y equipamiento. Charla de seguridad vitalícia (cómo remar, cómo caer al agua y ser rescatado). Navegación extrema (6 km) de rápidos continuos. Llegada al puente Chilina y refrigerio de celebración. Retorno.' }
         ],
         inc: [
             'Bote inflable bailing automático, remos, casco, salvavidas clase V',
@@ -1467,7 +1467,7 @@ const tours = [
             'Disfruta de vistas espectaculares del Misti y de vicuñas salvajes'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Día 1: 08:00 AM Traslado de 2 horas en van hasta el Mirador de los Andes (Pampa Cañahuas - 4,700m). 10:00 AM Entrega de protecciones tipo Robocop y bicicleta doble suspensión. 10:30 AM Inicio del descenso infernal (Off-Road puro). La van sigue detrás del grupo. Paradas fotográficas y de rehidratación. 01:30 PM Fin del descenso en las afueras de Arequipa. 02:00 PM Retorno al hotel.' }
+            { day: 1, desc: 'Day 1: 08:00 AM Traslado de 2 horas en van hasta el Mirador de los Andes (Pampa Cañahuas - 4,700m). 10:00 AM Entrega de protecciones tipo Robocop y bicicleta doble suspensión. 10:30 AM Inicio del descenso infernal (Off-Road puro). La van sigue detrás del grupo. Paradas fotográficas y de rehidratación. 01:30 PM Fin del descenso en las afueras de Arequipa. 02:00 PM Retorno al hotel.' }
         ],
         inc: [
             'Bicicleta de Montaña Enduro / DH doble suspensión y frenos hidráulicos',
@@ -1509,8 +1509,8 @@ const tours = [
             'Celebra el amanecer desde la cumbre nevada de Arequipa'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Día 1: 08:00 AM Vehículo 4x4 sube hasta los casi 5,000m (el ascenso vehicular ayuda bastante). 10:30 AM Caminata de 2 horas llevando nuestro equipo hasta el campamento base "Azteca" (5,200m). Aclimatación, cena rápida y dormir a las 05:30 PM.' },
-            { day: 2, desc: 'Día 2: 01:30 AM Inicio del ataque a cumbre usando linternas. Frío que baja de los -10°C. 5 a 6 horas de caminata muy lenta ("paso de tortuga"). 07:00 AM Cumbre del Chachani (6,057m). Paisaje de las cadenas de volcanes peruanos. 08:30 AM Descenso rápido. 11:00 AM Desarme campamento. 02:00 PM Retorno Arequipa.' }
+            { day: 1, desc: 'Day 1: 08:00 AM Vehículo 4x4 sube hasta los casi 5,000m (el ascenso vehicular ayuda bastante). 10:30 AM Trekking de 2 horas llevando nuestro equipo hasta el campamento base "Azteca" (5,200m). Aclimatación, cena rápida y dormir a las 05:30 PM.' },
+            { day: 2, desc: 'Day 2: 01:30 AM Inicio del ataque a cumbre usando linternas. Frío que baja de los -10°C. 5 a 6 horas de caminata muy lenta ("paso de tortuga"). 07:00 AM Cumbre del Chachani (6,057m). Paisaje de las cadenas de volcanes peruanos. 08:30 AM Descenso rápido. 11:00 AM Desarme campamento. 02:00 PM Retorno Arequipa.' }
         ],
         inc: [
             'Transporte 4x4 extremo y especializado',
@@ -1604,13 +1604,13 @@ const tours = [
             groupSize: 'Grupal aventurero'
         },
         whatYouDo: [
-            'Caminata hacia la meseta a 4,000m de altura',
+            'Trekking hacia la meseta a 4,000m de altura',
             'Observa las extrañas figuras talladas por la naturaleza (Monumento a la Humanidad)',
             'Acampa bajo uno de los cielos más limpios cerca de Lima',
             'Siente la energía mística del lugar'
         ],
         fullItinerary: [
-            { day: 1, desc: 'Lima a San Pedro de Casta. Ascenso caminando o a mula hasta la meseta. Campamento Anfiteatro. Noche de fogata.' },
+            { day: 1, desc: 'Lima a San Pedro de Casta. Ascenso caminando o a mula hasta la meseta. Campamento Anfiteatro. Night de fogata.' },
             { day: 2, desc: 'Recorrido por las figuras (Cabañas, Alquimista). Descenso al pueblo. Retorno a Lima.' }
         ],
         inc: ['Bus Lima-Casta-Lima', 'Carpas y sleeping (opcional)', 'Guía', 'Derecho ingreso'],
@@ -1668,7 +1668,7 @@ const tours = [
         },
         whatYouDo: [
             'Descenso en rápel vertical de 30 metros en un profundo cañón',
-            'Caminata por oscuros túneles abandonados',
+            'Trekking por oscuros túneles abandonados',
             'Llegada a una espectacular cascada oculta subterránea',
             'Supera tus límites con un ascenso extremo por escaleras de hierro'
         ],
@@ -1700,7 +1700,7 @@ const events = [
     // JULIO
     { id: 212, title: 'Ultra Trail Cordillera Blanca', dept: 'Huaraz', cat: 'Ultra Trail', date: '02', month: 'JUL', img: 'https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=2070', price: 350, detail: 'UTCB. Corre bajo los glaciares tropicales más altos del mundo.', whatYouDo: ['Rutas 12K a 50K', 'Vistas Glaciares', 'Altitud extrema'], steps: [{ n: 'ri-flag-2-line', t: 'Huaraz', d: 'Partida' }, { n: 'ri-trophy-line', t: 'Meta', d: 'Llegada' }], inc: ['Kit UTCB', 'Puntos de Abasto', 'Medalla'] },
     { id: 213, title: 'Ai Apaec Trail', dept: 'La Libertad', cat: 'Trail Running', date: '12', month: 'JUL', img: 'https://images.unsplash.com/photo-1440342359743-84fcb8c21f21?q=80&w=2070', price: 90, detail: 'Ruta moche en Trujillo. Corriendo entre dunas y ruinas.', whatYouDo: ['Arena', 'Calor', 'Ruinas'], steps: [{ n: 'ri-sun-line', t: 'Desierto', d: 'Ruta' }, { n: 'ri-medal-line', t: 'Moche', d: 'Meta' }], inc: ['Dorsal', 'Hidratación', 'Medalla'] },
-    { id: 214, title: 'Sierra Andina Mountain Trail', dept: 'Huaraz', cat: 'Trail Running', date: '19', month: 'JUL', img: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070', price: 200, detail: 'Carrera extrema en Matara, Áncash.', whatYouDo: ['Desnivel', 'Alta montaña', 'Frío'], steps: [{ n: 'ri-arrow-up-line', t: 'Ascenso', d: 'Paso' }, { n: 'ri-flag-checkered-line', t: 'Meta', d: 'Pueblo' }], inc: ['Dorsal', 'Cerveza SAMT', 'Medalla'] },
+    { id: 214, title: 'Sierra Andina Mountain Trail', dept: 'Huaraz', cat: 'Trail Running', date: '19', month: 'JUL', img: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070', price: 200, detail: 'Carrera extrema en Matara, Áncash.', whatYouDo: ['Desnivel', 'High mountain', 'Frío'], steps: [{ n: 'ri-arrow-up-line', t: 'Ascenso', d: 'Paso' }, { n: 'ri-flag-checkered-line', t: 'Meta', d: 'Pueblo' }], inc: ['Dorsal', 'Cerveza SAMT', 'Medalla'] },
     { id: 215, title: 'Desafío Manchay', dept: 'Lima', cat: 'Trail Running', date: '19', month: 'JUL', img: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=2070', price: 80, detail: 'Carrera local de cerros y arenales en Lima.', whatYouDo: ['Lomas', 'Arena', 'Ascensos cortos'], steps: [{ n: 'ri-flag-2-line', t: 'Inicio', d: 'Manchay' }, { n: 'ri-medal-line', t: 'Meta', d: 'Plaza' }], inc: ['Dorsal', 'Agua', 'Medalla'] },
     { id: 216, title: 'Tingo María Trail', dept: 'Huánuco', cat: 'Trail Running', date: '25', month: 'JUL', img: 'https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=2070', price: 150, detail: 'Corre en la selva alta, cerca de la Bella Durmiente.', whatYouDo: ['Humedad', 'Barro', 'Vegetación'], steps: [{ n: 'ri-leaf-line', t: 'Selva', d: 'Ruta' }, { n: 'ri-medal-line', t: 'Meta', d: 'Cueva' }], inc: ['Dorsal', 'Kit supervivencia', 'Fiesta Finisher'] },
     { id: 217, title: 'Valley Camp', dept: 'Cusco', cat: 'Expedición', date: '27', month: 'JUL', img: 'https://images.unsplash.com/photo-1522163182402-834f60b58e26?q=80&w=2070', price: 850, detail: 'Campamento de Exploradores en Urubamba.', whatYouDo: ['Supervivencia', 'Trek', 'Cultura'], steps: [{ n: 'ri-tent-line', t: 'Base', d: 'Valle' }, { n: 'ri-compass-line', t: 'Explorar', d: 'Montañas' }], inc: ['Carpas', 'Alimentación', 'Guías'] },

@@ -337,46 +337,144 @@ function openBooking(tourId) {
     document.getElementById('b-guide-lang').innerText = activeTour.genInfo?.guide || activeTour.guide || 'Español / Inglés';
     document.getElementById('b-cancel-policy').innerText = activeTour.genInfo?.cancelPolicy || activeTour.cancelPolicy || 'Estándar';
 
-    // Itinerary Flow (Adaptive for Tours & Events)
-    const flow = document.getElementById('itinerary-flow');
-    let itineraryData = [];
-
-    if (activeTour.fullItinerary) {
-        itineraryData = activeTour.fullItinerary;
-    } else if (activeTour.whatYouDo) {
-        // Adapt Events 'whatYouDo' to allow itinerary display
-        itineraryData = activeTour.whatYouDo.map((item, i) => ({ day: `Paso ${i + 1}`, desc: item }));
+    // 1. Qué harás (whatYouDo)
+    const sQueHaras = document.getElementById('section-que-haras');
+    const bWhatYouDo = document.getElementById('b-what-you-do');
+    if (activeTour.whatYouDo && activeTour.whatYouDo.length > 0) {
+        sQueHaras.classList.remove('hidden');
+        bWhatYouDo.innerHTML = activeTour.whatYouDo.map(item => `<li>${item}</li>`).join('');
+    } else {
+        sQueHaras.classList.add('hidden');
     }
 
-    flow.innerHTML = itineraryData.map((item, idx) => `
-        <div class="mb-6 relative border-l-2 border-slate-100 pl-6 pb-2">
-            <div class="absolute -left-1.5 top-0 w-3 h-3 bg-primary rounded-full border-2 border-white"></div>
-            <h6 class="text-[10px] font-black uppercase mb-1">${item.day || 'Fase ' + (idx + 1)}</h6>
-            <p class="text-xs font-bold text-slate-500">${item.desc || item}</p>
-        </div>
-    `).join('') || '<div class="p-4 bg-slate-50 rounded-2xl text-[10px] italic text-slate-400">Detalles de misión clasificados. Ver en el punto de encuentro.</div>';
+    // 2. En detalle (direct_answer_block or detail)
+    const sEnDetalle = document.getElementById('section-en-detalle');
+    const bEnDetalle = document.getElementById('b-en-detalle');
+    const detailText = activeTour.direct_answer_block || activeTour.detail;
+    if (detailText) {
+        sEnDetalle.classList.remove('hidden');
+        bEnDetalle.innerText = detailText;
+    } else {
+        sEnDetalle.classList.add('hidden');
+    }
 
-    // AI AEO Block
+    // 3. Itinerario Vertical Timeline (steps + fullItinerary)
+    const sItinerario = document.getElementById('section-itinerario');
+    const bTimeline = document.getElementById('b-timeline');
+    if (activeTour.steps && activeTour.steps.length > 0) {
+        sItinerario.classList.remove('hidden');
+        bTimeline.innerHTML = activeTour.steps.map((step, idx) => {
+            let bgColor = "bg-[#4267b2]";
+            let textColor = "text-white";
+            let borderColor = "";
+            let innerContent = `<i class="${step.n}"></i>`;
+            
+            // Render specific styles based on icon types (like G for origin, dot for intermediate, etc.)
+            if(step.n === 'G') {
+                bgColor = "bg-[#ff5533]";
+                innerContent = `<span class="font-bold font-sans">G</span>`;
+            } else if (step.n === 'dot' && idx === activeTour.steps.length - 1) {
+                bgColor = "bg-[#ff5533]";
+                innerContent = ``; // Final dot
+            } else if (step.n === 'dot') {
+                bgColor = "bg-white";
+                borderColor = "border-2 border-slate-300";
+                innerContent = ``;
+            } else {
+                bgColor = "bg-[#112240]";
+            }
+
+            return `
+            <div class="relative flex gap-4 items-start z-10">
+                <div class="w-7 h-7 shrink-0 rounded-full ${bgColor} ${borderColor} flex items-center justify-center ${textColor} text-xs shadow-md mt-1 relative z-20">
+                    ${innerContent}
+                </div>
+                <div class="pt-1">
+                    <span class="inline-block bg-[#4267b2] text-white text-[11px] font-bold px-2 py-0.5 rounded shadow-sm">${step.t}</span>
+                    <p class="text-xs font-bold text-[#4267b2] mt-1">${step.d}</p>
+                </div>
+            </div>`;
+        }).join('');
+    } else if (activeTour.fullItinerary && activeTour.fullItinerary.length > 0) {
+        // Fallback if they only have fullItinerary but no visual steps
+        sItinerario.classList.remove('hidden');
+        bTimeline.innerHTML = activeTour.fullItinerary.map((item, idx) => `
+            <div class="relative flex gap-4 items-start z-10">
+                <div class="w-4 h-4 shrink-0 rounded-full bg-slate-300 border-2 border-white flex items-center justify-center mt-1 relative z-20"></div>
+                <div class="pt-0">
+                    <span class="inline-block bg-[#4267b2] text-white text-[11px] font-bold px-2 py-0.5 rounded shadow-sm">${item.day}</span>
+                    <p class="text-xs font-bold text-slate-600 mt-1">${item.desc}</p>
+                </div>
+            </div>
+        `).join('');
+    } else {
+        sItinerario.classList.add('hidden');
+    }
+
+    // 4. Qué incluye (inc)
+    const sQueIncluye = document.getElementById('section-que-incluye');
+    const bQueIncluye = document.getElementById('b-que-incluye');
+    if (activeTour.inc && activeTour.inc.length > 0) {
+        sQueIncluye.classList.remove('hidden');
+        bQueIncluye.innerHTML = activeTour.inc.map(item => `<li class="flex items-start gap-2"><i class="ri-check-line text-green-500 mt-0.5"></i> <span>${item}</span></li>`).join('');
+    } else {
+        sQueIncluye.classList.add('hidden');
+    }
+
+    // 5. Punto de encuentro
+    const sPuntoEncuentro = document.getElementById('section-punto-encuentro');
+    const bPuntoEncuentro = document.getElementById('b-punto-encuentro');
+    const bMapLink = document.getElementById('b-map-link');
+    if (activeTour.meetingPoint) {
+        sPuntoEncuentro.classList.remove('hidden');
+        bPuntoEncuentro.innerText = activeTour.meetingPoint;
+        bMapLink.href = `https://maps.google.com/?q=${encodeURIComponent(activeTour.meetingPoint)}`;
+    } else {
+        sPuntoEncuentro.classList.add('hidden');
+    }
+
+    // 6. Información importante
+    const sInfoImportante = document.getElementById('section-info-importante');
+    const bQueLlevar = document.getElementById('b-que-llevar');
+    const bAntesViajar = document.getElementById('b-antes-viajar');
+    
+    let hasInfo = false;
+    if (activeTour.importantInfo) {
+        bQueLlevar.innerText = activeTour.importantInfo;
+        bQueLlevar.parentElement.classList.remove('hidden');
+        hasInfo = true;
+    } else {
+        bQueLlevar.parentElement.classList.add('hidden');
+    }
+
+    if (activeTour.notSuitable && activeTour.notSuitable.length > 0) {
+        bAntesViajar.innerHTML = activeTour.notSuitable.map(item => `<li>No apto para: ${item}</li>`).join('');
+        bAntesViajar.parentElement.classList.remove('hidden');
+        hasInfo = true;
+    } else {
+        bAntesViajar.parentElement.classList.add('hidden');
+    }
+
+    if (hasInfo) {
+        sInfoImportante.classList.remove('hidden');
+    } else {
+        sInfoImportante.classList.add('hidden');
+    }
+
+    // AI FAQS Block
     const aeoBlock = document.getElementById('ai-aeo-block');
-    const daElement = document.getElementById('b-direct-answer');
     const faqsContainer = document.getElementById('faqs-container');
     const faqsList = document.getElementById('b-faqs');
     
-    if (activeTour.direct_answer_block) {
+    if (activeTour.faqs && activeTour.faqs.length > 0) {
         if(aeoBlock) aeoBlock.classList.remove('hidden');
-        if(daElement) daElement.innerText = activeTour.direct_answer_block;
-        
-        if (activeTour.faqs && activeTour.faqs.length > 0) {
-            if(faqsContainer) faqsContainer.classList.remove('hidden');
-            if(faqsList) faqsList.innerHTML = activeTour.faqs.map(faq => `
-                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
-                    <p class="text-xs font-black text-slate-800 mb-1">Q: ${faq.q}</p>
-                    <p class="text-[11px] font-medium text-slate-600">${faq.a}</p>
-                </div>
-            `).join('');
-        } else {
-            if(faqsContainer) faqsContainer.classList.add('hidden');
-        }
+        if(faqsContainer) faqsContainer.classList.remove('hidden');
+        if(faqsList) faqsList.innerHTML = activeTour.faqs.map(faq => `
+            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                <p class="text-xs font-black text-slate-800 mb-1">Q: ${faq.q}</p>
+                <p class="text-[11px] font-medium text-slate-600">${faq.a}</p>
+            </div>
+        `).join('');
     } else {
         if(aeoBlock) aeoBlock.classList.add('hidden');
     }
@@ -755,7 +853,7 @@ async function renderGuides() {
     const grid = document.getElementById('guides-grid');
     if (!grid) return;
 
-    const guides = await CMSService.getGuides();
+    const guides = window.guides || [];
     grid.innerHTML = guides.map(guide => `
         <div class="bg-white rounded-[48px] overflow-hidden border border-slate-50 group hover:shadow-2xl transition-all duration-500 flex flex-col h-full">
             <div class="h-64 overflow-hidden relative bg-slate-100">
@@ -879,44 +977,6 @@ function renderAll(region = 'Todos', category = 'Todos') {
 
     renderGuides();
     renderEvents();
-}
-
-function renderGuides() {
-    const grid = document.getElementById('guides-grid');
-    if (!grid) return;
-
-    // Use global guides data (fallback if not loaded yet)
-    const guidesList = window.guides || [];
-
-    grid.innerHTML = guidesList.map(g => `
-        <div class="bg-white rounded-[40px] p-4 shadow-sm hover:shadow-2xl transition-all duration-500 group border border-slate-50 relative overflow-hidden">
-            <div class="absolute top-0 left-0 w-full h-32 bg-slate-100 mb-12 group-hover:bg-primary/5 transition-colors"></div>
-            
-            <div class="relative z-10 flex flex-col items-center">
-                <div class="w-24 h-24 rounded-[32px] overflow-hidden shadow-lg border-4 border-white mb-4 group-hover:scale-110 transition-transform duration-500">
-                    <img src="${g.img}" class="w-full h-full object-cover">
-                </div>
-                
-                <h4 class="text-lg font-black italic text-slate-900 mb-1 text-center">${g.name}</h4>
-                <p class="text-[9px] font-black text-primary uppercase tracking-widest mb-4">${g.specialty}</p>
-                
-                <div class="flex gap-2 mb-6 justify-center">
-                    ${g.languages.map(l => `<span class="bg-slate-50 px-2 py-1 rounded-lg text-[8px] font-bold text-slate-400 uppercase">${l.slice(0, 3)}</span>`).join('')}
-                </div>
-
-                <p class="text-xs text-slate-500 font-medium text-center mb-6 line-clamp-2 px-2">
-                    ${g.desc}
-                </p>
-
-                <div class="w-full mt-auto">
-                    <button onclick="openGuideHireModal('${g.name}', ${g.id})" 
-                        class="w-full bg-slate-900 text-white py-3 rounded-2xl font-black uppercase text-[10px] tracking-widest hover:bg-primary transition-all shadow-lg shadow-slate-900/10 flex items-center justify-center gap-2 group-hover:shadow-primary/20">
-                        Contratar <i class="ri-arrow-right-line group-hover:translate-x-1 transition-transform"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    `).join('');
 }
 
 // Expose function globally for onclick event
@@ -1270,15 +1330,24 @@ function showToast(title, message, icon = 'ri-check-line') {
 
 // --- LANGUAGE LOGIC ---
 function setLanguage(lang) {
-    currentLang = lang;
+    if (currentLang === lang) return;
     localStorage.setItem('lifextreme_lang', lang);
-    updateLanguageUI();
-    renderAll(); // Re-render to update dynamic labels if any
-    updateCart();
-
-    // Toast Feedback
-    const msg = lang === 'es' ? 'Idioma cambiado a Español' : 'Language switched to English';
-    showToast('Success', msg, 'ri-translate-2');
+    
+    const currentPath = window.location.pathname;
+    const isEn = currentPath.includes('/en/') || currentPath.endsWith('/en');
+    
+    if (lang === 'en' && !isEn) {
+        window.location.href = 'en/index.html' + window.location.hash;
+    } else if (lang === 'es' && isEn) {
+        window.location.href = '../index.html' + window.location.hash;
+    } else {
+        currentLang = lang;
+        updateLanguageUI();
+        renderAll();
+        updateCart();
+        const msg = lang === 'es' ? 'Idioma cambiado a Español' : 'Language switched to English';
+        showToast('Success', msg, 'ri-translate-2');
+    }
 }
 
 function updateLanguageUI() {
