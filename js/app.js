@@ -361,52 +361,60 @@ function openBooking(tourId) {
     // 3. Itinerario Vertical Timeline (steps + fullItinerary)
     const sItinerario = document.getElementById('section-itinerario');
     const bTimeline = document.getElementById('b-timeline');
-    if (activeTour.steps && activeTour.steps.length > 0) {
+    if ((activeTour.steps && activeTour.steps.length > 0) || (activeTour.fullItinerary && activeTour.fullItinerary.length > 0)) {
         sItinerario.classList.remove('hidden');
-        bTimeline.innerHTML = activeTour.steps.map((step, idx) => {
-            let bgColor = "bg-[#4267b2]";
-            let textColor = "text-white";
-            let borderColor = "";
-            let innerContent = `<i class="${step.n}"></i>`;
-            
-            // Render specific styles based on icon types (like G for origin, dot for intermediate, etc.)
-            if(step.n === 'G') {
-                bgColor = "bg-[#ff5533]";
-                innerContent = `<span class="font-bold font-sans">G</span>`;
-            } else if (step.n === 'dot' && idx === activeTour.steps.length - 1) {
-                bgColor = "bg-[#ff5533]";
-                innerContent = ``; // Final dot
-            } else if (step.n === 'dot') {
-                bgColor = "bg-white";
-                borderColor = "border-2 border-slate-300";
-                innerContent = ``;
-            } else {
-                bgColor = "bg-[#112240]";
-            }
+        let htmlStr = "";
+        
+        if (activeTour.steps && activeTour.steps.length > 0) {
+            htmlStr += activeTour.steps.map((step, idx) => {
+                let bgColor = "bg-[#4267b2]";
+                let textColor = "text-white";
+                let borderColor = "";
+                let innerContent = `<i class="${step.n}"></i>`;
+                
+                // Render specific styles based on icon types (like G for origin, dot for intermediate, etc.)
+                if(step.n === 'G') {
+                    bgColor = "bg-[#ff5533]";
+                    innerContent = `<span class="font-bold font-sans">G</span>`;
+                } else if (step.n === 'dot' && idx === activeTour.steps.length - 1) {
+                    bgColor = "bg-[#ff5533]";
+                    innerContent = ``; // Final dot
+                } else if (step.n === 'dot') {
+                    bgColor = "bg-white";
+                    borderColor = "border-2 border-slate-300";
+                    innerContent = ``;
+                } else {
+                    bgColor = "bg-[#112240]";
+                }
 
-            return `
-            <div class="relative flex gap-4 items-start z-10">
-                <div class="w-7 h-7 shrink-0 rounded-full ${bgColor} ${borderColor} flex items-center justify-center ${textColor} text-xs shadow-md mt-1 relative z-20">
-                    ${innerContent}
+                return `
+                <div class="relative flex gap-4 items-start z-10">
+                    <div class="w-7 h-7 shrink-0 rounded-full ${bgColor} ${borderColor} flex items-center justify-center ${textColor} text-xs shadow-md mt-1 relative z-20">
+                        ${innerContent}
+                    </div>
+                    <div class="pt-1">
+                        <span class="inline-block bg-[#4267b2] text-white text-[11px] font-bold px-2 py-0.5 rounded shadow-sm">${step.t}</span>
+                        <p class="text-xs font-bold text-[#4267b2] mt-1">${step.d}</p>
+                    </div>
+                </div>`;
+            }).join('');
+        }
+        
+        if (activeTour.fullItinerary && activeTour.fullItinerary.length > 0) {
+            if (activeTour.steps && activeTour.steps.length > 0) {
+                htmlStr += `<div class="mt-6 mb-4 border-t border-slate-100 pt-6"></div>`;
+            }
+            htmlStr += activeTour.fullItinerary.map((item, idx) => `
+                <div class="relative flex gap-4 items-start z-10 mb-2">
+                    <div class="w-4 h-4 shrink-0 rounded-full bg-slate-300 border-2 border-white flex items-center justify-center mt-1 relative z-20"></div>
+                    <div class="pt-0">
+                        <span class="inline-block bg-[#ff5533] text-white text-[11px] font-bold px-2 py-0.5 rounded shadow-sm">${item.day}</span>
+                        <p class="text-xs text-slate-600 mt-1">${item.desc}</p>
+                    </div>
                 </div>
-                <div class="pt-1">
-                    <span class="inline-block bg-[#4267b2] text-white text-[11px] font-bold px-2 py-0.5 rounded shadow-sm">${step.t}</span>
-                    <p class="text-xs font-bold text-[#4267b2] mt-1">${step.d}</p>
-                </div>
-            </div>`;
-        }).join('');
-    } else if (activeTour.fullItinerary && activeTour.fullItinerary.length > 0) {
-        // Fallback if they only have fullItinerary but no visual steps
-        sItinerario.classList.remove('hidden');
-        bTimeline.innerHTML = activeTour.fullItinerary.map((item, idx) => `
-            <div class="relative flex gap-4 items-start z-10">
-                <div class="w-4 h-4 shrink-0 rounded-full bg-slate-300 border-2 border-white flex items-center justify-center mt-1 relative z-20"></div>
-                <div class="pt-0">
-                    <span class="inline-block bg-[#4267b2] text-white text-[11px] font-bold px-2 py-0.5 rounded shadow-sm">${item.day}</span>
-                    <p class="text-xs font-bold text-slate-600 mt-1">${item.desc}</p>
-                </div>
-            </div>
-        `).join('');
+            `).join('');
+        }
+        bTimeline.innerHTML = htmlStr;
     } else {
         sItinerario.classList.add('hidden');
     }
@@ -419,6 +427,18 @@ function openBooking(tourId) {
         bQueIncluye.innerHTML = activeTour.inc.map(item => `<li class="flex items-start gap-2"><i class="ri-check-line text-green-500 mt-0.5"></i> <span>${item}</span></li>`).join('');
     } else {
         sQueIncluye.classList.add('hidden');
+    }
+
+    // 4b. Qué no incluye (notInc)
+    const sQueNoIncluye = document.getElementById('section-que-no-incluye');
+    const bQueNoIncluye = document.getElementById('b-que-no-incluye');
+    if (sQueNoIncluye && bQueNoIncluye) {
+        if (activeTour.notInc && activeTour.notInc.length > 0) {
+            sQueNoIncluye.classList.remove('hidden');
+            bQueNoIncluye.innerHTML = activeTour.notInc.map(item => `<li class="flex items-start gap-2"><i class="ri-close-line text-red-500 mt-0.5 font-bold"></i> <span>${item}</span></li>`).join('');
+        } else {
+            sQueNoIncluye.classList.add('hidden');
+        }
     }
 
     // 5. Punto de encuentro
@@ -435,30 +455,57 @@ function openBooking(tourId) {
 
     // 6. Información importante
     const sInfoImportante = document.getElementById('section-info-importante');
+    const sQueLlevar = document.getElementById('section-que-llevar');
     const bQueLlevar = document.getElementById('b-que-llevar');
+    const sRecomendaciones = document.getElementById('section-recomendaciones');
+    const bRecomendaciones = document.getElementById('b-recomendaciones');
+    const sAntesViajar = document.getElementById('section-antes-viajar');
     const bAntesViajar = document.getElementById('b-antes-viajar');
+    const sAptoPara = document.getElementById('section-apto-para');
+    const bAptoPara = document.getElementById('b-apto-para');
     
     let hasInfo = false;
-    if (activeTour.importantInfo) {
-        bQueLlevar.innerText = activeTour.importantInfo;
-        bQueLlevar.parentElement.classList.remove('hidden');
+
+    // Qué llevar
+    if (activeTour.whatToBring || activeTour.importantInfo) {
+        if(bQueLlevar) bQueLlevar.innerText = activeTour.whatToBring || activeTour.importantInfo;
+        if(sQueLlevar) sQueLlevar.classList.remove('hidden');
         hasInfo = true;
     } else {
-        bQueLlevar.parentElement.classList.add('hidden');
+        if(sQueLlevar) sQueLlevar.classList.add('hidden');
     }
 
-    if (activeTour.notSuitable && activeTour.notSuitable.length > 0) {
-        bAntesViajar.innerHTML = activeTour.notSuitable.map(item => `<li>No apto para: ${item}</li>`).join('');
-        bAntesViajar.parentElement.classList.remove('hidden');
+    // Recomendaciones
+    if (activeTour.recommendations) {
+        if(bRecomendaciones) bRecomendaciones.innerText = activeTour.recommendations;
+        if(sRecomendaciones) sRecomendaciones.classList.remove('hidden');
         hasInfo = true;
     } else {
-        bAntesViajar.parentElement.classList.add('hidden');
+        if(sRecomendaciones) sRecomendaciones.classList.add('hidden');
+    }
+
+    // Antes de viajar / No apto
+    if (activeTour.notSuitable && activeTour.notSuitable.length > 0) {
+        if(bAntesViajar) bAntesViajar.innerHTML = activeTour.notSuitable.map(item => `<li>No apto para: ${item}</li>`).join('');
+        if(sAntesViajar) sAntesViajar.classList.remove('hidden');
+        hasInfo = true;
+    } else {
+        if(sAntesViajar) sAntesViajar.classList.add('hidden');
+    }
+
+    // Apto para (Age Rating)
+    if (activeTour.ageRating) {
+        if(bAptoPara) bAptoPara.innerText = activeTour.ageRating;
+        if(sAptoPara) sAptoPara.classList.remove('hidden');
+        hasInfo = true;
+    } else {
+        if(sAptoPara) sAptoPara.classList.add('hidden');
     }
 
     if (hasInfo) {
-        sInfoImportante.classList.remove('hidden');
+        if(sInfoImportante) sInfoImportante.classList.remove('hidden');
     } else {
-        sInfoImportante.classList.add('hidden');
+        if(sInfoImportante) sInfoImportante.classList.add('hidden');
     }
 
     // AI FAQS Block
@@ -576,10 +623,12 @@ function renderWizardStep(step) {
     const prevBtn = document.getElementById('wiz-prev-btn');
     const finalBtn = document.getElementById('add-btn');
     const controls = document.getElementById('wiz-date-picker-container');
+    const liabilityContainer = document.getElementById('wiz-liability-container');
 
     nextBtn.classList.toggle('hidden', step === 3);
     prevBtn.classList.toggle('hidden', step === 1);
     finalBtn.classList.toggle('hidden', step !== 3);
+    if(liabilityContainer) liabilityContainer.classList.toggle('hidden', step !== 3);
     controls.classList.toggle('hidden', step !== 1);
 
     // STICKY MOBILE FOOTER CONTROL
@@ -690,6 +739,13 @@ function changePax(delta) {
 }
 
 function addToCartFinal() {
+    // Check Liability Waiver
+    const waiverCb = document.getElementById('tour-liability-waiver');
+    if (waiverCb && !waiverCb.checked) {
+        showToast('Atención', 'Debes aceptar la Carta de Asunción de Riesgos para continuar.', 'ri-error-warning-line');
+        return;
+    }
+
     // Construir fecha real
     const year = currentYear || 2026;
     const month = (currentMonthIndex + 1).toString().padStart(2, '0');
@@ -736,7 +792,7 @@ function addToCartFinal() {
     // 3. 📲 REDIRECCIÓN A WHATSAPP (CIERRE DE VENTA)
     const contact = window.currentContact || { name: 'Viajero' };
     const activeVariant = (window.SensoryEngine && window.SensoryEngine.lastTriggeredVariant) ? window.SensoryEngine.lastTriggeredVariant : 'none';
-    const waMessage = `Hola Lifextreme! 🏔️ Soy *${contact.name}*.\nQuiero confirmar mi reserva:\n\n📍 *Tour:* ${activeTour.title}\n📅 *Fecha:* ${fullDate}\n👥 *Pax:* ${participants}\n💰 *Total:* S/ ${item.price}\n\nQuedo atento para realizar el pago. 🚀`;
+    const waMessage = `Hola Lifextreme! 🏔️ Soy *${contact.name}*.\nQuiero confirmar mi reserva:\n\n📍 *Tour:* ${activeTour.title}\n📅 *Fecha:* ${fullDate}\n👥 *Pax:* ${participants}\n💰 *Total:* S/ ${item.price}\n\n✅ *He leído y acepto los Términos y Condiciones y la Carta de Asunción de Riesgos.*\n\nQuedo atento para realizar el pago. 🚀`;
     const waUrl = `https://wa.me/51958050928?text=${encodeURIComponent(waMessage)}&utm_source=web&utm_medium=whatsapp&utm_campaign=sensory_booking&utm_content=${activeVariant}`; // ✅ Número actualizado del Ceo
 
     // Abrir WhatsApp en nueva pestaña
@@ -870,7 +926,7 @@ async function renderGuides() {
                     <p class="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-6">Staff Certified UIAGM</p>
                     
                     <div class="space-y-3 mb-8">
-                        ${guide.achievements.map(ach => `
+                        ${(guide.achievements || []).map(ach => `
                             <div class="flex items-start gap-3">
                                 <i class="ri-shield-check-fill text-emerald-500 text-sm"></i>
                                 <span class="text-[10px] font-bold text-slate-600 leading-tight">${ach}</span>
@@ -880,9 +936,9 @@ async function renderGuides() {
                 </div>
                 
                 <div class="pt-6 border-t border-slate-50">
-                    <p class="text-[10px] font-medium text-slate-400 italic leading-relaxed mb-6">"${guide.bio}"</p>
+                    <p class="text-[10px] font-medium text-slate-400 italic leading-relaxed mb-6">"${guide.bio || guide.desc || ''}"</p>
                     <button class="w-full py-4 border-2 border-slate-100 rounded-2xl text-[10px] font-black uppercase text-slate-500 hover:border-primary hover:text-primary transition-all tracking-widest">
-                        ${translations[currentLang].card_mission_docs}
+                        ${translations[currentLang].card_mission_docs || 'Misión Docs'}
                     </button>
                 </div>
             </div>

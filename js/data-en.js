@@ -50,7 +50,7 @@ const tours = [
         notSuitable: ['Embarazadas', 'Personas con problemas de espalda', 'Personas con movilidad reducida'],
         meetingPoint: 'Plaza Mayor de Cuzco (Briefing 1 día antes)',
         importantInfo: 'Llevar pasaporte original (Obligatorio en controles del gobierno), botas impermeables y sleeping bag de plumas.',
-        steps: [{ n: 'G', t: 'Km 82', d: 'Inicio' }, { n: 'ri-map-pin-2-fill', t: 'Inti Punku', d: 'Amanecer' }, { n: 'dot', t: 'Machu Picchu', d: 'Final' }],
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Km 82', d: 'Inicio' }, { n: 'ri-map-pin-2-fill', t: 'Inti Punku', d: 'Amanecer' }, { n: 'dot', t: 'Machu Picchu', d: 'Final' }],
         sensoryVariants: {
             landscape: 'Siente la energía ancestral bajo tus pies mientras la neblina se levanta y revela la ciudad sagrada ante tus ojos.',
             comfort: 'Disfruta de comida gourmet preparada por nuestros chefs en medio de las montañas más remotas de los Andes.',
@@ -99,7 +99,7 @@ const tours = [
         notSuitable: ['Personas sin dominio de bicicleta', 'Menores de 14 años'],
         meetingPoint: 'Plaza San Francisco, Cusco',
         importantInfo: 'Traer ropa deportiva cómoda y una casaca cortavientos.',
-        steps: [{ n: 'G', t: 'Abra Málaga', d: 'Inicio' }, { n: 'ri-riding-line', t: 'Descenso', d: 'Bicicleta' }, { n: 'dot', t: 'Huamanmarca', d: 'Final' }],
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Abra Málaga', d: 'Inicio' }, { n: 'ri-riding-line', t: 'Descenso', d: 'Bicicleta' }, { n: 'dot', t: 'Huamanmarca', d: 'Final' }],
         sensoryVariants: {
             landscape: 'Siente el cambio drástico de temperatura y paisaje, desde los gélidos glaciares andinos hasta el denso verdor amazónico.',
             comfort: 'Disfruta de la seguridad de contar con un vehículo escolta en todo momento detrás de ti.',
@@ -144,7 +144,7 @@ const tours = [
         notSuitable: ['Personas con asma', 'Menores de 8 años', 'Hipertensos'],
         meetingPoint: 'Recepción de su hotel (Centro Histórico)',
         importantInfo: 'Llevar lentes de sol UV, cortavientos, guantes térmicos (mucho viento en cumbre) y hojas de coca.',
-        steps: [{ n: 'G', t: 'Cusco', d: '04:00 AM' }, { n: 'ri-mountain-fill', t: 'Vinicunca', d: '5,200m' }, { n: 'dot', t: 'Cusco', d: 'Retorno' }]
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Cusco', d: '04:00 AM' }, { n: 'ri-mountain-fill', t: 'Vinicunca', d: '5,200m' }, { n: 'dot', t: 'Cusco', d: 'Retorno' }]
     },
     {
         id: 4,
@@ -187,7 +187,7 @@ const tours = [
         notSuitable: ['Personas sin experiencia en trekking', 'Menores de 15 años'],
         meetingPoint: 'Plaza Regocijo, Cusco (05:00 AM)',
         importantInfo: 'Ruta físicamente devastadora. Traer bastones de trekking (vital para rodillas) y bloqueador FPS 100.',
-        steps: [{ n: 'G', t: 'Capuliyoc', d: 'Inicio' }, { n: 'ri-building-4-fill', t: 'Choquequirao', d: 'Ciudadela' }, { n: 'dot', t: 'Cachora', d: 'Retorno' }]
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Capuliyoc', d: 'Inicio' }, { n: 'ri-building-4-fill', t: 'Choquequirao', d: 'Ciudadela' }, { n: 'dot', t: 'Cachora', d: 'Retorno' }]
     },
     {
         id: 5,
@@ -229,7 +229,7 @@ const tours = [
         notSuitable: ['Personas no aclimatadas', 'Problemas cardíacos'],
         meetingPoint: 'Recepción de su hotel (06:00 AM)',
         importantInfo: 'Requiere aclimatación mínima de 3 días en Cusco. Necesitas un sleeping bag para -15°C.',
-        steps: [{ n: 'G', t: 'Tinqui', d: 'Base' }, { n: 'ri-temp-cold-fill', t: 'Palomani', d: '5,100m' }, { n: 'dot', t: 'Tinqui', d: 'Retorno' }]
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Tinqui', d: 'Base' }, { n: 'ri-temp-cold-fill', t: 'Palomani', d: '5,100m' }, { n: 'dot', t: 'Tinqui', d: 'Retorno' }]
     },
 
     // HUARAZ (5)
@@ -277,7 +277,7 @@ const tours = [
         notSuitable: ['Menores de 10 años', 'Personas con problemas de rodilla'],
         meetingPoint: 'Su hotel en Huaraz (06:00 AM)',
         importantInfo: 'QUÉ LLEVAR: Sleeping bag para -10°C, botas de trekking, linterna frontal. NO INCLUYE: Bolsa de dormir, desayuno del primer día ni cena del último día, ticket de ingreso al Parque Nacional (S/ 60).',
-        steps: [{ n: 'G', t: 'Cashapampa', d: 'Inicio' }, { n: 'ri-mountain-fill', t: 'Punta Unión', d: '4,750m' }, { n: 'dot', t: 'Vaquería', d: 'Final' }],
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Cashapampa', d: 'Inicio' }, { n: 'ri-mountain-fill', t: 'Punta Unión', d: '4,750m' }, { n: 'dot', t: 'Vaquería', d: 'Final' }],
         sensoryVariants: { landscape: '', comfort: '', action: '' }
     },
     {
@@ -326,7 +326,7 @@ const tours = [
         notSuitable: ['Principiantes', 'Personas sin experiencia en crampones'],
         meetingPoint: 'Recojo en hotel en Huaraz (05:00 AM)',
         importantInfo: 'QUÉ LLEVAR: Equipo personal completo (Botas de plástico, piolet técnico, crampones, ropa de plumas para -20°C). NO INCLUYE: Alquiler de equipo personal técnico, bolsa de dormir para -20°C, ticket Huascarán, seguro de rescate.',
-        steps: [{ n: 'G', t: 'Musho', d: 'Base' }, { n: 'ri-vip-crown-fill', t: 'Cumbre Sur', d: '6,768m' }, { n: 'dot', t: 'Huaraz', d: 'Retorno' }],
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Musho', d: 'Base' }, { n: 'ri-vip-crown-fill', t: 'Cumbre Sur', d: '6,768m' }, { n: 'dot', t: 'Huaraz', d: 'Retorno' }],
         sensoryVariants: { landscape: '', comfort: '', action: '' }
     },
     {
@@ -367,7 +367,7 @@ const tours = [
         notSuitable: ['Sedentarios', 'Mala oxigenación'],
         meetingPoint: 'Recojo en hotel (05:00 AM)',
         importantInfo: 'QUÉ LLEVAR: Agua (mínimo 2L), box lunch/snacks energéticos, casaca cortavientos, pastillas para el mal de altura. NO INCLUYE: Breakfast, almuerzo, caballos de emergencia.',
-        steps: [{ n: 'G', t: 'Cebollapampa', d: 'Ascenso' }, { n: 'ri-drop-fill', t: 'Laguna 69', d: '4,600m' }, { n: 'dot', t: 'Huaraz', d: 'Retorno' }],
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Cebollapampa', d: 'Ascenso' }, { n: 'ri-drop-fill', t: 'Laguna 69', d: '4,600m' }, { n: 'dot', t: 'Huaraz', d: 'Retorno' }],
         sensoryVariants: { landscape: '', comfort: '', action: '' }
     },
     {
@@ -407,7 +407,7 @@ const tours = [
         notSuitable: ['Bebés menores de 1 año', 'Personas con cardiopatías severas'],
         meetingPoint: 'Recojo en hotel (09:00 AM)',
         importantInfo: 'QUÉ LLEVAR: Ropa muy abrigadora (gorro de lana, guantes), lentes polarizados. NO INCLUYE: Almuerzo, alquiler de caballos en la base (S/ 20 aprox).',
-        steps: [{ n: 'G', t: 'Huaraz', d: 'Salida' }, { n: 'ri-snowy-fill', t: 'Pastoruri', d: 'Glaciar' }, { n: 'dot', t: 'Huaraz', d: 'Retorno' }],
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Huaraz', d: 'Salida' }, { n: 'ri-snowy-fill', t: 'Pastoruri', d: 'Glaciar' }, { n: 'dot', t: 'Huaraz', d: 'Retorno' }],
         sensoryVariants: { landscape: '', comfort: '', action: '' }
     },
     {
@@ -452,7 +452,7 @@ const tours = [
         notSuitable: ['Personas sin estado físico apto', 'Falta de aclimatación a 4,500m+'],
         meetingPoint: 'Recojo en hotel (08:00 AM)',
         importantInfo: 'QUÉ LLEVAR: Equipo personal (Botas cramponables, piolet, crampones, arnés, casco, ropa goretex). NO INCLUYE: Alquiler de equipo personal (aprox $50/día), seguro contra accidentes.',
-        steps: [{ n: 'G', t: 'Pashpa', d: 'Inicio' }, { n: 'ri-vip-crown-fill', t: 'Ishinca', d: '5,530m' }, { n: 'dot', t: 'Huaraz', d: 'Retorno' }],
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Pashpa', d: 'Inicio' }, { n: 'ri-vip-crown-fill', t: 'Ishinca', d: '5,530m' }, { n: 'dot', t: 'Huaraz', d: 'Retorno' }],
         sensoryVariants: { landscape: '', comfort: '', action: '' }
     },
     // IQUITOS (5)
@@ -502,7 +502,7 @@ const tours = [
         notSuitable: ['Personas alérgicas severas a picaduras de insectos', 'Menores de 8 años'],
         meetingPoint: 'Aeropuerto Internacional o Hotel en Iquitos (07:00 AM)',
         importantInfo: 'QUÉ LLEVAR: Ropa ligera de colores claros (manga larga), repelente extra fuerte con DEET, poncho para lluvia, linterna frontal, bloqueador, sombrero de ala ancha, cámara con protección contra el agua. NO INCLUYE: Propinas, bebidas alcohólicas.',
-        steps: [{ n: 'G', t: 'Iquitos', d: 'Salida' }, { n: 'ri-leaf-fill', t: 'Samiria', d: 'Selva' }, { n: 'dot', t: 'Iquitos', d: 'Retorno' }],
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Iquitos', d: 'Salida' }, { n: 'ri-leaf-fill', t: 'Samiria', d: 'Selva' }, { n: 'dot', t: 'Iquitos', d: 'Retorno' }],
         sensoryVariants: { landscape: '', comfort: '', action: '' }
     },
     {
@@ -551,7 +551,7 @@ const tours = [
         notSuitable: ['Personas con antecedentes de esquizofrenia o psicosis', 'Personas que tomen antidepresivos (ISRS)', 'Problemas cardíacos graves'],
         meetingPoint: 'Oficina de Retiros en Iquitos (09:00 AM)',
         importantInfo: 'QUÉ LLEVAR: Ropa blanca o clara cómoda, diario personal, botella de agua reutilizable. NO INCLUYE: Pasajes aéreos. PREPARACIÓN: Requiere dieta estricta (cero alcohol, drogas, o carnes rojas) 2 semanas antes.',
-        steps: [{ n: 'G', t: 'Iquitos', d: 'Llegada' }, { n: 'ri-moon-fill', t: 'Maloca', d: 'Ceremonia' }, { n: 'dot', t: 'Iquitos', d: 'Cierre' }],
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Iquitos', d: 'Llegada' }, { n: 'ri-moon-fill', t: 'Maloca', d: 'Ceremonia' }, { n: 'dot', t: 'Iquitos', d: 'Cierre' }],
         sensoryVariants: { landscape: '', comfort: '', action: '' }
     },
     {
@@ -593,7 +593,7 @@ const tours = [
         notSuitable: ['Niños hiperactivos que no puedan mantener silencio en el bote'],
         meetingPoint: 'Recojo en su hotel en Iquitos (04:00 PM)',
         importantInfo: 'QUÉ LLEVAR: Pantalón largo, repelente, cámara con buena captación de luz. NO INCLUYE: Cena (cenar antes o llevar snacks).',
-        steps: [{ n: 'G', t: 'Puerto', d: '04:00 PM' }, { n: 'ri-eye-fill', t: 'Río', d: 'Caimanes' }, { n: 'dot', t: 'Hotel', d: 'Retorno' }],
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Puerto', d: '04:00 PM' }, { n: 'ri-eye-fill', t: 'Río', d: 'Caimanes' }, { n: 'dot', t: 'Hotel', d: 'Retorno' }],
         sensoryVariants: { landscape: '', comfort: '', action: '' }
     },
     {
@@ -636,7 +636,7 @@ const tours = [
         notSuitable: ['Personas con acrofobia severa (miedo a las alturas)'],
         meetingPoint: 'Puerto de Iquitos (07:30 AM)',
         importantInfo: 'QUÉ LLEVAR: Zapatillas cerradas con buen agarre, binoculares (indispensable para ver aves), cámara fotográfica con correa de seguridad para que no caiga. NO INCLUYE: Propinas, artesanías en la visita Yagua.',
-        steps: [{ n: 'G', t: 'Iquitos', d: 'Salida' }, { n: 'ri-guide-fill', t: 'Canopy', d: '35m Altura' }, { n: 'dot', t: 'Iquitos', d: 'Retorno' }],
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Iquitos', d: 'Salida' }, { n: 'ri-guide-fill', t: 'Canopy', d: '35m Altura' }, { n: 'dot', t: 'Iquitos', d: 'Retorno' }],
         sensoryVariants: { landscape: '', comfort: '', action: '' }
     },
     {
@@ -682,7 +682,7 @@ const tours = [
         notSuitable: ['Cualquier persona no dispuesta a sufrir hambre, picaduras o barro'],
         meetingPoint: 'Puerto Militar Iquitos (06:00 AM)',
         importantInfo: 'QUÉ LLEVAR: Botas pantaneras de goma altas (obligatorio), 2 mudas de ropa resistentes a rasgaduras, repelente, pastillas purificadoras, muchísima fuerza mental. NO INCLUYE: Comodidades de ningún tipo.',
-        steps: [{ n: 'G', t: 'Base', d: 'Drop off' }, { n: 'ri-fire-fill', t: 'Selva', d: 'Supervivencia' }, { n: 'dot', t: 'Civilización', d: 'Pick up' }],
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Base', d: 'Drop off' }, { n: 'ri-fire-fill', t: 'Selva', d: 'Supervivencia' }, { n: 'dot', t: 'Civilización', d: 'Pick up' }],
         sensoryVariants: { landscape: '', comfort: '', action: '' }
     },
     // PIURA (5)
@@ -728,7 +728,7 @@ const tours = [
         notSuitable: ['Menores de 12 años', 'Personas que no saben nadar'],
         meetingPoint: 'Escuela de Kitesurf Máncora (09:00 AM)',
         importantInfo: 'QUÉ LLEVAR: Ropa de baño cómoda (rashguard UV recomendado), mucho bloqueador solar resistente al agua, lentes de sol con correa. NO INCLUYE: Alojamiento, alimentación.',
-        steps: [{ n: 'G', t: 'Playa', d: 'Teoría' }, { n: 'ri-windy-fill', t: 'Olas', d: 'Kitesurf' }, { n: 'dot', t: 'Máncora', d: 'Certificación' }],
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Playa', d: 'Teoría' }, { n: 'ri-windy-fill', t: 'Olas', d: 'Kitesurf' }, { n: 'dot', t: 'Máncora', d: 'Certificación' }],
         sensoryVariants: { landscape: '', comfort: '', action: '' }
     },
     {
@@ -770,7 +770,7 @@ const tours = [
         notSuitable: ['Personas sin certificación de buceo', 'Mujeres embarazadas', 'Vuelos programados dentro de las próximas 18 horas'],
         meetingPoint: 'PADI Dive Center Los Órganos (08:00 AM)',
         importantInfo: 'QUÉ LLEVAR: Toalla, ropa seca para cambiarse, carnet PADI y logbook. NO INCLUYE: Almuerzo, pastillas para el mareo.',
-        steps: [{ n: 'G', t: 'Muelle', d: 'Zarpe' }, { n: 'ri-anchor-fill', t: 'Arrecife', d: 'Buceo' }, { n: 'dot', t: 'Órganos', d: 'Retorno' }],
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Muelle', d: 'Zarpe' }, { n: 'ri-anchor-fill', t: 'Arrecife', d: 'Buceo' }, { n: 'dot', t: 'Órganos', d: 'Retorno' }],
         sensoryVariants: { landscape: '', comfort: '', action: '' }
     },
     {
@@ -813,7 +813,7 @@ const tours = [
         notSuitable: ['Surfistas principiantes o personas con lesiones recientes'],
         meetingPoint: 'Recojo en su hotel en Máncora/Órganos (05:30 AM)',
         importantInfo: 'QUÉ LLEVAR: Tu propia tabla (preferible shortboard), botines de reef, lycra, leash de repuesto y cera tropical. NO INCLUYE: Alquiler de tabla de surf (disponible por costo extra).',
-        steps: [{ n: 'G', t: 'Hotel', d: 'Dawn Patrol' }, { n: 'ri-water-flash-fill', t: 'Cabo Blanco', d: 'Tubos' }, { n: 'dot', t: 'Hotel', d: 'Retorno' }],
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Hotel', d: 'Dawn Patrol' }, { n: 'ri-water-flash-fill', t: 'Cabo Blanco', d: 'Tubos' }, { n: 'dot', t: 'Hotel', d: 'Retorno' }],
         sensoryVariants: { landscape: '', comfort: '', action: '' }
     },
     {
@@ -856,7 +856,7 @@ const tours = [
         notSuitable: ['Personas propensas a mareos severos en alta mar'],
         meetingPoint: 'Muelle de Cabo Blanco (06:00 AM)',
         importantInfo: 'QUÉ LLEVAR: Sombrero, bloqueador FPS 100, lentes polarizados (vitales para ver el agua), pastilla para el mareo tomada 1 hora antes. NO INCLUYE: Traslado desde el hotel al muelle de Cabo Blanco.',
-        steps: [{ n: 'G', t: 'Muelle', d: 'Zarpe' }, { n: 'ri-ship-fill', t: 'Alta Mar', d: 'Pesca' }, { n: 'dot', t: 'Cabo Blanco', d: 'Retorno' }],
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Muelle', d: 'Zarpe' }, { n: 'ri-ship-fill', t: 'Alta Mar', d: 'Pesca' }, { n: 'dot', t: 'Cabo Blanco', d: 'Retorno' }],
         sensoryVariants: { landscape: '', comfort: '', action: '' }
     },
     {
@@ -897,7 +897,7 @@ const tours = [
         notSuitable: ['Mujeres embarazadas', 'Personas con problemas graves de columna'],
         meetingPoint: 'Plaza de Armas de Sechura (03:00 PM)',
         importantInfo: 'QUÉ LLEVAR: Lentes de sol cerrados, gorra, zapatillas (no sandalias), bloqueador. NO INCLUYE: Transporte desde Máncora (Sechura está al sur de Piura, a 3h de Máncora).',
-        steps: [{ n: 'G', t: 'Sechura', d: 'Buggy' }, { n: 'ri-riding-fill', t: 'Dunas', d: 'Sandboard' }, { n: 'dot', t: 'Sechura', d: 'Retorno' }],
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Sechura', d: 'Buggy' }, { n: 'ri-riding-fill', t: 'Dunas', d: 'Sandboard' }, { n: 'dot', t: 'Sechura', d: 'Retorno' }],
         sensoryVariants: { landscape: '', comfort: '', action: '' }
     },
     // ICA (5)
@@ -938,7 +938,7 @@ const tours = [
         notSuitable: ['Mujeres embarazadas', 'Personas con cirugías recientes de columna'],
         meetingPoint: 'Oficina Operador Autorizado, Oasis de Huacachina (04:00 PM)',
         importantInfo: 'QUÉ LLEVAR: Lentes de sol cerrados para la arena, bloqueador solar, chaqueta cortavientos (hace frío al anochecer).',
-        steps: [{ n: 'G', t: 'Oasis', d: 'Briefing' }, { n: 'ri-riding-fill', t: 'Dunas', d: 'Sandboard' }, { n: 'dot', t: 'Oasis', d: 'Retorno' }],
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Oasis', d: 'Briefing' }, { n: 'ri-riding-fill', t: 'Dunas', d: 'Sandboard' }, { n: 'dot', t: 'Oasis', d: 'Retorno' }],
         sensoryVariants: { landscape: '', comfort: '', action: '' }
     },
     {
@@ -981,7 +981,7 @@ const tours = [
         notSuitable: ['Personas que no saben nadar básico'],
         meetingPoint: 'Kite Beach Santo Domingo, Paracas (01:00 PM)',
         importantInfo: 'QUÉ LLEVAR: Wetsuit propio (aunque se provee, es mejor el propio), escarpines de neoprene, mucho bloqueador solar deportivo.',
-        steps: [{ n: 'G', t: 'Playa', d: 'Armado' }, { n: 'ri-windy-fill', t: 'Bahía', d: 'Kitesurf' }, { n: 'dot', t: 'Paracas', d: 'IKO' }],
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Playa', d: 'Armado' }, { n: 'ri-windy-fill', t: 'Bahía', d: 'Kitesurf' }, { n: 'dot', t: 'Paracas', d: 'IKO' }],
         sensoryVariants: { landscape: '', comfort: '', action: '' }
     },
     {
@@ -1021,7 +1021,7 @@ const tours = [
         notSuitable: ['Personas que sufren vértigo o problemas cardíacos graves', 'Pánico extremo a volar'],
         meetingPoint: 'Aeródromo Maria Reiche, Nazca',
         importantInfo: 'QUÉ LLEVAR: Pasaporte original o DNI (Obligatorio por ley aeronáutica), cámara lista. NO INCLUYE: Tasa aeroportuaria (aprox. 30 soles que se paga en efectivo).',
-        steps: [{ n: 'G', t: 'Aeródromo', d: 'Check-in' }, { n: 'ri-flight-takeoff-fill', t: 'Nazca', d: 'Geoglifos' }, { n: 'dot', t: 'Pista', d: 'Aterrizaje' }],
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Aeródromo', d: 'Check-in' }, { n: 'ri-flight-takeoff-fill', t: 'Nazca', d: 'Geoglifos' }, { n: 'dot', t: 'Pista', d: 'Aterrizaje' }],
         sensoryVariants: { landscape: '', comfort: '', action: '' }
     },
     {
@@ -1061,7 +1061,7 @@ const tours = [
         notSuitable: ['Personas de más de 110 kg (por límite de carga de la vela)', 'Miedo paralizante a las alturas'],
         meetingPoint: 'Entrada a Reserva Nacional de Paracas',
         importantInfo: 'QUÉ LLEVAR: Zapatillas ajustadas (no sandalias), chaqueta rompevientos. NO INCLUYE: Ingreso SERNANP a la Reserva.',
-        steps: [{ n: 'G', t: 'Acantilado', d: 'Viento' }, { n: 'ri-send-plane-fill', t: 'Cielo', d: 'Vuelo' }, { n: 'dot', t: 'Tierra', d: 'Aterrizaje' }],
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Acantilado', d: 'Viento' }, { n: 'ri-send-plane-fill', t: 'Cielo', d: 'Vuelo' }, { n: 'dot', t: 'Tierra', d: 'Aterrizaje' }],
         sensoryVariants: { landscape: '', comfort: '', action: '' }
     },
     {
@@ -1102,7 +1102,7 @@ const tours = [
         notSuitable: ['Menores de 16 años conduciendo (pueden ir de copiloto)'],
         meetingPoint: 'Base Off-Road entrada Paracas (09:00 AM)',
         importantInfo: 'QUÉ LLEVAR: Ropa que se pueda ensuciar con polvo, zapatillas cerradas (obligatorio), protector solar. NO INCLUYE: Ingreso turístico a la Reserva Nacional.',
-        steps: [{ n: 'G', t: 'Base', d: 'Instrucción' }, { n: 'ri-motorbike-fill', t: 'Reserva', d: 'Off-Road' }, { n: 'dot', t: 'Base', d: 'Fin Ruta' }],
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Base', d: 'Instrucción' }, { n: 'ri-motorbike-fill', t: 'Reserva', d: 'Off-Road' }, { n: 'dot', t: 'Base', d: 'Fin Ruta' }],
         sensoryVariants: { landscape: '', comfort: '', action: '' }
     },
     // PUNO (5)
@@ -1144,7 +1144,7 @@ const tours = [
         notSuitable: ['Personas con lesiones graves de hombro/espalda'],
         meetingPoint: 'Hotel en Puno (06:45 AM)',
         importantInfo: 'QUÉ LLEVAR: Pantalones impermeables, chaqueta cortavientos térmica, guantes de neopreno o lana, lentes de sol, bloqueador FPS 50+ (la radiación es brutal).',
-        steps: [{ n: 'G', t: 'Puno', d: 'Remos' }, { n: 'ri-ship-fill', t: 'Lago', d: 'Travesía' }, { n: 'dot', t: 'Uros', d: 'Isla' }],
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Puno', d: 'Remos' }, { n: 'ri-ship-fill', t: 'Lago', d: 'Travesía' }, { n: 'dot', t: 'Uros', d: 'Isla' }],
         sensoryVariants: { landscape: '', comfort: '', action: '' }
     },
     {
@@ -1185,7 +1185,7 @@ const tours = [
         notSuitable: ['Personas que no saben nadar'],
         meetingPoint: 'Hotel en Puno (05:45 AM)',
         importantInfo: 'QUÉ LLEVAR: Ropa de baño para poner debajo del wetsuit, toalla, ropa abrigadora para después. NO INCLUYE: Fotografía profesional (costo extra).',
-        steps: [{ n: 'G', t: 'Puno', d: 'Amanecer' }, { n: 'ri-water-flash-fill', t: 'Espejo', d: 'SUP' }, { n: 'dot', t: 'Puno', d: 'Breakfast' }],
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Puno', d: 'Amanecer' }, { n: 'ri-water-flash-fill', t: 'Espejo', d: 'SUP' }, { n: 'dot', t: 'Puno', d: 'Breakfast' }],
         sensoryVariants: { landscape: '', comfort: '', action: '' }
     },
     {
@@ -1226,7 +1226,7 @@ const tours = [
         notSuitable: ['Menores de 16 años como pilotos'],
         meetingPoint: 'Hotel en Puno (08:00 AM)',
         importantInfo: 'QUÉ LLEVAR: Guantes contra el frío, casaca abrigadora que se pueda empolvar, bloqueador solar y zapatillas cerradas de montaña.',
-        steps: [{ n: 'G', t: 'Base', d: 'ATV' }, { n: 'ri-riding-fill', t: 'Altiplano', d: 'Ruta' }, { n: 'dot', t: 'Sillustani', d: 'Chullpas' }],
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Base', d: 'ATV' }, { n: 'ri-riding-fill', t: 'Altiplano', d: 'Ruta' }, { n: 'dot', t: 'Sillustani', d: 'Chullpas' }],
         sensoryVariants: { landscape: '', comfort: '', action: '' }
     },
     {
@@ -1266,7 +1266,7 @@ const tours = [
         notSuitable: ['Personas con problemas cardíacos', 'Embarazadas'],
         meetingPoint: 'Plaza de Armas de Puno (09:00 AM)',
         importantInfo: 'QUÉ LLEVAR: Ropa muy abrigadora, zapatillas sujetas (que no caigan durante el vuelo).',
-        steps: [{ n: 'G', t: 'Juli', d: 'Ascenso' }, { n: 'ri-windy-fill', t: 'Cable', d: 'Zipline' }, { n: 'dot', t: 'Puno', d: 'Retorno' }],
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Juli', d: 'Ascenso' }, { n: 'ri-windy-fill', t: 'Cable', d: 'Zipline' }, { n: 'dot', t: 'Puno', d: 'Retorno' }],
         sensoryVariants: { landscape: '', comfort: '', action: '' }
     },
     {
@@ -1306,7 +1306,7 @@ const tours = [
         notSuitable: ['Personas sin condición cardiovascular excelente', 'Falta de aclimatación previa (Min 2 días en Puno)'],
         meetingPoint: 'Oficina MTB Puno',
         importantInfo: 'QUÉ LLEVAR: Ropa ciclista (culotte recomendado), hidratación extra (camelbak), lentes contra el sol/polvo. NO INCLUYE: Pedales con calas (traer propios si los requiere).',
-        steps: [{ n: 'G', t: 'Ruta', d: 'Bici' }, { n: 'ri-riding-fill', t: 'Cerro', d: 'MTB' }, { n: 'dot', t: 'Llachón', d: 'Almuerzo' }],
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Ruta', d: 'Bici' }, { n: 'ri-riding-fill', t: 'Cerro', d: 'MTB' }, { n: 'dot', t: 'Llachón', d: 'Almuerzo' }],
         sensoryVariants: { landscape: '', comfort: '', action: '' }
     },
 
@@ -1353,7 +1353,7 @@ const tours = [
         notSuitable: ['Personas sedentarias, asma severo, problemas de rodillas/articulaciones'],
         meetingPoint: 'Recojo en Hoteles Centro de Arequipa (03:00 AM)',
         importantInfo: 'QUÉ LLEVAR: Bastones de trekking (obligatorio para cuidar rodillas), linterna frontal, bloqueador, sombrero y poco peso en la mochila.',
-        steps: [{ n: 'G', t: 'Cabanaconde', d: 'Descenso' }, { n: 'ri-footprint-fill', t: 'Oasis', d: 'Cañón' }, { n: 'dot', t: 'Chivay', d: 'Termas' }],
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Cabanaconde', d: 'Descenso' }, { n: 'ri-footprint-fill', t: 'Oasis', d: 'Cañón' }, { n: 'dot', t: 'Chivay', d: 'Termas' }],
         sensoryVariants: { landscape: '', comfort: '', action: '' }
     },
     {
@@ -1396,7 +1396,7 @@ const tours = [
         notSuitable: ['Personas sin aclimatación previa', 'Problemas cardíacos o pulmonares'],
         meetingPoint: 'Oficina Operador Arequipa (08:00 AM)',
         importantInfo: 'QUÉ LLEVAR: Botas de montaña rígidas o semi-rígidas, ropa de pluma de alta montaña, guantes gruesos, 4 litros de agua por persona. NO INCLUYE: Bolsa de dormir (mínimo de -15°C confort).',
-        steps: [{ n: 'G', t: 'Campo Base', d: 'Ascenso' }, { n: 'ri-fire-fill', t: 'Cráter', d: '5822m' }, { n: 'dot', t: 'Arequipa', d: 'Descenso' }],
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Campo Base', d: 'Ascenso' }, { n: 'ri-fire-fill', t: 'Cráter', d: '5822m' }, { n: 'dot', t: 'Arequipa', d: 'Descenso' }],
         sensoryVariants: { landscape: '', comfort: '', action: '' }
     },
     {
@@ -1437,7 +1437,7 @@ const tours = [
         notSuitable: ['Personas que no saben nadar', 'Menores de 8 años (dependiendo del caudal)'],
         meetingPoint: 'Cercado de Arequipa',
         importantInfo: 'QUÉ LLEVAR: Ropa de baño bajo la ropa, toalla grande, sandalias de sujeción (que no se salgan) o zapatillas viejas que se puedan mojar. NO INCLUYE: USB con fotos (costo extra).',
-        steps: [{ n: 'G', t: 'Charcani', d: 'Rápidos' }, { n: 'ri-water-flash-fill', t: 'Río Chili', d: 'Rafting' }, { n: 'dot', t: 'Puente', d: 'Fin' }],
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Charcani', d: 'Rápidos' }, { n: 'ri-water-flash-fill', t: 'Río Chili', d: 'Rafting' }, { n: 'dot', t: 'Puente', d: 'Fin' }],
         sensoryVariants: { landscape: '', comfort: '', action: '' }
     },
     {
@@ -1478,7 +1478,7 @@ const tours = [
         notSuitable: ['Principiantes en bicicleta (requiere dominar frenadas en ripio/tierra suelta)'],
         meetingPoint: 'Recojo en Hotel Arequipa (08:00 AM)',
         importantInfo: 'QUÉ LLEVAR: Lentes para el polvo, zapatillas de suela plana (para buen agarre de pedales). Cortavientos ligero.',
-        steps: [{ n: 'G', t: 'Pampa', d: '4700m' }, { n: 'ri-riding-fill', t: 'Volcán', d: 'Downhill' }, { n: 'dot', t: 'Ciudad', d: 'Arequipa' }],
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Pampa', d: '4700m' }, { n: 'ri-riding-fill', t: 'Volcán', d: 'Downhill' }, { n: 'dot', t: 'Ciudad', d: 'Arequipa' }],
         sensoryVariants: { landscape: '', comfort: '', action: '' }
     },
     {
@@ -1521,7 +1521,7 @@ const tours = [
         notSuitable: ['Cualquier persona que no haya aclimatado 3 días antes a más de 3,000m'],
         meetingPoint: 'Arequipa Centro (08:00 AM)',
         importantInfo: 'QUÉ LLEVAR: Todo el equipo de Alta Montaña: Casaca de pluma -15C, saco de dormir -15C (puedes alquilarlo), botas plásticas/rígidas, doble guante. NO INCLUYE: Porteador personal (lo cargas tú, o contratas porteador extra por $150).',
-        steps: [{ n: 'G', t: 'Camp 5200m', d: 'Base' }, { n: 'ri-snowy-fill', t: 'Glaciar', d: 'Cumbre' }, { n: 'dot', t: 'Retorno', d: 'Arequipa' }],
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Camp 5200m', d: 'Base' }, { n: 'ri-snowy-fill', t: 'Glaciar', d: 'Cumbre' }, { n: 'dot', t: 'Retorno', d: 'Arequipa' }],
         sensoryVariants: { landscape: '', comfort: '', action: '' }
     },
     // LIMA (5)
@@ -1554,7 +1554,7 @@ const tours = [
         notSuitable: ['Personas con peso superior a 100kg'],
         meetingPoint: 'Parapuerto de Miraflores',
         importantInfo: 'Llegar 15 min antes de tu turno programado.',
-        steps: [{ n: 'G', t: 'Parapuerto', d: 'Briefing' }, { n: 'dot', t: 'Cielo', d: 'Landing' }]
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Parapuerto', d: 'Briefing' }, { n: 'dot', t: 'Cielo', d: 'Landing' }]
     },
     {
         id: 37,
@@ -1585,7 +1585,7 @@ const tours = [
         notSuitable: ['Miedo al mar abierto'],
         meetingPoint: 'Puerto de la Darsena, Callao',
         importantInfo: 'Prohibido tocar a los lobos, ellos se acercan solos por curiosidad.',
-        steps: [{ n: 'G', t: 'Muelle', d: 'Check' }, { n: 'dot', t: 'Mar', d: 'Nado' }]
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Muelle', d: 'Check' }, { n: 'dot', t: 'Mar', d: 'Nado' }]
     },
     {
         id: 38,
@@ -1617,7 +1617,7 @@ const tours = [
         notSuitable: ['Personas con mala oxigenación inmediata'],
         meetingPoint: 'Calle Comercio, San Borja (Lima)',
         importantInfo: 'Llevar mucha ropa de abrigo, la temperatura baja a 0°C.',
-        steps: [{ n: 'G', t: 'Chosica', d: 'Viaje' }, { n: 'dot', t: 'Meseta', d: 'Base' }]
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Chosica', d: 'Viaje' }, { n: 'dot', t: 'Meseta', d: 'Base' }]
     },
     {
         id: 39,
@@ -1648,7 +1648,7 @@ const tours = [
         notSuitable: ['Personas que no dominan la bicicleta en tierra'],
         meetingPoint: 'Plaza de Armas de Pachacamac',
         importantInfo: 'Traer rodilleras si tienes poca experiencia.',
-        steps: [{ n: 'G', t: 'Pachacamac', d: 'MTB' }, { n: 'dot', t: 'Lomas', d: 'Final' }]
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Pachacamac', d: 'MTB' }, { n: 'dot', t: 'Lomas', d: 'Final' }]
     },
     {
         id: 40,
@@ -1679,52 +1679,52 @@ const tours = [
         notSuitable: ['Personas con claustrofobia', 'Acrofobia severa', 'Falta de condición física'],
         meetingPoint: 'Javier Prado / San Isidro',
         importantInfo: 'Llevar linterna frontal (obligatorio), guantes de cuero y ropa que se pueda mojar.',
-        steps: [{ n: 'G', t: 'Autisha', d: 'Descenso' }, { n: 'dot', t: 'Cascada', d: 'Rápel' }]
+        notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'G', t: 'Autisha', d: 'Descenso' }, { n: 'dot', t: 'Cascada', d: 'Rápel' }]
     }
 ];
 
 const events = [
     // JUNIO
-    { id: 201, title: 'Mi Primer Trail', dept: 'Lima', cat: 'Trail Running', date: '13', month: 'JUN', img: 'https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=2070', price: 80, detail: 'Parque Ecológico de La Molina. Ideal para iniciantes.', whatYouDo: ['Senderos cortos', 'Acompañamiento', 'Naturaleza'], steps: [{ n: 'ri-flag-2-line', t: 'Inicio', d: 'La Molina' }, { n: 'ri-medal-line', t: 'Meta', d: 'Parque' }], inc: ['Dorsal', 'Hidratación', 'Medalla'] },
-    { id: 202, title: 'Ruta de la Chirimoya', dept: 'Lima', cat: 'Trail Running', date: '14', month: 'JUN', img: 'https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=2070', price: 90, detail: 'Carrera en Callahuanca, Huarochirí. Disfruta de paisajes y fruta fresca.', whatYouDo: ['Ascensos', 'Senderos rurales', 'Degustación'], steps: [{ n: 'ri-flag-2-line', t: 'Inicio', d: 'Callahuanca' }, { n: 'ri-medal-line', t: 'Meta', d: 'Plaza' }], inc: ['Dorsal', 'Hidratación', 'Chirimoyas'] },
-    { id: 203, title: 'Cajatambo Raid', dept: 'Lima', cat: 'Expedición', date: '14', month: 'JUN', img: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070', price: 150, detail: 'Raid de aventura en la sierra de Lima.', whatYouDo: ['Trek', 'Orientación', 'Clima andino'], steps: [{ n: 'ri-compass-line', t: 'Ruta', d: 'Navegación' }, { n: 'ri-medal-line', t: 'Cierre', d: 'Cajatambo' }], inc: ['Mapa', 'Asistencia', 'Medalla'] },
-    { id: 204, title: 'Geoconsciencia Quelccaya', dept: 'Cusco', cat: 'Expedición', date: '14', month: 'JUN', img: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=2070', price: 120, detail: 'Salida al Sistema Glaciar Quelccaya y Suyuparina.', whatYouDo: ['Trek Glaciar', 'Observación', 'Consciencia'], steps: [{ n: 'ri-snowflake-line', t: 'Glaciar', d: 'Ascenso' }, { n: 'ri-eye-line', t: 'Observación', d: 'Estudio' }], inc: ['Guía', 'Transporte', 'Snack'] },
-    { id: 205, title: 'Tatoo Terra Challenge', dept: 'Lima', cat: 'Trail & Enduro', date: '20', month: 'JUN', img: 'https://images.unsplash.com/photo-1544198365-f5d60b6d8190?q=80&w=2070', price: 180, detail: 'Morro Edition en Chorrillos. Incluye Trail Running y MTB Enduro.', whatYouDo: ['Rutas técnicas', 'Descensos Enduro', 'Medalla Finisher'], steps: [{ n: 'ri-riding-line', t: 'Morro', d: 'Desafío' }, { n: 'ri-medal-line', t: 'Meta', d: 'Playa' }], inc: ['Dorsal', 'Hidratación', 'Seguro'] },
-    { id: 206, title: 'Carrera Sauce', dept: 'San Martín', cat: 'Trail Running', date: '20', month: 'JUN', img: 'https://images.unsplash.com/photo-1522163182402-834f60b58e26?q=80&w=2070', price: 100, detail: 'Corre bordeando la famosa Laguna Azul en Tarapoto.', whatYouDo: ['Selva', 'Humedad', 'Barro'], steps: [{ n: 'ri-drop-line', t: 'Laguna', d: 'Ruta' }, { n: 'ri-medal-line', t: 'Meta', d: 'Pueblo' }], inc: ['Dorsal', 'Hidratación', 'Medalla'] },
-    { id: 207, title: 'Marcahuasi Ultra SkyRunning', dept: 'Lima', cat: 'Ultra Trail', date: '26', month: 'JUN', img: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=2070', price: 250, detail: 'El MUT. Ascenso brutal hasta el bosque de piedras de Marcahuasi.', whatYouDo: ['SkyRunning', 'Altura extrema', 'Desnivel'], steps: [{ n: 'ri-arrow-up-line', t: 'Ascenso', d: 'San Pedro' }, { n: 'ri-landscape-line', t: 'Meseta', d: 'Marcahuasi' }], inc: ['Dorsal tracker', 'Puntos abasto', 'Polo Finisher'] },
-    { id: 208, title: 'Picha Trail Fest', dept: 'Junín', cat: 'Trail Running', date: '28', month: 'JUN', img: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=2070', price: 120, detail: 'Festival de Trail en la sierra central del Perú.', whatYouDo: ['Valles', 'Río', 'Naturaleza'], steps: [{ n: 'ri-flag-2-line', t: 'Inicio', d: 'Valle' }, { n: 'ri-medal-line', t: 'Meta', d: 'Centro' }], inc: ['Dorsal', 'Hidratación', 'Fiesta'] },
-    { id: 209, title: 'Ranking Nac. DH 2da Válida', dept: 'Apurímac', cat: 'MTB DH', date: '13', month: 'JUN', img: 'https://images.unsplash.com/photo-1544198365-f5d60b6d8190?q=80&w=2070', price: 150, detail: 'Campeonato Nacional de Downhill en Andahuaylas.', whatYouDo: ['Descenso extremo', 'Saltos', 'Velocidad'], steps: [{ n: 'ri-arrow-down-line', t: 'Partida', d: 'Cima' }, { n: 'ri-flag-checkered-line', t: 'Llegada', d: 'Valle' }], inc: ['Remonte', 'Cronometraje', 'Seguro'] },
-    { id: 210, title: 'Andes Pacific MTB Cup', dept: 'Lima', cat: 'MTB Enduro', date: '20', month: 'JUN', img: 'https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?q=80&w=2070', price: 160, detail: 'Copa Internacional de Enduro en Huachupampa.', whatYouDo: ['Enduro', 'Zonas técnicas', 'Roca'], steps: [{ n: 'ri-riding-line', t: 'Especial 1', d: 'Sierra' }, { n: 'ri-flag-checkered-line', t: 'Liaison', d: 'Plaza' }], inc: ['Chip', 'Abastecimiento', 'Medalla'] },
-    { id: 211, title: 'Ranking Nac. XCO 4ta Válida', dept: 'Arequipa', cat: 'MTB XCO', date: '21', month: 'JUN', img: 'https://images.unsplash.com/photo-1517604931442-7105376f7c04?q=80&w=2070', price: 140, detail: 'Cross Country Olímpico en Arequipa.', whatYouDo: ['Circuitos técnicos', 'Explosividad', 'Altitud'], steps: [{ n: 'ri-riding-line', t: 'Circuito', d: 'Vueltas' }, { n: 'ri-trophy-line', t: 'Podio', d: 'Premiación' }], inc: ['Dorsal', 'Cronometraje', 'Jueces UCI'] },
+    { id: 201, title: 'Mi Primer Trail', dept: 'Lima', cat: 'Trail Running', date: '13', month: 'JUN', img: 'https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=2070', price: 80, detail: 'Parque Ecológico de La Molina. Ideal para iniciantes.', whatYouDo: ['Senderos cortos', 'Acompañamiento', 'Naturaleza'], fullItinerary: [{ day: '08:00', desc: 'Pick up and transfer to the activity.' }, { day: '10:00', desc: 'Start of Mi Primer Trail with professional equipment.' }, { day: '14:00', desc: 'Return and end of service.' }], notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'ri-flag-2-line', t: 'Inicio', d: 'La Molina' }, { n: 'ri-medal-line', t: 'Meta', d: 'Parque' }], inc: ['Dorsal', 'Hidratación', 'Medalla'] },
+    { id: 202, title: 'Ruta de la Chirimoya', dept: 'Lima', cat: 'Trail Running', date: '14', month: 'JUN', img: 'https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=2070', price: 90, detail: 'Carrera en Callahuanca, Huarochirí. Disfruta de paisajes y fruta fresca.', whatYouDo: ['Ascensos', 'Senderos rurales', 'Degustación'], fullItinerary: [{ day: '08:00', desc: 'Pick up and transfer to the activity.' }, { day: '10:00', desc: 'Start of Ruta de la Chirimoya with professional equipment.' }, { day: '14:00', desc: 'Return and end of service.' }], notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'ri-flag-2-line', t: 'Inicio', d: 'Callahuanca' }, { n: 'ri-medal-line', t: 'Meta', d: 'Plaza' }], inc: ['Dorsal', 'Hidratación', 'Chirimoyas'] },
+    { id: 203, title: 'Cajatambo Raid', dept: 'Lima', cat: 'Expedición', date: '14', month: 'JUN', img: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070', price: 150, detail: 'Raid de aventura en la sierra de Lima.', whatYouDo: ['Trek', 'Orientación', 'Clima andino'], fullItinerary: [{ day: '08:00', desc: 'Pick up and transfer to the activity.' }, { day: '10:00', desc: 'Start of Cajatambo Raid with professional equipment.' }, { day: '14:00', desc: 'Return and end of service.' }], notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'ri-compass-line', t: 'Ruta', d: 'Navegación' }, { n: 'ri-medal-line', t: 'Cierre', d: 'Cajatambo' }], inc: ['Mapa', 'Asistencia', 'Medalla'] },
+    { id: 204, title: 'Geoconsciencia Quelccaya', dept: 'Cusco', cat: 'Expedición', date: '14', month: 'JUN', img: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=2070', price: 120, detail: 'Salida al Sistema Glaciar Quelccaya y Suyuparina.', whatYouDo: ['Trek Glaciar', 'Observación', 'Consciencia'], fullItinerary: [{ day: '08:00', desc: 'Pick up and transfer to the activity.' }, { day: '10:00', desc: 'Start of Geoconsciencia Quelccaya with professional equipment.' }, { day: '14:00', desc: 'Return and end of service.' }], notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'ri-snowflake-line', t: 'Glaciar', d: 'Ascenso' }, { n: 'ri-eye-line', t: 'Observación', d: 'Estudio' }], inc: ['Guía', 'Transporte', 'Snack'] },
+    { id: 205, title: 'Tatoo Terra Challenge', dept: 'Lima', cat: 'Trail & Enduro', date: '20', month: 'JUN', img: 'https://images.unsplash.com/photo-1544198365-f5d60b6d8190?q=80&w=2070', price: 180, detail: 'Morro Edition en Chorrillos. Incluye Trail Running y MTB Enduro.', whatYouDo: ['Rutas técnicas', 'Descensos Enduro', 'Medalla Finisher'], fullItinerary: [{ day: '08:00', desc: 'Pick up and transfer to the activity.' }, { day: '10:00', desc: 'Start of Tatoo Terra Challenge with professional equipment.' }, { day: '14:00', desc: 'Return and end of service.' }], notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'ri-riding-line', t: 'Morro', d: 'Desafío' }, { n: 'ri-medal-line', t: 'Meta', d: 'Playa' }], inc: ['Dorsal', 'Hidratación', 'Seguro'] },
+    { id: 206, title: 'Carrera Sauce', dept: 'San Martín', cat: 'Trail Running', date: '20', month: 'JUN', img: 'https://images.unsplash.com/photo-1522163182402-834f60b58e26?q=80&w=2070', price: 100, detail: 'Corre bordeando la famosa Laguna Azul en Tarapoto.', whatYouDo: ['Selva', 'Humedad', 'Barro'], fullItinerary: [{ day: '08:00', desc: 'Pick up and transfer to the activity.' }, { day: '10:00', desc: 'Start of Carrera Sauce with professional equipment.' }, { day: '14:00', desc: 'Return and end of service.' }], notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'ri-drop-line', t: 'Laguna', d: 'Ruta' }, { n: 'ri-medal-line', t: 'Meta', d: 'Pueblo' }], inc: ['Dorsal', 'Hidratación', 'Medalla'] },
+    { id: 207, title: 'Marcahuasi Ultra SkyRunning', dept: 'Lima', cat: 'Ultra Trail', date: '26', month: 'JUN', img: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=2070', price: 250, detail: 'El MUT. Ascenso brutal hasta el bosque de piedras de Marcahuasi.', whatYouDo: ['SkyRunning', 'Altura extrema', 'Desnivel'], fullItinerary: [{ day: '08:00', desc: 'Pick up and transfer to the activity.' }, { day: '10:00', desc: 'Start of Marcahuasi Ultra SkyRunning with professional equipment.' }, { day: '14:00', desc: 'Return and end of service.' }], notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'ri-arrow-up-line', t: 'Ascenso', d: 'San Pedro' }, { n: 'ri-landscape-line', t: 'Meseta', d: 'Marcahuasi' }], inc: ['Dorsal tracker', 'Puntos abasto', 'Polo Finisher'] },
+    { id: 208, title: 'Picha Trail Fest', dept: 'Junín', cat: 'Trail Running', date: '28', month: 'JUN', img: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=2070', price: 120, detail: 'Festival de Trail en la sierra central del Perú.', whatYouDo: ['Valles', 'Río', 'Naturaleza'], fullItinerary: [{ day: '08:00', desc: 'Pick up and transfer to the activity.' }, { day: '10:00', desc: 'Start of Picha Trail Fest with professional equipment.' }, { day: '14:00', desc: 'Return and end of service.' }], notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'ri-flag-2-line', t: 'Inicio', d: 'Valle' }, { n: 'ri-medal-line', t: 'Meta', d: 'Centro' }], inc: ['Dorsal', 'Hidratación', 'Fiesta'] },
+    { id: 209, title: 'Ranking Nac. DH 2da Válida', dept: 'Apurímac', cat: 'MTB DH', date: '13', month: 'JUN', img: 'https://images.unsplash.com/photo-1544198365-f5d60b6d8190?q=80&w=2070', price: 150, detail: 'Campeonato Nacional de Downhill en Andahuaylas.', whatYouDo: ['Descenso extremo', 'Saltos', 'Velocidad'], fullItinerary: [{ day: '08:00', desc: 'Pick up and transfer to the activity.' }, { day: '10:00', desc: 'Start of Ranking Nac. DH 2da Válida with professional equipment.' }, { day: '14:00', desc: 'Return and end of service.' }], notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'ri-arrow-down-line', t: 'Partida', d: 'Cima' }, { n: 'ri-flag-checkered-line', t: 'Llegada', d: 'Valle' }], inc: ['Remonte', 'Cronometraje', 'Seguro'] },
+    { id: 210, title: 'Andes Pacific MTB Cup', dept: 'Lima', cat: 'MTB Enduro', date: '20', month: 'JUN', img: 'https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?q=80&w=2070', price: 160, detail: 'Copa Internacional de Enduro en Huachupampa.', whatYouDo: ['Enduro', 'Zonas técnicas', 'Roca'], fullItinerary: [{ day: '08:00', desc: 'Pick up and transfer to the activity.' }, { day: '10:00', desc: 'Start of Andes Pacific MTB Cup with professional equipment.' }, { day: '14:00', desc: 'Return and end of service.' }], notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'ri-riding-line', t: 'Especial 1', d: 'Sierra' }, { n: 'ri-flag-checkered-line', t: 'Liaison', d: 'Plaza' }], inc: ['Chip', 'Abastecimiento', 'Medalla'] },
+    { id: 211, title: 'Ranking Nac. XCO 4ta Válida', dept: 'Arequipa', cat: 'MTB XCO', date: '21', month: 'JUN', img: 'https://images.unsplash.com/photo-1517604931442-7105376f7c04?q=80&w=2070', price: 140, detail: 'Cross Country Olímpico en Arequipa.', whatYouDo: ['Circuitos técnicos', 'Explosividad', 'Altitud'], fullItinerary: [{ day: '08:00', desc: 'Pick up and transfer to the activity.' }, { day: '10:00', desc: 'Start of Ranking Nac. XCO 4ta Válida with professional equipment.' }, { day: '14:00', desc: 'Return and end of service.' }], notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'ri-riding-line', t: 'Circuito', d: 'Vueltas' }, { n: 'ri-trophy-line', t: 'Podio', d: 'Premiación' }], inc: ['Dorsal', 'Cronometraje', 'Jueces UCI'] },
 
     // JULIO
-    { id: 212, title: 'Ultra Trail Cordillera Blanca', dept: 'Huaraz', cat: 'Ultra Trail', date: '02', month: 'JUL', img: 'https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=2070', price: 350, detail: 'UTCB. Corre bajo los glaciares tropicales más altos del mundo.', whatYouDo: ['Rutas 12K a 50K', 'Vistas Glaciares', 'Altitud extrema'], steps: [{ n: 'ri-flag-2-line', t: 'Huaraz', d: 'Partida' }, { n: 'ri-trophy-line', t: 'Meta', d: 'Llegada' }], inc: ['Kit UTCB', 'Puntos de Abasto', 'Medalla'] },
-    { id: 213, title: 'Ai Apaec Trail', dept: 'La Libertad', cat: 'Trail Running', date: '12', month: 'JUL', img: 'https://images.unsplash.com/photo-1440342359743-84fcb8c21f21?q=80&w=2070', price: 90, detail: 'Ruta moche en Trujillo. Corriendo entre dunas y ruinas.', whatYouDo: ['Arena', 'Calor', 'Ruinas'], steps: [{ n: 'ri-sun-line', t: 'Desierto', d: 'Ruta' }, { n: 'ri-medal-line', t: 'Moche', d: 'Meta' }], inc: ['Dorsal', 'Hidratación', 'Medalla'] },
-    { id: 214, title: 'Sierra Andina Mountain Trail', dept: 'Huaraz', cat: 'Trail Running', date: '19', month: 'JUL', img: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070', price: 200, detail: 'Carrera extrema en Matara, Áncash.', whatYouDo: ['Desnivel', 'High mountain', 'Frío'], steps: [{ n: 'ri-arrow-up-line', t: 'Ascenso', d: 'Paso' }, { n: 'ri-flag-checkered-line', t: 'Meta', d: 'Pueblo' }], inc: ['Dorsal', 'Cerveza SAMT', 'Medalla'] },
-    { id: 215, title: 'Desafío Manchay', dept: 'Lima', cat: 'Trail Running', date: '19', month: 'JUL', img: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=2070', price: 80, detail: 'Carrera local de cerros y arenales en Lima.', whatYouDo: ['Lomas', 'Arena', 'Ascensos cortos'], steps: [{ n: 'ri-flag-2-line', t: 'Inicio', d: 'Manchay' }, { n: 'ri-medal-line', t: 'Meta', d: 'Plaza' }], inc: ['Dorsal', 'Agua', 'Medalla'] },
-    { id: 216, title: 'Tingo María Trail', dept: 'Huánuco', cat: 'Trail Running', date: '25', month: 'JUL', img: 'https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=2070', price: 150, detail: 'Corre en la selva alta, cerca de la Bella Durmiente.', whatYouDo: ['Humedad', 'Barro', 'Vegetación'], steps: [{ n: 'ri-leaf-line', t: 'Selva', d: 'Ruta' }, { n: 'ri-medal-line', t: 'Meta', d: 'Cueva' }], inc: ['Dorsal', 'Kit supervivencia', 'Fiesta Finisher'] },
-    { id: 217, title: 'Valley Camp', dept: 'Cusco', cat: 'Expedición', date: '27', month: 'JUL', img: 'https://images.unsplash.com/photo-1522163182402-834f60b58e26?q=80&w=2070', price: 850, detail: 'Campamento de Exploradores en Urubamba.', whatYouDo: ['Supervivencia', 'Trek', 'Cultura'], steps: [{ n: 'ri-tent-line', t: 'Base', d: 'Valle' }, { n: 'ri-compass-line', t: 'Explorar', d: 'Montañas' }], inc: ['Carpas', 'Alimentación', 'Guías'] },
-    { id: 218, title: 'Ranking Nac. DH 3ra Válida', dept: 'Cusco', cat: 'MTB DH', date: '11', month: 'JUL', img: 'https://images.unsplash.com/photo-1544198365-f5d60b6d8190?q=80&w=2070', price: 150, detail: 'Downhill Nacional en los senderos sagrados del Cusco.', whatYouDo: ['Descenso extremo', 'Piedra inca', 'Drops'], steps: [{ n: 'ri-arrow-down-line', t: 'Partida', d: 'Cima' }, { n: 'ri-flag-checkered-line', t: 'Llegada', d: 'Valle' }], inc: ['Remonte', 'Cronometraje', 'Seguro'] },
+    { id: 212, title: 'Ultra Trail Cordillera Blanca', dept: 'Huaraz', cat: 'Ultra Trail', date: '02', month: 'JUL', img: 'https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=2070', price: 350, detail: 'UTCB. Corre bajo los glaciares tropicales más altos del mundo.', whatYouDo: ['Rutas 12K a 50K', 'Vistas Glaciares', 'Altitud extrema'], fullItinerary: [{ day: '08:00', desc: 'Pick up and transfer to the activity.' }, { day: '10:00', desc: 'Start of Ultra Trail Cordillera Blanca with professional equipment.' }, { day: '14:00', desc: 'Return and end of service.' }], notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'ri-flag-2-line', t: 'Huaraz', d: 'Partida' }, { n: 'ri-trophy-line', t: 'Meta', d: 'Llegada' }], inc: ['Kit UTCB', 'Puntos de Abasto', 'Medalla'] },
+    { id: 213, title: 'Ai Apaec Trail', dept: 'La Libertad', cat: 'Trail Running', date: '12', month: 'JUL', img: 'https://images.unsplash.com/photo-1440342359743-84fcb8c21f21?q=80&w=2070', price: 90, detail: 'Ruta moche en Trujillo. Corriendo entre dunas y ruinas.', whatYouDo: ['Arena', 'Calor', 'Ruinas'], fullItinerary: [{ day: '08:00', desc: 'Pick up and transfer to the activity.' }, { day: '10:00', desc: 'Start of Ai Apaec Trail with professional equipment.' }, { day: '14:00', desc: 'Return and end of service.' }], notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'ri-sun-line', t: 'Desierto', d: 'Ruta' }, { n: 'ri-medal-line', t: 'Moche', d: 'Meta' }], inc: ['Dorsal', 'Hidratación', 'Medalla'] },
+    { id: 214, title: 'Sierra Andina Mountain Trail', dept: 'Huaraz', cat: 'Trail Running', date: '19', month: 'JUL', img: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070', price: 200, detail: 'Carrera extrema en Matara, Áncash.', whatYouDo: ['Desnivel', 'High mountain', 'Frío'], fullItinerary: [{ day: '08:00', desc: 'Pick up and transfer to the activity.' }, { day: '10:00', desc: 'Start of Sierra Andina Mountain Trail with professional equipment.' }, { day: '14:00', desc: 'Return and end of service.' }], notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'ri-arrow-up-line', t: 'Ascenso', d: 'Paso' }, { n: 'ri-flag-checkered-line', t: 'Meta', d: 'Pueblo' }], inc: ['Dorsal', 'Cerveza SAMT', 'Medalla'] },
+    { id: 215, title: 'Desafío Manchay', dept: 'Lima', cat: 'Trail Running', date: '19', month: 'JUL', img: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=2070', price: 80, detail: 'Carrera local de cerros y arenales en Lima.', whatYouDo: ['Lomas', 'Arena', 'Ascensos cortos'], fullItinerary: [{ day: '08:00', desc: 'Pick up and transfer to the activity.' }, { day: '10:00', desc: 'Start of Desafío Manchay with professional equipment.' }, { day: '14:00', desc: 'Return and end of service.' }], notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'ri-flag-2-line', t: 'Inicio', d: 'Manchay' }, { n: 'ri-medal-line', t: 'Meta', d: 'Plaza' }], inc: ['Dorsal', 'Agua', 'Medalla'] },
+    { id: 216, title: 'Tingo María Trail', dept: 'Huánuco', cat: 'Trail Running', date: '25', month: 'JUL', img: 'https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=2070', price: 150, detail: 'Corre en la selva alta, cerca de la Bella Durmiente.', whatYouDo: ['Humedad', 'Barro', 'Vegetación'], fullItinerary: [{ day: '08:00', desc: 'Pick up and transfer to the activity.' }, { day: '10:00', desc: 'Start of Tingo María Trail with professional equipment.' }, { day: '14:00', desc: 'Return and end of service.' }], notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'ri-leaf-line', t: 'Selva', d: 'Ruta' }, { n: 'ri-medal-line', t: 'Meta', d: 'Cueva' }], inc: ['Dorsal', 'Kit supervivencia', 'Fiesta Finisher'] },
+    { id: 217, title: 'Valley Camp', dept: 'Cusco', cat: 'Expedición', date: '27', month: 'JUL', img: 'https://images.unsplash.com/photo-1522163182402-834f60b58e26?q=80&w=2070', price: 850, detail: 'Campamento de Exploradores en Urubamba.', whatYouDo: ['Supervivencia', 'Trek', 'Cultura'], fullItinerary: [{ day: '08:00', desc: 'Pick up and transfer to the activity.' }, { day: '10:00', desc: 'Start of Valley Camp with professional equipment.' }, { day: '14:00', desc: 'Return and end of service.' }], notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'ri-tent-line', t: 'Base', d: 'Valle' }, { n: 'ri-compass-line', t: 'Explorar', d: 'Montañas' }], inc: ['Carpas', 'Alimentación', 'Guías'] },
+    { id: 218, title: 'Ranking Nac. DH 3ra Válida', dept: 'Cusco', cat: 'MTB DH', date: '11', month: 'JUL', img: 'https://images.unsplash.com/photo-1544198365-f5d60b6d8190?q=80&w=2070', price: 150, detail: 'Downhill Nacional en los senderos sagrados del Cusco.', whatYouDo: ['Descenso extremo', 'Piedra inca', 'Drops'], fullItinerary: [{ day: '08:00', desc: 'Pick up and transfer to the activity.' }, { day: '10:00', desc: 'Start of Ranking Nac. DH 3ra Válida with professional equipment.' }, { day: '14:00', desc: 'Return and end of service.' }], notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'ri-arrow-down-line', t: 'Partida', d: 'Cima' }, { n: 'ri-flag-checkered-line', t: 'Llegada', d: 'Valle' }], inc: ['Remonte', 'Cronometraje', 'Seguro'] },
 
     // AGOSTO
-    { id: 219, title: 'adidas Andes Race', dept: 'Cusco', cat: 'Ultra Maratón', date: '14', month: 'AGO', img: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=2070', price: 480, detail: 'Una de las ultra maratones más exigentes del calendario andino.', whatYouDo: ['Running 100k', 'Pasos a 4500m', 'Vistas del Valle'], steps: [{ n: 'ri-flag-2-line', t: 'Partida', d: 'Valle' }, { n: 'ri-trophy-line', t: 'Meta', d: 'Ollantaytambo' }], inc: ['Kit Corredor', 'Medalla Inka', 'Seguro'] },
-    { id: 220, title: 'Ranking Nac. DH 4ta Válida', dept: 'Cajamarca', cat: 'MTB DH', date: '14', month: 'AGO', img: 'https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?q=80&w=2070', price: 150, detail: 'Downhill Nacional en Cajamarca.', whatYouDo: ['Descenso extremo', 'Tierra suelta', 'Curvas'], steps: [{ n: 'ri-arrow-down-line', t: 'Partida', d: 'Cima' }, { n: 'ri-flag-checkered-line', t: 'Llegada', d: 'Base' }], inc: ['Remonte', 'Cronometraje', 'Seguro'] },
-    { id: 221, title: 'Ranking Nac. XCO 5ta Válida', dept: 'Cusco', cat: 'MTB XCO', date: '23', month: 'AGO', img: 'https://images.unsplash.com/photo-1517604931442-7105376f7c04?q=80&w=2070', price: 140, detail: 'Penúltima fecha del circuito XCO.', whatYouDo: ['Circuito', 'Rock gardens', 'Altitud'], steps: [{ n: 'ri-riding-line', t: 'Circuito', d: 'Vueltas' }, { n: 'ri-trophy-line', t: 'Podio', d: 'Premiación' }], inc: ['Dorsal', 'Cronometraje', 'Jueces UCI'] },
+    { id: 219, title: 'adidas Andes Race', dept: 'Cusco', cat: 'Ultra Maratón', date: '14', month: 'AGO', img: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=2070', price: 480, detail: 'Una de las ultra maratones más exigentes del calendario andino.', whatYouDo: ['Running 100k', 'Pasos a 4500m', 'Vistas del Valle'], fullItinerary: [{ day: '08:00', desc: 'Pick up and transfer to the activity.' }, { day: '10:00', desc: 'Start of adidas Andes Race with professional equipment.' }, { day: '14:00', desc: 'Return and end of service.' }], notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'ri-flag-2-line', t: 'Partida', d: 'Valle' }, { n: 'ri-trophy-line', t: 'Meta', d: 'Ollantaytambo' }], inc: ['Kit Corredor', 'Medalla Inka', 'Seguro'] },
+    { id: 220, title: 'Ranking Nac. DH 4ta Válida', dept: 'Cajamarca', cat: 'MTB DH', date: '14', month: 'AGO', img: 'https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?q=80&w=2070', price: 150, detail: 'Downhill Nacional en Cajamarca.', whatYouDo: ['Descenso extremo', 'Tierra suelta', 'Curvas'], fullItinerary: [{ day: '08:00', desc: 'Pick up and transfer to the activity.' }, { day: '10:00', desc: 'Start of Ranking Nac. DH 4ta Válida with professional equipment.' }, { day: '14:00', desc: 'Return and end of service.' }], notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'ri-arrow-down-line', t: 'Partida', d: 'Cima' }, { n: 'ri-flag-checkered-line', t: 'Llegada', d: 'Base' }], inc: ['Remonte', 'Cronometraje', 'Seguro'] },
+    { id: 221, title: 'Ranking Nac. XCO 5ta Válida', dept: 'Cusco', cat: 'MTB XCO', date: '23', month: 'AGO', img: 'https://images.unsplash.com/photo-1517604931442-7105376f7c04?q=80&w=2070', price: 140, detail: 'Penúltima fecha del circuito XCO.', whatYouDo: ['Circuito', 'Rock gardens', 'Altitud'], fullItinerary: [{ day: '08:00', desc: 'Pick up and transfer to the activity.' }, { day: '10:00', desc: 'Start of Ranking Nac. XCO 5ta Válida with professional equipment.' }, { day: '14:00', desc: 'Return and end of service.' }], notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'ri-riding-line', t: 'Circuito', d: 'Vueltas' }, { n: 'ri-trophy-line', t: 'Podio', d: 'Premiación' }], inc: ['Dorsal', 'Cronometraje', 'Jueces UCI'] },
 
     // SEPTIEMBRE
-    { id: 222, title: 'Sudamericano BMX Racing', dept: 'Lima', cat: 'BMX', date: '19', month: 'SEP', img: 'https://images.unsplash.com/photo-1544198365-f5d60b6d8190?q=80&w=2070', price: 200, detail: 'Campeonato Sudamericano y Latinoamericano BMX en la Costa Verde.', whatYouDo: ['BMX Racing', 'Saltos triples', 'Competición intl'], steps: [{ n: 'ri-riding-line', t: 'Pista', d: 'Clasificación' }, { n: 'ri-trophy-line', t: 'Finales', d: 'Podio' }], inc: ['Acceso a pista', 'Seguro', 'Placa UCI'] },
-    { id: 223, title: 'Ranking Nac. DH 5ta Válida', dept: 'Lima', cat: 'MTB DH', date: '26', month: 'SEP', img: 'https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?q=80&w=2070', price: 150, detail: 'Circuito DH en Amancay.', whatYouDo: ['Roca', 'Polvo', 'Inclinación'], steps: [{ n: 'ri-arrow-down-line', t: 'Partida', d: 'Cima' }, { n: 'ri-flag-checkered-line', t: 'Meta', d: 'Pachacamac' }], inc: ['Remonte', 'Cronometraje', 'Seguro'] },
-    { id: 224, title: 'Peru Outdoor Expo', dept: 'Amazonas', cat: 'Feria B2B', date: '30', month: 'SEP', img: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=2070', price: 0, detail: 'Evento top y rueda de negocios para operadores de aventura.', whatYouDo: ['Networking', 'Equipos', 'Innovación'], steps: [{ n: 'ri-store-line', t: 'Feria', d: 'Expo' }, { n: 'ri-hand-coin-line', t: 'Negocios', d: 'B2B' }], inc: ['Credencial', 'Charlas', 'Catálogos'] },
+    { id: 222, title: 'Sudamericano BMX Racing', dept: 'Lima', cat: 'BMX', date: '19', month: 'SEP', img: 'https://images.unsplash.com/photo-1544198365-f5d60b6d8190?q=80&w=2070', price: 200, detail: 'Campeonato Sudamericano y Latinoamericano BMX en la Costa Verde.', whatYouDo: ['BMX Racing', 'Saltos triples', 'Competición intl'], fullItinerary: [{ day: '08:00', desc: 'Pick up and transfer to the activity.' }, { day: '10:00', desc: 'Start of Sudamericano BMX Racing with professional equipment.' }, { day: '14:00', desc: 'Return and end of service.' }], notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'ri-riding-line', t: 'Pista', d: 'Clasificación' }, { n: 'ri-trophy-line', t: 'Finales', d: 'Podio' }], inc: ['Acceso a pista', 'Seguro', 'Placa UCI'] },
+    { id: 223, title: 'Ranking Nac. DH 5ta Válida', dept: 'Lima', cat: 'MTB DH', date: '26', month: 'SEP', img: 'https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?q=80&w=2070', price: 150, detail: 'Circuito DH en Amancay.', whatYouDo: ['Roca', 'Polvo', 'Inclinación'], fullItinerary: [{ day: '08:00', desc: 'Pick up and transfer to the activity.' }, { day: '10:00', desc: 'Start of Ranking Nac. DH 5ta Válida with professional equipment.' }, { day: '14:00', desc: 'Return and end of service.' }], notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'ri-arrow-down-line', t: 'Partida', d: 'Cima' }, { n: 'ri-flag-checkered-line', t: 'Meta', d: 'Pachacamac' }], inc: ['Remonte', 'Cronometraje', 'Seguro'] },
+    { id: 224, title: 'Peru Outdoor Expo', dept: 'Amazonas', cat: 'Feria B2B', date: '30', month: 'SEP', img: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=2070', price: 0, detail: 'Evento top y rueda de negocios para operadores de aventura.', whatYouDo: ['Networking', 'Equipos', 'Innovación'], fullItinerary: [{ day: '08:00', desc: 'Pick up and transfer to the activity.' }, { day: '10:00', desc: 'Start of Peru Outdoor Expo with professional equipment.' }, { day: '14:00', desc: 'Return and end of service.' }], notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'ri-store-line', t: 'Feria', d: 'Expo' }, { n: 'ri-hand-coin-line', t: 'Negocios', d: 'B2B' }], inc: ['Credencial', 'Charlas', 'Catálogos'] },
 
     // OCTUBRE
-    { id: 225, title: 'MTB Pongo de Maenique', dept: 'Cusco', cat: 'MTB Extremo', date: '07', month: 'OCT', img: 'https://images.unsplash.com/photo-1544198365-f5d60b6d8190?q=80&w=2070', price: 1200, detail: 'La Película. Expedición MTB de resistencia en la selva de Cusco.', whatYouDo: ['MTB Selva', 'Supervivencia', 'Grabación'], steps: [{ n: 'ri-film-line', t: 'Shooting', d: 'Selva' }, { n: 'ri-riding-line', t: 'Travesía', d: 'Pongo' }], inc: ['Logística completa', 'Aparición en film', 'Campamentos'] },
+    { id: 225, title: 'MTB Pongo de Maenique', dept: 'Cusco', cat: 'MTB Extremo', date: '07', month: 'OCT', img: 'https://images.unsplash.com/photo-1544198365-f5d60b6d8190?q=80&w=2070', price: 1200, detail: 'La Película. Expedición MTB de resistencia en la selva de Cusco.', whatYouDo: ['MTB Selva', 'Supervivencia', 'Grabación'], fullItinerary: [{ day: '08:00', desc: 'Pick up and transfer to the activity.' }, { day: '10:00', desc: 'Start of MTB Pongo de Maenique with professional equipment.' }, { day: '14:00', desc: 'Return and end of service.' }], notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'ri-film-line', t: 'Shooting', d: 'Selva' }, { n: 'ri-riding-line', t: 'Travesía', d: 'Pongo' }], inc: ['Logística completa', 'Aparición en film', 'Campamentos'] },
 
     // NOVIEMBRE
-    { id: 226, title: 'Triatlón Paracas', dept: 'Ica', cat: 'Triatlón', date: '21', month: 'NOV', img: 'https://images.unsplash.com/photo-1522163182402-834f60b58e26?q=80&w=2070', price: 650, detail: 'Distancia Medio Ironman en la Reserva de Paracas.', whatYouDo: ['Nado 1.9k', 'Bici 90k', 'Trote 21k'], steps: [{ n: 'ri-water-flash-line', t: 'Océano', d: 'Nado' }, { n: 'ri-medal-line', t: 'Meta', d: 'Finish' }], inc: ['Gorro natación', 'Dorsal', 'Cena carbohidratos'] },
-    { id: 227, title: 'Huacho Half Marathon', dept: 'Lima', cat: 'Running', date: '22', month: 'NOV', img: 'https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=2070', price: 90, detail: 'Media maratón de asfalto en el norte chico.', whatYouDo: ['Asfalto', 'Velocidad', 'Brisas'], steps: [{ n: 'ri-flag-2-line', t: 'Inicio', d: 'Plaza' }, { n: 'ri-medal-line', t: 'Meta', d: 'Malecón' }], inc: ['Polo oficial', 'Medalla', 'Hidratación'] },
+    { id: 226, title: 'Triatlón Paracas', dept: 'Ica', cat: 'Triatlón', date: '21', month: 'NOV', img: 'https://images.unsplash.com/photo-1522163182402-834f60b58e26?q=80&w=2070', price: 650, detail: 'Distancia Medio Ironman en la Reserva de Paracas.', whatYouDo: ['Nado 1.9k', 'Bici 90k', 'Trote 21k'], fullItinerary: [{ day: '08:00', desc: 'Pick up and transfer to the activity.' }, { day: '10:00', desc: 'Start of Triatlón Paracas with professional equipment.' }, { day: '14:00', desc: 'Return and end of service.' }], notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'ri-water-flash-line', t: 'Océano', d: 'Nado' }, { n: 'ri-medal-line', t: 'Meta', d: 'Finish' }], inc: ['Gorro natación', 'Dorsal', 'Cena carbohidratos'] },
+    { id: 227, title: 'Huacho Half Marathon', dept: 'Lima', cat: 'Running', date: '22', month: 'NOV', img: 'https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=2070', price: 90, detail: 'Media maratón de asfalto en el norte chico.', whatYouDo: ['Asfalto', 'Velocidad', 'Brisas'], fullItinerary: [{ day: '08:00', desc: 'Pick up and transfer to the activity.' }, { day: '10:00', desc: 'Start of Huacho Half Marathon with professional equipment.' }, { day: '14:00', desc: 'Return and end of service.' }], notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'ri-flag-2-line', t: 'Inicio', d: 'Plaza' }, { n: 'ri-medal-line', t: 'Meta', d: 'Malecón' }], inc: ['Polo oficial', 'Medalla', 'Hidratación'] },
 
     // DICIEMBRE
-    { id: 228, title: 'Clausura Trail Cierre Temporada', dept: 'Arequipa', cat: 'Trail Running', date: '05', month: 'DIC', img: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070', price: 120, detail: 'Expedición final sin carácter competitivo. Aclimatación y confraternidad.', whatYouDo: ['Trek relajado', 'Confraternidad', 'Fogata'], steps: [{ n: 'ri-group-line', t: 'Comunidad', d: 'Ruta' }, { n: 'ri-fire-line', t: 'Fogata', d: 'Cierre' }], inc: ['Comida', 'Sorteos', 'Polo recuerdo'] }
+    { id: 228, title: 'Clausura Trail Cierre Temporada', dept: 'Arequipa', cat: 'Trail Running', date: '05', month: 'DIC', img: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070', price: 120, detail: 'Expedición final sin carácter competitivo. Aclimatación y confraternidad.', whatYouDo: ['Trek relajado', 'Confraternidad', 'Fogata'], fullItinerary: [{ day: '08:00', desc: 'Pick up and transfer to the activity.' }, { day: '10:00', desc: 'Start of Clausura Trail Cierre Temporada with professional equipment.' }, { day: '14:00', desc: 'Return and end of service.' }], notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.', steps: [{ n: 'ri-group-line', t: 'Comunidad', d: 'Ruta' }, { n: 'ri-fire-line', t: 'Fogata', d: 'Cierre' }], inc: ['Comida', 'Sorteos', 'Polo recuerdo'] }
 ];
 
 const equips = [
@@ -1799,7 +1799,7 @@ const guides = [
         exp: '15 años',
         img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1887&auto=format&fit=crop',
         desc: 'Especialista en rutas de más de 5000msnm. Certificado UIAGM.'
-    },
+    , fullItinerary: [{ day: '08:00', desc: 'Pick up and transfer to the activity.' }, { day: '10:00', desc: 'Start of Actividad with professional equipment.' }, { day: '14:00', desc: 'Return and end of service.' }], notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.'},
     {
         id: 2,
         name: 'Sarah "La Lince" Jenkins',
@@ -1808,7 +1808,7 @@ const guides = [
         exp: '8 años',
         img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop',
         desc: 'Bióloga experta en la biodiversidad de los Andes y Amazonía.'
-    },
+    , fullItinerary: [{ day: '08:00', desc: 'Pick up and transfer to the activity.' }, { day: '10:00', desc: 'Start of Actividad with professional equipment.' }, { day: '14:00', desc: 'Return and end of service.' }], notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.'},
     {
         id: 3,
         name: 'Marco "Condor" Quispe',
@@ -1817,7 +1817,7 @@ const guides = [
         exp: '20 años',
         img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop',
         desc: 'Historiador local con acceso a rutas sagradas exclusivas.'
-    },
+    , fullItinerary: [{ day: '08:00', desc: 'Pick up and transfer to the activity.' }, { day: '10:00', desc: 'Start of Actividad with professional equipment.' }, { day: '14:00', desc: 'Return and end of service.' }], notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.'},
     {
         id: 4,
         name: 'Elena "River" Tuanama',
@@ -1886,7 +1886,7 @@ const parks = [
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 55.0
-    }
+    , fullItinerary: [{ day: '08:00', desc: 'Pick up and transfer to the activity.' }, { day: '10:00', desc: 'Start of Actividad with professional equipment.' }, { day: '14:00', desc: 'Return and end of service.' }], notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.'}
 ];
 window.parks = parks;
 
