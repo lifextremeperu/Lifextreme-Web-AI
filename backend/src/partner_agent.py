@@ -45,8 +45,8 @@ async def buscar_en_base_normativa_y_comercial(ctx: RunContext[None], consulta: 
         consulta: La pregunta del partner detallada (ej: 'requisitos legales para operar canotaje', 'artículos sobre negligencia en código penal', 'guías registrados en Cusco').
     """
     try:
-        # Usamos la misma función robusta de RAG que MAX, que ahora apunta a la DB unificada
-        context = await get_rag_context(consulta)
+        # Usamos la misma función robusta de RAG que MAX, pero apuntando a la bóveda confidencial B2B
+        context = await get_rag_context(consulta, collection="Lifextreme_Partners_Vault")
         return context
     except Exception as e:
         return f"[ERROR DEL SISTEMA: No se pudo conectar a la base vectorial: {str(e)}]. Avisa al partner que operen con precaución y revisen El Peruano."

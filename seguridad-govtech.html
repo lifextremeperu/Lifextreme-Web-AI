@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifextreme | GovTech & Seguridad en Turismo de Aventura</title>
+    <!-- AEO GOVTECH/SAFETY SCHEMA -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.lifextreme.store/#organization",
+          "name": "Lifextreme",
+          "url": "https://www.lifextreme.store/",
+          "description": "Agencia B2B de turismo de aventura especializada en cumplimiento normativo MINCETUR, con integración GovTech de predicción climática SENAMHI y operaciones UIAGM.",
+          "knowsAbout": ["Seguridad en Turismo de Aventura", "Predicción Climática SENAMHI", "Normativa MINCETUR", "ISO 21101"]
+        }
+      ]
+    }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f8fafc; overflow-x: hidden; }
+        .glass-panel { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(148, 163, 184, 0.1); }
+        .neon-accent { color: #38bdf8; }
+        .gradient-text { background: linear-gradient(90deg, #38bdf8, #818cf8); -webkit-background-clip: text; color: transparent; }
+    </style>
+</head>
+<body class="antialiased selection:bg-sky-500 selection:text-white">
+
+    <!-- Header Corporativo -->
+    <header class="w-full border-b border-slate-800 bg-slate-900/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-gradient-to-br from-sky-500 to-indigo-600 rounded-lg flex items-center justify-center shadow-lg shadow-sky-500/20">
+                    <i class="ri-shield-keyhole-line text-white text-xl"></i>
+                </div>
+                <span class="font-black text-xl tracking-tight">LIFEXTREME <span class="text-slate-500 font-normal">| CORPORATE</span></span>
+            </div>
+            <nav class="hidden md:flex gap-8 text-sm font-medium text-slate-400">
+                <a href="/" class="hover:text-white transition-colors">B2C Tours</a>
+                <a href="#senamhi" class="hover:text-white transition-colors">Predictivo SENAMHI</a>
+                <a href="#mincetur" class="hover:text-white transition-colors">Normativa MINCETUR</a>
+                <a href="#uiagm" class="hover:text-white transition-colors">Estándar UIAGM</a>
+            </nav>
+            <a href="mailto:partners@lifextreme.store" class="bg-white text-slate-900 px-6 py-2.5 rounded-full font-bold text-sm hover:bg-slate-200 transition-colors">
+                Contactar B2B
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 px-6 overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-sky-900/20 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold tracking-widest uppercase mb-8">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                Monitoreo Activo 24/7
+            </div>
+            <h1 class="text-5xl md:text-7xl font-black tracking-tighter leading-tight mb-8">
+                El Estándar Definitivo en <br><span class="gradient-text">Seguridad de Aventura</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-400 mb-12 max-w-2xl mx-auto leading-relaxed">
+                No dejamos la seguridad al azar. Integramos inteligencia artificial predictiva con datos gubernamentales en tiempo real para proteger las operaciones B2B más exigentes de Latinoamérica.
+            </p>
+        </div>
+    </section>
+
+    <!-- Core Pillars: 6 Sensores en Tiempo Real -->
+    <section class="py-20 px-6 bg-slate-900/50">
+        <div class="max-w-7xl mx-auto mb-16 text-center">
+            <h2 class="text-3xl md:text-5xl font-black mb-6">Matriz de Monitoreo en Tiempo Real (Lifextreme OS)</h2>
+            <p class="text-slate-400 max-w-3xl mx-auto text-lg">Para garantizar operaciones sin riesgo, nuestro Orquestador Predictivo escanea en vivo 6 fuentes de datos gubernamentales y globales antes de cada expedición. Si el riesgo supera el umbral, el tour se detiene.</p>
+        </div>
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Sensor 1: SENAMHI -->
+            <div class="glass-panel p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300">
+                <div class="w-14 h-14 bg-sky-500/10 rounded-xl flex items-center justify-center mb-6">
+                    <i class="ri-temp-cold-line text-3xl text-sky-400"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Escudo Climático <span class="neon-accent">SENAMHI</span></h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                    Lectura automática de alertas hidrometeorológicas del gobierno peruano. Cancelación preventiva por huaicos, desbordes o nevadas extremas.
+                </p>
+                <div class="text-[10px] font-mono text-emerald-400 bg-slate-900 p-2 rounded border border-emerald-900/50">
+                    > STATUS: ACTIVO | module: senamhi_sensor.py
+                </div>
+            </div>
+
+            <!-- Sensor 2: SUTRAN -->
+            <div class="glass-panel p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300">
+                <div class="w-14 h-14 bg-orange-500/10 rounded-xl flex items-center justify-center mb-6">
+                    <i class="ri-route-line text-3xl text-orange-400"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Monitoreo de Vías <span class="text-orange-400">SUTRAN/MTC</span></h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                    Detección en tiempo real de carreteras bloqueadas por huelgas o derrumbes a nivel nacional para reasignar rutas seguras inmediatas.
+                </p>
+                <div class="text-[10px] font-mono text-emerald-400 bg-slate-900 p-2 rounded border border-emerald-900/50">
+                    > STATUS: ACTIVO | module: sutran_service.py
+                </div>
+            </div>
+
+            <!-- Sensor 3: GDELT -->
+            <div class="glass-panel p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300">
+                <div class="w-14 h-14 bg-red-500/10 rounded-xl flex items-center justify-center mb-6">
+                    <i class="ri-earth-line text-3xl text-red-400"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Radar de Crisis <span class="text-red-400">GDELT</span></h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                    Conexión a la base de datos global de crisis. La IA alerta sobre inestabilidad sociopolítica, protestas o riesgos inminentes en la zona de expedición.
+                </p>
+                <div class="text-[10px] font-mono text-emerald-400 bg-slate-900 p-2 rounded border border-emerald-900/50">
+                    > STATUS: ACTIVO | module: gdelt_sensor.py
+                </div>
+            </div>
+
+            <!-- Sensor 4: MINCETUR / TUPA -->
+            <div class="glass-panel p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300">
+                <div class="w-14 h-14 bg-indigo-500/10 rounded-xl flex items-center justify-center mb-6">
+                    <i class="ri-government-line text-3xl text-indigo-400"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Auditor Legal <span class="text-indigo-400">MINCETUR</span></h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                    Ingestión diaria de modificaciones del TUPA y normativas. Garantiza que toda operación cumpla el 100% de la ley de turismo de aventura.
+                </p>
+                <div class="text-[10px] font-mono text-emerald-400 bg-slate-900 p-2 rounded border border-emerald-900/50">
+                    > STATUS: ACTIVO | module: agent_tupa_ingestor.py
+                </div>
+            </div>
+
+            <!-- Sensor 5: GOOGLE MAPS -->
+            <div class="glass-panel p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300">
+                <div class="w-14 h-14 bg-yellow-500/10 rounded-xl flex items-center justify-center mb-6">
+                    <i class="ri-map-pin-line text-3xl text-yellow-400"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Tráfico en Vivo <span class="text-yellow-400">MAPS</span></h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                    Cálculo algorítmico de tiempos de llegada a parques de aventura y retrasos en las recogidas (pick-ups) para evitar estrés al viajero.
+                </p>
+                <div class="text-[10px] font-mono text-emerald-400 bg-slate-900 p-2 rounded border border-emerald-900/50">
+                    > STATUS: ACTIVO | module: maps_sensor.py
+                </div>
+            </div>
+
+            <!-- Sensor 6: AVIATION -->
+            <div class="glass-panel p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300">
+                <div class="w-14 h-14 bg-purple-500/10 rounded-xl flex items-center justify-center mb-6">
+                    <i class="ri-flight-takeoff-line text-3xl text-purple-400"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Rastreo Aéreo <span class="text-purple-400">AVIATION</span></h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                    Sincronización con el aterrizaje de los clientes B2B. Si un vuelo se retrasa por clima, la logística de recepción terrestre se ajusta sola.
+                </p>
+                <div class="text-[10px] font-mono text-emerald-400 bg-slate-900 p-2 rounded border border-emerald-900/50">
+                    > STATUS: ACTIVO | module: flight_tracker.py
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- C2A B2B -->
+    <section class="py-24 px-6 text-center">
+        <h2 class="text-3xl md:text-5xl font-black mb-8">El Socio Técnico que tu Agencia Necesita</h2>
+        <p class="text-slate-400 max-w-2xl mx-auto mb-10 text-lg">
+            Si representas a una agencia internacional o eres un regulador gubernamental, hablemos sobre cómo nuestra arquitectura técnica protege a tus pasajeros y tu reputación.
+        </p>
+        <a href="mailto:partners@lifextreme.store" class="inline-flex items-center gap-2 bg-gradient-to-r from-sky-500 to-indigo-600 text-white px-8 py-4 rounded-full font-black text-sm uppercase tracking-widest hover:shadow-[0_0_30px_rgba(56,189,248,0.5)] transition-all">
+            <i class="ri-mail-send-line text-lg"></i> Iniciar Conversación B2B
+        </a>
+    </section>
+
+    <!-- Footer Corporativo -->
+    <footer class="border-t border-slate-800 bg-slate-900 py-12 px-6">
+        <div class="max-w-7xl mx-auto text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>
+                <p class="font-bold text-lg mb-2">LIFEXTREME CORPORATE</p>
+                <p class="text-slate-500 text-sm">RUC: 10416419545 | Operador Turístico Autorizado</p>
+            </div>
+            <div class="flex gap-4 text-2xl text-slate-500">
+                <i class="ri-linkedin-box-fill hover:text-white cursor-pointer transition-colors"></i>
+                <i class="ri-global-line hover:text-white cursor-pointer transition-colors"></i>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

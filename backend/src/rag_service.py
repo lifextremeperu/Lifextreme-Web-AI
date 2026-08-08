@@ -41,7 +41,8 @@ async def search_knowledge(
     query: str,
     limit: int = 5,
     region: Optional[str] = None,
-    min_similarity: float = 0.3
+    min_similarity: float = 0.3,
+    collection: str = "Lifextreme_Knowledge"
 ) -> list[dict]:
     """
     Búsqueda vectorial nativa en Qdrant.
@@ -65,7 +66,7 @@ async def search_knowledge(
 
         # 3. Buscar similitud en Qdrant usando API moderna
         search_result = await qdrant_client.query_points(
-            collection_name=COLLECTION,
+            collection_name=collection,
             query=query_vector,
             query_filter=query_filter,
             limit=limit,
@@ -130,10 +131,10 @@ def format_context(chunks: list[dict]) -> str:
     return "\n\n---\n\n".join(parts)
 
 
-async def get_rag_context(query: str, region: Optional[str] = None) -> str:
+async def get_rag_context(query: str, region: Optional[str] = None, collection: str = "Lifextreme_Knowledge") -> str:
     """
     Función principal: query → contexto RAG formateado para el LLM.
     """
-    chunks = await search_knowledge(query, limit=5, region=region)
+    chunks = await search_knowledge(query, limit=5, region=region, collection=collection)
     return format_context(chunks)
 

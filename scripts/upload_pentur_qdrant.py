@@ -9,7 +9,7 @@ from qdrant_client.http.models import Distance, VectorParams, PointStruct
 
 QDRANT_URL = "http://127.0.0.1:6333"
 OLLAMA_URL = "http://localhost:11434/api/embed"
-COLLECTION = "Lifextreme_Knowledge"
+COLLECTION = "Lifextreme_Partners_Vault"
 TENANT_ID = "lifextreme"
 
 def main():

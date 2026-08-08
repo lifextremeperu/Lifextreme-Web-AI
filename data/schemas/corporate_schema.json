@@ -1,0 +1,100 @@
+{
+  "CorporateSchema": {
+    "description": "Estructura atómica para datos financieros y estratégicos corporativos confidenciales del CEO.",
+    "type": "object",
+    "properties": {
+      "document_type": {
+        "type": "string",
+        "description": "Tipo de documento (Ej: Balance, ProInnovate, Crypto Wallet, Costos Operativos)",
+        "enum": ["balance_sheet", "grant_proinnovate", "crypto_dao", "operational_costs", "b2b_contract", "strategic_plan", "other"]
+      },
+      "entity": {
+        "type": "string",
+        "description": "Entidad o socio involucrado (Ej: BCP, ProInnovate, DAO Treasury)"
+      },
+      "fqsas": {
+        "type": "array",
+        "description": "Fragmentos atómicos de conocimiento confidencial (Fact/Question/Situation/Answer)",
+        "items": {
+          "type": "object",
+          "properties": {
+            "q": {
+              "type": "string",
+              "description": "Pregunta o situación estratégica"
+            },
+            "a": {
+              "type": "string",
+              "description": "Respuesta, dato financiero exacto o métrica"
+            },
+            "metric_value": {
+              "type": "number",
+              "description": "Valor numérico si aplica (ej. monto de deuda, saldo)"
+            },
+            "currency": {
+              "type": "string",
+              "description": "Moneda de la métrica (USD, PEN, SOL, BTC)"
+            }
+          },
+          "required": ["q", "a"]
+        }
+      },
+      "security_level": {
+        "type": "string",
+        "description": "Nivel de confidencialidad",
+        "enum": ["CEO_ONLY", "BOARD_ONLY", "MANAGEMENT"],
+        "default": "CEO_ONLY"
+      }
+    },
+    "required": ["document_type", "fqsas"]
+  },
+  "ProductSchema": {
+    "description": "Estructura para analizar rentabilidad y costos B2B de los productos y tours.",
+    "type": "object",
+    "properties": {
+      "product_name": {
+        "type": "string",
+        "description": "Nombre del tour o producto B2B"
+      },
+      "unit_cost": {
+        "type": "number",
+        "description": "Costo operativo unitario real"
+      },
+      "b2c_price": {
+        "type": "number",
+        "description": "Precio de venta al público (Retail)"
+      },
+      "b2b_price": {
+        "type": "number",
+        "description": "Precio para agencias o partners (Wholesale)"
+      },
+      "profit_margin_b2c": {
+        "type": "number",
+        "description": "Margen de ganancia neto en % (B2C)"
+      },
+      "profit_margin_b2b": {
+        "type": "number",
+        "description": "Margen de ganancia neto en % (B2B)"
+      },
+      "break_even_point": {
+        "type": "number",
+        "description": "Punto de equilibrio (Pax mínimos)"
+      },
+      "fqsas": {
+        "type": "array",
+        "description": "Apuntes operativos sobre este costo",
+        "items": {
+          "type": "object",
+          "properties": {
+            "q": {
+              "type": "string"
+            },
+            "a": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "required": ["product_name", "unit_cost", "b2c_price"]
+  }
+}

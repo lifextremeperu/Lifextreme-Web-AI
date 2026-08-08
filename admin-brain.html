@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CEO Vault - Lifextreme</title>
+    <!-- Tailwind CSS para diseño rápido y moderno -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0f172a; /* slate-900 */
+            color: #e2e8f0; /* slate-200 */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .chat-container {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 1rem;
+            scroll-behavior: smooth;
+        }
+        .message {
+            max-width: 85%;
+            margin-bottom: 1rem;
+            padding: 0.75rem 1rem;
+            border-radius: 1rem;
+            animation: fadeIn 0.3s ease-out;
+            word-wrap: break-word;
+        }
+        .message.ceo {
+            background-color: #3b82f6; /* blue-500 */
+            color: white;
+            margin-left: auto;
+            border-bottom-right-radius: 0.25rem;
+        }
+        .message.ai {
+            background-color: #1e293b; /* slate-800 */
+            border: 1px solid #334155; /* slate-700 */
+            margin-right: auto;
+            border-bottom-left-radius: 0.25rem;
+        }
+        .input-area {
+            background-color: #1e293b;
+            border-top: 1px solid #334155;
+            padding: 1rem;
+            padding-bottom: max(1rem, env(safe-area-inset-bottom));
+        }
+        .mic-btn {
+            transition: all 0.2s;
+        }
+        .mic-btn.recording {
+            background-color: #ef4444; /* red-500 */
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+        }
+        
+        /* Markdown básico en el chat */
+        .message.ai strong { color: #38bdf8; }
+        .message.ai ul { margin-left: 1.5rem; list-style-type: disc; }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="bg-slate-900 border-b border-slate-800 p-4 flex items-center justify-between sticky top-0 z-10">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
+                <i class="fas fa-brain text-white"></i>
+            </div>
+            <div>
+                <h1 class="font-bold text-lg leading-tight">CEO Vault</h1>
+                <p class="text-xs text-slate-400 flex items-center gap-1">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse"></span>
+                    Conectado Seguro
+                </p>
+            </div>
+        </div>
+        <button id="toggle-tts" class="text-slate-400 hover:text-white p-2" title="Activar/Desactivar Voz de la IA">
+            <i class="fas fa-volume-up text-xl"></i>
+        </button>
+    </header>
+
+    <!-- Chat Area -->
+    <main id="chat-box" class="chat-container flex flex-col">
+        <div class="message ai">
+            <strong>Sistema CEO Iniciado.</strong><br>
+            He procesado tus documentos financieros confidenciales. ¿Qué estrategia o costo operativo deseas revisar hoy?
+        </div>
+    </main>
+
+    <!-- Input Area -->
+    <footer class="input-area">
+        <form id="chat-form" class="flex items-end gap-2 relative">
+            
+            <button type="button" id="mic-btn" class="mic-btn flex-shrink-0 w-12 h-12 rounded-full bg-slate-700 hover:bg-slate-600 text-white flex items-center justify-center text-xl shadow-lg">
+                <i class="fas fa-microphone"></i>
+            </button>
+
+            <div class="flex-grow relative">
+                <textarea id="user-input" rows="1" class="w-full bg-slate-800 border border-slate-600 text-white rounded-2xl py-3 px-4 pr-12 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 resize-none overflow-hidden block" placeholder="Pregunta algo..." style="min-height: 48px; max-height: 120px;"></textarea>
+            </div>
+
+            <button type="submit" class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 hover:bg-blue-500 text-white flex items-center justify-center shadow-lg shadow-blue-500/30 transition-colors">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </form>
+    </footer>
+
+    <script>
+        const chatBox = document.getElementById('chat-box');
+        const chatForm = document.getElementById('chat-form');
+        const userInput = document.getElementById('user-input');
+        const micBtn = document.getElementById('mic-btn');
+        const toggleTtsBtn = document.getElementById('toggle-tts');
+        
+        let isRecording = false;
+        let ttsEnabled = true; // Por defecto la IA hablará
+        let recognition = null;
+        let synthesis = window.speechSynthesis;
+
+        // Auto-resize textarea
+        userInput.addEventListener('input', function() {
+            this.style.height = '48px';
+            this.style.height = (this.scrollHeight) + 'px';
+        });
+
+        // Configurar Voz (Speech to Text)
+        if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            recognition = new SpeechRecognition();
+            recognition.continuous = false;
+            recognition.interimResults = true;
+            recognition.lang = 'es-ES'; // Español
+
+            recognition.onstart = function() {
+                isRecording = true;
+                micBtn.classList.add('recording');
+                micBtn.innerHTML = '<i class="fas fa-stop"></i>';
+                userInput.placeholder = "Escuchando...";
+            };
+
+            recognition.onresult = function(event) {
+                let interimTranscript = '';
+                let finalTranscript = '';
+
+                for (let i = event.resultIndex; i < event.results.length; ++i) {
+                    if (event.results[i].isFinal) {
+                        finalTranscript += event.results[i][0].transcript;
+                    } else {
+                        interimTranscript += event.results[i][0].transcript;
+                    }
+                }
+                
+                if (finalTranscript !== '') {
+                    userInput.value = finalTranscript;
+                    // Auto enviar al terminar de hablar
+                    setTimeout(() => chatForm.dispatchEvent(new Event('submit')), 500);
+                } else {
+                    userInput.value = interimTranscript;
+                }
+            };
+
+            recognition.onerror = function(event) {
+                console.error("Error de voz:", event.error);
+                stopRecording();
+            };
+
+            recognition.onend = function() {
+                stopRecording();
+            };
+        } else {
+            micBtn.style.display = 'none';
+            console.warn("API de reconocimiento de voz no soportada en este navegador.");
+        }
+
+        function stopRecording() {
+            isRecording = false;
+            micBtn.classList.remove('recording');
+            micBtn.innerHTML = '<i class="fas fa-microphone"></i>';
+            userInput.placeholder = "Pregunta algo...";
+        }
+
+        micBtn.addEventListener('click', () => {
+            if (isRecording) {
+                recognition.stop();
+            } else {
+                userInput.value = "";
+                // Detener audio reproduciendose si hay
+                synthesis.cancel(); 
+                recognition.start();
+            }
+        });
+
+        // Configurar Toggle TTS (Text to Speech)
+        toggleTtsBtn.addEventListener('click', () => {
+            ttsEnabled = !ttsEnabled;
+            if (ttsEnabled) {
+                toggleTtsBtn.innerHTML = '<i class="fas fa-volume-up text-xl text-blue-400"></i>';
+                synthesis.cancel(); // Parar cualquier audio actual
+            } else {
+                toggleTtsBtn.innerHTML = '<i class="fas fa-volume-mute text-xl"></i>';
+                synthesis.cancel();
+            }
+        });
+
+        function speak(text) {
+            if (!ttsEnabled || !synthesis) return;
+            synthesis.cancel(); // Cortar anterior
+            
+            // Limpiar texto de formato markdown y asteriscos para que se lea mejor
+            let cleanText = text.replace(/[*_#]/g, '').replace(/```[\s\S]*?```/g, 'bloque de código omitido');
+            
+            const utterance = new SpeechSynthesisUtterance(cleanText);
+            utterance.lang = 'es-ES';
+            utterance.rate = 1.05; // Un poco más rápido para dinamismo
+            utterance.pitch = 1.0;
+            
+            // Intentar buscar voz de google o de alta calidad en español
+            let voices = synthesis.getVoices();
+            let esVoice = voices.find(v => v.lang.includes('es') && (v.name.includes('Google') || v.name.includes('Microsoft')));
+            if(esVoice) utterance.voice = esVoice;
+
+            synthesis.speak(utterance);
+        }
+
+        // Sistema de Chat
+        function addMessage(text, sender) {
+            const div = document.createElement('div');
+            div.className = `message ${sender}`;
+            
+            // Formateo muy básico para negritas
+            let formattedText = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            formattedText = formattedText.replace(/\n/g, '<br>');
+            
+            div.innerHTML = formattedText;
+            chatBox.appendChild(div);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        chatForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const text = userInput.value.trim();
+            if (!text) return;
+
+            addMessage(text, 'ceo');
+            userInput.value = '';
+            userInput.style.height = '48px';
+            
+            // Detener que la IA hable para no pisarse con la nueva pregunta
+            synthesis.cancel();
+
+            // Mensaje temporal de carga
+            const loadingId = 'loading-' + Date.now();
+            const div = document.createElement('div');
+            div.id = loadingId;
+            div.className = `message ai`;
+            div.innerHTML = '<i class="fas fa-circle-notch fa-spin text-blue-500"></i> Analizando bóveda...';
+            chatBox.appendChild(div);
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            try {
+                // Cambiar esta IP a la IP local de tu laptop (ej. 192.168.1.XX) si accedes desde celular
+                const response = await fetch('http://localhost:8001/api/ceo-chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ prompt: text })
+                });
+                
+                const data = await response.json();
+                
+                // Remover loading
+                document.getElementById(loadingId).remove();
+                
+                addMessage(data.response, 'ai');
+                speak(data.response); // Hablar la respuesta
+                
+            } catch (error) {
+                document.getElementById(loadingId).remove();
+                const errorMsg = "Error conectando al cerebro CEO. Verifica que `scripts/ceo_backend.py` esté corriendo en el puerto 8001.";
+                addMessage(errorMsg, 'ai');
+                console.error(error);
+            }
+        });
+        
+        // Cargar voces al inicio para que estén listas
+        window.speechSynthesis.onvoiceschanged = function() {
+            window.speechSynthesis.getVoices();
+        };
+    </script>
+</body>
+</html>
