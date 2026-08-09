@@ -77,7 +77,7 @@ async def search_knowledge(
         results = []
         for scored_point in search_result.points:
             payload = scored_point.payload or {}
-            tier = payload.get("tier", 3)
+            tier = int(payload.get("tier", 3))
             
             # Mathematical Boosting
             multiplier = 1.0

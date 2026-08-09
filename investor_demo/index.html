@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Lifextreme IA - Demo Corporativa</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        lxRed: '#de1c2f',
+                        lxDark: '#0f0f11',
+                        lxPanel: '#1a1a1f',
+                        lxText: '#e2e8f0',
+                        lxMuted: '#94a3b8'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f0f11;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(222, 28, 47, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(222, 28, 47, 0.1) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: #e2e8f0;
+            overscroll-behavior-y: none;
+        }
+
+        .glass-panel {
+            background: rgba(26, 26, 31, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Ocultar barra de scroll para estética limpia */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+        
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .chat-history {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 1.5rem 1rem;
+            scroll-behavior: smooth;
+        }
+
+        .message-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 1.5rem;
+            animation: fadeIn 0.4s ease-out forwards;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        .message-row.user { flex-direction: row-reverse; }
+
+        @keyframes fadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        
+        .avatar.ai { background: linear-gradient(135deg, #de1c2f, #991220); color: white; border: 1px solid rgba(255,255,255,0.2); }
+        .avatar.user { background: #2d2d3a; color: white; border: 1px solid rgba(255,255,255,0.1); }
+
+        .bubble {
+            padding: 1rem 1.2rem;
+            border-radius: 18px;
+            max-width: 85%;
+            line-height: 1.5;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .bubble.ai {
+            background-color: #1a1a1f;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-top-left-radius: 4px;
+        }
+
+        .bubble.user {
+            background: linear-gradient(135deg, #2d2d3a, #1f1f28);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-top-right-radius: 4px;
+        }
+
+        .input-area {
+            padding: 1rem;
+            padding-bottom: env(safe-area-inset-bottom, 1rem); /* iPhone X notch support */
+            position: relative;
+        }
+
+        .input-wrapper {
+            display: flex;
+            align-items: flex-end;
+            background: #1a1a1f;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 24px;
+            padding: 0.5rem 0.5rem 0.5rem 1.2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: border-color 0.3s;
+        }
+
+        .input-wrapper:focus-within { border-color: #de1c2f; }
+
+        textarea {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: white;
+            outline: none;
+            resize: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            padding: 0.5rem 0;
+            max-height: 120px;
+            line-height: 1.5;
+        }
+
+        textarea::placeholder { color: #64748b; }
+
+        .btn-send {
+            background: linear-gradient(135deg, #de1c2f, #b31626);
+            border: none;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: white;
+            transition: transform 0.2s, box-shadow 0.2s;
+            flex-shrink: 0;
+            margin-left: 10px;
+        }
+
+        .btn-send:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(222, 28, 47, 0.4);
+        }
+
+        .btn-send:active { transform: scale(0.95); }
+
+        .suggestions {
+            display: flex;
+            overflow-x: auto;
+            gap: 0.75rem;
+            padding-bottom: 1rem;
+            margin-bottom: 0.5rem;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .suggestions::-webkit-scrollbar { display: none; }
+
+        .suggestion-chip {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 0.6rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            color: #cbd5e1;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .suggestion-chip:hover, .suggestion-chip:active {
+            background: rgba(222, 28, 47, 0.15);
+            border-color: #de1c2f;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .loader {
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            display: none;
+        }
+
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        .typing-indicator {
+            display: inline-flex;
+            gap: 4px;
+            align-items: center;
+            height: 24px;
+        }
+
+        .dot {
+            width: 6px;
+            height: 6px;
+            background: #94a3b8;
+            border-radius: 50%;
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+
+        .dot:nth-child(1) { animation-delay: -0.32s; }
+        .dot:nth-child(2) { animation-delay: -0.16s; }
+
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+
+        .sources-box {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.75rem;
+            color: #64748b;
+        }
+        
+        .sources-box span { color: #de1c2f; font-weight: 600; }
+
+        /* Modal Settings */
+        #settingsModal {
+            position: fixed; top:0; left:0; width:100%; height:100%;
+            background: rgba(0,0,0,0.8); backdrop-filter: blur(5px);
+            z-index: 50; display: none; align-items: center; justify-content: center;
+        }
+        .modal-content {
+            background: #1a1a1f; padding: 2rem; border-radius: 1rem; width: 90%; max-width: 400px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+    </style>
+</head>
+<body>
+
+<div class="chat-container">
+    
+    <!-- Header Premium -->
+    <header class="glass-panel flex items-center justify-between px-4 py-3 sticky top-0 z-10">
+        <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded bg-gradient-to-br from-lxRed to-red-900 flex items-center justify-center shadow-lg">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <div>
+                <h1 class="font-heading font-bold text-lg text-white leading-tight">Lifextreme Brain</h1>
+                <p class="text-[10px] text-lxMuted uppercase tracking-widest font-semibold flex items-center gap-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-green-500 inline-block animate-pulse"></span>
+                    Sistema RAG En Línea
+                </p>
+            </div>
+        </div>
+        <button onclick="toggleSettings()" class="text-lxMuted hover:text-white transition">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"></path></svg>
+        </button>
+    </header>
+
+    <!-- Chat Area -->
+    <main class="chat-history" id="chatHistory">
+        <div class="message-row ai">
+            <div class="avatar ai">LX</div>
+            <div class="bubble ai">
+                ¡Hola! Soy la Inteligencia Artificial Corporativa de Lifextreme. 🤖<br><br>
+                He procesado más de <b>330,000 vectores</b> de leyes del MINCETUR, reglamentos de SERNANP, políticas tarifarias globales y manuales de rescate.<br><br>
+                Tócame a prueba. Haz clic en una sugerencia o escribe tu consulta.
+            </div>
+        </div>
+    </main>
+
+    <!-- Bottom Input -->
+    <footer class="input-area glass-panel">
+        <div class="suggestions" id="suggestionsBox">
+            <div class="suggestion-chip" onclick="setQuery('Si vendo mi paquete de selva más barato en mi web que en Booking.com, ¿hay penalidad?')">
+                📉 Precios Booking
+            </div>
+            <div class="suggestion-chip" onclick="setQuery('¿Es legal hacer canotaje en el río Colca si el SENAMHI lanza alerta roja?')">
+                🚣‍♂️ Ley Canotaje Colca
+            </div>
+            <div class="suggestion-chip" onclick="setQuery('¿Se requiere guía oficial de alta montaña UIAGM para expediciones en Huaraz a más de 5000msnm?')">
+                🏔️ Guías Huaraz UIAGM
+            </div>
+            <div class="suggestion-chip" onclick="setQuery('¿Qué protocolos médicos exigen en la Catarata Gocta?')">
+                🩺 Catarata Gocta
+            </div>
+        </div>
+
+        <form id="chatForm" onsubmit="sendMessage(event)" class="relative">
+            <div class="input-wrapper">
+                <textarea id="userInput" rows="1" placeholder="Consulta al Cerebro Lifextreme..." oninput="autoResize(this)" onkeydown="handleEnter(event)"></textarea>
+                <button type="submit" class="btn-send" id="sendBtn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" id="sendIcon"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                    <div class="loader" id="loader"></div>
+                </button>
+            </div>
+        </form>
+    </footer>
+</div>
+
+<!-- Modal Config (For Ngrok/Server URL) -->
+<div id="settingsModal">
+    <div class="modal-content">
+        <h2 class="font-heading font-bold text-xl mb-4 text-white">Configuración del Cerebro</h2>
+        <p class="text-sm text-lxMuted mb-4">Para probar en el móvil, tu computadora debe exponer el puerto 8001 a internet usando <b>Ngrok</b>.</p>
+        <label class="block text-xs font-semibold text-lxMuted uppercase tracking-wider mb-2">URL del Servidor API (Ngrok)</label>
+        <input type="text" id="apiUrlInput" class="w-full bg-lxDark border border-gray-700 rounded p-2 text-white mb-4 outline-none focus:border-lxRed" value="http://127.0.0.1:8001/chat">
+        <div class="flex justify-end gap-3">
+            <button onclick="toggleSettings()" class="px-4 py-2 rounded text-sm text-gray-400 hover:text-white">Cancelar</button>
+            <button onclick="saveSettings()" class="px-4 py-2 rounded text-sm bg-lxRed text-white font-semibold hover:bg-red-700">Guardar</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Recuperar URL del servidor de localStorage si existe
+    let API_URL = localStorage.getItem('lx_api_url') || "http://127.0.0.1:8001/chat";
+    document.getElementById('apiUrlInput').value = API_URL;
+
+    // Expandir Textarea automáticamente
+    function autoResize(el) {
+        el.style.height = 'auto';
+        el.style.height = Math.min(el.scrollHeight, 120) + 'px';
+    }
+
+    function handleEnter(e) {
+        if(e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            document.getElementById('chatForm').dispatchEvent(new Event('submit', {cancelable: true}));
+        }
+    }
+
+    function setQuery(text) {
+        const input = document.getElementById("userInput");
+        input.value = text;
+        autoResize(input);
+        document.getElementById("chatForm").dispatchEvent(new Event("submit", {cancelable: true}));
+    }
+
+    function toggleSettings() {
+        const modal = document.getElementById('settingsModal');
+        modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
+    }
+
+    function saveSettings() {
+        API_URL = document.getElementById('apiUrlInput').value.trim();
+        localStorage.setItem('lx_api_url', API_URL);
+        toggleSettings();
+    }
+
+    async function sendMessage(e) {
+        e.preventDefault();
+        const input = document.getElementById("userInput");
+        const message = input.value.trim();
+        if (!message) return;
+
+        input.value = '';
+        input.style.height = 'auto';
+        
+        // Hide suggestions once chat starts
+        document.getElementById('suggestionsBox').style.display = 'none';
+        
+        addMessage(message, 'user');
+        
+        // UI Loading state
+        const sendIcon = document.getElementById('sendIcon');
+        const loader = document.getElementById('loader');
+        const sendBtn = document.getElementById('sendBtn');
+        sendIcon.style.display = 'none';
+        loader.style.display = 'block';
+        sendBtn.disabled = true;
+        
+        const typingId = addTypingIndicator();
+
+        try {
+            const response = await fetch(API_URL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ message: message })
+            });
+
+            removeElement(typingId);
+
+            if (!response.ok) throw new Error("Error HTTP");
+            
+            const data = await response.json();
+            addMessage(data.mensaje_principal || "No pude generar una respuesta.", 'ai', data.fuentes_utilizadas);
+
+        } catch (error) {
+            removeElement(typingId);
+            addMessage("⚠️ **Error de conexión.** Si estás en tu celular, recuerda ejecutar `ngrok http 8001` en tu PC y colocar el enlace HTTPS (Ngrok) en la configuración de la app (icono de engranaje arriba a la derecha).", 'ai');
+        } finally {
+            sendIcon.style.display = 'block';
+            loader.style.display = 'none';
+            sendBtn.disabled = false;
+        }
+    }
+
+    function addTypingIndicator() {
+        const id = 'typing-' + Date.now();
+        const history = document.getElementById("chatHistory");
+        history.insertAdjacentHTML('beforeend', `
+            <div class="message-row ai" id="${id}">
+                <div class="avatar ai">LX</div>
+                <div class="bubble ai">
+                    <div class="typing-indicator">
+                        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                    </div>
+                </div>
+            </div>
+        `);
+        scrollToBottom();
+        return id;
+    }
+
+    function removeElement(id) {
+        const el = document.getElementById(id);
+        if(el) el.remove();
+    }
+
+    function addMessage(text, sender, sources = []) {
+        const history = document.getElementById("chatHistory");
+        const formattedText = text.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+        
+        let sourcesHtml = '';
+        if (sender === 'ai' && sources && sources.length > 0) {
+            sourcesHtml = `<div class="sources-box"><span>📚 Origen:</span> ${sources.join(', ')}</div>`;
+        }
+
+        history.insertAdjacentHTML('beforeend', `
+            <div class="message-row ${sender}">
+                <div class="avatar ${sender}">${sender === 'user' ? 'TÚ' : 'LX'}</div>
+                <div class="bubble ${sender}">
+                    ${formattedText}
+                    ${sourcesHtml}
+                </div>
+            </div>
+        `);
+        scrollToBottom();
+    }
+
+    function scrollToBottom() {
+        const history = document.getElementById("chatHistory");
+        history.scrollTop = history.scrollHeight;
+    }
+</script>
+
+</body>
+</html>
