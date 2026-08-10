@@ -134,6 +134,8 @@ def init_leads_db():
     conn.close()
     print("[✓] Base de datos de leads lista.")
 
+# Auto-inicializar al importar (bridge no ejecuta __main__)
+init_leads_db()
 
 def registrar_lead(telefono: str, destino: str = None, nombre: str = None) -> int:
     """Registra o actualiza un lead en la base de datos."""

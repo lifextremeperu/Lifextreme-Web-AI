@@ -113,34 +113,53 @@ async def recibir_webhook(request: Request):
         raise HTTPException(status_code=400, detail="JSON inválido")
 
     evento = data.get("event", "")
-    print(f"\n[📨] Evento recibido: {evento}")
+    print(f"\n[MSG] Evento recibido: {evento}")
 
-    # ── Solo procesar mensajes nuevos entrantes
-    if evento != "messages.upsert":
+    # ── Solo eventos de mensajes
+    EVENTOS_MENSAJE = {"messages.upsert", "messages.set", "MESSAGES_UPSERT"}
+    if evento not in EVENTOS_MENSAJE:
         return JSONResponse({"status": "ignorado", "evento": evento})
+
+    # ── Normalizar: messages.set trae lista, messages.upsert trae dict
+    raw_data = data.get("data", {})
+
+    # Si es messages.set → lista de mensajes historicos (ignorar fromMe y viejos)
+    if isinstance(raw_data, list):
+        mensajes_nuevos = [
+            m for m in raw_data
+            if not m.get("key", {}).get("fromMe", True)
+               and m.get("message", {})
+        ]
+        if not mensajes_nuevos:
+            return JSONResponse({"status": "ignorado", "razon": "solo_historicos_o_propios"})
+        mensaje_data = mensajes_nuevos[-1]   # tomar el mas reciente
+        print(f"   [INFO] messages.set con {len(mensajes_nuevos)} mensaje(s) entrante(s)")
+    else:
+        mensaje_data = raw_data
+
+    # ── Log debug
+    import json as _json
+    print(f"   [DEBUG] mensaje_data: {_json.dumps(mensaje_data)[:300]}")
 
     # ── Extraer datos del mensaje
     try:
-        mensaje_data = data.get("data", {})
-        key          = mensaje_data.get("key", {})
-        from_me      = key.get("fromMe", False)
-        remote_jid   = key.get("remoteJid", "")  # Ej: "51987654321@s.whatsapp.net"
-        numero_raw   = remote_jid.replace("@s.whatsapp.net", "").replace("@g.us", "")
+        key       = mensaje_data.get("key", {})
+        from_me   = key.get("fromMe", False)
+        remote_jid = key.get("remoteJid", "")
+        numero_raw = remote_jid.replace("@s.whatsapp.net", "").replace("@g.us", "")
 
-        # ── Ignorar mensajes propios y grupos
         if from_me:
             print(f"   [→] Mensaje propio ignorado.")
             return JSONResponse({"status": "ignorado", "razon": "fromMe"})
 
         if "@g.us" in remote_jid:
-            print(f"   [→] Mensaje de grupo ignorado.")
+            print(f"   [→] Grupo ignorado.")
             return JSONResponse({"status": "ignorado", "razon": "grupo"})
 
         if numero_raw in NUMEROS_IGNORAR:
-            print(f"   [→] Número en lista de ignorados: {numero_raw}")
+            print(f"   [→] Numero bloqueado: {numero_raw}")
             return JSONResponse({"status": "ignorado", "razon": "numero_bloqueado"})
 
-        # ── Extraer texto del mensaje
         message = mensaje_data.get("message", {})
         texto = (
             message.get("conversation")
@@ -150,17 +169,14 @@ async def recibir_webhook(request: Request):
         ).strip()
 
         if not texto:
-            print(f"   [→] Mensaje sin texto (imagen/audio/sticker) — ignorado.")
+            print(f"   [→] Sin texto (imagen/audio/sticker) — ignorado.")
             return JSONResponse({"status": "ignorado", "razon": "sin_texto"})
 
-        # ── Extraer nombre del contacto (si disponible)
         push_name = mensaje_data.get("pushName", "Turista")
-
-        print(f"   [👤] De: {numero_raw} ({push_name})")
-        print(f"   [💬] Mensaje: {texto[:100]}")
+        print(f"   [CLIENTE] {numero_raw} ({push_name}): {texto[:100]}")
 
     except Exception as e:
-        print(f"   [!] Error extrayendo datos del webhook: {e}")
+        print(f"   [!] Error extrayendo datos: {e}")
         return JSONResponse({"status": "error", "detalle": str(e)})
 
     # ── Llamar a LUCA de forma asíncrona
