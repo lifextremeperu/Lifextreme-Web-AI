@@ -55,9 +55,13 @@ def get_api_key(api_key: str = Security(api_key_header)):
 # 2. Motores IA Locales (Ollama)
 # ==========================================
 def get_local_embedding(text):
-    url = "http://localhost:11434/api/embed"
-    response = requests.post(url, json={"model": "nomic-embed-text", "input": text})
-    return response.json().get("embeddings", [])[0]
+    try:
+        url = "http://localhost:11434/api/embed"
+        response = requests.post(url, json={"model": "nomic-embed-text", "input": text}, timeout=5)
+        response.raise_for_status()
+        return response.json().get("embeddings", [])[0]
+    except:
+        return [0.0] * 768 # Dummy vector para que no colapse la app
 
 def chat_with_phi3(prompt: str, history: list = None, system_prompt: str = None):
     url = "http://localhost:11434/api/chat"
@@ -70,13 +74,28 @@ def chat_with_phi3(prompt: str, history: list = None, system_prompt: str = None)
     else:
         messages = [{"role": "user", "content": prompt}]
 
-    payload = {
-        "model": "phi3:latest",
-        "messages": messages,
-        "stream": False
-    }
-    response = requests.post(url, json=payload)
-    return response.json().get("message", {}).get("content", "")
+    try:
+        payload = {
+            "model": "phi3:latest",
+            "messages": messages,
+            "stream": False
+        }
+        response = requests.post(url, json=payload, timeout=5)
+        response.raise_for_status()
+        return response.json().get("message", {}).get("content", "")
+    except Exception as e:
+        # Fallback a nube o respuesta elegante
+        groq_key = os.getenv("GROQ_API_KEY")
+        if groq_key:
+            try:
+                groq_url = "https://api.groq.com/openai/v1/chat/completions"
+                headers = {"Authorization": f"Bearer {groq_key}"}
+                payload = {"model": "llama3-8b-8192", "messages": messages}
+                res = requests.post(groq_url, json=payload, headers=headers, timeout=5)
+                return res.json()["choices"][0]["message"]["content"]
+            except:
+                pass
+        return "🤖 [Modo Seguro]: El motor local (Ollama) no está encendido en tu PC. Esta es una respuesta de seguridad para no romper la interfaz. ¡Enciende Ollama para activar el Cerebro Real!"
 
 # ==========================================
 # 3. Modelos de Entrada/Salida

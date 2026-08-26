@@ -226,7 +226,7 @@
         const chatWindow = document.getElementById('chat-window');
         const chatInput = document.getElementById('chat-input');
 
-        window.sendUserMsg = (text) => {
+        window.sendUserMsg = async (text) => {
             // Eliminar opciones rápidas si existen
             const quickOptions = document.querySelector('.flex.flex-wrap.gap-2.pl-11');
             if(quickOptions) quickOptions.remove();
@@ -244,10 +244,38 @@
             chatWindow.scrollTop = chatWindow.scrollHeight;
 
             // Simular "Escribiendo..."
-            setTimeout(() => {
-                const query = text.toLowerCase().trim();
-                const responseText = aiResponses[query] || aiResponses['default'];
+            const typingId = "typing-" + Date.now();
+            const typingHTML = `
+                <div id="${typingId}" class="flex gap-3 max-w-[90%] mt-2">
+                    <div class="w-8 h-8 rounded-full bg-blue-100 flex-shrink-0 flex items-center justify-center text-blue-600">
+                        <i class="ri-robot-2-fill text-sm"></i>
+                    </div>
+                    <div class="chat-bubble-ai p-3.5 text-sm shadow-sm border border-slate-100 text-slate-400">
+                        Conectando con el Cerebro...
+                    </div>
+                </div>
+            `;
+            chatWindow.insertAdjacentHTML('beforeend', typingHTML);
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+
+            try {
+                const response = await fetch('http://localhost:8000/api/v1/b2c/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ message: text, history: [] })
+                });
                 
+                let responseText = "";
+                if (response.ok) {
+                    const data = await response.json();
+                    responseText = data.mensaje_principal;
+                } else {
+                    responseText = "Error de conexión con el Cerebro (Status: " + response.status + "). Asegúrate de que los contenedores de Docker estén corriendo correctamente.";
+                }
+
+                document.getElementById(typingId).remove();
                 const aiMsgHTML = `
                     <div class="flex gap-3 max-w-[90%] mt-2">
                         <div class="w-8 h-8 rounded-full bg-blue-100 flex-shrink-0 flex items-center justify-center text-blue-600">
@@ -260,7 +288,21 @@
                 `;
                 chatWindow.insertAdjacentHTML('beforeend', aiMsgHTML);
                 chatWindow.scrollTop = chatWindow.scrollHeight;
-            }, 800);
+            } catch (err) {
+                document.getElementById(typingId).remove();
+                const errorHTML = `
+                    <div class="flex gap-3 max-w-[90%] mt-2">
+                        <div class="w-8 h-8 rounded-full bg-red-100 flex-shrink-0 flex items-center justify-center text-red-600">
+                            <i class="ri-error-warning-fill text-sm"></i>
+                        </div>
+                        <div class="chat-bubble-ai p-3.5 text-sm shadow-sm border border-red-200 text-red-600">
+                            No se pudo contactar al Cerebro de IA. Verifica que el servidor FastAPI esté encendido en el puerto 8000.
+                        </div>
+                    </div>
+                `;
+                chatWindow.insertAdjacentHTML('beforeend', errorHTML);
+                chatWindow.scrollTop = chatWindow.scrollHeight;
+            }
         };
 
         window.handleInput = () => {

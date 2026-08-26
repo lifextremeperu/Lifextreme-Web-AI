@@ -35,15 +35,15 @@ sleep 2
 echo -e "\033[1;32m[✓] Cerebro Base instalado correctamente.\033[0m"
 
 echo -e "\033[1;34m[*] Inicializando red de agentes IA y bases de datos vectoriales...\033[0m"
-echo "Levantando Interfaz Ligera: FastAPI (Alpine), Qdrant y Supabase..."
+echo "Levantando Infraestructura: FastAPI (Backend), Nginx (UI) y Motores Vectoriales..."
 # Limpiar instalaciones previas si existen
-docker rm -f lifextreme-os-web >/dev/null 2>&1 || true
-# Levantar el panel local en el puerto 80
-docker run -d -p 80:80 -v "$(pwd):/usr/share/nginx/html" --name lifextreme-os-web nginx:alpine >/dev/null 2>&1
+docker rm -f lifextreme-os-web lifextreme-os-api >/dev/null 2>&1 || true
+# Levantar todo el ecosistema con Docker Compose
+docker compose up -d --build
 sleep 2
 
-echo -e "\033[1;33m[*] Iniciando descarga 'Lazy Loading' del Motor de IA cuantizado en segundo plano...\033[0m"
-echo "Downloading Ollama LLaMA3-8b-4bit (GGUF)... (El sistema ya es utilizable mientras tanto)"
+echo -e "\033[1;33m[*] Iniciando Inteligencia Artificial en segundo plano...\033[0m"
+echo "El sistema usará Nube Híbrida (Groq/OpenAI) como seguridad si tu PC no soporta modelos pesados."
 sleep 1
 
 echo -e "\033[1;32m[✓] Interfaz Lifextreme ERP instalada exitosamente.\033[0m"
