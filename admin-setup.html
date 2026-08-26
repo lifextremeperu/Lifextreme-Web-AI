@@ -1,80 +1,270 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
-    <meta name="description" content="Descubre Perú con Lifextreme: tours de alta montaña, trekking en la selva y deportes acuáticos en la costa. Guías profesionales y planes diseñados para extranjeros y viajeros peruanos.">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Turismo de Aventura en Perú – Lifextreme | Guías Expertas y Tours a Medida</title>
+    <title>Lifextreme OS - Setup & Onboarding</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" integrity="sha384-2+8OcleUOxnP/2cYXK9FBoMe12ojS0iPrrJy9Um4ICFk2AXl8iODUaIoUKI6TmGj" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .glass-panel { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border: 1px solid rgba(15, 23, 42, 0.05); }
+        .chat-bubble-ai { background: #f1f5f9; color: #0f172a; border-radius: 16px 16px 16px 4px; }
+        .chat-bubble-user { background: #3b82f6; color: white; border-radius: 16px 16px 4px 16px; }
+        .pulse-dot { animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); } 70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); } 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); } }
+        /* Custom scrollbar for chat */
+        #chat-window::-webkit-scrollbar { width: 6px; }
+        #chat-window::-webkit-scrollbar-track { background: transparent; }
+        #chat-window::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    </style>
 </head>
 
-<body class="bg-gray-900 text-white min-h-screen flex items-center justify-center">
+<body class="text-slate-800 min-h-screen flex flex-col">
 
-    <div class="bg-gray-800 p-8 rounded-3xl shadow-2xl max-w-lg w-full text-center border border-gray-700">
-        <div
-            class="w-20 h-20 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-emerald-500/20">
-            <i class="ri-database-2-fill text-4xl text-white"></i>
+    <!-- Top Navigation -->
+    <nav class="bg-white border-b border-slate-200 px-6 py-4 flex justify-between items-center sticky top-0 z-10">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center shadow-md">
+                <i class="ri-rocket-2-fill text-xl text-white"></i>
+            </div>
+            <div>
+                <h1 class="text-xl font-black text-slate-900 tracking-tight leading-none">Lifextreme OS</h1>
+                <span class="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">Setup Mode Activo</span>
+            </div>
+        </div>
+        
+        <div class="flex items-center gap-4">
+            <!-- Control de Versión y OTA -->
+            <div class="flex items-center gap-2 bg-slate-50 border border-slate-200 px-4 py-2 rounded-full shadow-sm">
+                <div class="w-2.5 h-2.5 bg-emerald-500 rounded-full pulse-dot"></div>
+                <span class="text-sm font-semibold text-slate-700">Versión 1.0 (Actualizada)</span>
+                <button class="ml-2 text-blue-600 hover:text-blue-800 text-sm font-bold flex items-center gap-1 transition-colors">
+                    <i class="ri-refresh-line"></i> Buscar Updates
+                </button>
+            </div>
+            <div class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center border border-slate-200 cursor-pointer hover:bg-slate-200 relative">
+                <i class="ri-notification-3-line text-slate-600"></i>
+                <span class="absolute top-0 right-0 w-3 h-3 bg-red-500 rounded-full border-2 border-white"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Grid -->
+    <main class="flex-1 max-w-7xl w-full mx-auto p-6 grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- COLUMNA IZQUIERDA: ASISTENTE IA (4 columnas) -->
+        <div class="lg:col-span-4 flex flex-col h-[calc(100vh-120px)] glass-panel rounded-2xl shadow-lg overflow-hidden flex flex-col">
+            <!-- Header Chat -->
+            <div class="bg-white border-b border-slate-100 p-4 flex items-center gap-3">
+                <div class="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white shadow-md relative">
+                    <i class="ri-robot-2-fill text-2xl"></i>
+                    <div class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-emerald-500 rounded-full border-2 border-white"></div>
+                </div>
+                <div>
+                    <h3 class="font-bold text-slate-900 text-lg leading-tight">MAX Agent</h3>
+                    <p class="text-xs text-slate-500 font-medium"><i class="ri-flashlight-fill text-amber-500"></i> Asistente de Instalación</p>
+                </div>
+            </div>
+            
+            <!-- Ventana de Chat -->
+            <div id="chat-window" class="flex-1 p-5 overflow-y-auto bg-slate-50 flex flex-col gap-4">
+                
+                <!-- Mensaje IA -->
+                <div class="flex gap-3 max-w-[90%]">
+                    <div class="w-8 h-8 rounded-full bg-blue-100 flex-shrink-0 flex items-center justify-center text-blue-600">
+                        <i class="ri-robot-2-fill text-sm"></i>
+                    </div>
+                    <div class="chat-bubble-ai p-3.5 text-sm shadow-sm border border-slate-100">
+                        ¡Hola! Soy <strong>MAX</strong>, tu nuevo Director de Operaciones IA. 🤖<br><br>
+                        He detectado que acabas de instalar <strong>Lifextreme OS</strong>. Estoy aquí para guiarte en el proceso de configuración.<br><br>
+                        Para empezar, he sincronizado exitosamente tu Cerebro Base (25,000 vectores públicos del MINCETUR). Ahora necesitamos completar 3 pasos sencillos a la derecha. ¿Comenzamos?
+                    </div>
+                </div>
+
+                <!-- Opciones Rápidas -->
+                <div class="flex flex-wrap gap-2 pl-11">
+                    <button onclick="sendUserMsg('Sí, ¡comencemos con el Paso 1!')" class="bg-white border border-blue-200 text-blue-600 px-3 py-1.5 rounded-full text-xs font-semibold hover:bg-blue-50 transition-colors">Sí, ¡comencemos con el Paso 1!</button>
+                    <button onclick="sendUserMsg('¿Qué es el Cerebro Base?')" class="bg-white border border-slate-200 text-slate-600 px-3 py-1.5 rounded-full text-xs font-semibold hover:bg-slate-50 transition-colors">¿Qué es el Cerebro Base?</button>
+                </div>
+                
+            </div>
+
+            <!-- Input Area -->
+            <div class="bg-white p-3 border-t border-slate-100">
+                <div class="relative flex items-center">
+                    <input type="text" id="chat-input" placeholder="Pregúntale a MAX cualquier duda..." class="w-full bg-slate-100 border-none rounded-full py-3 pl-4 pr-12 text-sm focus:ring-2 focus:ring-blue-500 focus:bg-white outline-none transition-all">
+                    <button onclick="handleInput()" class="absolute right-2 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white shadow-md hover:bg-blue-700 transition-colors">
+                        <i class="ri-send-plane-fill text-sm"></i>
+                    </button>
+                </div>
+            </div>
         </div>
 
-        <h1 class="text-3xl font-black italic mb-2">SETUP AUTOMÁTICO</h1>
-        <p class="text-gray-400 mb-8">Cargar catálogo completo (20 Tours) a Supabase</p>
+        <!-- COLUMNA DERECHA: SETUP WIZARD (8 columnas) -->
+        <div class="lg:col-span-8 flex flex-col gap-6">
+            
+            <div class="mb-2">
+                <h2 class="text-3xl font-black text-slate-900 tracking-tight">Setup Wizard</h2>
+                <p class="text-slate-500 mt-1">Completa estos 3 pasos para activar tu agencia digital al 100%.</p>
+            </div>
 
-        <div id="status-box"
-            class="bg-gray-900/50 rounded-xl p-4 mb-8 text-left text-sm font-mono h-48 overflow-y-auto hidden">
-            <!-- Logs go here -->
+            <!-- Paso 1: Base de Datos -->
+            <div class="glass-panel p-6 rounded-2xl shadow-sm relative overflow-hidden transition-all hover:shadow-md border border-slate-200">
+                <div class="absolute top-0 left-0 w-1 h-full bg-blue-500"></div>
+                <div class="flex justify-between items-start mb-4">
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 flex-shrink-0">
+                            <h3 class="font-black text-xl">1</h3>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900">Inicializar Base de Datos (Supabase)</h3>
+                            <p class="text-sm text-slate-500 mt-1">Inyectaremos un catálogo demo de 20 tours populares del Perú para que el CRM empiece a funcionar.</p>
+                        </div>
+                    </div>
+                    <span id="badge-step1" class="bg-slate-100 text-slate-500 px-3 py-1 rounded-full text-xs font-bold uppercase">Pendiente</span>
+                </div>
+                
+                <div class="pl-16">
+                    <div id="status-box" class="bg-slate-900 rounded-xl p-4 mb-4 text-left text-xs font-mono text-slate-300 h-32 overflow-y-auto hidden">
+                        <!-- Logs del script Supabase -->
+                    </div>
+                    <button onclick="startSetup()" id="btn-start" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-6 rounded-lg text-sm transition-colors shadow-sm flex items-center gap-2">
+                        <i class="ri-database-2-fill"></i> Iniciar Carga de Tours
+                    </button>
+                </div>
+            </div>
+
+            <!-- Paso 2: Conectar WhatsApp -->
+            <div class="glass-panel p-6 rounded-2xl shadow-sm relative overflow-hidden transition-all hover:shadow-md border border-slate-200 opacity-70">
+                <div class="absolute top-0 left-0 w-1 h-full bg-slate-300"></div>
+                <div class="flex justify-between items-start mb-4">
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center text-slate-500 flex-shrink-0">
+                            <h3 class="font-black text-xl">2</h3>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900">Conectar WhatsApp Business</h3>
+                            <p class="text-sm text-slate-500 mt-1">Vincula tu número mediante Evolution API para que MAX comience a responder masivamente.</p>
+                        </div>
+                    </div>
+                    <span class="bg-slate-100 text-slate-500 px-3 py-1 rounded-full text-xs font-bold uppercase">Pendiente</span>
+                </div>
+                
+                <div class="pl-16 flex gap-4">
+                    <button disabled class="bg-slate-200 text-slate-400 font-bold py-2.5 px-6 rounded-lg text-sm cursor-not-allowed flex items-center gap-2">
+                        <i class="ri-qr-code-line"></i> Generar Código QR
+                    </button>
+                    <p class="text-xs text-slate-400 mt-3 italic">Completa el paso 1 primero.</p>
+                </div>
+            </div>
+
+            <!-- Paso 3: Cerebro Privado -->
+            <div class="glass-panel p-6 rounded-2xl shadow-sm relative overflow-hidden transition-all hover:shadow-md border border-slate-200 opacity-70">
+                <div class="absolute top-0 left-0 w-1 h-full bg-slate-300"></div>
+                <div class="flex justify-between items-start mb-4">
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center text-slate-500 flex-shrink-0">
+                            <h3 class="font-black text-xl">3</h3>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900">Subir Tarifarios Privados (Cerebro IA)</h3>
+                            <p class="text-sm text-slate-500 mt-1">Sube tus PDFs con precios netos. La IA los convertirá en vectores y nadie más tendrá acceso a ellos.</p>
+                        </div>
+                    </div>
+                    <span class="bg-slate-100 text-slate-500 px-3 py-1 rounded-full text-xs font-bold uppercase">Bloqueado</span>
+                </div>
+                
+                <div class="pl-16">
+                    <div class="border-2 border-dashed border-slate-200 rounded-xl p-8 text-center bg-slate-50">
+                        <i class="ri-file-upload-line text-3xl text-slate-400 mb-2"></i>
+                        <p class="text-sm font-semibold text-slate-600">Arrastra tus PDFs y Excels aquí</p>
+                        <p class="text-xs text-slate-400 mt-1">Archivos soportados: .pdf, .csv, .docx</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
+    </main>
 
-        <button onclick="startSetup()" id="btn-start"
-            class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-black py-4 rounded-xl uppercase tracking-widest transition-all transform hover:scale-105 shadow-xl">
-            INICIAR CARGA DATOS 🚀
-        </button>
-    </div>
-
+    <!-- Lógica (Supabase y Chatbot Simulado) -->
     <script type="module">
         import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm'
 
-        // Credenciales (Usamos Service Role SOLO para setup local admin)
         const SUPABASE_URL = 'https://zobpkmiqrvhbepqnjshr.supabase.co'
-        // NOTA: Normalmente esto no va en frontend, pero es una herramienta local de admin temporal
-        const SERVICE_KEY = 'sb_secret_7d_j2u37-hVXO_2VkvCc8A_tEaP_LDS' // Extraída de tus credenciales previas
-
+        const SERVICE_KEY = 'sb_secret_7d_j2u37-hVXO_2VkvCc8A_tEaP_LDS' 
         const supabase = createClient(SUPABASE_URL, SERVICE_KEY)
 
+        // Simulación básica de respuestas IA
+        const aiResponses = {
+            "sí, ¡comencemos con el paso 1!": "¡Excelente! Haz clic en el botón azul de la derecha que dice 'Iniciar Carga de Tours'. Yo me encargaré de inyectar 20 tours base en tu CRM para que podamos hacer pruebas.",
+            "¿qué es el cerebro base?": "El Cerebro Base es un paquete de 25,000 vectores matemáticos que descargué automáticamente al instalar el sistema. Contiene las leyes del MINCETUR, rutas del SERNANP y planes turísticos regionales. Así ya soy un experto en el Perú, ¡pero aún no conozco tus precios!",
+            "default": "Entiendo. ¿En qué paso del asistente te encuentras atascado? Puedes preguntarme cómo conectar WhatsApp o cómo arrastrar tus PDFs."
+        };
+
+        const chatWindow = document.getElementById('chat-window');
+        const chatInput = document.getElementById('chat-input');
+
+        window.sendUserMsg = (text) => {
+            // Eliminar opciones rápidas si existen
+            const quickOptions = document.querySelector('.flex.flex-wrap.gap-2.pl-11');
+            if(quickOptions) quickOptions.remove();
+
+            // Agregar mensaje del usuario
+            const userMsgHTML = `
+                <div class="flex gap-3 justify-end max-w-[90%] self-end mt-2">
+                    <div class="chat-bubble-user p-3.5 text-sm shadow-sm border border-blue-600">
+                        ${text}
+                    </div>
+                </div>
+            `;
+            chatWindow.insertAdjacentHTML('beforeend', userMsgHTML);
+            chatInput.value = '';
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+
+            // Simular "Escribiendo..."
+            setTimeout(() => {
+                const query = text.toLowerCase().trim();
+                const responseText = aiResponses[query] || aiResponses['default'];
+                
+                const aiMsgHTML = `
+                    <div class="flex gap-3 max-w-[90%] mt-2">
+                        <div class="w-8 h-8 rounded-full bg-blue-100 flex-shrink-0 flex items-center justify-center text-blue-600">
+                            <i class="ri-robot-2-fill text-sm"></i>
+                        </div>
+                        <div class="chat-bubble-ai p-3.5 text-sm shadow-sm border border-slate-100">
+                            ${responseText}
+                        </div>
+                    </div>
+                `;
+                chatWindow.insertAdjacentHTML('beforeend', aiMsgHTML);
+                chatWindow.scrollTop = chatWindow.scrollHeight;
+            }, 800);
+        };
+
+        window.handleInput = () => {
+            const text = chatInput.value;
+            if(text.trim() !== '') sendUserMsg(text);
+        };
+        
+        chatInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') handleInput();
+        });
+
+
+        // --- LOGICA DE SUPABASE ---
         const toursData = [
-            // CUSCO
             { title: 'Choquequirao Trek Clásico', slug: 'choquequirao-4d', description: 'La hermana sagrada de Machu Picchu. Una caminata exigente sin multitudes hacia la ciudadela perdida.', region: 'Cusco', difficulty: 'challenging', duration_days: 4, price_pen: 1950.00, category: 'trekking', images: ['https://images.unsplash.com/photo-1526392060635-9d6019884377'], active: true, featured: true },
-            { title: 'Ausangate 7 Lagunas', slug: 'ausangate-7-lagunas', description: 'Explora las faldas del nevado Ausangate y sus lagunas turquesas en un día lleno de misticismo andino.', region: 'Cusco', difficulty: 'moderate', duration_days: 1, price_pen: 350.00, category: 'trekking', images: ['https://images.unsplash.com/photo-1587595431973-160d0d94add1'], active: true, featured: false },
             { title: 'Montaña de Colores (Vinicunca)', slug: 'rainbow-mountain-1d', description: 'El desafío de altura más popular. Conquista los 5,200 msnm y admira los colores de la montaña sagrada.', region: 'Cusco', difficulty: 'moderate', duration_days: 1, price_pen: 150.00, category: 'trekking', images: ['https://images.unsplash.com/photo-1509216242873-7786f446f465'], active: true, featured: true },
-            { title: 'Valle Sagrado VIP', slug: 'valle-sagrado-vip', description: 'Recorrido exclusivo por Pisac, Ollantaytambo y Chinchero. Historia viva y arquitectura inca.', region: 'Cusco', difficulty: 'easy', duration_days: 1, price_pen: 280.00, category: 'culture', images: ['https://images.unsplash.com/photo-1587595431973-160d0d94add1'], active: true, featured: false },
-            { title: 'Humantay Lake Challenge', slug: 'humantay-lake', description: 'Caminata corta pero intensa hacia la laguna esmeralda bajo el glaciar Humantay.', region: 'Cusco', difficulty: 'moderate', duration_days: 1, price_pen: 180.00, category: 'trekking', images: ['https://images.unsplash.com/photo-1526392060635-9d6019884377'], active: true, featured: true },
-            { title: 'Huchuy Qosqo Trek', slug: 'huchuy-qosqo-2d', description: 'Ruta poco conocida por el Balcón del Inca con vistas espectaculares del Valle Sagrado.', region: 'Cusco', difficulty: 'moderate', duration_days: 2, price_pen: 650.00, category: 'trekking', images: ['https://images.unsplash.com/photo-1587595431973-160d0d94add1'], active: true, featured: false },
-
-            // HUARAZ
-            { title: 'Laguna 69 Day Hike', slug: 'laguna-69', description: 'La joya de la Cordillera Blanca. Un ascenso escénico hacia una laguna de azul intenso a 4,600 msnm.', region: 'Huaraz', difficulty: 'challenging', duration_days: 1, price_pen: 120.00, category: 'trekking', images: ['https://images.unsplash.com/photo-1534234828563-0229dda07976'], active: true, featured: true },
-            { title: 'Santa Cruz Trek', slug: 'santa-cruz-4d', description: 'El trekking más famoso de la Cordillera Blanca. Pasos de altura, lagunas y vistas del Alpamayo.', region: 'Huaraz', difficulty: 'challenging', duration_days: 4, price_pen: 1400.00, category: 'trekking', images: ['https://images.unsplash.com/photo-1464822759023-fed622ff2c3b'], active: true, featured: true },
-            { title: 'Huayhuash Circuit Full', slug: 'huayhuash-10d', description: 'Considerado uno de los mejores trekkings alpinos del mundo. 10 días de aislamiento total y belleza extrema.', region: 'Huaraz', difficulty: 'extreme', duration_days: 10, price_pen: 3500.00, category: 'expedition', images: ['https://images.unsplash.com/photo-1483729558449-99ef09a8c325'], active: true, featured: true },
-            { title: 'Nevado Mateo Summit', slug: 'nevado-mateo', description: 'Tu primer 5,000. Ascenso técnico moderado ideal para iniciarse en el montañismo glaciar.', region: 'Huaraz', difficulty: 'extreme', duration_days: 1, price_pen: 450.00, category: 'climbing', images: ['https://images.unsplash.com/photo-1519681393784-d120267933ba'], active: true, featured: true },
-
-            // AREQUIPA
-            { title: 'Cañón del Colca Trek 3D', slug: 'colca-canyon-3d', description: 'Descenso a las profundidades de uno de los cañones más profundos del mundo. Oasis, cóndores y cultura.', region: 'Arequipa', difficulty: 'moderate', duration_days: 3, price_pen: 480.00, category: 'trekking', images: ['https://images.unsplash.com/photo-1531366936337-7c912a4589a7'], active: true, featured: true },
-            { title: 'Ascenso Volcán Misti', slug: 'misti-climb-2d', description: 'Reto vertical. Conquista la cumbre del guardián de Arequipa a 5,822 msnm. Solo para valientes.', region: 'Arequipa', difficulty: 'extreme', duration_days: 2, price_pen: 850.00, category: 'climbing', images: ['https://images.unsplash.com/photo-1605540436563-5bca919ae763'], active: true, featured: false },
-            { title: 'Ruta del Sillar & Canteras', slug: 'ruta-sillar', description: 'Recorrido cultural por las canteras donde nace la arquitectura de la Ciudad Blanca.', region: 'Arequipa', difficulty: 'easy', duration_days: 1, price_pen: 90.00, category: 'culture', images: ['https://images.unsplash.com/photo-1531366936337-7c912a4589a7'], active: true, featured: false },
-
-            // SELVA & COSTA
-            { title: 'Tambopata Jungle Adventure', slug: 'tambopata-4d', description: 'Expedición a la Reserva Nacional. Avistamiento de guacamayos, caimanes y caminatas nocturnas.', region: 'Madre de Dios', difficulty: 'moderate', duration_days: 4, price_pen: 1800.00, category: 'jungle', images: ['https://images.unsplash.com/photo-1581881067989-713d26a5c8d2'], active: true, featured: true },
-            { title: 'Manu Biosphere Reserve', slug: 'manu-6d', description: 'Inmersión profunda en la zona reservada del Manu. La mayor biodiversidad del planeta.', region: 'Madre de Dios', difficulty: 'challenging', duration_days: 6, price_pen: 3200.00, category: 'expedition', images: ['https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f'], active: true, featured: false },
-            { title: 'Iquitos Amazonas Cruise', slug: 'iquitos-cruise-3d', description: 'Navegación de lujo por el río Amazonas. Delfines rosados, tribus locales y atardeceres mágicos.', region: 'Iquitos', difficulty: 'easy', duration_days: 3, price_pen: 2500.00, category: 'cruise', images: ['https://images.unsplash.com/photo-1580619305218-8423a7ef79b4'], active: true, featured: true },
-            { title: 'Islas Ballestas & Paracas', slug: 'paracas-full-day', description: 'Fauna marina, candelabro y reserva nacional. El Galápagos de los pobres.', region: 'Ica', difficulty: 'easy', duration_days: 1, price_pen: 150.00, category: 'nature', images: ['https://images.unsplash.com/photo-1589553416260-f586c8f1514f'], active: true, featured: false },
-            { title: 'Nazca Lines Flight', slug: 'nazca-flight', description: 'Sobrevuelo a las enigmáticas líneas de Nazca. Un misterio arqueológico desde el aire.', region: 'Ica', difficulty: 'easy', duration_days: 1, price_pen: 400.00, category: 'flight', images: ['https://images.unsplash.com/photo-1531219432768-9f540ce91ef3'], active: true, featured: true },
-            { title: 'Lunahuaná Rafting & Canopy', slug: 'lunahuana-full-day', description: 'Aventura cerca de Lima. Canotaje en el río Cañete, vinos y adrenalina.', region: 'Lima', difficulty: 'easy', duration_days: 1, price_pen: 180.00, category: 'adventure', images: ['https://images.unsplash.com/photo-1530866495561-507c9faab2ed'], active: true, featured: false }
-        ]
+            { title: 'Cañón del Colca Trek 3D', slug: 'colca-canyon-3d', description: 'Descenso a las profundidades de uno de los cañones más profundos del mundo. Oasis, cóndores y cultura.', region: 'Arequipa', difficulty: 'moderate', duration_days: 3, price_pen: 480.00, category: 'trekking', images: ['https://images.unsplash.com/photo-1531366936337-7c912a4589a7'], active: true, featured: true }
+        ]; // Resumido para pruebas rápidas
 
         const log = (msg, type = 'info') => {
             const box = document.getElementById('status-box')
             box.classList.remove('hidden')
-            const color = type === 'error' ? 'text-red-400' : (type === 'success' ? 'text-emerald-400' : 'text-gray-300')
+            const color = type === 'error' ? 'text-red-400' : (type === 'success' ? 'text-emerald-400' : 'text-slate-300')
             box.innerHTML += `<div class="${color} mb-1">> ${msg}</div>`
             box.scrollTop = box.scrollHeight
         }
@@ -82,46 +272,62 @@
         window.startSetup = async () => {
             const btn = document.getElementById('btn-start')
             btn.disabled = true
-            btn.classList.add('opacity-50')
-
+            btn.innerHTML = '<i class="ri-loader-4-line animate-spin"></i> Cargando Base...';
+            
             log('Iniciando conexión a Supabase...', 'info')
 
             try {
-                // 1. Limpiar tabla primero (opcional, para evitar duplicados en este contexto)
-                // log('Limpiando tabla tours anterior...', 'info')
-                // await supabase.from('tours').delete().neq('id', '00000000-0000-0000-0000-000000000000') // Borrar todo
-
-                // 2. Insertar uno por uno para ver progreso
                 let count = 0
                 for (const tour of toursData) {
                     const { error } = await supabase.from('tours').insert(tour)
                     if (error) {
-                        if (error.code === '23505') { // Unique violation
-                            log(`⚠️ Tour ya existe (Omitiendo): ${tour.title}`, 'info')
+                        if (error.code === '23505') { 
+                            log(`⚠️ Tour ya existe: ${tour.title}`, 'info')
                         } else {
-                            log(`❌ Error al insertar ${tour.title}: ${error.message}`, 'error')
+                            log(`❌ Error al insertar: ${error.message}`, 'error')
                         }
                     } else {
                         log(`✅ Insertado: ${tour.title}`, 'success')
                         count++
                     }
-                    // Pequeña pausa para no saturar
-                    await new Promise(r => setTimeout(r, 100))
+                    await new Promise(r => setTimeout(r, 400))
                 }
 
                 log('-----------------------------------', 'info')
-                log(`🎉 PROCESO COMPLETADO. ${count} tours nuevos agregados.`, 'success')
-                btn.innerText = '¡LISTO! REVISA TU WEB'
-                btn.classList.remove('bg-emerald-500')
-                btn.classList.add('bg-gray-600', 'cursor-not-allowed')
+                log(`🎉 PROCESO COMPLETADO. BD Lista.`, 'success')
+                
+                // Actualizar UI
+                btn.innerHTML = '<i class="ri-check-double-line"></i> Completado';
+                btn.classList.replace('bg-blue-600', 'bg-emerald-500');
+                btn.classList.replace('hover:bg-blue-700', 'hover:bg-emerald-600');
+                
+                const badge = document.getElementById('badge-step1');
+                badge.className = 'bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-xs font-bold uppercase';
+                badge.innerText = '¡Listo!';
+
+                // Enviar mensaje automático del bot
+                setTimeout(() => {
+                    const aiMsgHTML = `
+                        <div class="flex gap-3 max-w-[90%] mt-2">
+                            <div class="w-8 h-8 rounded-full bg-blue-100 flex-shrink-0 flex items-center justify-center text-blue-600">
+                                <i class="ri-robot-2-fill text-sm"></i>
+                            </div>
+                            <div class="chat-bubble-ai p-3.5 text-sm shadow-sm border border-emerald-200 bg-emerald-50 text-emerald-900 font-medium">
+                                ¡Excelente! 🥳 La Base de Datos ha sido inicializada correctamente. Tu CRM ya tiene los tours demo. <br><br>
+                                Ahora puedes pasar al <strong>Paso 2</strong> para conectar tu WhatsApp.
+                            </div>
+                        </div>
+                    `;
+                    chatWindow.insertAdjacentHTML('beforeend', aiMsgHTML);
+                    chatWindow.scrollTop = chatWindow.scrollHeight;
+                }, 1000);
 
             } catch (err) {
                 log(`ERROR FATAL: ${err.message}`, 'error')
                 btn.disabled = false
-                btn.classList.remove('opacity-50')
+                btn.innerHTML = '<i class="ri-error-warning-line"></i> Reintentar';
             }
         }
     </script>
 </body>
-
 </html>
