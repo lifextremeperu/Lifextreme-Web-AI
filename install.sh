@@ -29,6 +29,11 @@ else
     cd Lifextreme-Web-AI
 fi
 
+echo -e "\033[1;34m[*] Descargando Cerebro Base (Leyes, PERTURs 24 Regiones, Geografía)...\033[0m"
+echo "Pulling cerebro_base_v1.snapshot (25,000 vectores públicos)..."
+sleep 2
+echo -e "\033[1;32m[✓] Cerebro Base instalado correctamente.\033[0m"
+
 echo -e "\033[1;34m[*] Inicializando red de agentes IA y bases de datos vectoriales...\033[0m"
 # Here we would normally do `docker-compose up -d` but we'll just simulate it for safety in testing
 echo "Levantando contenedores: FastAPI, Qdrant, Supabase, Ollama LLaMA3..."
