@@ -130,61 +130,117 @@
                 <p class="text-slate-400">Las 4 herramientas de nuestro stack tecnológico explicadas de forma sencilla.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Ollama / Deepseek -->
-                <div class="glass-card p-6 rounded-2xl flex items-start gap-4">
-                    <div class="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center flex-shrink-0 mt-1">
-                        <i class="ri-robot-2-fill text-purple-400 text-2xl"></i>
+                <div class="glass-card p-6 rounded-2xl flex flex-col gap-4 hover:-translate-y-1 transition-transform duration-300">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_15px_rgba(168,85,247,0.3)]">
+                            <i class="ri-robot-2-fill text-purple-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white leading-tight">El Cerebro <br/><span class="text-sm font-normal text-slate-400">(Ollama + DeepSeek)</span></h3>
                     </div>
-                    <div>
-                        <h3 class="text-xl font-bold text-white mb-2">El Cerebro (IA Local)</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-3">
-                            En lugar de pagar mensualmente a OpenAI (ChatGPT) por cada mensaje que envías, Lifextreme instala modelos de IA avanzados (como DeepSeek) directamente en tu computadora.
-                        </p>
-                        <p class="text-emerald-400 text-sm font-semibold"><i class="ri-money-dollar-circle-fill"></i> Impacto: $0 costos de facturación por mensajes. Ahorro de miles de dólares anuales.</p>
-                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed flex-grow">
+                        En lugar de pagar mensualmente a OpenAI (ChatGPT) por cada mensaje, instala modelos de IA avanzados directamente en tu computadora de forma local y privada.
+                    </p>
+                    <p class="text-emerald-400 text-xs font-semibold bg-emerald-500/10 px-3 py-2 rounded-lg border border-emerald-500/20 mt-auto"><i class="ri-money-dollar-circle-fill mr-1"></i> Impacto: $0 costos de facturación por mensajes.</p>
                 </div>
 
                 <!-- Qdrant -->
-                <div class="glass-card p-6 rounded-2xl flex items-start gap-4">
-                    <div class="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center flex-shrink-0 mt-1">
-                        <i class="ri-book-read-fill text-blue-400 text-2xl"></i>
+                <div class="glass-card p-6 rounded-2xl flex flex-col gap-4 hover:-translate-y-1 transition-transform duration-300">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_15px_rgba(59,130,246,0.3)]">
+                            <i class="ri-book-read-fill text-blue-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white leading-tight">La Memoria <br/><span class="text-sm font-normal text-slate-400">(Qdrant Vector DB)</span></h3>
                     </div>
-                    <div>
-                        <h3 class="text-xl font-bold text-white mb-2">La Memoria Turística (Qdrant)</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-3">
-                            Las IAs normales inventan respuestas (alucinaciones). Esta herramienta es una "base de datos vectorial" que lee tus tarifarios, PDFs y manuales de operaciones.
-                        </p>
-                        <p class="text-emerald-400 text-sm font-semibold"><i class="ri-shield-check-fill"></i> Impacto: La IA solo vende lo que realmente ofreces. 0% riesgo de vender tours inexistentes.</p>
-                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed flex-grow">
+                        Una base de datos vectorial que lee tus tarifarios, PDFs y manuales operativos para que la IA responda usando exclusivamente tu información real.
+                    </p>
+                    <p class="text-emerald-400 text-xs font-semibold bg-emerald-500/10 px-3 py-2 rounded-lg border border-emerald-500/20 mt-auto"><i class="ri-shield-check-fill mr-1"></i> Impacto: 0% riesgo de vender tours inexistentes.</p>
                 </div>
 
                 <!-- Evolution API -->
-                <div class="glass-card p-6 rounded-2xl flex items-start gap-4">
-                    <div class="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center flex-shrink-0 mt-1">
-                        <i class="ri-whatsapp-fill text-green-400 text-2xl"></i>
+                <div class="glass-card p-6 rounded-2xl flex flex-col gap-4 hover:-translate-y-1 transition-transform duration-300">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_15px_rgba(34,197,94,0.3)]">
+                            <i class="ri-whatsapp-fill text-green-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white leading-tight">Atención Masiva <br/><span class="text-sm font-normal text-slate-400">(Evolution API)</span></h3>
                     </div>
-                    <div>
-                        <h3 class="text-xl font-bold text-white mb-2">Atención Masiva (Evolution API)</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-3">
-                            Conecta tu propio número de WhatsApp Business al cerebro de la IA sin tener que pagarle a Meta por "conversación iniciada" ni usar proveedores caros como Twilio.
-                        </p>
-                        <p class="text-emerald-400 text-sm font-semibold"><i class="ri-group-fill"></i> Impacto: Atiende a 1,000 clientes simultáneamente con respuestas de experto en 2 segundos.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed flex-grow">
+                        Conecta tu propio número de WhatsApp Business al cerebro de la IA sin tener que pagarle a Meta por "conversación iniciada" ni usar proveedores caros.
+                    </p>
+                    <p class="text-emerald-400 text-xs font-semibold bg-emerald-500/10 px-3 py-2 rounded-lg border border-emerald-500/20 mt-auto"><i class="ri-group-fill mr-1"></i> Impacto: Atiende a miles de turistas simultáneamente.</p>
+                </div>
+
+                <!-- Supabase -->
+                <div class="glass-card p-6 rounded-2xl flex flex-col gap-4 hover:-translate-y-1 transition-transform duration-300">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+                            <i class="ri-database-2-fill text-emerald-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white leading-tight">CRM Integrado <br/><span class="text-sm font-normal text-slate-400">(Supabase)</span></h3>
                     </div>
+                    <p class="text-slate-400 text-sm leading-relaxed flex-grow">
+                        Gestiona tus reservas, perfiles de turistas y datos de ventas en una base de datos relacional ultrarrápida (PostgreSQL). Reemplaza a CRMs costosos.
+                    </p>
+                    <p class="text-emerald-400 text-xs font-semibold bg-emerald-500/10 px-3 py-2 rounded-lg border border-emerald-500/20 mt-auto"><i class="ri-line-chart-fill mr-1"></i> Impacto: Centraliza la gestión comercial sin mensualidades.</p>
+                </div>
+
+                <!-- LiteLLM -->
+                <div class="glass-card p-6 rounded-2xl flex flex-col gap-4 hover:-translate-y-1 transition-transform duration-300">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-500/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_15px_rgba(99,102,241,0.3)]">
+                            <i class="ri-router-line text-indigo-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white leading-tight">El Enrutador <br/><span class="text-sm font-normal text-slate-400">(LiteLLM)</span></h3>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed flex-grow">
+                        Permite a tu agencia saltar entre IAs gratuitas (DeepSeek) o de pago (OpenAI/Groq) con 1 clic si tu computadora no tiene suficiente potencia.
+                    </p>
+                    <p class="text-emerald-400 text-xs font-semibold bg-emerald-500/10 px-3 py-2 rounded-lg border border-emerald-500/20 mt-auto"><i class="ri-exchange-fill mr-1"></i> Impacto: Flexibilidad total sin depender de un proveedor.</p>
+                </div>
+
+                <!-- SearxNG -->
+                <div class="glass-card p-6 rounded-2xl flex flex-col gap-4 hover:-translate-y-1 transition-transform duration-300">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_15px_rgba(249,115,22,0.3)]">
+                            <i class="ri-global-line text-orange-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white leading-tight">Buscador Privado <br/><span class="text-sm font-normal text-slate-400">(SearxNG)</span></h3>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed flex-grow">
+                        Le da acceso a internet en tiempo real a tu IA (para revisar el clima, estado de vuelos, paros o protestas) sin pagar costosas APIs de Google.
+                    </p>
+                    <p class="text-emerald-400 text-xs font-semibold bg-emerald-500/10 px-3 py-2 rounded-lg border border-emerald-500/20 mt-auto"><i class="ri-spy-fill mr-1"></i> Impacto: Cotizaciones precisas basadas en el internet de hoy.</p>
+                </div>
+
+                <!-- FastAPI -->
+                <div class="glass-card p-6 rounded-2xl flex flex-col gap-4 hover:-translate-y-1 transition-transform duration-300 lg:col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-xl bg-yellow-500/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_15px_rgba(234,179,8,0.3)]">
+                            <i class="ri-flashlight-fill text-yellow-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white leading-tight">El Motor Lógico <br/><span class="text-sm font-normal text-slate-400">(FastAPI)</span></h3>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed flex-grow">
+                        El director de orquesta que conecta WhatsApp, la base de datos y la IA. Diseñado en Python para ser el más rápido del mercado backend.
+                    </p>
+                    <p class="text-emerald-400 text-xs font-semibold bg-emerald-500/10 px-3 py-2 rounded-lg border border-emerald-500/20 mt-auto"><i class="ri-speed-up-fill mr-1"></i> Impacto: Procesamiento instantáneo sin demoras para el cliente.</p>
                 </div>
 
                 <!-- Docker -->
-                <div class="glass-card p-6 rounded-2xl flex items-start gap-4">
-                    <div class="w-12 h-12 rounded-xl bg-cyan-500/20 flex items-center justify-center flex-shrink-0 mt-1">
-                        <i class="ri-box-3-fill text-cyan-400 text-2xl"></i>
+                <div class="glass-card p-6 rounded-2xl flex flex-col gap-4 hover:-translate-y-1 transition-transform duration-300 lg:col-span-2 md:col-span-2">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_15px_rgba(6,182,212,0.4)]">
+                            <i class="ri-box-3-fill text-cyan-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white leading-tight">El Instalador Mágico <br/><span class="text-sm font-normal text-slate-400">(Docker Compose)</span></h3>
                     </div>
-                    <div>
-                        <h3 class="text-xl font-bold text-white mb-2">El Instalador (Docker)</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-3">
-                            Todo el sistema descrito arriba es extremadamente complejo de instalar para un no-programador. Docker empaqueta todo en una "caja lista para usar".
-                        </p>
-                        <p class="text-emerald-400 text-sm font-semibold"><i class="ri-timer-flash-fill"></i> Impacto: Lo que tardaría semanas en configurarse, se instala en tu PC con 1 solo comando.</p>
-                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed flex-grow">
+                        Todo el ecosistema descrito arriba es extremadamente complejo de instalar para un no-programador. Docker empaqueta estas gigantescas herramientas en una sola "caja lista para usar".
+                    </p>
+                    <p class="text-emerald-400 text-xs font-semibold bg-emerald-500/10 px-3 py-2 rounded-lg border border-emerald-500/20 mt-auto"><i class="ri-timer-flash-fill mr-1"></i> Impacto: Lo que tardaría semanas en configurarse por un ingeniero DevOps, se instala en tu computadora con 1 solo comando.</p>
                 </div>
             </div>
         </div>
