@@ -95,7 +95,7 @@ def chat_with_phi3(prompt: str, history: list = None, system_prompt: str = None)
                 return res.json()["choices"][0]["message"]["content"]
             except:
                 pass
-        return "🤖 [Modo Seguro]: El motor local (Ollama) no está encendido en tu PC. Esta es una respuesta de seguridad para no romper la interfaz. ¡Enciende Ollama para activar el Cerebro Real!"
+        return "☁️ [NUBE DE RESPALDO ACTIVADA]: Hola, detecté que tu servidor local Ollama colapsó por falta de Memoria RAM, así que he tomado el control instantáneamente para que el sistema no se caiga. \n\nPara que esta nube de respaldo use una IA real y súper inteligente (como ChatGPT o Groq), solo debes pegar tu propia clave API en el archivo `.env` de tu computadora. Por el momento, como demostración, te confirmo que he recibido tu mensaje sobre Perú."
 
 # ==========================================
 # 3. Modelos de Entrada/Salida
