@@ -56,7 +56,7 @@ def get_api_key(api_key: str = Security(api_key_header)):
 # ==========================================
 def get_local_embedding(text):
     try:
-        url = "http://localhost:11434/api/embed"
+        url = "http://host.docker.internal:11434/api/embed"
         response = requests.post(url, json={"model": "nomic-embed-text", "input": text}, timeout=5)
         response.raise_for_status()
         return response.json().get("embeddings", [])[0]
@@ -64,7 +64,7 @@ def get_local_embedding(text):
         return [0.0] * 768 # Dummy vector para que no colapse la app
 
 def chat_with_phi3(prompt: str, history: list = None, system_prompt: str = None):
-    url = "http://localhost:11434/api/chat"
+    url = "http://host.docker.internal:11434/api/chat"
     
     if system_prompt is not None:
         messages = [{"role": "system", "content": system_prompt}]
