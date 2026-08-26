@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  # Base de Datos Vectorial (El Cerebro RAG)
+  qdrant_demo:
+    image: qdrant/qdrant:latest
+    container_name: lx_qdrant_demo
+    ports:
+      - "6335:6333" # Usamos 6335 para no chocar con tu Qdrant actual
+    restart: unless-stopped
+    
+  # Servidor Web Frontend (Simulado)
+  frontend_demo:
+    image: nginx:alpine
+    container_name: lx_frontend_demo
+    ports:
+      - "8085:80" # Usamos 8085 para la demo
+    restart: unless-stopped
