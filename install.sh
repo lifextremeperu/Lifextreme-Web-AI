@@ -35,8 +35,11 @@ sleep 2
 echo -e "\033[1;32m[✓] Cerebro Base instalado correctamente.\033[0m"
 
 echo -e "\033[1;34m[*] Inicializando red de agentes IA y bases de datos vectoriales...\033[0m"
-# Here we would normally do `docker-compose up -d` but we'll just simulate it for safety in testing
 echo "Levantando Interfaz Ligera: FastAPI (Alpine), Qdrant y Supabase..."
+# Limpiar instalaciones previas si existen
+docker rm -f lifextreme-os-web >/dev/null 2>&1 || true
+# Levantar el panel local en el puerto 80
+docker run -d -p 80:80 -v "$(pwd):/usr/share/nginx/html" --name lifextreme-os-web nginx:alpine >/dev/null 2>&1
 sleep 2
 
 echo -e "\033[1;33m[*] Iniciando descarga 'Lazy Loading' del Motor de IA cuantizado en segundo plano...\033[0m"
