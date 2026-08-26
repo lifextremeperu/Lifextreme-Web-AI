@@ -16,14 +16,45 @@
     <link rel="stylesheet" href="assets/css/open-source.css">
     
     <script>
+        let currentCmd = 'curl -sSL https://www.lifextreme.store/install.sh | bash';
+        
+        function setOS(os) {
+            const btnMac = document.getElementById('btn-mac');
+            const btnWin = document.getElementById('btn-win');
+            const cmdText = document.getElementById('install-cmd');
+            const promptText = document.getElementById('cmd-prompt');
+            
+            if(os === 'win') {
+                currentCmd = 'wsl bash -c "curl -sSL https://www.lifextreme.store/install.sh | bash"';
+                cmdText.innerText = currentCmd;
+                promptText.innerText = 'PS C:\\> ';
+                btnWin.style.background = 'rgba(255,255,255,0.1)';
+                btnWin.style.borderColor = 'rgba(255,255,255,0.2)';
+                btnWin.style.color = 'white';
+                btnMac.style.background = 'transparent';
+                btnMac.style.borderColor = 'transparent';
+                btnMac.style.color = '#94a3b8';
+            } else {
+                currentCmd = 'curl -sSL https://www.lifextreme.store/install.sh | bash';
+                cmdText.innerText = currentCmd;
+                promptText.innerText = 'root@server:~# ';
+                btnMac.style.background = 'rgba(255,255,255,0.1)';
+                btnMac.style.borderColor = 'rgba(255,255,255,0.2)';
+                btnMac.style.color = 'white';
+                btnWin.style.background = 'transparent';
+                btnWin.style.borderColor = 'transparent';
+                btnWin.style.color = '#94a3b8';
+            }
+        }
+
         function copyInstallCommand() {
-            navigator.clipboard.writeText('curl -sSL https://www.lifextreme.store/install.sh | bash');
+            navigator.clipboard.writeText(currentCmd);
             const btn = document.getElementById('copyBtn');
             btn.innerHTML = '<i class="ri-check-line"></i> Copiado';
             btn.style.background = '#10b981';
             setTimeout(() => {
                 btn.innerHTML = '<i class="ri-file-copy-line"></i> Copiar';
-                btn.style.background = 'rgba(255,255,255,0.1)';
+                btn.style.background = 'rgba(255,255,255,0.05)';
             }, 2000);
         }
     </script>
@@ -61,16 +92,20 @@
 
             <!-- INSTALLATION WIDGET -->
             <div class="terminal-window">
-                <div class="terminal-header">
+                <div class="terminal-header" style="justify-content: space-between;">
                     <div class="terminal-dots">
                         <div class="dot red"></div>
                         <div class="dot yellow"></div>
                         <div class="dot green"></div>
                     </div>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button onclick="setOS('mac')" id="btn-mac" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; border-radius: 6px; padding: 0.25rem 0.75rem; font-size: 0.8rem; cursor: pointer; transition: 0.2s;" class="os-tab">Mac / Linux</button>
+                        <button onclick="setOS('win')" id="btn-win" style="background: transparent; border: 1px solid transparent; color: #94a3b8; border-radius: 6px; padding: 0.25rem 0.75rem; font-size: 0.8rem; cursor: pointer; transition: 0.2s;" class="os-tab">Windows</button>
+                    </div>
                 </div>
                 <div class="terminal-body">
                     <div class="command">
-                        <span class="prompt">root@server:~#</span> curl -sSL https://www.lifextreme.store/install.sh | bash
+                        <span class="prompt" id="cmd-prompt">root@server:~#</span> <span id="install-cmd">curl -sSL https://www.lifextreme.store/install.sh | bash</span>
                     </div>
                     <button class="copy-btn" id="copyBtn" onclick="copyInstallCommand()">
                         <i class="ri-file-copy-line"></i> Copiar
