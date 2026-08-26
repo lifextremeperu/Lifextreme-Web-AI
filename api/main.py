@@ -220,6 +220,37 @@ def b2c_chat(request: ChatRequest):
         print(f"Error en chat B2C: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
 
+@app.post("/api/v1/admin/setup-chat", response_model=LifextremeResponse)
+def admin_setup_chat(request: ChatRequest):
+    try:
+        user_query = request.message
+        
+        system_prompt = """
+        Eres MAX-ADMIN, el Asistente de Configuración del sistema Lifextreme OS. 
+        Estás hablando directamente con el DUEÑO DE LA AGENCIA DE TURISMO que acaba de instalar el sistema.
+        Tu objetivo es ayudarlo a configurar la inteligencia artificial en su computadora.
+        
+        TEMAS QUE CONOCES (El Asistente de Configuración tiene 3 pasos):
+        - Paso 1: Configurar la IA (explicar qué es el Cerebro Base y los modelos locales).
+        - Paso 2: Conectar WhatsApp (explicar que debe escanear el código QR para conectar a sus clientes).
+        - Paso 3: Cerebro Privado (explicar que debe subir sus PDFs con precios para que la IA los aprenda de forma privada).
+        
+        REGLAS:
+        1. Sé extremadamente servicial, claro y directo.
+        2. Eres un experto en software, pero explicas las cosas para que un usuario sin conocimientos técnicos lo entienda.
+        3. Si te preguntan sobre turismo (Perú, Cusco, etc), aclárales que ESTE CHAT es solo para configuración técnica, y que la prueba de turismo la harán después.
+        """
+        
+        respuesta_ia = chat_with_phi3(prompt=user_query, history=request.history, system_prompt=system_prompt)
+        
+        return LifextremeResponse(mensaje_principal=respuesta_ia, fuentes_utilizadas=["Manual de Sistema Lifextreme"], nivel_confianza=0.99)
+    except Exception as e:
+        return LifextremeResponse(
+            mensaje_principal="☁️ [NUBE DE RESPALDO - MODO ADMIN]: Detecté que tu servidor Ollama colapsó por falta de memoria RAM. Como soy el asistente del sistema, te guío igual: ¿En qué paso del instalador estás atorado? (Para arreglar el colapso, cierra programas pesados en Windows o conecta tu API Key de Groq en el archivo .env).", 
+            fuentes_utilizadas=[], 
+            nivel_confianza=1.0
+        )
+
 @app.post("/api/v1/b2b/query", response_model=LifextremeResponse)
 def b2b_query(request: ChatRequest, api_key: str = Depends(get_api_key)):
     try:

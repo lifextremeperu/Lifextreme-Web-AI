@@ -259,7 +259,7 @@
             chatWindow.scrollTop = chatWindow.scrollHeight;
 
             try {
-                const response = await fetch('http://localhost:8000/api/v1/b2c/chat', {
+                const response = await fetch('http://localhost:8000/api/v1/admin/setup-chat', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
