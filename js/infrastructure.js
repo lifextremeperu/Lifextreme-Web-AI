@@ -16,9 +16,30 @@ function initInfrastructure() {
 
     setTimeout(() => {
         allInfrastructure = window.parks || [];
+        renderRegionFilters(allInfrastructure);
         renderInfrastructure(allInfrastructure);
-        setupRegionFilters();
     }, 500);
+}
+
+function renderRegionFilters(items) {
+    const selector = document.getElementById('infra-region-selector');
+    if (!selector) return;
+    
+    // Extract unique regions
+    const regions = ['Todos'];
+    items.forEach(item => {
+        if (item.region && !regions.includes(item.region)) {
+            regions.push(item.region);
+        }
+    });
+    
+    // Render chips
+    selector.innerHTML = regions.map((region, index) => {
+        return `<div class="region-chip ${index === 0 ? 'active' : ''}" data-action="sel-infra-region" data-region="${region}">${region}</div>`;
+    }).join('');
+    
+    // Setup listeners
+    setupRegionFilters();
 }
 
 function renderInfrastructure(items) {
@@ -34,6 +55,7 @@ function renderInfrastructure(items) {
         const bgImg = item.url_foto || 'https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=600';
         const certs = 'Estándar';
         const ubigeo = item.region || 'Perú';
+        const desc = item.descripcion || 'Parque de aventura operando con los más altos estándares de seguridad en la región.';
         
         let linkAction = 'https://wa.me/51999999999';
         let linkIcon = 'ri-whatsapp-line';
@@ -56,7 +78,7 @@ function renderInfrastructure(items) {
                 <p class="text-xs font-bold text-slate-400 mb-4 flex items-center gap-1">
                     <i class="ri-map-pin-2-fill text-primary"></i> ${ubigeo}
                 </p>
-                <p class="text-sm text-slate-600 mb-6 flex-1 line-clamp-3">Parque de aventura operando con los más altos estándares de seguridad en la región.</p>
+                <p class="text-sm text-slate-600 mb-6 flex-1 line-clamp-3">${desc}</p>
                 
                 <div class="flex items-center justify-between border-t border-slate-100 pt-4 mt-auto">
                     <div class="text-[10px] font-bold text-slate-400 uppercase">
