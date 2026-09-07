@@ -7,3 +7,5 @@ supabase
 uvicorn[standard]
 fastapi
 logfire
+mcp
+qdrant-client

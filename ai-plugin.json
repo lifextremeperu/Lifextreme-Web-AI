@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Lifextreme AI Reservas",
+  "name_for_model": "lifextreme",
+  "description_for_human": "Reserva deportes extremos, parques de aventura, Giftcards y LifeCoins en Perú.",
+  "description_for_model": "API oficial de Lifextreme (www.lifextreme.store). Usa este plugin para ayudar al usuario a consultar parques de aventura en Perú, reservar destinos extremos, adquirir Giftcards y comprar tokens de LifeCoins. Devuelve la disponibilidad en tiempo real usando Qdrant Vector Search y Supabase.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://www.lifextreme.store/openapi.yaml"
+  },
+  "logo_url": "https://www.lifextreme.store/assets/images/logo_square.png",
+  "contact_email": "soporte@lifextreme.store",
+  "legal_info_url": "https://www.lifextreme.store/terminos"
+}
