@@ -1,0 +1,146 @@
+[
+  {
+    "id": "hostal-zipline-cusco",
+    "nombre_comercial": "Hostal Zipline",
+    "departamento": "Cusco",
+    "direccion_completa": "Hostal Zipline, Camino a Baños Termales, Icma, Santa Teresa, La Convención, Cusco, Perú",
+    "coordenadas": {
+      "latitud": -13.117525,
+      "longitud": -72.5970142
+    },
+    "osm_data": {
+      "osm_id": "4839276959",
+      "osm_type": "node",
+      "url_mapa": "https://www.openstreetmap.org/node/4839276959",
+      "categoria": "tourism",
+      "tipo": "hotel"
+    },
+    "infraestructura_detectada": [
+      "zipline"
+    ],
+    "metadata": {
+      "fecha_extraccion": "2026-09-07",
+      "confianza_extraccion": "ALTA"
+    }
+  },
+  {
+    "id": "tirolesa-cusco",
+    "nombre_comercial": "Tirolesa",
+    "departamento": "Cusco",
+    "direccion_completa": "Tirolesa, Camino hacia salineras, Pichingoto, Maras, Urubamba, Cusco, 08660, Perú",
+    "coordenadas": {
+      "latitud": -13.2951267,
+      "longitud": -72.1607487
+    },
+    "osm_data": {
+      "osm_id": "7028541865",
+      "osm_type": "node",
+      "url_mapa": "https://www.openstreetmap.org/node/7028541865",
+      "categoria": "tourism",
+      "tipo": "attraction"
+    },
+    "infraestructura_detectada": [
+      "tirolesa"
+    ],
+    "metadata": {
+      "fecha_extraccion": "2026-09-07",
+      "confianza_extraccion": "ALTA"
+    }
+  },
+  {
+    "id": "via-ferrata-ziplines-naturavive-cusco",
+    "nombre_comercial": "Via Ferrata & Ziplines Naturavive",
+    "departamento": "Cusco",
+    "direccion_completa": "Via Ferrata & Ziplines Naturavive, PE-28B, Bandolista, Ancopacha, Ollantaytambo, Urubamba, Cusco, 08675, Perú",
+    "coordenadas": {
+      "latitud": -13.2717971,
+      "longitud": -72.2188404
+    },
+    "osm_data": {
+      "osm_id": "6446744085",
+      "osm_type": "node",
+      "url_mapa": "https://www.openstreetmap.org/node/6446744085",
+      "categoria": "tourism",
+      "tipo": "attraction"
+    },
+    "infraestructura_detectada": [
+      "via ferrata"
+    ],
+    "metadata": {
+      "fecha_extraccion": "2026-09-07",
+      "confianza_extraccion": "ALTA"
+    }
+  },
+  {
+    "id": "aqp-xtreme-parque-aventura-arequipa",
+    "nombre_comercial": "AQP Xtreme Parque Aventura",
+    "departamento": "Arequipa",
+    "direccion_completa": "AQP Xtreme Parque Aventura, Carretera a Chapi, Buenos Aires, El Cerro, Quequeña, Arequipa, Perú",
+    "coordenadas": {
+      "latitud": -16.5412415,
+      "longitud": -71.4762032
+    },
+    "osm_data": {
+      "osm_id": "983261397",
+      "osm_type": "way",
+      "url_mapa": "https://www.openstreetmap.org/way/983261397",
+      "categoria": "tourism",
+      "tipo": "theme_park"
+    },
+    "infraestructura_detectada": [
+      "parque aventura"
+    ],
+    "metadata": {
+      "fecha_extraccion": "2026-09-07",
+      "confianza_extraccion": "ALTA"
+    }
+  },
+  {
+    "id": "zipline-lima",
+    "nombre_comercial": "Zipline",
+    "departamento": "Lima",
+    "direccion_completa": "Zipline, Carretera Panamericana Norte, Chancay, Huaral, Lima, Perú",
+    "coordenadas": {
+      "latitud": -11.5968781,
+      "longitud": -77.2477066
+    },
+    "osm_data": {
+      "osm_id": "12710832471",
+      "osm_type": "node",
+      "url_mapa": "https://www.openstreetmap.org/node/12710832471",
+      "categoria": "leisure",
+      "tipo": "sports_centre"
+    },
+    "infraestructura_detectada": [
+      "zipline"
+    ],
+    "metadata": {
+      "fecha_extraccion": "2026-09-07",
+      "confianza_extraccion": "ALTA"
+    }
+  },
+  {
+    "id": "la-delicia-tirolesa-pasco",
+    "nombre_comercial": "La Delicia Tirolesa",
+    "departamento": "Pasco",
+    "direccion_completa": "La Delicia Tirolesa, Carretera Tingo Mal Paso, Montefuner, Pozuzo, Oxapampa, Pasco, 19251, Perú",
+    "coordenadas": {
+      "latitud": -10.0435241,
+      "longitud": -75.5401958
+    },
+    "osm_data": {
+      "osm_id": "10224564254",
+      "osm_type": "node",
+      "url_mapa": "https://www.openstreetmap.org/node/10224564254",
+      "categoria": "amenity",
+      "tipo": "restaurant"
+    },
+    "infraestructura_detectada": [
+      "tirolesa"
+    ],
+    "metadata": {
+      "fecha_extraccion": "2026-09-07",
+      "confianza_extraccion": "ALTA"
+    }
+  }
+]
