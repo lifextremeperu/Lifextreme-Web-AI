@@ -179,6 +179,81 @@ const translations = {
         card_add: "Add",
         msg_scanning: "Scanning tactical database...",
         msg_analyzing: "Lifextreme AI is analyzing your profile..."
+    },
+    pt: {
+        nav_home: "Início",
+        nav_destinos: "Destinos",
+        nav_eventos: "Eventos",
+        nav_equipos: "Equipamentos",
+        nav_guias: "Guias",
+        user_status: "Sócio Elite Ativo",
+        hero_tag: "Aventura de Alto Nível",
+        hero_title_1: "Explore. Viva.",
+        hero_title_2: "Viaje.",
+        hero_desc: "Não se contente em apenas olhar. Junte-se ao Clube Exclusivo de Viajantes e transforme cada rota em sua própria façanha. Desafie o impossível, vença seus medos e viva a aventura com a intensidade que você merece.",
+        btn_explore: "Explorar Mapa",
+        btn_events: "Ver Eventos",
+        quiz_prompt: "Não sabe o que escolher?",
+        quiz_desc: "Faça o Teste de Aventura e ganhe -10%",
+        membership_alert: "⚠️ ALERTA DE EXPIRAÇÃO",
+        membership_title_1: "Seu acesso",
+        membership_title_2: "Elite",
+        membership_title_3: "expira em breve",
+        membership_desc_1: "Você está prestes a perder um desconto de",
+        membership_desc_2: "na sua mochila tática. Ative agora para garantir seus benefícios.",
+        timer_hours: "Horas",
+        timer_min: "Min",
+        timer_sec: "Seg",
+        btn_secure_discount: "Garantir meu Desconto",
+        membership_action_required: "Ação necessária para manter o status",
+        backpack_title: "MOCHILA TÁTICA",
+        backpack_tag: "Pronta para a ação",
+        backpack_empty: "Mochila Vazia",
+        backpack_total: "Investimento em Aventura",
+        btn_continue_exploring: "Continuar Explorando",
+        btn_checkout: "PAGAR AGORA",
+        section_destinos: "Exploração Nacional",
+        section_eventos: "Competições & Festivais",
+        section_equipos: "Catálogo Pro",
+        section_guias: "Staff de Guias Elite",
+        modal_duration: "Duração",
+        modal_guide: "Guia",
+        modal_cancel: "Cancelamento",
+        modal_itinerary: "Itinerário Tático",
+        modal_gear: "Equipamento Sugerido",
+        modal_addons: "Serviços Adicionais",
+        modal_summary: "Resumo",
+        modal_date: "Selecionar Data",
+        modal_pax: "Participantes",
+        btn_next: "Próximo Passo",
+        btn_prev: "Passo Anterior",
+        btn_book: "RESERVAR AGORA",
+        status_no_events: "Sem eventos para esta região em 2026",
+        events_official_calendar: "Calendário Oficial 2026",
+        equip_sidebar_backpacks: "Mochilas",
+        equip_sidebar_footwear: "Calçados",
+        equip_sidebar_accessories: "Acessórios",
+        equip_sidebar_all: "Ver Tudo",
+        backpack_investment: "Investimento em Aventura",
+        backpack_member_discount: "-15% Desconto",
+        backpack_protection: "Seus objetos estão protegidos.",
+        footer_rights: "© 2026 Lifextreme Pro System. Todos os Direitos Reservados.",
+        wizard_step_1: "Configurar",
+        wizard_step_2: "Equipamento",
+        wizard_step_3: "Pagamento",
+        quiz_q1: "Qual é o seu nível de loucura?",
+        quiz_a1_1: "Iniciante",
+        quiz_a1_2: "Elite Pro",
+        quiz_q2: "Qual é o seu terreno?",
+        quiz_a2_1: "🏔️ Montanha",
+        quiz_a2_2: "🌴 Selva",
+        card_inscription: "Inscrição",
+        card_specialty: "Especialidade",
+        card_mission_docs: "Docs Missão",
+        card_suggestion: "Equip. Sugerido",
+        card_add: "Adicionar",
+        msg_scanning: "Analisando dados táticos...",
+        msg_analyzing: "Lifextreme AI está analisando o seu perfil..."
     }
 };
 
@@ -1129,6 +1204,12 @@ function setupEventListeners() {
             case 'navigate': navigateTo(data.target); break;
             case 'mobile-navigate': mobileNavigate(data.target); break;
             case 'set-lang': setLanguage(data.lang); break;
+            case 'set-currency': 
+                window.PriceEngine.setCurrency(data.currency);
+                renderAll();
+                updateCart();
+                showToast('Info', `Moneda cambiada a ${data.currency}`, 'ri-exchange-dollar-line');
+                break;
             case 'toggle-cart': toggleCart(); break;
             case 'toggle-mobile-menu': toggleMobileMenu(); break;
 
@@ -1390,19 +1471,34 @@ function setLanguage(lang) {
     localStorage.setItem('lifextreme_lang', lang);
     
     const currentPath = window.location.pathname;
-    const isEn = currentPath.includes('/en/') || currentPath.endsWith('/en');
+    let isEn = currentPath.includes('/en/') || currentPath.endsWith('/en');
+    let isPt = currentPath.includes('/pt/') || currentPath.endsWith('/pt');
     
     if (lang === 'en' && !isEn) {
-        window.location.href = 'en/index.html' + window.location.hash;
-    } else if (lang === 'es' && isEn) {
+        if (isPt) {
+            window.location.href = window.location.href.replace('/pt/', '/en/');
+        } else {
+            window.location.href = 'en/index.html' + window.location.hash;
+        }
+    } else if (lang === 'pt' && !isPt) {
+        if (isEn) {
+            window.location.href = window.location.href.replace('/en/', '/pt/');
+        } else {
+            window.location.href = 'pt/index.html' + window.location.hash;
+        }
+    } else if (lang === 'es' && (isEn || isPt)) {
         window.location.href = '../index.html' + window.location.hash;
     } else {
         currentLang = lang;
         updateLanguageUI();
         renderAll();
         updateCart();
-        const msg = lang === 'es' ? 'Idioma cambiado a Español' : 'Language switched to English';
-        showToast('Success', msg, 'ri-translate-2');
+        const msgs = {
+            es: 'Idioma cambiado a Español',
+            en: 'Language switched to English',
+            pt: 'Idioma alterado para Português'
+        };
+        showToast('Success', msgs[lang], 'ri-translate-2');
     }
 }
 
@@ -1412,6 +1508,19 @@ function updateLanguageUI() {
     document.getElementById('lang-es').classList.toggle('shadow-sm', currentLang === 'es');
     document.getElementById('lang-en').classList.toggle('bg-white', currentLang === 'en');
     document.getElementById('lang-en').classList.toggle('shadow-sm', currentLang === 'en');
+    
+    const langPt = document.getElementById('lang-pt');
+    if (langPt) {
+        langPt.classList.toggle('bg-white', currentLang === 'pt');
+        langPt.classList.toggle('shadow-sm', currentLang === 'pt');
+    }
+
+    // Initialize Currency Selector
+    const currSelect = document.getElementById('currency-selector');
+    if(currSelect && window.PriceEngine) {
+        currSelect.value = window.PriceEngine.currentCurrency;
+    }
+
     // Update static elements
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');

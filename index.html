@@ -746,6 +746,77 @@
       ]
     }
     </script>
+<!-- Schema de Atracciones Turísticas (Infraestructura de Aventura) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Infraestructura de Aventura y Parques Extremos en Perú",
+  "description": "Lista de las principales atracciones de aventura en Perú, auditadas por Lifextreme.",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "TouristAttraction",
+        "name": "Vuelo del Halcón Extremo - Huasao",
+        "description": "Columpio extremo y vuelo del halcón en Huasao, Cusco.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Huasao",
+          "addressRegion": "Cusco",
+          "addressCountry": "PE"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "TouristAttraction",
+        "name": "Escalada en Roca Balcón del Diablo",
+        "description": "Rutas de escalada en roca de diferentes niveles cerca a la ciudad de Cusco.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Cusco",
+          "addressRegion": "Cusco",
+          "addressCountry": "PE"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "item": {
+        "@type": "TouristAttraction",
+        "name": "Puenting Gran Cañón de Autisha",
+        "description": "Salto extremo (puenting) en el Cañón de Autisha, a las afueras de Lima.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Santa Eulalia",
+          "addressRegion": "Lima",
+          "addressCountry": "PE"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "item": {
+        "@type": "TouristAttraction",
+        "name": "Zipline Cola de Mono - Santa Teresa",
+        "description": "Circuito de tirolesas de gran longitud sobre el río Sacsahuamán en la ruta alternativa a Machu Picchu.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Santa Teresa",
+          "addressRegion": "Cusco",
+          "addressCountry": "PE"
+        }
+      }
+    }
+  ]
+}
+</script>
 </head>
 
 <body class="bg-[#fcfdff] min-h-screen">
@@ -849,13 +920,24 @@
                         class="w-10 h-10 rounded-xl object-cover border border-slate-100" loading="lazy">
                 </div>
 
-                <div class="flex items-center gap-2 bg-slate-50 rounded-xl p-1">
+                <div class="flex items-center gap-1 bg-slate-50 rounded-xl p-1 shadow-inner border border-slate-200/60">
                     <button id="lang-es" data-action="set-lang" data-lang="es"
-                        class="px-3 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest bg-white shadow-sm transition-all text-primary">🇪🇸
+                        class="px-2 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest bg-white shadow-sm transition-all text-primary">🇪🇸
                         ES</button>
                     <button id="lang-en" data-action="set-lang" data-lang="en"
-                        class="px-3 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all text-slate-400">🇬🇧
+                        class="px-2 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all text-slate-400 hover:text-slate-700">🇬🇧
                         EN</button>
+                    <button id="lang-pt" data-action="set-lang" data-lang="pt"
+                        class="px-2 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all text-slate-400 hover:text-slate-700">🇧🇷
+                        PT</button>
+                </div>
+                
+                <div class="flex items-center gap-2 bg-slate-50 rounded-xl p-1 shadow-inner border border-slate-200/60">
+                    <select id="currency-selector" onchange="window.PriceEngine.setCurrency(this.value); renderAll(); updateCart(); showToast('Info', `Moneda: ${this.value}`, 'ri-exchange-dollar-line');" class="bg-transparent text-[10px] font-black uppercase tracking-widest text-slate-600 outline-none cursor-pointer pl-2 pr-1 py-1">
+                        <option value="PEN">S/ PEN</option>
+                        <option value="USD">$ USD</option>
+                        <option value="BRL">R$ BRL</option>
+                    </select>
                 </div>
 
                 <button data-action="toggle-cart"
