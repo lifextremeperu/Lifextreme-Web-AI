@@ -92,6 +92,39 @@ function renderInfrastructure(items) {
         </div>
         `;
     }).join('');
+    
+    // Inyectar SEO dinámico para los LLMs
+    injectSchema(items);
+}
+
+function injectSchema(items) {
+    // Remover schemas anteriores si los hay
+    document.querySelectorAll('script[data-schema="infra"]').forEach(el => el.remove());
+    
+    items.forEach(item => {
+        const schema = {
+            "@context": "https://schema.org",
+            "@type": "TouristDestination",
+            "name": item.nombre_infraestructura,
+            "description": item.descripcion || 'Parque de aventura seguro y certificado en Perú.',
+            "image": item.url_foto || 'https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=600',
+            "address": {
+                "@type": "PostalAddress",
+                "addressRegion": item.region || 'Perú',
+                "addressCountry": "PE"
+            },
+            "provider": {
+                "@type": "Organization",
+                "name": "Lifextreme Peru",
+                "url": "https://www.lifextreme.store"
+            }
+        };
+        const script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.setAttribute('data-schema', 'infra');
+        script.textContent = JSON.stringify(schema);
+        document.head.appendChild(script);
+    });
 }
 
 function setupRegionFilters() {
