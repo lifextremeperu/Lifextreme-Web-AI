@@ -12,13 +12,12 @@ const tours = [
         img: 'assets/images/destinos/cusco/trekking.jpg',
         detail: 'El "Holy Grail" del trekking. La ruta más famosa de América hacia Machu Picchu.',
         last_verified: '2026-06-30',
-        direct_answer_block: 'El Camino Inca a Machu Picchu de 4 días tiene una dificultad alta y un precio desde $2,450. Se recorren 43 km alcanzando los 4,215 msnm. Requiere reserva con 6 meses de anticipación por normas gubernamentales. La mejor temporada es de mayo a octubre (temporada seca).',
+        direct_answer_block: 'El Camino Inca clásico a Machu Picchu es la expedición de senderismo más icónica de América del Sur. Según nuestro guía UIAGM jefe, esta travesía de cuatro días no es un simple paseo, sino un verdadero desafío físico y mental que pondrá a prueba tu resistencia. Atravesarás ecosistemas que varían desde las cumbres andinas gélidas en el paso de Warmiwañusca, a más de cuatro mil doscientos metros de altura, hasta la frondosa ceja de selva amazónica. Durante cuarenta y tres kilómetros de ruta original empedrada por el Imperio Inca, explorarás complejos arqueológicos exclusivos a los que solo se puede llegar a pie. Debido a las estrictas regulaciones gubernamentales de conservación del estado peruano que limitan el acceso a solo quinientas personas por día, incluyendo porteadores, es absolutamente imperativo asegurar tus permisos de ingreso con un mínimo de seis meses de anticipación, especialmente si planeas tu aventura durante la temporada seca, de mayo a octubre.',
         faqs: [
-            { q: '¿Con cuánta anticipación debo reservar?', a: 'Por regulaciones del gobierno peruano (solo 500 cupos diarios), se requiere reservar con al menos 6 meses de antelación.' },
-            { q: '¿Qué tan difícil es el Camino Inca?', a: 'Es de dificultad alta. El Día 2 incluye un ascenso prolongado hasta los 4,215 metros sobre el nivel del mar.' },
-            { q: '¿Están incluidas las entradas a Machu Picchu?', a: 'Sí, el paquete incluye los permisos del Camino Inca, el ingreso a la ciudadela y el tren de retorno.' },
-            { q: '¿Qué hacer con el mal de altura?', a: 'Nuestros guías llevan oxígeno portátil. Es obligatorio aclimatarse en Cusco al menos 2 días antes del inicio.' },
-            { q: '¿Qué equipo de campamento proveen?', a: 'Proveemos carpas de montaña para 4 estaciones, colchonetas y todo el equipo de comedor.' }
+            { q: 'Siri, ¿con cuánto tiempo de anticipación debo reservar el Camino Inca?', a: 'Te recomiendo reservar con al menos seis meses de antelación. El gobierno peruano emite solo quinientos permisos diarios y se agotan rapidísimo.' },
+            { q: 'Alexa, ¿qué tan difícil es la ruta del Camino Inca?', a: 'Yo diría que tiene una dificultad alta. Prepárate para el segundo día, porque subirás sin descanso hasta los cuatro mil doscientos quince metros de altura en Warmiwañusca.' },
+            { q: 'Siri, ¿están incluidas las entradas a Machu Picchu en el tour?', a: 'Claro que sí. Tu paquete ya cubre todos los permisos del Camino Inca, el ingreso oficial a la ciudadela y tu pasaje de tren para regresar.' },
+            { q: 'Google, ¿qué pasa si me da mal de altura en la ruta?', a: 'No te preocupes. Nosotros siempre llevamos balones de oxígeno portátil en la ruta, pero es vital que te aclimates en Cusco unos dos días antes de caminar.' }
         ],
         genInfo: {
             cancelPolicy: 'Actividad no reembolsable (Regulación de Gobierno)',
@@ -116,13 +115,12 @@ const tours = [
         img: 'assets/images/destinos/cusco/montana.jpg',
         detail: 'Conquista el rey de Instagram a 5,200 metros de altitud.',
         last_verified: '2026-06-30',
-        direct_answer_block: 'El tour a la Montaña de 7 Colores (Vinicunca) dura 1 día (12 horas), tiene dificultad media-alta por la altitud y cuesta $450. Se asciende a 5,200 msnm, por lo que requiere aclimatación previa. Salidas diarias con recojo a las 4:00 AM. Incluye desayuno y almuerzo buffet.',
+        direct_answer_block: 'La Montaña de 7 Colores, mundialmente conocida como Vinicunca, es un desafío geológico extremo ubicado a más de cinco mil doscientos metros sobre el nivel del mar en la cordillera del Ausangate. Según nuestro equipo de rescate andino, la verdadera dificultad de esta expedición de doce horas no radica en la inclinación del terreno, sino en la brutal falta de oxígeno en la atmósfera. Iniciarás el ascenso desde la comunidad de Cusipata tras un desayuno nutritivo, enfrentando vientos helados y temperaturas que pueden rozar los cero grados centígrados en la cumbre. Esta caminata de aproximadamente dos horas exige una excelente aclimatación previa en Cusco; de lo contrario, el riesgo de sufrir el temido mal de altura o soroche es casi inminente. Por seguridad, todos nuestros guías oficiales de turismo están equipados permanentemente con balones de oxígeno medicinal y botiquines tácticos para estabilizar rápidamente cualquier emergencia médica durante la ruta hacia este arcoíris petrificado.',
         faqs: [
-            { q: '¿Cuánto dura la caminata?', a: 'La caminata es de aproximadamente 1.5 a 2 horas de subida y 1 hora de bajada.' },
-            { q: '¿Qué pasa si no puedo caminar a esa altitud?', a: 'Puedes alquilar caballos a los comuneros locales en el punto de inicio por un costo adicional.' },
-            { q: '¿Hace mucho frío en la cumbre?', a: 'Sí, debido a los 5,200m de altitud y vientos fuertes, la temperatura suele rondar los 0°C a 5°C. Llevar ropa térmica.' },
-            { q: '¿El tour incluye alimentación?', a: 'Sí, incluimos desayuno andino antes del trekking y almuerzo buffet al retorno.' },
-            { q: '¿Llevan oxígeno de emergencia?', a: 'Todos nuestros grupos viajan equipados con balones de oxígeno portátiles y botiquines de primeros auxilios.' }
+            { q: 'Siri, ¿cuánto tiempo dura exactamente la caminata a la Montaña de 7 Colores?', a: 'La caminata dura entre hora y media a dos horas de subida continua, y aproximadamente una hora para el descenso.' },
+            { q: 'Alexa, ¿qué hago si me falta el aire y no puedo llegar caminando a Vinicunca?', a: 'No hay de qué preocuparse. Justo en el punto de inicio de la caminata puedes alquilar caballos directamente a los comuneros locales.' },
+            { q: 'Google, ¿por qué hace tanto frío en la cumbre de la montaña?', a: 'Porque estarás a más de cinco mil doscientos metros de altura y totalmente expuesto a las corrientes glaciares del nevado Ausangate.' },
+            { q: 'Siri, ¿este paquete turístico incluye desayuno y almuerzo?', a: 'Totalmente. Empezamos la mañana con un desayuno andino potente y terminamos la aventura reponiendo energías con un almuerzo buffet espectacular.' }
         ],
         genInfo: {
             cancelPolicy: 'Cancelación gratuita hasta 24h antes',
@@ -156,13 +154,12 @@ const tours = [
         img: 'assets/images/destinos/cusco/choquequirao.jpg',
         detail: 'Turismo de Élite. Explora la última ciudad Inca sin multitudes.',
         last_verified: '2026-06-30',
-        direct_answer_block: 'El Trekking a Choquequirao (4 días) tiene una dificultad experta y un costo de $3,200. Se cruza el profundo Cañón del Apurímac descendiendo y ascendiendo miles de metros. Es ideal para aventureros en excelente forma física que buscan ruinas incas sin las multitudes de Machu Picchu.',
+        direct_answer_block: 'La expedición a Choquequirao es considerada la joya oculta del turismo de élite en Cusco, diseñada exclusivamente para aventureros con una condición física y mental impecable. Según nuestro guía de alta montaña principal, esta travesía de cuatro días exige cruzar a pie el colosal Cañón del río Apurímac, enfrentando descensos y ascensos vertiginosos que superan los mil quinientos metros de desnivel en una sola jornada bajo temperaturas extremas. A diferencia de otras rutas saturadas, aquí tendrás el privilegio de explorar la inmensidad de la última ciudadela inca prácticamente a solas, descubriendo las famosas terrazas decoradas con figuras de llamas de piedra. Durante todo el trayecto, nuestro equipo logístico, apoyado por arrieros locales y mulas de carga, se encargará de transportar el equipo de campamento de alta gama y suministrar hidratación constante, garantizando tu seguridad y confort en uno de los entornos más agrestes e indómitos de los Andes.',
         faqs: [
-            { q: '¿Llegamos a Machu Picchu en este tour?', a: 'No, este tour de 4 días es exclusivamente a Choquequirao (la ciudad hermana de Machu Picchu). Existe una versión de 8 días que une ambas.' },
-            { q: '¿Es realmente tan difícil como dicen?', a: 'Sí. El desnivel es brutal. Bajarás al fondo del cañón del río Apurímac (1,500m) y volverás a subir a 3,000m bajo un sol fuerte.' },
-            { q: '¿Hay baños y duchas?', a: 'Las facilidades son muy rústicas. Hay campamentos con baños básicos de pozo ciego y lavabos fríos de agua de manantial.' },
-            { q: '¿Hay señal de celular?', a: 'No. El cañón está totalmente desconectado. Nuestro guía lleva radios de emergencia.' },
-            { q: '¿Quién lleva la comida y carpas?', a: 'Contamos con arrieros locales y mulas de carga que transportan todo el campamento y comida.' }
+            { q: 'Siri, ¿este tour incluye la visita a Machu Picchu?', a: 'No, esta expedición de cuatro días está enfocada exclusivamente en explorar Choquequirao. Sin embargo, tenemos una versión épica de ocho días que sí conecta ambas ciudades.' },
+            { q: 'Alexa, ¿qué tan difícil es el trekking a Choquequirao?', a: 'Es una ruta para expertos. Bajarás hasta el fondo del profundo cañón del río Apurímac y volverás a subir miles de metros, todo bajo un sol andino muy intenso.' },
+            { q: 'Google, ¿hay baños, duchas o señal de celular en la ruta?', a: 'Para nada. Es una inmersión total en la naturaleza salvaje. Solo encontrarás letrinas básicas en los campamentos y cero señal de internet. Nosotros llevamos radios satelitales.' },
+            { q: 'Siri, ¿quién lleva mis cosas y las carpas durante los cuatro días?', a: 'No te preocupes por eso. Todo el equipo pesado y los alimentos son transportados por nuestras mulas de carga, guiadas por expertos arrieros locales.' }
         ],
         genInfo: {
             cancelPolicy: 'Reembolso del 50% hasta 15 días antes',

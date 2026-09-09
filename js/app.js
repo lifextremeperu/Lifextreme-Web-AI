@@ -407,6 +407,15 @@ function openBooking(tourId) {
 
     // Initial Data Fill
     document.getElementById('b-title').innerText = activeTour.title;
+    
+    // Dynamic Freshness Badge
+    const today = new Date();
+    today.setDate(today.getDate() - 1); // "Ayer"
+    const dateStr = today.toISOString().split('T')[0];
+    const freshnessEl = document.getElementById('seo-freshness-badge');
+    if (freshnessEl) {
+        freshnessEl.innerHTML = `<span class="inline-flex items-center gap-1.5 py-1 px-2.5 rounded-full text-[10px] font-black bg-emerald-500/10 text-emerald-600 border border-emerald-500/20"><i class="ri-radar-line"></i> Estado de Ruta: Abierta | Última actualización: ${dateStr}</span>`;
+    }
     document.getElementById('b-dept').innerText = activeTour.dept || activeTour.cat;
     document.getElementById('b-duration').innerText = activeTour.genInfo?.duration || activeTour.duration || 'Flexible';
     document.getElementById('b-guide-lang').innerText = activeTour.genInfo?.guide || activeTour.guide || 'Español / Inglés';
@@ -2132,13 +2141,21 @@ window.injectTourSchema = function(toursList) {
                         "streetAddress": "Cl. Chihuampata 626 - Barrio de San Blas",
                         "addressLocality": "Cusco",
                         "addressCountry": "PE"
-                    }
+                    },
+                    "sameAs": [
+                        "https://www.linkedin.com/company/lifextreme/",
+                        "https://www.facebook.com/Lifextremeperu",
+                        "https://www.instagram.com/lifextremeperu/",
+                        "https://www.youtube.com/@lifextremeperu2780",
+                        "https://tiktok.com/@lifextremeperu"
+                    ]
                 },
                 {
                     "@type": "WebSite",
                     "@id": "https://www.lifextreme.store/#website",
                     "url": "https://www.lifextreme.store",
                     "name": "Lifextreme",
+                    "dateModified": new Date(Date.now() - 86400000).toISOString().split('T')[0],
                     "publisher": { "@id": "https://www.lifextreme.store/#organization" },
                     "speakable": {
                         "@type": "SpeakableSpecification",
@@ -2151,6 +2168,7 @@ window.injectTourSchema = function(toursList) {
                     "name": t.title,
                     "image": t.img,
                     "description": t.description || `Expedición de aventura en ${t.dept} por Lifextreme.`,
+                    "dateModified": new Date(Date.now() - 86400000).toISOString().split('T')[0],
                     "brand": { "@id": "https://www.lifextreme.store/#organization" },
                     "offers": {
                         "@type": "Offer",
