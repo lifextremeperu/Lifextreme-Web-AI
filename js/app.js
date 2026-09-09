@@ -593,8 +593,8 @@ function openBooking(tourId) {
         if(faqsContainer) faqsContainer.classList.remove('hidden');
         if(faqsList) faqsList.innerHTML = activeTour.faqs.map(faq => `
             <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
-                <p class="text-xs font-black text-slate-800 mb-1">Q: ${faq.q}</p>
-                <p class="text-[11px] font-medium text-slate-600">${faq.a}</p>
+                <h3 class="text-xs font-black text-slate-800 mb-1">Q: ${faq.q}</h3>
+                <p class="text-[11px] font-medium text-slate-600 faq-answer">${faq.a}</p>
             </div>
         `).join('');
     } else {
@@ -1065,6 +1065,11 @@ function renderAll(region = 'Todos', category = 'Todos') {
             </div>
         </div>
     `).join('');
+    
+    // SEO: Inyectar Schema de Producto para Expediciones
+    if (typeof injectTourSchema === 'function') {
+        injectTourSchema(filtered);
+    }
 
     // Handle Equipment grid if it exists
     const equipGrid = document.getElementById('equip-grid');
@@ -2093,3 +2098,84 @@ function injectStructuredData() {
 document.addEventListener('DOMContentLoaded', () => {
     setTimeout(injectStructuredData, 1000); // Give it a slight delay to ensure tours are loaded
 });
+
+// ==========================================
+// SEO DYNAMIC SCHEMA: @graph + Speakable + AEO
+// ==========================================
+window.injectTourSchema = function(toursList) {
+    document.querySelectorAll('script[data-schema="tour"]').forEach(el => el.remove());
+    
+    toursList.forEach(t => {
+        // Build FAQPage schema for this tour
+        let faqSchema = [];
+        if (t.faqs && t.faqs.length > 0) {
+            faqSchema = t.faqs.map(faq => ({
+                "@type": "Question",
+                "name": faq.q,
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": faq.a
+                }
+            }));
+        }
+
+        const schema = {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "Organization",
+                    "@id": "https://www.lifextreme.store/#organization",
+                    "name": "Lifextreme Peru",
+                    "url": "https://www.lifextreme.store",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "streetAddress": "Cl. Chihuampata 626 - Barrio de San Blas",
+                        "addressLocality": "Cusco",
+                        "addressCountry": "PE"
+                    }
+                },
+                {
+                    "@type": "WebSite",
+                    "@id": "https://www.lifextreme.store/#website",
+                    "url": "https://www.lifextreme.store",
+                    "name": "Lifextreme",
+                    "publisher": { "@id": "https://www.lifextreme.store/#organization" },
+                    "speakable": {
+                        "@type": "SpeakableSpecification",
+                        "cssSelector": [".faq-answer", "h3"]
+                    }
+                },
+                {
+                    "@type": ["TouristTrip", "Product"],
+                    "@id": `https://www.lifextreme.store/#tour-${t.id}`,
+                    "name": t.title,
+                    "image": t.img,
+                    "description": t.description || `Expedición de aventura en ${t.dept} por Lifextreme.`,
+                    "brand": { "@id": "https://www.lifextreme.store/#organization" },
+                    "offers": {
+                        "@type": "Offer",
+                        "price": t.price,
+                        "priceCurrency": "PEN",
+                        "availability": "https://schema.org/InStock",
+                        "seller": { "@id": "https://www.lifextreme.store/#organization" }
+                    }
+                }
+            ]
+        };
+
+        if (faqSchema.length > 0) {
+            schema["@graph"].push({
+                "@type": "FAQPage",
+                "@id": `https://www.lifextreme.store/#faq-${t.id}`,
+                "mainEntity": faqSchema,
+                "isPartOf": { "@id": "https://www.lifextreme.store/#website" }
+            });
+        }
+
+        const script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.setAttribute('data-schema', 'tour');
+        script.textContent = JSON.stringify(schema);
+        document.head.appendChild(script);
+    });
+};

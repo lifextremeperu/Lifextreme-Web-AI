@@ -115,10 +115,10 @@ def main():
         print("[!] No se encontró temp_parks.json. Asegúrate de ejecutar el extractor primero.")
         return
         
-    print(f"[+] Iniciando Bucle SEO para {len(parques)} parques...")
+    print(f"[+] Iniciando Bucle SEO para {len(parques)} parques...\n")
     
-    # Procesar solo los primeros 3 para prueba inicial
-    for idx, parque in enumerate(parques[:3]):
+    # Procesar solo los primeros 10 para prueba inicial
+    for idx, parque in enumerate(parques[:10]):
         region_objetivo = parque.get("region", "Perú")
         nombre_parque = parque.get("nombre_infraestructura", "Parque")
         categoria = parque.get("tipo", "Aventura")
