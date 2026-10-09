@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifextreme - C.O.R.E. Admin Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Inter:wght@300;400;600;700;900&display=swap');
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #030712; /* Gray 950 - Extremely dark */
+            color: #f8fafc; 
+            overflow-x: hidden;
+        }
+        
+        .font-mono-tech { font-family: 'JetBrains Mono', monospace; }
+        
+        .glass-card { 
+            background: rgba(17, 24, 39, 0.7); 
+            backdrop-filter: blur(12px); 
+            border: 1px solid rgba(255, 255, 255, 0.05); 
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .glow-blue { box-shadow: inset 0 0 20px rgba(59, 130, 246, 0.1); border-top: 1px solid rgba(59, 130, 246, 0.5); }
+        .glow-emerald { box-shadow: inset 0 0 20px rgba(16, 185, 129, 0.1); border-top: 1px solid rgba(16, 185, 129, 0.5); }
+        .glow-amber { box-shadow: inset 0 0 20px rgba(245, 158, 11, 0.1); border-top: 1px solid rgba(245, 158, 11, 0.5); }
+        .glow-rose { box-shadow: inset 0 0 20px rgba(225, 29, 72, 0.1); border-top: 1px solid rgba(225, 29, 72, 0.5); }
+        
+        /* Neon grid background */
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -1;
+        }
+        
+        .blinking-dot {
+            animation: blink 1.5s infinite;
+        }
+        @keyframes blink { 0% { opacity: 0.3; } 50% { opacity: 1; box-shadow: 0 0 10px currentColor; } 100% { opacity: 0.3; } }
+        
+        .data-stream {
+            position: relative;
+            overflow: hidden;
+        }
+        .data-stream::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: linear-gradient(transparent, rgba(59, 130, 246, 0.1), transparent);
+            transform: rotate(30deg);
+            animation: scanline 4s linear infinite;
+        }
+        @keyframes scanline { 0% { transform: translateY(-100%) rotate(30deg); } 100% { transform: translateY(100%) rotate(30deg); } }
+    </style>
+</head>
+<body class="min-h-screen flex">
+    
+    <div class="bg-grid"></div>
+
+    <!-- SIDEBAR -->
+    <aside class="w-20 md:w-64 border-r border-slate-800 bg-slate-950/80 flex flex-col justify-between backdrop-blur-md z-10 transition-all">
+        <div>
+            <div class="h-20 flex items-center justify-center md:justify-start md:px-6 border-b border-slate-800">
+                <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center font-black font-mono-tech shadow-[0_0_15px_rgba(37,99,235,0.5)]">LX</div>
+                <div class="hidden md:block ml-3">
+                    <h1 class="font-black text-sm tracking-widest text-white">LIFEXTREME</h1>
+                    <div class="text-[9px] text-blue-400 font-mono-tech">ADMIN PROTOCOL V3</div>
+                </div>
+            </div>
+            
+            <nav class="mt-8 flex flex-col gap-2 px-2">
+                <a href="#" class="flex items-center gap-4 px-4 py-3 rounded-lg bg-blue-600/10 text-blue-400 border border-blue-500/20">
+                    <i class="ri-dashboard-3-fill text-xl"></i>
+                    <span class="hidden md:block font-bold text-xs uppercase">C.O.R.E. Dashboard</span>
+                </a>
+                <a href="#" class="flex items-center gap-4 px-4 py-3 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition">
+                    <i class="ri-whatsapp-line text-xl"></i>
+                    <span class="hidden md:block font-bold text-xs uppercase">WhatsApp AI Agent</span>
+                </a>
+                <a href="#" class="flex items-center gap-4 px-4 py-3 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition">
+                    <i class="ri-database-2-line text-xl"></i>
+                    <span class="hidden md:block font-bold text-xs uppercase">Qdrant Vectors</span>
+                </a>
+                <a href="#" class="flex items-center gap-4 px-4 py-3 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition">
+                    <i class="ri-building-4-line text-xl"></i>
+                    <span class="hidden md:block font-bold text-xs uppercase">Agencias B2B</span>
+                </a>
+            </nav>
+        </div>
+        
+        <div class="p-4 border-t border-slate-800 hidden md:block">
+            <div class="flex items-center gap-2 text-xs font-mono-tech text-emerald-400">
+                <div class="w-2 h-2 rounded-full bg-emerald-500 blinking-dot"></div>
+                SYSTEM ONLINE
+            </div>
+            <div class="text-[9px] text-slate-500 mt-1 font-mono-tech">LATENCY: 14ms | MEM: 42%</div>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-1 overflow-y-auto p-4 md:p-8">
+        
+        <header class="flex justify-between items-center mb-8">
+            <div>
+                <h2 class="text-2xl font-black uppercase">Panel de Control General</h2>
+                <p class="text-xs text-slate-400 font-mono-tech">VISTA MODO DIOS // SUPERVISIÓN DE ALGORITMOS</p>
+            </div>
+            <div class="flex gap-3">
+                <button class="px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-xs font-bold hover:bg-slate-700 flex items-center gap-2">
+                    <i class="ri-refresh-line"></i> FORZAR SINCRONIZACIÓN
+                </button>
+            </div>
+        </header>
+
+        <!-- KPI ROW 1 -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+            
+            <div class="glass-card rounded-xl p-5 glow-blue data-stream">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="text-[10px] text-blue-400 font-mono-tech uppercase">Ventas Cerradas (IA)</div>
+                    <i class="ri-robot-2-line text-blue-400/50 text-xl"></i>
+                </div>
+                <div class="text-3xl font-black mb-1">$ 14,250</div>
+                <div class="flex items-center gap-1 text-xs text-emerald-400 font-mono-tech">
+                    <i class="ri-arrow-up-line"></i> +32% vs Semana anterior
+                </div>
+            </div>
+
+            <div class="glass-card rounded-xl p-5 glow-emerald">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="text-[10px] text-emerald-400 font-mono-tech uppercase">Agencias Afiliadas B2B</div>
+                    <i class="ri-building-line text-emerald-400/50 text-xl"></i>
+                </div>
+                <div class="text-3xl font-black mb-1">12 <span class="text-sm text-slate-400 font-normal">PYMES</span></div>
+                <div class="flex items-center gap-1 text-xs text-emerald-400 font-mono-tech">
+                    <i class="ri-arrow-up-line"></i> 3 nuevas esta semana
+                </div>
+            </div>
+
+            <div class="glass-card rounded-xl p-5 glow-amber">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="text-[10px] text-amber-400 font-mono-tech uppercase">Conversión WhatsApp</div>
+                    <i class="ri-whatsapp-line text-amber-400/50 text-xl"></i>
+                </div>
+                <div class="text-3xl font-black mb-1">28.4 %</div>
+                <div class="flex items-center gap-1 text-xs text-amber-400 font-mono-tech">
+                    <i class="ri-pulse-line"></i> Humano prom: 8%
+                </div>
+            </div>
+
+            <div class="glass-card rounded-xl p-5 glow-rose">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="text-[10px] text-rose-400 font-mono-tech uppercase">Riesgo Logístico (SUTRAN/Clima)</div>
+                    <i class="ri-alert-line text-rose-400/50 text-xl"></i>
+                </div>
+                <div class="text-3xl font-black text-rose-400 mb-1">ALERTA</div>
+                <div class="flex items-center gap-1 text-xs text-rose-400 font-mono-tech">
+                    Desvío Automático activado en 4 tours
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- MAIN DASHBOARD SPLIT -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            
+            <!-- LEFT COLUMN: PREDICTIVE PRICING & TIMESFM -->
+            <div class="lg:col-span-2 flex flex-col gap-6">
+                
+                <div class="glass-card rounded-xl p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <div>
+                            <h3 class="font-bold uppercase tracking-widest text-sm">Motor de Precios Dinámicos (TimesFM)</h3>
+                            <p class="text-xs text-slate-400 font-mono-tech">Evolución del precio sugerido vs Costo Operativo</p>
+                        </div>
+                        <div class="px-2 py-1 rounded bg-blue-900/30 text-blue-400 text-[10px] font-mono-tech border border-blue-500/30">
+                            DATA_SYNC: LIVE
+                        </div>
+                    </div>
+                    <!-- Chart Canvas -->
+                    <div class="h-64 w-full">
+                        <canvas id="pricingChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-xl p-6 border-t border-indigo-500/50">
+                    <h3 class="font-bold uppercase tracking-widest text-sm mb-4">Registro Operativo de la I.A. (Qdrant RAG)</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="text-[10px] font-mono-tech text-slate-400 border-b border-slate-800">
+                                    <th class="pb-3">TIMESTAMP</th>
+                                    <th class="pb-3">CANAL</th>
+                                    <th class="pb-3">ACCIÓN DEL ALGORITMO</th>
+                                    <th class="pb-3">ESTADO</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-xs font-mono-tech text-slate-300">
+                                <tr class="border-b border-slate-800/50 hover:bg-slate-800/30 transition">
+                                    <td class="py-3">Hace 2 min</td>
+                                    <td><span class="text-emerald-400"><i class="ri-whatsapp-line"></i> +51 987...</span></td>
+                                    <td>Cierre de venta (Valle Sagrado VIP)</td>
+                                    <td><span class="px-2 py-1 rounded bg-emerald-900/30 text-emerald-400">PAGADO</span></td>
+                                </tr>
+                                <tr class="border-b border-slate-800/50 hover:bg-slate-800/30 transition">
+                                    <td class="py-3">Hace 14 min</td>
+                                    <td><span class="text-blue-400"><i class="ri-global-line"></i> API SUTRAN</span></td>
+                                    <td>Lectura de bloqueo en ruta Puno</td>
+                                    <td><span class="px-2 py-1 rounded bg-blue-900/30 text-blue-400">ANALIZADO</span></td>
+                                </tr>
+                                <tr class="border-b border-slate-800/50 hover:bg-slate-800/30 transition">
+                                    <td class="py-3">Hace 22 min</td>
+                                    <td><span class="text-amber-400"><i class="ri-server-line"></i> TimesFM</span></td>
+                                    <td>Ajuste de precio dinámico (Urgencia) +15%</td>
+                                    <td><span class="px-2 py-1 rounded bg-emerald-900/30 text-emerald-400">APLICADO</span></td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/30 transition">
+                                    <td class="py-3">Hace 45 min</td>
+                                    <td><span class="text-purple-400"><i class="ri-building-line"></i> B2B Portal</span></td>
+                                    <td>Agencia 'Cusco Explorers' afiliada</td>
+                                    <td><span class="px-2 py-1 rounded bg-emerald-900/30 text-emerald-400">ONBOARDING</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- RIGHT COLUMN: SENSORS & AI BRAIN -->
+            <div class="flex flex-col gap-6">
+                
+                <!-- QDRANT MEMORY -->
+                <div class="glass-card rounded-xl p-6">
+                    <h3 class="font-bold uppercase tracking-widest text-sm mb-4">Cerebro Qdrant (Memoria)</h3>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-[10px] font-mono-tech mb-1">
+                                <span class="text-slate-400">LIFEXTREME_KNOWLEDGE</span>
+                                <span class="text-emerald-400">124,530 Vectores</span>
+                            </div>
+                            <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-emerald-500 w-[85%] shadow-[0_0_10px_#10b981]"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between text-[10px] font-mono-tech mb-1">
+                                <span class="text-slate-400">PARTNERS_VAULT (B2B)</span>
+                                <span class="text-blue-400">85,200 Vectores</span>
+                            </div>
+                            <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-blue-500 w-[60%] shadow-[0_0_10px_#3b82f6]"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between text-[10px] font-mono-tech mb-1">
+                                <span class="text-slate-400">CLIMATE_LOGISTICS</span>
+                                <span class="text-amber-400">12,100 Vectores</span>
+                            </div>
+                            <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-amber-500 w-[30%] shadow-[0_0_10px_#f59e0b]"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="w-full mt-6 py-2 bg-slate-800/50 hover:bg-slate-700 border border-slate-700 rounded text-[10px] font-mono-tech text-slate-300 transition">
+                        <i class="ri-refresh-line"></i> RE-ENTRENAR VECTORES
+                    </button>
+                </div>
+
+                <!-- ALERTS -->
+                <div class="glass-card rounded-xl p-6 flex-1">
+                    <h3 class="font-bold uppercase tracking-widest text-sm mb-4">Sensores de Riesgo Externo</h3>
+                    
+                    <div class="flex flex-col gap-3">
+                        <div class="p-3 bg-rose-900/20 border border-rose-500/30 rounded-lg">
+                            <div class="flex items-center gap-2 text-rose-400 font-bold text-xs mb-1">
+                                <i class="ri-alarm-warning-line"></i> SUTRAN ALERT
+                            </div>
+                            <p class="text-[11px] text-slate-300">Posible bloqueo anunciado en ruta Urcos (Vía Cusco-Puno) para las próximas 48h.</p>
+                        </div>
+                        
+                        <div class="p-3 bg-amber-900/20 border border-amber-500/30 rounded-lg">
+                            <div class="flex items-center gap-2 text-amber-400 font-bold text-xs mb-1">
+                                <i class="ri-oil-line"></i> OIL PRICE (JET-A1)
+                            </div>
+                            <p class="text-[11px] text-slate-300">Incremento global del 2.5%. Algoritmo sugiere enfocar pauta publicitaria en sector VIP (Menor sensibilidad al precio).</p>
+                        </div>
+                        
+                        <div class="p-3 bg-emerald-900/20 border border-emerald-500/30 rounded-lg">
+                            <div class="flex items-center gap-2 text-emerald-400 font-bold text-xs mb-1">
+                                <i class="ri-exchange-dollar-line"></i> DIVISAS (BCE)
+                            </div>
+                            <p class="text-[11px] text-slate-300">Euro fuerte vs Dólar. Las campañas de captación B2C en Europa han sido escaladas automáticamente un 20%.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Configuración de Chart.js con diseño futurista
+        Chart.defaults.color = '#94a3b8';
+        Chart.defaults.font.family = "'JetBrains Mono', monospace";
+        
+        const ctx = document.getElementById('pricingChart').getContext('2d');
+        
+        // Simulación de datos predictivos de TimesFM
+        const labels = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom (Hoy)'];
+        const precioSugeridoIA = [120, 120, 125, 135, 150, 160, 165]; // El precio sube por urgencia y clima
+        const costoOperativo = [85, 85, 85, 85, 85, 85, 85]; // Costo fijo logístico
+        
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: 'Precio Sugerido por IA (USD)',
+                        data: precioSugeridoIA,
+                        borderColor: '#3b82f6',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        borderWidth: 2,
+                        tension: 0.4,
+                        fill: true,
+                        pointBackgroundColor: '#0f172a',
+                        pointBorderColor: '#3b82f6',
+                        pointRadius: 4,
+                        pointHoverRadius: 6
+                    },
+                    {
+                        label: 'Costo Operativo Base (USD)',
+                        data: costoOperativo,
+                        borderColor: '#ef4444',
+                        borderDash: [5, 5],
+                        borderWidth: 2,
+                        tension: 0,
+                        fill: false,
+                        pointRadius: 0
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: { boxWidth: 12, font: { size: 10 } }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(15, 23, 42, 0.9)',
+                        titleColor: '#fff',
+                        bodyColor: '#cbd5e1',
+                        borderColor: '#334155',
+                        borderWidth: 1,
+                        padding: 10,
+                        displayColors: true
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        min: 60,
+                        max: 200,
+                        grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                        ticks: { font: { size: 10 }, callback: function(value) { return '$' + value; } }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { font: { size: 10 } }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
