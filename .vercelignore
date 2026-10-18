@@ -1,64 +1,41 @@
-# ── Backend Python y Scripts de IA ───────────────────────────
-scripts/
-src/
-functions/
-api/
-backend/
-sql/
-
-# ── Bases de Datos y Vectores (EXCEPTO data/blog) ────────────
-data/lifextreme_brain_web
-data/chroma
-data/raw_pdfs
-data/knowledge
-data/_control
-data/social
-data/news
-data/guides
-chroma_db/
-logs/
-scratch/
-
-# ── Archivos de datos masivos ─────────────────────────────────
-*.csv
+.git
+.venv
+venv
+env
+__pycache__
+node_modules
+data
+chroma_db
+docker
+backend
+agents
+agents_core
+scripts
+tools
+sql
+supabase
+logs
+scratch
+tmp
+.deepeval
+graphify-out
+searxng
+*.py
 *.sql
-*.jsonl
-*.parquet
-
-# ── Entorno virtual Python (MUY PESADO) ──────────────────────
-.venv/
-.deepeval/
-
-# ── Backups ZIP gigantes ──────────────────────────────────────
-*.zip
-
-# ── Logs y Archivos de texto pesados ─────────────────────────
-logs_ingesta.txt
-logs_ingesta_chile.txt
-reporte_archivos_valiosos.txt
-expansion_log.txt
-output.txt
-qdrant_stats_output.txt
+*.md
+*.txt
 *.log
-
-# ── Scripts de Sistema (no necesarios en producción) ─────────
 *.bat
 *.ps1
-*.py
-
-# ── Credenciales (NUNCA en producción) ───────────────────────
-gcp-ai-key.json
+*.sh
+*.zip
+*.pdf
+*.pptx
+*.csv
+*.jsonl
+*.parquet
 service_account.json
-config/
-
-# ── Docker ────────────────────────────────────────────────────
-docker/
-docker-compose*.yml
-
-# ── Directorios internos pesados ─────────────────────────────
-agents/
-investors_pitch/
-graphify-out/
-tmp/
-tools/
-docs/
+gcp-ai-key.json
+qdrant_inventory.json
+ingestion_state.json
+.env*

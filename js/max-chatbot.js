@@ -363,36 +363,58 @@
       const reader = response.body.getReader();
       const decoder = new TextDecoder('utf-8');
       let fullText = '';
+      let sseBuffer = '';
       
       while (true) {
         const { done, value } = await reader.read();
         if (done) break;
         
-        const chunkStr = decoder.decode(value, { stream: true });
-        const lines = chunkStr.split('\n');
+        sseBuffer += decoder.decode(value, { stream: true });
+        const lines = sseBuffer.split('\n');
+        sseBuffer = lines.pop() || '';
         
-        for (const line of lines) {
+        for (const rawLine of lines) {
+          const line = rawLine.replace(/\\n$/g, '').trim();
           if (line.startsWith('data: ')) {
             try {
               const data = JSON.parse(line.substring(6));
               if (data.chunk) {
                 fullText += data.chunk;
-                botMsgDiv.textContent = fullText;
+                const cleanDisplay = fullText.replace(/\[CARR[^\]]*\]?/gi, '').trim();
+                botMsgDiv.textContent = cleanDisplay;
                 botMsgDiv.parentElement.scrollTop = botMsgDiv.parentElement.scrollHeight;
+              } else if (data.cotizacion) {
+                showPaymentAction(data.cotizacion);
               } else if (data.error) {
                 console.error('[MAX] Stream error:', data.error);
                 botMsgDiv.textContent = fullText + `\n[Error: ${data.error}]`;
               }
             } catch (e) {
-              // Ignorar JSON malformado por cortes en el stream
+              // Ignorar linea vacia
             }
           }
         }
       }
 
+      // Detectar si el texto incluyo etiqueta [CARRITO: Tour | PrecioTotal | Pax]
+      const cartMatch = fullText.match(/\[CARRITO:\s*([^|]+)\|\s*(\d+(?:\.\d+)?)\s*\|\s*(\d+)\s*\]/i);
+      if (cartMatch) {
+        const tourName = cartMatch[1].trim();
+        const precioTotal = Math.round(parseFloat(cartMatch[2]));
+        const paxCount = parseInt(cartMatch[3], 10) || 1;
+        const cleanFinal = fullText.replace(/\[CARRITO:[^\]]*\]/gi, '').trim();
+        botMsgDiv.textContent = cleanFinal;
+        showPaymentAction({
+          tour: tourName,
+          precio_total: precioTotal,
+          pax: paxCount,
+          monto_reserva_hoy: Math.round(precioTotal * 0.30)
+        });
+      }
+
       // Actualizar historial
       history.push({ role: 'user', content: text });
-      history.push({ role: 'assistant', content: fullText });
+      history.push({ role: 'assistant', content: botMsgDiv.textContent });
       if (history.length > 20) history = history.slice(-20);
 
     } catch (err) {
@@ -427,15 +449,58 @@
     if (typingEl) { typingEl.remove(); typingEl = null; }
   }
 
+  // Funcion global para llevar al usuario del chat al Carrito / Pasarela de Pago
+  window.maxAddToCartAndPay = function (tourName, totalPrice, pax, openCheckoutNow) {
+    try {
+      if (window.useBackpack) {
+        const bp = window.useBackpack();
+        bp.addItem({
+          id: Date.now(),
+          name: `${tourName} (${pax} Pax)`,
+          price: Number(totalPrice) || 450,
+          img: 'assets/images/destinos/cusco/trekking.jpg',
+          detail: `${pax} Participante(s) | Asesoría MAX AI`,
+          date: new Date().getDate(),
+          pax: pax
+        });
+      }
+      if (typeof window.updateCart === 'function') {
+        window.updateCart();
+      }
+      // Cerrar panel de chat MAX para que vea su carrito / pasarela
+      isOpen = false;
+      document.getElementById('max-chat-panel')?.classList.remove('open');
+
+      // Abrir el drawer del carrito (Mochila Tactica)
+      const drawer = document.getElementById('cart-drawer');
+      if (drawer) {
+        drawer.classList.remove('translate-x-full');
+      }
+
+      // Si eligio pagar directo, abrir modal de checkout con plan 30/30/40
+      if (openCheckoutNow && typeof window.openStripeCheckout === 'function') {
+        setTimeout(() => window.openStripeCheckout(), 350);
+      }
+    } catch (e) {
+      console.error('[MAX Cart] Error agregando al carrito:', e);
+    }
+  };
+
   function showPaymentAction(cotizacion) {
     const bar = document.getElementById('max-action-bar');
+    if (!bar) return;
+    const safeTour = (cotizacion.tour || 'Expedición Lifextreme').replace(/'/g, "\\'");
+    const total = Number(cotizacion.precio_total) || 450;
+    const pax = Number(cotizacion.pax) || 1;
+    const reservaHoy = cotizacion.monto_reserva_hoy || Math.round(total * 0.30);
+
     bar.style.display = 'flex';
     bar.innerHTML = `
-      <button class="max-action-btn payment" onclick="window.open('${cotizacion.link_pago_niubiz || '#'}','_blank')">
-        Pagar S/ ${cotizacion.monto_reserva_hoy} (Reservar ahora)
+      <button class="max-action-btn payment" onclick="window.maxAddToCartAndPay('${safeTour}', ${total}, ${pax}, true)">
+        🛒 Ir a Pagar S/ ${reservaHoy} (30% hoy)
       </button>
-      <button class="max-action-btn" onclick="document.getElementById('max-action-bar').style.display='none'">
-        Más info
+      <button class="max-action-btn" onclick="window.maxAddToCartAndPay('${safeTour}', ${total}, ${pax}, false)">
+        🎒 Ver en Carrito (S/ ${total})
       </button>
     `;
   }

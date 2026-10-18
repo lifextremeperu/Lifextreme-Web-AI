@@ -1,108 +1,200 @@
 """
-max_agent.py - MAX: Asesor Maestro de Aventura de Lifextreme
-RAG real con Supabase knowledge_vectors (101,737 vectores)
-LLM: qwen2.5:7b via Ollama (local, sin costo)
-
-NOTA: Usamos output_type=str para maxima compatibilidad con Ollama.
-      El servidor convierte la respuesta al formato MAXResponse.
+max_agent.py - MAX: Operador Experto y Asesor Consultivo de Lifextreme Peru
+Arquitectura Hibrida Nivel 1 + Nivel 2 (Groq LPU llama-3.3-70b-versatile + Qdrant 336k vectores).
 """
 import os
-from pydantic_ai import Agent, RunContext
-from .rag_service import get_rag_context
-from typing import List, Optional
-
-SYSTEM_PROMPT = """Eres MAX, el Asesor Maestro de Aventura de Lifextreme Peru.
-Eres un experto en turismo de aventura certificado UIAGM con conocimiento profundo de los Andes y Amazonia.
-
-OBJETIVO: Informar y cerrar reservas usando el sistema Lifextreme 30/30/40:
-- 30% hoy para asegurar el cupo
-- 30% antes del tour  
-- 40% el dia del tour
-
-REGLAS:
-1. Usa SIEMPRE el contexto de la base de conocimiento que te proporcionan las herramientas
-2. Menciona precios e itinerarios SOLO si aparecen en el contexto
-3. Habla con autoridad tecnica pero de forma cercana y entusiasta
-4. Cuando detectes intencion de compra, ofrece el link de reserva: https://wa.me/51958050928
-5. Responde SIEMPRE en espanol
-6. Respuestas concisas, maximo 3 parrafos
-7. [GUARDRAIL CRITICO]: Camino Inca y Machu Picchu requieren de 1 a 6 meses de reserva anticipada (MINCETUR). Si el turista quiere viajar en corto plazo (hoy, manana, esta semana), ESTA PROHIBIDO ofrecerlos. En su lugar, debes decirle que no hay disponibilidad gubernamental y ofreceles RUTAS ALTERNAS como Salkantay, Choquequirao, Lares o Huchuy Qosqo.
-
-VALORES: Aventura responsable, seguridad UIAGM, experiencias transformadoras."""
-
-max_agent = Agent(
-    'openai:qwen2.5:7b',
-    system_prompt=SYSTEM_PROMPT
-)
-
+import json
+import httpx
 from datetime import datetime
+from typing import List, AsyncGenerator
+from dotenv import load_dotenv
+from .rag_service import get_rag_context
 
-@max_agent.system_prompt
-def add_date_context(ctx: RunContext[None]) -> str:
-    fecha_actual = datetime.now().strftime('%Y-%m-%d %H:%M')
-    return f"RELOJ DEL SISTEMA: Ten en cuenta que la fecha actual exacta es {fecha_actual}. Usa esto para calcular si una fecha pedida por el usuario es de corto plazo."
+load_dotenv(override=True)
 
-@max_agent.tool
-async def buscar_en_base_de_conocimiento(ctx: RunContext[None], consulta: str, region: str = None) -> str:
-    """
-    Busca informacion real en la base de 101,737 vectores de Lifextreme.
-    LLAMAR SIEMPRE antes de responder sobre tours, precios, rutas o destinos.
-    
-    Args:
-        consulta: La pregunta del usuario (ej: 'tour Ausangate 4 dias')
-        region: Region opcional (cusco, apurimac, amazonas, santacruz, galapagos)
-    """
-    try:
-        context = await get_rag_context(consulta, region=region)
-        return context
-    except Exception as e:
-        return f"No pude acceder a la base de conocimiento: {str(e)}. Responde con informacion general de Lifextreme."
+OLLAMA_URL   = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
+OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "qwen2.5:7b")
+GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
+GROQ_MODEL   = os.getenv("GROQ_MODEL", "openai/gpt-oss-120b")
+
+_llm_http = httpx.AsyncClient(timeout=45.0)
+
+SYSTEM_PROMPT = """Eres MAX, el Operador Experto de Montaña y Asesor de Aventuras de Lifextreme Perú (certificado UIAGM).
+Atiendes por chat como un guía y operador humano real por WhatsApp: cálido, ágil, observador y muy profesional.
+
+CÓMO DEBES CONVERSAR (ESTILO OPERADOR EXPERTO DE WHATSAPP):
+1. FLUIDEZ Y BREVEDAD (PROHIBIDO LANZAR MUROS DE TEXTO):
+   - Responde en 1 o 2 párrafos cortos (máximo 70 a 95 palabras por mensaje).
+   - Conversa de ida y vuelta esperando la respuesta del viajero, igual que en un chat real de WhatsApp.
+
+2. PERFILAMIENTO INTELIGENTE DEL VIAJERO (ANTES DE RECETAR UN TOUR A CIEGAS):
+   - Un buen operador no lanza precios ni rutas extremas sin conocer a su grupo.
+   - Revisa el historial de la conversación. Si aún NO sabes el perfil del cliente, responde brevemente a su inquietud usando el conocimiento de Qdrant y hazle **1 o máximo 2 preguntas naturales** para perfilarlo:
+     a) ¿Con quién viajas? (¿Vienen en familia con niños/adultos mayores, en pareja, grupo de amigos o vas solo?)
+     b) ¿Qué edades aproximadas tienen o cómo se sienten con las caminatas en altura?
+     c) ¿Para qué fecha o cuántos días tienen pensados?
+   - ¡IMPORTANTE!: No hagas las 3 preguntas como un interrogatorio policial. Haz 1 o 2 de forma cálida y natural según lo que el cliente acaba de decir, y espera su respuesta.
+
+3. RECOMENDACIÓN A MEDIDA CON EL CONOCIMIENTO DE QDRANT:
+   - Cuando el cliente te cuente si es familia, amigos, edades o nivel físico, cruza eso con el CONTEXTO VERIFICADO DE QDRANT (altitudes, exigencia física, clima, qué incluye, precios reales):
+     * Si es familia / niños / adultos mayores / poca aclimatación -> sugiere experiencias seguras, culturales o de aclimatación progresiva (Valle Sagrado VIP, Maras Moray, Huchuy Qosqo, Laguna Humantay con caballo de apoyo, etc.).
+     * Si es grupo de amigos / jóvenes / buscan adrenalina o trekking -> sugiere retos memorables (Salkantay, Ausangate, Choquequirao, Lares, parques de aventura / zipline / vía ferrata).
+
+4. CIERRE AL CARRITO DE COMPRAS WEB (SISTEMA LIFEXTREME 30/30/40):
+   - Cuando ya conozcas el perfil del cliente y le recomiendes un tour específico con precio, o cuando el cliente elija un tour / quiera pagar o reservar:
+     * Menciona que puede bloquear sus cupos en el Carrito de la web pagando hoy solo el **30%** (30% hoy, 30% antes del tour y 40% el día del tour).
+     * AL FINAL de tu respuesta (en la última línea), escribe SIEMPRE esta etiqueta exacta para que aparezca el botón del Carrito de Compras en su pantalla:
+       `[CARRITO: Nombre del Tour | PrecioTotalEnSoles | NumeroDePersonas]`
+       Ejemplo para 2 personas en Montaña 7 Colores (S/ 450 c/u = 900 total):
+       `[CARRITO: Montaña de los 7 Colores Express | 900 | 2]`
+   - Tarifas base referenciales por persona del catálogo web (si el RAG no especifica otra):
+     * Camino Inca a Machu Picchu 4D (Cusco): S/ 2450
+     * Ciclismo Downhill Abra Málaga (Cusco): S/ 180
+     * Montaña de los 7 Colores Express (Cusco): S/ 450
+     * Trekking Choquequirao 4D (Cusco): S/ 3200
+     * Circuito Ausangate 6D (Cusco): S/ 2100
+     * Salkantay Trek a Machu Picchu 4D (Cusco): S/ 1850
+     * Trekking Santa Cruz 4D (Huaraz): S/ 1200
+     * Trekking Laguna 69 y Llanganuco (Huaraz): S/ 350
+     * Expedición Pacaya Samiria 5D (Iquitos): S/ 2800
+     * Trekking Cañón del Colca 3D (Arequipa): S/ 850
+     * Ascenso Volcán Misti 2D (Arequipa): S/ 1100
+     * Buggies y Sandboard Extremo (Ica): S/ 180
+
+5. GUARDRAIL GUBERNAMENTAL (MINCETUR):
+   - Camino Inca y Machu Picchu Llaqta requieren de 1 a 6 meses de anticipación. Si el viajero quiere ir hoy, mañana o esta semana, adviértele con honestidad de operador experto que los boletos estatales están agotados a corto plazo y ofrécele alternativas espectaculares con salida inmediata (Salkantay, Lares, Choquequirao, Ausangate o Huchuy Qosqo)."""
 
 
-@max_agent.tool
-async def generar_reserva(ctx: RunContext[None], nombre_tour: str, precio_total: float) -> str:
+_QUICK_GREETINGS = {"hola", "buenas", "buenos dias", "buenas tardes", "buenas noches", "hi", "hello", "que tal", "ola"}
+
+
+async def _build_messages(prompt: str, history: List[dict] = None) -> List[dict]:
     """
-    Genera un resumen de reserva con el sistema 30/30/40 y link de pago.
-    Usar cuando el usuario confirma intencion de reservar.
-    
-    Args:
-        nombre_tour: Nombre del tour o experiencia
-        precio_total: Precio total en soles peruanos
+    Construye el historial y extrae el contexto de Qdrant combinando la intencion actual
+    con el contexto reciente de la conversacion para no perder el hilo del destino.
     """
-    r1 = round(precio_total * 0.30, 2)
-    r2 = round(precio_total * 0.30, 2)
-    r3 = round(precio_total * 0.40, 2)
-    
-    return (
-        f"RESERVA {nombre_tour.upper()}\n"
-        f"Precio total: S/ {precio_total}\n"
-        f"1er pago HOY (30%): S/ {r1} — asegura tu cupo\n"
-        f"2do pago antes del tour (30%): S/ {r2}\n"
-        f"Saldo el dia del tour (40%): S/ {r3}\n"
-        f"WhatsApp: https://wa.me/51958050928\n"
-        f"Yape: 958 050 928"
+    fecha_actual = datetime.now().strftime("%Y-%m-%d %H:%M")
+    clean_q = prompt.strip().lower().rstrip("?!.")
+
+    # Si el usuario responde corto (ej. "somos 4 amigos de 28 años"), enriquecer la query de Qdrant con el turno anterior
+    rag_query = prompt
+    if history and len(prompt.split()) <= 10:
+        prev_user_msgs = [m.get("content", "") for m in history[-4:] if isinstance(m, dict) and m.get("role") == "user"]
+        if prev_user_msgs:
+            rag_query = f"{prev_user_msgs[-1]} {prompt}"
+
+    if clean_q in _QUICK_GREETINGS and not history:
+        rag_context = (
+            "El viajero acaba de saludar. Dale una bienvenida cálida como MAX de Lifextreme Perú "
+            "y pregúntale qué destino le llama la atención y si viaja en familia, con amigos, en pareja o solo."
+        )
+    else:
+        rag_context = await get_rag_context(rag_query)
+
+    system_with_rag = (
+        f"{SYSTEM_PROMPT}\n\n"
+        f"FECHA ACTUAL DEL SISTEMA: {fecha_actual}\n\n"
+        f"=== CONOCIMIENTO REAL LIFEXTREME (QDRANT 336K VECTORES) ===\n{rag_context}"
     )
 
-@max_agent.tool
-async def consultar_disponibilidad_real(ctx: RunContext[None], destino: str, fecha_recorrido: str) -> str:
-    """
-    Consulta el CACHE ASINCRONO en Supabase de disponibilidad gubernamental y de trenes.
-    Usar ANTES de confirmar disponibilidad de Camino Inca, Machu Picchu Llaqta o Trenes.
-    
-    Args:
-        destino: 'machupicchu_llaqta', 'camino_inca_4d', o 'tren_perurail'
-        fecha_recorrido: Fecha en formato YYYY-MM-DD
-    """
-    # Importar supabase cliente de los scrapers (asumiendo que supabase_client se exportara globalmente)
-    # Por ahora simulamos la lectura desde la BBDD para no romper dependencias
-    # try:
-    #     res = supabase.table('realtime_availability').select('*').eq('destino', destino).eq('fecha_recorrido', fecha_recorrido).execute()
-    #     if res.data and len(res.data) > 0:
-    #         cupos = res.data[0]['cupos_disponibles']
-    #         return f"Disponibilidad Real ({fecha_recorrido}): {cupos} cupos disponibles."
-    #     return "No hay registro de disponibilidad para esta fecha. Asume 0 cupos por precaucion."
-    # except:
-    return "Base de datos en construccion (Fase 2). Asume que NO HAY CUPOS a corto plazo."
+    messages = [{"role": "system", "content": system_with_rag}]
+
+    if history:
+        for msg in history[-8:]:
+            if isinstance(msg, dict):
+                role = "user" if msg.get("role") == "user" else "assistant"
+                content = str(msg.get("content", "")).strip()
+                if content:
+                    messages.append({"role": role, "content": content})
+
+    messages.append({"role": "user", "content": prompt})
+    return messages
+
+
+async def _stream_groq(messages: List[dict], api_key: str) -> AsyncGenerator[str, None]:
+    """Nivel 2: Streaming ultra-rapido via Groq LPU (~0.4s TTFT)."""
+    model_name = os.getenv("GROQ_MODEL", "openai/gpt-oss-120b")
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json",
+    }
+    payload = {
+        "model": model_name,
+        "messages": messages,
+        "temperature": 0.5,
+        "max_tokens": 900,
+        "reasoning_effort": "low",
+        "stream": True,
+    }
+    async with _llm_http.stream("POST", GROQ_API_URL, headers=headers, json=payload) as resp:
+        resp.raise_for_status()
+        async for line in resp.aiter_lines():
+            if not line or not line.startswith("data: "):
+                continue
+            data_str = line[6:].strip()
+            if data_str == "[DONE]":
+                break
+            try:
+                data = json.loads(data_str)
+                delta = data["choices"][0].get("delta", {}).get("content")
+                if delta:
+                    yield delta
+            except Exception:
+                continue
+
+
+async def _stream_ollama(messages: List[dict]) -> AsyncGenerator[str, None]:
+    """Nivel 1 (Fallback local): Streaming directo en 1 solo viaje a Ollama local."""
+    payload = {
+        "model": OLLAMA_MODEL,
+        "messages": messages,
+        "stream": True,
+        "keep_alive": -1,
+        "options": {
+            "temperature": 0.45,
+            "num_ctx": 2048,
+            "num_predict": 320,
+        },
+    }
+    async with _llm_http.stream("POST", f"{OLLAMA_URL}/api/chat", json=payload) as resp:
+        resp.raise_for_status()
+        async for line in resp.aiter_lines():
+            if not line:
+                continue
+            try:
+                data = json.loads(line)
+                chunk = data.get("message", {}).get("content")
+                if chunk:
+                    yield chunk
+            except Exception:
+                continue
+
+
+async def process_message_stream(
+    prompt: str,
+    history: List[dict] = None,
+    user_data=None
+) -> AsyncGenerator[str, None]:
+    try:
+        load_dotenv(override=True)
+        messages = await _build_messages(prompt, history)
+        groq_key = os.getenv("GROQ_API_KEY", "").strip()
+
+        if groq_key and groq_key.startswith("gsk_"):
+            try:
+                async for chunk in _stream_groq(messages, groq_key):
+                    yield chunk
+                return
+            except Exception as groq_err:
+                print(f"[MAX] Groq fallback a Ollama local: {groq_err}")
+
+        async for chunk in _stream_ollama(messages):
+            yield chunk
+
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        yield f"\n\n[Error de conexión: {str(e)[:100]}]"
 
 
 async def process_message(
@@ -110,55 +202,23 @@ async def process_message(
     history: List[dict] = None,
     user_data=None
 ) -> dict:
-    """
-    Procesa un mensaje y retorna un dict compatible con MAXResponse.
-    """
     try:
-        result = await max_agent.run(
-            prompt,
-            message_history=history or []
-        )
-        # pydantic-ai >= 0.0.14 usa .output; versiones antiguas usaban .data
-        raw = getattr(result, 'output', None) or getattr(result, 'data', None)
-        mensaje = str(raw) if raw else "Lo siento, no pude generar una respuesta."
+        chunks = []
+        async for c in process_message_stream(prompt, history, user_data):
+            chunks.append(c)
+        mensaje = "".join(chunks).strip() or "Lo siento, no pude generar una respuesta."
         return {
             "mensaje": mensaje,
             "datos_cotizacion": None,
-            "action_required": None
+            "action_required": None,
         }
     except Exception as e:
-        error_msg = str(e)
-        import traceback; traceback.print_exc()
-        # Fallback amigable para cualquier error del agente
         return {
             "mensaje": (
-                "Hola! Soy MAX, asesor de aventura de Lifextreme 🏔️. "
-                "Puedo ayudarte con informacion sobre tours al Ausangate, Machu Picchu, Amazonia y mas. "
-                "¿Que destino te interesa?"
+                "¡Hola! Soy MAX, operador de aventura de Lifextreme 🏔️. "
+                "Escríbenos por WhatsApp al +51 958 050 928 para ayudarte al instante."
             ),
             "datos_cotizacion": None,
             "action_required": None,
-            "_debug_error": str(e)[:300]
+            "_debug_error": str(e)[:300],
         }
-
-from typing import AsyncGenerator
-
-async def process_message_stream(
-    prompt: str,
-    history: List[dict] = None,
-    user_data=None
-) -> AsyncGenerator[str, None]:
-    """
-    Procesa un mensaje y retorna un generador asíncrono cediendo los fragmentos (chunks)
-    en tiempo real para habilitar Server-Sent Events (SSE).
-    """
-    try:
-        async with max_agent.run_stream(
-            prompt,
-            message_history=history or []
-        ) as result:
-            async for chunk in result.stream_text(delta=True):
-                yield chunk
-    except Exception as e:
-        import traceback; traceback.print_exc()
-        yield f"\n\n[Error de conexión: {str(e)[:100]}]"
