@@ -369,7 +369,7 @@
         if (done) break;
         
         const chunkStr = decoder.decode(value, { stream: true });
-        const lines = chunkStr.split('\\n');
+        const lines = chunkStr.split('\n');
         
         for (const line of lines) {
           if (line.startsWith('data: ')) {
@@ -381,7 +381,7 @@
                 botMsgDiv.parentElement.scrollTop = botMsgDiv.parentElement.scrollHeight;
               } else if (data.error) {
                 console.error('[MAX] Stream error:', data.error);
-                botMsgDiv.textContent = fullText + `\\n[Error: ${data.error}]`;
+                botMsgDiv.textContent = fullText + `\n[Error: ${data.error}]`;
               }
             } catch (e) {
               // Ignorar JSON malformado por cortes en el stream
@@ -397,7 +397,7 @@
 
     } catch (err) {
       hideTyping();
-      appendMessage('bot', `Lo siento, el backend no responde ahora. Escríbenos por WhatsApp: +51 984 123 456`);
+      appendMessage('bot', `Lo siento, el backend no responde ahora. Escríbenos por WhatsApp: +51 958 050 928`);
       console.error('[MAX] Error:', err);
     } finally {
       isLoading = false;
