@@ -24,10 +24,16 @@ const PriceEngine = {
     setCurrency(curr) {
         this.currentCurrency = curr;
         localStorage.setItem('lifextreme_currency', curr);
+        const sel = document.getElementById('currency-selector');
+        if (sel && sel.value !== curr) {
+            sel.value = curr;
+        }
     },
 
     convert(amountInPen) {
-        return amountInPen * this.rates[this.currentCurrency];
+        const num = parseFloat(amountInPen) || 0;
+        const rate = this.rates[this.currentCurrency] || 1;
+        return num * rate;
     },
 
     calculateKitDiscount(amount, discountPercent = 20) {
@@ -45,7 +51,7 @@ const PriceEngine = {
     },
 
     format(priceInPen) {
-        const converted = this.convert(parseFloat(priceInPen));
+        const converted = this.convert(parseFloat(priceInPen) || 0);
         
         let prefix = 'S/';
         if (this.currentCurrency === 'USD') prefix = '$';

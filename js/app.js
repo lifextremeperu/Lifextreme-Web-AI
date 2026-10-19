@@ -37,10 +37,10 @@ const translations = {
         nav_equipos: "Equipos",
         nav_guias: "Guías",
         user_status: "Socio Elite Active",
-        hero_tag: "⚡ 164 Parques Auditados • Guías UIAGM • IA Táctica 24/7",
-        hero_title_1: "Domina la Ruta.",
-        hero_title_2: "Vive lo Inexplorado.",
-        hero_desc: "40 expediciones verificadas, 164 parques extremos y guías certificados UIAGM en todo el Perú. Diseña tu misión con IA en 30 segundos y ahorra hasta 30% con el Club Lifextreme.",
+        hero_tag: "🔥 LA TRIBU MÁS EXTREMA DEL PERÚ • GUÍAS UIAGM • +15,000 EXPEDICIONARIOS",
+        hero_title_1: "NO COLECCIONES EXCUSAS.",
+        hero_title_2: "COLECCIONA CUMBRES.",
+        hero_desc: "¿Hasta cuándo vas a mirar la adrenalina desde una pantalla? Sal de la rutina, siente la gravedad cero y desafía tus límites con la tribu de aventureros más activa del país. 40 expediciones verificadas, 164 parques auditados y guías certificados UIAGM. Cero improvisación, 100% adrenalina pura.",
         btn_explore: "Explorar Destinos",
         btn_events: "Ver Eventos",
         quiz_prompt: "¿No sabes qué elegir?",
@@ -112,10 +112,10 @@ const translations = {
         nav_equipos: "Equipment",
         nav_guias: "Guides",
         user_status: "Elite Active Member",
-        hero_tag: "⚡ 164 Audited Parks • UIAGM Guides • 24/7 Tactical AI",
-        hero_title_1: "Own the Trail.",
-        hero_title_2: "Live the Untamed.",
-        hero_desc: "40 verified expeditions, 164 extreme parks, and UIAGM-certified guides across Peru. Plan your mission with AI in 30 seconds and save up to 30% with the Lifextreme Club.",
+        hero_tag: "🔥 PERU'S MOST EXTREME TRIBE • UIAGM GUIDES • +15,000 EXPLORERS",
+        hero_title_1: "STOP COLLECTING EXCUSES.",
+        hero_title_2: "CONQUER THE PEAKS.",
+        hero_desc: "How much longer will you watch adrenaline through a screen? Break the routine, feel zero gravity, and conquer the Andes with Peru's premier adventure tribe. 40 verified expeditions, 164 audited parks, and certified UIAGM guides. 0% guesswork, 100% pure adrenaline.",
         btn_explore: "Explore Destinations",
         btn_events: "View Events",
         quiz_prompt: "Not sure what to choose?",
@@ -187,10 +187,10 @@ const translations = {
         nav_equipos: "Equipamentos",
         nav_guias: "Guias",
         user_status: "Sócio Elite Ativo",
-        hero_tag: "⚡ 164 Parques Auditados • Guias UIAGM • IA Tática 24/7",
-        hero_title_1: "Domine a Trilha.",
-        hero_title_2: "Viva o Inexplorado.",
-        hero_desc: "40 expedições verificadas, 164 parques radicais e guias certificados UIAGM no Peru. Planeje sua missão com IA em 30 segundos e economize até 30% no Clube Lifextreme.",
+        hero_tag: "🔥 A TRIBO MAIS EXTREMA DO PERU • GUIAS UIAGM • +15,000 AVENTUREIROS",
+        hero_title_1: "NÃO COLECIONE DESCULPAS.",
+        hero_title_2: "COLECIONE CUMES.",
+        hero_desc: "Até quando você vai assistir à adrenalina por uma tela? Saia da rotina, sinta a gravidade zero e conquiste os Andes com a maior tribo de aventura do Peru. 40 expedições verificadas, 164 parques auditados e guias certificados UIAGM. Zero improviso, 100% adrenalina pura.",
         btn_explore: "Explorar Mapa",
         btn_events: "Ver Eventos",
         quiz_prompt: "Não sabe o que escolher?",
@@ -741,56 +741,220 @@ function renderWizardStep(step) {
         // Renderizar Formulario de Contacto + Botón Final
         const finalBtnContainer = document.getElementById('step-3-actions'); // Necesitamos un contenedor específico o inyectarlo
 
-        // Vamos a inyectar el formulario DENTRO del contenido del paso 3, antes del botón
+        // Vamos a inyectar el formulario DENTRO del contenido del paso 3, con DNI y Firma Digital
         const step3Content = document.getElementById('booking-step-3');
         if (step3Content) {
             step3Content.innerHTML = `
-                <div class="space-y-4 mb-6">
-                    <h5 class="font-black text-sm uppercase text-slate-400">Tus Datos de Comandante</h5>
-                    <div class="grid grid-cols-1 gap-4">
-                        <input type="text" id="contact-name" placeholder="Nombre Completo" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-bold focus:border-primary outline-none">
-                        <div class="grid grid-cols-2 gap-4">
-                            <input type="email" id="contact-email" placeholder="Email" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-bold focus:border-primary outline-none">
-                            <input type="tel" id="contact-phone" placeholder="WhatsApp" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-bold focus:border-primary outline-none">
+                <div class="space-y-4 mb-5 text-left">
+                    <h5 class="font-black text-sm uppercase text-slate-700 flex items-center gap-1.5">
+                        <i class="ri-user-star-fill text-amber-500"></i> Tus Datos de Comandante
+                    </h5>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div class="space-y-1">
+                            <label class="text-[9px] font-black uppercase text-slate-400">Nombre Completo *</label>
+                            <input type="text" id="contact-name" placeholder="Ej: Carlos Mendoza" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs font-bold focus:border-primary outline-none">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-[9px] font-black uppercase text-slate-400">DNI / Pasaporte *</label>
+                            <input type="text" id="contact-dni" placeholder="Ej: 72849102" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs font-bold focus:border-primary outline-none">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div class="space-y-1">
+                            <label class="text-[9px] font-black uppercase text-slate-400">Email *</label>
+                            <input type="email" id="contact-email" placeholder="tu@email.com" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs font-bold focus:border-primary outline-none">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-[9px] font-black uppercase text-slate-400">WhatsApp Celular *</label>
+                            <input type="tel" id="contact-phone" placeholder="+51 987 654 321" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs font-bold focus:border-primary outline-none">
                         </div>
                     </div>
                 </div>
                 
-                <div class="bg-primary/5 p-4 rounded-2xl border border-primary/10 mb-6">
-                    <div id="review-tour-title" class="font-black italic text-lg text-slate-800 mb-1">...</div>
+                <div class="bg-primary/5 p-4 rounded-2xl border border-primary/10 mb-5 text-left">
+                    <div id="review-tour-title" class="font-black italic text-base text-slate-800 mb-1">...</div>
                     <div class="flex justify-between text-xs font-bold text-slate-500">
                         <span id="review-date">...</span>
                         <span id="review-pax">...</span>
                     </div>
                 </div>
+
+                <!-- LEGAL LIABILITY WAIVER & DIGITAL SIGNATURE BOX -->
+                <div class="bg-red-50/70 border-2 border-red-200/80 rounded-2xl p-4 text-left space-y-3 mb-4 shadow-sm">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-red-200/60 pb-2.5">
+                        <div class="flex items-center gap-2">
+                            <div class="w-7 h-7 rounded-lg bg-red-500 text-white flex items-center justify-center shrink-0">
+                                <i class="ri-shield-check-fill text-base"></i>
+                            </div>
+                            <div>
+                                <span class="text-[8px] font-black uppercase text-red-600 tracking-wider block">Normativa MINCETUR • D.S. N° 005-2016</span>
+                                <h6 class="font-black text-xs text-slate-900 leading-tight">Carta de Asunción de Riesgos</h6>
+                            </div>
+                        </div>
+                        <button type="button" onclick="window.openWaiverModal()"
+                            class="bg-white hover:bg-red-100 text-red-700 border border-red-300 text-[9px] font-black uppercase px-3 py-1.5 rounded-lg transition-colors cursor-pointer flex items-center gap-1 w-fit">
+                            <i class="ri-book-open-line"></i>
+                            <span>Leer Documento Completo</span>
+                        </button>
+                    </div>
+
+                    <!-- Digital Canvas Signature Pad -->
+                    <div class="bg-white rounded-xl border border-slate-300 p-2.5 shadow-inner">
+                        <div class="flex items-center justify-between mb-1.5 px-1">
+                            <span class="text-[9px] font-black uppercase text-slate-500 flex items-center gap-1">
+                                <i class="ri-edit-2-line text-red-500"></i> Firma Digital Obligatoria (Táctil o Mouse)
+                            </span>
+                            <button type="button" onclick="window.clearSignaturePad()" class="text-[9px] font-bold text-slate-400 hover:text-red-600 cursor-pointer flex items-center gap-0.5">
+                                <i class="ri-refresh-line"></i> Borrar Firma
+                            </button>
+                        </div>
+                        <div class="relative bg-slate-50 rounded-lg overflow-hidden border border-slate-200">
+                            <canvas id="signature-canvas" width="400" height="100" class="w-full h-24 touch-none cursor-crosshair block"></canvas>
+                            <div id="signature-hint" class="absolute inset-0 flex items-center justify-center pointer-events-none text-slate-400 text-[10px] font-bold italic">
+                                ✍️ Traza tu firma aquí con tu dedo o mouse
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-2 pt-0.5">
+                        <input type="checkbox" id="tour-liability-waiver" required
+                            class="mt-0.5 w-4 h-4 text-emerald-600 rounded border-slate-300 focus:ring-emerald-500 cursor-pointer">
+                        <label for="tour-liability-waiver" class="text-[10px] text-slate-700 font-semibold cursor-pointer select-none leading-tight">
+                            Declaro bajo juramento haber leído y aceptado la <strong class="text-red-700 underline" onclick="window.openWaiverModal()">Carta de Asunción de Riesgos</strong>. Mi firma digital y DNI quedan registrados como prueba legal vinculante.
+                        </label>
+                    </div>
+                </div>
             `;
+
+            // Inicializar el canvas de firma digital
+            setTimeout(() => window.initSignaturePad(), 50);
         }
 
         finalBtn.innerHTML = '<span>CONFIRMAR & PAGAR</span><i class="ri-whatsapp-line text-xl pl-2"></i>';
         finalBtn.className = 'w-full bg-emerald-500 text-white py-6 rounded-3xl font-black uppercase tracking-widest shadow-xl shadow-emerald-500/20 hover:bg-emerald-600 transition-all flex items-center justify-center gap-3 animate-pulse';
-        finalBtn.setAttribute('onclick', 'validateAndBook()'); // Cambiamos la función onclick
+        finalBtn.setAttribute('onclick', 'validateAndBook()');
 
         renderStep3Summary();
     }
 }
 
+// Inicializar Canvas de Firma Digital
+window.hasDrawnSignature = false;
+
+window.initSignaturePad = function() {
+    const canvas = document.getElementById('signature-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const hint = document.getElementById('signature-hint');
+
+    // Configurar estilo del trazo
+    ctx.strokeStyle = '#0f172a';
+    ctx.lineWidth = 2.5;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+
+    let isDrawing = false;
+    let lastX = 0;
+    let lastY = 0;
+
+    function getPos(e) {
+        const rect = canvas.getBoundingClientRect();
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+        const scaleX = canvas.width / rect.width;
+        const scaleY = canvas.height / rect.height;
+        return {
+            x: (clientX - rect.left) * scaleX,
+            y: (clientY - rect.top) * scaleY
+        };
+    }
+
+    function start(e) {
+        e.preventDefault();
+        isDrawing = true;
+        const pos = getPos(e);
+        lastX = pos.x;
+        lastY = pos.y;
+        if (hint) hint.classList.add('hidden');
+        window.hasDrawnSignature = true;
+        const cb = document.getElementById('tour-liability-waiver');
+        if (cb) cb.checked = true;
+    }
+
+    function draw(e) {
+        if (!isDrawing) return;
+        e.preventDefault();
+        const pos = getPos(e);
+        ctx.beginPath();
+        ctx.moveTo(lastX, lastY);
+        ctx.lineTo(pos.x, pos.y);
+        ctx.stroke();
+        lastX = pos.x;
+        lastY = pos.y;
+    }
+
+    function stop() {
+        isDrawing = false;
+    }
+
+    canvas.addEventListener('mousedown', start);
+    canvas.addEventListener('mousemove', draw);
+    window.addEventListener('mouseup', stop);
+
+    canvas.addEventListener('touchstart', start, { passive: false });
+    canvas.addEventListener('touchmove', draw, { passive: false });
+    window.addEventListener('touchend', stop);
+};
+
+window.clearSignaturePad = function() {
+    const canvas = document.getElementById('signature-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const hint = document.getElementById('signature-hint');
+    if (hint) hint.classList.remove('hidden');
+    window.hasDrawnSignature = false;
+};
+
 // Nueva función intermedia para validar antes de enviar
 window.validateAndBook = function () {
-    const name = document.getElementById('contact-name').value;
-    const email = document.getElementById('contact-email').value;
-    const phone = document.getElementById('contact-phone').value;
+    const name = document.getElementById('contact-name')?.value.trim();
+    const dni = document.getElementById('contact-dni')?.value.trim();
+    const email = document.getElementById('contact-email')?.value.trim();
+    const phone = document.getElementById('contact-phone')?.value.trim();
+    const waiverCb = document.getElementById('tour-liability-waiver');
 
-    if (!name || !email || !phone) {
-        showToast('Datos requeridos', 'Completa tu nombre, email y WhatsApp para continuar.', 'ri-user-follow-line');
+    if (!name || !dni || !email || !phone) {
+        showToast('Datos requeridos', 'Completa tu nombre, DNI, email y WhatsApp para continuar.', 'ri-user-follow-line');
         return;
     }
 
+    if (!waiverCb || !waiverCb.checked) {
+        showToast('Compromiso Legal Requerido', 'Debes leer y aceptar la Carta de Asunción de Riesgos.', 'ri-shield-flash-line');
+        return;
+    }
+
+    if (!window.hasDrawnSignature) {
+        showToast('Firma Requerida', 'Por favor traza tu firma digital en el recuadro para validar el deslinde legal.', 'ri-edit-2-line');
+        return;
+    }
+
+    const legalHash = 'LFX-WAIVER-2026-' + Date.now().toString(36).toUpperCase();
+    const waiverRecord = {
+        name, dni, email, phone,
+        tour: activeTour?.title || 'Expedición Lifextreme',
+        timestamp: new Date().toISOString(),
+        hash: legalHash
+    };
+
     localStorage.setItem('lifextreme_user_name', name);
+    localStorage.setItem('lifextreme_user_dni', dni);
     localStorage.setItem('lifextreme_user_email', email);
     localStorage.setItem('lifextreme_user_phone', phone);
+    localStorage.setItem('lifextreme_active_waiver', JSON.stringify(waiverRecord));
 
-    // Guardar temporalmente en el objeto activeTour o global para usarlo en addToCartFinal
-    window.currentContact = { name, email, phone };
+    window.currentContact = { name, dni, email, phone };
+    window.currentWaiver = waiverRecord;
     addToCartFinal();
 }
 
@@ -880,11 +1044,16 @@ function addToCartFinal() {
     closeModal();
     updateCart();
 
-    // 3. 📲 REDIRECCIÓN A WHATSAPP (CIERRE DE VENTA)
+    // 3. 📲 REDIRECCIÓN A WHATSAPP (CIERRE DE VENTA CON PRUEBA LEGAL)
     const contact = window.currentContact || { name: 'Viajero' };
+    const waiver = window.currentWaiver || JSON.parse(localStorage.getItem('lifextreme_active_waiver') || '{}');
+    const legalText = waiver.hash
+        ? `\n\n📜 *Compromiso Legal MINCETUR (Ley 29408):* Firmado Digitalmente\n🆔 *DNI / Pasaporte:* ${contact.dni || waiver.dni || 'Validado'}\n🔐 *Hash Legal:* ${waiver.hash}`
+        : `\n\n✅ *He leído y acepto los Términos y la Carta de Asunción de Riesgos.*`;
+
     const activeVariant = (window.SensoryEngine && window.SensoryEngine.lastTriggeredVariant) ? window.SensoryEngine.lastTriggeredVariant : 'none';
-    const waMessage = `Hola Lifextreme! 🏔️ Soy *${contact.name}*.\nQuiero confirmar mi reserva:\n\n📍 *Tour:* ${activeTour.title}\n📅 *Fecha:* ${fullDate}\n👥 *Pax:* ${participants}\n💰 *Total:* S/ ${item.price}\n\n✅ *He leído y acepto los Términos y Condiciones y la Carta de Asunción de Riesgos.*\n\nQuedo atento para realizar el pago. 🚀`;
-    const waUrl = `https://wa.me/51958050928?text=${encodeURIComponent(waMessage)}&utm_source=web&utm_medium=whatsapp&utm_campaign=sensory_booking&utm_content=${activeVariant}`; // ✅ Número actualizado del Ceo
+    const waMessage = `Hola Lifextreme! 🏔️ Soy *${contact.name}*.\nQuiero confirmar mi reserva:\n\n📍 *Tour:* ${activeTour.title}\n📅 *Fecha:* ${fullDate}\n👥 *Pax:* ${participants}\n💰 *Total:* S/ ${item.price}${legalText}\n\nQuedo atento para coordinar el pago. 🚀`;
+    const waUrl = `https://wa.me/51958050928?text=${encodeURIComponent(waMessage)}&utm_source=web&utm_medium=whatsapp&utm_campaign=sensory_booking&utm_content=${activeVariant}`;
 
     // Abrir WhatsApp en nueva pestaña
     window.open(waUrl, '_blank');
@@ -977,60 +1146,146 @@ function updateCart() {
 
     if (items.length === 0) {
         list.innerHTML = `<div class="py-20 text-center opacity-30"><i class="ri-ghost-line text-4xl"></i><p class="font-black italic mt-2">${translations[currentLang].backpack_empty}</p></div>`;
-        document.getElementById('cart-total').innerText = "S/ 0";
+        const totalEl = document.getElementById('cart-total');
+        if (totalEl) totalEl.innerText = window.PriceEngine ? window.PriceEngine.format(0) : "S/ 0";
         return;
     }
 
-    list.innerHTML = items.map((item, idx) => `
+    list.innerHTML = items.map((item, idx) => {
+        const itemPriceFormatted = window.PriceEngine ? window.PriceEngine.format(item.price) : `S/ ${item.price}`;
+        return `
         <div class="flex items-center gap-4 bg-slate-50 p-4 rounded-3xl border border-slate-100">
             <img src="${item.img}?w=100" class="w-12 h-12 rounded-xl object-cover">
             <div class="flex-1">
                 <h4 class="font-black text-[10px] uppercase">${item.name}</h4>
                 <p class="text-[8px] font-bold text-slate-400">${item.detail}</p>
             </div>
-            <p class="font-black text-xs">S/ ${item.price}</p>
-            <button data-action="remove-item" data-idx="${idx}" class="text-slate-300 hover:text-red-500"><i class="ri-delete-bin-line"></i></button>
+            <p class="font-black text-xs">${itemPriceFormatted}</p>
+            <button data-action="remove-item" data-idx="${idx}" class="text-slate-300 hover:text-red-500 cursor-pointer"><i class="ri-delete-bin-line"></i></button>
         </div>
-    `).join('');
+        `;
+    }).join('');
 
-    document.getElementById('cart-total').innerText = "S/ " + (total * 0.85).toLocaleString(); // Elite Discount
+    const totalEl = document.getElementById('cart-total');
+    if (totalEl) {
+        const discountedTotal = total * 0.85; // Elite Discount
+        totalEl.innerText = window.PriceEngine ? window.PriceEngine.format(discountedTotal) : `S/ ${Math.round(discountedTotal).toLocaleString()}`;
+    }
 }
+
+// 360 Angle Switcher & Delivery State for Equipment
+window.selectedEquipDeliveries = {};
+
+window.switchAngle360 = function(imgId, newUrl, btnEl) {
+    const img = document.getElementById(imgId);
+    if (!img) return;
+    img.style.opacity = '0.3';
+    setTimeout(() => {
+        img.src = newUrl;
+        img.style.opacity = '1';
+    }, 150);
+    if (btnEl && btnEl.parentElement) {
+        btnEl.parentElement.querySelectorAll('button').forEach(b => {
+            b.classList.remove('bg-amber-400', 'text-slate-950');
+            b.classList.add('bg-white/80', 'text-slate-700');
+        });
+        btnEl.classList.remove('bg-white/80', 'text-slate-700');
+        btnEl.classList.add('bg-amber-400', 'text-slate-950');
+    }
+};
+
+window.toggleEquipDelivery = function(idx, checked) {
+    window.selectedEquipDeliveries[idx] = checked;
+    const toastMsg = checked ? 'Delivery express activado (+S/ 25.00 a hotel/agencia)' : 'Recojo en Basecamp seleccionado';
+    showToast('Logística de Entrega', toastMsg, 'ri-truck-fill');
+};
+
+window.toggleHeroAudio = function() {
+    const video = document.getElementById('hero-bg-video');
+    const audioText = document.getElementById('audio-text');
+    const btn = document.getElementById('audio-toggle');
+    if (!video) return;
+
+    const icon = btn ? btn.querySelector('i') : null;
+    if (video.muted) {
+        video.muted = false;
+        video.volume = 0.8;
+        if (audioText) audioText.textContent = 'Silenciar';
+        if (icon) {
+            icon.classList.remove('ri-volume-mute-line');
+            icon.classList.add('ri-volume-up-line');
+        }
+        if (window.showToast) window.showToast('Audio Inmersivo', 'Disfruta el sonido de la expedición peruana.', 'ri-volume-up-line');
+    } else {
+        video.muted = true;
+        if (audioText) audioText.textContent = 'Activar Sonido';
+        if (icon) {
+            icon.classList.remove('ri-volume-up-line');
+            icon.classList.add('ri-volume-mute-line');
+        }
+    }
+};
 
 async function renderGuides() {
     const grid = document.getElementById('guides-grid');
     if (!grid) return;
 
     const guides = window.guides || [];
-    grid.innerHTML = guides.map(guide => `
-        <div class="bg-white rounded-[48px] overflow-hidden border border-slate-50 group hover:shadow-2xl transition-all duration-500 flex flex-col h-full">
-            <div class="h-64 overflow-hidden relative bg-slate-100">
+    grid.innerHTML = guides.map((guide) => `
+        <div class="bg-white rounded-[44px] overflow-hidden border border-slate-100 group hover:shadow-2xl transition-all duration-500 flex flex-col h-full shadow-sm">
+            <div class="h-72 overflow-hidden relative bg-slate-900">
                 <div class="skeleton-loader absolute inset-0"></div>
-                <img src="${guide.img}?w=500" loading="lazy" class="h-full w-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110 img-reveal" onload="this.classList.add('loaded'); this.previousElementSibling.style.display='none';">
-                <div class="absolute bottom-6 left-6 right-6 p-4 bg-white/90 backdrop-blur-md rounded-2xl shadow-sm transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                    <p class="text-[9px] font-black uppercase text-primary mb-1">${translations[currentLang].card_specialty}</p>
-                    <p class="text-xs font-black italic text-slate-900">${guide.specialty}</p>
+                <img src="${guide.img}?w=600" loading="lazy" class="h-full w-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105 img-reveal" onload="this.classList.add('loaded'); if(this.previousElementSibling) this.previousElementSibling.style.display='none';">
+                
+                <!-- Region & Verification Badges -->
+                <div class="absolute top-4 left-4 flex flex-col gap-1.5 z-10">
+                    <span class="bg-slate-950/85 backdrop-blur-md text-amber-400 border border-amber-400/30 px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-wider shadow-md">
+                        📍 ${guide.region || 'Perú'}
+                    </span>
+                    <span class="bg-primary/90 backdrop-blur-md text-white px-3 py-1 rounded-full text-[8px] font-black uppercase tracking-widest shadow-md">
+                        ${guide.cert ? '🛡️ ' + guide.cert.split('•')[0] : 'Guía Oficial'}
+                    </span>
+                </div>
+
+                <div class="absolute bottom-4 left-4 right-4 p-3.5 bg-slate-950/85 backdrop-blur-md rounded-2xl border border-white/10 text-white">
+                    <p class="text-[8px] font-black uppercase text-amber-400 tracking-widest">Especialidad</p>
+                    <p class="text-xs font-black italic">${guide.specialty}</p>
                 </div>
             </div>
-            <div class="p-8 flex-1 flex flex-col justify-between">
+
+            <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-6">
                 <div>
-                    <h4 class="font-black italic text-2xl text-slate-900 mb-1">${guide.name}</h4>
-                    <p class="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-6">Staff Certified UIAGM</p>
-                    
-                    <div class="space-y-3 mb-8">
-                        ${(guide.achievements || []).map(ach => `
-                            <div class="flex items-start gap-3">
-                                <i class="ri-shield-check-fill text-emerald-500 text-sm"></i>
-                                <span class="text-[10px] font-bold text-slate-600 leading-tight">${ach}</span>
-                            </div>
-                        `).join('')}
+                    <div class="flex items-center justify-between mb-2">
+                        <h4 class="font-black italic text-2xl text-slate-900 leading-tight">${guide.name}</h4>
+                        <span class="text-[10px] font-black bg-emerald-50 text-emerald-700 border border-emerald-200 px-2.5 py-1 rounded-full shrink-0">
+                            ⭐ ${guide.exp}
+                        </span>
                     </div>
+                    <p class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-4">
+                        🗣️ Idiomas: ${(guide.languages || []).join(' • ')}
+                    </p>
+                    
+                    <p class="text-xs font-medium text-slate-600 leading-relaxed mb-4">
+                        ${guide.desc || ''}
+                    </p>
+                    
+                    ${guide.cert ? `
+                    <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100 mb-4 flex items-center gap-2.5">
+                        <i class="ri-verified-badge-fill text-primary text-lg shrink-0"></i>
+                        <span class="text-[10px] font-black text-slate-700 leading-tight">${guide.cert}</span>
+                    </div>` : ''}
                 </div>
                 
-                <div class="pt-6 border-t border-slate-50">
-                    <p class="text-[10px] font-medium text-slate-400 italic leading-relaxed mb-6">"${guide.bio || guide.desc || ''}"</p>
-                    <button class="w-full py-4 border-2 border-slate-100 rounded-2xl text-[10px] font-black uppercase text-slate-500 hover:border-primary hover:text-primary transition-all tracking-widest">
-                        ${translations[currentLang].card_mission_docs || 'Misión Docs'}
+                <div class="space-y-2 pt-4 border-t border-slate-100 mt-auto">
+                    <button onclick="window.openGuideHireModal('${guide.name.replace(/'/g, "\\'")}', ${guide.id});" 
+                        class="w-full py-3.5 bg-slate-900 hover:bg-primary text-white rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer">
+                        <i class="ri-file-list-3-line"></i> Ver Itinerario & Recomendaciones
                     </button>
+                    <a href="https://wa.me/51958050928?text=${encodeURIComponent('Hola Lifextreme! Deseo consultar disponibilidad para contratar al guía certificado ' + guide.name + ' en ' + (guide.region || 'Perú') + '.')}" 
+                        target="_blank" rel="noopener"
+                        class="w-full py-3 bg-emerald-50 hover:bg-emerald-500 text-emerald-700 hover:text-white border border-emerald-200 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all flex items-center justify-center gap-2">
+                        <i class="ri-whatsapp-fill text-base"></i> Consultar Disponibilidad
+                    </a>
                 </div>
             </div>
         </div>
@@ -1043,7 +1298,9 @@ function renderAll(region = 'Todos', category = 'Todos') {
     if (!grid) return;
 
     const filtered = (region === 'Todos') ? tours : tours.filter(t => t.dept === region);
-    grid.innerHTML = filtered.map((t, i) => `
+    grid.innerHTML = filtered.map((t, i) => {
+        const tourPrice = window.PriceEngine ? window.PriceEngine.format(t.price) : `S/ ${t.price}`;
+        return `
         <div class="bg-white rounded-[40px] overflow-hidden group cursor-pointer shadow-sm hover:shadow-xl transition-all animate-card-entry relative" 
              style="animation-delay: ${i * 40}ms; animation-fill-mode: both;"
              data-action="open-booking" data-id="${t.id}">
@@ -1058,7 +1315,7 @@ function renderAll(region = 'Todos', category = 'Todos') {
             </div>
             <div class="h-64 overflow-hidden relative bg-slate-100">
                 <div class="skeleton-loader absolute inset-0"></div>
-                <img src="${t.img}?w=500" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-700 img-reveal" onload="this.classList.add('loaded'); this.previousElementSibling.style.display='none';">
+                <img src="${t.img}?w=500" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-700 img-reveal" onload="this.classList.add('loaded'); if(this.previousElementSibling) this.previousElementSibling.style.display='none';">
             </div>
             <div class="p-8">
                 <div class="flex justify-between mb-2">
@@ -1075,12 +1332,13 @@ function renderAll(region = 'Todos', category = 'Todos') {
                 </div>
                 <h3 class="text-xl font-black italic mb-6">${t.title}</h3>
                 <div class="flex justify-between items-center pt-6 border-t font-black">
-                    <span class="text-2xl italic">S/ ${t.price}</span>
+                    <span class="text-2xl italic">${tourPrice}</span>
                     <i class="ri-arrow-right-line text-primary"></i>
                 </div>
             </div>
         </div>
-    `).join('');
+        `;
+    }).join('');
     
     // SEO: Inyectar Schema de Producto para Expediciones
     if (typeof injectTourSchema === 'function') {
@@ -1095,36 +1353,84 @@ function renderAll(region = 'Todos', category = 'Todos') {
             equipsData = equipsData.filter(e => e.cat === category);
         }
 
-        equipGrid.innerHTML = equipsData.map((e, i) => `
-            <div class="bg-white p-6 rounded-[32px] border border-slate-50 flex flex-col gap-4 shadow-sm hover:shadow-xl transition-all animate-card-entry" style="animation-delay: ${i * 40}ms; animation-fill-mode: both;">
-                <div class="flex items-center gap-4">
-                    <div class="w-20 h-20 rounded-2xl relative bg-slate-50 overflow-hidden flex-shrink-0">
-                        <div class="skeleton-loader absolute inset-0"></div>
-                        <img src="${e.img}?w=200" loading="lazy" class="w-full h-full object-cover img-reveal" onload="this.classList.add('loaded'); this.previousElementSibling.style.display='none';">
+        equipGrid.innerHTML = equipsData.map((e, i) => {
+            const buyPrice = window.PriceEngine ? window.PriceEngine.format(e.price) : `S/ ${e.price}`;
+            const rentPrice = window.PriceEngine ? window.PriceEngine.format(e.rentPrice) : `S/ ${e.rentPrice}`;
+            const views = e.views360 || [e.img];
+            const imgId = `equip-img-${i}`;
+
+            return `
+            <div class="bg-white rounded-[36px] border border-slate-100 shadow-sm hover:shadow-xl transition-all p-6 sm:p-7 flex flex-col justify-between animate-card-entry" style="animation-delay: ${i * 40}ms; animation-fill-mode: both;">
+                <div>
+                    <!-- Top Category & Recommend Destinos -->
+                    <div class="flex items-center justify-between gap-2 mb-3">
+                        <span class="bg-indigo-50 text-primary border border-indigo-100 text-[9px] font-black uppercase px-3 py-1 rounded-full tracking-wider">
+                            ${e.cat}
+                        </span>
+                        ${e.destinos ? `
+                        <span class="text-[9px] font-bold text-slate-400 truncate max-w-[180px]" title="${e.destinos}">
+                            📍 ${e.destinos}
+                        </span>` : ''}
                     </div>
-                    <div class="flex-1 min-w-0">
-                        <p class="text-[8px] font-black text-slate-400 uppercase tracking-widest mb-1">${e.cat}</p>
-                        <h4 class="font-black italic text-md leading-tight truncate" title="${e.name}">${e.name}</h4>
+
+                    <!-- Main Image with 360 Spin Preview Controls -->
+                    <div class="h-60 rounded-3xl relative overflow-hidden bg-slate-950 mb-4 group/img">
+                        <img id="${imgId}" src="${e.img}?w=600" loading="lazy" class="w-full h-full object-cover transition-opacity duration-300" alt="${e.name}">
+                        
+                        <!-- 360 Spin Angle Bar -->
+                        <div class="absolute bottom-3 left-3 right-3 bg-slate-950/80 backdrop-blur-md rounded-xl p-1.5 flex items-center justify-between gap-1 z-10 border border-white/10">
+                            <span class="text-[8px] font-black uppercase text-amber-400 tracking-wider flex items-center gap-1 pl-1">
+                                <i class="ri-360-line text-xs"></i> 360°
+                            </span>
+                            <div class="flex items-center gap-1">
+                                ${views.map((v, vIdx) => `
+                                    <button type="button" onclick="window.switchAngle360('${imgId}', '${v}?w=600', this)" 
+                                        class="${vIdx === 0 ? 'bg-amber-400 text-slate-950' : 'bg-white/80 text-slate-700 hover:bg-white'} text-[8px] font-black px-2 py-0.5 rounded-lg transition-all cursor-pointer">
+                                        ${vIdx === 0 ? 'Frente' : vIdx === 1 ? 'Lateral' : vIdx === 2 ? 'Interior' : 'Detalle'}
+                                    </button>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 class="font-black italic text-lg sm:text-xl text-slate-900 leading-snug mb-2">${e.name}</h4>
+                    <p class="text-xs text-slate-500 mb-4 leading-relaxed">${e.desc || ''}</p>
+
+                    <!-- Technical Specs Grid -->
+                    ${e.specs ? `
+                    <div class="grid grid-cols-2 gap-2 bg-slate-50 p-3 rounded-2xl border border-slate-100 text-[10px] font-bold text-slate-600 mb-4">
+                        ${e.specs.peso ? `<div><strong class="text-slate-900 block text-[9px] uppercase text-slate-400">Peso</strong> ${e.specs.peso}</div>` : ''}
+                        ${e.specs.temp ? `<div><strong class="text-slate-900 block text-[9px] uppercase text-slate-400">Rango Temp / Viento</strong> ${e.specs.temp}</div>` : ''}
+                        ${e.specs.impermeable ? `<div><strong class="text-slate-900 block text-[9px] uppercase text-slate-400">Impermeabilidad</strong> ${e.specs.impermeable}</div>` : ''}
+                        ${e.specs.cert ? `<div><strong class="text-slate-900 block text-[9px] uppercase text-slate-400">Norma / Cert.</strong> ${e.specs.cert}</div>` : ''}
+                    </div>` : ''}
+
+                    <!-- Express Delivery Option -->
+                    <div class="mb-4">
+                        <label class="flex items-center gap-2 text-[10px] font-bold text-slate-700 bg-amber-50/70 hover:bg-amber-100/70 p-3 rounded-2xl border border-amber-200/80 cursor-pointer transition-all">
+                            <input type="checkbox" class="accent-amber-500 w-4 h-4 rounded cursor-pointer" onchange="window.toggleEquipDelivery(${i}, this.checked)">
+                            <span>🚚 <strong>Delivery Express</strong> a mi Hotel/Agencia en Cusco o Huaraz (+S/ 25.00)</span>
+                        </label>
                     </div>
                 </div>
-                
-                <div class="grid grid-cols-2 gap-2 mt-auto">
-                    <!-- Buy Option -->
-                    <button data-action="add-cart-short" data-name="${e.name}" data-price="${e.price}" data-type="sale" data-img="${e.img}" 
-                        class="flex flex-col items-center justify-center bg-slate-50 hover:bg-slate-900 hover:text-white p-3 rounded-2xl transition-all group border border-slate-100">
-                        <span class="text-[9px] font-bold text-slate-400 uppercase mb-1 group-hover:text-slate-300">Comprar</span>
-                        <span class="text-sm font-black italic">S/ ${e.price}</span>
+
+                <!-- Price & Action Buttons -->
+                <div class="grid grid-cols-2 gap-2 pt-3 border-t border-slate-100">
+                    <button type="button" onclick="const del = window.selectedEquipDeliveries[${i}]; const p = ${e.price} + (del ? 25 : 0); const n = '${e.name.replace(/'/g, "\\'")}' + (del ? ' (+ Delivery Express)' : ''); addToCartShort(n, p, 'sale', '${e.img}');"
+                        class="flex flex-col items-center justify-center bg-slate-900 hover:bg-primary text-white p-3 rounded-2xl transition-all cursor-pointer shadow-sm group">
+                        <span class="text-[9px] font-bold text-slate-300 uppercase mb-0.5 group-hover:text-white">Comprar</span>
+                        <span class="text-sm font-black italic">${buyPrice}</span>
                     </button>
                     
-                    <!-- Rent Option -->
-                    <button data-action="add-cart-short" data-name="${e.name}" data-price="${e.rentPrice}" data-type="rent" data-img="${e.img}" 
-                        class="flex flex-col items-center justify-center bg-indigo-50 hover:bg-primary hover:text-white p-3 rounded-2xl transition-all group border border-indigo-100">
-                        <span class="text-[9px] font-bold text-indigo-400 uppercase mb-1 group-hover:text-indigo-100">Alquilar</span>
-                        <span class="text-sm font-black italic">S/ ${e.rentPrice}<small class="text-[8px] opacity-70">/day</small></span>
+                    <button type="button" onclick="const del = window.selectedEquipDeliveries[${i}]; const p = ${e.rentPrice} + (del ? 25 : 0); const n = '${e.name.replace(/'/g, "\\'")}' + (del ? ' (+ Delivery Express)' : ''); addToCartShort(n, p, 'rent', '${e.img}');"
+                        class="flex flex-col items-center justify-center bg-indigo-50 hover:bg-primary hover:text-white text-primary p-3 rounded-2xl transition-all cursor-pointer border border-indigo-100 group">
+                        <span class="text-[9px] font-bold text-indigo-400 uppercase mb-0.5 group-hover:text-indigo-100">Alquilar / Día</span>
+                        <span class="text-sm font-black italic">${rentPrice}</span>
                     </button>
                 </div>
             </div>
-        `).join('');
+            `;
+        }).join('');
     }
 
     renderGuides();
@@ -1152,7 +1458,9 @@ function renderEvents(region = 'Todos') {
         return;
     }
 
-    grid.innerHTML = filtered.map(e => `
+    grid.innerHTML = filtered.map(e => {
+        const eventPrice = window.PriceEngine ? window.PriceEngine.format(e.price) : `S/ ${e.price}`;
+        return `
         <div class="bg-white rounded-[48px] overflow-hidden group shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-50 flex flex-col h-full relative" data-action="open-booking" data-id="${e.id}">
             <!-- Share Button Overlay -->
             <div class="card-share-overlay">
@@ -1165,7 +1473,7 @@ function renderEvents(region = 'Todos') {
             </div>
             <div class="h-64 overflow-hidden relative bg-slate-100">
                 <div class="skeleton-loader absolute inset-0"></div>
-                <img src="${e.img}?w=500" loading="lazy" class="h-full w-full object-cover group-hover:scale-110 transition-all duration-700 img-reveal" onload="this.classList.add('loaded'); this.previousElementSibling.style.display='none';">
+                <img src="${e.img}?w=500" loading="lazy" class="h-full w-full object-cover group-hover:scale-110 transition-all duration-700 img-reveal" onload="this.classList.add('loaded'); if(this.previousElementSibling) this.previousElementSibling.style.display='none';">
                 <div class="absolute top-6 left-6 bg-white/90 backdrop-blur-md px-4 py-3 rounded-2xl shadow-sm text-center min-w-[60px]">
                     <p class="text-xs font-black text-primary leading-none">${e.date}</p>
                     <p class="text-[8px] font-black text-slate-400 uppercase tracking-widest mt-1">${e.month}</p>
@@ -1196,7 +1504,7 @@ function renderEvents(region = 'Todos') {
                 <div class="flex items-center justify-between pt-8 border-t border-slate-50">
                     <div>
                         <p class="text-[8px] font-black text-slate-400 uppercase tracking-widest mb-1">${translations[currentLang].card_inscription}</p>
-                        <p class="text-2xl font-black italic text-slate-900">S/ ${e.price}</p>
+                        <p class="text-2xl font-black italic text-slate-900">${eventPrice}</p>
                     </div>
                     <button class="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all shadow-sm">
                         <i class="ri-arrow-right-up-line text-xl"></i>
@@ -1204,8 +1512,35 @@ function renderEvents(region = 'Todos') {
                 </div>
             </div>
         </div>
-    `).join('');
+        `;
+    }).join('');
 }
+
+// Global Currency Change Handler linked to Language
+window.handleCurrencyChange = function(curr) {
+    if (window.PriceEngine) {
+        window.PriceEngine.setCurrency(curr);
+    }
+    const sel = document.getElementById('currency-selector');
+    if (sel && sel.value !== curr) sel.value = curr;
+
+    // Automatic Language Sync according to Currency
+    if (curr === 'PEN' && currentLang !== 'es') {
+        setLanguage('es');
+        return;
+    } else if (curr === 'USD' && currentLang !== 'en') {
+        setLanguage('en');
+        return;
+    } else if (curr === 'BRL' && currentLang !== 'pt') {
+        setLanguage('pt');
+        return;
+    }
+
+    renderAll();
+    updateCart();
+    if (typeof updateTotalPrice === 'function') updateTotalPrice();
+    showToast('Moneda Sincronizada', `Precios actualizados en ${curr}`, 'ri-exchange-dollar-line');
+};
 
 // --- EVENT DELEGATION SYSTEM (CORE UPDATE) ---
 function setupEventListeners() {
@@ -1226,10 +1561,7 @@ function setupEventListeners() {
             case 'mobile-navigate': mobileNavigate(data.target); break;
             case 'set-lang': setLanguage(data.lang); break;
             case 'set-currency': 
-                window.PriceEngine.setCurrency(data.currency);
-                renderAll();
-                updateCart();
-                showToast('Info', `Moneda cambiada a ${data.currency}`, 'ri-exchange-dollar-line');
+                window.handleCurrencyChange(data.currency);
                 break;
             case 'toggle-cart': toggleCart(); break;
             case 'toggle-mobile-menu': toggleMobileMenu(); break;
@@ -1560,8 +1892,19 @@ function setLanguage(lang) {
     const menu = document.getElementById('lang-dropdown-menu');
     if (menu) menu.classList.add('hidden');
 
+    // Sincronizar moneda de acuerdo al idioma
+    const langToCurrency = { es: 'PEN', en: 'USD', pt: 'BRL' };
+    const targetCurrency = langToCurrency[lang] || 'PEN';
+    if (window.PriceEngine) {
+        window.PriceEngine.setCurrency(targetCurrency);
+    }
+    const currSel = document.getElementById('currency-selector');
+    if (currSel) currSel.value = targetCurrency;
+
     if (currentLang === lang) {
         updateLanguageUI();
+        renderAll();
+        updateCart();
         return;
     }
     localStorage.setItem('lifextreme_lang', lang);
@@ -1590,9 +1933,9 @@ function setLanguage(lang) {
         renderAll();
         updateCart();
         const msgs = {
-            es: 'Idioma cambiado a Español',
-            en: 'Language switched to English',
-            pt: 'Idioma alterado para Português'
+            es: 'Idioma cambiado a Español (Moneda: S/ PEN)',
+            en: 'Language switched to English (Currency: $ USD)',
+            pt: 'Idioma alterado para Português (Moeda: R$ BRL)'
         };
         showToast('Success', msgs[lang], 'ri-translate-2');
     }

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LX NeuroMap · El cerebro vivo de Lifextreme</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div id="stage"><canvas id="brain"></canvas></div>
+
+<header id="top" class="glass">
+  <div class="brand"><span class="logo">LX</span><div><b>NeuroMap</b><small>El cerebro vivo de Lifextreme</small></div></div>
+  <div class="stats" id="stats"></div>
+  <form id="searchForm" autocomplete="off">
+    <input id="q" placeholder="Pregúntale al cerebro: «IGV servicios turísticos», «seguridad trekking»…" />
+    <button>Buscar</button>
+    <button type="button" id="clearSearch" class="ghost" title="Limpiar resaltado">✕</button>
+  </form>
+</header>
+
+<aside id="left" class="glass">
+  <h3>Agentes de inteligencia de negocios</h3>
+  <div id="agentList"></div>
+  <div class="legend" id="legend"></div>
+</aside>
+
+<aside id="right" class="glass">
+  <nav id="tabs">
+    <button data-tab="live" class="on">En vivo</button>
+    <button data-tab="learned">Lo que aprendió</button>
+    <button data-tab="doctor">Médico</button>
+    <button data-tab="search">Búsqueda</button>
+  </nav>
+  <div id="banner" class="banner" hidden>Actividad de demostración: las consultas a Qdrant son reales; el disparo de los agentes está simulado.</div>
+  <section id="tab-live" class="tab on"><div id="empty" class="muted">Esperando actividad de los agentes…<small>Ejecuta <code>neuromap\demo.py</code> o lanza un agente con <code>neuromap\run.py</code></small></div><div id="feed"></div></section>
+  <section id="tab-learned" class="tab"></section>
+  <section id="tab-doctor" class="tab"></section>
+  <section id="tab-search" class="tab"><p class="muted">Escribe una consulta arriba. Se iluminan los documentos que el cerebro asocia con ese tema.</p></section>
+</aside>
+
+<footer id="river" class="glass">
+  <div class="rtitle">Río del tiempo · últimos 10 min</div>
+  <canvas id="rc"></canvas>
+</footer>
+
+<div id="tip" hidden></div>
+<script src="app.js"></script>
+</body>
+</html>

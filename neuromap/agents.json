@@ -1,0 +1,56 @@
+[
+  {
+    "id": "agent_cfo",
+    "label": "CFO",
+    "icon": "S/",
+    "color": "#d99a00",
+    "impact": "Alto",
+    "role": "Márgenes por tour, flujo de caja, ROI de marketing e IGV. Consulta normativa SUNAT en Qdrant.",
+    "note": ""
+  },
+  {
+    "id": "agent_b2b_outreach",
+    "label": "B2B Outreach",
+    "icon": "B2",
+    "color": "#e0506a",
+    "impact": "Alto",
+    "role": "Enriquece leads de agencias y redacta propuestas usando insights del RAG por región.",
+    "note": "Puede enviar mensajes: ejecútalo con dry_run salvo que quieras contactar leads reales."
+  },
+  {
+    "id": "agent_pyme_advisor",
+    "label": "Asesor PYME",
+    "icon": "PY",
+    "color": "#2a9d8f",
+    "impact": "Alto",
+    "role": "Convierte normativa y buenas prácticas del RAG en consejos accionables para pymes turísticas.",
+    "note": "Redacta mensajes de WhatsApp: revisa el modo de envío antes de correrlo."
+  },
+  {
+    "id": "quantum_timesfm_pricing",
+    "label": "Pricing TimesFM",
+    "icon": "TF",
+    "color": "#3a86ff",
+    "impact": "Alto",
+    "role": "Pronóstico de demanda y precio dinámico por temporada.",
+    "note": "Hoy usa ventas simuladas (mock). Falta conectarlo a ventas reales."
+  },
+  {
+    "id": "agent_intel",
+    "label": "Inteligencia de Mercado",
+    "icon": "IM",
+    "color": "#8b5cf6",
+    "impact": "Medio",
+    "role": "Análisis de mercado y competencia con LLM local.",
+    "note": ""
+  },
+  {
+    "id": "b2b_financial_agent",
+    "label": "Bóveda CEO",
+    "icon": "CE",
+    "color": "#f4722b",
+    "impact": "Medio",
+    "role": "Extrae inteligencia financiera de documentos confidenciales hacia Lifextreme_CEO_Vault.",
+    "note": "La bóveda CEO tiene 0 vectores: este agente aún no ha ingestado documentos."
+  }
+]

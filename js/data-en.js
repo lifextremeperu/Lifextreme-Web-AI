@@ -1728,104 +1728,521 @@ const events = [
 ];
 
 const equips = [
-    // MOCHILAS (5)
-    { name: 'Osprey Aether 65 Elite', cat: 'Mochilas', price: 1250, rentPrice: 45, img: 'https://images.unsplash.com/photo-1622260614153-03223fb72052' }, // Dark Tactical/Hiking
-    { name: 'Mammal Pro 45L Tactical', cat: 'Mochilas', price: 850, rentPrice: 35, img: 'https://images.unsplash.com/photo-1590845947698-8924d7409b56' }, // Camo/Green
-    { name: 'Arc teryx Bora 75', cat: 'Mochilas', price: 1800, rentPrice: 60, img: 'https://images.unsplash.com/photo-1581605405669-fcdf81165afa' }, // Orange/Mountain
-    { name: 'Gregory Baltoro 85 Pro', cat: 'Mochilas', price: 1100, rentPrice: 40, img: 'https://images.unsplash.com/photo-1547847932-d3a3d538df59' }, // Camping vibes
-    { name: 'Black Diamond Speed 30', cat: 'Mochilas', price: 650, rentPrice: 25, img: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62' }, // General Rucksack
+    // CARPAS & CAMPAMENTO (Camino Inca & Salkantay)
+    {
+        name: 'The North Face Mountain 25 (4 Estaciones)',
+        cat: 'Carpas & Campamento',
+        price: 2850,
+        rentPrice: 65,
+        img: 'https://images.unsplash.com/photo-1510312305653-8ed496efae75?w=800&fm=webp&q=80',
+        views360: [
+            'https://images.unsplash.com/photo-1510312305653-8ed496efae75?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?w=800&fm=webp&q=80'
+        ],
+        specs: {
+            peso: '4.0 kg',
+            temp: 'Extremo Vientos 100 km/h',
+            impermeable: '10,000 mm Nylon Ripstop',
+            capacidad: '2 Personas + Vestíbulo',
+            cert: 'ASTM F1933 Alpine Standard'
+        },
+        destinos: 'Salkantay Trek, Huayhuash, Ausangate',
+        desc: 'Carpa geodésica de expedición diseñada para soportar nevadas intensas y vientos huracanados en pasos de más de 4,600 msnm.'
+    },
+    {
+        name: 'MSR Hubba Hubba NX 2P Ultraligera',
+        cat: 'Carpas & Campamento',
+        price: 1950,
+        rentPrice: 48,
+        img: 'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800&fm=webp&q=80',
+        views360: [
+            'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1510312305653-8ed496efae75?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=800&fm=webp&q=80'
+        ],
+        specs: {
+            peso: '1.54 kg (Trail Weight)',
+            temp: '3 Estaciones Andinas',
+            impermeable: '3,000 mm DuraShield',
+            capacidad: '2 Personas',
+            cert: 'ISO 5912 Trekking'
+        },
+        destinos: 'Camino Inca Clásico, Choquequirao, Santa Cruz',
+        desc: 'El estándar de oro para mochileros ultraligeros. Espaciosa, rápida de armar con varillas Easton Syclone indestructibles.'
+    },
+    {
+        name: 'Ferrino Svalbard 3P Expedición',
+        cat: 'Carpas & Campamento',
+        price: 2400,
+        rentPrice: 55,
+        img: 'https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?w=800&fm=webp&q=80',
+        views360: [
+            'https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1510312305653-8ed496efae75?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=800&fm=webp&q=80'
+        ],
+        specs: {
+            peso: '4.7 kg',
+            temp: '4 Estaciones Glaciar',
+            impermeable: '8,000 mm Doble Faldón',
+            capacidad: '3 Personas',
+            cert: 'EN 5912 Polar Testing'
+        },
+        destinos: 'Campamento Base Huascarán, Cordillera Blanca',
+        desc: 'Carpa robusta con doble ábside para cocinar en tormentas de nieve y anclajes especiales para nieve compacta.'
+    },
 
-    // CALZADO (5)
-    { name: 'La Sportiva Nepal Cube', cat: 'Calzado', price: 2150, rentPrice: 80, img: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff' }, // Red Nike style but sturdy
-    { name: 'Scarpa Phantom 6000', cat: 'Calzado', price: 3200, rentPrice: 120, img: 'https://images.unsplash.com/photo-1520639888713-7851133b1ed0' }, // Boot in snow
-    { name: 'Salomon Quest 4 GTX', cat: 'Calzado', price: 950, rentPrice: 35, img: 'https://images.unsplash.com/photo-1512990414788-d97cb4a25db3' }, // Classic hiking boots
-    { name: 'Zamberlan Vioz Lux', cat: 'Calzado', price: 1300, rentPrice: 50, img: 'https://images.unsplash.com/photo-1603808033192-082d6919d3e1' }, // Brown leather boots
-    { name: 'Merrell Moab 3 Tactical', cat: 'Calzado', price: 750, rentPrice: 30, img: 'https://images.unsplash.com/photo-1595341888016-a392ef81b7de' }, // Tactical shoe
+    // SLEEPINGS & MATRAS TÉRMICAS
+    {
+        name: 'Bolsa de Dormir Marmot Col -29°C (800FP)',
+        cat: 'Sleepings & Matras',
+        price: 3100,
+        rentPrice: 50,
+        img: 'https://images.unsplash.com/photo-1547847932-d3a3d538df59?w=800&fm=webp&q=80',
+        views360: [
+            'https://images.unsplash.com/photo-1547847932-d3a3d538df59?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1617326693439-0bd649033376?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1510312305653-8ed496efae75?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800&fm=webp&q=80'
+        ],
+        specs: {
+            peso: '1.76 kg',
+            temp: 'Confort -20°C / Límite -29°C',
+            relleno: 'Pluma de Ganso 800+ RDS Down',
+            tejido: 'Pertex Shield Impermeable',
+            cert: 'EN 13537 / ISO 23537'
+        },
+        destinos: 'Salkantay Pass, Ausangate Circuit, Campo Alto Huascarán',
+        desc: 'Bolsa momia de alta cota tratada con Down Defender anti-humedad para noches bajo cero en los Andes.'
+    },
+    {
+        name: 'Sleeping Ferrino Nightec 800 -12°C',
+        cat: 'Sleepings & Matras',
+        price: 1100,
+        rentPrice: 32,
+        img: 'https://images.unsplash.com/photo-1617326693439-0bd649033376?w=800&fm=webp&q=80',
+        views360: [
+            'https://images.unsplash.com/photo-1617326693439-0bd649033376?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1547847932-d3a3d538df59?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1510312305653-8ed496efae75?w=800&fm=webp&q=80'
+        ],
+        specs: {
+            peso: '1.45 kg',
+            temp: 'Confort -5°C / Límite -12°C',
+            relleno: 'Microfibra Shingle Sintética',
+            tejido: 'Ripstop 260T Transpirable',
+            cert: 'EN 13537 Alpine'
+        },
+        destinos: 'Camino Inca Clásico, Lares Trek, Valle Sagrado',
+        desc: 'Excelente aislamiento térmico de secado rápido, perfecto para campamentos con humedad matutina en ceja de selva.'
+    },
+    {
+        name: 'Matra Therm-a-Rest NeoAir XTherm NXT',
+        cat: 'Sleepings & Matras',
+        price: 980,
+        rentPrice: 28,
+        img: 'https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=800&fm=webp&q=80',
+        views360: [
+            'https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1617326693439-0bd649033376?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1547847932-d3a3d538df59?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1510312305653-8ed496efae75?w=800&fm=webp&q=80'
+        ],
+        specs: {
+            peso: '439 g',
+            aislamiento: 'R-Value 7.3 (Aislamiento Máximo)',
+            grosor: '7.6 cm de amortiguación',
+            valvula: 'WingLock rápida y hermética',
+            cert: 'ASTM F3340-18 Thermal Resistance'
+        },
+        destinos: 'Nieve, Suelos Rocosos Andinos, Glaciares',
+        desc: 'La colchoneta inflable más cálida y liviana del planeta, bloquea el frío que asciende del suelo congelado.'
+    },
 
-    // ACCESORIOS (5)
-    { name: 'Black Diamond Spot 400', cat: 'Accesorios', price: 220, rentPrice: 15, img: 'https://images.unsplash.com/photo-1563857508098-b6483134604d' }, // Headlamp style
-    { name: 'Garmin InReach Mini 2', cat: 'Accesorios', price: 1650, rentPrice: 65, img: 'https://images.unsplash.com/photo-1557262947-2cb2d4705540' }, // Watch/GPS vibe
-    { name: 'Petzl Summit Evo Axe', cat: 'Accesorios', price: 780, rentPrice: 35, img: 'https://images.unsplash.com/photo-1506377225131-41e98d9ba0d1' }, // Ice axe/Pick
-    { name: 'BioLite SolarPanel 5+', cat: 'Accesorios', price: 420, rentPrice: 20, img: 'https://images.unsplash.com/photo-1545209355-66795f5539d8' }, // Solar/Tech
-    { name: 'Therma-Rest NeoAir XTherm', cat: 'Accesorios', price: 950, rentPrice: 40, img: 'https://images.unsplash.com/photo-1617326693439-0bd649033376' } // Camping mat/gear
+    // CASACAS & INDUMENTARIA TÉCNICA
+    {
+        name: 'Casaca Arc'teryx Alpha SV Gore-Tex Pro',
+        cat: 'Casacas & Ropa Técnica',
+        price: 3600,
+        rentPrice: 70,
+        img: 'https://images.unsplash.com/photo-1548883354-7622d03aca27?w=800&fm=webp&q=80',
+        views360: [
+            'https://images.unsplash.com/photo-1548883354-7622d03aca27?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1578632767115-351597cf2477?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&fm=webp&q=80'
+        ],
+        specs: {
+            peso: '485 g',
+            membrana: 'Gore-Tex Pro Most Rugged 3L',
+            impermeable: '28,000 mm Columna de Agua',
+            seguridad: 'Reflector RECCO integrado',
+            cert: 'CE Alpine Severe Weather'
+        },
+        destinos: 'Nevado Huascarán, Alpamayo, Salkantay, Chachani',
+        desc: 'Hardshell legendaria de grado militar y alpino. Resiste tormentas de nieve, granizo y rozaduras contra roca viva.'
+    },
+    {
+        name: 'Parka Plumas The North Face Summit L3 (800FP)',
+        cat: 'Casacas & Ropa Técnica',
+        price: 1850,
+        rentPrice: 42,
+        img: 'https://images.unsplash.com/photo-1578632767115-351597cf2477?w=800&fm=webp&q=80',
+        views360: [
+            'https://images.unsplash.com/photo-1578632767115-351597cf2477?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1548883354-7622d03aca27?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&fm=webp&q=80'
+        ],
+        specs: {
+            peso: '380 g',
+            relleno: 'Pluma ProDown 800FP con repelencia al agua',
+            corte: 'Active Alpine Slim Fit',
+            bolsillo: 'Autoguardable en su propio bolsillo',
+            cert: 'Responsible Down Standard (RDS)'
+        },
+        destinos: 'Paso Salkantay, Cumbre Misti, Valle Sagrado frío nocturno',
+        desc: 'Aislamiento de pluma hidrorepelente ultraliviana para retener calor corporal cuando el termómetro baja de 0°C.'
+    },
+    {
+        name: 'Pantalón Hardshell Patagonia Triolet Gore-Tex 3L',
+        cat: 'Casacas & Ropa Técnica',
+        price: 1450,
+        rentPrice: 35,
+        img: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&fm=webp&q=80',
+        views360: [
+            'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1548883354-7622d03aca27?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1578632767115-351597cf2477?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&fm=webp&q=80'
+        ],
+        specs: {
+            peso: '540 g',
+            membrana: 'Gore-Tex 3 Capas 100% Reciclado',
+            cierres: 'Cremalleras completas de doble vía en piernas',
+            polainas: 'Polaina interna elástica con ganchos',
+            cert: 'Fair Trade Certified™ sewing'
+        },
+        destinos: 'Travesías glaciares, Trekking bajo lluvia torrencial',
+        desc: 'Pantalón impermeable respirable con refuerzos de Scuff Guard contra cortes de crampones en los tobillos.'
+    },
+
+    // ESCALADA EN HIELO & ROCA
+    {
+        name: 'Piolets Técnicos Petzl Quark (Par Hielo/Mixto)',
+        cat: 'Escalada Hielo & Roca',
+        price: 2100,
+        rentPrice: 55,
+        img: 'https://images.unsplash.com/photo-1506377225131-41e98d9ba0d1?w=800&fm=webp&q=80',
+        views360: [
+            'https://images.unsplash.com/photo-1506377225131-41e98d9ba0d1?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1520639888713-7851133b1ed0?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1512990414788-d97cb4a25db3?w=800&fm=webp&q=80'
+        ],
+        specs: {
+            peso: '550 g c/u (1.10 kg el par)',
+            hoja: 'Acero Forjado ICE (afinada a 3.2 mm en punta)',
+            mango: 'Curvo tipo 2 con empuñadura Trigrest',
+            accesorios: '1 con Martillo + 1 con Pala desmontable',
+            cert: 'CE EN 13089 / UIAA 152 Ice Axe Type 2'
+        },
+        destinos: 'Cascadas de Hielo, Nevado Mateo, Ishinca, Alpamayo',
+        desc: 'Piolets técnicos de alpinismo polivalente para escalada en hielo vertical, goulottes y corredores de nieve dura.'
+    },
+    {
+        name: 'Crampones Semiautomáticos Grivel G12 New-Matic',
+        cat: 'Escalada Hielo & Roca',
+        price: 920,
+        rentPrice: 30,
+        img: 'https://images.unsplash.com/photo-1520639888713-7851133b1ed0?w=800&fm=webp&q=80',
+        views360: [
+            'https://images.unsplash.com/photo-1520639888713-7851133b1ed0?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1506377225131-41e98d9ba0d1?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1512990414788-d97cb4a25db3?w=800&fm=webp&q=80'
+        ],
+        specs: {
+            peso: '970 g el par',
+            puntas: '12 puntas de acero Chromoly forjado',
+            fijacion: 'Semiautomática (talonera micrométrica + puntera correa)',
+            antizueco: 'Sistema Antibott activo delantero y trasero',
+            cert: 'CE EN 893 / UIAA 153 Mountaineering Crampons'
+        },
+        destinos: 'Glaciares de Cusco y Huaraz, Pastoruri, Pisco',
+        desc: 'El crampón de 12 puntas de referencia mundial para montañismo clásico, mixto y pasos de rimaya.'
+    },
+    {
+        name: 'Casco de Escalada Petzl Sirocco Ultraligero',
+        cat: 'Escalada Hielo & Roca',
+        price: 580,
+        rentPrice: 18,
+        img: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&fm=webp&q=80',
+        views360: [
+            'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1520639888713-7851133b1ed0?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1506377225131-41e98d9ba0d1?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1512990414788-d97cb4a25db3?w=800&fm=webp&q=80'
+        ],
+        specs: {
+            peso: '170 g (Ultralight)',
+            construccion: 'Espuma EPP (polipropileno expandido) + corona EPS',
+            ventilacion: 'Canales de flujo de aire de 360°',
+            ajuste: 'Cinta textil minimalista y hebilla magnética',
+            cert: 'CE EN 12492 / UIAA 106 Climbing Helmet'
+        },
+        destinos: 'Escalada en Roca Pachar, Balcón del Diablo, Vía Ferrata',
+        desc: 'Casco con cobertura envolvente en nuca y sienes para protección máxima contra impactos de caída de piedras.'
+    },
+    {
+        name: 'Arnés Black Diamond Solution Guide',
+        cat: 'Escalada Hielo & Roca',
+        price: 490,
+        rentPrice: 16,
+        img: 'https://images.unsplash.com/photo-1512990414788-d97cb4a25db3?w=800&fm=webp&q=80',
+        views360: [
+            'https://images.unsplash.com/photo-1512990414788-d97cb4a25db3?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1520639888713-7851133b1ed0?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1506377225131-41e98d9ba0d1?w=800&fm=webp&q=80'
+        ],
+        specs: {
+            peso: '394 g',
+            tecnologia: 'Fusion Comfort™ de triple tejido de reparto de carga',
+            material: 'Tejido Super Fabric® hiper-resistente a abrasión',
+            portamateriales: '4 anillas moldeadas a presión + quinta anilla trasera',
+            cert: 'CE EN 12277 Type C / UIAA 105'
+        },
+        destinos: 'Escalada deportiva, tradicional y vías ferratas en Cusco',
+        desc: 'Arnés de alta durabilidad pensado para escalada en granito andino y días intensos de entrenamiento en roca.'
+    },
+
+    // MOCHILAS & ACCESORIOS TREKKING
+    {
+        name: 'Osprey Aether 65 Pro Expedition',
+        cat: 'Mochilas & Trekking',
+        price: 1350,
+        rentPrice: 45,
+        img: 'https://images.unsplash.com/photo-1622260614153-03223fb72052?w=800&fm=webp&q=80',
+        views360: [
+            'https://images.unsplash.com/photo-1622260614153-03223fb72052?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1581605405669-fcdf81165afa?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1547847932-d3a3d538df59?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1590845947698-8924d7409b56?w=800&fm=webp&q=80'
+        ],
+        specs: {
+            capacidad: '65 Litros',
+            peso: '2.2 kg',
+            espaldar: 'AirScape™ moldeado por inyección con espuma troquelada',
+            cubierta: 'Raincover impermeable integrada',
+            cert: 'Bluesign® approved materials'
+        },
+        destinos: 'Camino Inca 4D/3N, Salkantay 5D, Choquequirao',
+        desc: 'Mochila de carga pesada con ajuste Fit-on-the-Fly que distribuye el peso directamente en las caderas.'
+    },
+    {
+        name: 'Bastones Black Diamond Trail Pro Shock (Par)',
+        cat: 'Mochilas & Trekking',
+        price: 520,
+        rentPrice: 18,
+        img: 'https://images.unsplash.com/photo-1563857508098-b6483134604d?w=800&fm=webp&q=80',
+        views360: [
+            'https://images.unsplash.com/photo-1563857508098-b6483134604d?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1557262947-2cb2d4705540?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1622260614153-03223fb72052?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1581605405669-fcdf81165afa?w=800&fm=webp&q=80'
+        ],
+        specs: {
+            peso: '590 g el par',
+            material: 'Aluminio 7075 de grado aeroespacial',
+            amortiguacion: 'Tecnología SmashShock de absorción en bajadas',
+            bloqueo: 'Cierres rápidos FlickLock® Pro de metal',
+            cert: 'TÜV Rheinland Tested'
+        },
+        destinos: 'Descensos empinados de escalinatas incas y pedreras',
+        desc: 'Protege las rodillas reduciendo un 35% del impacto acumulado en bajadas técnicas como la de Dead Woman's Pass.'
+    },
+    {
+        name: 'GPS Satelital Garmin inReach Explorer+ SOS',
+        cat: 'Mochilas & Trekking',
+        price: 1850,
+        rentPrice: 50,
+        img: 'https://images.unsplash.com/photo-1557262947-2cb2d4705540?w=800&fm=webp&q=80',
+        views360: [
+            'https://images.unsplash.com/photo-1557262947-2cb2d4705540?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1563857508098-b6483134604d?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1622260614153-03223fb72052?w=800&fm=webp&q=80',
+            'https://images.unsplash.com/photo-1581605405669-fcdf81165afa?w=800&fm=webp&q=80'
+        ],
+        specs: {
+            cobertura: 'Red 100% Satelital Global Iridium',
+            bateria: 'Hasta 100 horas en modo rastreo 10 min',
+            emergencia: 'Botón SOS interactivo con centro GEOS 24/7',
+            mapas: 'Mapas topográficos precargados de los Andes',
+            cert: 'IPX7 Resistente al agua'
+        },
+        destinos: 'Zonas remotas sin señal móvil en todo el territorio peruano',
+        desc: 'Comunicador satelital de rescate que envía tu ubicación en tiempo real a familiares y rescatistas en caso de imprevisto.'
+    }
 ];
 
-// Equipment recommendation mapping by tour type
 const tourEquipmentMap = {
-    'Cusco': ['Osprey Aether 65 Elite', 'La Sportiva Nepal Cube', 'Black Diamond Spot 400'],
-    'Huaraz': ['Arc teryx Bora 75', 'Scarpa Phantom 6000', 'Petzl Summit Evo Axe', 'Therma-Rest NeoAir XTherm'],
-    'Iquitos': ['Mammal Pro 45L Tactical', 'Merrell Moab 3 Tactical', 'Garmin InReach Mini 2'],
-    'Piura': ['Black Diamond Speed 30', 'Salomon Quest 4 GTX', 'BioLite SolarPanel 5+'],
-    'ICA': ['Gregory Baltoro 85 Pro', 'Zamberlan Vioz Lux', 'Black Diamond Spot 400'],
-    'Puno': ['Osprey Aether 65 Elite', 'Salomon Quest 4 GTX', 'Therma-Rest NeoAir XTherm'],
-    'Arequipa': ['Arc teryx Bora 75', 'La Sportiva Nepal Cube', 'Petzl Summit Evo Axe'],
-    'Lima': ['Black Diamond Speed 30', 'Merrell Moab 3 Tactical', 'Garmin InReach Mini 2']
+    'Cusco': ['The North Face Mountain 25 (4 Estaciones)', 'Bolsa de Dormir Marmot Col -29°C (800FP)', 'Osprey Aether 65 Pro Expedition', 'Bastones Black Diamond Trail Pro Shock (Par)'],
+    'Huaraz': ['Ferrino Svalbard 3P Expedición', 'Casaca Arc'teryx Alpha SV Gore-Tex Pro', 'Piolets Técnicos Petzl Quark (Par Hielo/Mixto)', 'Crampones Semiautomáticos Grivel G12 New-Matic', 'Matra Therm-a-Rest NeoAir XTherm NXT'],
+    'Iquitos': ['MSR Hubba Hubba NX 2P Ultraligera', 'GPS Satelital Garmin inReach Explorer+ SOS'],
+    'Piura': ['MSR Hubba Hubba NX 2P Ultraligera', 'Bastones Black Diamond Trail Pro Shock (Par)'],
+    'ICA': ['Osprey Aether 65 Pro Expedition', 'GPS Satelital Garmin inReach Explorer+ SOS'],
+    'Puno': ['Bolsa de Dormir Marmot Col -29°C (800FP)', 'Matra Therm-a-Rest NeoAir XTherm NXT'],
+    'Arequipa': ['The North Face Mountain 25 (4 Estaciones)', 'Crampones Semiautomáticos Grivel G12 New-Matic', 'Piolets Técnicos Petzl Quark (Par Hielo/Mixto)'],
+    'Lima': ['Casco de Escalada Petzl Sirocco Ultraligero', 'Arnés Black Diamond Solution Guide']
 };
 
-// Kit templates for complete packages
 const kitTemplates = {
     'Alta Montaña': {
-        name: 'Kit Montaña Elite',
-        items: ['Arc teryx Bora 75', 'Scarpa Phantom 6000', 'Petzl Summit Evo Axe', 'Therma-Rest NeoAir XTherm'],
+        name: 'Kit Glaciar & Cumbres 6000m',
+        items: ['The North Face Mountain 25 (4 Estaciones)', 'Casaca Arc'teryx Alpha SV Gore-Tex Pro', 'Piolets Técnicos Petzl Quark (Par Hielo/Mixto)', 'Crampones Semiautomáticos Grivel G12 New-Matic'],
         icon: 'ri-landscape-line',
-        description: 'Todo lo que necesitas para conquistar los picos más altos'
+        description: 'Equipamiento de expedición polar y alta cota auditado bajo normativa UIAGM.'
     },
-    'Selva': {
-        name: 'Kit Jungle Pro',
-        items: ['Mammal Pro 45L Tactical', 'Merrell Moab 3 Tactical', 'Garmin InReach Mini 2', 'BioLite SolarPanel 5+'],
-        icon: 'ri-cactus-line',
-        description: 'Equipo especializado para expediciones en la Amazonía'
-    },
-    'Costa & Desierto': {
-        name: 'Kit Coastal Adventure',
-        items: ['Black Diamond Speed 30', 'Salomon Quest 4 GTX', 'BioLite SolarPanel 5+', 'Black Diamond Spot 400'],
-        icon: 'ri-temp-hot-line',
-        description: 'Perfecto para dunas, playas y aventuras costeras'
-    },
-    'Trekking General': {
-        name: 'Kit Explorer',
-        items: ['Osprey Aether 65 Elite', 'La Sportiva Nepal Cube', 'Black Diamond Spot 400', 'Garmin InReach Mini 2'],
+    'Camino Inca & Salkantay': {
+        name: 'Kit Expedición Inca Trail',
+        items: ['MSR Hubba Hubba NX 2P Ultraligera', 'Bolsa de Dormir Marmot Col -29°C (800FP)', 'Matra Therm-a-Rest NeoAir XTherm NXT', 'Bastones Black Diamond Trail Pro Shock (Par)'],
         icon: 'ri-footprint-line',
-        description: 'El kit versátil para cualquier tipo de trekking'
+        description: 'Combo ligero y térmico diseñado para pernoctar con confort en los pasos andinos.'
+    },
+    'Escalada en Roca & Vía Ferrata': {
+        name: 'Kit Vertical Pro',
+        items: ['Casco de Escalada Petzl Sirocco Ultraligero', 'Arnés Black Diamond Solution Guide', 'GPS Satelital Garmin inReach Explorer+ SOS'],
+        icon: 'ri-focus-3-line',
+        description: 'Seguridad certificada CE/UIAA para paredes andinas y cañones de aventura.'
     }
 };
 
 const guides = [
     {
         id: 1,
-        name: 'Carlos "El Puma" Mamani',
-        specialty: 'Alta Montaña',
-        languages: ['Español', 'Quechua', 'Inglés'],
-        exp: '15 años',
+        name: 'Inti Quispe Mayhua',
+        region: 'Cusco & Valle Sagrado',
+        specialty: 'Alta Montaña & Camino Inca Maestro',
+        languages: ['Quechua', 'Español', 'Inglés'],
+        exp: '18 años',
+        cert: 'UIAGM / AGMP Cert. #042 PE • DIRCETUR Cusco',
         img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1887&auto=format&fit=crop',
-        desc: 'Especialista en rutas de más de 5000msnm. Certificado UIAGM.'
-    , fullItinerary: [{ day: '08:00', desc: 'Pick up and transfer to the activity.' }, { day: '10:00', desc: 'Start of Actividad with professional equipment.' }, { day: '14:00', desc: 'Return and end of service.' }], notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.'},
+        desc: 'Nacido en Ollantaytambo, maestro de las rutas incas y rescate en altura. Más de 200 cruces exitosos por Salkantay y Ausangate.',
+        fullItinerary: [
+            { day: '06:00', desc: 'Briefing técnico de aclimatación y revisión de equipo en Cusco.' },
+            { day: '08:30', desc: 'Ingreso al sendero andino con interpretación botánica y cosmogonía quechua.' },
+            { day: '13:00', desc: 'Almuerzo de nutrición energética andina (quinua, tarwi y trucha fresca).' },
+            { day: '16:30', desc: 'Llegada a campamento base seguro con chequeo de oxímetro y carpa armada.' }
+        ],
+        notInc: ['Vuelos internacionales', 'Seguro médico extremo individual', 'Bebidas alcohólicas'],
+        recommendations: 'Aclimatarse 48h antes en Cusco (3,400m). Llevar calzado de trekking ya amoldado al pie y gorro de lana.',
+        ageRating: 'A partir de 14 años en buena condición física.'
+    },
     {
         id: 2,
-        name: 'Sarah "La Lince" Jenkins',
-        specialty: 'Trekking & Flora',
-        languages: ['Inglés', 'Español', 'Francés'],
-        exp: '8 años',
-        img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop',
-        desc: 'Bióloga experta en la biodiversidad de los Andes y Amazonía.'
-    , fullItinerary: [{ day: '08:00', desc: 'Pick up and transfer to the activity.' }, { day: '10:00', desc: 'Start of Actividad with professional equipment.' }, { day: '14:00', desc: 'Return and end of service.' }], notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.'},
+        name: 'Valeria Condori Salas',
+        region: 'Cusco & Valle Sagrado',
+        specialty: 'Escalada en Roca, Vía Ferrata & Enduro MTB',
+        languages: ['Español', 'Inglés', 'Francés'],
+        exp: '9 años',
+        cert: 'Instructora FEPAM • WFR (Wilderness First Responder)',
+        img: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1964&auto=format&fit=crop',
+        desc: 'Campeona nacional de bouldering y referente técnica en vías ferratas del Valle Sagrado. Especialista en seguridad de cuerdas.',
+        fullItinerary: [
+            { day: '08:00', desc: 'Punto de encuentro en Urubamba o Pachar.' },
+            { day: '09:00', desc: 'Taller de progresión vertical, colocación de arnés y mosquetones de seguridad.' },
+            { day: '12:30', desc: 'Ascenso a repisas panorámicas a 250m sobre el río Vilcanota.' },
+            { day: '15:00', desc: 'Rápel guiado o descenso técnico y retorno.' }
+        ],
+        notInc: ['Calzado técnico de pies de gato (disponible para alquiler)', 'Propinas'],
+        recommendations: 'Ropa elástica transpirable, bloqueador solar SPF 50+ y guantes de aproximación.',
+        ageRating: 'Mayores de 12 años con peso mínimo de 40 kg.'
+    },
     {
         id: 3,
-        name: 'Marco "Condor" Quispe',
-        specialty: 'Cultura Inca',
-        languages: ['Español', 'Quechua'],
-        exp: '20 años',
-        img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop',
-        desc: 'Historiador local con acceso a rutas sagradas exclusivas.'
-    , fullItinerary: [{ day: '08:00', desc: 'Pick up and transfer to the activity.' }, { day: '10:00', desc: 'Start of Actividad with professional equipment.' }, { day: '14:00', desc: 'Return and end of service.' }], notInc: ['Flights', 'Personal expenses', 'Tips'], recommendations: 'Bring sunscreen, water, and comfortable clothing for the outdoors.', ageRating: 'Adults and minors +12 accompanied.'},
+        name: 'Alberto "Betomontaña" Morales',
+        region: 'Áncash & Cordillera Blanca',
+        specialty: 'Alpinismo Glaciar & Cumbres 6,000m (Huascarán / Alpamayo)',
+        languages: ['Español', 'Inglés', 'Alemán', 'Quechua'],
+        exp: '22 años',
+        cert: 'Guía UIAGM Internacional • IFMGA Certified #108',
+        img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop',
+        desc: 'Leyenda viva de Huaraz. Más de 40 ascensiones al Huascarán Sur (6,768m) y apertura de rutas en la pared SO del Alpamayo.',
+        fullItinerary: [
+            { day: '03:00', desc: 'Ataque a cumbre desde campo alto sobre glaciar con crampones y encordamiento.' },
+            { day: '07:30', desc: 'Superación de rimaya y cumbre con amanecer sobre la Cordillera Blanca.' },
+            { day: '11:00', desc: 'Descenso técnico en rápeles seguros hacia campo base antes del deshielo solar.' },
+            { day: '14:00', desc: 'Celebración y retorno a Huaraz con el equipo.' }
+        ],
+        notInc: ['Permisos SERNANP Parque Nacional Huascarán', 'Equipo personal de nieve'],
+        recommendations: 'Experiencia previa comprobable en caminata con crampones y seguro de rescate en helicóptero activo.',
+        ageRating: 'Adultos con examen médico de alta cota aprobado.'
+    },
     {
         id: 4,
-        name: 'Elena "River" Tuanama',
-        specialty: 'Selva & Kayak',
-        languages: ['Español', 'Portugués'],
+        name: 'Sofía Huamán Noriega',
+        region: 'Áncash & Cordillera Blanca',
+        specialty: 'Trekking Alpino Huayhuash & Orientación de Rescate',
+        languages: ['Español', 'Inglés', 'Italiano'],
         exp: '12 años',
+        cert: 'Guía Oficial de Montaña AGMP • Paramédico WEMT',
+        img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1888&auto=format&fit=crop',
+        desc: 'Líder del circuito completo Cordillera Huayhuash. Experta en nutrición de resistencia, telemedicina y rescate en grietas.',
+        fullItinerary: [
+            { day: '07:00', desc: 'Revisión meteorológica satelital y partida desde campamento laguna Carhuacocha.' },
+            { day: '11:30', desc: 'Cruce del Paso Siula Grande (4,830m) con vista a las paredes de Joe Simpson.' },
+            { day: '14:30', desc: 'Descenso a campamento Huayhuash junto a manantiales termales.' },
+            { day: '18:00', desc: 'Cena deshidratada premium y sesión de estiramiento guiado.' }
+        ],
+        notInc: ['Pagos a comunidades campesinas locales de Huayhuash', 'Bolsa de dormir'],
+        recommendations: 'Mochila de 60L ajustada, bastones con amortiguación y pastillas potabilizadoras.',
+        ageRating: 'A partir de 16 años con capacidad de marcha de 6-8 horas diarias.'
+    },
+    {
+        id: 5,
+        name: 'Mateo Ramos Cárdenas',
+        region: 'Arequipa & Cañón del Colca',
+        specialty: 'Volcanes del Sur (Misti, Chachani) & Cañón del Colca',
+        languages: ['Español', 'Inglés', 'Portugués'],
+        exp: '14 años',
+        cert: 'Guía de Montaña DIRCETUR Arequipa • Rescatista Cruz Roja',
+        img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1887&auto=format&fit=crop',
+        desc: 'Geólogo y montañista arequipeño. Más de 150 cumbres al Volcán Misti (5,822m) y descensos de cañones profundos en Cotahuasi.',
+        fullItinerary: [
+            { day: '01:00', desc: 'Ascenso nocturno por arenales del Misti para ganar la arista del cráter.' },
+            { day: '06:15', desc: 'Amanecer con la sombra piramidal del Misti proyectada sobre la ciudad blanca.' },
+            { day: '08:00', desc: 'Visita a las fumarolas activas de azufre y descenso en patinaje sobre ceniza.' },
+            { day: '12:00', desc: 'Llegada a transporte 4x4 y almuerzo en picantería tradicional.' }
+        ],
+        notInc: ['Bebidas hidratantes adicionales', 'Equipo de campamento individual'],
+        recommendations: 'Llevar 4 litros de agua por persona, linterna frontal potente y cortavientos térmico.',
+        ageRating: 'Mayores de 15 años tolerantes a la altura.'
+    },
+    {
+        id: 6,
+        name: 'Elena "Amazon" Tuanama',
+        region: 'Selva & Amazonía Central',
+        specialty: 'Aguas Blancas, Rafting Clase IV-V & Supervivencia en Selva',
+        languages: ['Español', 'Portugués', 'Inglés', 'Shipibo'],
+        exp: '15 años',
+        cert: 'Rescue 3 International • IRF White Water Guide Grade 5',
         img: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1888&auto=format&fit=crop',
-        desc: 'Nacida en el Amazonas, experta en supervivencia y navegación.'
+        desc: 'Nacida junto al río Ucayali. Capitana de rafting en los cañones del Río Apurímac y Tambopata. Experta en supervivencia selvática.',
+        fullItinerary: [
+            { day: '09:00', desc: 'Charla de seguridad, comando de remos y prueba de natación en rápidos clase III.' },
+            { day: '10:30', desc: 'Ingreso al cañón profundo con rápidos clase IV: "La Purga del Inca" y "El Laberinto".' },
+            { day: '13:30', desc: 'Almuerzo en playa fluvial de arena blanca con frutas exóticas de la Amazonía.' },
+            { day: '16:00', desc: 'Desembarque, rescate de botes y retorno al lodge ecológico.' }
+        ],
+        notInc: ['Zapatillas de agua antideslizantes', 'Cámaras subacuáticas'],
+        recommendations: 'Saber nadar, ropa que seque rápido (nylon/poliéster) y repelente orgánico sin DEET fuerte.',
+        ageRating: 'Mayores de 14 años con chaleco salvavidas obligatorio provisto.'
     }
 ];
 
@@ -1844,7 +2261,7 @@ const parks = [
         "nombre_infraestructura": "Playa Yacila (Paita)",
         "region": "Piura",
         "tipo": "Roca",
-        "url_foto": "https://images.unsplash.com/photo-1563299796-17596c35a7ac?q=80&w=600",
+        "url_foto": "assets/img/destinos/yacila_escalada.jpg",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -1855,7 +2272,7 @@ const parks = [
         "nombre_infraestructura": "Canchaque (Villa Palambla)",
         "region": "Piura",
         "tipo": "Zipline",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "assets/img/destinos/canchaque_zipline.jpg",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -1863,10 +2280,10 @@ const parks = [
     },
     {
         "id": "INF-PIU-003",
-        "nombre_infraestructura": "MÃ¡ncora",
+        "nombre_infraestructura": "Máncora",
         "region": "Piura",
         "tipo": "Zipline",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "assets/img/destinos/mancora_canopy.jpg",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -1874,32 +2291,32 @@ const parks = [
     },
     {
         "id": "INF-PIU-004",
-        "nombre_infraestructura": "Algunas agencias de montaÃ±a ofrecen descensos guiados en zonas rocosas de forma esporÃ¡dica.",
+        "nombre_infraestructura": "Circuito Rapel Quebrada Seca (Máncora)",
         "region": "Piura",
         "tipo": "Rapel",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "assets/img/destinos/mancora_canopy.jpg",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Algunas agencias de montaÃ±a ofrecen descensos guiados en zonas rocosas de forma esporÃ¡dica."
+        "descripcion": "Algunas agencias de montaña ofrecen descensos guiados en zonas rocosas de forma esporádica."
     },
     {
         "id": "INF-PIU-005",
         "nombre_infraestructura": "Aventura Park Canchaque",
         "region": "Piura",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "assets/img/destinos/canchaque_zipline.jpg",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Complejo de aventura que incluye un puente tibetano y Sky Bike (bicicleta aÃ©rea)."
+        "descripcion": "Complejo de aventura que incluye un puente tibetano y Sky Bike (bicicleta aérea)."
     },
     {
         "id": "INF-LAM-006",
         "nombre_infraestructura": "Point Aventura (Chiclayo)",
         "region": "Lambayeque",
         "tipo": "Palestra",
-        "url_foto": "https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=600",
+        "url_foto": "assets/img/destinos/chiclayo_palestra.jpg",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -1907,54 +2324,54 @@ const parks = [
     },
     {
         "id": "INF-LAM-007",
-        "nombre_infraestructura": "Rapel recreativo guiado en la catarata de Casupe (Chongoyape) y en la catarata Velo de Novia en OyotÃºn.",
+        "nombre_infraestructura": "Rapel recreativo guiado en la catarata de Casupe (Chongoyape) y en la catarata Velo de Novia en Oyotún.",
         "region": "Lambayeque",
         "tipo": "Rapel",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1501555088652-021faa106b9b?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Rapel recreativo guiado en la catarata de Casupe (Chongoyape) y en la catarata Velo de Novia en OyotÃºn."
+        "descripcion": "Rapel recreativo guiado en la catarata de Casupe (Chongoyape) y en la catarata Velo de Novia en Oyotún."
     },
     {
         "id": "INF-LA -008",
         "nombre_infraestructura": "Gecko Trepa (Trujillo)",
         "region": "La Libertad",
         "tipo": "Palestra",
-        "url_foto": "https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1564769662533-4f00a87b4056?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Centro indoor especializado en escalada, ideal para entrenamiento tÃ©cnico (Natasha Alta)."
+        "descripcion": "Centro indoor especializado en escalada, ideal para entrenamiento técnico (Natasha Alta)."
     },
     {
         "id": "INF-LA -009",
-        "nombre_infraestructura": "Zonas de roca en la sierra liberteÃ±a (como Cascas) aptas para exploraciÃ³n de escaladores, pero sin vÃ­as deportivas formalizadas a gran escala.",
+        "nombre_infraestructura": "Zonas de roca en la sierra liberteña (como Cascas) aptas para exploración de escaladores, pero sin vías deportivas formalizadas a gran escala.",
         "region": "La Libertad",
         "tipo": "Roca",
-        "url_foto": "https://images.unsplash.com/photo-1563299796-17596c35a7ac?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1502680390469-be75c86b636f?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Zonas de roca en la sierra liberteÃ±a (como Cascas) aptas para exploraciÃ³n de escaladores, pero sin vÃ­as deportivas formalizadas a gran escala."
+        "descripcion": "Zonas de roca en la sierra liberteña (como Cascas) aptas para exploración de escaladores, pero sin vías deportivas formalizadas a gran escala."
     },
     {
         "id": "INF-LA -010",
-        "nombre_infraestructura": "MachÃ©",
+        "nombre_infraestructura": "Maché",
         "region": "La Libertad",
         "tipo": "Zipline",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1506929562872-bb421503ef21?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Tirolinas y canopy en entornos de montaÃ±as y bosque."
+        "descripcion": "Tirolinas y canopy en entornos de montañas y bosque."
     },
     {
         "id": "INF-LA -011",
         "nombre_infraestructura": "Loros Extremo (Otuzco)",
         "region": "La Libertad",
         "tipo": "Zipline",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -1965,7 +2382,7 @@ const parks = [
         "nombre_infraestructura": "Cascas",
         "region": "La Libertad",
         "tipo": "Zipline",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1506929562872-bb421503ef21?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -1973,10 +2390,10 @@ const parks = [
     },
     {
         "id": "INF-LA -013",
-        "nombre_infraestructura": "MachÃ©",
+        "nombre_infraestructura": "Maché",
         "region": "La Libertad",
         "tipo": "Salto Extremo",
-        "url_foto": "https://images.unsplash.com/photo-1533575936798-25110d9ab188?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1506929562872-bb421503ef21?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -1984,21 +2401,21 @@ const parks = [
     },
     {
         "id": "INF-LA -014",
-        "nombre_infraestructura": "Rutas de rapel en cascadas organizadas por clubes de trekking y aventura en la sierra liberteÃ±a.",
+        "nombre_infraestructura": "Rutas de rapel en cascadas organizadas por clubes de trekking y aventura en la sierra liberteña.",
         "region": "La Libertad",
         "tipo": "Rapel",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1501555088652-021faa106b9b?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Rutas de rapel en cascadas organizadas por clubes de trekking y aventura en la sierra liberteÃ±a."
+        "descripcion": "Rutas de rapel en cascadas organizadas por clubes de trekking y aventura en la sierra liberteña."
     },
     {
         "id": "INF-LA -015",
-        "nombre_infraestructura": "Parques de Aventuras en MachÃ©",
+        "nombre_infraestructura": "Parques de Aventuras en Maché",
         "region": "La Libertad",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1533240332313-0db49b459ad6?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2009,7 +2426,7 @@ const parks = [
         "nombre_infraestructura": "Sulluscocha Lodge (Cajamarca)",
         "region": "Cajamarca",
         "tipo": "Palestra",
-        "url_foto": "https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1578768079052-aa76e520028b?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2020,7 +2437,7 @@ const parks = [
         "nombre_infraestructura": "A. Venturas (La Shicuana)",
         "region": "Cajamarca",
         "tipo": "Palestra",
-        "url_foto": "https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2031,40 +2448,40 @@ const parks = [
         "nombre_infraestructura": "Cumbemayo",
         "region": "Cajamarca",
         "tipo": "Roca",
-        "url_foto": "https://images.unsplash.com/photo-1563299796-17596c35a7ac?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1502680390469-be75c86b636f?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "El spot por excelencia para escalada en roca natural debido a sus formaciones lÃ­ticas y farallones."
+        "descripcion": "El spot por excelencia para escalada en roca natural debido a sus formaciones líticas y farallones."
     },
     {
         "id": "INF-CAJ-019",
         "nombre_infraestructura": "Sulluscocha Lodge",
         "region": "Cajamarca",
         "tipo": "Zipline",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Ofrece un popular circuito de zipline conocido como el \"Vuelo del CÃ³ndor\"."
+        "descripcion": "Ofrece un popular circuito de zipline conocido como el \"Vuelo del Cóndor\"."
     },
     {
         "id": "INF-CAJ-020",
         "nombre_infraestructura": "San Ignacio",
         "region": "Cajamarca",
         "tipo": "Zipline",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Zipline en las inmediaciones de los cerros aledaÃ±os."
+        "descripcion": "Zipline en las inmediaciones de los cerros aledaños."
     },
     {
         "id": "INF-CAJ-021",
         "nombre_infraestructura": "San Pablo",
         "region": "Cajamarca",
         "tipo": "Zipline",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2075,29 +2492,29 @@ const parks = [
         "nombre_infraestructura": "Columpio Extremo de San Ignacio",
         "region": "Cajamarca",
         "tipo": "Salto Extremo",
-        "url_foto": "https://images.unsplash.com/photo-1533575936798-25110d9ab188?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Ubicado en el Mirador del Cerro Campana a unos 15 metros de altura con una impresionante vista de 360 grados al valle del rÃ­o Chinchipe."
+        "descripcion": "Ubicado en el Mirador del Cerro Campana a unos 15 metros de altura con una impresionante vista de 360 grados al valle del río Chinchipe."
     },
     {
         "id": "INF-CAJ-023",
         "nombre_infraestructura": "Sulluscocha Lodge",
         "region": "Cajamarca",
         "tipo": "Salto Extremo",
-        "url_foto": "https://images.unsplash.com/photo-1533575936798-25110d9ab188?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "TambiÃ©n tiene su propio columpio extremo de altura."
+        "descripcion": "También tiene su propio columpio extremo de altura."
     },
     {
         "id": "INF-CAJ-024",
         "nombre_infraestructura": "Llacanora",
         "region": "Cajamarca",
         "tipo": "Rapel",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1516245834210-c4c142787335?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2108,7 +2525,7 @@ const parks = [
         "nombre_infraestructura": "Parque de Aventura del Cerro Campana (San Ignacio)",
         "region": "Cajamarca",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2119,29 +2536,29 @@ const parks = [
         "nombre_infraestructura": "Sulluscocha Lodge",
         "region": "Cajamarca",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Complejo temÃ¡tico recreativo y de deportes extremos."
+        "descripcion": "Complejo temático recreativo y de deportes extremos."
     },
     {
         "id": "INF-CAJ-027",
         "nombre_infraestructura": "A. Venturas (La Shicuana)",
         "region": "Cajamarca",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1533240332313-0db49b459ad6?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Espacio recreativo de montaÃ±as con juegos de altura y puentes colgantes."
+        "descripcion": "Espacio recreativo de montañas con juegos de altura y puentes colgantes."
     },
     {
         "id": "INF-TUM-028",
         "nombre_infraestructura": "No se han registrado gimnasios de escalada artificial.",
         "region": "Tumbes",
         "tipo": "Palestra",
-        "url_foto": "https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1578768079052-aa76e520028b?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2149,43 +2566,43 @@ const parks = [
     },
     {
         "id": "INF-TUM-029",
-        "nombre_infraestructura": "Ocasionalmente se realizan descensos en Ã¡reas como los Pilares de Papayal dentro de expediciones de senderismo (Cerros de Amotape).",
+        "nombre_infraestructura": "Ocasionalmente se realizan descensos en áreas como los Pilares de Papayal dentro de expediciones de senderismo (Cerros de Amotape).",
         "region": "Tumbes",
         "tipo": "Rapel",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Ocasionalmente se realizan descensos en Ã¡reas como los Pilares de Papayal dentro de expediciones de senderismo (Cerros de Amotape)."
+        "descripcion": "Ocasionalmente se realizan descensos en áreas como los Pilares de Papayal dentro de expediciones de senderismo (Cerros de Amotape)."
     },
     {
         "id": "INF-TUM-030",
-        "nombre_infraestructura": "Tumbes carece de parques de aventura aÃ©reos. Su oferta turÃ­stica de aventura gira entorno a canotaje, paseos en bote por el Santuario de los Manglares y deportes nÃ¡uticos (surf, buceo).",
+        "nombre_infraestructura": "Tumbes carece de parques de aventura aéreos. Su oferta turística de aventura gira entorno a canotaje, paseos en bote por el Santuario de los Manglares y deportes náuticos (surf, buceo).",
         "region": "Tumbes",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1533240332313-0db49b459ad6?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Tumbes carece de parques de aventura aÃ©reos. Su oferta turÃ­stica de aventura gira entorno a canotaje, paseos en bote por el Santuario de los Manglares y deportes nÃ¡uticos (surf, buceo)."
+        "descripcion": "Tumbes carece de parques de aventura aéreos. Su oferta turística de aventura gira entorno a canotaje, paseos en bote por el Santuario de los Manglares y deportes náuticos (surf, buceo)."
     },
     {
         "id": "INF-ARE-031",
-        "nombre_infraestructura": "Mono Blanco Aventura (RocÃ³dromo y entrenamiento, Av. La Marina 200)",
+        "nombre_infraestructura": "Mono Blanco Aventura (Rocódromo y entrenamiento, Av. La Marina 200)",
         "region": "Arequipa",
         "tipo": "Palestra",
-        "url_foto": "https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1578768079052-aa76e520028b?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Mono Blanco Aventura (RocÃ³dromo y entrenamiento, Av. La Marina 200)"
+        "descripcion": "Mono Blanco Aventura (Rocódromo y entrenamiento, Av. La Marina 200)"
     },
     {
         "id": "INF-ARE-032",
         "nombre_infraestructura": "Valle de Chilina (Rutas de escalada en roca natural)",
         "region": "Arequipa",
         "tipo": "Roca",
-        "url_foto": "https://images.unsplash.com/photo-1563299796-17596c35a7ac?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1583623025817-d180a2221d0a?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2196,7 +2613,7 @@ const parks = [
         "nombre_infraestructura": "Quebrada de Calambucos (Paredes de basalto)",
         "region": "Arequipa",
         "tipo": "Roca",
-        "url_foto": "https://images.unsplash.com/photo-1563299796-17596c35a7ac?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2207,7 +2624,7 @@ const parks = [
         "nombre_infraestructura": "Zipline del Valle de Chilina (Mirador de Carmen Alto)",
         "region": "Arequipa",
         "tipo": "Zipline",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2215,21 +2632,21 @@ const parks = [
     },
     {
         "id": "INF-ARE-035",
-        "nombre_infraestructura": "Canopy en el CaÃ±Ã³n de Cotahuasi",
+        "nombre_infraestructura": "Canopy en el Cañón de Cotahuasi",
         "region": "Arequipa",
         "tipo": "Zipline",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1506929562872-bb421503ef21?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Canopy en el CaÃ±Ã³n de Cotahuasi"
+        "descripcion": "Canopy en el Cañón de Cotahuasi"
     },
     {
         "id": "INF-ARE-036",
         "nombre_infraestructura": "Columpio Extremo del Mirador de Carmen Alto (Cayma)",
         "region": "Arequipa",
         "tipo": "Salto Extremo",
-        "url_foto": "https://images.unsplash.com/photo-1533575936798-25110d9ab188?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1506929562872-bb421503ef21?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2240,7 +2657,7 @@ const parks = [
         "nombre_infraestructura": "Puenting en el Valle de Chilina",
         "region": "Arequipa",
         "tipo": "Salto Extremo",
-        "url_foto": "https://images.unsplash.com/photo-1533575936798-25110d9ab188?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2251,7 +2668,7 @@ const parks = [
         "nombre_infraestructura": "Rapel en Quebrada de Calambucos",
         "region": "Arequipa",
         "tipo": "Rapel",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1501555088652-021faa106b9b?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2259,32 +2676,32 @@ const parks = [
     },
     {
         "id": "INF-ARE-039",
-        "nombre_infraestructura": "CaÃ±onismo y Rapel en Catarata de Sipia (CaÃ±Ã³n de Cotahuasi)",
+        "nombre_infraestructura": "Cañonismo y Rapel en Catarata de Sipia (Cañón de Cotahuasi)",
         "region": "Arequipa",
         "tipo": "Rapel",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1501555088652-021faa106b9b?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "CaÃ±onismo y Rapel en Catarata de Sipia (CaÃ±Ã³n de Cotahuasi)"
+        "descripcion": "Cañonismo y Rapel en Catarata de Sipia (Cañón de Cotahuasi)"
     },
     {
         "id": "INF-ARE-040",
-        "nombre_infraestructura": "Complejos de aventura en Mirador de Carmen Alto (Combos de actividades mÃºltiples)",
+        "nombre_infraestructura": "Complejos de aventura en Mirador de Carmen Alto (Combos de actividades múltiples)",
         "region": "Arequipa",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1533240332313-0db49b459ad6?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Complejos de aventura en Mirador de Carmen Alto (Combos de actividades mÃºltiples)"
+        "descripcion": "Complejos de aventura en Mirador de Carmen Alto (Combos de actividades múltiples)"
     },
     {
         "id": "INF-PUN-041",
         "nombre_infraestructura": "Sin circuitos equipados oficiales consolidados.",
         "region": "Puno",
         "tipo": "Roca",
-        "url_foto": "https://images.unsplash.com/photo-1563299796-17596c35a7ac?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1563299796-17596c35a7ac?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2295,7 +2712,7 @@ const parks = [
         "nombre_infraestructura": "Oferta limitada (ocasionalmente en el Lago Titicaca o zonas fronterizas, sin circuito permanente).",
         "region": "Puno",
         "tipo": "Zipline",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2306,7 +2723,7 @@ const parks = [
         "nombre_infraestructura": "Sin circuitos comerciales establecidos.",
         "region": "Puno",
         "tipo": "Rapel",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1516245834210-c4c142787335?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2317,7 +2734,7 @@ const parks = [
         "nombre_infraestructura": "Sin instalaciones permanentes reportadas.",
         "region": "Moquegua",
         "tipo": "Palestra",
-        "url_foto": "https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1564769662533-4f00a87b4056?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2325,21 +2742,21 @@ const parks = [
     },
     {
         "id": "INF-MOQ-045",
-        "nombre_infraestructura": "Zonas de trekking con potencial rocoso como Cerro BaÃºl, pero sin vÃ­as equipadas comerciales.",
+        "nombre_infraestructura": "Zonas de trekking con potencial rocoso como Cerro Baúl, pero sin vías equipadas comerciales.",
         "region": "Moquegua",
         "tipo": "Roca",
-        "url_foto": "https://images.unsplash.com/photo-1563299796-17596c35a7ac?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1502680390469-be75c86b636f?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Zonas de trekking con potencial rocoso como Cerro BaÃºl, pero sin vÃ­as equipadas comerciales."
+        "descripcion": "Zonas de trekking con potencial rocoso como Cerro Baúl, pero sin vías equipadas comerciales."
     },
     {
         "id": "INF-MOQ-046",
         "nombre_infraestructura": "Tirolesa en la Laguna del Valle.",
         "region": "Moquegua",
         "tipo": "Zipline",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1506929562872-bb421503ef21?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2350,7 +2767,7 @@ const parks = [
         "nombre_infraestructura": "Rutas no comerciales en Catarata Mollesaja (principalmente trekking).",
         "region": "Moquegua",
         "tipo": "Rapel",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1516245834210-c4c142787335?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2361,7 +2778,7 @@ const parks = [
         "nombre_infraestructura": "Circuitos y \"Full Days\" temporales (ej. Valle Aventura) operados por agencias locales.",
         "region": "Moquegua",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1533240332313-0db49b459ad6?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2369,21 +2786,21 @@ const parks = [
     },
     {
         "id": "INF-TAC-049",
-        "nombre_infraestructura": "Palestra en instalaciones del distrito de Gregorio AlbarracÃ­n.",
+        "nombre_infraestructura": "Palestra en instalaciones del distrito de Gregorio Albarracín.",
         "region": "Tacna",
         "tipo": "Palestra",
-        "url_foto": "https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Palestra en instalaciones del distrito de Gregorio AlbarracÃ­n."
+        "descripcion": "Palestra en instalaciones del distrito de Gregorio Albarracín."
     },
     {
         "id": "INF-TAC-050",
         "nombre_infraestructura": "Zonas identificadas para escalada en Calana y Pocollay.",
         "region": "Tacna",
         "tipo": "Roca",
-        "url_foto": "https://images.unsplash.com/photo-1563299796-17596c35a7ac?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1502680390469-be75c86b636f?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2394,7 +2811,7 @@ const parks = [
         "nombre_infraestructura": "Canopy en la \"Zona de Aventura\" de Tarata.",
         "region": "Tacna",
         "tipo": "Zipline",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1506929562872-bb421503ef21?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2405,7 +2822,7 @@ const parks = [
         "nombre_infraestructura": "Tirolesas en Palca y en las Cataratas de Panina.",
         "region": "Tacna",
         "tipo": "Zipline",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2416,7 +2833,7 @@ const parks = [
         "nombre_infraestructura": "Columpio Extremo en la \"Zona de Aventura\" de Tarata.",
         "region": "Tacna",
         "tipo": "Salto Extremo",
-        "url_foto": "https://images.unsplash.com/photo-1533575936798-25110d9ab188?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2427,7 +2844,7 @@ const parks = [
         "nombre_infraestructura": "Rapel en las Cataratas de Panina.",
         "region": "Tacna",
         "tipo": "Rapel",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1501555088652-021faa106b9b?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2438,7 +2855,7 @@ const parks = [
         "nombre_infraestructura": "\"Zona de Aventura\" en Tarata (Incluye Zipline Bike, Puente Tibetano, Columpio Extremo y Canopy).",
         "region": "Tacna",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1533240332313-0db49b459ad6?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2446,21 +2863,21 @@ const parks = [
     },
     {
         "id": "INF-APU-056",
-        "nombre_infraestructura": "Iniciativas locales por la ApurÃ­mac Rock Climbing Association, sin rocÃ³dromos comerciales grandes.",
-        "region": "ApurÃ­mac",
+        "nombre_infraestructura": "Iniciativas locales por la Apurímac Rock Climbing Association, sin rocódromos comerciales grandes.",
+        "region": "Apurímac",
         "tipo": "Palestra",
-        "url_foto": "https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1578768079052-aa76e520028b?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Iniciativas locales por la ApurÃ­mac Rock Climbing Association, sin rocÃ³dromos comerciales grandes."
+        "descripcion": "Iniciativas locales por la Apurímac Rock Climbing Association, sin rocódromos comerciales grandes."
     },
     {
         "id": "INF-APU-057",
         "nombre_infraestructura": "Rutas de roca en Yaca (Abancay) y formaciones naturales en Nevado Ampay.",
-        "region": "ApurÃ­mac",
+        "region": "Apurímac",
         "tipo": "Roca",
-        "url_foto": "https://images.unsplash.com/photo-1563299796-17596c35a7ac?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1502680390469-be75c86b636f?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2468,186 +2885,186 @@ const parks = [
     },
     {
         "id": "INF-APU-058",
-        "nombre_infraestructura": "Zipline en Yaca Aventura Park (RÃ­o Pachachaca).",
-        "region": "ApurÃ­mac",
+        "nombre_infraestructura": "Zipline en Yaca Aventura Park (Río Pachachaca).",
+        "region": "Apurímac",
         "tipo": "Zipline",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1506929562872-bb421503ef21?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Zipline en Yaca Aventura Park (RÃ­o Pachachaca)."
+        "descripcion": "Zipline en Yaca Aventura Park (Río Pachachaca)."
     },
     {
         "id": "INF-APU-059",
-        "nombre_infraestructura": "Yaca Aventura Park en Abancay (Incluye Puente Colgante, Puente Tibetano, Bicicleta aÃ©rea y Zipline).",
-        "region": "ApurÃ­mac",
+        "nombre_infraestructura": "Yaca Aventura Park en Abancay (Incluye Puente Colgante, Puente Tibetano, Bicicleta aérea y Zipline).",
+        "region": "Apurímac",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Yaca Aventura Park en Abancay (Incluye Puente Colgante, Puente Tibetano, Bicicleta aÃ©rea y Zipline)."
+        "descripcion": "Yaca Aventura Park en Abancay (Incluye Puente Colgante, Puente Tibetano, Bicicleta aérea y Zipline)."
     },
     {
-        "id": "INF-ÃN-060",
+        "id": "INF-ÁN-060",
         "nombre_infraestructura": "Centro de Escalada Deportiva (CED)",
-        "region": "Ãncash",
+        "region": "Áncash",
         "tipo": "Palestra",
-        "url_foto": "https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
         "descripcion": "Huaraz"
     },
     {
-        "id": "INF-ÃN-061",
-        "nombre_infraestructura": "RocÃ³dromo de Los Olivos",
-        "region": "Ãncash",
+        "id": "INF-ÁN-061",
+        "nombre_infraestructura": "Rocódromo de Los Olivos",
+        "region": "Áncash",
         "tipo": "Palestra",
-        "url_foto": "https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
         "descripcion": "Huaraz (Cordillera Negra)"
     },
     {
-        "id": "INF-ÃN-062",
-        "nombre_infraestructura": "Muro del Instituto Eleazar GuzmÃ¡n BarrÃ³n (CAWAY)",
-        "region": "Ãncash",
+        "id": "INF-ÁN-062",
+        "nombre_infraestructura": "Muro del Instituto Eleazar Guzmán Barrón (CAWAY)",
+        "region": "Áncash",
         "tipo": "Palestra",
-        "url_foto": "https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
         "descripcion": "Huaraz"
     },
     {
-        "id": "INF-ÃN-063",
+        "id": "INF-ÁN-063",
         "nombre_infraestructura": "Monkeywasi Climbing Hostel",
-        "region": "Ãncash",
+        "region": "Áncash",
         "tipo": "Palestra",
-        "url_foto": "https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
         "descripcion": "Huaraz"
     },
     {
-        "id": "INF-ÃN-064",
+        "id": "INF-ÁN-064",
         "nombre_infraestructura": "Hatun Machay (Bosque de piedras)",
-        "region": "Ãncash",
+        "region": "Áncash",
         "tipo": "Roca",
-        "url_foto": "https://images.unsplash.com/photo-1563299796-17596c35a7ac?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
         "descripcion": "Huaraz"
     },
     {
-        "id": "INF-ÃN-065",
+        "id": "INF-ÁN-065",
         "nombre_infraestructura": "Chancos",
-        "region": "Ãncash",
+        "region": "Áncash",
         "tipo": "Roca",
-        "url_foto": "https://images.unsplash.com/photo-1563299796-17596c35a7ac?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1583623025817-d180a2221d0a?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
         "descripcion": "Huaraz"
     },
     {
-        "id": "INF-ÃN-066",
+        "id": "INF-ÁN-066",
         "nombre_infraestructura": "Antacocha",
-        "region": "Ãncash",
+        "region": "Áncash",
         "tipo": "Roca",
-        "url_foto": "https://images.unsplash.com/photo-1563299796-17596c35a7ac?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1502680390469-be75c86b636f?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
         "descripcion": "Huaraz"
     },
     {
-        "id": "INF-ÃN-067",
+        "id": "INF-ÁN-067",
         "nombre_infraestructura": "Zonas de Boulder",
-        "region": "Ãncash",
+        "region": "Áncash",
         "tipo": "Roca",
-        "url_foto": "https://images.unsplash.com/photo-1563299796-17596c35a7ac?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1563299796-17596c35a7ac?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
         "descripcion": "Huanchac, El Pinar y Nueva Florida - Huaraz"
     },
     {
-        "id": "INF-ÃN-068",
-        "nombre_infraestructura": "Circuito de Canopy Quillash (3 lÃ­neas, 1200 metros)",
-        "region": "Ãncash",
+        "id": "INF-ÁN-068",
+        "nombre_infraestructura": "Circuito de Canopy Quillash (3 líneas, 1200 metros)",
+        "region": "Áncash",
         "tipo": "Zipline",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
         "descripcion": "Huaraz"
     },
     {
-        "id": "INF-ÃN-069",
-        "nombre_infraestructura": "Parque TurÃ­stico Entre Cordilleras",
-        "region": "Ãncash",
+        "id": "INF-ÁN-069",
+        "nombre_infraestructura": "Parque Turístico Entre Cordilleras",
+        "region": "Áncash",
         "tipo": "Zipline",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1506929562872-bb421503ef21?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "VÃ­a Huaraz-Carhuaz"
+        "descripcion": "Vía Huaraz-Carhuaz"
     },
     {
-        "id": "INF-ÃN-070",
+        "id": "INF-ÁN-070",
         "nombre_infraestructura": "Puente Pariac (Puenting)",
-        "region": "Ãncash",
+        "region": "Áncash",
         "tipo": "Salto Extremo",
-        "url_foto": "https://images.unsplash.com/photo-1533575936798-25110d9ab188?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
         "descripcion": "Huaraz"
     },
     {
-        "id": "INF-ÃN-071",
-        "nombre_infraestructura": "Columpio Extremo en Parque TurÃ­stico Entre Cordilleras",
-        "region": "Ãncash",
+        "id": "INF-ÁN-071",
+        "nombre_infraestructura": "Columpio Extremo en Parque Turístico Entre Cordilleras",
+        "region": "Áncash",
         "tipo": "Salto Extremo",
-        "url_foto": "https://images.unsplash.com/photo-1533575936798-25110d9ab188?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "VÃ­a Huaraz-Carhuaz"
+        "descripcion": "Vía Huaraz-Carhuaz"
     },
     {
-        "id": "INF-ÃN-072",
+        "id": "INF-ÁN-072",
         "nombre_infraestructura": "Catarata de Arzobispo (Olleros)",
-        "region": "Ãncash",
+        "region": "Áncash",
         "tipo": "Rapel",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1516245834210-c4c142787335?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
         "descripcion": "Huaraz"
     },
     {
-        "id": "INF-ÃN-073",
-        "nombre_infraestructura": "Parque TurÃ­stico Entre Cordilleras (Bicicleta aÃ©rea, juegos de altura, redes)",
-        "region": "Ãncash",
+        "id": "INF-ÁN-073",
+        "nombre_infraestructura": "Parque Turístico Entre Cordilleras (Bicicleta aérea, juegos de altura, redes)",
+        "region": "Áncash",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
         "descripcion": "Huaraz"
     },
     {
-        "id": "INF-ÃN-074",
+        "id": "INF-ÁN-074",
         "nombre_infraestructura": "Circuito de Quillash (Puentes colgantes)",
-        "region": "Ãncash",
+        "region": "Áncash",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1533240332313-0db49b459ad6?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2655,21 +3072,21 @@ const parks = [
     },
     {
         "id": "INF-JUN-075",
-        "nombre_infraestructura": "Palestras en centros recreativos de San RamÃ³n y La Merced",
-        "region": "JunÃ­n",
+        "nombre_infraestructura": "Palestras en centros recreativos de San Ramón y La Merced",
+        "region": "Junín",
         "tipo": "Palestra",
-        "url_foto": "https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Palestras en centros recreativos de San RamÃ³n y La Merced"
+        "descripcion": "Palestras en centros recreativos de San Ramón y La Merced"
     },
     {
         "id": "INF-JUN-076",
         "nombre_infraestructura": "Isla Las Turunas",
-        "region": "JunÃ­n",
+        "region": "Junín",
         "tipo": "Zipline",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2677,21 +3094,21 @@ const parks = [
     },
     {
         "id": "INF-JUN-077",
-        "nombre_infraestructura": "Circuitos de Canopy en cataratas de San RamÃ³n",
-        "region": "JunÃ­n",
+        "nombre_infraestructura": "Circuitos de Canopy en cataratas de San Ramón",
+        "region": "Junín",
         "tipo": "Zipline",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Circuitos de Canopy en cataratas de San RamÃ³n"
+        "descripcion": "Circuitos de Canopy en cataratas de San Ramón"
     },
     {
         "id": "INF-JUN-078",
         "nombre_infraestructura": "Parque de Aventura Ingenio Xtremo (Columpio Extremo)",
-        "region": "JunÃ­n",
+        "region": "Junín",
         "tipo": "Salto Extremo",
-        "url_foto": "https://images.unsplash.com/photo-1533575936798-25110d9ab188?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1506929562872-bb421503ef21?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2700,9 +3117,9 @@ const parks = [
     {
         "id": "INF-JUN-079",
         "nombre_infraestructura": "Central Park Las Palmeras (Columpio Extremo)",
-        "region": "JunÃ­n",
+        "region": "Junín",
         "tipo": "Salto Extremo",
-        "url_foto": "https://images.unsplash.com/photo-1533575936798-25110d9ab188?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2711,31 +3128,31 @@ const parks = [
     {
         "id": "INF-JUN-080",
         "nombre_infraestructura": "Catarata Las Reinas",
-        "region": "JunÃ­n",
+        "region": "Junín",
         "tipo": "Rapel",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "San RamÃ³n"
+        "descripcion": "San Ramón"
     },
     {
         "id": "INF-JUN-081",
-        "nombre_infraestructura": "Catarata BorgoÃ±a (Kabur)",
-        "region": "JunÃ­n",
+        "nombre_infraestructura": "Catarata Borgoña (Kabur)",
+        "region": "Junín",
         "tipo": "Rapel",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1501555088652-021faa106b9b?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "San RamÃ³n"
+        "descripcion": "San Ramón"
     },
     {
         "id": "INF-JUN-082",
         "nombre_infraestructura": "Catarata Velo de la Novia",
-        "region": "JunÃ­n",
+        "region": "Junín",
         "tipo": "Rapel",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1516245834210-c4c142787335?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2744,9 +3161,9 @@ const parks = [
     {
         "id": "INF-JUN-083",
         "nombre_infraestructura": "Parque Isla Las Turunas (Circuitos multiaventura, puentes colgantes)",
-        "region": "JunÃ­n",
+        "region": "Junín",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1533240332313-0db49b459ad6?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2755,9 +3172,9 @@ const parks = [
     {
         "id": "INF-JUN-084",
         "nombre_infraestructura": "Parque de Aventura Ingenio Xtremo (Puentes colgantes y juegos)",
-        "region": "JunÃ­n",
+        "region": "Junín",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2768,7 +3185,7 @@ const parks = [
         "nombre_infraestructura": "Bosque de Piedras de Huayllay (Sectores de escalada \"Los Primos\" y \"Siete Llaves\")",
         "region": "Pasco",
         "tipo": "Roca",
-        "url_foto": "https://images.unsplash.com/photo-1563299796-17596c35a7ac?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1563299796-17596c35a7ac?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2779,7 +3196,7 @@ const parks = [
         "nombre_infraestructura": "Canopy \"La Tirolesa Pozuzo\"",
         "region": "Pasco",
         "tipo": "Zipline",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1506929562872-bb421503ef21?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2790,7 +3207,7 @@ const parks = [
         "nombre_infraestructura": "Rapel en cascadas de Pozuzo (Operadores locales como Pozuzo Aventura)",
         "region": "Pasco",
         "tipo": "Rapel",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1516245834210-c4c142787335?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2801,7 +3218,7 @@ const parks = [
         "nombre_infraestructura": "Rapel en el Santuario Nacional de Huayllay",
         "region": "Pasco",
         "tipo": "Rapel",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1516245834210-c4c142787335?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2812,7 +3229,7 @@ const parks = [
         "nombre_infraestructura": "Circuitos de Arborismo y puentes colgantes en Pozuzo",
         "region": "Pasco",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2821,119 +3238,119 @@ const parks = [
     {
         "id": "INF-HUÃ-090",
         "nombre_infraestructura": "Parque de aventura Villa Verde (Palestra y muros)",
-        "region": "HuÃ¡nuco",
+        "region": "Huánuco",
         "tipo": "Palestra",
-        "url_foto": "https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1578768079052-aa76e520028b?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Tingo MarÃ­a"
+        "descripcion": "Tingo María"
     },
     {
         "id": "INF-HUÃ-091",
         "nombre_infraestructura": "Cataratas de Honolulu (Escalada en pared natural)",
-        "region": "HuÃ¡nuco",
+        "region": "Huánuco",
         "tipo": "Roca",
-        "url_foto": "https://images.unsplash.com/photo-1563299796-17596c35a7ac?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Tingo MarÃ­a"
+        "descripcion": "Tingo María"
     },
     {
         "id": "INF-HUÃ-092",
-        "nombre_infraestructura": "Cueva Huaynacapac (EspeleologÃ­a y escalada)",
-        "region": "HuÃ¡nuco",
+        "nombre_infraestructura": "Cueva Huaynacapac (Espeleología y escalada)",
+        "region": "Huánuco",
         "tipo": "Roca",
-        "url_foto": "https://images.unsplash.com/photo-1563299796-17596c35a7ac?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1583623025817-d180a2221d0a?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Tingo MarÃ­a"
+        "descripcion": "Tingo María"
     },
     {
         "id": "INF-HUÃ-093",
-        "nombre_infraestructura": "Parque de aventura Villa Verde (Canopy extremo de mÃ¡s de 1,000m)",
-        "region": "HuÃ¡nuco",
+        "nombre_infraestructura": "Parque de aventura Villa Verde (Canopy extremo de más de 1,000m)",
+        "region": "Huánuco",
         "tipo": "Zipline",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Tingo MarÃ­a"
+        "descripcion": "Tingo María"
     },
     {
         "id": "INF-HUÃ-094",
         "nombre_infraestructura": "Pukka Shungo (Canopy)",
-        "region": "HuÃ¡nuco",
+        "region": "Huánuco",
         "tipo": "Zipline",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Tingo MarÃ­a"
+        "descripcion": "Tingo María"
     },
     {
         "id": "INF-HUÃ-095",
         "nombre_infraestructura": "Laguna de los Milagros (Columpio Extremo)",
-        "region": "HuÃ¡nuco",
+        "region": "Huánuco",
         "tipo": "Salto Extremo",
-        "url_foto": "https://images.unsplash.com/photo-1533575936798-25110d9ab188?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1506929562872-bb421503ef21?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Tingo MarÃ­a"
+        "descripcion": "Tingo María"
     },
     {
         "id": "INF-HUÃ-096",
-        "nombre_infraestructura": "Cataratas Velo de las Ninfas (Circuito de las 12 cascadas y caÃ±onismo)",
-        "region": "HuÃ¡nuco",
+        "nombre_infraestructura": "Cataratas Velo de las Ninfas (Circuito de las 12 cascadas y cañónismo)",
+        "region": "Huánuco",
         "tipo": "Rapel",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1516245834210-c4c142787335?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Tingo MarÃ­a"
+        "descripcion": "Tingo María"
     },
     {
         "id": "INF-HUÃ-097",
         "nombre_infraestructura": "Cataratas de Honolulu (Rapel de cascada)",
-        "region": "HuÃ¡nuco",
+        "region": "Huánuco",
         "tipo": "Rapel",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Tingo MarÃ­a"
+        "descripcion": "Tingo María"
     },
     {
         "id": "INF-HUÃ-098",
         "nombre_infraestructura": "Cueva Huaynacapac (Rapel en descenso a la cueva)",
-        "region": "HuÃ¡nuco",
+        "region": "Huánuco",
         "tipo": "Rapel",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1516245834210-c4c142787335?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Tingo MarÃ­a"
+        "descripcion": "Tingo María"
     },
     {
         "id": "INF-HUÃ-099",
         "nombre_infraestructura": "Parque de aventura Villa Verde (Skybike, Canopy, circuito de puentes)",
-        "region": "HuÃ¡nuco",
+        "region": "Huánuco",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1533240332313-0db49b459ad6?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Tingo MarÃ­a"
+        "descripcion": "Tingo María"
     },
     {
         "id": "INF-AYA-100",
         "nombre_infraestructura": "Parque de Aventura Mantra (Muros de escalada)",
         "region": "Ayacucho",
         "tipo": "Palestra",
-        "url_foto": "https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2944,7 +3361,7 @@ const parks = [
         "nombre_infraestructura": "Parques de Aventura en el Cerro La Picota (Palestras)",
         "region": "Ayacucho",
         "tipo": "Palestra",
-        "url_foto": "https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1564769662533-4f00a87b4056?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2955,7 +3372,7 @@ const parks = [
         "nombre_infraestructura": "Bosque de piedras de Huaraca (Anchacchuasi)",
         "region": "Ayacucho",
         "tipo": "Roca",
-        "url_foto": "https://images.unsplash.com/photo-1563299796-17596c35a7ac?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1502680390469-be75c86b636f?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2966,7 +3383,7 @@ const parks = [
         "nombre_infraestructura": "Parque de Aventura Mantra",
         "region": "Ayacucho",
         "tipo": "Zipline",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2977,7 +3394,7 @@ const parks = [
         "nombre_infraestructura": "Circuitos en Cerro La Picota",
         "region": "Ayacucho",
         "tipo": "Zipline",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2985,10 +3402,10 @@ const parks = [
     },
     {
         "id": "INF-AYA-105",
-        "nombre_infraestructura": "Columpio Extremo estilo \"halcÃ³n\" / \"puenting\" en Cerro La Picota y Mantra",
+        "nombre_infraestructura": "Columpio Extremo estilo \"halcón\" / \"puenting\" en Cerro La Picota y Mantra",
         "region": "Ayacucho",
         "tipo": "Salto Extremo",
-        "url_foto": "https://images.unsplash.com/photo-1533575936798-25110d9ab188?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -2996,10 +3413,10 @@ const parks = [
     },
     {
         "id": "INF-AYA-106",
-        "nombre_infraestructura": "Parque de Aventura Mantra (Bicicleta aÃ©rea/sky bike, puentes colgantes)",
+        "nombre_infraestructura": "Parque de Aventura Mantra (Bicicleta aérea/sky bike, puentes colgantes)",
         "region": "Ayacucho",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -3007,10 +3424,10 @@ const parks = [
     },
     {
         "id": "INF-AYA-107",
-        "nombre_infraestructura": "Complejos en Cerro La Picota (Sky bike, cuatrimotos, tobogÃ¡n arcoÃ­ris)",
+        "nombre_infraestructura": "Complejos en Cerro La Picota (Sky bike, cuatrimotos, tobogán arcoíris)",
         "region": "Ayacucho",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -3018,10 +3435,10 @@ const parks = [
     },
     {
         "id": "INF-HUA-108",
-        "nombre_infraestructura": "Nevado de Chonta (MontaÃ±ismo de altura)",
+        "nombre_infraestructura": "Nevado de Chonta (Montañismo de altura)",
         "region": "Huancavelica",
         "tipo": "Roca",
-        "url_foto": "https://images.unsplash.com/photo-1563299796-17596c35a7ac?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1502680390469-be75c86b636f?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -3032,7 +3449,7 @@ const parks = [
         "nombre_infraestructura": "Bosque de Piedras en la zona de Paccari",
         "region": "Huancavelica",
         "tipo": "Roca",
-        "url_foto": "https://images.unsplash.com/photo-1563299796-17596c35a7ac?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -3043,7 +3460,7 @@ const parks = [
         "nombre_infraestructura": "(Actividades emergentes no masivas organizadas por la Dircetur local)",
         "region": "Huancavelica",
         "tipo": "Zipline",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -3054,7 +3471,7 @@ const parks = [
         "nombre_infraestructura": "Cascadas El Totoral (Potencial y descensos eventuales organizados)",
         "region": "Huancavelica",
         "tipo": "Rapel",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1516245834210-c4c142787335?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -3062,120 +3479,120 @@ const parks = [
     },
     {
         "id": "INF-HUA-112",
-        "nombre_infraestructura": "Circuitos Naturales de Trekking y aventura (Circuito Santa BÃ¡rbara, MontaÃ±a de Siete Colores en Huachocolpa)",
+        "nombre_infraestructura": "Circuitos Naturales de Trekking y aventura (Circuito Santa Bárbara, Montaña de Siete Colores en Huachocolpa)",
         "region": "Huancavelica",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Circuitos Naturales de Trekking y aventura (Circuito Santa BÃ¡rbara, MontaÃ±a de Siete Colores en Huachocolpa)"
+        "descripcion": "Circuitos Naturales de Trekking y aventura (Circuito Santa Bárbara, Montaña de Siete Colores en Huachocolpa)"
     },
     {
         "id": "INF-ÐŸŒ-113",
-        "nombre_infraestructura": "Infraestructura limitada. Algunas pequeÃ±as paredes de escalada (palestras) dentro de centros recreativos locales, orientadas principalmente a pÃºblico infantil y familiar.",
-        "region": "ðŸŒ¿ San MartÃ­n",
+        "nombre_infraestructura": "Infraestructura limitada. Algunas pequeñas paredes de escalada (palestras) dentro de centros recreativos locales, orientadas principalmente a público infantil y familiar.",
+        "region": "ðŸŒ¿ San Martín",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Infraestructura limitada. Algunas pequeÃ±as paredes de escalada (palestras) dentro de centros recreativos locales, orientadas principalmente a pÃºblico infantil y familiar."
+        "descripcion": "Infraestructura limitada. Algunas pequeñas paredes de escalada (palestras) dentro de centros recreativos locales, orientadas principalmente a público infantil y familiar."
     },
     {
         "id": "INF-ÐŸŒ-114",
         "nombre_infraestructura": "Laguna Azul (Sauce):",
-        "region": "ðŸŒ¿ San MartÃ­n",
+        "region": "ðŸŒ¿ San Martín",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1533240332313-0db49b459ad6?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Extensos circuitos de canopy y zipline que cruzan sobre la laguna y la exuberante vegetaciÃ³n selvÃ¡tica."
+        "descripcion": "Extensos circuitos de canopy y zipline que cruzan sobre la laguna y la exuberante vegetación selvática."
     },
     {
         "id": "INF-ÐŸŒ-115",
         "nombre_infraestructura": "Taytamaki (Tarapoto):",
-        "region": "ðŸŒ¿ San MartÃ­n",
+        "region": "ðŸŒ¿ San Martín",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1533240332313-0db49b459ad6?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Circuito de canopy y tirolesas. Destaca tambiÃ©n su innovador \"Sky Bike\" (Zipline Bike), una bicicleta suspendida en el aire sobre cables de alta tensiÃ³n."
+        "descripcion": "Circuito de canopy y tirolesas. Destaca también su innovador \"Sky Bike\" (Zipline Bike), una bicicleta suspendida en el aire sobre cables de alta tensión."
     },
     {
         "id": "INF-ÐŸŒ-116",
         "nombre_infraestructura": "Cascadas Locales:",
-        "region": "ðŸŒ¿ San MartÃ­n",
+        "region": "ðŸŒ¿ San Martín",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Diferentes operadores turÃ­sticos ofrecen circuitos de rapel en cascadas como Ahuashiyacu o Pucayaquillo, aprovechando los desniveles naturales y caÃ­das de agua."
+        "descripcion": "Diferentes operadores turísticos ofrecen circuitos de rapel en cascadas como Ahuashiyacu o Pucayaquillo, aprovechando los desniveles naturales y caídas de agua."
     },
     {
         "id": "INF-ÐŸŒ-117",
         "nombre_infraestructura": "Taytamaki (Tarapoto):",
-        "region": "ðŸŒ¿ San MartÃ­n",
+        "region": "ðŸŒ¿ San Martín",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1533240332313-0db49b459ad6?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Gran complejo temÃ¡tico y parque de aventura. Incluye circuitos extremos con puentes tibetanos, puentes colgantes, y el famoso mirador \"La Mano de Dios\"."
+        "descripcion": "Gran complejo temático y parque de aventura. Incluye circuitos extremos con puentes tibetanos, puentes colgantes, y el famoso mirador \"La Mano de Dios\"."
     },
     {
         "id": "INF-ÐŸŒ-118",
         "nombre_infraestructura": "Recreos en Laguna Azul:",
-        "region": "ðŸŒ¿ San MartÃ­n",
+        "region": "ðŸŒ¿ San Martín",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Centros de esparcimiento que integran actividades nÃ¡uticas con parques de aventura aÃ©reas."
+        "descripcion": "Centros de esparcimiento que integran actividades náuticas con parques de aventura aéreas."
     },
     {
         "id": "INF-ÐŸŒ-119",
         "nombre_infraestructura": "Donce Extremo (Cerca a Gocta/Chachapoyas):",
         "region": "ðŸŒ³ Amazonas",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Ubicado en el Km 6 de la carretera Pedro Ruiz - Chachapoyas. Ofrece un impresionante circuito de canopy de 135 metros de altura y 380 metros de longitud. *Nota La Catarata de Gocta en sÃ­ misma es un Ã¡rea protegida para senderismo y no tiene infraestructura de ziplines dentro del circuito.*"
+        "descripcion": "Ubicado en el Km 6 de la carretera Pedro Ruiz - Chachapoyas. Ofrece un impresionante circuito de canopy de 135 metros de altura y 380 metros de longitud. *Nota La Catarata de Gocta en sí misma es un área protegida para senderismo y no tiene infraestructura de ziplines dentro del circuito.*"
     },
     {
         "id": "INF-ÐŸŒ-120",
         "nombre_infraestructura": "Barranquismo en Cataratas Menores:",
         "region": "ðŸŒ³ Amazonas",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1533240332313-0db49b459ad6?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Agencias especializadas organizan expediciones de rapel y caÃ±onismo (canyoning) en los alrededores de cataratas como Yumbilla o ecosistemas cercanos a Gocta."
+        "descripcion": "Agencias especializadas organizan expediciones de rapel y cañónismo (canyoning) en los alrededores de cataratas como Yumbilla o ecosistemas cercanos a Gocta."
     },
     {
         "id": "INF-ÐŸŒ-121",
         "nombre_infraestructura": "Donce Extremo:",
         "region": "ðŸŒ³ Amazonas",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1533240332313-0db49b459ad6?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Ejerce como un parque de aventura focalizado en experiencias de altura y adrenalina con vistas al paisaje andino-amazÃ³nico."
+        "descripcion": "Ejerce como un parque de aventura focalizado en experiencias de altura y adrenalina con vistas al paisaje andino-amazónico."
     },
     {
         "id": "INF-ÐŸ-122",
         "nombre_infraestructura": "Avatar Canopy Park (Iquitos):",
         "region": "ðŸƒ Loreto",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -3186,29 +3603,29 @@ const parks = [
         "nombre_infraestructura": "Avatar Canopy Park (Iquitos):",
         "region": "ðŸƒ Loreto",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Extensas lÃ­neas de tirolesa (zipline) operando en lo alto del bosque tropical."
+        "descripcion": "Extensas líneas de tirolesa (zipline) operando en lo alto del bosque tropical."
     },
     {
         "id": "INF-ÐŸ-124",
         "nombre_infraestructura": "Tahuayo Lodge:",
         "region": "ðŸƒ Loreto",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Posee uno de los sistemas de canopy mÃ¡s largos e inmersivos de la AmazonÃ­a baja, conectando mÃºltiples plataformas en las copas de Ã¡rboles gigantes."
+        "descripcion": "Posee uno de los sistemas de canopy más largos e inmersivos de la Amazonía baja, conectando múltiples plataformas en las copas de árboles gigantes."
     },
     {
         "id": "INF-ÐŸ-125",
         "nombre_infraestructura": "Se registran \"columpios de liana\" o de altura adaptados (Tarzan swings) en ciertos parques de aventura como Avatar Canopy Park.",
         "region": "ðŸƒ Loreto",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -3216,21 +3633,21 @@ const parks = [
     },
     {
         "id": "INF-ÐŸ-126",
-        "nombre_infraestructura": "Ascenso y Rapel en Ãrboles Gigantes:",
+        "nombre_infraestructura": "Ascenso y Rapel en Árboles Gigantes:",
         "region": "ðŸƒ Loreto",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Operadores turÃ­sticos y lodges ofrecen rapel vertical usando cuerdas desde inmensos Ã¡rboles milenarios de ceiba (lupuna)."
+        "descripcion": "Operadores turísticos y lodges ofrecen rapel vertical usando cuerdas desde inmensos árboles milenarios de ceiba (lupuna)."
     },
     {
         "id": "INF-ÐŸ-127",
         "nombre_infraestructura": "Avatar Canopy Park:",
         "region": "ðŸƒ Loreto",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1533240332313-0db49b459ad6?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -3238,32 +3655,32 @@ const parks = [
     },
     {
         "id": "INF-ÐŸŒ-128",
-        "nombre_infraestructura": "Padre Abad (El BoquerÃ³n)",
+        "nombre_infraestructura": "Padre Abad (El Boquerón)",
         "region": "ðŸŒ´ Ucayali",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Carece de vÃ­as ferratas. En la zona limÃ­trofe montaÃ±osa de  se pueden encontrar formaciones rocosas, pero sin equipamiento fijo oficial para turismo."
+        "descripcion": "Carece de vías ferratas. En la zona limítrofe montañosa de  se pueden encontrar formaciones rocosas, pero sin equipamiento fijo oficial para turismo."
     },
     {
         "id": "INF-ÐŸŒ-129",
         "nombre_infraestructura": "Yarina Canopy Eco-Park (Pucallpa):",
         "region": "ðŸŒ´ Ucayali",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1533240332313-0db49b459ad6?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "El circuito especializado de canopy/tirolesa mÃ¡s importante de la regiÃ³n, ofreciendo tramos para volar entre los Ã¡rboles cerca de la laguna Yarinacocha."
+        "descripcion": "El circuito especializado de canopy/tirolesa más importante de la región, ofreciendo tramos para volar entre los árboles cerca de la laguna Yarinacocha."
     },
     {
         "id": "INF-ÐŸŒ-130",
         "nombre_infraestructura": "No se han registrado instalaciones comerciales.",
         "region": "ðŸŒ´ Ucayali",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -3274,51 +3691,51 @@ const parks = [
         "nombre_infraestructura": "Provincia de Padre Abad:",
         "region": "ðŸŒ´ Ucayali",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Operadores turÃ­sticos locales desarrollan actividades de descenso con cuerdas (rapel) en cataratas de la regiÃ³n, como Velo de la Novia o Ducha del Diablo."
+        "descripcion": "Operadores turísticos locales desarrollan actividades de descenso con cuerdas (rapel) en cataratas de la región, como Velo de la Novia o Ducha del Diablo."
     },
     {
         "id": "INF-ÐŸŒ-132",
         "nombre_infraestructura": "Yarina Canopy Eco-Park:",
         "region": "ðŸŒ´ Ucayali",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "El complejo de aventura mÃ¡s representativo enfocado en circuitos aÃ©reos."
+        "descripcion": "El complejo de aventura más representativo enfocado en circuitos aéreos."
     },
     {
         "id": "INF-ÐŸŒ-133",
         "nombre_infraestructura": "Fundo Rumisa:",
         "region": "ðŸŒ´ Ucayali",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1533240332313-0db49b459ad6?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Parque recreativo con actividades turÃ­sticas y de aventura a las afueras de Pucallpa."
+        "descripcion": "Parque recreativo con actividades turísticas y de aventura a las afueras de Pucallpa."
     },
     {
         "id": "INF-ÐŸ¦-134",
-        "nombre_infraestructura": "Existen circuitos de zipline instalados frecuentemente dentro de concesiones ecoturÃ­sticas, lodges a lo largo del rÃ­o Madre de Dios y reservas naturales.",
+        "nombre_infraestructura": "Existen circuitos de zipline instalados frecuentemente dentro de concesiones ecoturísticas, lodges a lo largo del río Madre de Dios y reservas naturales.",
         "region": "ðŸ¦œ Madre de Dios",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Existen circuitos de zipline instalados frecuentemente dentro de concesiones ecoturÃ­sticas, lodges a lo largo del rÃ­o Madre de Dios y reservas naturales."
+        "descripcion": "Existen circuitos de zipline instalados frecuentemente dentro de concesiones ecoturísticas, lodges a lo largo del río Madre de Dios y reservas naturales."
     },
     {
         "id": "INF-ÐŸ¦-135",
         "nombre_infraestructura": "Canopy Walkways:",
         "region": "ðŸ¦œ Madre de Dios",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1533240332313-0db49b459ad6?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -3326,54 +3743,54 @@ const parks = [
     },
     {
         "id": "INF-ÐŸ¦-136",
-        "nombre_infraestructura": "Ciertos lodges turÃ­sticos ofrecen \"tree climbing\" y rapel (descenso con cuerdas) desde las torres de observaciÃ³n ubicadas en el dosel arbÃ³reo.",
+        "nombre_infraestructura": "Ciertos lodges turísticos ofrecen \"tree climbing\" y rapel (descenso con cuerdas) desde las torres de observación ubicadas en el dosel arbóreo.",
         "region": "ðŸ¦œ Madre de Dios",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Ciertos lodges turÃ­sticos ofrecen \"tree climbing\" y rapel (descenso con cuerdas) desde las torres de observaciÃ³n ubicadas en el dosel arbÃ³reo."
+        "descripcion": "Ciertos lodges turísticos ofrecen \"tree climbing\" y rapel (descenso con cuerdas) desde las torres de observación ubicadas en el dosel arbóreo."
     },
     {
         "id": "INF-ÐŸ¦-137",
         "nombre_infraestructura": "Reserva Nacional de Tambopata / Inkaterra Canopy Walkway:",
         "region": "ðŸ¦œ Madre de Dios",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1533240332313-0db49b459ad6?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Grandes complejos de puentes colgantes (tibetanos y pasarelas de madera) suspendidos entre 30 y 40 metros de altura. Es la infraestructura de aventura/ecoturismo mÃ¡s destacada de la regiÃ³n."
+        "descripcion": "Grandes complejos de puentes colgantes (tibetanos y pasarelas de madera) suspendidos entre 30 y 40 metros de altura. Es la infraestructura de aventura/ecoturismo más destacada de la región."
     },
     {
         "id": "INF-LIM-138",
         "nombre_infraestructura": "Pirqa (Miraflores):",
         "region": "Lima",
         "tipo": "Palestra",
-        "url_foto": "https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Uno de los rocÃ³dromos mÃ¡s grandes, con muros de hasta 15 metros y zonas de boulder."
+        "descripcion": "Uno de los rocódromos más grandes, con muros de hasta 15 metros y zonas de boulder."
     },
     {
         "id": "INF-LIM-139",
-        "nombre_infraestructura": "Vertical Gimnasio de Escalada (JesÃºs MarÃ­a):",
+        "nombre_infraestructura": "Vertical Gimnasio de Escalada (Jesús María):",
         "region": "Lima",
         "tipo": "Palestra",
-        "url_foto": "https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Palestra con muros especializados y Ã¡rea de bloque."
+        "descripcion": "Palestra con muros especializados y área de bloque."
     },
     {
         "id": "INF-LIM-140",
-        "nombre_infraestructura": "Base Camp PerÃº (Surquillo):",
+        "nombre_infraestructura": "Base Camp Perú (Surquillo):",
         "region": "Lima",
         "tipo": "Palestra",
-        "url_foto": "https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1564769662533-4f00a87b4056?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -3384,7 +3801,7 @@ const parks = [
         "nombre_infraestructura": "(Nota",
         "region": "Lima",
         "tipo": "Palestra",
-        "url_foto": "https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1578768079052-aa76e520028b?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -3392,10 +3809,10 @@ const parks = [
     },
     {
         "id": "INF-LIM-142",
-        "nombre_infraestructura": "Las ViÃ±as (La Molina):",
+        "nombre_infraestructura": "Las Viñas (La Molina):",
         "region": "Lima",
         "tipo": "Roca",
-        "url_foto": "https://images.unsplash.com/photo-1563299796-17596c35a7ac?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -3403,10 +3820,10 @@ const parks = [
     },
     {
         "id": "INF-LIM-143",
-        "nombre_infraestructura": "San JerÃ³nimo de Surco (HuarochirÃ­):",
+        "nombre_infraestructura": "San Jerónimo de Surco (Huarochirí):",
         "region": "Lima",
         "tipo": "Roca",
-        "url_foto": "https://images.unsplash.com/photo-1563299796-17596c35a7ac?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1583623025817-d180a2221d0a?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -3414,21 +3831,21 @@ const parks = [
     },
     {
         "id": "INF-LIM-144",
-        "nombre_infraestructura": "LunahuanÃ¡ (Valle de CaÃ±ete / San JerÃ³nimo):",
+        "nombre_infraestructura": "Lunahuaná (Valle de Cañete / San Jerónimo):",
         "region": "Lima",
         "tipo": "Zipline",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Epicentro absoluto del canopy en la regiÃ³n. MÃºltiples agencias operan extensos circuitos que cruzan el rÃ­o CaÃ±ete, con cables que van desde tramos cortos de 100 metros hasta lÃ­neas extremas de mÃ¡s de 900 metros."
+        "descripcion": "Epicentro absoluto del canopy en la región. Múltiples agencias operan extensos circuitos que cruzan el río Cañete, con cables que van desde tramos cortos de 100 metros hasta líneas extremas de más de 900 metros."
     },
     {
         "id": "INF-LIM-145",
         "nombre_infraestructura": "San Blas Park (Huaral):",
         "region": "Lima",
         "tipo": "Zipline",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1506929562872-bb421503ef21?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -3439,40 +3856,40 @@ const parks = [
         "nombre_infraestructura": "Fundos en Chancay / Aucallama:",
         "region": "Lima",
         "tipo": "Zipline",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Instalaciones de tirolesas cortas como complemento en recorridos turÃ­sticos de Full Day."
+        "descripcion": "Instalaciones de tirolesas cortas como complemento en recorridos turísticos de Full Day."
     },
     {
         "id": "INF-LIM-147",
-        "nombre_infraestructura": "Azpitia (\"El BalcÃ³n del Cielo\"):",
+        "nombre_infraestructura": "Azpitia (\"El Balcón del Cielo\"):",
         "region": "Lima",
         "tipo": "Zipline",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1506929562872-bb421503ef21?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Circuitos de canopy con vistas panorÃ¡micas al valle de Mala."
+        "descripcion": "Circuitos de canopy con vistas panorámicas al valle de Mala."
     },
     {
         "id": "INF-LIM-148",
-        "nombre_infraestructura": "CaÃ±Ã³n de Autisha (HuarochirÃ­):",
+        "nombre_infraestructura": "Cañón de Autisha (Huarochirí):",
         "region": "Lima",
         "tipo": "Salto Extremo",
-        "url_foto": "https://images.unsplash.com/photo-1533575936798-25110d9ab188?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Es el destino mÃ¡s extremo de Lima. Cuenta con el histÃ³rico **Puente Autisha**, infraestructura desde donde se realiza el famoso **puenting** (salto pendular al vacÃ­o) hacia la profundidad del caÃ±Ã³n."
+        "descripcion": "Es el destino más extremo de Lima. Cuenta con el histórico **Puente Autisha**, infraestructura desde donde se realiza el famoso **puenting** (salto pendular al vacío) hacia la profundidad del cañón."
     },
     {
         "id": "INF-LIM-149",
-        "nombre_infraestructura": "San Mateo de Otao (HuarochirÃ­):",
+        "nombre_infraestructura": "San Mateo de Otao (Huarochirí):",
         "region": "Lima",
         "tipo": "Salto Extremo",
-        "url_foto": "https://images.unsplash.com/photo-1533575936798-25110d9ab188?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -3483,7 +3900,7 @@ const parks = [
         "nombre_infraestructura": "Anexo Santa Cruz de Ucro",
         "region": "Lima",
         "tipo": "Salto Extremo",
-        "url_foto": "https://images.unsplash.com/photo-1533575936798-25110d9ab188?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -3494,18 +3911,18 @@ const parks = [
         "nombre_infraestructura": "Anexo Canchacalla",
         "region": "Lima",
         "tipo": "Salto Extremo",
-        "url_foto": "https://images.unsplash.com/photo-1533575936798-25110d9ab188?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1506929562872-bb421503ef21?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "* Ofrece un conocido columpio extremo ademÃ¡s de bicicleta suspendida (bicicleta extrema)."
+        "descripcion": "* Ofrece un conocido columpio extremo además de bicicleta suspendida (bicicleta extrema)."
     },
     {
         "id": "INF-LIM-152",
         "nombre_infraestructura": "Azpitia:",
         "region": "Lima",
         "tipo": "Salto Extremo",
-        "url_foto": "https://images.unsplash.com/photo-1533575936798-25110d9ab188?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -3513,32 +3930,32 @@ const parks = [
     },
     {
         "id": "INF-LIM-153",
-        "nombre_infraestructura": "CaÃ±Ã³n de Autisha (HuarochirÃ­):",
+        "nombre_infraestructura": "Cañón de Autisha (Huarochirí):",
         "region": "Lima",
         "tipo": "Rapel",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "La ruta de caÃ±onismo mÃ¡s tÃ©cnica y famosa. Exige senderismo subterrÃ¡neo y finaliza con un descenso en **rapel de 30 a 55 metros** junto a la catarata subterrÃ¡nea de Sheke."
+        "descripcion": "La ruta de cañónismo más técnica y famosa. Exige senderismo subterráneo y finaliza con un descenso en **rapel de 30 a 55 metros** junto a la catarata subterránea de Sheke."
     },
     {
         "id": "INF-LIM-154",
-        "nombre_infraestructura": "Catarata de Huanano (San JerÃ³nimo de Surco):",
+        "nombre_infraestructura": "Catarata de Huanano (San Jerónimo de Surco):",
         "region": "Lima",
         "tipo": "Rapel",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1516245834210-c4c142787335?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Paredes rocosas ideales para descensos en rapel mÃ¡s accesibles para principiantes."
+        "descripcion": "Paredes rocosas ideales para descensos en rapel más accesibles para principiantes."
     },
     {
         "id": "INF-LIM-155",
-        "nombre_infraestructura": "Callahuanca (HuarochirÃ­):",
+        "nombre_infraestructura": "Callahuanca (Huarochirí):",
         "region": "Lima",
         "tipo": "Rapel",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1516245834210-c4c142787335?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -3546,21 +3963,21 @@ const parks = [
     },
     {
         "id": "INF-LIM-156",
-        "nombre_infraestructura": "LunahuanÃ¡:",
+        "nombre_infraestructura": "Lunahuaná:",
         "region": "Lima",
         "tipo": "Rapel",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1501555088652-021faa106b9b?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "AdemÃ¡s de canotaje, se realiza rapel en las paredes y farallones del valle de CaÃ±ete."
+        "descripcion": "Además de canotaje, se realiza rapel en las paredes y farallones del valle de Cañete."
     },
     {
         "id": "INF-LIM-157",
-        "nombre_infraestructura": "San Mateo de Otao (Canchacalla, HuarochirÃ­):",
+        "nombre_infraestructura": "San Mateo de Otao (Canchacalla, Huarochirí):",
         "region": "Lima",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1533240332313-0db49b459ad6?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -3571,7 +3988,7 @@ const parks = [
         "nombre_infraestructura": "Callahuanca:",
         "region": "Lima",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
@@ -3582,66 +3999,66 @@ const parks = [
         "nombre_infraestructura": "Fundos de Chancay y Huaral:",
         "region": "Lima",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "MÃºltiples fundos campestres ofrecen puentes colgantes temÃ¡ticos."
+        "descripcion": "Múltiples fundos campestres ofrecen puentes colgantes temáticos."
     },
     {
         "id": "INF-LIM-160",
         "nombre_infraestructura": "San Blas Park (Huaral):",
         "region": "Lima",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Complejo temÃ¡tico de aventura con mÃºltiples atracciones."
+        "descripcion": "Complejo temático de aventura con múltiples atracciones."
     },
     {
         "id": "INF-CAL-161",
-        "nombre_infraestructura": "Sin caÃ±ones ni paredes habilitadas; no se practica esta actividad.",
+        "nombre_infraestructura": "Sin cañónes ni paredes habilitadas; no se practica esta actividad.",
         "region": "Callao",
         "tipo": "Rapel",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1501555088652-021faa106b9b?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Sin caÃ±ones ni paredes habilitadas; no se practica esta actividad."
+        "descripcion": "Sin cañónes ni paredes habilitadas; no se practica esta actividad."
     },
     {
         "id": "INF-CAL-162",
-        "nombre_infraestructura": "Si bien el Callao tiene parques locales e histÃ³ricos, no posee complejos temÃ¡ticos de aventura extrema ni puentes tibetanos.",
+        "nombre_infraestructura": "Si bien el Callao tiene parques locales e históricos, no posee complejos temáticos de aventura extrema ni puentes tibetanos.",
         "region": "Callao",
         "tipo": "Parque Aventura",
-        "url_foto": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "Si bien el Callao tiene parques locales e histÃ³ricos, no posee complejos temÃ¡ticos de aventura extrema ni puentes tibetanos."
+        "descripcion": "Si bien el Callao tiene parques locales e históricos, no posee complejos temáticos de aventura extrema ni puentes tibetanos."
     },
     {
         "id": "INF-ICA-163",
-        "nombre_infraestructura": "La regiÃ³n no cuenta con gimnasios especializados en escalada indoor ni rocÃ³dromos comerciales.",
+        "nombre_infraestructura": "La región no cuenta con gimnasios especializados en escalada indoor ni rocódromos comerciales.",
         "region": "Ica",
         "tipo": "Palestra",
-        "url_foto": "https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1578768079052-aa76e520028b?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "La regiÃ³n no cuenta con gimnasios especializados en escalada indoor ni rocÃ³dromos comerciales."
+        "descripcion": "La región no cuenta con gimnasios especializados en escalada indoor ni rocódromos comerciales."
     },
     {
         "id": "INF-ICA-164",
-        "nombre_infraestructura": "CaÃ±Ã³n de los Perdidos (Ocucaje):",
+        "nombre_infraestructura": "Cañón de los Perdidos (Ocucaje):",
         "region": "Ica",
         "tipo": "Rapel",
-        "url_foto": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600",
+        "url_foto": "https://images.unsplash.com/photo-1516245834210-c4c142787335?q=80&w=1000&auto=format&fit=crop",
         "nivel_dificultad": "Intermedio",
         "estado_actual": "Activo",
         "precio_estimado": 50.0,
-        "descripcion": "A pesar de su denominaciÃ³n topogrÃ¡fica como \"caÃ±Ã³n\", **no** posee circuitos equipados para rapel o caÃ±onismo tÃ©cnico. Su relieve de arena y formaciones geolÃ³gicas frÃ¡giles solo permiten el trekking de exploraciÃ³n y observaciÃ³n."
+        "descripcion": "A pesar de su denominación topográfica como \"cañón\", **no** posee circuitos equipados para rapel o cañónismo técnico. Su relieve de arena y formaciones geológicas frágiles solo permiten el trekking de exploración y observación."
     }
 ];
 window.parks = parks;
