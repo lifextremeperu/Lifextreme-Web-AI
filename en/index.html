@@ -787,33 +787,45 @@
                 </div>
 
                 <!-- SINGLE LANGUAGE DROPDOWN SELECTOR -->
-                <div class="relative" id="lang-dropdown-wrapper">
-                    <button type="button" id="lang-dropdown-btn" onclick="window.toggleLangDropdown && window.toggleLangDropdown(event)"
+                <div class="relative" id="lang-dropdown-wrapper" style="position:relative;">
+                    <button type="button" id="lang-dropdown-btn"
+                        onclick="event.stopPropagation(); var m=document.getElementById('lang-dropdown-menu'); if(m){ var open=(m.style.display==='none'||m.classList.contains('hidden')); m.classList.toggle('hidden', !open); m.style.display=open?'block':'none'; }"
                         class="flex items-center gap-1.5 bg-white hover:bg-slate-50 px-2.5 py-2 rounded-xl shadow-sm border border-slate-200 hover:border-primary/40 transition-all cursor-pointer text-[10px] font-black uppercase tracking-wider text-slate-700"
                         title="Select Language">
                         <i class="ri-global-line text-primary text-sm"></i>
-                        <span id="current-lang-label">🇬🇧 EN</span>
+                        <span id="current-lang-label">🇺🇸 EN</span>
                         <i class="ri-arrow-down-s-line text-xs text-slate-400"></i>
                     </button>
                     <div id="lang-dropdown-menu"
-                        class="hidden absolute right-0 top-full mt-2 w-40 bg-white rounded-2xl shadow-2xl border border-slate-100 py-1.5 z-[3000]">
-                        <button id="lang-es" data-action="set-lang" data-lang="es"
-                            class="w-full px-3.5 py-2 text-left text-[11px] font-black uppercase tracking-wider flex items-center justify-between hover:bg-indigo-50 text-slate-600 transition-colors">
+                        style="display:none; position:absolute; right:0; top:calc(100% + 8px); width:176px; z-index:9999; background:#ffffff; border-radius:16px; box-shadow:0 20px 40px rgba(15,23,42,0.18); border:1px solid #e2e8f0; padding:6px;"
+                        class="hidden">
+                        <button type="button" id="lang-es" onclick="event.stopPropagation(); localStorage.setItem('lifextreme_lang','es'); window.location.href='/' + window.location.hash;"
+                            class="w-full px-3.5 py-2.5 rounded-xl text-left text-[11px] font-black uppercase tracking-wider flex items-center justify-between hover:bg-indigo-50 text-slate-700 transition-colors cursor-pointer">
                             <span>🇪🇸 Español</span>
                             <span class="text-[9px] font-bold opacity-70">ES</span>
                         </button>
-                        <button id="lang-en" data-action="set-lang" data-lang="en"
-                            class="w-full px-3.5 py-2 text-left text-[11px] font-black uppercase tracking-wider flex items-center justify-between hover:bg-indigo-50 text-primary transition-colors">
-                            <span>🇬🇧 English</span>
+                        <button type="button" id="lang-en" onclick="event.stopPropagation(); localStorage.setItem('lifextreme_lang','en'); document.getElementById('lang-dropdown-menu').style.display='none'; if(window.setLanguage) setLanguage('en');"
+                            class="w-full px-3.5 py-2.5 rounded-xl text-left text-[11px] font-black uppercase tracking-wider flex items-center justify-between hover:bg-indigo-50 text-primary bg-indigo-50/70 transition-colors cursor-pointer">
+                            <span>🇺🇸 English</span>
                             <span class="text-[9px] font-bold opacity-70">EN</span>
                         </button>
-                        <button id="lang-pt" data-action="set-lang" data-lang="pt"
-                            class="w-full px-3.5 py-2 text-left text-[11px] font-black uppercase tracking-wider flex items-center justify-between hover:bg-indigo-50 text-slate-600 transition-colors">
+                        <button type="button" id="lang-pt" onclick="event.stopPropagation(); localStorage.setItem('lifextreme_lang','pt'); window.location.href='/pt/' + window.location.hash;"
+                            class="w-full px-3.5 py-2.5 rounded-xl text-left text-[11px] font-black uppercase tracking-wider flex items-center justify-between hover:bg-indigo-50 text-slate-700 transition-colors cursor-pointer">
                             <span>🇧🇷 Português</span>
                             <span class="text-[9px] font-bold opacity-70">PT</span>
                         </button>
                     </div>
                 </div>
+                <script>
+                    document.addEventListener('click', function(ev) {
+                        var w = document.getElementById('lang-dropdown-wrapper');
+                        var m = document.getElementById('lang-dropdown-menu');
+                        if (m && (!w || !w.contains(ev.target))) {
+                            m.classList.add('hidden');
+                            m.style.display = 'none';
+                        }
+                    });
+                </script>
                 
                 <div class="flex items-center bg-slate-50 rounded-xl px-1.5 py-1.5 shadow-inner border border-slate-200/80 shrink-0">
                     <select id="currency-selector" aria-label="Currency" onchange="window.PriceEngine.setCurrency(this.value); renderAll(); updateCart(); showToast('Info', `Currency: ${this.value}`, 'ri-exchange-dollar-line');" class="bg-transparent text-[10px] font-black uppercase tracking-wider text-slate-700 outline-none cursor-pointer pr-0.5">
