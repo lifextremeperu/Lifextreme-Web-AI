@@ -1503,9 +1503,39 @@ function showToast(title, message, icon = 'ri-check-line') {
     }, 3000);
 }
 
-// --- LANGUAGE LOGIC ---
+// --- LANGUAGE DROPDOWN & I18N LOGIC ---
+window.toggleLangDropdown = function(e) {
+    if (e) e.stopPropagation();
+    const menu = document.getElementById('lang-dropdown-menu');
+    if (menu) menu.classList.toggle('hidden');
+};
+
+document.addEventListener('click', (e) => {
+    const wrapper = document.getElementById('lang-dropdown-wrapper');
+    const menu = document.getElementById('lang-dropdown-menu');
+    if (menu && !menu.classList.contains('hidden')) {
+        if (!wrapper || !wrapper.contains(e.target)) {
+            menu.classList.add('hidden');
+        }
+    }
+});
+
+// Global fallback for any broken external image
+window.addEventListener('error', (e) => {
+    if (e.target && e.target.tagName === 'IMG' && !e.target.dataset.fallbackApplied) {
+        e.target.dataset.fallbackApplied = 'true';
+        e.target.src = 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&fm=webp&q=80';
+    }
+}, true);
+
 function setLanguage(lang) {
-    if (currentLang === lang) return;
+    const menu = document.getElementById('lang-dropdown-menu');
+    if (menu) menu.classList.add('hidden');
+
+    if (currentLang === lang) {
+        updateLanguageUI();
+        return;
+    }
     localStorage.setItem('lifextreme_lang', lang);
     
     const currentPath = window.location.pathname;
@@ -1541,17 +1571,25 @@ function setLanguage(lang) {
 }
 
 function updateLanguageUI() {
-    // Update active button state
-    document.getElementById('lang-es').classList.toggle('bg-white', currentLang === 'es');
-    document.getElementById('lang-es').classList.toggle('shadow-sm', currentLang === 'es');
-    document.getElementById('lang-en').classList.toggle('bg-white', currentLang === 'en');
-    document.getElementById('lang-en').classList.toggle('shadow-sm', currentLang === 'en');
-    
-    const langPt = document.getElementById('lang-pt');
-    if (langPt) {
-        langPt.classList.toggle('bg-white', currentLang === 'pt');
-        langPt.classList.toggle('shadow-sm', currentLang === 'pt');
+    const langLabels = {
+        es: '🇪🇸 ES',
+        en: '🇬🇧 EN',
+        pt: '🇧🇷 PT'
+    };
+    const currentLabel = document.getElementById('current-lang-label');
+    if (currentLabel) {
+        currentLabel.innerText = langLabels[currentLang] || '🇪🇸 ES';
     }
+
+    ['es', 'en', 'pt'].forEach(code => {
+        const btn = document.getElementById('lang-' + code);
+        if (btn) {
+            const isActive = currentLang === code;
+            btn.classList.toggle('text-primary', isActive);
+            btn.classList.toggle('bg-indigo-50/70', isActive);
+            btn.classList.toggle('text-slate-600', !isActive);
+        }
+    });
 
     // Initialize Currency Selector
     const currSelect = document.getElementById('currency-selector');
@@ -1562,20 +1600,10 @@ function updateLanguageUI() {
     // Update static elements
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (translations[currentLang][key]) {
+        if (translations[currentLang] && translations[currentLang][key]) {
             el.innerText = translations[currentLang][key];
         }
     });
-
-    // Update section titles (they don't have data-i18n in current HTML, let's fix that)
-    const titles = {
-        'destinos': translations[currentLang].section_destinos,
-        'eventos': translations[currentLang].section_eventos,
-        'equipos': translations[currentLang].section_equipos,
-        'guias': translations[currentLang].section_guias
-    };
-
-    // This is a bit manual, ideally add data-i18n to titles in HTML too.
 }
 // --- COMPACT CHAT LOGIC ---
 function sendCompactChat(msg) {

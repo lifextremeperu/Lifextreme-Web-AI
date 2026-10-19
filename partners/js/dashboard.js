@@ -505,18 +505,31 @@ document.addEventListener('DOMContentLoaded', () => {
                     token = session ? session.access_token : '';
                 }
 
-                // 3. Llamar a la API B2B Streaming (Puerto 8000)
-                const response = await fetch('http://127.0.0.1:8000/webhook/b2b/stream', {
-                    method: 'POST',
-                    headers: { 
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`
-                    },
-                    body: JSON.stringify({ message, history: [] })
-                });
+                // 3. Llamar a la API B2B Streaming (Cloudflare Tunnel https://max.lifextreme.store o Local 8000)
+                const b2bEndpoints = [
+                    'https://max.lifextreme.store/webhook/b2b/stream',
+                    'http://127.0.0.1:8000/webhook/b2b/stream'
+                ];
+                let response = null;
+                for (const ep of b2bEndpoints) {
+                    try {
+                        const r = await fetch(ep, {
+                            method: 'POST',
+                            headers: { 
+                                'Content-Type': 'application/json',
+                                'Authorization': `Bearer ${token}`
+                            },
+                            body: JSON.stringify({ message, history: [] })
+                        });
+                        if (r.ok) {
+                            response = r;
+                            break;
+                        }
+                    } catch (_) {}
+                }
 
-                if (!response.ok) {
-                    throw new Error('Error en la comunicación con LIFEXTREME-CORE (Status ' + response.status + ')');
+                if (!response || !response.ok) {
+                    throw new Error('Error en la comunicación con LIFEXTREME-CORE B2B');
                 }
                 
                 // 4. Quitar loading y empezar streaming
@@ -526,29 +539,33 @@ document.addEventListener('DOMContentLoaded', () => {
                 const reader = response.body.getReader();
                 const decoder = new TextDecoder('utf-8');
                 let fullText = '';
+                let sseBuffer = '';
                 
                 while (true) {
                     const { done, value } = await reader.read();
                     if (done) break;
                     
-                    const chunkStr = decoder.decode(value, { stream: true });
-                    const lines = chunkStr.split('\\n');
+                    sseBuffer += decoder.decode(value, { stream: true });
+                    const lines = sseBuffer.split(/\r?\n/);
+                    sseBuffer = lines.pop() || '';
                     
-                    for (const line of lines) {
+                    for (const rawLine of lines) {
+                        const line = rawLine.trim();
                         if (line.startsWith('data: ')) {
                             try {
-                                const data = JSON.parse(line.substring(6));
+                                const rawPayload = line.substring(6).replace(/\\n$/g, '').trim();
+                                const data = JSON.parse(rawPayload);
                                 if (data.chunk) {
                                     fullText += data.chunk;
                                     botMsgDiv.innerHTML = formatMarkdown(fullText);
                                     chatHistory.scrollTop = chatHistory.scrollHeight;
                                 } else if (data.error) {
                                     console.error('[CORE] Stream error:', data.error);
-                                    fullText += `\\n[Error: ${data.error}]`;
+                                    fullText += `\n[Error: ${data.error}]`;
                                     botMsgDiv.innerHTML = formatMarkdown(fullText);
                                 }
                             } catch (e) {
-                                // Ignorar JSON malformado por cortes en el stream
+                                // Ignorar JSON parcial
                             }
                         }
                     }
@@ -557,7 +574,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } catch (error) {
                 console.error(error);
                 removeLoading(loadingId);
-                appendMessage('Error de conexión con el motor RAG. Por favor, verifica que el Backend esté corriendo en el puerto 8000.', 'error');
+                appendMessage('Error de conexión con el motor RAG B2B (max.lifextreme.store). Verifica que el Backend esté activo.', 'error');
             }
         });
     }

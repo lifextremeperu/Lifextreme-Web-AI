@@ -131,15 +131,15 @@ async def chat_webhook_stream(request: Request):
                 step = 65
                 for i in range(0, len(clean_text), step):
                     piece = clean_text[i:i + step]
-                    yield f"data: {json.dumps({'chunk': piece})}\\n\n\n"
+                    yield f"data: {json.dumps({'chunk': piece})}\n\n"
                     await asyncio.sleep(0.02)
 
                 # 4. Emitir evento de cotizacion para activar el boton del Carrito de Compras
                 if cotizacion:
-                    yield f"data: {json.dumps({'cotizacion': cotizacion})}\\n\n\n"
+                    yield f"data: {json.dumps({'cotizacion': cotizacion})}\n\n"
 
             except Exception as e:
-                yield f"data: {json.dumps({'error': str(e)})}\\n\n\n"
+                yield f"data: {json.dumps({'error': str(e)})}\n\n"
 
         return StreamingResponse(event_generator(), media_type="text/event-stream")
 
@@ -164,9 +164,9 @@ async def chat_webhook_b2b_stream(request: Request):
         async def event_generator():
             try:
                 async for chunk in process_b2b_stream(message, history, user_context):
-                    yield f"data: {json.dumps({'chunk': chunk})}\\n\n\n"
+                    yield f"data: {json.dumps({'chunk': chunk})}\n\n"
             except Exception as e:
-                yield f"data: {json.dumps({'error': str(e)})}\\n\n\n"
+                yield f"data: {json.dumps({'error': str(e)})}\n\n"
 
         return StreamingResponse(event_generator(), media_type="text/event-stream")
 

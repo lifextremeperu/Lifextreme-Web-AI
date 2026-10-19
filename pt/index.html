@@ -714,115 +714,109 @@
 
     <!-- HEADER MASTER -->
     <header class="glass-header shadow-sm fixed top-0 w-full z-[1000]">
-        <div class="container mx-auto px-4 lg:px-6 py-4 flex justify-between items-center">
-            <a href="#" onclick="navigateTo('home')" class="flex items-center group">
+        <div class="container mx-auto px-3 sm:px-6 py-3 flex justify-between items-center gap-2">
+            <a href="#" onclick="navigateTo('home')" class="flex items-center group shrink-0">
                 <div
-                    class="w-9 h-9 lg:w-11 lg:h-11 bg-primary rounded-2xl flex items-center justify-center text-white shadow-xl group-hover:rotate-12 transition-all">
-                    <i class="ri-flashlight-fill text-lg lg:text-2xl"></i>
+                    class="w-9 h-9 lg:w-10 lg:h-10 bg-primary rounded-2xl flex items-center justify-center text-white shadow-xl group-hover:rotate-12 transition-all">
+                    <i class="ri-flashlight-fill text-lg lg:text-xl"></i>
                 </div>
-                <div class="logo-font ml-2 lg:ml-3 leading-none select-none">
-                    <span class="text-slate-900 font-normal text-lg lg:text-2xl tracking-tight">LIFE</span><span
-                        class="logo-gradient font-black text-lg lg:text-2xl tracking-tighter italic">XTREME</span>
+                <div class="logo-font ml-2 leading-none select-none">
+                    <span class="text-slate-900 font-normal text-base sm:text-lg lg:text-xl tracking-tight">LIFE</span><span
+                        class="logo-gradient font-black text-base sm:text-lg lg:text-xl tracking-tighter italic pr-1">XTREME</span>
                 </div>
             </a>
 
-            <nav class="hidden xl:flex ml-12 space-x-10">
+            <nav class="hidden xl:flex items-center gap-3 2xl:gap-5">
                 <a href="#home" data-action="navigate" data-target="home" id="nav-home"
                     data-i18n="nav_home"
-                    class="nav-link active text-slate-500 font-bold text-[10px] uppercase tracking-widest">Home</a>
+                    class="nav-link active text-slate-600 font-bold text-[10px] uppercase tracking-wider whitespace-nowrap">Início</a>
                 <a href="#destinos" data-action="navigate" data-target="destinos" id="nav-destinos"
                     data-i18n="nav_destinos"
-                    class="nav-link text-slate-500 font-bold text-[10px] uppercase tracking-widest">Destinations</a>
+                    class="nav-link text-slate-600 font-bold text-[10px] uppercase tracking-wider whitespace-nowrap">Destinos</a>
                 <a href="#eventos" data-action="navigate" data-target="eventos" id="nav-eventos"
                     data-i18n="nav_eventos"
-                    class="nav-link text-slate-500 font-bold text-[10px] uppercase tracking-widest text-accent">Events</a>
+                    class="nav-link text-accent font-bold text-[10px] uppercase tracking-wider whitespace-nowrap">Eventos</a>
                 <a href="#infraestructura" data-action="navigate" data-target="infraestructura" id="nav-infraestructura"
-                    class="nav-link text-slate-500 font-bold text-[10px] uppercase tracking-widest">Parques</a>
+                    class="nav-link text-slate-600 font-bold text-[10px] uppercase tracking-wider whitespace-nowrap">Parques</a>
                 <a href="#equipos" data-action="navigate" data-target="equipos" id="nav-equipos"
                     data-i18n="nav_equipos"
-                    class="nav-link text-slate-500 font-bold text-[10px] uppercase tracking-widest">Equipment</a>
+                    class="nav-link text-slate-600 font-bold text-[10px] uppercase tracking-wider whitespace-nowrap">Equipamentos</a>
                 <a href="#guias" data-action="navigate" data-target="guias" id="nav-guias"
                     data-i18n="nav_guias"
-                    class="nav-link text-slate-500 font-bold text-[10px] uppercase tracking-widest">Guides</a>
-                <a href="blog.html" id="nav-blog"
-                    class="nav-link text-slate-500 font-bold text-[10px] uppercase tracking-widest hover:text-primary transition-colors">Blog</a>
-                <!-- VR STUDIO MODULE (NEW) -->
-                <a href="vr-experience.html"
-                    class="group relative flex flex-col items-center gap-1 opacity-100 hover:opacity-100 transition-opacity mr-4">
-                    <div
-                        class="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-900 to-slate-900 flex items-center justify-center group-hover:scale-105 transition-all border border-purple-500/50 shadow-[0_0_20px_rgba(168,85,247,0.4)]">
-                        <i class="ri-goggles-fill text-purple-400 text-xl group-hover:animate-pulse"></i>
-                    </div>
-                    <span
-                        class="text-[8px] font-black uppercase tracking-widest text-purple-300 group-hover:text-white transition-colors mt-1">VR
-                        360°</span>
-
-                    <!-- Interactive 'Next' Badge -->
-                    <div
-                        class="absolute -top-2 -right-2 bg-white text-purple-600 text-[8px] font-black px-1.5 py-0.5 rounded-md shadow-lg flex items-center gap-1 border border-purple-200">
-                        <span>BETA</span>
-                        <i class="ri-arrow-right-s-line text-[8px]"></i>
-                    </div>
+                    class="nav-link text-slate-600 font-bold text-[10px] uppercase tracking-wider whitespace-nowrap">Guias</a>
+                <a href="../blog.html" id="nav-blog"
+                    class="nav-link text-slate-600 font-bold text-[10px] uppercase tracking-wider hover:text-primary transition-colors whitespace-nowrap">Blog</a>
+                <a href="../open-source.html" id="nav-opensource"
+                    class="nav-link text-emerald-600 font-black text-[9px] uppercase tracking-wider hover:bg-emerald-500 hover:text-white transition-all bg-emerald-500/10 px-2.5 py-1.5 rounded-full border border-emerald-500/20 whitespace-nowrap">Open Source</a>
+                <!-- VR STUDIO MODULE -->
+                <a href="../vr-experience.html"
+                    class="group relative flex items-center gap-1.5 bg-gradient-to-r from-purple-900 to-slate-900 text-white px-2.5 py-1.5 rounded-xl border border-purple-500/40 shadow-sm hover:scale-105 transition-all whitespace-nowrap shrink-0">
+                    <i class="ri-goggles-fill text-purple-300 text-sm"></i>
+                    <span class="text-[9px] font-black uppercase tracking-wider">VR 360°</span>
                 </a>
-
-                <a href="partners/index.html" class="group relative block w-16">
-                    <div
-                        class="flex items-center gap-2 bg-white/5 px-2 py-1 rounded-lg border border-white/10 group-hover:border-primary/50 transition-all">
-                        <div
-                            class="w-5 h-5 rounded-lg bg-primary/20 flex items-center justify-center group-hover:bg-white/20 transition-all duration-300 group-hover:rotate-12">
-                            <i
-                                class="ri-briefcase-4-line text-primary text-xs group-hover:text-white transition-colors"></i>
-                        </div>
-                        <span
-                            class="font-black text-[10px] uppercase tracking-widest text-primary group-hover:text-white transition-colors">Portal
-                            Partners</span>
-                        <span
-                            class="px-1.5 py-0.5 rounded-md bg-secondary text-white text-[7px] font-black uppercase tracking-wider">PRO</span>
-                    </div>
-                    <div
-                        class="absolute -right-8 -top-8 w-16 h-16 bg-white/10 rounded-full blur-xl group-hover:bg-white/20 transition-all">
-                    </div>
+                <!-- PORTAL PARTNERS -->
+                <a href="../partners/index.html"
+                    class="group flex items-center gap-1.5 bg-primary/10 hover:bg-primary text-primary hover:text-white px-2.5 py-1.5 rounded-xl border border-primary/20 transition-all whitespace-nowrap shrink-0">
+                    <i class="ri-briefcase-4-line text-xs"></i>
+                    <span class="font-black text-[9px] uppercase tracking-wider">Partners</span>
+                    <span class="px-1.5 py-0.5 rounded bg-secondary text-white text-[7px] font-black uppercase">PRO</span>
                 </a>
             </nav>
 
-            <div class="flex items-center gap-3 lg:gap-6">
+            <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
                 <!-- COIN WALLET WIDGET -->
-                <a href="recompensas.html"
-                    class="hidden md:flex items-center gap-2 bg-yellow-100/50 hover:bg-yellow-100 px-3 py-2 rounded-xl transition-all border border-yellow-200 group"
-                    title="Ver Mis Recompensas">
-                    <i class="ri-coin-fill text-yellow-500 group-hover:animate-spin text-xl"></i>
+                <a href="../recompensas.html"
+                    class="hidden 2xl:flex items-center gap-1.5 bg-yellow-100/60 hover:bg-yellow-100 px-2.5 py-1.5 rounded-xl transition-all border border-yellow-200 group shrink-0"
+                    title="Recompensas">
+                    <i class="ri-coin-fill text-yellow-500 group-hover:animate-spin text-base"></i>
                     <div class="leading-none">
-                        <p class="text-[8px] font-black text-yellow-600 uppercase tracking-widest">Lifecoins</p>
-                        <span class="text-xs font-black text-slate-800" id="nav-coin-balance">...</span>
+                        <p class="text-[7px] font-black text-yellow-600 uppercase tracking-widest">Lifecoins</p>
+                        <span class="text-[11px] font-black text-slate-800" id="nav-coin-balance">800</span>
                     </div>
                 </a>
 
-                <div class="hidden sm:flex items-center gap-3 cursor-pointer hover:bg-slate-50 p-2 rounded-2xl transition-all"
+                <div class="hidden md:flex items-center gap-2 cursor-pointer hover:bg-slate-50 px-2 py-1 rounded-xl transition-all shrink-0"
                     data-action="navigate" data-target="socio">
-                    <div class="text-right leading-none">
-                        <p class="text-[8px] font-black text-primary uppercase" data-i18n="user_status">Socio Elite
-                            Active</p>
-                        <p class="text-xs font-black">Alex R.</p>
+                    <div class="text-right leading-none hidden lg:block">
+                        <p class="text-[7px] font-black text-primary uppercase" data-i18n="user_status">Sócio Elite</p>
+                        <p class="text-[11px] font-black text-slate-900">Alex R.</p>
                     </div>
-                    <img src="https://images.unsplash.com/photo-=&fm=webp&q=60"
-                        alt="Avatar Alex R." width="40" height="40"
-                        class="w-10 h-10 rounded-xl object-cover border border-slate-100" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&fm=webp&q=80"
+                        alt="Avatar Alex R." width="36" height="36"
+                        class="w-9 h-9 rounded-xl object-cover border border-slate-200 shadow-sm" loading="lazy">
                 </div>
 
-                <div class="flex items-center gap-1 bg-slate-50 rounded-xl p-1 shadow-inner border border-slate-200/60">
-                    <button id="lang-es" data-action="set-lang" data-lang="es"
-                        class="px-2 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest bg-white shadow-sm transition-all text-primary">🇪🇸
-                        ES</button>
-                    <button id="lang-en" data-action="set-lang" data-lang="pt"
-                        class="px-2 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all text-slate-400 hover:text-slate-700">🇬🇧
-                        EN</button>
-                    <button id="lang-pt" data-action="set-lang" data-lang="pt"
-                        class="px-2 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all text-slate-400 hover:text-slate-700">🇧🇷
-                        PT</button>
+                <!-- SINGLE LANGUAGE DROPDOWN SELECTOR -->
+                <div class="relative" id="lang-dropdown-wrapper">
+                    <button type="button" id="lang-dropdown-btn" onclick="window.toggleLangDropdown && window.toggleLangDropdown(event)"
+                        class="flex items-center gap-1.5 bg-white hover:bg-slate-50 px-2.5 py-2 rounded-xl shadow-sm border border-slate-200 hover:border-primary/40 transition-all cursor-pointer text-[10px] font-black uppercase tracking-wider text-slate-700"
+                        title="Selecionar Idioma">
+                        <i class="ri-global-line text-primary text-sm"></i>
+                        <span id="current-lang-label">🇧🇷 PT</span>
+                        <i class="ri-arrow-down-s-line text-xs text-slate-400"></i>
+                    </button>
+                    <div id="lang-dropdown-menu"
+                        class="hidden absolute right-0 top-full mt-2 w-40 bg-white rounded-2xl shadow-2xl border border-slate-100 py-1.5 z-[3000]">
+                        <button id="lang-es" data-action="set-lang" data-lang="es"
+                            class="w-full px-3.5 py-2 text-left text-[11px] font-black uppercase tracking-wider flex items-center justify-between hover:bg-indigo-50 text-slate-600 transition-colors">
+                            <span>🇪🇸 Español</span>
+                            <span class="text-[9px] font-bold opacity-70">ES</span>
+                        </button>
+                        <button id="lang-en" data-action="set-lang" data-lang="en"
+                            class="w-full px-3.5 py-2 text-left text-[11px] font-black uppercase tracking-wider flex items-center justify-between hover:bg-indigo-50 text-slate-600 transition-colors">
+                            <span>🇬🇧 English</span>
+                            <span class="text-[9px] font-bold opacity-70">EN</span>
+                        </button>
+                        <button id="lang-pt" data-action="set-lang" data-lang="pt"
+                            class="w-full px-3.5 py-2 text-left text-[11px] font-black uppercase tracking-wider flex items-center justify-between hover:bg-indigo-50 text-primary transition-colors">
+                            <span>🇧🇷 Português</span>
+                            <span class="text-[9px] font-bold opacity-70">PT</span>
+                        </button>
+                    </div>
                 </div>
                 
-                <div class="flex items-center gap-2 bg-slate-50 rounded-xl p-1 shadow-inner border border-slate-200/60">
-                    <select id="currency-selector" onchange="window.PriceEngine.setCurrency(this.value); renderAll(); updateCart(); showToast('Info', `Moneda: ${this.value}`, 'ri-exchange-dollar-line');" class="bg-transparent text-[10px] font-black uppercase tracking-widest text-slate-600 outline-none cursor-pointer pl-2 pr-1 py-1">
+                <div class="flex items-center bg-slate-50 rounded-xl px-1.5 py-1.5 shadow-inner border border-slate-200/80 shrink-0">
+                    <select id="currency-selector" aria-label="Moeda" onchange="window.PriceEngine.setCurrency(this.value); renderAll(); updateCart(); showToast('Info', `Moeda: ${this.value}`, 'ri-exchange-dollar-line');" class="bg-transparent text-[10px] font-black uppercase tracking-wider text-slate-700 outline-none cursor-pointer pr-0.5">
                         <option value="PEN">S/ PEN</option>
                         <option value="USD">$ USD</option>
                         <option value="BRL">R$ BRL</option>
@@ -830,13 +824,15 @@
                 </div>
 
                 <button data-action="toggle-cart"
-                    class="w-10 h-10 lg:w-11 lg:h-11 bg-slate-50 rounded-xl flex items-center justify-center relative border border-slate-100">
-                    <i class="ri-handbag-line text-lg"></i>
+                    title="Abrir Carrinho / Mochila Tática"
+                    class="bg-primary hover:bg-slate-900 text-white px-3 py-2 sm:px-3.5 sm:py-2 rounded-xl flex items-center gap-1.5 relative shadow-lg shadow-primary/25 transition-all cursor-pointer shrink-0">
+                    <i class="ri-shopping-cart-2-fill text-base sm:text-lg"></i>
+                    <span class="hidden sm:inline text-[10px] font-black uppercase tracking-wider">Carrinho</span>
                     <span id="cart-count"
-                        class="absolute -top-1 -right-1 bg-red-500 text-white text-[8px] font-bold rounded-full w-4 h-4 flex items-center justify-center">0</span>
+                        class="bg-accent text-slate-900 text-[10px] font-black rounded-full min-w-[18px] h-[18px] px-1 flex items-center justify-center shadow-sm">0</span>
                 </button>
                 <button data-action="toggle-mobile-menu"
-                    class="xl:hidden w-10 h-10 bg-slate-50 rounded-xl flex items-center justify-center border border-slate-100 relative z-[2000]">
+                    class="xl:hidden w-9 h-9 sm:w-10 sm:h-10 bg-slate-100 rounded-xl flex items-center justify-center border border-slate-200 relative z-[2000] shrink-0">
                     <i class="ri-menu-4-line text-lg"></i>
                 </button>
             </div>
@@ -845,49 +841,57 @@
 
     <!-- MOBILE MENU OVERLAY -->
     <div id="mobile-menu"
-        class="fixed inset-0 z-[1500] bg-white translate-x-full transition-transform duration-500 flex flex-col pt-32 px-8">
+        class="fixed inset-0 z-[1500] bg-white translate-x-full transition-transform duration-500 flex flex-col pt-24 pb-10 px-6 overflow-y-auto">
+        <div class="grid grid-cols-2 gap-3 pb-4 mb-2 border-b border-slate-100">
+            <button data-action="toggle-cart" onclick="document.getElementById('mobile-menu').classList.add('translate-x-full')"
+                class="flex items-center justify-center gap-2 bg-primary text-white py-3 px-4 rounded-2xl font-black uppercase text-xs tracking-wider shadow-md">
+                <i class="ri-shopping-cart-2-fill text-base"></i>
+                <span>Ver Carrinho</span>
+            </button>
+            <a href="../recompensas.html"
+                class="flex items-center justify-center gap-2 bg-yellow-100/80 text-slate-900 py-3 px-4 rounded-2xl font-black uppercase text-xs tracking-wider border border-yellow-300">
+                <i class="ri-coin-fill text-yellow-500 text-base"></i>
+                <span>Lifecoins</span>
+            </a>
+        </div>
         <a href="#home" data-action="mobile-navigate" data-target="home"
-            class="text-2xl font-black italic text-slate-900 border-b border-slate-100 py-6">INICIO</a>
+            class="text-xl font-black italic text-slate-900 border-b border-slate-100 py-4">INÍCIO</a>
         <a href="#destinos" data-action="mobile-navigate" data-target="destinos"
-            class="text-2xl font-black italic text-slate-900 border-b border-slate-100 py-6">DESTINOS</a>
+            class="text-xl font-black italic text-slate-900 border-b border-slate-100 py-4">DESTINOS</a>
         <a href="#eventos" data-action="mobile-navigate" data-target="eventos"
-            class="text-2xl font-black italic text-slate-900 border-b border-slate-100 py-6">EVENTOS</a>
+            class="text-xl font-black italic text-slate-900 border-b border-slate-100 py-4">EVENTOS</a>
         <a href="#infraestructura" data-action="mobile-navigate" data-target="infraestructura"
-            class="text-2xl font-black italic text-slate-900 border-b border-slate-100 py-6">PARQUES</a>
+            class="text-xl font-black italic text-slate-900 border-b border-slate-100 py-4">164 PARQUES</a>
         <a href="#equipos" data-action="mobile-navigate" data-target="equipos"
-            class="text-2xl font-black italic text-slate-900 border-b border-slate-100 py-6">EQUIPAMIENTO</a>
+            class="text-xl font-black italic text-slate-900 border-b border-slate-100 py-4">EQUIPAMENTOS</a>
         <a href="#guias" data-action="mobile-navigate" data-target="guias"
-            class="text-2xl font-black italic text-slate-900 border-b border-slate-100 py-6">GUÍAS</a>
-        <a href="blog.html" class="text-2xl font-black italic text-slate-900 border-b border-slate-100 py-6">BLOG &
-            TIPS</a>
-        <a href="partners/index.html"
-            class="group relative flex items-center justify-between border-b border-slate-100 py-6 px-4 -mx-4 rounded-2xl overflow-hidden transition-all duration-300 hover:bg-gradient-to-r hover:from-primary/10 hover:to-transparent">
-            <div
-                class="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-5 transition-opacity">
-            </div>
+            class="text-xl font-black italic text-slate-900 border-b border-slate-100 py-4">GUIAS</a>
+        <a href="../blog.html" class="text-xl font-black italic text-slate-900 border-b border-slate-100 py-4">BLOG &
+            DICAS</a>
+        <a href="../partners/index.html"
+            class="group relative flex items-center justify-between border-b border-slate-100 py-5 px-4 -mx-2 rounded-2xl overflow-hidden transition-all duration-300 bg-slate-50 mt-2">
             <div class="relative flex items-center gap-3">
                 <div
-                    class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-all group-hover:rotate-12">
+                    class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                     <i class="ri-briefcase-4-line text-primary text-xl"></i>
                 </div>
                 <div class="flex flex-col">
-                    <span class="text-2xl font-black italic text-primary">PORTAL PARTNERS</span>
-                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Acceso Operadores</span>
+                    <span class="text-lg font-black italic text-primary">PORTAL PARTNERS</span>
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">IA B2B & Projetos Turísticos</span>
                 </div>
             </div>
             <div class="relative flex items-center gap-2">
                 <span class="px-2 py-1 rounded-lg bg-secondary text-white text-[9px] font-black uppercase">PRO</span>
-                <i
-                    class="ri-arrow-right-up-line text-primary text-xl group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                <i class="ri-arrow-right-up-line text-primary text-xl"></i>
             </div>
         </a>
-        <div class="mt-auto pb-12">
-            <p class="text-[10px] font-black uppercase text-slate-400 mb-4">Lifextreme Pro System</p>
-            <div class="flex gap-4">
-                <a href="#"
+        <div class="mt-6 pt-4">
+            <p class="text-[10px] font-black uppercase text-slate-400 mb-3">Lifextreme Pro System</p>
+            <div class="flex gap-3">
+                <a href="https://www.instagram.com/lifextremeperu/" target="_blank"
                     class="w-10 h-10 bg-slate-50 rounded-xl flex items-center justify-center hover:bg-primary hover:text-white transition-all"><i
                         class="ri-instagram-line"></i></a>
-                <a href="#"
+                <a href="https://wa.me/51958050928" target="_blank"
                     class="w-10 h-10 bg-slate-50 rounded-xl flex items-center justify-center hover:bg-primary hover:text-white transition-all"><i
                         class="ri-whatsapp-line"></i></a>
             </div>
@@ -897,52 +901,51 @@
     <main>
         <!-- HOME -->
         <section id="section-home" class="section-view active pt-24 lg:pt-32 pb-10 lg:pb-20">
-            <div class="container mx-auto px-6">
-                <div class="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center mb-16 lg:mb-32">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-16 lg:mb-32">
                     <div class="text-center lg:text-left">
                         <span data-i18n="hero_tag"
-                            class="bg-indigo-50 text-primary px-4 py-2 rounded-full text-[9px] font-black uppercase tracking-[0.4em] mb-8 inline-block italic">Aventura
-                            de Alta Gama</span>
-                        <h1 class="text-4xl lg:text-7xl font-black text-slate-900 leading-[0.9] mb-8 tracking-tighter italic reveal-on-scroll">
-                            Deportes de Aventura y <br><span class="logo-gradient">Logística de Events Extremos</span> en Perú
+                            class="bg-indigo-50 text-primary px-4 py-2 rounded-full text-[9px] font-black uppercase tracking-[0.4em] mb-6 inline-block italic">Aventura
+                            de Alto Nível</span>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl 2xl:text-7xl font-black text-slate-900 leading-[0.95] mb-8 tracking-tighter italic reveal-on-scroll">
+                            Esportes de Aventura e <br><span class="logo-gradient pr-3 inline-block">Experiências na Latam</span>
                         </h1>
-                        <p class="text-md lg:text-lg text-slate-500 font-medium mb-12 max-w-lg mx-auto lg:mx-0"
-                            data-i18n="hero_desc">Únete al Club Exclusivo de Viajeros. Desafía lo imposible y convierte cada ruta en tu propia hazaña personal.</p>
-                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <p class="text-md lg:text-lg text-slate-500 font-medium mb-10 max-w-lg mx-auto lg:mx-0"
+                            data-i18n="hero_desc">Junte-se ao Clube Exclusivo de Viajantes. Desafie o impossível e transforme cada rota em sua própria façanha.</p>
+                        <div class="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start">
                             <button onclick="document.getElementById('home-destinos-container').scrollIntoView({behavior: 'smooth'})" data-i18n="btn_explore"
-                                class="bg-primary text-white px-10 py-5 rounded-3xl font-black uppercase text-[10px] tracking-widest shadow-2xl hover:bg-slate-900 transition-all flex items-center justify-center gap-2">
-                                Explorar Destinations <i class="ri-arrow-down-line"></i>
+                                class="bg-primary text-white px-8 py-4 sm:px-10 sm:py-5 rounded-3xl font-black uppercase text-[10px] tracking-widest shadow-2xl hover:bg-slate-900 transition-all flex items-center justify-center gap-2">
+                                Explorar Destinos <i class="ri-arrow-down-line"></i>
                             </button>
                             <button data-action="navigate" data-target="eventos" data-i18n="btn_events"
-                                class="bg-white border-2 border-slate-100 px-10 py-5 rounded-3xl font-black uppercase text-[10px] tracking-widest hover:border-accent transition-all">Ver
-                                Events</button>
-                            <a href="presale.html"
-                                class="text-slate-500 hover:text-accent px-6 py-5 rounded-3xl font-black uppercase text-[10px] tracking-widest transition-all flex items-center justify-center gap-2">
-                                Invertir Ahora
-                            </a>
+                                class="bg-white border-2 border-slate-100 px-8 py-4 sm:px-10 sm:py-5 rounded-3xl font-black uppercase text-[10px] tracking-widest hover:border-accent transition-all">Ver
+                                Eventos</button>
+                            <button data-action="toggle-cart"
+                                class="bg-emerald-500/10 text-emerald-700 border border-emerald-500/30 hover:bg-emerald-500 hover:text-white px-6 py-4 sm:py-5 rounded-3xl font-black uppercase text-[10px] tracking-widest transition-all flex items-center justify-center gap-2">
+                                <i class="ri-shopping-cart-2-fill text-sm"></i> Meu Carrinho
+                            </button>
                         </div>
                         
                         <!-- Social Proof -->
                         <div class="mt-8 flex items-center justify-center lg:justify-start gap-4 mb-4">
                             <div class="flex -space-x-3">
-                                <img class="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-=&fm=webp&q=60" alt="User">
-                                <img class="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-=&fm=webp&q=60" alt="User">
-                                <img class="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-=&fm=webp&q=60" alt="User">
-                                <img class="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-=&fm=webp&q=60" alt="User">
+                                <img class="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&fm=webp&q=80" alt="User">
+                                <img class="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&fm=webp&q=80" alt="User">
+                                <img class="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&fm=webp&q=80" alt="User">
+                                <img class="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&fm=webp&q=80" alt="User">
                                 <div class="w-10 h-10 rounded-full border-2 border-white bg-slate-100 flex items-center justify-center text-[8px] font-black text-slate-500 shadow-sm">+15k</div>
                             </div>
-                            <div class="text-[10px] font-black text-slate-500 uppercase tracking-widest leading-tight">
-                                Aventureros Activos<br><span class="text-yellow-500">⭐⭐⭐⭐⭐ 4.9/5</span>
+                            <div class="text-[10px] font-black text-slate-500 uppercase tracking-widest leading-tight text-left">
+                                Aventureiros Ativos<br><span class="text-yellow-500">⭐⭐⭐⭐⭐ 4.9/5</span>
                             </div>
                         </div>
                         <button data-action="open-quiz"
-                            class="mt-8 flex items-center gap-3 bg-indigo-50 px-6 py-3 rounded-2xl border border-indigo-100 hover:bg-white transition-all group">
+                            class="mt-6 mx-auto lg:mx-0 flex items-center gap-3 bg-indigo-50 px-6 py-3 rounded-2xl border border-indigo-100 hover:bg-white transition-all group">
                             <i class="ri-survey-line text-primary text-xl"></i>
-                            <div>
+                            <div class="text-left">
                                 <p class="text-[9px] font-black text-primary uppercase tracking-widest"
-                                    data-i18n="quiz_prompt">¿No sabes qué elegir?</p>
-                                <p class="text-[10px] font-black text-slate-800" data-i18n="quiz_desc">Haz el Test de
-                                    Aventura y gana -10%</p>
+                                    data-i18n="quiz_prompt">Não sabe o que escolher?</p>
+                                <p class="text-[10px] font-black text-slate-800" data-i18n="quiz_desc">Faça o Teste de Aventura e ganhe -10%</p>
                             </div>
                             <i
                                 class="ri-arrow-right-s-line text-slate-300 group-hover:translate-x-1 transition-all"></i>
@@ -950,11 +953,11 @@
                     </div>
 
                     <!-- HERO STATIC BANNER (SOCIAL EXPEDITIONS) -->
-                    <div class="relative rounded-[48px] overflow-hidden shadow-2xl group cursor-pointer h-[500px] lg:h-[600px] border border-slate-100"
-                        onclick="window.location.href='community.html'">
+                    <div class="relative rounded-[36px] sm:rounded-[48px] overflow-hidden shadow-2xl group cursor-pointer h-[440px] sm:h-[500px] lg:h-[580px] border border-slate-100 bg-slate-900"
+                        onclick="window.location.href='../community.html'">
                         <!-- Image -->
                         <div class="absolute inset-0">
-                            <img src="https://images.unsplash.com/photo-1528543666838-56ccac0f7193?w=1200&fm=webp&q=60"
+                            <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=1200&fm=webp&q=80"
                                 alt="Equipo de Expedición Social de Lifextreme en la montaña" width="1200" height="600"
                                 fetchpriority="high"
                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
@@ -1646,7 +1649,7 @@
                             <div
                                 class="bg-slate-900 text-white rounded-[40px] p-8 aspect-[1.6/1] flex flex-col justify-between relative overflow-hidden shadow-2xl">
                                 <!-- Background Image (Overlay) -->
-                                <img src="https://images.unsplash.com/photo-=&fm=webp&q=60"
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&auto=format&fit=crop&q=80"
                                     alt="Fondo de Gift Card - Aventura Lifextreme" width="600" height="375"
                                     class="absolute inset-0 w-full h-full object-cover opacity-50 mix-blend-overlay"
                                     loading="lazy">
@@ -2002,7 +2005,7 @@
             <div class="container mx-auto px-6 max-w-6xl">
                 <div class="flex flex-col lg:flex-row gap-12 items-start">
                     <div class="w-full lg:w-1/3 bg-white rounded-[48px] p-10 border border-slate-100 text-center">
-                        <img src="https://images.unsplash.com/photo-=&fm=webp&q=60"
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&auto=format&fit=crop&q=80"
                             class="w-24 h-24 rounded-3xl mx-auto shadow-2xl mb-6" alt="Lifextreme Aventura">
                         <h2 class="text-2xl font-black italic mb-1">Alex R.</h2>
                         <p class="text-[10px] font-black text-primary uppercase tracking-widest mb-8">Socio Elite Active

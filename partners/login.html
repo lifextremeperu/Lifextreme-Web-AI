@@ -114,9 +114,19 @@
                 <span>Iniciar Sesión</span>
                 <i class="ri-arrow-right-line group-hover:translate-x-1 transition-transform"></i>
             </button>
+
+            <!-- Quick Demo Access Badge for Investors / Auditors -->
+            <div class="pt-3 border-t border-slate-100 text-center">
+                <button type="button"
+                    onclick="document.querySelector('input[name=email]').value='admin@lifextreme.store'; document.querySelector('input[name=password]').value='lifextreme2026'; document.getElementById('loginForm').requestSubmit();"
+                    class="w-full py-2.5 px-4 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-primary text-[11px] font-black uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer border border-indigo-200/60">
+                    <i class="ri-key-2-fill"></i> Acceso Demo Inversionista (1-Click)
+                </button>
+                <p class="text-[10px] text-slate-400 font-semibold mt-1.5">Usuario: <code class="text-slate-600 font-bold">admin@lifextreme.store</code> | Clave: <code class="text-slate-600 font-bold">lifextreme2026</code></p>
+            </div>
         </form>
 
-        <p class="text-center mt-8 text-xs font-bold text-slate-400">
+        <p class="text-center mt-6 text-xs font-bold text-slate-400">
             ¿Aún no eres partner? <a href="/partners/registro.html"
                 class="text-primary hover:text-secondary transition-colors underline">Regístrate aquí</a>
         </p>

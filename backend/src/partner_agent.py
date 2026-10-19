@@ -1,55 +1,43 @@
 """
-partner_agent.py - Partner AI: Analista Estratégico y Legal de Lifextreme (B2B)
-RAG real con Supabase knowledge_vectors (320,000 vectores, incluyendo normativas peruanas, INACAL y base institucional)
-LLM: qwen2.5:7b via Ollama (local)
+partner_agent.py - LIFEXTREME-CORE B2B: Consultor Estratégico, Legal y Estructurador de Proyectos de Inversión Turística
+Conectado al Cerebro Qdrant en modo B2B (Lifextreme_Knowledge [finanzas, ceo, alianzas, marketing, tecnologia, operaciones]
++ Marketing_PHD_Knowledge + Lifextreme_Partners_Vault + Perplexity_Knowledge + 164 Parques de Aventura).
+Motor LLM: Groq LPU (openai/gpt-oss-120b / llama-3.3-70b-versatile) + Fallback Local Ollama (ministral-3:8b).
 """
 import os
-from pydantic_ai import Agent, RunContext
-from .rag_service import get_rag_context
-from typing import List, AsyncGenerator
-
-SYSTEM_PROMPT = """Eres LIFEXTREME-CORE, el Analista Estratégico, Legal y Operativo B2B exclusivo para las agencias de viaje partners de Lifextreme.
-Eres un auditor experto, abogado turístico y estratega de negocios con profundo conocimiento de las normativas del MINCETUR, códigos penales, INACAL y el mercado peruano de aventura.
-
-OBJETIVO: Proteger a las agencias partners de riesgos legales, optimizar su rentabilidad y asegurar el cumplimiento de la ley (Ley 29783, D.Leg 1350, Reglamentos de Turismo).
-
-REGLAS CRÍTICAS:
-1. Usa SIEMPRE el contexto de la base de conocimiento que te proporciona tu herramienta de búsqueda vectorial.
-2. NUNCA inventes leyes o normativas. Si una ley, artículo o multa no aparece en el contexto, indica que requieres verificación o que no tienes el dato exacto en tu base normativa.
-3. Habla con un tono altamente profesional, consultivo, estructurado y directo. No uses tono de vendedor turístico.
-4. Si te preguntan sobre multas, responsabilidades o riesgos operacionales, usa viñetas para ser claro y advierte sobre el impacto en el negocio.
-5. Si un partner propone una idea que va contra las normativas (ej: operar un deporte de aventura sin equipo certificado), DEBES ADVERTIR de la negligencia o el riesgo penal.
-6. Cita las fuentes (nombre de la ley, decreto, excel institucional) si aparecen en el contexto.
-
-VALORES: Seguridad operativa, cumplimiento estricto, excelencia corporativa, rentabilidad sostenible."""
-
-partner_agent = Agent(
-    'openai:qwen2.5:7b',
-    system_prompt=SYSTEM_PROMPT
-)
-
+import json
+import httpx
 from datetime import datetime
+from typing import List, AsyncGenerator
+from dotenv import load_dotenv
+from .rag_service import get_rag_context
 
-@partner_agent.system_prompt
-def add_date_context(ctx: RunContext[None]) -> str:
-    fecha_actual = datetime.now().strftime('%Y-%m-%d %H:%M')
-    return f"RELOJ DEL SISTEMA: La fecha actual es {fecha_actual}. Analiza las estrategias de negocio con este marco temporal."
+load_dotenv(override=True)
 
-@partner_agent.tool
-async def buscar_en_base_normativa_y_comercial(ctx: RunContext[None], consulta: str) -> str:
-    """
-    Busca información en la base de datos de 320,000 vectores.
-    LLAMAR SIEMPRE para responder dudas sobre leyes, agencias registradas, requisitos operativos o regulaciones.
-    
-    Args:
-        consulta: La pregunta del partner detallada (ej: 'requisitos legales para operar canotaje', 'artículos sobre negligencia en código penal', 'guías registrados en Cusco').
-    """
-    try:
-        # Usamos la misma función robusta de RAG que MAX, pero apuntando a la bóveda confidencial B2B
-        context = await get_rag_context(consulta, collection="Lifextreme_Partners_Vault")
-        return context
-    except Exception as e:
-        return f"[ERROR DEL SISTEMA: No se pudo conectar a la base vectorial: {str(e)}]. Avisa al partner que operen con precaución y revisen El Peruano."
+GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
+GROQ_MODEL   = os.getenv("GROQ_MODEL", "openai/gpt-oss-120b")
+OLLAMA_URL   = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
+OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "ministral-3:8b")
+
+_http_client = httpx.AsyncClient(timeout=45.0)
+
+B2B_SYSTEM_PROMPT = """Eres LIFEXTREME-CORE B2B, el Director de Inteligencia Estratégica, Legal, Financiera y de Estructuración de Proyectos Turísticos de Lifextreme Perú.
+Atiendes exclusivamente a Empresas Operadoras (Partners B2B), Inversionistas Institucionales y Desarrolladores de Infraestructura de Aventura.
+
+TUS 3 CAPACIDADES PRINCIPALES CON EL CEREBRO VECTORIAL QDRANT (337,012 VECTORES):
+1. ESTRUCTURACIÓN DE PROYECTOS DE INVERSIÓN TURÍSTICA (CAPEX / OPEX / ROI / VAN / TIR):
+   - Diseñas proyectos turísticos llave en mano (parques de aventura, tirolesas/canopy, vía ferrata, puentes tibetanos, eco-lodges, rutas de alta montaña y selva) apoyándote en el directorio de 164 Parques verificados y en la bóveda financiera de Qdrant.
+   - Estructuras presupuestos estimados (CAPEX en equipamiento certificado UIAA/CE/EN, ingeniería, permisos y OPEX operativo), payback y proyecciones de flujo de caja.
+2. MARCO LEGAL, TRIBUTARIO Y CONCESIONES EN PERÚ:
+   - Dominas la Ley General de Turismo (Ley N° 29408), el Reglamento de Seguridad para Turismo de Aventura (D.S. 005-2016-MINCETUR / RM 083-2018-MINCETUR), la Ley del Porteador (Ley N° 27607), Seguridad y Salud en el Trabajo (Ley N° 29783), normas técnicas INACAL, Concesiones Ecoturísticas SERNANP, fondos cofinanciados de Turismo Emprende y beneficios tributarios de exportación turística (Exoneración de IGV - Ley N° 28780 / Ley de la Amazonía N° 27037).
+3. INTELIGENCIA COMERCIAL Y ALIANZAS B2B:
+   - Analizas márgenes OTA (Viator/GetYourGuide 20-30% comisión) vs Venta Directa e integración B2B con Lifextreme, gestión de riesgos, protocolos médicos WFA/UIAGM y directorio de proveedores.
+
+REGLAS ESTRICTAS:
+- Responde SIEMPRE en español corporativo, técnico, estructurado con subtítulos claros y viñetas ejecutivas.
+- NO uses tono de vendedor para turistas individuales ni generes etiquetas `[CARRITO: ...]`. Estás hablando con un Socio Empresarial o Inversionista.
+- Cita siempre los datos técnicos, leyes, métricas financieras o parques de referencia recuperados del contexto de Qdrant."""
+
 
 async def process_b2b_stream(
     prompt: str,
@@ -57,16 +45,75 @@ async def process_b2b_stream(
     user_data=None
 ) -> AsyncGenerator[str, None]:
     """
-    Procesa un mensaje del Partner y retorna un generador asíncrono para Server-Sent Events (SSE).
+    Consulta el Cerebro Qdrant en modo B2B (Finanzas + Legal Ph.D. + Partners Vault + 164 Parques)
+    y genera respuesta analítica vía Groq LPU (con fallback a Ollama local).
     """
-    try:
-        async with partner_agent.run_stream(
-            prompt,
-            message_history=history or []
-        ) as result:
-            async for chunk in result.stream_text(delta=True):
-                yield chunk
-    except Exception as e:
-        import traceback; traceback.print_exc()
-        yield f"\n\n[Error en el procesamiento analítico: {str(e)[:100]}]"
+    rag_context = await get_rag_context(prompt, mode="b2b")
+    fecha_actual = datetime.now().strftime("%Y-%m-%d")
 
+    system_full = (
+        f"{B2B_SYSTEM_PROMPT}\n\n"
+        f"FECHA DEL SISTEMA: {fecha_actual}\n\n"
+        f"CONTEXTO RECUPERADO DEL CEREBRO CORPORATIVO QDRANT (MODO B2B / PROYECTOS E INVERSIÓN):\n"
+        f"{rag_context}"
+    )
+
+    messages = [{"role": "system", "content": system_full}]
+    for msg in (history or [])[-6:]:
+        role = msg.get("role", "user")
+        if role not in ("user", "assistant"):
+            role = "user"
+        content = str(msg.get("content", "")).strip()
+        if content:
+            messages.append({"role": role, "content": content})
+    messages.append({"role": "user", "content": prompt})
+
+    # 1. Intentar con Groq LPU (ultra-rápido y alta capacidad analítica)
+    if GROQ_API_KEY:
+        for model_name in [GROQ_MODEL, "llama-3.3-70b-versatile"]:
+            try:
+                resp = await _http_client.post(
+                    "https://api.groq.com/openai/v1/chat/completions",
+                    headers={
+                        "Authorization": f"Bearer {GROQ_API_KEY}",
+                        "Content-Type": "application/json",
+                    },
+                    json={
+                        "model": model_name,
+                        "messages": messages,
+                        "temperature": 0.25,
+                        "max_tokens": 1400,
+                        "stream": False,
+                    },
+                )
+                if resp.status_code == 200:
+                    data = resp.json()
+                    text = (data.get("choices", [{}])[0].get("message", {}).get("content") or "").strip()
+                    if text:
+                        step = 80
+                        for i in range(0, len(text), step):
+                            yield text[i:i + step]
+                        return
+            except Exception as e:
+                print(f"[B2B Groq Notice - {model_name}]: {e}")
+
+    # 2. Fallback a Ollama Local (ministral-3:8b)
+    try:
+        resp = await _http_client.post(
+            f"{OLLAMA_URL}/api/chat",
+            json={
+                "model": OLLAMA_MODEL,
+                "messages": messages,
+                "stream": False,
+                "options": {"temperature": 0.25, "num_predict": 1000},
+            },
+        )
+        if resp.status_code == 200:
+            text = (resp.json().get("message", {}).get("content") or "").strip()
+            if text:
+                yield text
+                return
+    except Exception as e:
+        print(f"[B2B Ollama Fallback Error]: {e}")
+
+    yield "Error temporal conectando con el motor analítico B2B. Por favor intenta nuevamente en unos segundos."

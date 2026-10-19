@@ -13,7 +13,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 from typing import Optional
 from qdrant_client import AsyncQdrantClient
-from qdrant_client.http.models import Filter, FieldCondition, MatchValue
+from qdrant_client.http.models import Filter, FieldCondition, MatchValue, MatchAny
 
 load_dotenv(override=True)
 
@@ -199,9 +199,10 @@ async def _query_single_collection(
                 "id": scored_point.id,
                 "collection": collection,
                 "region": payload.get("region", ""),
+                "area": payload.get("area", "general"),
                 "tier": tier,
-                "modulo_nombre": payload.get("modulo_nombre") or payload.get("categoria") or collection,
-                "text_content": compact_text,
+                "modulo_nombre": payload.get("modulo_nombre") or payload.get("categoria") or payload.get("pillar") or collection,
+                "text_content": raw_text[:850] + ("..." if len(raw_text) > 850 else ""),
                 "similarity": round(boosted_score, 4),
             })
         return items
@@ -211,45 +212,93 @@ async def _query_single_collection(
 
 async def search_knowledge(
     query: str,
-    limit: int = 3,
+    limit: int = 4,
     region: Optional[str] = None,
-    min_similarity: float = 0.32,
-    collection: str = "Lifextreme_Knowledge"
+    min_similarity: float = 0.28,
+    collection: str = "Lifextreme_Knowledge",
+    mode: str = "b2c"
 ) -> list[dict]:
+    """
+    Ruteador Dual sobre el mismo Cerebro Qdrant (337,012 vectores):
+      - mode="b2c" (MAX Operador Turístico): Filtra áreas ['ventas', 'operaciones', 'general'] + Perplexity_Knowledge.
+        Excluye Lifextreme_FQSA_Knowledge (contaminación de Santa Cruz, Argentina) y documentos confidenciales B2B.
+      - mode="b2b" (LIFEXTREME-CORE Partners & Proyectos Turísticos): Consulta en paralelo:
+        1) Lifextreme_Knowledge en áreas ['finanzas', 'ceo', 'alianzas', 'marketing', 'tecnologia', 'operaciones']
+        2) Marketing_PHD_Knowledge (Ley 29408, Exoneración IGV Ley 28780, SERNANP, Turismo Emprende, WTTC)
+        3) Lifextreme_Partners_Vault (PENTUR_INSIGHTS regionales)
+        4) Perplexity_Knowledge (Benchmarks de rentabilidad OTA vs Directo)
+    """
     try:
         query_vector = await get_embedding(query)
-        query_filter = None
+        is_b2b = (mode.lower() == "b2b") or (collection == "Lifextreme_Partners_Vault")
+
+        must_conditions = []
         if region:
-            query_filter = Filter(
-                must=[FieldCondition(key="region", match=MatchValue(value=region.lower()))]
-            )
+            must_conditions.append(FieldCondition(key="region", match=MatchValue(value=region.lower())))
 
-        main_task = _query_single_collection("Lifextreme_Knowledge", query_vector, query_filter, limit, min_similarity)
-        fqsa_task = _query_single_collection("Lifextreme_FQSA_Knowledge", query_vector, None, 2, min_similarity)
+        if is_b2b:
+            b2b_areas = ["finanzas", "ceo", "alianzas", "marketing", "tecnologia", "operaciones"]
+            b2b_filter = Filter(must=must_conditions + [FieldCondition(key="area", match=MatchAny(any=b2b_areas))])
 
-        main_res, fqsa_res = await asyncio.gather(main_task, fqsa_task)
-        combined = main_res + fqsa_res
-        combined.sort(key=lambda x: x["similarity"], reverse=True)
-        return combined[:limit]
+            tasks = [
+                _query_single_collection("Lifextreme_Knowledge", query_vector, b2b_filter, limit=5, min_similarity=min_similarity),
+                _query_single_collection("Marketing_PHD_Knowledge", query_vector, None, limit=4, min_similarity=0.20),
+                _query_single_collection("Lifextreme_Partners_Vault", query_vector, None, limit=4, min_similarity=0.20),
+                _query_single_collection("Perplexity_Knowledge", query_vector, None, limit=3, min_similarity=0.24),
+            ]
+            results = await asyncio.gather(*tasks)
+            combined = []
+            for r in results:
+                combined.extend(r)
+            combined.sort(key=lambda x: x["similarity"], reverse=True)
+            return combined[:8]
+        else:
+            b2c_areas = ["ventas", "operaciones", "general"]
+            b2c_filter = Filter(must=must_conditions + [FieldCondition(key="area", match=MatchAny(any=b2c_areas))])
+
+            tasks = [
+                _query_single_collection("Lifextreme_Knowledge", query_vector, b2c_filter, limit=limit, min_similarity=min_similarity),
+                _query_single_collection("Perplexity_Knowledge", query_vector, None, limit=2, min_similarity=0.30),
+            ]
+            results = await asyncio.gather(*tasks)
+            combined = []
+            for r in results:
+                combined.extend(r)
+            combined.sort(key=lambda x: x["similarity"], reverse=True)
+            return combined[:limit]
     except Exception as e:
-        print(f"[-] Error en Qdrant RAG: {e}")
+        print(f"[-] Error en Qdrant RAG ({mode}): {e}")
         return []
 
 
-async def get_rag_context(query: str, region: Optional[str] = None, collection: str = "Lifextreme_Knowledge") -> str:
+async def get_rag_context(
+    query: str,
+    region: Optional[str] = None,
+    collection: str = "Lifextreme_Knowledge",
+    mode: str = "b2c"
+) -> str:
     """
-    Combina el Catalogo Oficial de www.lifextreme.store (0ms) + Busqueda Vectorial en Qdrant (~80ms).
+    Combina el Catalogo Oficial de www.lifextreme.store (0ms) + Busqueda Vectorial Separada en Qdrant (~80ms).
     """
+    is_b2b = (mode.lower() == "b2b") or (collection == "Lifextreme_Partners_Vault")
     catalog_context = search_web_catalog(query)
-    chunks = await search_knowledge(query, limit=3, region=region, collection=collection)
+    chunks = await search_knowledge(query, limit=6 if is_b2b else 3, region=region, collection=collection, mode="b2b" if is_b2b else "b2c")
 
     qdrant_parts = []
     for i, chunk in enumerate(chunks, 1):
         sim = chunk.get("similarity", 0)
+        col = chunk.get("collection", "Lifextreme_Knowledge")
+        area = (chunk.get("area") or "general").upper()
         mod = chunk.get("modulo_nombre", "Conocimiento Lifextreme")
         reg = (chunk.get("region") or "Peru").capitalize()
         txt = chunk.get("text_content", "").strip()
-        qdrant_parts.append(f"[Qdrant {i} | {mod} ({reg}) | {sim:.0%}]\n{txt}")
+        qdrant_parts.append(f"[Vector {i} | Colección: {col} | Área: {area} | Módulo: {mod} ({reg}) | Similitud: {sim:.0%}]\n{txt}")
 
-    qdrant_str = "\n\n".join(qdrant_parts) if qdrant_parts else "Usa los datos del Catálogo Oficial de arriba."
-    return f"{catalog_context}\n\n=== CONOCIMIENTO TÉCNICO Y OPERATIVO EN QDRANT (336K VECTORES) ===\n{qdrant_str}"
+    qdrant_str = "\n\n".join(qdrant_parts) if qdrant_parts else "Usa los datos del Catálogo e Infraestructura Oficial de arriba."
+    header_label = (
+        "=== BÓVEDA B2B / PROYECTOS TURÍSTICOS / FINANZAS / NORMATIVA (QDRANT 337K VECTORES) ==="
+        if is_b2b else
+        "=== CONOCIMIENTO COMERCIAL Y OPERATIVO B2C EN QDRANT (337K VECTORES) ==="
+    )
+    return f"{catalog_context}\n\n{header_label}\n{qdrant_str}"
+
