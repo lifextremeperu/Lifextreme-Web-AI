@@ -57,8 +57,10 @@ function renderInfrastructure(items) {
         const ubigeo = item.region || 'Perú';
         const desc = item.descripcion || 'Parque de aventura operando con los más altos estándares de seguridad en la región.';
         
-        let linkAction = 'https://wa.me/51999999999';
+        const waMsg = encodeURIComponent(`Hola Lifextreme, deseo información y reservar en el parque de aventura: *${item.nombre_infraestructura}* (${ubigeo} - ${item.tipo}).`);
+        let linkAction = `https://wa.me/51958050928?text=${waMsg}`;
         let linkIcon = 'ri-whatsapp-line';
+        const safeName = (item.nombre_infraestructura || 'Parque de Aventura').replace(/'/g, "\\'");
 
         return `
         <div class="group bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col">
@@ -80,13 +82,18 @@ function renderInfrastructure(items) {
                 </p>
                 <p class="text-sm text-slate-600 mb-6 flex-1 line-clamp-3">${desc}</p>
                 
-                <div class="flex items-center justify-between border-t border-slate-100 pt-4 mt-auto">
+                <div class="flex items-center justify-between border-t border-slate-100 pt-4 mt-auto gap-2">
                     <div class="text-[10px] font-bold text-slate-400 uppercase">
                         Op: <span class="text-slate-700">Lifextreme Partner</span>
                     </div>
-                    <a href="${linkAction}" target="_blank" rel="noopener noreferrer" class="bg-slate-900 text-white px-4 py-2 rounded-xl text-[10px] font-black uppercase hover:bg-emerald-600 transition-colors flex items-center gap-2 shadow-md">
-                        <i class="${linkIcon} text-sm"></i> Reservar
-                    </a>
+                    <div class="flex items-center gap-2">
+                        <button type="button" onclick="if(window.maxAddToCartAndPay){window.maxAddToCartAndPay('${safeName}', 180, 1);}else{window.open('${linkAction}','_blank');}" class="bg-primary text-white px-3 py-2 rounded-xl text-[10px] font-black uppercase hover:bg-indigo-700 transition-colors flex items-center gap-1 shadow-md" title="Añadir al Carrito">
+                            <i class="ri-shopping-bag-3-line text-sm"></i> Pass
+                        </button>
+                        <a href="${linkAction}" target="_blank" rel="noopener noreferrer" class="bg-slate-900 text-white px-3 py-2 rounded-xl text-[10px] font-black uppercase hover:bg-emerald-600 transition-colors flex items-center gap-1 shadow-md">
+                            <i class="${linkIcon} text-sm"></i> WhatsApp
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

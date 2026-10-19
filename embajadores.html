@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -536,11 +536,11 @@
                             </h4>
 
                             <form class="space-y-4"
-                                onsubmit="event.preventDefault(); alert('¡Evento Creado! Estará visible en la agenda tras validación rápida.');">
+                                onsubmit="event.preventDefault(); const b=this.querySelector('button[type=submit]'); const evName=this.querySelector('input[type=text]').value||'Evento Outdoor'; b.innerHTML='✅ EVENTO REGISTRADO EN AGENDA'; b.className='w-full bg-emerald-600 text-white font-black uppercase tracking-widest py-4 rounded-xl shadow-lg mt-2'; window.open('https://wa.me/51958050928?text='+encodeURIComponent('Hola Lifextreme, quiero publicar mi evento en la Ticketera Oficial: *'+evName+'*'), '_blank');">
                                 <div class="space-y-1">
                                     <label class="text-[10px] font-bold uppercase text-slate-400">Nombre del
                                         Evento</label>
-                                    <input type="text" placeholder="Ej: V Trail Running Valle Sagrado"
+                                    <input type="text" required placeholder="Ej: V Trail Running Valle Sagrado"
                                         class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm outline-none focus:border-secondary">
                                 </div>
 

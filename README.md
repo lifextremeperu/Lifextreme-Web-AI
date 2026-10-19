@@ -1,347 +1,175 @@
-# 🏔️ LIFEXTREME - Plataforma de Aventuras con IA
+# 🏔️ LIFEXTREME AI — Enterprise Adventure Tech & Hybrid RAG Platform
 
-**Versión:** 29 Professional  
-**Última Actualización:** 05 Enero 2026  
-**Estado:** ✅ Producción Ready
+[![Production Status](https://img.shields.io/badge/Production-Live%20(lifextreme.store)-10b981?style=for-the-badge)](https://www.lifextreme.store)
+[![AI Engine](https://img.shields.io/badge/AI%20Engine-Groq%20LPU%20120B%20%2B%20Qdrant%20336.8K%20Vectors-6366f1?style=for-the-badge)](https://max.lifextreme.store/health)
+[![SRE Governance](https://img.shields.io/badge/SRE%20Governance-Argon%20MCP%20v2.0-f59e0b?style=for-the-badge)](#4-argon-sre--devsecops-governance)
 
----
-
-## 🎯 DESCRIPCIÓN DEL PROYECTO
-
-**Lifextreme** es una plataforma web de reservas de aventuras extremas en Perú que utiliza **Inteligencia Artificial** para personalizar completamente la experiencia de cada usuario.
-
-### **Características Principales**
-
-✨ **Sistema de Personalización con IA**
-- Formulario de perfil psicográfico completo
-- Motor de recomendaciones inteligente (scoring algorithm)
-- Precios dinámicos basados en comportamiento
-- Mensajes personalizados en tiempo real
-
-🎨 **UX/UI Premium**
-- Notificaciones Toast para feedback instantáneo
-- Transiciones suaves con animaciones escalonadas
-- Buscador en tiempo real con dropdown inteligente
-- Botón sticky móvil para conversión optimizada
-- Skeleton loaders para percepción de velocidad
-
-🛒 **Sistema de Reservas Completo**
-- Wizard de 3 pasos con validación
-- Calendario interactivo de disponibilidad
-- Carrito de compras persistente
-- Integración con Stripe (mockup)
-- Sistema de membresía Elite
-
-🤖 **Motores de Optimización**
-- **FOMO Engine**: Urgencia y escasez en tiempo real
-- **Sensory Engine**: Experiencias sensoriales inmersivas
-- **Price Engine**: Anclaje de precios y descuentos
-- **AI Engine**: Personalización completa
+**Lifextreme (`www.lifextreme.store`)** es una plataforma tecnológica verticalmente integrada para el sector de **Turismo de Aventura, Alta Montaña, Eventos Outdoor e Infraestructura Turística en Latinoamérica**, respaldada por un motor propio de Inteligencia Artificial Conversacional y Regulatoria (**MAX Hybrid RAG Engine**) con **336,869 vectores semánticos activos**.
 
 ---
 
-## 📁 ESTRUCTURA DEL PROYECTO
+## 1. Arquitectura del Sistema (System Architecture)
 
+```mermaid
+flowchart TD
+    subgraph Edge["🌐 Edge & Frontend Layer (Vercel Global CDN)"]
+        SPA["SPA Transaccional (ES / EN / PT)<br/>index.html + js/app.js + store.js"]
+        B2B["Ecosistema B2B & Creadores<br/>partners/ · embajadores.html · presale.html"]
+        INV["Data Room & Telemetría 3D<br/>investors.html · investor-brain.html"]
+        MAX_UI["MAX AI Consultative Widget<br/>js/max-chatbot.js (Cart & Split-Pay Injection)"]
+    end
+
+    subgraph Serverless["⚡ Serverless & Transactional Layer"]
+        SMTP["Vercel Serverless API (/api/send-email.js)<br/>Zoho Enterprise SMTP SSL:465"]
+        SUPA[("Supabase PostgreSQL + RLS<br/>bookings · leads · partners · lifecoins")]
+        PAY["Pasarelas & Checkout Fraccionado (30/30/40)<br/>Niubiz · PayPal · Yape/Plin QR · Transferencia"]
+    end
+
+    subgraph AIBrain["🧠 MAX Hybrid RAG & Autonomous Intelligence (max.lifextreme.store)"]
+        CF["Cloudflare Zero-Trust Tunnel"]
+        FASTAPI["FastAPI Async Orchestrator<br/>backend/src/server.py"]
+        CATALOG["Deterministic Transactional Index<br/>web_catalog.json (251 Live Assets)"]
+        EMBED["FastEmbed Multilingual ONNX<br/>paraphrase-multilingual-MiniLM-L12-v2 (384-dim)"]
+        QDRANT[("Qdrant Vector Engine (Docker)<br/>336,869 Vectores Semánticos Activos")]
+        GROQ["Groq LPU Inference Cluster<br/>openai/gpt-oss-120b (Ultra-Low Latency)"]
+    end
+
+    subgraph SRE["🛡️ Argon SRE & MCP Observability"]
+        ARGON["Argon SRE Controller (MCP Server)<br/>agents_core/mcp_argon.py"]
+    end
+
+    SPA --> PAY
+    SPA --> SUPA
+    SPA --> SMTP
+    B2B --> SUPA
+    B2B --> SMTP
+    MAX_UI -->|HTTPS /ask| CF --> FASTAPI
+    MAX_UI -->|window.maxAddToCartAndPay| SPA
+    FASTAPI --> CATALOG
+    FASTAPI --> EMBED --> QDRANT
+    FASTAPI --> GROQ
+    ARGON -.->|Health, SecOps & Telemetry| QDRANT
+    ARGON -.->|Audit & Git Hygiene| FASTAPI
 ```
-lifextreme_v29_professional/
-│
-├── index.html                      # Página principal (SPA)
-│
-├── css/
-│   └── styles.css                  # Estilos personalizados
-│
+
+---
+
+## 2. Especificaciones Técnicas por Capa (Due Diligence Stack)
+
+### 2.1 Motor de Inteligencia Artificial y RAG Híbrido (`backend/src/server.py`)
+A diferencia de wrappers genéricos de LLM, Lifextreme implementa un **pipeline RAG híbrido de doble vía** optimizado para precisión comercial, cumplimiento normativo y latencia sub-segundo:
+
+1. **Recuperación Determinística Transaccional (`backend/src/web_catalog.json`):**
+   - Indexación estructurada en memoria de **251 activos comerciales verificados**:
+     - **40 Expediciones y Tours técnicos** (Cusco, Huaraz/Áncash, Arequipa, Iquitos, Puno, Lima, etc.).
+     - **28 Eventos y Competencias Outdoor** (Ultra Trails, Maratones de Montaña, Festivales de Escalada).
+     - **164 Parques de Aventura e Infraestructura** certificados a nivel nacional.
+     - **4 Guías UIAGM/AGMP** y **15 Equipos Técnicos de Alta Montaña**.
+2. **Memoria Vectorial Masiva en Qdrant (`336,869 vectores` en 384 dimensiones):**
+   - `Lifextreme_FQSA_Knowledge`: **176,216 vectores** (inteligencia operativa, logística regional, rutas, objeciones de ventas y protocolos médicos de altitud).
+   - `Lifextreme_Knowledge`: **160,653 vectores** (normativa MINCETUR, SERNANP, INDECOPI, TUPA, SENAMHI y matrices legales B2B).
+3. **Inferencia de Baja Latencia y AltaDisponibilidad:**
+   - **Primario:** **Groq LPU (`openai/gpt-oss-120b`)** con tiempos de respuesta `< 800 ms`.
+   - **Secundario (Fallback Local):** **Ollama (`llama3.2:latest`)** para resiliencia offline.
+4. **Cierre Transaccional en el Chat (`[CARRITO: Nombre | Precio | Pax]`):**
+   - El agente consultivo perfila al viajero (grupo, experiencia, fechas), calcula presupuestos grupales y el **Plan de Reserva Fraccionada 30%-30%-40%**, e inyecta botones interactivos que cargan la mochila de compra (`window.maxAddToCartAndPay`) y abren la pasarela de pago en un clic.
+
+### 2.2 Plataforma Transaccional & Motores de Conversión (`js/`)
+- **Arquitectura Modular Vanilla ES6+ sin sobrecarga de hidratación:** Carga instantánea en redes móviles de montaña (3G/4G), logrando métricas sobresalientes en Core Web Vitals.
+- **Internacionalización Nativa (i18n) y Multimoneda:** Soporte completo para Español (`/index.html`), Inglés (`/en/index.html`) y Portugués (`/pt/index.html`), con conversión dinámica `PEN / USD / EUR` (`js/price-engine.js`).
+- **Checkout con Reserva Fraccionada 30/30/40 (`js/app.js`):** Cálculo algorítmico de cronogramas de pago (30% hoy para bloqueo de cupo, 30% 24h antes del despliegue, 40% el día de la expedición), sincronizado con **Supabase PostgreSQL** (`js/booking-service.js`) y emisión de **Boarding Pass Táctico con QR** vía **Zoho Enterprise SMTP** (`api/send-email.js`).
+- **Cumplimiento Legal Peruano (INDECOPI Ley N° 29571):** Libro de Reclamaciones Virtual (`reclamaciones.html`) con generación de ticket correlativo (`REC-2026-XXXXXX`), constancia imprimible y despacho automático a cumplimiento legal.
+
+---
+
+## 3. Estructura del Repositorio
+
+```text
+Lifextreme-Web-AI/
+├── index.html                        # Aplicación Principal B2C (ES)
+├── en/index.html                     # Aplicación B2C Internacional (EN)
+├── pt/index.html                     # Aplicación B2C Brasil/LATAM (PT)
+├── partners/                         # Portal B2B para Operadores y Agencias
+├── investors.html                    # Portal de Inversionistas (Telemetría en Vivo)
+├── investor-brain.html               # Topología Neuronal 3D (WebGL / Three.js)
+├── embajadores.html                  # Creators Hub & Ticketera de Eventos Outdoor
+├── presale.html                      # Portal de Preventa Fundadores (Lifecoins)
+├── reclamaciones.html                # Libro de Reclamaciones Virtual (INDECOPI)
+├── terminos.html / privacidad.html   # Marco Legal y Protección de Datos
+├── api/
+│   └── send-email.js                 # Función Serverless (Vercel) -> Zoho SMTP SSL
 ├── js/
-│   ├── app.js                      # Lógica principal de la aplicación
-│   ├── store.js                    # State management (backpack, membership)
-│   ├── data.js                     # Base de datos de tours
-│   ├── cms-service.js              # Servicio de guías (simulado)
-│   ├── price-engine.js             # Motor de precios dinámicos
-│   ├── fomo-engine.js              # Motor de urgencia/escasez
-│   ├── sensory-engine.js           # Motor de experiencias sensoriales
-│   ├── ai-personalization.js       # Sistema de captura de perfil IA
-│   └── ai-engine.js                # Motor de personalización con IA ⭐
-│
-├── AI_PERSONALIZATION_DOCS.md      # Documentación completa del sistema IA
-├── example_user_profile.json       # Ejemplo de perfil de usuario
-└── README.md                        # Este archivo
+│   ├── app.js                        # Orquestador SPA, Carrito y Checkout 30/30/40
+│   ├── max-chatbot.js                # Cliente Conversacional MAX + Inyección a Carrito
+│   ├── data.js                       # Catálogo Maestro (Tours, Eventos, Parques, Guías)
+│   ├── infrastructure.js             # Motor de 164 Parques de Aventura + Schema.org
+│   ├── supabase-client.js            # Cliente Relacional Supabase (Bookings & Leads)
+│   ├── booking-service.js            # Servicio de Persistencia y Boarding Pass
+│   ├── forms-handler.js              # Manejador Universal de Formularios B2C/B2B
+│   └── config.js                     # Configuración Corporativa Centralizada
+├── backend/
+│   └── src/
+│       ├── server.py                 # API FastAPI (RAG Híbrido + Telemetría /health)
+│       └── web_catalog.json          # Índice Determinístico Sincronizado (251 ítems)
+└── agents_core/
+    ├── mcp_argon.py                  # Servidor MCP (Model Context Protocol) Argon SRE
+    └── argon/sre_controller.py       # Auditoría de Recursos, Qdrant, Git y SecOps
 ```
 
 ---
 
-## 🚀 INICIO RÁPIDO
+## 4. Argon SRE & DevSecOps Governance
 
-### **Requisitos**
-- Python 3.x (para servidor local)
-- Navegador moderno (Chrome, Firefox, Edge)
+El proyecto integra **Argon SRE**, un servidor **Model Context Protocol (MCP)** propio (`agents_core/mcp_argon.py`) que audita en tiempo real:
+- `argon_auditar_recursos`: Telemetría de CPU, RAM y almacenamiento en nodos de inferencia.
+- `argon_estado_qdrant`: Verificación de salud y conteo de vectores en colecciones Qdrant (`localhost:6333`).
+- `argon_secretos_expuestos`: Escaneo estático de seguridad para prevenir fugas de credenciales en código fuente.
+- `argon_imports_rotos` & `argon_auditoria_git`: Integridad de dependencias y trazabilidad del repositorio.
 
-### **Instalación**
+### Seguridad en Producción (`vercel.json` & `.vercelignore`)
+- **Headers de Seguridad Activos:** `Content-Security-Policy (CSP)`, `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy`.
+- **Aislamiento de Despliegue:** `.vercelignore` excluye estrictamente archivos `.env`, scripts de ingesta y bases de datos locales del CDN público.
 
-1. **Clonar/Descargar el proyecto**
+---
+
+## 5. Despliegue y Verificación Rápida (Para Auditores Técnicos)
+
+### 5.1 Verificar el Backend IA en Producción
 ```bash
-cd lifextreme_v29_professional
+curl https://max.lifextreme.store/health
 ```
-
-2. **Iniciar servidor local**
-```bash
-python -m http.server 8080
-```
-
-3. **Abrir en navegador**
-```
-http://localhost:8080/index.html
-```
-
----
-
-## 🧪 PROBAR EL SISTEMA DE IA
-
-### **Flujo Completo**
-
-1. **Abrir la aplicación** en `http://localhost:8080/index.html`
-
-2. **Scroll al banner rojo** "Tu acceso Elite expira pronto"
-
-3. **Click en** "Asegurar mi Descuento Elite"
-
-4. **Completar el formulario de perfil IA:**
-   - Nombre: Carlos Mendoza
-   - Email: carlos@example.com
-   - Nivel: Avanzado
-   - Intereses: Trekking, Escalada
-   - Presupuesto: Premium
-   - Frecuencia: Trimestral
-   - Grupo: Amigos
-   - Regiones: Cusco, Huaraz
-   - Motivación: "Superar mis límites físicos"
-
-5. **Enviar formulario** → Verás:
-   - ✅ Toast de bienvenida personalizado
-   - ✅ Hero section adaptado
-   - ✅ Sección "Recomendado para ti" con Top 3 tours
-   - ✅ Descuento automático del 10%
-
-6. **Abrir consola (F12)** y ejecutar:
-```javascript
-// Ver perfil completo
-console.log(window.AIEngine.userProfile);
-
-// Ver recomendaciones con scores
-console.log(window.AIEngine.recommendations);
-
-// Ver insights de IA
-console.log(window.getAIInsights());
-```
-
----
-
-## 📊 DATOS CAPTURADOS POR LA IA
-
-### **Información Personal**
-- Nombre completo
-- Email
-- Edad
-- WhatsApp
-
-### **Perfil de Aventurero**
-- Nivel de experiencia (Principiante → Experto)
-- Intereses (Trekking, Escalada, Selva, etc.)
-- Presupuesto (S/ 500 - S/ 5,000+)
-- Frecuencia de viaje
-
-### **Preferencias**
-- Tipo de grupo (Solo, Pareja, Amigos, Familia)
-- Regiones de interés
-- Motivación principal (texto libre)
-
----
-
-## 🧠 ALGORITMO DE RECOMENDACIONES
-
-El motor de IA asigna un **score de 0-100** a cada tour basándose en:
-
-| Factor | Puntos | Criterio |
-|--------|--------|----------|
-| **Región** | 30 | Coincide con regiones seleccionadas |
-| **Dificultad** | 25 | Apropiada para nivel de experiencia |
-| **Intereses** | 20 | Keywords en título/descripción |
-| **Presupuesto** | 15 | Precio dentro del rango |
-| **Grupo** | 10 | Adecuado para tipo de viajero |
-
-**Ejemplo:**
-```
-Tour: "Inca Trail 4D"
-Usuario: Advanced, Trekking, Cusco, Premium
-
-Score = 30 (Cusco) + 25 (Alta dificultad) + 20 (trekking) + 15 (S/ 2,800) = 90/100
-```
-
----
-
-## 💰 PRECIOS DINÁMICOS
-
-El sistema aplica descuentos automáticos basados en frecuencia:
-
-| Frecuencia | Descuento |
-|------------|-----------|
-| Mensual | 15% |
-| Trimestral | 10% |
-| Semestral | 5% |
-| Anual | 3% |
-
----
-
-## 🎨 CARACTERÍSTICAS UX/UI
-
-### **1. Sistema de Notificaciones Toast**
-- Feedback instantáneo en acciones clave
-- Animación suave de entrada/salida
-- Auto-cierre en 3 segundos
-
-### **2. Transiciones Suaves**
-- Animaciones escalonadas en grids
-- Fade in/out al filtrar contenido
-- Delay de 40ms entre elementos
-
-### **3. Buscador en Tiempo Real**
-- Búsqueda instantánea mientras escribes
-- Dropdown con resultados visuales
-- Búsqueda en tours y eventos
-
-### **4. Botón Sticky Móvil**
-- Footer fijo en dispositivos móviles
-- Precio siempre visible
-- CTA accesible con un toque
-
-### **5. Skeleton Loaders**
-- Placeholders animados mientras carga
-- Lazy loading de imágenes
-- Sin saltos de contenido (CLS)
-
----
-
-## 🔌 INTEGRACIÓN CON BACKEND
-
-### **Endpoint Recomendado**
-
-```javascript
-POST /api/ai-profile
-Content-Type: application/json
-
+Respuesta esperada:
+```json
 {
-  "userId": "uuid-generated",
-  "profile": {
-    "personal": { ... },
-    "adventure": { ... },
-    "preferences": { ... }
-  },
-  "timestamp": "2026-01-05T16:00:00Z"
+  "status": "ok",
+  "engine": "Groq (openai/gpt-oss-120b) + Qdrant RAG",
+  "qdrant_vectors": 336869,
+  "catalog_items": {
+    "tours": 40,
+    "events": 28,
+    "parks": 164
+  }
 }
 ```
 
-### **Respuesta Esperada**
-
-```javascript
-{
-  "status": "success",
-  "recommendations": [
-    { "tourId": 1, "score": 95, "reason": "..." }
-  ],
-  "dynamicDiscount": 0.15,
-  "personalizedMessage": "..."
-}
+### 5.2 Prueba de Consulta Conversacional con Cierre al Carrito
+```bash
+curl -X POST https://max.lifextreme.store/ask \
+  -H "Content-Type: application/json" \
+  -d '{"query": "Somos 4 amigos y queremos reservar la expedición a Pacaya Samiria", "history": []}'
 ```
 
-### **Implementación**
+### 5.3 Ejecución Local del Stack Completo
+```bash
+# 1. Levantar motor vectorial Qdrant
+docker start rag_lifextreme
 
-Descomentar línea 63 en `js/ai-personalization.js`:
+# 2. Iniciar orquestador FastAPI (Puerto 8000)
+python -m uvicorn backend.src.server:app --host 0.0.0.0 --port 8000 --reload
 
-```javascript
-// TODO: Send to backend API for AI processing
-fetch('/api/ai-profile', { 
-    method: 'POST', 
-    body: JSON.stringify(userProfile) 
-});
+# 3. Desplegar a Producción en Vercel
+npx vercel --prod --yes
 ```
 
 ---
-
-## 📈 MÉTRICAS A MEDIR
-
-### **KPIs de Conversión**
-- % usuarios que completan perfil
-- % perfiles → reservas
-- Valor promedio de reserva (con IA vs sin IA)
-
-### **KPIs de Engagement**
-- Tiempo en sitio (con perfil vs sin perfil)
-- Páginas vistas por sesión
-- Tasa de rebote
-
-### **KPIs de IA**
-- Precisión de recomendaciones (% clicks en Top 3)
-- Satisfacción del usuario (NPS)
-- Lifetime Value predicho vs real
-
----
-
-## 🛠️ TECNOLOGÍAS UTILIZADAS
-
-- **Frontend**: HTML5, CSS3, JavaScript (Vanilla)
-- **Styling**: Tailwind CSS (JIT via CDN)
-- **Icons**: Remixicon
-- **Fonts**: Google Fonts (Outfit)
-- **State Management**: Custom hooks (localStorage)
-- **IA**: Algoritmos de scoring propietarios
-
----
-
-## 📚 DOCUMENTACIÓN ADICIONAL
-
-- **[AI_PERSONALIZATION_DOCS.md](AI_PERSONALIZATION_DOCS.md)**: Documentación completa del sistema de IA
-- **[example_user_profile.json](example_user_profile.json)**: Ejemplo de perfil de usuario con análisis
-
----
-
-## 🔮 ROADMAP FUTURO
-
-### **Fase 1: Backend Integration** (Q1 2026)
-- [ ] API REST para perfiles de usuario
-- [ ] Base de datos PostgreSQL
-- [ ] Machine Learning con TensorFlow.js
-
-### **Fase 2: Advanced AI** (Q2 2026)
-- [ ] Análisis de sentimiento en motivación
-- [ ] Predicción de churn
-- [ ] Recomendaciones colaborativas
-
-### **Fase 3: Mobile App** (Q3 2026)
-- [ ] React Native app
-- [ ] Notificaciones push personalizadas
-- [ ] Geolocalización en tiempo real
-
----
-
-## 👥 EQUIPO
-
-- **Desarrollo**: Lifextreme Tech Team
-- **IA/ML**: AI Personalization Engine
-- **UX/UI**: Design Studio
-
----
-
-## 📞 SOPORTE
-
-Para consultas técnicas:
-- **Email**: dev@lifextreme.com
-- **Docs**: [AI_PERSONALIZATION_DOCS.md](AI_PERSONALIZATION_DOCS.md)
-- **Debug**: Consola → `window.getAIInsights()`
-
----
-
-## 📄 LICENCIA
-
-© 2026 Lifextreme. Todos los derechos reservados.
-
----
-
-**🏔️ Lifextreme - Transformando aventureros en experiencias únicas**
+© 2026 **Lifextreme Perú S.A.C.** · Calle Chihuampata N° 626, San Blas, Cusco, Perú · [www.lifextreme.store](https://www.lifextreme.store)

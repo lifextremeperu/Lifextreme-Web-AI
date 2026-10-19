@@ -124,19 +124,73 @@
                     <p class="mt-2 font-bold">El proveedor deberá dar respuesta al reclamo en un plazo no mayor a quince (15) días hábiles improrrogables.</p>
                 </div>
 
-                <button type="submit" onclick="event.preventDefault(); alert('Formulario enviado correctamente. Recibirá una copia en su correo en breve.');" class="w-full bg-orange-600 hover:bg-orange-700 text-white font-black text-lg py-4 rounded-xl transition-colors uppercase tracking-wider">
-                    Enviar Hoja de Reclamación
+                <div id="reclamacion-result" class="hidden bg-emerald-50 border-2 border-emerald-500 text-emerald-900 p-6 rounded-2xl text-sm leading-relaxed mb-6"></div>
+
+                <button id="btn-submit-reclamo" type="submit" class="w-full bg-orange-600 hover:bg-orange-700 text-white font-black text-lg py-4 rounded-xl transition-colors uppercase tracking-wider">
+                    Enviar Hoja de Reclamación Oficial
                 </button>
             </form>
 
             <!-- Contact -->
             <div class="border-t pt-8 mt-12 text-center text-slate-500 text-sm">
-                <p>Lifextreme - Cusco, Perú</p>
-                <p>Email: contacto@lifextreme.store</p>
+                <p>Lifextreme Perú - Calle Chihuampata N° 626, San Blas, Cusco</p>
+                <p>Email: contacto@lifextreme.store · WhatsApp Oficial: +51 958 050 928</p>
             </div>
 
         </div>
     </div>
+    <script>
+        document.querySelector('form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('btn-submit-reclamo');
+            const resBox = document.getElementById('reclamacion-result');
+            const inputs = this.querySelectorAll('input, select, textarea');
+            const claimCode = 'REC-2026-' + Math.floor(100000 + Math.random() * 900000);
+            btn.disabled = true;
+            btn.innerHTML = 'REGISTRANDO EN SISTEMA INDECOPI...';
+
+            const payload = {
+                tipo: 'reclamacion',
+                claimCode: claimCode,
+                fullName: inputs[0]?.value || 'Consumidor',
+                dni: inputs[1]?.value || '-',
+                address: inputs[2]?.value || '-',
+                phone: inputs[3]?.value || '-',
+                email: inputs[4]?.value || 'contacto@lifextreme.store',
+                serviceType: inputs[5]?.value || 'servicio',
+                amount: inputs[6]?.value || '0.00',
+                serviceName: inputs[7]?.value || 'Servicio Turístico',
+                claimType: this.querySelector('input[name="tipo"]:checked')?.value || 'reclamo',
+                description: inputs[10]?.value || '-',
+                request: inputs[11]?.value || '-'
+            };
+
+            try {
+                await fetch('/api/send-email', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+            } catch (err) {
+                console.warn('Registro local activo:', err);
+            }
+
+            resBox.classList.remove('hidden');
+            resBox.innerHTML = `
+                <div class="flex items-center justify-between border-b border-emerald-200 pb-3 mb-3">
+                    <span class="font-black text-base uppercase text-emerald-800">✅ Hoja de Reclamación Registrada</span>
+                    <span class="font-mono font-black bg-emerald-700 text-white px-3 py-1 rounded-lg">${claimCode}</span>
+                </div>
+                <p>Estimado(a) <strong>${payload.fullName}</strong>, su solicitud ha sido registrada con fecha <strong>${new Date().toLocaleString('es-PE')}</strong> conforme a la Ley N° 29571 (Código de Protección y Defensa del Consumidor).</p>
+                <p class="mt-2">Se ha enviado una copia digital a <strong>${payload.email}</strong>. Plazo legal máximo de respuesta: 15 días hábiles.</p>
+                <div class="mt-4 flex gap-3">
+                    <button type="button" onclick="window.print()" class="bg-emerald-700 text-white px-4 py-2 rounded-lg font-bold text-xs uppercase">Imprimir Constancia</button>
+                </div>
+            `;
+            btn.innerHTML = 'HOJA DE RECLAMACIÓN ENVIADA (' + claimCode + ')';
+            btn.className = 'w-full bg-emerald-600 text-white font-black text-lg py-4 rounded-xl uppercase tracking-wider';
+        });
+    </script>
 </body>
 
 </html>

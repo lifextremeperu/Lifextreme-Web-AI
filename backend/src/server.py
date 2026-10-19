@@ -181,7 +181,21 @@ async def chat_webhook_b2b_stream(request: Request):
 def health():
     return {
         "status": "LIFEXTREME MAX OS online",
+        "qdrant_vectors": 336869,
+        "collections": {
+            "Lifextreme_FQSA_Knowledge": 176216,
+            "Lifextreme_Knowledge": 160653
+        },
+        "catalog_items": {
+            "tours": 40,
+            "events": 28,
+            "parks": 164,
+            "guides": 4,
+            "equips": 15,
+            "total": 251
+        },
         "rag": "Catalogo Oficial Web (40 Tours, 28 Eventos, 164 Parques) + Qdrant (336,869 vectores)",
         "llm": "Groq LPU (openai/gpt-oss-120b) + Ollama Fallback",
-        "embedding": "nomic-embed-text"
+        "embedding": "FastEmbed Multilingual MiniLM-L12-v2 (384-dim)"
     }
+

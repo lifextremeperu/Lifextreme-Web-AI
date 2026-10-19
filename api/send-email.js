@@ -397,7 +397,7 @@ function buildPresaleWelcomeEmail(data) {
 
                 <div style="text-align:center;">
                     <p style="font-size:12px;color:#94a3b8;margin-bottom:16px;">Si aún no completaste el pago vía ${data.payment_method}, puedes contactar a soporte:</p>
-                    <a href="https://wa.me/51999999999" style="display:inline-block;background:#22c55e;color:#ffffff;padding:14px 28px;border-radius:12px;font-weight:900;text-decoration:none;text-transform:uppercase;font-size:12px;">Hablar con un Asesor</a>
+                    <a href="https://wa.me/51958050928" style="display:inline-block;background:#22c55e;color:#ffffff;padding:14px 28px;border-radius:12px;font-weight:900;text-decoration:none;text-transform:uppercase;font-size:12px;">Hablar con un Asesor</a>
                 </div>
             </div>
             <div style="padding:32px;text-align:center;color:#475569;font-size:11px;">
@@ -446,7 +446,7 @@ function buildGuideWelcomeEmail(data) {
                     Gracias por postular al equipo de guías de <b>Lifextreme</b>. Hemos recibido tu ficha técnica y estamos muy emocionados por la posibilidad de colaborar contigo.
                 </p>
                 <div style="background:#f1f5f9;border-radius:12px;padding:20px;margin-bottom:24px;">
-                    <p style="margin:0;font-size:13px;color:#1e293b;"><b>Próximo Paso:</b> Nuestro equipo de operaciones revisará tus certificaciones (<b>${data.certs.join(', ')}</b>) y especialidades. Te contactaremos vía WhatsApp para una breve entrevista técnica.</p>
+                    <p style="margin:0;font-size:13px;color:#1e293b;"><b>Próximo Paso:</b> Nuestro equipo de operaciones revisará tus certificaciones (<b>${(data.certs || []).join(', ')}</b>) y especialidades. Te contactaremos vía WhatsApp para una breve entrevista técnica.</p>
                 </div>
                 <p style="color:#64748b;font-size:14px;margin:0;">Atentamente,<br><b>Equipo de Operaciones de Lifextreme</b></p>
             </div>
@@ -468,8 +468,8 @@ function buildGuideInternalAlert(data) {
                     <tr><td style="color:#a1a1aa;padding:5px 0;">GUÍA</td><td style="font-weight:700;">${data.fullName}</td></tr>
                     <tr><td style="color:#a1a1aa;padding:5px 0;">DNI/PASS</td><td style="font-weight:700;">${data.dni}</td></tr>
                     <tr><td style="color:#a1a1aa;padding:5px 0;">EXP</td><td style="font-weight:700;">${data.experience}</td></tr>
-                    <tr><td style="color:#a1a1aa;padding:5px 0;">CERTIFICADOS</td><td style="font-weight:700;color:#4338ca;">${data.certs.join(', ')}</td></tr>
-                    <tr><td style="color:#a1a1aa;padding:5px 0;">ESPECIALIDADES</td><td style="font-weight:700;">${data.specialties.join(', ')}</td></tr>
+                    <tr><td style="color:#a1a1aa;padding:5px 0;">CERTIFICADOS</td><td style="font-weight:700;color:#4338ca;">${(data.certs || []).join(', ')}</td></tr>
+                    <tr><td style="color:#a1a1aa;padding:5px 0;">ESPECIALIDADES</td><td style="font-weight:700;">${(data.specialties || []).join(', ')}</td></tr>
                     <tr><td style="color:#a1a1aa;padding:5px 0;">WHATSAPP</td><td style="font-weight:700;">${data.phone}</td></tr>
                 </table>
             </div>
@@ -499,7 +499,7 @@ function buildEliteWelcomeEmail(data) {
                     <h3 style="margin-top:0;font-size:14px;text-transform:uppercase;color:#64748b;">Tu Perfil de Aventurero</h3>
                     <div style="font-size:14px;color:#1e293b;margin-top:10px;">
                         • <b>Nivel:</b> ${data.adventure.experienceLevel}<br>
-                        • <b>Intereses:</b> ${data.adventure.interests.join(', ')}<br>
+                        • <b>Intereses:</b> ${(data.adventure.interests || []).join(', ')}<br>
                         • <b>Motivación:</b> ${data.preferences.motivation}
                     </div>
                 </div>
@@ -528,9 +528,9 @@ function buildEliteInternalAlert(data) {
                 <p><b>Nombre:</b> ${data.personal.fullName}</p>
                 <p><b>Email:</b> ${data.personal.email}</p>
                 <p><b>Teléfono:</b> ${data.personal.phone}</p>
-                <p><b>Intereses:</b> ${data.adventure.interests.join(', ')}</p>
+                <p><b>Intereses:</b> ${(data.adventure.interests || []).join(', ')}</p>
                 <p><b>Motivación:</b> ${data.preferences.motivation}</p>
-                <p><b>Regiones:</b> ${data.preferences.regions.join(', ')}</p>
+                <p><b>Regiones:</b> ${(data.preferences.regions || []).join(', ')}</p>
             </div>
         </div>`
     };
@@ -639,6 +639,33 @@ function buildJobInternalAlert(data) {
     };
 }
 
+// ── Libro de Reclamaciones Virtual (INDECOPI Ley N° 29571) ────────────────
+function buildReclamacionEmail(data) {
+    const claimCode = data.claimCode || `REC-2026-${Math.floor(100000 + Math.random() * 900000)}`;
+    return {
+        from: `"Lifextreme Legal & Compliance" <${process.env.ZOHO_USER}>`,
+        to: data.email,
+        subject: `📋 Constancia de Hoja de Reclamación [${claimCode}] - Lifextreme`,
+        html: `
+        <div style="font-family:sans-serif;max-width:600px;margin:0 auto;background:#ffffff;border-radius:16px;overflow:hidden;border:1px solid #e2e8f0;">
+            <div style="background:#0f172a;padding:28px 32px;color:#ffffff;">
+                <div style="font-size:11px;color:#f59e0b;font-weight:900;letter-spacing:2px;text-transform:uppercase;">Libro de Reclamaciones Virtual · Ley N° 29571</div>
+                <h2 style="margin:8px 0 0;font-size:20px;">Constancia de Registro: ${claimCode}</h2>
+            </div>
+            <div style="padding:32px;color:#1e293b;font-size:14px;line-height:1.6;">
+                <p>Estimado(a) <b>${data.fullName}</b> (Doc: ${data.dni}),</p>
+                <p>Hemos registrado su <b>${(data.claimType || 'Reclamo').toUpperCase()}</b> conforme al Código de Protección y Defensa del Consumidor (INDECOPI). Nuestro equipo legal responderá en un plazo máximo de 15 días hábiles.</p>
+                <div style="background:#f8fafc;padding:16px;border-radius:12px;border:1px solid #e2e8f0;margin:20px 0;">
+                    <p style="margin:4px 0;"><b>Código de Seguimiento:</b> ${claimCode}</p>
+                    <p style="margin:4px 0;"><b>Bien Contratado:</b> ${data.serviceName || 'Servicio Turístico'} (S/ ${data.amount || '0.00'})</p>
+                    <p style="margin:4px 0;"><b>Detalle:</b> ${data.description}</p>
+                </div>
+                <p style="font-size:12px;color:#64748b;">Atentamente,<br><b>Unidad de Cumplimiento Normativo · Lifextreme Perú</b></p>
+            </div>
+        </div>`
+    };
+}
+
 // ── Handler Principal ────────────────────────────────────────────────────────
 export default async function handler(req, res) {
     // Solo POST
@@ -681,23 +708,34 @@ export default async function handler(req, res) {
             } catch (err) { results.internal = 'failed'; results.errorI = err.message; }
         }
 
+        // ── PRIORIDAD 2: RESERVAS / BOARDING PASS ──
+        else if (tipoRecibido.includes('booking_confirmation')) {
+            try {
+                await transporter.sendMail(buildBookingConfirmationEmail(data));
+                results.welcome = 'sent';
+            } catch (err) { results.welcome = 'failed'; results.errorW = err.message; }
+
+            try {
+                await transporter.sendMail(buildBookingInternalAlert(data));
+                results.internal = 'sent';
+            } catch (err) { results.internal = 'failed'; results.errorI = err.message; }
+        }
+
         // ── PRIORIDAD 3: GIFT CARDS ──
         else if (tipoRecibido.includes('gift_card_confirmation')) {
             try {
-                // Al Destinatario
                 await transporter.sendMail(buildGiftCardEmail(data));
                 results.welcome = 'sent';
             } catch (err) { results.welcome = 'failed'; results.errorW = err.message; }
 
             try {
-                // Al Comprador (Confirmación)
                 await transporter.sendMail(buildGiftBuyerConfirmationEmail(data));
                 results.internal = 'sent';
             } catch (err) { results.internal = 'failed'; results.errorI = err.message; }
         }
 
-        // ── PRIORIDAD 4: PARTNERS Y OTROS ──
-            // ... (código existente)
+        // ── PRIORIDAD 4: PARTNERS ──
+        else if (tipoRecibido.includes('partner')) {
             try {
                 await transporter.sendMail(buildWelcomeEmail(data));
                 results.welcome = 'sent';
@@ -708,8 +746,8 @@ export default async function handler(req, res) {
             } catch (err) { results.internal = 'failed'; }
         }
 
+        // ── PRIORIDAD 5: SOCIO UPDATE ──
         else if (tipoRecibido === 'socio_update') {
-            // ...
             try {
                 await transporter.sendMail(buildSocioConfirmationEmail(data));
                 results.welcome = 'sent';
@@ -720,6 +758,7 @@ export default async function handler(req, res) {
             } catch (err) { results.internal = 'failed'; }
         }
 
+        // ── PRIORIDAD 6: ELITE WELCOME ──
         else if (tipoRecibido === 'elite_welcome') {
             try {
                 await transporter.sendMail(buildEliteWelcomeEmail(data));
@@ -731,6 +770,7 @@ export default async function handler(req, res) {
             } catch (err) { results.internal = 'failed'; }
         }
 
+        // ── PRIORIDAD 7: PRESALE WELCOME ──
         else if (tipoRecibido === 'presale_welcome') {
             try {
                 await transporter.sendMail(buildPresaleWelcomeEmail(data));
@@ -742,6 +782,7 @@ export default async function handler(req, res) {
             } catch (err) { results.internal = 'failed'; }
         }
 
+        // ── PRIORIDAD 8: GUIDE REGISTRATION ──
         else if (tipoRecibido === 'guide_registration') {
             try {
                 await transporter.sendMail(buildGuideWelcomeEmail(data));
@@ -753,10 +794,18 @@ export default async function handler(req, res) {
             } catch (err) { results.internal = 'failed'; }
         }
 
+        // ── PRIORIDAD 9: LIBRO DE RECLAMACIONES (INDECOPI) ──
+        else if (tipoRecibido.includes('reclamacion')) {
+            try {
+                await transporter.sendMail(buildReclamacionEmail(data));
+                results.welcome = 'sent';
+            } catch (err) { results.welcome = 'failed'; }
+        }
+
         return res.status(200).json({ 
             success: true, 
             results,
-            debug: { tipoRecibido, version: "2026-04-21-Táctico-Final" },
+            debug: { tipoRecibido, version: "2026-10-19-DueDiligence-Ready" },
             message: 'SISTEMA DE MISIÓN ALPHA-1 ACTIVADO'
         });
     } catch (error) {
@@ -764,5 +813,6 @@ export default async function handler(req, res) {
         return res.status(500).json({ error: 'Error interno del servidor [DEBUG V1]' });
     }
 }
+
 
 // Last Update: 2026-04-21 18:43 (Forced Deploy)

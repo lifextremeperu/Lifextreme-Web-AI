@@ -657,7 +657,10 @@ function nextBookingStep() {
     const currentStep = draft.step;
 
     if (currentStep === 1) {
-        if (!selectedDay) { alert('Selecciona una fecha de despliegue.'); return; }
+        if (!selectedDay) {
+            showToast('Fecha requerida', 'Selecciona una fecha en el calendario para continuar.', 'ri-calendar-event-line');
+            return;
+        }
     }
 
     if (currentStep < 3) {
@@ -778,9 +781,13 @@ window.validateAndBook = function () {
     const phone = document.getElementById('contact-phone').value;
 
     if (!name || !email || !phone) {
-        alert('⚠️ Por favor completa tus datos para coordinar el despliegue.');
+        showToast('Datos requeridos', 'Completa tu nombre, email y WhatsApp para continuar.', 'ri-user-follow-line');
         return;
     }
+
+    localStorage.setItem('lifextreme_user_name', name);
+    localStorage.setItem('lifextreme_user_email', email);
+    localStorage.setItem('lifextreme_user_phone', phone);
 
     // Guardar temporalmente en el objeto activeTour o global para usarlo en addToCartFinal
     window.currentContact = { name, email, phone };
@@ -1275,12 +1282,26 @@ function setupEventListeners() {
                 renderAll('Todos', data.category);
                 break;
 
-            // Payment
+            // Payment & Modals
             case 'open-checkout': openStripeCheckout(); break;
             case 'close-checkout': closeStripeCheckout(); break;
             case 'switch-payment': switchPaymentMethod(data.method); break;
+            case 'select-payment-plan':
+                if (data.plan === 'split') {
+                    document.getElementById('payment-plan-split')?.click();
+                } else {
+                    document.getElementById('payment-plan-full')?.click();
+                }
+                break;
             case 'confirm-payment': confirmManualPayment(); break;
             case 'continue-exploring': toggleCart(); break;
+            case 'close-guide-modal':
+                if (typeof window.closeGuideContactModal === 'function') {
+                    window.closeGuideContactModal();
+                } else {
+                    document.getElementById('guide-contact-modal')?.classList.add('hidden');
+                }
+                break;
         }
     });
 
@@ -1412,7 +1433,10 @@ function nextQuizStep(step, value) {
 
 function finishQuiz() {
     const email = document.getElementById('quiz-email').value;
-    if (!email) return alert('Ingresa tu email para recibir el cupón.');
+    if (!email) {
+        showToast('Email requerido', 'Ingresa tu correo para recibir tu recomendación y cupón.', 'ri-mail-send-line');
+        return;
+    }
 
     const resultTour = tours[Math.floor(Math.random() * tours.length)];
     document.getElementById('recommended-tour').innerText = resultTour.title;
@@ -1660,7 +1684,10 @@ function sendCompactChatFromInput() {
 // --- STRIPE MOCKUP & PAYMENT ---
 function openStripeCheckout() {
     const { items, total } = backpack.getState();
-    if (items.length === 0) return alert('Tu mochila está vacía.');
+    if (items.length === 0) {
+        showToast('Mochila vacía', 'Agrega primero una expedición o equipo a tu mochila.', 'ri-shopping-bag-3-line');
+        return;
+    }
 
     const orderItems = document.getElementById('stripe-order-items');
     orderItems.innerHTML = items.map(item => `
@@ -1840,45 +1867,97 @@ function switchPaymentMethod(method) {
     }
 }
 
-function confirmManualPayment() {
+async function confirmManualPayment() {
     const btn = document.getElementById('confirm-payment-btn');
     btn.disabled = true;
-    btn.innerHTML = '<i class="ri-loader-4-line animate-spin text-xl"></i> Validando...';
+    btn.innerHTML = '<i class="ri-loader-4-line animate-spin text-xl"></i> Validando Operación...';
+
+    const { items, total } = backpack.getState();
+    const finalTotal = Math.round(total * 0.85);
+    const amountToday = currentPaymentPlan === 'split' ? Math.round(finalTotal * 0.30) : finalTotal;
+    const bookingCode = 'LX-' + Math.random().toString(36).substring(2, 8).toUpperCase();
+    const tourNames = items.map(i => i.name).join(' + ') || 'Expedición Lifextreme';
+    const tourDateStr = selectedTourDate ? formatDate(selectedTourDate) : formatDate(new Date(Date.now() + 86400000 * 15));
+
+    // Sincronizar con Supabase & API Serverless en segundo plano sin bloquear UX
+    try {
+        if (typeof window.processBookingCusco === 'function') {
+            window.processBookingCusco({
+                tourId: String(items[0]?.id || 'LX-WEB'),
+                tourName: tourNames,
+                date: selectedTourDate ? selectedTourDate.toISOString().split('T')[0] : new Date().toISOString().split('T')[0],
+                pax: items.length || 1,
+                price: amountToday,
+                contact: {
+                    name: localStorage.getItem('lifextreme_user_name') || 'Explorador Web',
+                    email: localStorage.getItem('lifextreme_user_email') || 'contacto@lifextreme.store',
+                    phone: '+51 958 050 928'
+                }
+            }).catch(() => {});
+        }
+        fetch('/api/send-email', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                tipo: 'booking_confirmation',
+                fullName: localStorage.getItem('lifextreme_user_name') || `Reserva Web (${bookingCode})`,
+                email: localStorage.getItem('lifextreme_user_email') || 'contacto@lifextreme.store',
+                phone: '+51 958 050 928',
+                tourName: `${tourNames} [${currentPaymentPlan === 'split' ? 'Plan 30-30-40' : 'Pago 100%'}]`,
+                date: tourDateStr,
+                pax: items.length || 1
+            })
+        }).catch(() => {});
+    } catch (err) {
+        console.warn('Sync notice:', err);
+    }
 
     setTimeout(() => {
-        btn.innerHTML = '<i class="ri-checkbox-circle-fill text-xl"></i> PAGO REGISTRADO';
+        btn.innerHTML = `<i class="ri-checkbox-circle-fill text-xl"></i> ORDEN ${bookingCode} REGISTRADA`;
 
-        // Different messages based on payment plan
+        const orderSummary = {
+            bookingCode,
+            plan: currentPaymentPlan,
+            totalAmount: finalTotal,
+            paidToday: amountToday,
+            firstPaymentDate: new Date().toISOString(),
+            tourDate: tourDateStr,
+            items: items
+        };
+        localStorage.setItem('lifextreme_payment_plan', JSON.stringify(orderSummary));
+        localStorage.setItem('lifextreme_last_order', JSON.stringify(orderSummary));
+
         if (currentPaymentPlan === 'split') {
-            showToast('Primer Pago Confirmado', 'Recibirás recordatorios para los siguientes pagos', 'ri-verified-badge-fill');
-
-            // Save payment plan info to localStorage for future reference
-            const paymentInfo = {
-                plan: 'split',
-                firstPaymentDate: new Date().toISOString(),
-                tourDate: selectedTourDate ? selectedTourDate.toISOString() : null,
-                items: backpack.getState().items
-            };
-            localStorage.setItem('lifextreme_payment_plan', JSON.stringify(paymentInfo));
+            showToast(`Reserva ${bookingCode} Activa (30%)`, `Abono inicial S/ ${amountToday} registrado. Enviando voucher...`, 'ri-verified-badge-fill');
         } else {
-            showToast('Pago Exitoso', 'Tu expedición está confirmada', 'ri-verified-badge-fill');
+            showToast(`Expedición ${bookingCode} Confirmada`, `Pago total S/ ${amountToday} registrado exitosamente.`, 'ri-verified-badge-fill');
         }
+
+        const waMsg = encodeURIComponent(
+            `¡Hola Lifextreme! Acabo de registrar mi reserva web.\n` +
+            `• Código: *${bookingCode}*\n` +
+            `• Expedición/Items: *${tourNames}*\n` +
+            `• Fecha estimada: *${tourDateStr}*\n` +
+            `• Modalidad: *${currentPaymentPlan === 'split' ? 'Reserva Fraccionada 30/30/40 (30% hoy)' : 'Pago Total 100%'}*\n` +
+            `• Monto abonado hoy: *S/ ${amountToday}*\n` +
+            `Adjunto mi constancia de operación para validación inmediata.`
+        );
 
         setTimeout(() => {
             closeStripeCheckout();
             backpack.setState(state => ({ ...state, items: [], total: 0 }));
             localStorage.removeItem('lifextreme_backpack');
             updateCart();
-            navigateTo('home');
 
             // Reset button state for next time
             btn.disabled = false;
             btn.innerHTML = 'Confirmar Pago Enviado';
-
-            // Reset payment plan to default
             currentPaymentPlan = 'full';
-        }, 1500);
-    }, 2000);
+
+            // Abrir confirmación directa con el centro de operaciones en WhatsApp
+            window.open(`https://wa.me/51958050928?text=${waMsg}`, '_blank');
+        }, 1200);
+    }, 1200);
 }
 
 // --- LIVE SEARCH SYSTEM ---

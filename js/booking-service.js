@@ -34,37 +34,24 @@ window.processBookingCusco = async function (bookingData) {
         // Notificación visual extra
         if (window.showToast) window.showToast('Sistema Central', 'Reserva sincronizada con la nube', 'ri-cloud-check-fill');
 
-        // 🎫 DISPARAR TACTICAL PASSBOARD (Email Confirmation vía EmailJS)
+        // 🎫 DISPARAR TACTICAL PASSBOARD (Vía Serverless Zoho SMTP /api/send-email)
         try {
-            console.log('🚀 Generando Tactical Passboard para:', bookingData.contact.email);
-            
-            // TODO: REEMPLAZA ESTAS CLAVES CON LAS TUYAS DE EMAILJS.COM
-            const EMAILJS_PUBLIC_KEY = "TU_PUBLIC_KEY"; // Pégala aquí
-            const EMAILJS_SERVICE_ID = "TU_SERVICE_ID"; // Ej: service_123xyz
-            const EMAILJS_TEMPLATE_ID = "TU_TEMPLATE_ID"; // Ej: template_456abc
-            
-            if(window.emailjs) {
-                emailjs.init(EMAILJS_PUBLIC_KEY);
-                
-                emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-                    to_name: bookingData.contact.name,
-                    to_email: bookingData.contact.email,
-                    phone: bookingData.contact.phone,
-                    tour_name: bookingData.tourName || "Expedición Lifextreme",
+            fetch('/api/send-email', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    tipo: 'booking_confirmation',
+                    fullName: bookingData.contact?.name || "Explorador Web",
+                    email: bookingData.contact?.email || "contacto@lifextreme.store",
+                    phone: bookingData.contact?.phone || "+51 958 050 928",
+                    tourName: bookingData.tourName || "Expedición Lifextreme",
                     date: bookingData.date,
-                    pax: bookingData.pax,
-                    total_price: bookingData.price || 0,
-                    reply_to: "contacto@lifextreme.store"
-                }).then(function(response) {
-                   console.log('✅ Correo enviado exitosamente!', response.status, response.text);
-                }, function(error) {
-                   console.error('❌ Error enviando el correo...', error);
-                });
-            } else {
-                console.warn("EmailJS no está cargado en la página.");
-            }
+                    pax: bookingData.pax || 1,
+                    total_price: bookingData.price || 0
+                })
+            }).catch(() => {});
         } catch (e) {
-            console.error('Error al disparar Passboard:', e);
+            console.warn('Aviso al disparar Passboard:', e);
         }
     }
 
