@@ -170,8 +170,17 @@ body {
     font-weight: 900;
 }
 
+.nav-link {
+    transition: color 0.25s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #f59e0b !important;
+}
+
 .nav-link.active {
-    color: #4338ca;
+    color: #f59e0b !important;
     position: relative;
 }
 
@@ -182,7 +191,7 @@ body {
     left: 0;
     width: 100%;
     height: 3px;
-    background: #4338ca;
+    background: #f59e0b;
     border-radius: 99px;
 }
 

@@ -90,11 +90,11 @@
                     <img src="https://ui-avatars.com/api/?name=Aventura+Extrema&background=dc2626&color=fff" alt="User">
                 </div>
                 <div class="user-info">
-                    <div class="user-name">Aventura Extrema</div>
-                    <div class="user-role">Partner Pro</div>
+                    <div class="user-name user-name-display">Aventura Extrema</div>
+                    <div class="user-role user-role-display">Partner Pro</div>
                 </div>
             </div>
-            <button class="logout-btn">
+            <button class="logout-btn" id="logoutBtn" title="Cerrar Sesión">
                 <i data-lucide="log-out"></i>
             </button>
         </div>
@@ -108,17 +108,17 @@
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
                     <i data-lucide="menu"></i>
                 </button>
-                <h1 class="page-title">Dashboard</h1>
+                <h1 class="page-title" id="pageTitle">Dashboard</h1>
             </div>
             <div class="top-bar-right">
-                <button class="icon-btn">
+                <button class="icon-btn" onclick="window.openPartnerQuickSearch && window.openPartnerQuickSearch()" title="Buscar Reserva o Actividad">
                     <i data-lucide="search"></i>
                 </button>
-                <button class="icon-btn">
+                <button class="icon-btn" onclick="window.togglePartnerNotifications && window.togglePartnerNotifications()" title="Notificaciones Operativas">
                     <i data-lucide="bell"></i>
                     <span class="notification-dot"></span>
                 </button>
-                <button class="icon-btn">
+                <button class="icon-btn" onclick="window.switchSection && window.switchSection('inteligencia')" title="Consultar a LIFEXTREME-CORE AI">
                     <i data-lucide="help-circle"></i>
                 </button>
             </div>
@@ -275,7 +275,7 @@
                                         <div class="quick-action-desc">Agregar experiencia</div>
                                     </div>
                                 </button>
-                                <button class="quick-action-btn">
+                                <button class="quick-action-btn" onclick="window.openMediaUploadPrompt && window.openMediaUploadPrompt()">
                                     <div class="quick-action-icon">
                                         <i data-lucide="camera"></i>
                                     </div>
@@ -295,8 +295,8 @@
                 <div class="section-header">
                     <h2 class="section-title">Gestión de Reservas</h2>
                     <div class="header-actions">
-                        <button class="btn btn-secondary">
-                            <i data-lucide="download"></i> Exportar
+                        <button class="btn btn-secondary" onclick="window.exportBookingsCSV && window.exportBookingsCSV()">
+                            <i data-lucide="download"></i> Exportar CSV
                         </button>
                     </div>
                 </div>
@@ -304,7 +304,7 @@
                     <div class="table-filters">
                         <div class="search-box">
                             <i data-lucide="search"></i>
-                            <input type="text" placeholder="Buscar por cliente o actividad...">
+                            <input type="text" id="bookings-search-input" oninput="window.searchBookingsTable && window.searchBookingsTable(this.value)" placeholder="Buscar por cliente o actividad...">
                         </div>
                         <div class="filter-group">
                             <button class="filter-btn active" id="btn-filter-all" onclick="filterBookings('all')">Todas</button>
@@ -350,14 +350,14 @@
             <section id="section-finanzas" class="dashboard-section">
                 <div class="section-header">
                     <h2 class="section-title">Finanzas</h2>
-                    <button class="btn btn-secondary">Reporte Mensual</button>
+                    <button class="btn btn-secondary" onclick="window.exportFinanceReport && window.exportFinanceReport()"><i data-lucide="file-Spreadsheet"></i> Reporte Mensual</button>
                 </div>
                 <div class="stats-grid-dashboard">
                     <div class="stat-card-dashboard bg-indigo-50 border-indigo-100">
                         <div class="stat-details">
                             <div class="stat-label text-indigo-800">Saldo Disponible</div>
-                            <div class="stat-value text-indigo-900">$3,240.50</div>
-                            <button class="btn btn-primary mt-3 w-full justify-center" onclick="alert('Funcionalidad de retiro en conexión con pasarela de pagos Próximamente.')">Solicitar Retiro</button>
+                            <div class="stat-value text-indigo-900" id="finance-available-balance">$3,240.50</div>
+                            <button class="btn btn-primary mt-3 w-full justify-center" onclick="window.requestWithdrawal && window.requestWithdrawal()">Solicitar Retiro</button>
                         </div>
                     </div>
                     <div class="stat-card-dashboard">
@@ -370,8 +370,8 @@
                     <div class="stat-card-dashboard">
                         <div class="stat-details">
                             <div class="stat-label">Deuda Pendiente (Comisiones)</div>
-                            <div class="stat-value text-amber-600">$45.00</div>
-                            <button class="btn btn-secondary mt-3 w-full justify-center text-xs">Pagar ahora</button>
+                            <div class="stat-value text-amber-600" id="finance-pending-debt">$45.00</div>
+                            <button class="btn btn-secondary mt-3 w-full justify-center text-xs" onclick="window.payPendingCommission && window.payPendingCommission()">Pagar ahora</button>
                         </div>
                     </div>
                 </div>
@@ -450,22 +450,22 @@
                     <div class="card-content p-0">
                         <div class="flex h-[500px]">
                             <!-- Lista de Mensajes -->
-                            <div class="w-1/3 border-r border-slate-100 overflow-y-auto">
-                                <div class="p-4 border-b border-slate-100 bg-slate-50 cursor-pointer hover:bg-slate-100 transition-colors">
+                            <div class="w-1/3 border-r border-slate-100 overflow-y-auto" id="msg-threads-list">
+                                <div onclick="window.selectMessageThread && window.selectMessageThread(0, this)" class="msg-thread-item p-4 border-b border-slate-100 bg-slate-50 cursor-pointer hover:bg-slate-100 transition-colors">
                                     <div class="flex justify-between items-start mb-1">
                                         <h4 class="font-bold text-sm">Carlos Mendoza</h4>
                                         <span class="text-[10px] text-slate-400">10:30 AM</span>
                                     </div>
                                     <p class="text-xs text-slate-500 truncate">Hola, ¿qué ropa recomiendan para el trekking?</p>
                                 </div>
-                                <div class="p-4 border-b border-slate-100 cursor-pointer hover:bg-slate-50 transition-colors">
+                                <div onclick="window.selectMessageThread && window.selectMessageThread(1, this)" class="msg-thread-item p-4 border-b border-slate-100 cursor-pointer hover:bg-slate-50 transition-colors">
                                     <div class="flex justify-between items-start mb-1">
                                         <h4 class="font-bold text-sm text-emerald-600"><i data-lucide="shield-check" class="inline w-3 h-3"></i> Soporte Lifextreme</h4>
                                         <span class="text-[10px] text-slate-400">Ayer</span>
                                     </div>
                                     <p class="text-xs text-slate-500 truncate">Tu cuenta ha sido verificada exitosamente.</p>
                                 </div>
-                                <div class="p-4 border-b border-slate-100 cursor-pointer hover:bg-slate-50 transition-colors">
+                                <div onclick="window.selectMessageThread && window.selectMessageThread(2, this)" class="msg-thread-item p-4 border-b border-slate-100 cursor-pointer hover:bg-slate-50 transition-colors">
                                     <div class="flex justify-between items-start mb-1">
                                         <h4 class="font-bold text-sm">Ana García</h4>
                                         <span class="text-[10px] text-slate-400">Lun</span>
@@ -476,10 +476,10 @@
                             <!-- Área de Chat -->
                             <div class="w-2/3 flex flex-col bg-slate-50/50">
                                 <div class="p-4 border-b border-slate-100 bg-white flex justify-between items-center">
-                                    <h3 class="font-bold">Carlos Mendoza</h3>
-                                    <span class="badge bg-indigo-100 text-indigo-700">Reserva #1A2B3C</span>
+                                    <h3 class="font-bold" id="msg-active-name">Carlos Mendoza</h3>
+                                    <span class="badge bg-indigo-100 text-indigo-700" id="msg-active-badge">Reserva #1A2B3C</span>
                                 </div>
-                                <div class="flex-1 p-4 overflow-y-auto space-y-4">
+                                <div class="flex-1 p-4 overflow-y-auto space-y-4" id="msg-chat-messages">
                                     <div class="flex gap-3">
                                         <div class="w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold text-xs">CM</div>
                                         <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm text-sm border border-slate-100 max-w-[80%]">
@@ -488,18 +488,16 @@
                                     </div>
                                 </div>
                                 <div class="p-4 bg-white border-t border-slate-100">
-                                    <div class="flex gap-2">
-                                        <input type="text" class="flex-1 border border-slate-200 rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-indigo-500 outline-none" placeholder="Escribe tu respuesta...">
-                                        <button class="bg-indigo-600 text-white p-2 rounded-xl hover:bg-indigo-700 transition-colors"><i data-lucide="send" class="w-5 h-5"></i></button>
-                                    </div>
+                                    <form onsubmit="event.preventDefault(); window.sendPartnerReply && window.sendPartnerReply();" class="flex gap-2">
+                                        <input type="text" id="partner-msg-input" class="flex-1 border border-slate-200 rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-indigo-500 outline-none" placeholder="Escribe tu respuesta...">
+                                        <button type="submit" class="bg-indigo-600 text-white p-2 rounded-xl hover:bg-indigo-700 transition-colors"><i data-lucide="send" class="w-5 h-5"></i></button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-
-            <!-- El bloque antiguo de Inteligencia AI fue removido para evitar IDs duplicados -->
 
             <!-- SOSTENIBILIDAD & CAPACITACIÓN -->
             <section id="section-sostenibilidad" class="dashboard-section hidden">
@@ -531,7 +529,7 @@
                             <i data-lucide="trash-2" class="absolute -bottom-4 -right-4 w-32 h-32 opacity-20"></i>
                             <p class="text-emerald-100 text-xs font-bold uppercase tracking-widest mb-1">Residuos
                                 Retirados</p>
-                            <p class="text-4xl font-black mb-2">128.5 <span class="text-lg opacity-80">kg</span></p>
+                            <p class="text-4xl font-black mb-2"><span id="sus-waste-kg">128.5</span> <span class="text-lg opacity-80">kg</span></p>
                             <div
                                 class="inline-flex items-center gap-1 bg-white/20 px-2 py-1 rounded text-[10px] font-bold">
                                 <i data-lucide="trending-up" class="w-3 h-3"></i> +12% este mes
@@ -554,11 +552,11 @@
                             <p class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Score de
                                 Sostenibilidad</p>
                             <div class="flex items-end gap-2 mb-2">
-                                <p class="text-4xl font-black text-emerald-600">92</p>
+                                <p class="text-4xl font-black text-emerald-600" id="sus-score-val">92</p>
                                 <p class="text-lg text-slate-400 font-bold mb-1">/ 100</p>
                             </div>
                             <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
-                                <div class="bg-emerald-500 w-[92%] h-full rounded-full"></div>
+                                <div class="bg-emerald-500 w-[92%] h-full rounded-full" id="sus-score-bar"></div>
                             </div>
                             <p class="text-[10px] text-emerald-600 font-bold mt-2">Nivel: Guardián de Montaña</p>
                         </div>
@@ -576,20 +574,21 @@
                             </div>
                         </div>
                         <div class="p-6">
-                            <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <form id="form-bitacora-campo" onsubmit="event.preventDefault(); window.submitFieldLog && window.submitFieldLog();" class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div class="space-y-2">
                                     <label class="text-xs font-bold uppercase text-slate-500">Expedición/Tour</label>
-                                    <select
+                                    <select id="sus-expedition"
                                         class="form-input w-full bg-slate-50 border-slate-200 rounded-xl p-3 text-sm font-medium">
                                         <option>Ausangate Circuit 4D (15 Ene)</option>
                                         <option>Salkantay Trek (12 Ene)</option>
+                                        <option>Trekking Laguna 69 (Huaraz)</option>
                                     </select>
                                 </div>
                                 <div class="space-y-2">
                                     <label class="text-xs font-bold uppercase text-slate-500">Residuos Propios
                                         (Retornados)</label>
                                     <div class="relative">
-                                        <input type="number"
+                                        <input type="number" id="sus-own-waste" step="0.1"
                                             class="form-input w-full bg-slate-50 border-slate-200 rounded-xl p-3 pl-4 pr-12 text-sm font-medium"
                                             placeholder="0.0">
                                         <span class="absolute right-4 top-3 text-gray-400 text-xs font-bold">KG</span>
@@ -599,7 +598,7 @@
                                     <label class="text-xs font-bold uppercase text-emerald-600">Residuos Ajenos
                                         (Limpieza)</label>
                                     <div class="relative">
-                                        <input type="number"
+                                        <input type="number" id="sus-ext-waste" step="0.1"
                                             class="form-input w-full bg-emerald-50 border-emerald-200 rounded-xl p-3 pl-4 pr-12 text-sm font-medium text-emerald-700"
                                             placeholder="0.0">
                                         <span
@@ -611,14 +610,14 @@
                                 <div class="space-y-2">
                                     <label class="text-xs font-bold uppercase text-slate-500">Incidencias
                                         Ambientales</label>
-                                    <textarea
+                                    <textarea id="sus-notes"
                                         class="form-input w-full bg-slate-50 border-slate-200 rounded-xl p-3 text-sm font-medium"
                                         rows="1"
                                         placeholder="Ej: Erosión en km 4, Fauna silvestre avistada..."></textarea>
                                 </div>
                                 <div class="md:col-span-2 flex justify-end">
-                                    <button type="button"
-                                        class="bg-slate-900 text-white px-8 py-3 rounded-xl font-bold text-sm hover:scale-[1.02] transition-transform">
+                                    <button type="submit"
+                                        class="bg-slate-900 text-white px-8 py-3 rounded-xl font-bold text-sm hover:scale-[1.02] transition-transform cursor-pointer">
                                         Registrar Informe
                                     </button>
                                 </div>
@@ -643,12 +642,12 @@
                                 ISO 21101 de seguridad en turismo de aventura. Curso obligatorio para el sello "Safe
                                 Operator".</p>
                             <div class="flex gap-4">
-                                <button
-                                    class="bg-white text-slate-900 px-8 py-3 rounded-xl font-black uppercase text-xs tracking-widest hover:bg-emerald-400 transition-colors">
+                                <button onclick="window.startPartnerCourse && window.startPartnerCourse('Gestión de Riesgos y Primeros Auxilios Outdoor (ISO 21101)')"
+                                    class="bg-white text-slate-900 px-8 py-3 rounded-xl font-black uppercase text-xs tracking-widest hover:bg-emerald-400 transition-colors cursor-pointer">
                                     Comenzar Curso
                                 </button>
-                                <button
-                                    class="backdrop-blur bg-white/10 text-white px-8 py-3 rounded-xl font-black uppercase text-xs tracking-widest hover:bg-white/20 transition-colors flex items-center gap-2">
+                                <button onclick="window.startPartnerCourse && window.startPartnerCourse('Trailer: Certificación ISO 21101 Safe Operator')"
+                                    class="backdrop-blur bg-white/10 text-white px-8 py-3 rounded-xl font-black uppercase text-xs tracking-widest hover:bg-white/20 transition-colors flex items-center gap-2 cursor-pointer">
                                     <i data-lucide="play-circle"></i> Ver Trailer
                                 </button>
                             </div>
@@ -659,7 +658,7 @@
                     <h3 class="font-bold text-xl text-slate-800">Cursos Recomendados</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <!-- Card 1 -->
-                        <div
+                        <div onclick="window.startPartnerCourse && window.startPartnerCourse('Leave No Trace: Principios Avanzados')"
                             class="group bg-white rounded-2xl border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer overflow-hidden">
                             <div class="h-48 relative overflow-hidden">
                                 <img src="https://images.unsplash.com/photo-1533240332313-0db49b459ad6?w=400"
@@ -689,13 +688,13 @@
                             </div>
                             <div class="px-6 pb-6">
                                 <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
-                                    <div class="bg-emerald-500 h-full w-[0%]"></div>
+                                    <div class="bg-emerald-500 h-full w-[35%]"></div>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Card 2 -->
-                        <div
+                        <div onclick="window.startPartnerCourse && window.startPartnerCourse('Fotografía de Aventura Responsable')"
                             class="group bg-white rounded-2xl border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer overflow-hidden">
                             <div class="h-48 relative overflow-hidden">
                                 <img src="https://images.unsplash.com/photo-1626262846282-53b064c91357?w=400"
@@ -722,13 +721,13 @@
                             </div>
                             <div class="px-6 pb-6">
                                 <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
-                                    <div class="bg-emerald-500 h-full w-[0%]"></div>
+                                    <div class="bg-emerald-500 h-full w-[60%]"></div>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Card 3 -->
-                        <div
+                        <div onclick="window.startPartnerCourse && window.startPartnerCourse('Marketing para Ecoturismo')"
                             class="group bg-white rounded-2xl border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer overflow-hidden">
                             <div class="h-48 relative overflow-hidden">
                                 <img src="https://plus.unsplash.com/premium_photo-1663047716627-e0b6c243263c?w=400"
@@ -752,16 +751,16 @@
                                 </div>
                             </div>
                             <div class="px-6 pb-6">
-                                <button
-                                    class="w-full py-2 rounded-lg bg-slate-50 text-slate-400 text-xs font-bold uppercase hover:bg-slate-900 hover:text-white transition-colors">Desbloquear</button>
+                                <button type="button"
+                                    class="w-full py-2 rounded-lg bg-slate-50 text-slate-400 text-xs font-bold uppercase hover:bg-slate-900 hover:text-white transition-colors">Iniciar Módulo</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-            <!-- Inteligencia AI Section (Redesigned) -->
+            <!-- Inteligencia AI Section (LIFEXTREME-CORE B2B) -->
             <section id="section-inteligencia" class="dashboard-section hidden h-[calc(100vh-100px)]">
-                <div class="flex flex-col h-[calc(100vh-120px)] bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 shadow-2xl relative">
+                <div id="ai-core-container" class="flex flex-col h-[calc(100vh-120px)] bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 shadow-2xl relative transition-all">
                     
                     <!-- Header -->
                     <div class="px-6 py-4 bg-slate-900/80 backdrop-blur border-b border-slate-800 flex justify-between items-center z-10">
@@ -772,13 +771,18 @@
                             <div>
                                 <h2 class="text-white font-black text-lg">LIFEXTREME-CORE Analyst</h2>
                                 <p class="text-xs text-indigo-400 font-medium flex items-center gap-1">
-                                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> En línea y procesando GraphRAG
+                                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> En línea • Cerebro Qdrant B2B (337,012 vectores + 164 Parques)
                                 </p>
                             </div>
                         </div>
-                        <button class="text-slate-400 hover:text-white transition-colors">
-                            <i data-lucide="maximize-2" class="w-5 h-5"></i>
-                        </button>
+                        <div class="flex items-center gap-2">
+                            <button type="button" onclick="window.clearCoreChat && window.clearCoreChat()" class="text-slate-400 hover:text-white px-3 py-1.5 rounded-lg border border-slate-700 hover:border-slate-500 text-xs font-bold transition-colors" title="Nueva Consulta">
+                                Limpiar Chat
+                            </button>
+                            <button type="button" id="ai-fullscreen-btn" onclick="window.toggleCoreFullscreen && window.toggleCoreFullscreen()" class="text-slate-400 hover:text-white p-2 rounded-lg hover:bg-slate-800 transition-colors" title="Pantalla Completa">
+                                <i data-lucide="maximize-2" class="w-5 h-5"></i>
+                            </button>
+                        </div>
                     </div>
 
                     <!-- Chat History Container -->
@@ -791,9 +795,9 @@
                             </div>
                             <div class="bg-slate-800 rounded-2xl rounded-tl-none p-5 max-w-[85%] border border-slate-700 shadow-sm">
                                 <p class="text-slate-200 leading-relaxed text-sm">
-                                    Saludos, operador. Soy <strong class="text-indigo-400">LIFEXTREME-CORE</strong>, tu analista estratégico conectado en tiempo real a redes climáticas, viales y financieras.
+                                    Saludos, socio operador. Soy <strong class="text-indigo-400">LIFEXTREME-CORE B2B</strong>, tu consultor estratégico conectado al Cerebro Vectorial Qdrant (<strong class="text-emerald-400">337,012 vectores</strong>: Finanzas, Marco Legal MINCETUR/SERNANP, 164 Parques de Aventura e Inteligencia de Mercado).
                                     <br><br>
-                                    ¿Qué necesitas predecir o analizar hoy para optimizar tus tours de aventura?
+                                    Selecciona una acción rápida abajo o escribe tu consulta para estructurar un <strong>Proyecto de Inversión Turística (CAPEX/OPEX/ROI)</strong>, auditar normativas o diseñar estrategias comerciales:
                                 </p>
                             </div>
                         </div>
@@ -805,25 +809,31 @@
                         
                         <!-- Predictive Chips -->
                         <div class="flex gap-2 overflow-x-auto pb-4 custom-scrollbar hide-scrollbars mb-1" id="predictive-chips">
-                            <button class="flex-shrink-0 bg-slate-800 hover:bg-indigo-600 text-slate-300 hover:text-white border border-slate-700 hover:border-indigo-500 rounded-full px-4 py-2 text-[13px] transition-all flex items-center gap-2 shadow-sm" onclick="sendSuggestion('¿Cómo puedo conseguir más clientes con poco presupuesto este mes?')">
+                            <button type="button" class="flex-shrink-0 bg-amber-500/15 hover:bg-amber-500 text-amber-300 hover:text-slate-950 border border-amber-500/40 rounded-full px-4 py-2 text-[12px] font-bold transition-all flex items-center gap-2 shadow-sm cursor-pointer" onclick="window.sendSuggestion('Quiero estructurar un proyecto de inversión turística de parque de aventura y ecolodge en Perú con presupuesto de $150,000 USD. Dame el desglose CAPEX, OPEX, ROI proyectado y permisos SERNANP/MINCETUR.')">
+                                <i data-lucide="building-2" class="w-4 h-4"></i> Proyecto de Inversión Turística (CAPEX/ROI)
+                            </button>
+                            <button type="button" class="flex-shrink-0 bg-emerald-500/15 hover:bg-emerald-500 text-emerald-300 hover:text-slate-950 border border-emerald-500/40 rounded-full px-4 py-2 text-[12px] font-bold transition-all flex items-center gap-2 shadow-sm cursor-pointer" onclick="window.sendSuggestion('¿Cuáles son los requisitos legales del MINCETUR (D.S. 005-2016), concesiones SERNANP y beneficios tributarios de exoneración de IGV (Ley 28780) para operar turismo de aventura en Perú?')">
+                                <i data-lucide="scale" class="w-4 h-4"></i> Marco Legal SERNANP & Ley IGV
+                            </button>
+                            <button type="button" class="flex-shrink-0 bg-slate-800 hover:bg-indigo-600 text-slate-300 hover:text-white border border-slate-700 hover:border-indigo-500 rounded-full px-4 py-2 text-[12px] font-medium transition-all flex items-center gap-2 shadow-sm cursor-pointer" onclick="window.sendSuggestion('¿Cómo puedo conseguir más clientes B2B y B2C con poco presupuesto este mes evitando el 25% de comisión de las OTAs?')">
                                 <i data-lucide="megaphone" class="w-4 h-4"></i> Marketing Low-Cost
                             </button>
-                            <button class="flex-shrink-0 bg-slate-800 hover:bg-indigo-600 text-slate-300 hover:text-white border border-slate-700 hover:border-indigo-500 rounded-full px-4 py-2 text-[13px] transition-all flex items-center gap-2 shadow-sm" onclick="sendSuggestion('¿Qué rutas o tours nuevos son más rentables y fáciles de operar para una PYME?')">
+                            <button type="button" class="flex-shrink-0 bg-slate-800 hover:bg-indigo-600 text-slate-300 hover:text-white border border-slate-700 hover:border-indigo-500 rounded-full px-4 py-2 text-[12px] font-medium transition-all flex items-center gap-2 shadow-sm cursor-pointer" onclick="window.sendSuggestion('¿Qué rutas o tours nuevos son más rentables y fáciles de operar para una agencia en Cusco, Huaraz y Selva?')">
                                 <i data-lucide="map" class="w-4 h-4"></i> Tours Rentables
                             </button>
-                            <button class="flex-shrink-0 bg-slate-800 hover:bg-indigo-600 text-slate-300 hover:text-white border border-slate-700 hover:border-indigo-500 rounded-full px-4 py-2 text-[13px] transition-all flex items-center gap-2 shadow-sm" onclick="sendSuggestion('¿Cómo calculo correctamente el precio de mis tours para asegurar ganancias?')">
+                            <button type="button" class="flex-shrink-0 bg-slate-800 hover:bg-indigo-600 text-slate-300 hover:text-white border border-slate-700 hover:border-indigo-500 rounded-full px-4 py-2 text-[12px] font-medium transition-all flex items-center gap-2 shadow-sm cursor-pointer" onclick="window.sendSuggestion('¿Cómo calculo correctamente la estructura de costos, punto de equilibrio y precio de mis tours para asegurar un margen neto superior al 30%?')">
                                 <i data-lucide="calculator" class="w-4 h-4"></i> Cálculo de Precios
                             </button>
                         </div>
 
                         <!-- Chat Input Form -->
                         <form id="ai-chat-form" class="flex gap-2 relative">
-                            <input type="text" id="ai-chat-input" class="w-full pl-5 pr-14 py-4 rounded-xl border border-slate-700 bg-slate-800 text-white focus:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all shadow-inner placeholder-slate-500 text-sm" placeholder="Describe tu consulta operativa o analítica aquí..." autocomplete="off">
-                            <button type="submit" class="absolute right-2 top-2 bottom-2 aspect-square bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg flex items-center justify-center transition-colors shadow-md group">
+                            <input type="text" id="ai-chat-input" class="w-full pl-5 pr-14 py-4 rounded-xl border border-slate-700 bg-slate-800 text-white focus:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all shadow-inner placeholder-slate-500 text-sm" placeholder="Describe tu proyecto turístico, consulta financiera, legal u operativa aquí..." autocomplete="off">
+                            <button type="submit" id="ai-chat-submit-btn" class="absolute right-2 top-2 bottom-2 aspect-square bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg flex items-center justify-center transition-colors shadow-md group cursor-pointer">
                                 <i data-lucide="send" class="w-5 h-5 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform"></i>
                             </button>
                         </form>
-                        <p class="text-center text-[10px] text-slate-500 mt-2">LIFEXTREME-CORE procesa modelos locales Qwen y Phi-3. Verifica reportes en tiempo real.</p>
+                        <p class="text-center text-[10px] text-slate-500 mt-2">LIFEXTREME-CORE B2B • Motor Híbrido Qdrant (337K Vectores) + Groq LPU & Nomic Embeddings. Exportable a PDF.</p>
                     </div>
 
                 </div>
@@ -835,23 +845,26 @@
                 </div>
                 <div class="dashboard-card">
                     <div class="card-content">
-                        <div class="space-y-6 max-w-2xl">
+                        <form onsubmit="event.preventDefault(); window.savePartnerConfig && window.savePartnerConfig();" class="space-y-6 max-w-2xl">
                             <div class="form-group">
-                                <label class="text-sm font-bold mb-2 block">Nombre de la Empresa</label>
-                                <input type="text" id="config-company-name" class="form-input" value="Aventura Extrema" readonly>
+                                <label class="text-sm font-bold mb-2 block">Nombre de la Empresa / Operador</label>
+                                <input type="text" id="config-company-name" class="form-input w-full border border-slate-200 rounded-xl px-4 py-2.5" value="Aventura Extrema">
                             </div>
                             <div class="form-group">
-                                <label class="text-sm font-bold mb-2 block">Email de Contacto</label>
-                                <input type="email" id="config-email" class="form-input" value="contacto@aventuraextrema.com" readonly>
+                                <label class="text-sm font-bold mb-2 block">Email Corporativo</label>
+                                <input type="email" id="config-email" class="form-input w-full border border-slate-200 rounded-xl px-4 py-2.5" value="admin@lifextreme.store">
                             </div>
                             <div class="form-group">
-                                <label class="text-sm font-bold mb-2 block">Estado de Cuenta</label>
+                                <label class="text-sm font-bold mb-2 block">Estado de Cuenta B2B</label>
                                 <div class="flex items-center gap-2">
                                     <span class="w-3 h-3 bg-emerald-500 rounded-full"></span>
-                                    <span class="text-sm font-bold text-emerald-600">Verificado</span>
+                                    <span class="text-sm font-bold text-emerald-600">Partner Pro Verificado (MINCETUR / ISO 21101)</span>
                                 </div>
                             </div>
-                        </div>
+                            <button type="submit" class="btn btn-primary cursor-pointer">
+                                <i data-lucide="save"></i> Guardar Cambios
+                            </button>
+                        </form>
                     </div>
                 </div>
             </section>
@@ -917,8 +930,8 @@
         </div>
     </main>
 
-    <script src="/partners/js/main.js?v=2.1"></script>
-    <script type="module" src="/partners/js/dashboard.js?v=2.3"></script>
+    <script src="/partners/js/main.js?v=2.2"></script>
+    <script type="module" src="/partners/js/dashboard.js?v=20261019v3"></script>
 </body>
 
 </html>

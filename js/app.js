@@ -37,11 +37,11 @@ const translations = {
         nav_equipos: "Equipos",
         nav_guias: "Guías",
         user_status: "Socio Elite Active",
-        hero_tag: "Aventura de Alta Gama",
-        hero_title_1: "Explora. Vive.",
-        hero_title_2: "Viaja.",
-        hero_desc: "No te conformes con mirar. Únete al Club Exclusivo de Viajeros y convierte cada ruta en una hazaña personal. Desafía lo imposible, conquista tus miedos y vive la aventura con la intensidad que mereces. Tu historia épica empieza hoy.",
-        btn_explore: "Explorar Mapa",
+        hero_tag: "⚡ 164 Parques Auditados • Guías UIAGM • IA Táctica 24/7",
+        hero_title_1: "Domina la Ruta.",
+        hero_title_2: "Vive lo Inexplorado.",
+        hero_desc: "40 expediciones verificadas, 164 parques extremos y guías certificados UIAGM en todo el Perú. Diseña tu misión con IA en 30 segundos y ahorra hasta 30% con el Club Lifextreme.",
+        btn_explore: "Explorar Destinos",
         btn_events: "Ver Eventos",
         quiz_prompt: "¿No sabes qué elegir?",
         quiz_desc: "Haz el Test de Aventura y gana -10%",
@@ -112,11 +112,11 @@ const translations = {
         nav_equipos: "Equipment",
         nav_guias: "Guides",
         user_status: "Elite Active Member",
-        hero_tag: "Premium Adventure",
-        hero_title_1: "Master the",
-        hero_title_2: "Territory",
-        hero_desc: "Book regional expeditions, certify your skills in technical workshops, and get elite gear in one place.",
-        btn_explore: "Explore Map",
+        hero_tag: "⚡ 164 Audited Parks • UIAGM Guides • 24/7 Tactical AI",
+        hero_title_1: "Own the Trail.",
+        hero_title_2: "Live the Untamed.",
+        hero_desc: "40 verified expeditions, 164 extreme parks, and UIAGM-certified guides across Peru. Plan your mission with AI in 30 seconds and save up to 30% with the Lifextreme Club.",
+        btn_explore: "Explore Destinations",
         btn_events: "View Events",
         quiz_prompt: "Not sure what to choose?",
         quiz_desc: "Take the Adventure Test and win -10%",
@@ -187,10 +187,10 @@ const translations = {
         nav_equipos: "Equipamentos",
         nav_guias: "Guias",
         user_status: "Sócio Elite Ativo",
-        hero_tag: "Aventura de Alto Nível",
-        hero_title_1: "Explore. Viva.",
-        hero_title_2: "Viaje.",
-        hero_desc: "Não se contente em apenas olhar. Junte-se ao Clube Exclusivo de Viajantes e transforme cada rota em sua própria façanha. Desafie o impossível, vença seus medos e viva a aventura com a intensidade que você merece.",
+        hero_tag: "⚡ 164 Parques Auditados • Guias UIAGM • IA Tática 24/7",
+        hero_title_1: "Domine a Trilha.",
+        hero_title_2: "Viva o Inexplorado.",
+        hero_desc: "40 expedições verificadas, 164 parques radicais e guias certificados UIAGM no Peru. Planeje sua missão com IA em 30 segundos e economize até 30% no Clube Lifextreme.",
         btn_explore: "Explorar Mapa",
         btn_events: "Ver Eventos",
         quiz_prompt: "Não sabe o que escolher?",
@@ -1445,8 +1445,36 @@ function finishQuiz() {
     document.getElementById('quiz-step-result').classList.remove('hidden');
 }
 
+// Accordion toggle helper for Club Socio collapsible modules
+window.toggleSocioAccordion = function(panelId, btnEl) {
+    const panel = document.getElementById(panelId);
+    if (!panel) return;
+    const isHidden = panel.classList.contains('hidden');
+    // Close sibling accordions in the same container for clean UX
+    const parent = panel.closest('.socio-accordion-group');
+    if (parent) {
+        parent.querySelectorAll('.socio-accordion-panel').forEach(p => {
+            if (p.id !== panelId) p.classList.add('hidden');
+        });
+        parent.querySelectorAll('.socio-accordion-icon').forEach(ic => {
+            ic.style.transform = 'rotate(0deg)';
+        });
+    }
+    panel.classList.toggle('hidden', !isHidden);
+    const icon = btnEl ? btnEl.querySelector('.socio-accordion-icon') : null;
+    if (icon) {
+        icon.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
+    }
+};
+
 // SPA Navigation
 function navigateTo(id) {
+    const selectedNav = id;
+    document.querySelectorAll('.nav-link').forEach(link => {
+        const isMatch = (link.id === 'nav-' + selectedNav) || (link.dataset && link.dataset.target === selectedNav);
+        link.classList.toggle('active', isMatch);
+    });
+
     if (id === 'destinos') {
         id = 'home';
         document.querySelectorAll('.section-view').forEach(s => s.classList.remove('active'));
