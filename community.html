@@ -1,5 +1,5 @@
-﻿<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
 
 <head>
     <!-- Google Analytics 4 (GA4) -->
@@ -13,7 +13,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lifextreme Social | La Revolución del Viaje</title>
+    <title>Lifextreme Social | Expediciones Colaborativas & Compra Grupal en los Andes</title>
     <script src="https://cdn.tailwindcss.com/3.4.16"></script>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" integrity="sha384-L/vw44MdBs/7hovWr2rBVSRKqdti4Vw077yuSGQ2PO3tQARRLiLuMh8xhVmVrR0I" crossorigin="anonymous">
     <link
@@ -41,95 +41,308 @@
     </script>
 </head>
 
-<body class="bg-slate-900 text-white selection:bg-primary selection:text-white">
+<body class="bg-slate-950 text-white selection:bg-primary selection:text-white">
 
-    <!-- HEADER SIMPLE -->
-    <header class="fixed top-0 w-full z-50 bg-slate-900/80 backdrop-blur-md border-b border-white/5">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="flex items-center group">
+    <!-- HEADER MEJORADO CON BILLETERA LIFECOINS Y ACCESO RÁPIDO -->
+    <header class="fixed top-0 w-full z-50 bg-slate-950/85 backdrop-blur-xl border-b border-white/10">
+        <div class="container mx-auto px-4 md:px-6 py-3.5 flex justify-between items-center gap-3">
+            <a href="index.html" class="flex items-center gap-2.5 group">
                 <div
-                    class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center text-white border border-white/20 group-hover:bg-primary transition-all">
+                    class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center text-white border border-white/20 group-hover:bg-secondary group-hover:border-secondary transition-all">
                     <i class="ri-arrow-left-line text-xl"></i>
                 </div>
+                <span class="hidden sm:inline text-xs font-black uppercase tracking-widest text-slate-300 group-hover:text-white transition-colors">Volver al Inicio</span>
             </a>
+
             <div class="text-center">
-                <p class="text-[10px] font-black uppercase tracking-[0.3em] text-primary">Project Launch</p>
-                <h1 class="font-black italic text-xl">SOCIAL <span
-                        class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">EXPEDITIONS</span>
+                <p class="text-[9px] md:text-[10px] font-black uppercase tracking-[0.28em] text-amber-400">Sistema de Compra Grupal Outdoor</p>
+                <h1 class="font-black italic text-lg md:text-xl tracking-tight">SOCIAL <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent">EXPEDITIONS</span>
                 </h1>
             </div>
-            <div class="w-10"></div> <!-- Spacer -->
+
+            <div class="flex items-center gap-2.5">
+                <a href="#como-funciona" class="hidden lg:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-[11px] font-black uppercase tracking-wider text-slate-200 transition-all">
+                    <i class="ri-question-line text-amber-400"></i> ¿Cómo Funciona?
+                </a>
+                <!-- Lifecoins Wallet Pill (Visible en Web y Móvil) -->
+                <button onclick="openLifecoinsInfoModal()" class="flex items-center gap-2 bg-gradient-to-r from-amber-500/20 to-yellow-500/10 hover:from-amber-500/30 hover:to-yellow-500/20 px-3 md:px-4 py-2 rounded-xl border border-amber-400/40 shadow-sm transition-all cursor-pointer">
+                    <i class="ri-copper-coin-fill text-amber-400 text-base md:text-lg animate-pulse"></i>
+                    <div class="text-left leading-none">
+                        <span class="block text-[8px] font-black uppercase tracking-widest text-amber-300">Lifecoins</span>
+                        <span id="header-social-coins" class="text-xs md:text-sm font-black text-white">800</span>
+                    </div>
+                </button>
+            </div>
         </div>
     </header>
 
     <main>
         <!-- HERO SECTION -->
-        <section class="relative pt-32 pb-20 overflow-hidden">
-            <!-- Background Elements -->
+        <section class="relative pt-28 md:pt-36 pb-14 overflow-hidden">
             <div
-                class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary/20 rounded-full blur-[120px] -z-10">
+                class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary/20 rounded-full blur-[130px] -z-10">
             </div>
 
-            <div class="container mx-auto px-6 text-center relative z-10">
-                <span
-                    class="inline-block py-1 px-3 rounded-full bg-white/5 border border-white/10 text-[10px] font-black uppercase tracking-widest mb-6 animate-pulse text-accent">
-                    🚀 Próximamente - Beta Access
-                </span>
-                <h2 class="text-5xl md:text-7xl font-black italic leading-[0.9] mb-8">
-                    Viaja Más.<br>
+            <div class="container mx-auto px-4 md:px-6 text-center relative z-10">
+                <div class="inline-flex flex-wrap items-center justify-center gap-2 py-1.5 px-4 rounded-full bg-white/5 border border-white/15 text-[10px] md:text-xs font-black uppercase tracking-widest mb-6 text-amber-400">
+                    <span>⚡ Ahorra hasta 40% sin intermediarios</span>
+                    <span class="text-slate-600">•</span>
+                    <span class="text-emerald-400"><i class="ri-shield-check-fill"></i> Reserva Protegida 30%</span>
+                </div>
+
+                <h2 class="text-4xl sm:text-6xl md:text-7xl font-black italic leading-[0.95] mb-6 tracking-tight">
+                    Viaja en Tribu.<br>
                     <span
-                        class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent">Paga
-                        Menos.</span>
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent">Paga Precio de Operador.</span>
                 </h2>
-                <p class="text-slate-400 max-w-2xl mx-auto text-lg mb-12 font-medium">
-                    La plataforma que democratiza la aventura. Crea grupos, divide gastos y accede a logística
-                    profesional sin intermediarios caros.
+                <p class="text-slate-300 max-w-2xl mx-auto text-base md:text-lg mb-8 font-medium leading-relaxed">
+                    Conectamos directamente a grupos de viajeros con <strong class="text-white">Guías UIAGM y Operadores Certificados DIRCETUR</strong>. Únete a una salida con cupos abiertos, divide el costo logístico real o crea tu propia fecha y viaja gratis como Líder.
                 </p>
+
+                <!-- Quick Action Bar -->
+                <div class="flex flex-wrap justify-center gap-3 md:gap-4 mb-10">
+                    <a href="#app-interface" onclick="switchTab('lobby')"
+                        class="bg-gradient-to-r from-secondary to-orange-500 hover:brightness-110 text-white px-6 md:px-8 py-4 rounded-2xl font-black uppercase text-xs md:text-sm tracking-widest shadow-xl shadow-secondary/25 transition-all flex items-center gap-2">
+                        <i class="ri-compass-discover-fill text-lg"></i> Ver Grupos Abiertos (Inscribirme)
+                    </a>
+                    <a href="#app-interface" onclick="switchTab('create')"
+                        class="bg-slate-800/90 hover:bg-slate-700 text-white border border-white/15 px-6 md:px-8 py-4 rounded-2xl font-black uppercase text-xs md:text-sm tracking-widest transition-all flex items-center gap-2">
+                        <i class="ri-user-star-fill text-amber-400 text-lg"></i> Crear Mi Grupo y Ganar Lifecoins
+                    </a>
+                    <a href="#como-funciona"
+                        class="bg-white/5 hover:bg-white/10 text-slate-200 border border-white/10 px-5 py-4 rounded-2xl font-black uppercase text-xs tracking-widest transition-all flex items-center gap-2">
+                        <i class="ri-play-circle-line text-emerald-400 text-lg"></i> ¿Cómo Funciona?
+                    </a>
+                </div>
+
+                <!-- Trust Metrics Strip -->
+                <div class="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-3 text-left bg-slate-900/90 border border-white/10 rounded-3xl p-4 md:p-5 shadow-2xl">
+                    <div class="flex items-center gap-3 p-2">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
+                            <i class="ri-shield-keyhole-fill text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs font-black uppercase text-white">Pago Custodiado</p>
+                            <p class="text-[11px] text-slate-400">Separas con 30% y 100% reembolsable si no hay quórum.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 p-2">
+                        <div class="w-10 h-10 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
+                            <i class="ri-vip-crown-2-fill text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs font-black uppercase text-white">Líder Viaja Gratis</p>
+                            <p class="text-[11px] text-slate-400">+100 Lifecoins/pax y hasta 100% OFF al llenar tu grupo.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 p-2">
+                        <div class="w-10 h-10 rounded-xl bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-400 shrink-0">
+                            <i class="ri-verified-badge-fill text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs font-black uppercase text-white">Operadores Auditados</p>
+                            <p class="text-[11px] text-slate-400">Guías UIAGM/AGMP con oxígeno, satelital y botiquín.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 p-2">
+                        <div class="w-10 h-10 rounded-xl bg-rose-500/15 border border-rose-500/30 flex items-center justify-center text-rose-400 shrink-0">
+                            <i class="ri-whatsapp-fill text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs font-black uppercase text-white">Chat de Tribu Directo</p>
+                            <p class="text-[11px] text-slate-400">Acceso inmediato al grupo de WhatsApp y briefing técnico.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN EXPLICATIVA CLARA Y PRÁCTICA: ¿CÓMO FUNCIONA EL SISTEMA? -->
+        <section id="como-funciona" class="container mx-auto px-4 md:px-6 py-12">
+            <div class="bg-slate-900/90 border border-slate-800 rounded-[36px] p-6 md:p-10 lg:p-12 relative overflow-hidden">
+                <div class="absolute -top-24 -right-24 w-72 h-72 bg-secondary/10 rounded-full blur-[90px] pointer-events-none"></div>
+
+                <div class="text-center max-w-3xl mx-auto mb-10">
+                    <span class="text-[10px] font-black uppercase tracking-[0.25em] text-amber-400 bg-amber-500/10 border border-amber-500/30 px-3.5 py-1 rounded-full">Guía Práctica del Usuario</span>
+                    <h3 class="text-2xl md:text-4xl font-black italic mt-4 mb-3">¿Cómo Funciona Lifextreme Social paso a paso?</h3>
+                    <p class="text-slate-400 text-sm md:text-base">
+                        Funciona como un <strong class="text-white">"Uber + Compra Grupal para Expediciones"</strong>: cuantos más viajeros se unen a una fecha, menor es el costo por persona y mayores son los beneficios para todos.
+                    </p>
+                </div>
+
+                <!-- 4 PASOS PRÁCTICOS -->
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
+                    <!-- Paso 1 -->
+                    <div class="bg-slate-950/80 border border-slate-800 hover:border-primary/60 rounded-3xl p-6 transition-all relative">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-10 h-10 rounded-2xl bg-primary/20 border border-primary/40 text-indigo-400 font-black flex items-center justify-center text-lg">1</span>
+                            <span class="text-[10px] font-black uppercase tracking-widest text-indigo-400 bg-indigo-500/10 px-2.5 py-1 rounded-md">Explora o Crea</span>
+                        </div>
+                        <h4 class="font-black text-base text-white mb-2">Elige tu Ruta y Fecha</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-3">
+                            Entra al <strong class="text-slate-200">Lobby de Expediciones</strong>, revisa qué incluye la ruta, el perfil del grupo y cuántos cupos faltan. ¿No está tu fecha? Créala en 30 segundos.
+                        </p>
+                        <div class="text-[11px] font-bold text-indigo-300 flex items-center gap-1.5">
+                            <i class="ri-checkbox-circle-fill"></i> Sin cobros por publicar
+                        </div>
+                    </div>
+
+                    <!-- Paso 2 -->
+                    <div class="bg-slate-950/80 border border-slate-800 hover:border-secondary/60 rounded-3xl p-6 transition-all relative">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-10 h-10 rounded-2xl bg-secondary/20 border border-secondary/40 text-rose-400 font-black flex items-center justify-center text-lg">2</span>
+                            <span class="text-[10px] font-black uppercase tracking-widest text-rose-400 bg-rose-500/10 px-2.5 py-1 rounded-md">Inscripción 30s</span>
+                        </div>
+                        <h4 class="font-black text-base text-white mb-2">Inscríbete y Usa Lifecoins</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-3">
+                            Haz clic en <strong class="text-slate-200">"Unirme / Reservar Cupo"</strong>, completa tu nombre y WhatsApp, aplica tus <strong class="text-amber-400">Lifecoins (-S/ 50)</strong> y separa tu lugar con solo el <strong class="text-white">30%</strong>.
+                        </p>
+                        <div class="text-[11px] font-bold text-rose-300 flex items-center gap-1.5">
+                            <i class="ri-copper-coin-fill text-amber-400"></i> Bono de 800 Lifecoins activo
+                        </div>
+                    </div>
+
+                    <!-- Paso 3 -->
+                    <div class="bg-slate-950/80 border border-slate-800 hover:border-amber-500/60 rounded-3xl p-6 transition-all relative">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-10 h-10 rounded-2xl bg-amber-500/20 border border-amber-500/40 text-amber-400 font-black flex items-center justify-center text-lg">3</span>
+                            <span class="text-[10px] font-black uppercase tracking-widest text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-md">Match IA B2B</span>
+                        </div>
+                        <h4 class="font-black text-base text-white mb-2">Quórum y Asignación</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-3">
+                            Cuando el grupo alcanza el <strong class="text-slate-200">Mínimo de Viajeros (ej. 4 pax)</strong>, el sistema cambia a <span class="text-emerald-400 font-bold">"Listo para Despegue"</span> y asigna al Operador Certificado mejor calificado.
+                        </p>
+                        <div class="text-[11px] font-bold text-amber-300 flex items-center gap-1.5">
+                            <i class="ri-robot-2-fill"></i> Algoritmo calcula % de Match en vivo
+                        </div>
+                    </div>
+
+                    <!-- Paso 4 -->
+                    <div class="bg-slate-950/80 border border-slate-800 hover:border-emerald-500/60 rounded-3xl p-6 transition-all relative">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-10 h-10 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 font-black flex items-center justify-center text-lg">4</span>
+                            <span class="text-[10px] font-black uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md">Expedición Segura</span>
+                        </div>
+                        <h4 class="font-black text-base text-white mb-2">Briefing y Salida a Montaña</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-3">
+                            Ingresas al grupo oficial de WhatsApp con el guía líder, recibes el checklist de equipo y abonas el 70% restante antes de partir.
+                        </p>
+                        <div class="text-[11px] font-bold text-emerald-400 flex items-center gap-1.5">
+                            <i class="ri-shield-check-fill"></i> Garantía 100% Lifextreme
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3 ROLES DEL ECOSISTEMA (PARA QUE EL USUARIO SEPA CÓMO ACCEDER SEGÚN SU PERFIL) -->
+                <div class="grid md:grid-cols-3 gap-5 pt-4 border-t border-slate-800">
+                    <div class="bg-slate-950/60 rounded-2xl p-5 border border-white/5 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-2.5 mb-2">
+                                <i class="ri-footprint-fill text-indigo-400 text-xl"></i>
+                                <h5 class="font-black uppercase text-sm text-white">1. Si eres Viajero Solo o con Amigos</h5>
+                            </div>
+                            <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                                No pagues tarifa privada cara. Únete a grupos ya armados, conoce personas con tu mismo nivel físico y ahorra hasta 40%.
+                            </p>
+                        </div>
+                        <button onclick="switchTab('lobby'); document.getElementById('app-interface').scrollIntoView({behavior:'smooth'});"
+                            class="w-full py-2.5 rounded-xl bg-indigo-600/20 hover:bg-indigo-600 text-indigo-300 hover:text-white border border-indigo-500/30 text-xs font-black uppercase tracking-wider transition-all">
+                            Elegir un Grupo Abierto →
+                        </button>
+                    </div>
+
+                    <div class="bg-slate-950/60 rounded-2xl p-5 border border-amber-500/20 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-2.5 mb-2">
+                                <i class="ri-vip-crown-fill text-amber-400 text-xl"></i>
+                                <h5 class="font-black uppercase text-sm text-white">2. Si quieres ser Líder de Tribu</h5>
+                            </div>
+                            <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                                Propón la ruta y fecha, comparte tu link por WhatsApp/Instagram y gana <strong class="text-amber-400">+100 Lifecoins por inscrito</strong> + desde <strong class="text-white">10% hasta 100% de descuento</strong> en tu cupo.
+                            </p>
+                        </div>
+                        <button onclick="switchTab('create'); document.getElementById('app-interface').scrollIntoView({behavior:'smooth'});"
+                            class="w-full py-2.5 rounded-xl bg-amber-500/20 hover:bg-amber-500 text-amber-300 hover:text-slate-950 border border-amber-500/40 text-xs font-black uppercase tracking-wider transition-all">
+                            Crear Expedición como Líder →
+                        </button>
+                    </div>
+
+                    <div class="bg-slate-950/60 rounded-2xl p-5 border border-emerald-500/20 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-2.5 mb-2">
+                                <i class="ri-shield-star-fill text-emerald-400 text-xl"></i>
+                                <h5 class="font-black uppercase text-sm text-white">3. Si eres Guía u Operador B2B</h5>
+                            </div>
+                            <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                                Entra a la <strong class="text-emerald-400">Zona Operadores</strong>, visualiza grupos con presupuesto ya recaudado ("Listo para Despegue") y toma el servicio con pago neto asegurado.
+                            </p>
+                        </div>
+                        <button onclick="switchTab('operator'); document.getElementById('app-interface').scrollIntoView({behavior:'smooth'});"
+                            class="w-full py-2.5 rounded-xl bg-emerald-500/20 hover:bg-emerald-500 text-emerald-300 hover:text-slate-950 border border-emerald-500/40 text-xs font-black uppercase tracking-wider transition-all">
+                            Ver Grupos Listos para Operar →
+                        </button>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- SOCIAL APP INTERFACE -->
-        <div class="container mx-auto px-6 pb-32" id="app-interface">
+        <div class="container mx-auto px-4 md:px-6 pb-24 pt-4" id="app-interface">
 
             <!-- TABS NAVIGATION -->
-            <div class="flex flex-wrap justify-center gap-4 mb-16">
+            <div class="flex flex-wrap justify-center gap-3 md:gap-4 mb-12">
                 <button onclick="switchTab('lobby')" id="tab-btn-lobby"
-                    class="bg-primary text-white px-8 py-3 rounded-2xl font-black uppercase tracking-widest shadow-lg shadow-primary/20 transition-all hover:scale-105 border-2 border-primary">
-                    <i class="ri-compass-3-line mr-2"></i> Explorar Lobby
+                    class="bg-primary text-white px-6 md:px-8 py-3.5 rounded-2xl font-black uppercase text-xs md:text-sm tracking-widest shadow-lg shadow-primary/25 transition-all hover:scale-105 border-2 border-primary">
+                    <i class="ri-compass-3-line mr-1.5"></i> 1. Explorar Grupos (<span id="lobby-count-badge">6</span>)
                 </button>
                 <button onclick="switchTab('create')" id="tab-btn-create"
-                    class="bg-slate-800 text-slate-400 px-8 py-3 rounded-2xl font-black uppercase tracking-widest hover:text-white hover:bg-slate-700 transition-all border-2 border-transparent">
-                    <i class="ri-add-circle-line mr-2"></i> Crear Expedición
+                    class="bg-slate-900 text-slate-300 px-6 md:px-8 py-3.5 rounded-2xl font-black uppercase text-xs md:text-sm tracking-widest hover:text-white hover:bg-slate-800 transition-all border-2 border-slate-800">
+                    <i class="ri-add-circle-line mr-1.5 text-amber-400"></i> 2. Crear Expedición (Líder)
                 </button>
                 <button onclick="switchTab('operator')" id="tab-btn-operator"
-                    class="bg-slate-800 text-slate-400 px-8 py-3 rounded-2xl font-black uppercase tracking-widest hover:text-white hover:bg-slate-700 transition-all border-2 border-transparent">
-                    <i class="ri-shield-flash-line mr-2"></i> Zona Operadores
+                    class="bg-slate-900 text-slate-300 px-6 md:px-8 py-3.5 rounded-2xl font-black uppercase text-xs md:text-sm tracking-widest hover:text-white hover:bg-slate-800 transition-all border-2 border-slate-800">
+                    <i class="ri-shield-flash-line mr-1.5 text-emerald-400"></i> 3. Zona Operadores B2B
                 </button>
             </div>
 
             <!-- VIEW: LOBBY (Find Tribes) -->
             <div id="view-lobby" class="animate-fade-in">
-                <div class="flex justify-between items-end mb-8">
+                <div class="flex flex-col md:flex-row md:justify-between md:items-end gap-4 mb-8 bg-slate-900/70 p-5 md:p-6 rounded-3xl border border-slate-800">
                     <div>
-                        <h3 class="text-3xl font-black italic">Expediciones Activas</h3>
-                        <p class="text-slate-400 text-sm mt-2">Únete a un grupo y comparte gastos. Si no encuentras tu
-                            fecha, ¡créala!</p>
+                        <span class="text-[10px] font-black uppercase tracking-widest text-emerald-400"><i class="ri-Record-circle-fill animate-pulse"></i> Salidas con Cupos Verificados</span>
+                        <h3 class="text-2xl md:text-3xl font-black italic mt-1">Expediciones Activas</h3>
+                        <p class="text-slate-400 text-xs md:text-sm mt-1">Haz clic en <strong class="text-white">"Inscribirme / Reservar Cupo"</strong> para asegurar tu lugar con el 30% o usa tus Lifecoins.</p>
                     </div>
 
-                    <!-- Simple Filter -->
-                    <div class="hidden md:flex gap-2">
-                        <select
-                            class="bg-slate-800 border-none rounded-xl px-4 py-2 text-xs font-bold text-white outline-none">
-                            <option>Todas las Regiones</option>
-                            <option>Cusco</option>
-                            <option>Huaraz</option>
-                            <option>Arequipa</option>
-                        </select>
+                    <!-- Filtros Funcionales por Región y Estado -->
+                    <div class="flex flex-wrap items-center gap-3">
+                        <div class="flex items-center gap-2 bg-slate-950 border border-slate-700 rounded-xl px-3.5 py-2.5">
+                            <i class="ri-map-pin-2-fill text-secondary text-sm"></i>
+                            <select id="filter-region" onchange="renderLobby()"
+                                class="bg-transparent border-none text-xs font-black uppercase tracking-wider text-white outline-none cursor-pointer">
+                                <option value="ALL" class="bg-slate-900">Todas las Regiones</option>
+                                <option value="Cusco" class="bg-slate-900">Cusco</option>
+                                <option value="Huaraz" class="bg-slate-900">Huaraz / Áncash</option>
+                                <option value="Arequipa" class="bg-slate-900">Arequipa</option>
+                                <option value="Lima" class="bg-slate-900">Lima Sierra</option>
+                            </select>
+                        </div>
+
+                        <div class="flex items-center gap-2 bg-slate-950 border border-slate-700 rounded-xl px-3.5 py-2.5">
+                            <i class="ri-filter-3-line text-amber-400 text-sm"></i>
+                            <select id="filter-status" onchange="renderLobby()"
+                                class="bg-transparent border-none text-xs font-black uppercase tracking-wider text-white outline-none cursor-pointer">
+                                <option value="ALL" class="bg-slate-900">Todos los Estados</option>
+                                <option value="open" class="bg-slate-900">Con Cupos Abiertos</option>
+                                <option value="ready" class="bg-slate-900">Salida Confirmada (Quórum Listo)</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Grid Container -->
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="expeditions-grid">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-7" id="expeditions-grid">
                     <!-- Cards injected via JS -->
                 </div>
             </div>
@@ -137,71 +350,96 @@
             <!-- VIEW: CREATE (Leader Mode) -->
             <div id="view-create" class="hidden animate-fade-in">
                 <div
-                    class="max-w-4xl mx-auto bg-slate-800 rounded-[40px] p-8 md:p-12 border border-slate-700 relative overflow-hidden">
+                    class="max-w-4xl mx-auto bg-slate-900 rounded-[40px] p-6 md:p-12 border border-slate-800 relative overflow-hidden shadow-2xl">
                     <div class="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px] -z-10"></div>
 
-                    <div class="text-center mb-10">
+                    <div class="text-center mb-8">
                         <span
-                            class="text-[10px] font-black uppercase text-secondary tracking-widest border border-secondary/30 px-3 py-1 rounded-full">Líder
-                            de Expedición</span>
+                            class="text-[10px] font-black uppercase text-amber-400 tracking-widest border border-amber-400/30 bg-amber-500/10 px-3.5 py-1 rounded-full">Modo Líder de Tribu • Gana hasta 100% OFF</span>
                         <h3 class="text-3xl md:text-4xl font-black italic mt-4">Convoca a tu Tribu</h3>
-                        <p class="text-slate-400 text-sm mt-2 max-w-lg mx-auto">Tú pones las reglas y la fecha. Nosotros
-                            ponemos la plataforma y la logística.</p>
+                        <p class="text-slate-400 text-sm mt-2 max-w-xl mx-auto">Elige la ruta, define la fecha y el presupuesto por persona. Nuestra IA calculará al instante la probabilidad de asignación con un Operador Certificado.</p>
                     </div>
 
-                    <form onsubmit="event.preventDefault(); createExpedition();" class="space-y-8">
-                        <div class="grid md:grid-cols-2 gap-8">
+                    <form onsubmit="event.preventDefault(); createExpedition();" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
                             <div class="space-y-2">
-                                <label class="text-[10px] font-black uppercase text-slate-400">Objetivo
-                                    (Destino)</label>
-                                <select id="new-target"
-                                    class="w-full bg-slate-900 border border-slate-700 rounded-2xl px-6 py-4 text-sm font-bold focus:border-primary outline-none text-white appearance-none cursor-pointer">
-                                    <option value="" disabled selected>Selecciona una Ruta</option>
-                                    <option value="Ausangate 4D">Ausangate Circuit 4D</option>
-                                    <option value="Salkantay 5D">Salkantay Trek 5D</option>
-                                    <option value="Choquequirao 4D">Choquequirao Clásico 4D</option>
-                                    <option value="Huayhuash 8D">Cordillera Huayhuash 8D</option>
-                                    <option value="Misti 2D">Cumbre Volcán Misti 2D</option>
+                                <label class="text-[10px] font-black uppercase text-slate-400">1. Objetivo (Ruta Auditada)</label>
+                                <select id="new-target" required
+                                    class="w-full bg-slate-950 border border-slate-700 rounded-2xl px-5 py-4 text-sm font-bold focus:border-primary outline-none text-white cursor-pointer">
+                                    <option value="" disabled selected>Selecciona una Ruta Oficial</option>
+                                    <option value="Ausangate Circuit 4D">Ausangate Circuit 4D (Cusco • 5,200m)</option>
+                                    <option value="Salkantay Trek 5D">Salkantay Trek 5D (Cusco • 4,630m)</option>
+                                    <option value="Choquequirao Clásico 4D">Choquequirao Clásico 4D (Cusco • 3,050m)</option>
+                                    <option value="Cordillera Huayhuash 8D">Cordillera Huayhuash 8D (Huaraz • 5,000m)</option>
+                                    <option value="Cumbre Volcán Misti 2D">Cumbre Volcán Misti 2D (Arequipa • 5,825m)</option>
+                                    <option value="Cañón de Autisha Extremo 1D">Cañón de Autisha Extremo 1D (Lima • 2,100m)</option>
                                 </select>
                             </div>
                             <div class="space-y-2">
-                                <label class="text-[10px] font-black uppercase text-slate-400">Fecha de Inicio</label>
-                                <input type="date" id="new-date"
-                                    class="w-full bg-slate-900 border border-slate-700 rounded-2xl px-6 py-4 text-sm font-bold focus:border-primary outline-none text-white [color-scheme:dark]">
+                                <label class="text-[10px] font-black uppercase text-slate-400">2. Fecha de Inicio</label>
+                                <input type="date" id="new-date" required
+                                    class="w-full bg-slate-950 border border-slate-700 rounded-2xl px-5 py-4 text-sm font-bold focus:border-primary outline-none text-white [color-scheme:dark]">
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-[10px] font-black uppercase text-slate-400">3. Tu Nombre o Alias de Líder</label>
+                                <input type="text" id="new-leader-name" placeholder="Ej: Carlos M. / Club Andino" required
+                                    class="w-full bg-slate-950 border border-slate-700 rounded-2xl px-5 py-4 text-sm font-bold focus:border-primary outline-none text-white">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-[10px] font-black uppercase text-slate-400">4. WhatsApp del Líder (Para notificaciones)</label>
+                                <input type="tel" id="new-leader-phone" placeholder="Ej: +51 987 654 321" required
+                                    class="w-full bg-slate-950 border border-slate-700 rounded-2xl px-5 py-4 text-sm font-bold focus:border-primary outline-none text-white">
                             </div>
                         </div>
 
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                             <div class="col-span-2 space-y-2">
-                                <label class="text-[10px] font-black uppercase text-slate-400">Presupuesto Meta
-                                    (S/)</label>
-                                <input type="number" id="new-budget" placeholder="Ej: 850"
-                                    class="w-full bg-slate-900 border border-slate-700 rounded-2xl px-6 py-4 text-sm font-bold focus:border-primary outline-none text-white">
-                                <p class="text-[9px] text-slate-500">*Sugerido por IA: S/ 800 - 950</p>
+                                <label class="text-[10px] font-black uppercase text-slate-400">5. Presupuesto Oferta por Persona (S/)</label>
+                                <input type="number" id="new-budget" placeholder="Ej: 850" required
+                                    class="w-full bg-slate-950 border border-slate-700 rounded-2xl px-5 py-4 text-sm font-bold focus:border-primary outline-none text-white">
+                                <p id="budget-range-hint" class="text-[10px] text-slate-400">*Selecciona una ruta para ver el rango sugerido por IA</p>
                             </div>
                             <div class="space-y-2">
-                                <label class="text-[10px] font-black uppercase text-slate-400">Min. Pax</label>
-                                <input type="number" id="new-min" value="4" min="2"
-                                    class="w-full bg-slate-900 border border-slate-700 rounded-2xl px-6 py-4 text-sm font-bold focus:border-primary outline-none text-white text-center">
+                                <label class="text-[10px] font-black uppercase text-slate-400">Mín. Viajeros (Quórum)</label>
+                                <input type="number" id="new-min" value="4" min="2" max="16"
+                                    class="w-full bg-slate-950 border border-slate-700 rounded-2xl px-5 py-4 text-sm font-bold focus:border-primary outline-none text-white text-center">
                             </div>
                             <div class="space-y-2">
-                                <label class="text-[10px] font-black uppercase text-slate-400">Max. Pax</label>
-                                <input type="number" id="new-max" value="8" min="2"
-                                    class="w-full bg-slate-900 border border-slate-700 rounded-2xl px-6 py-4 text-sm font-bold focus:border-primary outline-none text-white text-center">
+                                <label class="text-[10px] font-black uppercase text-slate-400">Máx. Viajeros</label>
+                                <input type="number" id="new-max" value="8" min="2" max="20"
+                                    class="w-full bg-slate-950 border border-slate-700 rounded-2xl px-5 py-4 text-sm font-bold focus:border-primary outline-none text-white text-center">
                             </div>
+                        </div>
+
+                        <!-- Simulador de Recompensa del Líder en Vivo -->
+                        <div class="bg-amber-500/10 border border-amber-500/30 rounded-2xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-amber-500 text-slate-950 flex items-center justify-center font-black text-lg shrink-0">
+                                    <i class="ri-vip-crown-2-fill"></i>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] font-black uppercase text-amber-400">Simulador de Beneficio de Líder</p>
+                                    <p id="leader-reward-preview" class="text-xs md:text-sm font-bold text-white">
+                                        Si llenas los 8 cupos ganas: <span class="text-amber-400 font-black">800 Lifecoins</span> + <span class="text-emerald-400 font-black">30% OFF en tu pasaje</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <span class="text-[10px] font-black uppercase bg-slate-950 px-3 py-1.5 rounded-lg text-amber-300 border border-amber-500/30 self-start sm:self-center">Automático</span>
                         </div>
 
                         <div class="space-y-2">
-                            <label class="text-[10px] font-black uppercase text-slate-400">Manifiesto del Grupo
-                                (Descripción)</label>
-                            <textarea id="new-desc" rows="3"
-                                placeholder="Ej: Buscamos gente relajada, ritmo medio, fotógrafos bienvenidos..."
-                                class="w-full bg-slate-900 border border-slate-700 rounded-2xl px-6 py-4 text-sm font-medium focus:border-primary outline-none text-white resize-none"></textarea>
+                            <label class="text-[10px] font-black uppercase text-slate-400">6. Manifiesto del Grupo (Ritmo, estilo, qué buscas)</label>
+                            <textarea id="new-desc" rows="3" required
+                                placeholder="Ej: Buscamos gente con buen ritmo de caminata, amantes de la fotografía de montaña, salimos desde Cusco el viernes temprano..."
+                                class="w-full bg-slate-950 border border-slate-700 rounded-2xl px-5 py-4 text-sm font-medium focus:border-primary outline-none text-white resize-none"></textarea>
                         </div>
 
                         <button type="submit"
-                            class="w-full bg-gradient-to-r from-primary to-secondary hover:brightness-110 text-white py-5 rounded-2xl font-black uppercase tracking-widest shadow-xl shadow-primary/20 transition-all flex items-center justify-center gap-3">
-                            Lanzar Expedición <i class="ri-rocket-2-fill"></i>
+                            class="w-full bg-gradient-to-r from-primary via-secondary to-orange-500 hover:brightness-110 text-white py-5 rounded-2xl font-black uppercase tracking-widest shadow-xl shadow-primary/20 transition-all flex items-center justify-center gap-3 text-sm">
+                            Publicar Expedición y Abrir Inscripciones <i class="ri-rocket-2-fill text-lg"></i>
                         </button>
                     </form>
                 </div>
@@ -209,10 +447,17 @@
 
             <!-- VIEW: OPERATOR (Uber Mode) -->
             <div id="view-operator" class="hidden animate-fade-in">
-                <div class="bg-emerald-900/20 border border-emerald-500/20 rounded-[40px] p-8 mb-8 text-center">
-                    <h3 class="text-2xl font-black italic text-emerald-400">Panel de Control Operativo</h3>
-                    <p class="text-slate-400 text-sm mt-2">Acepta grupos listos ("Ready to Deploy") y obtén servicios
-                        confirmados sin gastos de marketing.</p>
+                <div class="bg-emerald-950/40 border border-emerald-500/30 rounded-[32px] p-6 md:p-8 mb-8 flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div>
+                        <span class="text-[10px] font-black uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Bolsa Operativa B2B Directa</span>
+                        <h3 class="text-2xl md:text-3xl font-black italic text-white mt-2">Panel de Adjudicación de Grupos</h3>
+                        <p class="text-slate-300 text-sm mt-1 max-w-2xl">
+                            Estos grupos ya alcanzaron o están por cerrar su quórum mínimo con garantía depositada. Toma el servicio con 0% costo de adquisición de clientes (CAC).
+                        </p>
+                    </div>
+                    <a href="/partners/login" class="shrink-0 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black uppercase text-xs tracking-widest px-6 py-4 rounded-2xl transition-all flex items-center gap-2 shadow-lg shadow-emerald-500/20">
+                        <i class="ri-Lock-unlock-line text-base"></i> Ir a Portal Partners B2B
+                    </a>
                 </div>
 
                 <div class="space-y-4" id="operators-list">
@@ -222,402 +467,793 @@
 
         </div>
 
-        <script>
-            // --- DATA STORE & UBER PRICING LOGIC ---
+        <!-- CTA FINAL FUNCIONAL -->
+        <section class="container mx-auto px-4 md:px-6 pb-20 text-center">
+            <div
+                class="bg-gradient-to-b from-slate-900 to-slate-950 p-8 md:p-12 rounded-[3rem] border border-white/10 relative overflow-hidden shadow-2xl">
+                <div class="relative z-10">
+                    <span class="text-[10px] font-black uppercase tracking-widest text-amber-400 bg-amber-500/10 border border-amber-500/30 px-3 py-1 rounded-full">Alertas de Cupos de Último Minuto</span>
+                    <h2 class="text-3xl md:text-4xl font-black italic mt-4 mb-3">¿Quieres recibir alertas cuando falten 1 o 2 cupos con descuento?</h2>
+                    <p class="text-slate-400 mb-8 max-w-xl mx-auto text-sm md:text-base">
+                        Regístrate gratis en la Comunidad Lifextreme y recibe <strong class="text-amber-400">+200 Lifecoins de regalo</strong> para tu próxima inscripción grupal.
+                    </p>
+                    <form onsubmit="event.preventDefault(); subscribeCommunityAlert();" class="max-w-lg mx-auto flex flex-col sm:flex-row gap-3">
+                        <input id="community-alert-email" type="email" required placeholder="Ingresa tu correo electrónico..."
+                            class="flex-1 bg-slate-950 border border-slate-700 rounded-2xl px-6 py-4 text-sm focus:border-primary outline-none text-white">
+                        <button type="submit"
+                            class="bg-gradient-to-r from-primary to-secondary hover:brightness-110 text-white font-black uppercase tracking-widest text-xs px-8 py-4 rounded-2xl transition-all shadow-lg">
+                            Activar Alertas + 200 Coins
+                        </button>
+                    </form>
+                    <p id="community-alert-feedback" class="text-xs font-bold text-emerald-400 mt-3 hidden"></p>
+                </div>
+            </div>
+        </section>
+    </main>
 
-            // Base Costs Database (Market Intelligence)
-            const ROUTE_DATA = {
-                "Ausangate 4D": { base: 650, recommended: 850, high: 1200 },
-                "Salkantay 5D": { base: 750, recommended: 950, high: 1300 },
-                "Choquequirao 4D": { base: 800, recommended: 1100, high: 1500 },
-                "Huayhuash 8D": { base: 1400, recommended: 1800, high: 2500 },
-                "Misti 2D": { base: 350, recommended: 450, high: 600 }
-            };
+    <!-- MODAL PRÁCTICO DE INSCRIPCIÓN Y RESERVA DE CUPO (#modal-join-expedition) -->
+    <div id="modal-join-expedition" class="fixed inset-0 z-[100] hidden items-center justify-center bg-slate-950/85 backdrop-blur-md p-4 overflow-y-auto">
+        <div class="bg-slate-900 border border-slate-700 rounded-[32px] max-w-xl w-full p-6 md:p-8 relative shadow-2xl my-8">
+            <button onclick="closeJoinModal()" class="absolute top-5 right-5 w-10 h-10 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center transition-colors">
+                <i class="ri-close-line text-xl"></i>
+            </button>
 
-            // In a real app, this comes from Supabase
-            let expeditions = [
-                {
-                    id: 101,
-                    leader: "Alejandro",
-                    avatar: "https://randomuser.me/api/portraits/men/32.jpg",
-                    target: "Ausangate Circuit 4D",
-                    date: "2026-03-15",
-                    budget: 850,
-                    minPax: 4,
-                    maxPax: 8,
-                    currentPax: 6,
-                    desc: "Ritmo fotográfico, amaneceres épicos. ¡Faltan 2 para cerrar!",
-                    status: "active"
-                },
-                {
-                    id: 102,
-                    leader: "Sarah",
-                    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
-                    target: "Salkantay Trek 5D",
-                    date: "2026-04-10",
-                    budget: 700, // Low budget example
-                    minPax: 6,
-                    maxPax: 10,
-                    currentPax: 2,
-                    desc: "Grupo internacional (ESP/ENG). Buscamos buen rollo.",
-                    status: "active"
-                },
-                {
-                    id: 103,
-                    leader: "Team Alpha",
-                    avatar: "https://randomuser.me/api/portraits/men/85.jpg",
-                    target: "Huayhuash 8D",
-                    date: "2026-05-01",
-                    budget: 1800, // High budget example
-                    minPax: 8,
-                    maxPax: 12,
-                    currentPax: 8,
-                    desc: "Expedición seria. Entrenamiento previo requerido.",
-                    status: "ready"
-                }
-            ];
+            <div class="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-emerald-400 mb-2">
+                <i class="ri-shield-check-fill text-sm"></i> Inscripción Oficial • Cupo Protegido
+            </div>
+            <h3 id="modal-exp-title" class="text-2xl md:text-3xl font-black italic text-white">Ausangate Circuit 4D</h3>
+            <p id="modal-exp-meta" class="text-xs text-slate-400 mt-1 mb-5">Líder: Alejandro • Salida: 2026-03-15 • Región: Cusco</p>
 
-            // --- PRICING ALGORITHM ---
+            <!-- Qué Incluye la Logística -->
+            <div class="bg-slate-950/90 border border-slate-800 rounded-2xl p-4 mb-5">
+                <p class="text-[10px] font-black uppercase tracking-widest text-indigo-400 mb-2">¿Qué incluye tu cupo en esta expedición?</p>
+                <div id="modal-exp-includes" class="grid grid-cols-2 gap-2 text-xs text-slate-300">
+                    <!-- Injected via JS -->
+                </div>
+            </div>
 
-            function calculateMatchProbability(target, budget) {
-                const data = ROUTE_DATA[target];
-                if (!data) return { score: 0, label: "Desconocido", color: "text-slate-500" };
+            <form id="join-expedition-form" onsubmit="event.preventDefault(); confirmJoinExpedition();" class="space-y-4">
+                <input type="hidden" id="modal-exp-id">
 
-                if (budget < data.base) return { score: 10, label: "Muy Baja (Difícil encontrar operador)", color: "text-red-500", icon: "ri-error-warning-fill" };
-                if (budget < data.recommended) return { score: 40, label: "Moderada (Posible demora)", color: "text-amber-500", icon: "ri-time-line" };
-                if (budget < data.high) return { score: 85, label: "Alta (Operador Inmediato)", color: "text-emerald-500", icon: "ri-flashlight-fill" };
-                return { score: 99, label: "Premium (Conductores pelearán por ti)", color: "text-purple-500", icon: "ri-vip-diamond-fill" };
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-[10px] font-black uppercase text-slate-400 mb-1">Nombre y Apellido *</label>
+                        <input type="text" id="join-user-name" required placeholder="Ej: Mateo Vargas"
+                            class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm font-bold text-white focus:border-primary outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-black uppercase text-slate-400 mb-1">WhatsApp (Para grupo de tribu) *</label>
+                        <input type="tel" id="join-user-phone" required placeholder="Ej: +51 999 888 777"
+                            class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm font-bold text-white focus:border-primary outline-none">
+                    </div>
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-[10px] font-black uppercase text-slate-400 mb-1">Correo Electrónico *</label>
+                        <input type="email" id="join-user-email" required placeholder="tu@correo.com"
+                            class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm font-bold text-white focus:border-primary outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-black uppercase text-slate-400 mb-1">Nivel Físico / Experiencia</label>
+                        <select id="join-user-level"
+                            class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm font-bold text-white focus:border-primary outline-none">
+                            <option value="Intermedio (Ya hice trekking antes)">Intermedio (Con experiencia previa)</option>
+                            <option value="Avanzado / Montañista">Avanzado / Montañista</option>
+                            <option value="Principiante Activo (Hago deporte)">Principiante Activo (Hago deporte)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Canje de Lifecoins -->
+                <label class="flex items-center justify-between p-3.5 rounded-2xl bg-amber-500/10 border border-amber-500/30 cursor-pointer hover:bg-amber-500/15 transition-all">
+                    <div class="flex items-center gap-3">
+                        <input type="checkbox" id="join-use-coins" onchange="updateJoinModalPricing()" class="w-4 h-4 accent-amber-400 rounded">
+                        <div>
+                            <span class="block text-xs font-black text-amber-300 uppercase">Canjear 500 Lifecoins en esta reserva</span>
+                            <span class="block text-[11px] text-slate-300">Descuento directo de <strong class="text-white">-S/ 50.00</strong> sobre tu tarifa grupal</span>
+                        </div>
+                    </div>
+                    <span class="text-xs font-black text-amber-400 bg-slate-950 px-2.5 py-1 rounded-lg border border-amber-500/30">-S/ 50</span>
+                </label>
+
+                <!-- Resumen Financiero Transparente -->
+                <div class="bg-slate-950 rounded-2xl p-4 border border-slate-800 space-y-2">
+                    <div class="flex justify-between text-xs text-slate-400">
+                        <span>Tarifa Grupal por Persona:</span>
+                        <span id="modal-price-base" class="font-bold text-white">S/ 850.00</span>
+                    </div>
+                    <div id="modal-price-discount-row" class="hidden justify-between text-xs text-amber-400">
+                        <span>Descuento Billetera Lifecoins (500 Coins):</span>
+                        <span class="font-bold">- S/ 50.00</span>
+                    </div>
+                    <div class="flex justify-between text-sm font-black text-white pt-2 border-t border-slate-800">
+                        <span>Total Final por tu Cupo:</span>
+                        <span id="modal-price-final" class="text-accent text-base">S/ 850.00</span>
+                    </div>
+                    <div class="flex justify-between items-center text-xs bg-emerald-500/10 border border-emerald-500/30 rounded-xl px-3 py-2 mt-2">
+                        <span class="text-emerald-300 font-bold"><i class="ri-lock-2-fill"></i> Reserva Hoy con el 30% (Custodiado):</span>
+                        <span id="modal-price-deposit" class="font-black text-emerald-400 text-sm">S/ 255.00</span>
+                    </div>
+                </div>
+
+                <!-- Botones de Acción Claros -->
+                <div class="grid sm:grid-cols-2 gap-3 pt-2">
+                    <button type="submit"
+                        class="w-full bg-gradient-to-r from-primary to-secondary hover:brightness-110 text-white font-black uppercase text-xs tracking-wider py-4 px-4 rounded-2xl shadow-lg transition-all flex items-center justify-center gap-2">
+                        <i class="ri-checkbox-circle-fill text-base"></i> Confirmar mi Cupo Ahora
+                    </button>
+                    <button type="button" onclick="joinViaWhatsAppDirect()"
+                        class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-black uppercase text-xs tracking-wider py-4 px-4 rounded-2xl shadow-lg transition-all flex items-center justify-center gap-2">
+                        <i class="ri-whatsapp-line text-base"></i> Reservar vía WhatsApp
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL DE BILLETERA LIFECOINS EN COMMUNITY -->
+    <div id="modal-lifecoins-info" class="fixed inset-0 z-[100] hidden items-center justify-center bg-slate-950/85 backdrop-blur-md p-4">
+        <div class="bg-slate-900 border border-amber-500/40 rounded-[32px] max-w-md w-full p-6 md:p-8 relative shadow-2xl text-center">
+            <button onclick="closeLifecoinsInfoModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-800 text-slate-300 flex items-center justify-center">
+                <i class="ri-close-line text-lg"></i>
+            </button>
+            <div class="w-16 h-16 rounded-2xl bg-amber-500/20 border border-amber-400/40 text-amber-400 flex items-center justify-center mx-auto mb-4 text-3xl">
+                <i class="ri-copper-coin-fill"></i>
+            </div>
+            <span class="text-[10px] font-black uppercase tracking-widest text-amber-400">Programa de Recompensas Lifextreme</span>
+            <h4 class="text-2xl font-black italic text-white mt-1 mb-2">Tienes <span id="modal-coins-balance" class="text-amber-400">800</span> Lifecoins</h4>
+            <p class="text-xs text-slate-300 leading-relaxed mb-5">
+                Tus Lifecoins sirven como dinero real para descontar en cualquier expedición grupal, alquilar equipo técnico o inscribirte en eventos oficiales.
+            </p>
+            <div class="bg-slate-950 rounded-2xl p-4 border border-slate-800 text-left space-y-2.5 text-xs mb-6">
+                <div class="flex justify-between">
+                    <span class="text-slate-400">• 500 Lifecoins equivalen a:</span>
+                    <span class="font-black text-emerald-400">S/ 50.00 OFF directo</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-slate-400">• Por cada amigo que se une a tu grupo:</span>
+                    <span class="font-black text-amber-400">+100 Lifecoins</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-slate-400">• Bono Socio Club Lifextreme:</span>
+                    <span class="font-black text-indigo-400">+500 Lifecoins extra</span>
+                </div>
+            </div>
+            <button onclick="closeLifecoinsInfoModal(); switchTab('lobby');"
+                class="w-full bg-gradient-to-r from-amber-500 to-orange-500 text-slate-950 font-black uppercase text-xs tracking-widest py-3.5 rounded-xl">
+                Usar mis Lifecoins en una Expedición
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // --- BASE DE DATOS DE RUTAS Y ALGORITMO DE MATCH IA ---
+        const ROUTE_DATA = {
+            "Ausangate Circuit 4D": {
+                base: 650, recommended: 850, high: 1200,
+                region: "Cusco", altitude: "5,200 msnm", difficulty: "Exigente",
+                includes: ["Guía Oficial UIAGM/AGMP", "Transporte Privado Cusco", "Alimentación Completa 4D", "Carpas 4 Estaciones + Oxígeno"]
+            },
+            "Ausangate 4D": {
+                base: 650, recommended: 850, high: 1200,
+                region: "Cusco", altitude: "5,200 msnm", difficulty: "Exigente",
+                includes: ["Guía Oficial UIAGM/AGMP", "Transporte Privado Cusco", "Alimentación Completa 4D", "Carpas 4 Estaciones + Oxígeno"]
+            },
+            "Salkantay Trek 5D": {
+                base: 750, recommended: 950, high: 1300,
+                region: "Cusco", altitude: "4,630 msnm", difficulty: "Moderado-Exigente",
+                includes: ["Guía Certificado DIRCETUR", "Domos & Campamentos", "Alimentación + Mulas de Carga", "Ingreso Ruta Salkantay"]
+            },
+            "Salkantay 5D": {
+                base: 750, recommended: 950, high: 1300,
+                region: "Cusco", altitude: "4,630 msnm", difficulty: "Moderado-Exigente",
+                includes: ["Guía Certificado DIRCETUR", "Domos & Campamentos", "Alimentación + Mulas de Carga", "Ingreso Ruta Salkantay"]
+            },
+            "Choquequirao Clásico 4D": {
+                base: 800, recommended: 1050, high: 1450,
+                region: "Cusco", altitude: "3,050 msnm", difficulty: "Exigente",
+                includes: ["Guía Especialista en Historia", "Arrieros y Caballos de Carga", "Campamento Completo + Comidas", "Boleto Oficial Choquequirao"]
+            },
+            "Cordillera Huayhuash 8D": {
+                base: 1400, recommended: 1750, high: 2400,
+                region: "Huaraz", altitude: "5,000 msnm", difficulty: "Alta Montaña",
+                includes: ["Guía de Alta Montaña UIAGM", "Cocinero de Expedición + Burros", "Carpas de Alta Montaña", "Botiquín + Oxígeno + Satelital"]
+            },
+            "Huayhuash 8D": {
+                base: 1400, recommended: 1750, high: 2400,
+                region: "Huaraz", altitude: "5,000 msnm", difficulty: "Alta Montaña",
+                includes: ["Guía de Alta Montaña UIAGM", "Cocinero de Expedición + Burros", "Carpas de Alta Montaña", "Botiquín + Oxígeno + Satelital"]
+            },
+            "Cumbre Volcán Misti 2D": {
+                base: 350, recommended: 450, high: 620,
+                region: "Arequipa", altitude: "5,825 msnm", difficulty: "Ascenso Alta Montaña",
+                includes: ["Guía de Montaña AGMP", "Camioneta 4x4 hasta 3,400m", "Carpa Térmica + Grampones/Piolet", "Desayuno y Cena Energética"]
+            },
+            "Cañón de Autisha Extremo 1D": {
+                base: 140, recommended: 185, high: 260,
+                region: "Lima", altitude: "2,100 msnm", difficulty: "Aventura / Rappel",
+                includes: ["Instructor Certificado Canyoning", "Equipo PETZL (Arnés, Casco, Cuerdas)", "Transporte Privado Lima-Autisha", "Fotos y Video GoPro"]
+            }
+        };
+
+        let expeditions = [
+            {
+                id: 101,
+                leader: "Alejandro V.",
+                avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+                target: "Ausangate Circuit 4D",
+                region: "Cusco",
+                date: "2026-11-15",
+                budget: 850,
+                minPax: 4,
+                maxPax: 8,
+                currentPax: 6,
+                desc: "Ritmo fotográfico, amaneceres épicos frente al nevado y lagunas turquesas. ¡Ya tenemos quórum, faltan solo 2 cupos para cerrar!",
+                status: "active"
+            },
+            {
+                id: 102,
+                leader: "Sarah & Marco",
+                avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+                target: "Salkantay Trek 5D",
+                region: "Cusco",
+                date: "2026-11-22",
+                budget: 890,
+                minPax: 6,
+                maxPax: 10,
+                currentPax: 4,
+                desc: "Grupo bilingüe (ESP/ENG) con buen ritmo y paradas en miradores glaciares. ¡Faltan 2 viajeros para activar la tarifa grupal!",
+                status: "active"
+            },
+            {
+                id: 103,
+                leader: "Team Alpha Andino",
+                avatar: "https://randomuser.me/api/portraits/men/85.jpg",
+                target: "Cordillera Huayhuash 8D",
+                region: "Huaraz",
+                date: "2026-12-01",
+                budget: 1800,
+                minPax: 6,
+                maxPax: 10,
+                currentPax: 8,
+                desc: "Expedición alpina completa con aclimatación previa en Huaraz. Quórum confirmado y operador UIAGM listo. ¡Últimos 2 cupos!",
+                status: "ready"
+            },
+            {
+                id: 104,
+                leader: "Valeria R.",
+                avatar: "https://randomuser.me/api/portraits/women/68.jpg",
+                target: "Cumbre Volcán Misti 2D",
+                region: "Arequipa",
+                date: "2026-11-28",
+                budget: 460,
+                minPax: 4,
+                maxPax: 8,
+                currentPax: 3,
+                desc: "Ascenso de fin de semana con 4x4 y equipo incluido. Ideal para lograr tu primer +5,800m seguro.",
+                status: "active"
+            },
+            {
+                id: 105,
+                leader: "Diego Trek",
+                avatar: "https://randomuser.me/api/portraits/men/46.jpg",
+                target: "Cañón de Autisha Extremo 1D",
+                region: "Lima",
+                date: "2026-11-08",
+                budget: 185,
+                minPax: 6,
+                maxPax: 12,
+                currentPax: 9,
+                desc: "Full day de rappel subterráneo, cascada Sheke y trekking en cañón a 2 horas de Lima. ¡Salida 100% confirmada!",
+                status: "ready"
+            },
+            {
+                id: 106,
+                leader: "Renzo & Tribu Sur",
+                avatar: "https://randomuser.me/api/portraits/men/22.jpg",
+                target: "Choquequirao Clásico 4D",
+                region: "Cusco",
+                date: "2026-12-05",
+                budget: 1050,
+                minPax: 4,
+                maxPax: 8,
+                currentPax: 3,
+                desc: "Vamos con mulas de apoyo para llevar las mochilas pesadas y disfrutar el ascenso sin sobrecarga.",
+                status: "active"
+            }
+        ];
+
+        function getSocialCoins() {
+            const saved = parseInt(localStorage.getItem('lifextreme_coins') || '800', 10);
+            return isNaN(saved) ? 800 : saved;
+        }
+
+        function setSocialCoins(val) {
+            localStorage.setItem('lifextreme_coins', String(val));
+            const headerEl = document.getElementById('header-social-coins');
+            const modalEl = document.getElementById('modal-coins-balance');
+            if (headerEl) headerEl.textContent = val;
+            if (modalEl) modalEl.textContent = val;
+        }
+
+        function calculateMatchProbability(target, budget) {
+            const data = ROUTE_DATA[target];
+            if (!data) return { score: 82, label: "Alta (Operador Verificado)", color: "text-emerald-400", icon: "ri-flashlight-fill" };
+
+            if (budget < data.base) return { score: 25, label: "Baja (Presupuesto ajustado)", color: "text-red-400", icon: "ri-error-warning-fill" };
+            if (budget < data.recommended) {
+                const pct = Math.min(84, Math.max(65, Math.round(65 + ((budget - data.base) / (data.recommended - data.base)) * 20)));
+                return { score: pct, label: "Buena (En rango de grupo)", color: "text-amber-400", icon: "ri-time-line" };
+            }
+            if (budget < data.high) {
+                const pct = Math.min(96, Math.max(88, Math.round(88 + ((budget - data.recommended) / (data.high - data.recommended)) * 8)));
+                return { score: pct, label: "Alta (Operador Inmediato)", color: "text-emerald-400", icon: "ri-flashlight-fill" };
+            }
+            return { score: 99, label: "Prioridad VIP (Operadores compiten)", color: "text-purple-400", icon: "ri-vip-diamond-fill" };
+        }
+
+        function calculateLeaderReward(pax, budget) {
+            const coins = pax * 100;
+            const discount = Math.min(100, Math.floor((pax - 1) / 2) * 10);
+            return { coins, discount };
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setSocialCoins(getSocialCoins());
+
+            const targetSelect = document.getElementById('new-target');
+            const budgetInput = document.getElementById('new-budget');
+            const maxInput = document.getElementById('new-max');
+
+            if (budgetInput && !document.getElementById('budget-feedback')) {
+                const div = document.createElement('div');
+                div.id = 'budget-feedback';
+                div.className = 'mt-2 text-xs font-bold transition-all';
+                budgetInput.parentNode.appendChild(div);
             }
 
-            function calculateLeaderReward(pax, budget) {
-                // Neuro-Marketing Reward System:
-                // 1. Base: 100 Coins per recruited person
-                // 2. Bonus: Discount scales with group size (5% per 2 people)
+            function updateProbability() {
+                const t = targetSelect.value;
+                const b = parseInt(budgetInput.value, 10);
+                const el = document.getElementById('budget-feedback');
+                const maxPax = parseInt(maxInput?.value || '8', 10);
 
-                const coins = pax * 100;
-                const discount = Math.min(100, Math.floor((pax - 1) / 2) * 10); // Starts from 2nd person, cap at 100%
-
-                return { coins, discount };
-            }
-
-            // --- UI LIVE FEEDBACK ---
-
-            // Listeners for Smart Form
-            document.addEventListener('DOMContentLoaded', () => {
-                const targetSelect = document.getElementById('new-target');
-                const budgetInput = document.getElementById('new-budget');
-
-                // Inject feedback element if missing
-                if (budgetInput && !document.getElementById('budget-feedback')) {
-                    const div = document.createElement('div');
-                    div.id = 'budget-feedback';
-                    div.className = 'mt-2 text-xs font-bold transition-all';
-                    budgetInput.parentNode.appendChild(div);
-                }
-
-                function updateProbability() {
-                    const t = targetSelect.value;
-                    const b = parseInt(budgetInput.value);
-                    const el = document.getElementById('budget-feedback');
-
-                    if (!t || isNaN(b)) {
-                        if (el) el.innerHTML = "";
-                        return;
+                if (maxPax) {
+                    const rw = calculateLeaderReward(maxPax, b || 850);
+                    const prev = document.getElementById('leader-reward-preview');
+                    if (prev) {
+                        prev.innerHTML = `Si llenas los ${maxPax} cupos ganas: <span class="text-amber-400 font-black">${rw.coins} Lifecoins</span> + <span class="text-emerald-400 font-black">${rw.discount}% OFF en tu pasaje</span>`;
                     }
-
-                    const prob = calculateMatchProbability(t, b);
-                    el.className = `mt-3 text-xs font-black uppercase flex items-center gap-2 ${prob.color}`;
-                    el.innerHTML = `<i class="${prob.icon} text-lg"></i> Probabilidad de Match: ${prob.label}`;
                 }
 
-                if (targetSelect && budgetInput) {
-                    targetSelect.addEventListener('change', () => {
-                        const t = targetSelect.value;
-                        const range = ROUTE_DATA[t];
-                        if (range) {
-                            const hint = document.querySelector('#new-budget + p');
-                            if (hint) hint.innerText = `*Rango sugerido Mercado: S/ ${range.base} - S/ ${range.recommended}`;
-                        }
-                        updateProbability();
-                    });
-                    budgetInput.addEventListener('input', updateProbability);
+                if (!t || isNaN(b)) {
+                    if (el) el.innerHTML = "";
+                    return;
                 }
 
-                // Init render
-                renderLobby();
+                const prob = calculateMatchProbability(t, b);
+                el.className = `mt-2 text-xs font-black uppercase flex items-center gap-1.5 ${prob.color}`;
+                el.innerHTML = `<i class="${prob.icon} text-base"></i> ${prob.score}% Match IA: ${prob.label}`;
+            }
+
+            if (targetSelect && budgetInput) {
+                targetSelect.addEventListener('change', () => {
+                    const t = targetSelect.value;
+                    const range = ROUTE_DATA[t];
+                    if (range) {
+                        const hint = document.getElementById('budget-range-hint');
+                        if (hint) hint.innerText = `*Sugerido IA (${range.region}): Base S/ ${range.base} • Óptimo S/ ${range.recommended}`;
+                        if (!budgetInput.value) budgetInput.value = range.recommended;
+                    }
+                    updateProbability();
+                });
+                budgetInput.addEventListener('input', updateProbability);
+                if (maxInput) maxInput.addEventListener('input', updateProbability);
+            }
+
+            renderLobby();
+        });
+
+        function renderLobby() {
+            const grid = document.getElementById('expeditions-grid');
+            if (!grid) return;
+
+            const regionFilter = document.getElementById('filter-region')?.value || 'ALL';
+            const statusFilter = document.getElementById('filter-status')?.value || 'ALL';
+
+            const filtered = expeditions.filter(e => {
+                if (e.status === 'completed') return false;
+                const routeMeta = ROUTE_DATA[e.target] || {};
+                const expRegion = e.region || routeMeta.region || 'Cusco';
+                if (regionFilter !== 'ALL' && expRegion !== regionFilter) return false;
+                if (statusFilter === 'ready' && !(e.status === 'ready' || e.currentPax >= e.minPax)) return false;
+                if (statusFilter === 'open' && e.currentPax >= e.maxPax) return false;
+                return true;
             });
 
-            // --- RENDER LOGIC ---
-            function renderLobby() {
-                const grid = document.getElementById('expeditions-grid');
-                if (!grid) return;
+            const countBadge = document.getElementById('lobby-count-badge');
+            if (countBadge) countBadge.textContent = filtered.length;
 
-                grid.innerHTML = expeditions.filter(e => e.status !== 'completed').map(e => {
-                    const prob = calculateMatchProbability(e.target, e.budget);
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full bg-slate-900/80 border border-slate-800 rounded-3xl p-12 text-center">
+                        <i class="ri-compass-discover-line text-4xl text-amber-400"></i>
+                        <h4 class="text-xl font-black italic mt-3">No hay grupos con ese filtro todavía</h4>
+                        <p class="text-slate-400 text-sm mt-1 mb-5">¡Sé el primero en crear esta fecha y gana recompensas de Líder!</p>
+                        <button onclick="switchTab('create')" class="bg-primary text-white font-black uppercase text-xs px-6 py-3 rounded-xl">Crear Expedición en esta Región</button>
+                    </div>
+                `;
+                return;
+            }
 
-                    return `
-                    <div class="bg-slate-800 rounded-[32px] p-6 border border-slate-700 hover:border-primary transition-all group relative overflow-hidden">
-                        ${e.status === 'ready' ?
-                            `<div class="absolute top-0 right-0 bg-emerald-500 text-white text-[9px] font-black uppercase px-3 py-1 rounded-bl-xl z-20 shadow-lg">Listo para Despegue</div>` : ''}
-                        
-                        <div class="flex items-center gap-4 mb-6">
-                            <img src="${e.avatar}" class="w-12 h-12 rounded-full border-2 border-primary">
+            grid.innerHTML = filtered.map(e => {
+                const prob = calculateMatchProbability(e.target, e.budget);
+                const routeMeta = ROUTE_DATA[e.target] || { region: e.region || "Andes", altitude: "4,500m", includes: ["Guía Certificado", "Transporte", "Logística Grupal", "Botiquín O2"] };
+                const isQuorumReady = e.status === 'ready' || e.currentPax >= e.minPax;
+                const isFull = e.currentPax >= e.maxPax;
+                const spotsLeft = Math.max(0, e.maxPax - e.currentPax);
+                const deposit30 = Math.round(e.budget * 0.30);
+
+                return `
+                <div class="bg-slate-900 rounded-[32px] p-6 border ${isQuorumReady ? 'border-emerald-500/40' : 'border-slate-800'} hover:border-primary transition-all group relative overflow-hidden flex flex-col justify-between shadow-xl">
+                    ${isQuorumReady ?
+                        `<div class="absolute top-0 right-0 bg-emerald-500 text-slate-950 text-[9px] font-black uppercase px-3.5 py-1.5 rounded-bl-2xl z-20 shadow-lg flex items-center gap-1"><i class="ri-check-double-line"></i> Salida Confirmada</div>` :
+                        `<div class="absolute top-0 right-0 bg-amber-500/20 text-amber-300 border-b border-l border-amber-500/30 text-[9px] font-black uppercase px-3.5 py-1.5 rounded-bl-2xl z-20">Faltan ${Math.max(1, e.minPax - e.currentPax)} p/ Quórum</div>`
+                    }
+
+                    <div>
+                        <div class="flex items-center gap-3.5 mb-4 pr-24">
+                            <img src="${e.avatar}" alt="${e.leader}" class="w-12 h-12 rounded-full border-2 border-primary object-cover">
                             <div>
-                                <p class="text-[10px] font-black text-slate-400 uppercase">Líder: ${e.leader}</p>
-                                <h4 class="font-bold text-white leading-tight">${e.target}</h4>
+                                <div class="flex items-center gap-1.5">
+                                    <span class="text-[10px] font-black text-indigo-400 uppercase">${routeMeta.region || e.region}</span>
+                                    <span class="text-slate-600">•</span>
+                                    <span class="text-[10px] font-bold text-slate-400">Líder: ${e.leader}</span>
+                                </div>
+                                <h4 class="font-black text-lg text-white leading-tight mt-0.5">${e.target}</h4>
                             </div>
                         </div>
 
-                        <div class="space-y-4 mb-6">
+                        <!-- Chips de Incluye Rápido -->
+                        <div class="flex flex-wrap gap-1.5 mb-4">
+                            ${(routeMeta.includes || []).slice(0, 3).map(inc => `
+                                <span class="text-[10px] font-bold bg-slate-950 text-slate-300 border border-slate-800 px-2.5 py-1 rounded-lg">✓ ${inc}</span>
+                            `).join('')}
+                        </div>
+
+                        <div class="space-y-3 mb-5">
                             <!-- Leader Reward Badge -->
                             <div class="bg-gradient-to-r from-amber-500/10 to-transparent p-3 rounded-xl border border-amber-500/20 flex items-center gap-3">
-                                <div class="bg-amber-500 text-slate-900 w-8 h-8 rounded-lg flex items-center justify-center font-black text-xs">
+                                <div class="bg-amber-500 text-slate-950 w-8 h-8 rounded-lg flex items-center justify-center font-black text-xs shrink-0">
                                     <i class="ri-vip-crown-2-fill"></i>
                                 </div>
                                 <div>
-                                    <p class="text-[9px] font-black text-amber-500 uppercase">Recompensa del Líder</p>
+                                    <p class="text-[9px] font-black text-amber-400 uppercase">Beneficio Activo del Líder</p>
                                     <p class="text-xs text-white font-bold leading-none mt-0.5">
                                         Ganando: <span class="text-amber-400">${calculateLeaderReward(e.currentPax, e.budget).coins} Coins</span> + ${calculateLeaderReward(e.currentPax, e.budget).discount}% OFF
                                     </p>
                                 </div>
                             </div>
 
-                             <div class="flex justify-between items-center text-sm p-3 bg-slate-900 rounded-xl border border-slate-700">
-                                <span class="text-slate-400 text-xs uppercase font-bold">Oferta al Operador</span>
+                            <!-- Tarifa y Match IA -->
+                            <div class="flex justify-between items-center text-sm p-3.5 bg-slate-950 rounded-2xl border border-slate-800">
+                                <div>
+                                    <span class="text-slate-400 text-[10px] uppercase font-black block">Tarifa Grupal / Persona</span>
+                                    <span class="text-[11px] text-emerald-400 font-bold">Separa hoy con S/ ${deposit30} (30%)</span>
+                                </div>
                                 <div class="text-right">
-                                    <span class="font-black text-accent block">S/ ${e.budget} <span class="text-[9px] text-slate-500">p/p</span></span>
-                                    <span class="text-[9px] font-bold ${prob.color}"><i class="${prob.icon}"></i> ${prob.score}% Match</span>
+                                    <span class="font-black text-xl text-accent block leading-none">S/ ${e.budget}</span>
+                                    <span class="text-[10px] font-black ${prob.color} inline-flex items-center gap-1 mt-1"><i class="${prob.icon}"></i> ${prob.score}% Match</span>
                                 </div>
                             </div>
-                            <div class="flex justify-between items-center text-sm">
-                                <span class="text-slate-400"><i class="ri-calendar-event-line mr-2"></i>Inicio:</span>
-                                <span class="font-bold text-white">${e.date}</span>
+
+                            <div class="flex justify-between items-center text-xs px-1">
+                                <span class="text-slate-400 font-bold"><i class="ri-calendar-event-line mr-1.5 text-secondary"></i>Fecha de Salida:</span>
+                                <span class="font-black text-white bg-slate-800 px-2.5 py-1 rounded-lg">${e.date}</span>
                             </div>
                         </div>
 
-                        <!-- PROGRESS BAR -->
+                        <!-- PROGRESS BAR DE CUPOS -->
                         <div class="mb-2 flex justify-between text-[10px] font-black uppercase">
-                            <span class="${e.currentPax >= e.minPax ? 'text-emerald-400' : 'text-slate-500'}">${e.currentPax} Confirmados</span>
-                            <span class="text-slate-500">Meta: ${e.minPax} - ${e.maxPax}</span>
+                            <span class="${isQuorumReady ? 'text-emerald-400' : 'text-amber-400'}">${e.currentPax} Viajeros Inscritos</span>
+                            <span class="text-slate-400">${spotsLeft} Cupos Libres (Máx ${e.maxPax})</span>
                         </div>
-                        <div class="w-full bg-slate-900 h-2 rounded-full overflow-hidden mb-6">
-                            <div class="h-full ${e.currentPax >= e.minPax ? 'bg-emerald-500' : 'bg-primary'} transition-all duration-1000" style="width: ${(e.currentPax / e.maxPax) * 100}%"></div>
+                        <div class="w-full bg-slate-950 h-2.5 rounded-full overflow-hidden mb-4 border border-slate-800">
+                            <div class="h-full ${isQuorumReady ? 'bg-emerald-500' : 'bg-gradient-to-r from-primary to-secondary'} transition-all duration-700" style="width: ${Math.min(100, (e.currentPax / e.maxPax) * 100)}%"></div>
                         </div>
 
-                        <p class="text-xs text-slate-400 italic mb-6 line-clamp-2">"${e.desc}"</p>
-
-                        <div class="grid grid-cols-5 gap-2">
-                            <button onclick="shareLink(${e.id})" class="col-span-1 bg-slate-700 hover:bg-slate-600 text-white rounded-xl flex items-center justify-center transition-colors">
-                                <i class="ri-share-forward-line"></i>
-                            </button>
-                            ${e.status === 'ready' || e.currentPax >= e.maxPax ?
-                            `<button disabled class="col-span-4 bg-slate-700 text-slate-500 font-black uppercase text-xs rounded-xl py-3 cursor-not-allowed">Grupo Lleno / Cerrado</button>` :
-                            `<button onclick="joinGroup(${e.id})" class="col-span-4 bg-white text-slate-900 font-black uppercase text-xs rounded-xl py-3 hover:bg-slate-200 transition-colors">Unirme por S/ ${e.budget}</button>`
-                        }
-                        </div>
+                        <p class="text-xs text-slate-300 italic mb-5 line-clamp-2">“${e.desc}”</p>
                     </div>
-                `}).join('');
-            }
 
-            function renderOperators() {
-                const list = document.getElementById('operators-list');
-                // Filter only READY groups
-                const readyGroups = expeditions.filter(e => e.status === 'ready' || (e.currentPax >= e.minPax && e.status !== 'completed'));
-
-                if (readyGroups.length === 0) {
-                    list.innerHTML = `<div class="text-center py-12 opacity-50"><i class="ri-zzz-line text-4xl"></i><p>No hay grupos listos para operar en este momento.</p></div>`;
-                    return;
-                }
-
-                // Sort by TOTAL VALUE (Uber Logic: Show highest paying gigs first)
-                readyGroups.sort((a, b) => (b.currentPax * b.budget) - (a.currentPax * a.budget));
-
-                list.innerHTML = readyGroups.map(e => {
-                    const totalValue = e.currentPax * e.budget;
-                    const data = ROUTE_DATA[e.target] || { base: 0 };
-                    const estimatedCost = e.currentPax * (data.base * 0.85); // Estimated pure operational cost (optimistic)
-                    const potentialProfit = totalValue - estimatedCost;
-                    const profitabilityScore = data.base > 0 ? Math.min(100, Math.round((potentialProfit / totalValue) * 100)) : 0;
-
-                    return `
-                    <div class="bg-slate-800 rounded-[32px] p-6 lg:p-8 flex flex-col md:flex-row items-center gap-6 border border-emerald-500/30 shadow-lg shadow-emerald-500/5 relative overflow-hidden group">
-                        <!-- Background Glow for High Value -->
-                        ${profitabilityScore > 30 ? '<div class="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-[80px] -z-10 group-hover:bg-emerald-500/20 transition-all"></div>' : ''}
-
-                        <div class="flex-1">
-                            <div class="flex items-center gap-3 mb-2">
-                                <span class="bg-emerald-500/20 text-emerald-400 text-[10px] font-black uppercase px-2 py-1 rounded">Alta Demanda</span>
-                                <h4 class="text-2xl font-black italic text-white">${e.target}</h4>
-                            </div>
-                            <div class="grid grid-cols-3 gap-4 text-sm text-slate-300 mb-4">
-                                <div>
-                                    <p class="text-[9px] uppercase text-slate-500">Fecha</p>
-                                    <p class="font-bold text-white"><i class="ri-calendar-line text-emerald-500"></i> ${e.date}</p>
-                                </div>
-                                <div>
-                                    <p class="text-[9px] uppercase text-slate-500">Volumen</p>
-                                    <p class="font-bold text-white"><i class="ri-group-line text-emerald-500"></i> ${e.currentPax} Pax</p>
-                                </div>
-                                <div>
-                                    <p class="text-[9px] uppercase text-slate-500">Pago Unit.</p>
-                                    <p class="font-bold text-white"><i class="ri-wallet-3-line text-emerald-500"></i> S/ ${e.budget}</p>
-                                </div>
-                            </div>
-                            <p class="text-xs text-slate-500 italic">"Garantizado por Lifextreme: El grupo ya cubrió la cuota mínima."</p>
-                        </div>
-
-                        <div class="w-full md:w-auto bg-slate-900 rounded-2xl p-6 border border-slate-700 min-w-[280px]">
-                            <div class="flex justify-between items-center mb-2">
-                                <span class="text-[10px] font-black uppercase text-slate-400">Pago Total Asegurado</span>
-                                <span class="bg-emerald-500 text-slate-900 text-[10px] font-black px-2 py-0.5 rounded">NETO</span>
-                            </div>
-                            <p class="text-4xl font-black text-white italic mb-4 tracking-tighter">S/ ${totalValue}</p>
-                            
-                            <div class="space-y-3">
-                                <div class="flex justify-between text-[10px] text-slate-400">
-                                    <span>Rentabilidad Est.</span>
-                                    <span class="${profitabilityScore > 20 ? 'text-green-400' : 'text-amber-400'} font-bold">${profitabilityScore}% Margen</span>
-                                </div>
-                                <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                                     <div class="h-full ${profitabilityScore > 20 ? 'bg-green-500' : 'bg-amber-500'}" style="width: ${profitabilityScore}%"></div>
-                                </div>
-                            </div>
-
-                            <button onclick="operatorAccept(${e.id})" class="mt-6 bg-white hover:bg-slate-200 text-slate-900 font-black uppercase px-6 py-4 rounded-xl transition-all w-full shadow-lg shadow-white/5">
-                                <i class="ri-flashlight-fill mr-1 text-amber-500"></i> Aceptar Viaje
-                            </button>
-                        </div>
-                    </div>
-                `}).join('');
-            }
-
-            // --- ACTIONS ---
-            function switchTab(tab) {
-                // Update Buttons
-                ['lobby', 'create', 'operator'].forEach(t => {
-                    const btn = document.getElementById(`tab-btn-${t}`);
-                    const view = document.getElementById(`view-${t}`);
-
-                    if (t === tab) {
-                        btn.classList.remove('bg-slate-800', 'text-slate-400', 'border-transparent');
-                        btn.classList.add('bg-primary', 'text-white', 'border-primary', 'shadow-lg');
-                        view.classList.remove('hidden');
-                    } else {
-                        btn.classList.add('bg-slate-800', 'text-slate-400', 'border-transparent');
-                        btn.classList.remove('bg-primary', 'text-white', 'border-primary', 'shadow-lg');
-                        view.classList.add('hidden');
-                    }
-                });
-
-                if (tab === 'lobby') renderLobby();
-                if (tab === 'operator') renderOperators();
-            }
-
-            function createExpedition() {
-                const target = document.getElementById('new-target').value;
-                const date = document.getElementById('new-date').value;
-                const budget = document.getElementById('new-budget').value;
-                const min = document.getElementById('new-min').value;
-                const max = document.getElementById('new-max').value;
-                const desc = document.getElementById('new-desc').value;
-
-                if (!target || !date || !budget) {
-                    alert('Por favor completa los campos principales de la misión.');
-                    return;
-                }
-
-                const newExp = {
-                    id: Date.now(),
-                    leader: "Tú (Líder)",
-                    avatar: "https://ui-avatars.com/api/?name=User&background=random",
-                    target: target,
-                    date: date,
-                    budget: parseInt(budget),
-                    minPax: parseInt(min),
-                    maxPax: parseInt(max),
-                    currentPax: 1, // Start with creator
-                    desc: desc,
-                    status: 'active'
-                };
-
-                expeditions.unshift(newExp); // Add to top
-
-                // Check probability for immediate feedback
-                const prob = calculateMatchProbability(target, newExp.budget);
-                let msg = '¡Expedición Creada!';
-                if (prob.score < 40) msg += '\n⚠️ Nota: Tu presupuesto es bajo, puede tardar en llenarse o encontrar operador.';
-                else if (prob.score > 80) msg += '\n🚀 ¡Excelente oferta! Es probable que un operador te acepte rápido.';
-
-                alert(msg);
-                switchTab('lobby');
-            }
-
-            function joinGroup(id) {
-                const exp = expeditions.find(e => e.id === id);
-                if (exp && exp.currentPax < exp.maxPax) {
-                    // Simulate Join
-                    const confirmJoin = confirm(`¿Unirte a ${exp.target} por S/ ${exp.budget}?`);
-                    if (confirmJoin) {
-                        exp.currentPax++;
-                        if (exp.currentPax >= exp.minPax) exp.status = 'ready'; // Upgrade status if quorum met
-
-                        const rewards = calculateLeaderReward(exp.currentPax, exp.budget);
-                        alert(`¡Te has unido al equipo! \n\n🎉 NOTIFICACIÓN AL LÍDER:\n"¡Nuevo miembro! Tu recompensa aumentó a ${rewards.coins} Coins y ${rewards.discount}% de descuento total."`);
-
-                        renderLobby();
-                    }
-                }
-            }
-
-            function shareLink(id) {
-                const exp = expeditions.find(e => e.id === id);
-                const text = `¡Hola! Estoy armando un grupo para ir a *${exp.target}* el ${exp.date}. Nos sale a S/ ${exp.budget} cada uno. ¿Te unes? Entra aquí: lifextreme.store/community.html?id=${id}`;
-
-                // Copy to clipboard or open WA
-                if (navigator.share) {
-                    navigator.share({
-                        title: 'Únete a mi Expedición Lifextreme',
-                        text: text,
-                        url: window.location.href
-                    });
-                } else {
-                    window.open(`https://wa.me/?text=${encodeURIComponent(text)}`);
-                }
-            }
-
-            function operatorAccept(id) {
-                const exp = expeditions.find(e => e.id === id);
-                const confirmOp = confirm(`¿Confirmas que tienes la logística disponible para operar el grupo de ${exp.target} en la fecha ${exp.date}?`);
-
-                if (confirmOp) {
-                    exp.status = 'completed'; // Hide from lobby/operator view
-                    alert('¡Servicio Asignado! Contacta al Líder del grupo para coordinar el pago final.');
-                    renderOperators();
-                }
-            }
-        </script>
-
-        <!-- CTA FINAL -->
-        <section class="container mx-auto px-6 pb-20 text-center">
-            <div
-                class="bg-gradient-to-b from-white/10 to-transparent p-12 rounded-[3rem] border border-white/10 relative overflow-hidden">
-                <div class="relative z-10">
-                    <h2 class="text-4xl font-black italic mb-6">¿Listo para unirte?</h2>
-                    <p class="text-slate-400 mb-8 max-w-lg mx-auto">Sé parte de los pioneros que están cambiando la
-                        forma de explorar los Andes.</p>
-                    <form class="max-w-md mx-auto flex gap-2">
-                        <input type="email" placeholder="Tu correo electrónico"
-                            class="flex-1 bg-slate-900 border border-slate-700 rounded-xl px-6 py-4 text-sm focus:border-primary outline-none">
-                        <button type="button"
-                            class="bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-widest px-8 py-4 rounded-xl transition-all">
-                            Entrar
+                    <div class="grid grid-cols-5 gap-2 pt-2 border-t border-slate-800/80">
+                        <button onclick="shareLink(${e.id})" title="Compartir Grupo por WhatsApp" class="col-span-1 bg-slate-800 hover:bg-slate-700 text-white rounded-xl flex items-center justify-center transition-colors py-3">
+                            <i class="ri-share-forward-line text-lg"></i>
                         </button>
-                    </form>
+                        ${isFull ?
+                            `<button disabled class="col-span-4 bg-slate-800 text-slate-500 font-black uppercase text-xs rounded-xl py-3.5 cursor-not-allowed">Grupo Lleno (${e.maxPax}/${e.maxPax})</button>` :
+                            `<button onclick="openJoinModal(${e.id})" class="col-span-4 bg-gradient-to-r from-white to-slate-100 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-black uppercase text-xs rounded-xl py-3.5 transition-all shadow-md flex items-center justify-center gap-1.5">
+                                <i class="ri-user-add-fill"></i> Inscribirme • S/ ${e.budget}
+                            </button>`
+                        }
+                    </div>
                 </div>
-            </div>
-        </section>
+            `}).join('');
+        }
 
-    </main>
+        function renderOperators() {
+            const list = document.getElementById('operators-list');
+            if (!list) return;
+
+            const readyGroups = expeditions.filter(e => e.status !== 'completed');
+            if (readyGroups.length === 0) {
+                list.innerHTML = `<div class="text-center py-12 opacity-50"><i class="ri-zzz-line text-4xl"></i><p>No hay grupos disponibles en este momento.</p></div>`;
+                return;
+            }
+
+            readyGroups.sort((a, b) => (b.currentPax * b.budget) - (a.currentPax * a.budget));
+
+            list.innerHTML = readyGroups.map(e => {
+                const totalValue = e.currentPax * e.budget;
+                const data = ROUTE_DATA[e.target] || { base: 600, region: "Cusco" };
+                const estimatedCost = e.currentPax * (data.base * 0.78);
+                const potentialProfit = Math.max(0, totalValue - estimatedCost);
+                const profitabilityScore = totalValue > 0 ? Math.min(95, Math.max(22, Math.round((potentialProfit / totalValue) * 100))) : 30;
+                const isQuorumMet = e.currentPax >= e.minPax || e.status === 'ready';
+
+                return `
+                <div class="bg-slate-900 rounded-[32px] p-6 lg:p-8 flex flex-col md:flex-row items-center gap-6 border ${isQuorumMet ? 'border-emerald-500/40' : 'border-slate-800'} shadow-lg relative overflow-hidden group">
+                    <div class="flex-1 w-full">
+                        <div class="flex flex-wrap items-center gap-2.5 mb-2">
+                            <span class="${isQuorumMet ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30' : 'bg-amber-500/20 text-amber-300 border-amber-500/30'} border text-[10px] font-black uppercase px-2.5 py-1 rounded-lg">
+                                ${isQuorumMet ? '✓ Quórum Confirmado (Listo para Operar)' : 'En Captación Activa'}
+                            </span>
+                            <span class="text-xs font-bold text-slate-400">Región: ${data.region || e.region}</span>
+                        </div>
+                        <h4 class="text-2xl font-black italic text-white mb-4">${e.target}</h4>
+                        <div class="grid grid-cols-3 gap-4 text-sm text-slate-300 mb-4 bg-slate-950 p-4 rounded-2xl border border-slate-800">
+                            <div>
+                                <p class="text-[9px] uppercase text-slate-500 font-black">Fecha Salida</p>
+                                <p class="font-bold text-white mt-0.5"><i class="ri-calendar-line text-emerald-400"></i> ${e.date}</p>
+                            </div>
+                            <div>
+                                <p class="text-[9px] uppercase text-slate-500 font-black">Pasajeros</p>
+                                <p class="font-bold text-white mt-0.5"><i class="ri-group-line text-emerald-400"></i> ${e.currentPax} / ${e.maxPax} Pax</p>
+                            </div>
+                            <div>
+                                <p class="text-[9px] uppercase text-slate-500 font-black">Oferta Unitaria</p>
+                                <p class="font-bold text-white mt-0.5"><i class="ri-wallet-3-line text-emerald-400"></i> S/ ${e.budget}</p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-400"><i class="ri-shield-check-line text-emerald-400"></i> Fondos del 30% de reserva verificados por Lifextreme Escrow.</p>
+                    </div>
+
+                    <div class="w-full md:w-auto bg-slate-950 rounded-2xl p-6 border border-slate-800 min-w-[280px]">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-[10px] font-black uppercase text-slate-400">Bolsa Acumulada</span>
+                            <span class="bg-emerald-500 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded">PAGO NETO</span>
+                        </div>
+                        <p class="text-4xl font-black text-white italic mb-4 tracking-tighter">S/ ${totalValue.toLocaleString()}</p>
+
+                        <div class="space-y-2 mb-5">
+                            <div class="flex justify-between text-[10px] text-slate-400">
+                                <span>Margen Operativo Est.</span>
+                                <span class="text-emerald-400 font-black">${profitabilityScore}% Margen</span>
+                            </div>
+                            <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                                <div class="h-full bg-emerald-500" style="width: ${profitabilityScore}%"></div>
+                            </div>
+                        </div>
+
+                        <button onclick="operatorAccept(${e.id})" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black uppercase text-xs tracking-wider px-6 py-4 rounded-xl transition-all w-full shadow-lg">
+                            <i class="ri-flashlight-fill mr-1"></i> Postular / Tomar Grupo
+                        </button>
+                    </div>
+                </div>
+            `}).join('');
+        }
+
+        function switchTab(tab) {
+            ['lobby', 'create', 'operator'].forEach(t => {
+                const btn = document.getElementById(`tab-btn-${t}`);
+                const view = document.getElementById(`view-${t}`);
+                if (!btn || !view) return;
+
+                if (t === tab) {
+                    btn.classList.remove('bg-slate-900', 'text-slate-300', 'border-slate-800');
+                    btn.classList.add('bg-primary', 'text-white', 'border-primary', 'shadow-lg');
+                    view.classList.remove('hidden');
+                } else {
+                    btn.classList.add('bg-slate-900', 'text-slate-300', 'border-slate-800');
+                    btn.classList.remove('bg-primary', 'text-white', 'border-primary', 'shadow-lg');
+                    view.classList.add('hidden');
+                }
+            });
+
+            if (tab === 'lobby') renderLobby();
+            if (tab === 'operator') renderOperators();
+        }
+
+        function createExpedition() {
+            const target = document.getElementById('new-target').value;
+            const date = document.getElementById('new-date').value;
+            const leaderName = document.getElementById('new-leader-name').value || 'Tú (Líder)';
+            const budget = parseInt(document.getElementById('new-budget').value, 10);
+            const min = parseInt(document.getElementById('new-min').value, 10) || 4;
+            const max = parseInt(document.getElementById('new-max').value, 10) || 8;
+            const desc = document.getElementById('new-desc').value;
+
+            if (!target || !date || isNaN(budget)) return;
+
+            const routeMeta = ROUTE_DATA[target] || { region: 'Cusco' };
+            const newExp = {
+                id: Date.now(),
+                leader: leaderName,
+                avatar: `https://ui-avatars.com/api/?name=${encodeURIComponent(leaderName)}&background=4338ca&color=fff`,
+                target: target,
+                region: routeMeta.region,
+                date: date,
+                budget: budget,
+                minPax: min,
+                maxPax: max,
+                currentPax: 1,
+                desc: desc || "Grupo abierto buscando compañeros de cordada con buena actitud.",
+                status: 'active'
+            };
+
+            expeditions.unshift(newExp);
+            setSocialCoins(getSocialCoins() + 100);
+            switchTab('lobby');
+            openJoinModal(newExp.id);
+        }
+
+        let currentModalExpId = null;
+
+        function openJoinModal(id) {
+            const exp = expeditions.find(e => e.id === id);
+            if (!exp) return;
+            currentModalExpId = id;
+
+            const routeMeta = ROUTE_DATA[exp.target] || {
+                region: exp.region || "Cusco",
+                includes: ["Guía Certificado UIAGM/DIRCETUR", "Transporte Turístico Privado", "Logística de Campamento", "Botiquín y Oxígeno"]
+            };
+
+            document.getElementById('modal-exp-id').value = exp.id;
+            document.getElementById('modal-exp-title').textContent = exp.target;
+            document.getElementById('modal-exp-meta').textContent = `Líder: ${exp.leader} • Salida: ${exp.date} • Región: ${routeMeta.region} • Cupos: ${exp.currentPax}/${exp.maxPax}`;
+
+            const incEl = document.getElementById('modal-exp-includes');
+            incEl.innerHTML = (routeMeta.includes || []).map(item => `
+                <div class="flex items-center gap-1.5"><i class="ri-checkbox-circle-fill text-emerald-400"></i> <span>${item}</span></div>
+            `).join('');
+
+            const useCoinsCheckbox = document.getElementById('join-use-coins');
+            if (useCoinsCheckbox) {
+                useCoinsCheckbox.checked = false;
+                useCoinsCheckbox.disabled = getSocialCoins() < 500;
+            }
+
+            updateJoinModalPricing();
+
+            const modal = document.getElementById('modal-join-expedition');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeJoinModal() {
+            const modal = document.getElementById('modal-join-expedition');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function updateJoinModalPricing() {
+            const exp = expeditions.find(e => e.id === currentModalExpId);
+            if (!exp) return;
+
+            const useCoins = document.getElementById('join-use-coins')?.checked;
+            const discount = useCoins ? 50 : 0;
+            const finalPrice = Math.max(50, exp.budget - discount);
+            const deposit30 = Math.round(finalPrice * 0.30);
+
+            document.getElementById('modal-price-base').textContent = `S/ ${exp.budget}.00`;
+            const discRow = document.getElementById('modal-price-discount-row');
+            if (useCoins) {
+                discRow.classList.remove('hidden');
+                discRow.classList.add('flex');
+            } else {
+                discRow.classList.add('hidden');
+                discRow.classList.remove('flex');
+            }
+            document.getElementById('modal-price-final').textContent = `S/ ${finalPrice}.00`;
+            document.getElementById('modal-price-deposit').textContent = `S/ ${deposit30}.00`;
+        }
+
+        function confirmJoinExpedition() {
+            const exp = expeditions.find(e => e.id === currentModalExpId);
+            if (!exp) return;
+
+            const name = document.getElementById('join-user-name').value.trim();
+            const phone = document.getElementById('join-user-phone').value.trim();
+            const useCoins = document.getElementById('join-use-coins').checked;
+
+            if (!name || !phone) return;
+
+            if (useCoins && getSocialCoins() >= 500) {
+                setSocialCoins(getSocialCoins() - 500);
+            } else {
+                // Bono por unirse a una tribu
+                setSocialCoins(getSocialCoins() + 50);
+            }
+
+            exp.currentPax = Math.min(exp.maxPax, exp.currentPax + 1);
+            if (exp.currentPax >= exp.minPax) exp.status = 'ready';
+
+            closeJoinModal();
+            renderLobby();
+
+            const finalPrice = useCoins ? exp.budget - 50 : exp.budget;
+            const deposit30 = Math.round(finalPrice * 0.30);
+            const waText = `¡Hola Lifextreme! Soy *${name}* (${phone}). Acabo de inscribirme en el grupo *${exp.target}* (Fecha: ${exp.date}, Líder: ${exp.leader}). Tarifa: S/ ${finalPrice} (Reserva 30%: S/ ${deposit30}). Quiero acceder al grupo de WhatsApp de la tribu.`;
+            window.open(`https://wa.me/51958195692?text=${encodeURIComponent(waText)}`, '_blank');
+        }
+
+        function joinViaWhatsAppDirect() {
+            const exp = expeditions.find(e => e.id === currentModalExpId);
+            if (!exp) return;
+            const name = document.getElementById('join-user-name').value.trim() || 'Viajero Lifextreme';
+            const useCoins = document.getElementById('join-use-coins').checked;
+            const finalPrice = useCoins ? exp.budget - 50 : exp.budget;
+            const deposit30 = Math.round(finalPrice * 0.30);
+
+            const waText = `¡Hola Lifextreme! Soy *${name}*. Quiero separar mi cupo en la expedición grupal *${exp.target}* para el *${exp.date}* (Tarifa: S/ ${finalPrice} | Reserva 30%: S/ ${deposit30}). ¿Me brindan el link de pago e ingreso a la tribu?`;
+            window.open(`https://wa.me/51958195692?text=${encodeURIComponent(waText)}`, '_blank');
+        }
+
+        function shareLink(id) {
+            const exp = expeditions.find(e => e.id === id);
+            if (!exp) return;
+            const text = `🏔️ ¡Hola! Estoy armando grupo en Lifextreme para ir a *${exp.target}* el *${exp.date}*. Dividiendo gastos nos sale a *S/ ${exp.budget}* por persona (separas con el 30%). ¿Te unes a la tribu? Entra aquí: https://www.lifextreme.store/community`;
+            if (navigator.share) {
+                navigator.share({ title: `Tribu Lifextreme: ${exp.target}`, text: text, url: 'https://www.lifextreme.store/community' });
+            } else {
+                window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+            }
+        }
+
+        function operatorAccept(id) {
+            const exp = expeditions.find(e => e.id === id);
+            if (!exp) return;
+            const totalValue = exp.currentPax * exp.budget;
+            const waText = `⚡ *POSTULACIÓN OPERADOR B2B LIFEXTREME*\nQuiero adjudicarme la operación del grupo *${exp.target}* (Fecha: ${exp.date} | ${exp.currentPax} pasajeros | Bolsa asegurada: S/ ${totalValue}). Cuento con logística y guías certificados disponibles.`;
+            window.open(`https://wa.me/51958195692?text=${encodeURIComponent(waText)}`, '_blank');
+        }
+
+        function openLifecoinsInfoModal() {
+            const modal = document.getElementById('modal-lifecoins-info');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeLifecoinsInfoModal() {
+            const modal = document.getElementById('modal-lifecoins-info');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function subscribeCommunityAlert() {
+            const emailInput = document.getElementById('community-alert-email');
+            const feedback = document.getElementById('community-alert-feedback');
+            if (!emailInput || !emailInput.value) return;
+
+            setSocialCoins(getSocialCoins() + 200);
+            if (feedback) {
+                feedback.textContent = `🎉 ¡Listo! Activamos alertas para ${emailInput.value} y sumamos +200 Lifecoins a tu billetera.`;
+                feedback.classList.remove('hidden');
+            }
+            emailInput.value = '';
+        }
+    </script>
 </body>
 
 </html>

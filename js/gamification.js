@@ -19,7 +19,7 @@ const Lifecoins = {
 
     updateUI() {
         // Update Balance Displays
-        document.querySelectorAll('[id^="nav-coin-balance"]').forEach(el => el.innerText = this.balance);
+        document.querySelectorAll('[id^="nav-coin-balance"], #home-module-coin-balance').forEach(el => el.innerText = this.balance);
         const heroBalance = document.getElementById('hero-balance');
         if (heroBalance) heroBalance.innerText = this.balance;
 
@@ -30,9 +30,6 @@ const Lifecoins = {
         // Animate Progress Bar (XP to Level 2)
         const progressEl = document.getElementById('xp-progress');
         if (progressEl) {
-            // Level 2 requires 1600 total. Current base 800.
-            // Progress % = (Balance - 800) / 800 * 100? No, let's just do simple:
-            // % = (Balance % 1000) / 10
             const percent = Math.min((this.balance / 1600) * 100, 100);
             progressEl.style.width = `${percent}%`;
         }
@@ -150,6 +147,13 @@ const Lifecoins = {
         const toast = document.getElementById('toast');
         const tTitle = document.getElementById('toast-title');
         const tMsg = document.getElementById('toast-msg');
+
+        if (!toast || !tTitle || !tMsg) {
+            if (typeof window.showToast === 'function') {
+                window.showToast(title, msg, 'ri-coin-fill');
+            }
+            return;
+        }
 
         tTitle.innerText = title;
         tMsg.innerText = msg;
