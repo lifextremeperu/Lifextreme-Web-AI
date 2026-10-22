@@ -1866,7 +1866,7 @@ const equips = [
 
     // CASACAS & INDUMENTARIA TÉCNICA
     {
-        name: 'Casaca Arc'teryx Alpha SV Gore-Tex Pro',
+        name: "Casaca Arc'teryx Alpha SV Gore-Tex Pro",
         cat: 'Casacas & Ropa Técnica',
         price: 3600,
         rentPrice: 70,
@@ -2065,7 +2065,7 @@ const equips = [
             cert: 'TÜV Rheinland Tested'
         },
         destinos: 'Descensos empinados de escalinatas incas y pedreras',
-        desc: 'Protege las rodillas reduciendo un 35% del impacto acumulado en bajadas técnicas como la de Dead Woman's Pass.'
+        desc: "Protege las rodillas reduciendo un 35% del impacto acumulado en bajadas técnicas como la de Dead Woman's Pass."
     },
     {
         name: 'GPS Satelital Garmin inReach Explorer+ SOS',
@@ -2093,7 +2093,7 @@ const equips = [
 
 const tourEquipmentMap = {
     'Cusco': ['The North Face Mountain 25 (4 Estaciones)', 'Bolsa de Dormir Marmot Col -29°C (800FP)', 'Osprey Aether 65 Pro Expedition', 'Bastones Black Diamond Trail Pro Shock (Par)'],
-    'Huaraz': ['Ferrino Svalbard 3P Expedición', 'Casaca Arc'teryx Alpha SV Gore-Tex Pro', 'Piolets Técnicos Petzl Quark (Par Hielo/Mixto)', 'Crampones Semiautomáticos Grivel G12 New-Matic', 'Matra Therm-a-Rest NeoAir XTherm NXT'],
+    'Huaraz': ['Ferrino Svalbard 3P Expedición', "Casaca Arc'teryx Alpha SV Gore-Tex Pro", 'Piolets Técnicos Petzl Quark (Par Hielo/Mixto)', 'Crampones Semiautomáticos Grivel G12 New-Matic', 'Matra Therm-a-Rest NeoAir XTherm NXT'],
     'Iquitos': ['MSR Hubba Hubba NX 2P Ultraligera', 'GPS Satelital Garmin inReach Explorer+ SOS'],
     'Piura': ['MSR Hubba Hubba NX 2P Ultraligera', 'Bastones Black Diamond Trail Pro Shock (Par)'],
     'ICA': ['Osprey Aether 65 Pro Expedition', 'GPS Satelital Garmin inReach Explorer+ SOS'],
@@ -2105,7 +2105,7 @@ const tourEquipmentMap = {
 const kitTemplates = {
     'Alta Montaña': {
         name: 'Kit Glaciar & Cumbres 6000m',
-        items: ['The North Face Mountain 25 (4 Estaciones)', 'Casaca Arc'teryx Alpha SV Gore-Tex Pro', 'Piolets Técnicos Petzl Quark (Par Hielo/Mixto)', 'Crampones Semiautomáticos Grivel G12 New-Matic'],
+        items: ['The North Face Mountain 25 (4 Estaciones)', "Casaca Arc'teryx Alpha SV Gore-Tex Pro", 'Piolets Técnicos Petzl Quark (Par Hielo/Mixto)', 'Crampones Semiautomáticos Grivel G12 New-Matic'],
         icon: 'ri-landscape-line',
         description: 'Equipamiento de expedición polar y alta cota auditado bajo normativa UIAGM.'
     },

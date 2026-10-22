@@ -1232,10 +1232,10 @@ async function renderGuides() {
 
     const guides = window.guides || [];
     grid.innerHTML = guides.map((guide) => `
-        <div class="bg-white rounded-[44px] overflow-hidden border border-slate-100 group hover:shadow-2xl transition-all duration-500 flex flex-col h-full shadow-sm">
+        <div class="neuro-card bg-slate-900/85 backdrop-blur-md text-white rounded-[44px] overflow-hidden border border-white/10 hover:border-amber-400/50 group hover:shadow-[0_20px_45px_rgba(245,158,11,0.18)] transition-all duration-500 flex flex-col h-full shadow-xl">
             <div class="h-72 overflow-hidden relative bg-slate-900">
                 <div class="skeleton-loader absolute inset-0"></div>
-                <img src="${guide.img}?w=600" loading="lazy" class="h-full w-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105 img-reveal" onload="this.classList.add('loaded'); if(this.previousElementSibling) this.previousElementSibling.style.display='none';">
+                <img src="${guide.img}?w=600" loading="lazy" class="h-full w-full object-cover group-hover:scale-105 transition-all duration-700 img-reveal" onload="this.classList.add('loaded'); if(this.previousElementSibling) this.previousElementSibling.style.display='none';">
                 
                 <!-- Region & Verification Badges -->
                 <div class="absolute top-4 left-4 flex flex-col gap-1.5 z-10">
@@ -1256,8 +1256,8 @@ async function renderGuides() {
             <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-6">
                 <div>
                     <div class="flex items-center justify-between mb-2">
-                        <h4 class="font-black italic text-2xl text-slate-900 leading-tight">${guide.name}</h4>
-                        <span class="text-[10px] font-black bg-emerald-50 text-emerald-700 border border-emerald-200 px-2.5 py-1 rounded-full shrink-0">
+                        <h4 class="font-black italic text-2xl text-white group-hover:text-amber-300 transition-colors leading-tight">${guide.name}</h4>
+                        <span class="text-[10px] font-black bg-amber-400/15 text-amber-300 border border-amber-400/30 px-2.5 py-1 rounded-full shrink-0">
                             ⭐ ${guide.exp}
                         </span>
                     </div>
@@ -1265,25 +1265,25 @@ async function renderGuides() {
                         🗣️ Idiomas: ${(guide.languages || []).join(' • ')}
                     </p>
                     
-                    <p class="text-xs font-medium text-slate-600 leading-relaxed mb-4">
+                    <p class="text-xs font-medium text-slate-300 leading-relaxed mb-4">
                         ${guide.desc || ''}
                     </p>
                     
                     ${guide.cert ? `
-                    <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100 mb-4 flex items-center gap-2.5">
-                        <i class="ri-verified-badge-fill text-primary text-lg shrink-0"></i>
-                        <span class="text-[10px] font-black text-slate-700 leading-tight">${guide.cert}</span>
+                    <div class="bg-white/5 p-3 rounded-2xl border border-white/10 mb-4 flex items-center gap-2.5">
+                        <i class="ri-verified-badge-fill text-amber-400 text-lg shrink-0"></i>
+                        <span class="text-[10px] font-black text-slate-200 leading-tight">${guide.cert}</span>
                     </div>` : ''}
                 </div>
                 
-                <div class="space-y-2 pt-4 border-t border-slate-100 mt-auto">
+                <div class="space-y-2 pt-4 border-t border-white/10 mt-auto">
                     <button onclick="window.openGuideHireModal('${guide.name.replace(/'/g, "\\'")}', ${guide.id});" 
-                        class="w-full py-3.5 bg-slate-900 hover:bg-primary text-white rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer">
+                        class="w-full py-3.5 bg-amber-400 hover:bg-amber-300 text-slate-950 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer">
                         <i class="ri-file-list-3-line"></i> Ver Itinerario & Recomendaciones
                     </button>
                     <a href="https://wa.me/51958050928?text=${encodeURIComponent('Hola Lifextreme! Deseo consultar disponibilidad para contratar al guía certificado ' + guide.name + ' en ' + (guide.region || 'Perú') + '.')}" 
                         target="_blank" rel="noopener"
-                        class="w-full py-3 bg-emerald-50 hover:bg-emerald-500 text-emerald-700 hover:text-white border border-emerald-200 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all flex items-center justify-center gap-2">
+                        class="w-full py-3 bg-emerald-500/15 hover:bg-emerald-500 text-emerald-300 hover:text-slate-950 border border-emerald-500/30 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all flex items-center justify-center gap-2">
                         <i class="ri-whatsapp-fill text-base"></i> Consultar Disponibilidad
                     </a>
                 </div>
@@ -1297,43 +1297,69 @@ function renderAll(region = 'Todos', category = 'Todos') {
     const grid = document.getElementById('destinos-grid');
     if (!grid) return;
 
-    const filtered = (region === 'Todos') ? tours : tours.filter(t => t.dept === region);
+    const allTours = (typeof tours !== 'undefined') ? tours : (window.tours || []);
+    const filtered = (region === 'Todos') ? allTours : allTours.filter(t => t.dept === region);
     grid.innerHTML = filtered.map((t, i) => {
         const tourPrice = window.PriceEngine ? window.PriceEngine.format(t.price) : `S/ ${t.price}`;
+        const isMapi = t.title.toLowerCase().includes('machu picchu');
+        const isKuelap = t.title.toLowerCase().includes('kuélap') || t.title.toLowerCase().includes('kuelap');
+        let liveTelemetryBadge = '';
+        if (isMapi) {
+            liveTelemetryBadge = `
+            <div class="mb-3 px-3 py-1.5 rounded-xl bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-between text-[10px]">
+                <span class="flex items-center gap-1.5 text-emerald-400 font-bold">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    TuBoleto Cultura: 284 cupos en vivo
+                </span>
+                <span class="text-slate-400 text-[9px] font-medium">Tren: Asientos OK</span>
+            </div>`;
+        } else if (isKuelap) {
+            liveTelemetryBadge = `
+            <div class="mb-3 px-3 py-1.5 rounded-xl bg-amber-500/10 border border-amber-500/25 flex items-center justify-between text-[10px]">
+                <span class="flex items-center gap-1.5 text-amber-400 font-bold">
+                    <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+                    Telecabinas Kuélap: Operativas
+                </span>
+                <span class="text-slate-400 text-[9px] font-medium">Monitoreo Oficial</span>
+            </div>`;
+        }
+
         return `
-        <div class="bg-white rounded-[40px] overflow-hidden group cursor-pointer shadow-sm hover:shadow-xl transition-all animate-card-entry relative" 
+        <div class="neuro-card bg-slate-900/85 backdrop-blur-md text-white rounded-[40px] overflow-hidden group cursor-pointer shadow-xl hover:shadow-[0_20px_45px_rgba(245,158,11,0.18)] transition-all animate-card-entry relative border border-white/10 hover:border-amber-400/50" 
              style="animation-delay: ${i * 40}ms; animation-fill-mode: both;"
              data-action="open-booking" data-id="${t.id}">
             <!-- Share Button Overlay -->
             <div class="card-share-overlay">
                 <button 
                     class="share-btn-compact" 
-                    onclick="event.stopPropagation(); window.ShareEngine.shareViaWhatsApp({id: ${t.id}, title: '${t.title.replace(/'/g, "\\'")}'', dept: '${t.dept}', duration: '${t.duration}', price: ${t.price}}, 'tour');"
+                    onclick="event.stopPropagation(); window.ShareEngine.shareViaWhatsApp({id: ${t.id}, title: '${t.title.replace(/'/g, "\\'")}', dept: '${t.dept}', duration: '${t.duration}', price: ${t.price}}, 'tour');"
                     title="Invitar a un amigo">
-                    <i class="ri-whatsapp-line"></i>
+                    <i class="ri-whatsapp-line text-emerald-400"></i>
                 </button>
             </div>
-            <div class="h-64 overflow-hidden relative bg-slate-100">
+            <div class="h-64 overflow-hidden relative bg-slate-950">
                 <div class="skeleton-loader absolute inset-0"></div>
                 <img src="${t.img}?w=500" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-700 img-reveal" onload="this.classList.add('loaded'); if(this.previousElementSibling) this.previousElementSibling.style.display='none';">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-transparent to-transparent"></div>
             </div>
             <div class="p-8">
-                <div class="flex justify-between mb-2">
-                    <p class="text-[9px] font-black text-primary uppercase">${t.dept}</p>
+                <div class="flex justify-between items-center mb-2">
+                    <p class="text-[9px] font-black text-amber-400 uppercase tracking-widest">${t.dept}</p>
                     <div class="flex items-center gap-2">
                         <button 
                             onclick="event.stopPropagation(); window.ShareEngine.copyLinkToClipboard('tour', ${t.id});" 
-                            class="text-slate-300 hover:text-primary transition-colors z-10 relative" 
+                            class="text-slate-400 hover:text-amber-400 transition-colors z-10 relative" 
                             title="Copiar link">
                             <i class="ri-link text-sm"></i>
                         </button>
-                        <button data-action="toggle-wishlist" data-id="${t.id}" class="${wishlist.includes(t.id) ? 'text-secondary' : 'text-slate-200'} z-10 relative"><i class="ri-heart-pulse-fill"></i></button>
+                        <button data-action="toggle-wishlist" data-id="${t.id}" class="${wishlist.includes(t.id) ? 'text-secondary' : 'text-slate-500 hover:text-rose-400'} z-10 relative"><i class="ri-heart-pulse-fill"></i></button>
                     </div>
                 </div>
-                <h3 class="text-xl font-black italic mb-6">${t.title}</h3>
-                <div class="flex justify-between items-center pt-6 border-t font-black">
-                    <span class="text-2xl italic">${tourPrice}</span>
-                    <i class="ri-arrow-right-line text-primary"></i>
+                ${liveTelemetryBadge}
+                <h3 class="text-xl font-black italic mb-6 text-white group-hover:text-amber-300 transition-colors">${t.title}</h3>
+                <div class="flex justify-between items-center pt-6 border-t border-white/10 font-black">
+                    <span class="text-2xl italic text-amber-400">${tourPrice}</span>
+                    <i class="ri-arrow-right-line text-amber-400 text-xl group-hover:translate-x-1.5 transition-transform"></i>
                 </div>
             </div>
         </div>
@@ -1348,7 +1374,7 @@ function renderAll(region = 'Todos', category = 'Todos') {
     // Handle Equipment grid if it exists
     const equipGrid = document.getElementById('equip-grid');
     if (equipGrid) {
-        let equipsData = window.equips || [];
+        let equipsData = (typeof equips !== 'undefined') ? equips : (window.equips || []);
         if (category !== 'Todos') {
             equipsData = equipsData.filter(e => e.cat === category);
         }
@@ -1360,11 +1386,11 @@ function renderAll(region = 'Todos', category = 'Todos') {
             const imgId = `equip-img-${i}`;
 
             return `
-            <div class="bg-white rounded-[36px] border border-slate-100 shadow-sm hover:shadow-xl transition-all p-6 sm:p-7 flex flex-col justify-between animate-card-entry" style="animation-delay: ${i * 40}ms; animation-fill-mode: both;">
+            <div class="neuro-card bg-slate-900/85 backdrop-blur-md rounded-[36px] border border-white/10 hover:border-amber-400/50 shadow-xl hover:shadow-[0_20px_45px_rgba(245,158,11,0.18)] transition-all p-6 sm:p-7 flex flex-col justify-between animate-card-entry text-white" style="animation-delay: ${i * 40}ms; animation-fill-mode: both;">
                 <div>
                     <!-- Top Category & Recommend Destinos -->
                     <div class="flex items-center justify-between gap-2 mb-3">
-                        <span class="bg-indigo-50 text-primary border border-indigo-100 text-[9px] font-black uppercase px-3 py-1 rounded-full tracking-wider">
+                        <span class="bg-amber-400/15 text-amber-300 border border-amber-400/30 text-[9px] font-black uppercase px-3 py-1 rounded-full tracking-wider">
                             ${e.cat}
                         </span>
                         ${e.destinos ? `
@@ -1393,21 +1419,21 @@ function renderAll(region = 'Todos', category = 'Todos') {
                         </div>
                     </div>
 
-                    <h4 class="font-black italic text-lg sm:text-xl text-slate-900 leading-snug mb-2">${e.name}</h4>
-                    <p class="text-xs text-slate-500 mb-4 leading-relaxed">${e.desc || ''}</p>
+                    <h4 class="font-black italic text-lg sm:text-xl text-white group-hover:text-amber-300 transition-colors leading-snug mb-2">${e.name}</h4>
+                    <p class="text-xs text-slate-300 mb-4 leading-relaxed">${e.desc || ''}</p>
 
                     <!-- Technical Specs Grid -->
                     ${e.specs ? `
-                    <div class="grid grid-cols-2 gap-2 bg-slate-50 p-3 rounded-2xl border border-slate-100 text-[10px] font-bold text-slate-600 mb-4">
-                        ${e.specs.peso ? `<div><strong class="text-slate-900 block text-[9px] uppercase text-slate-400">Peso</strong> ${e.specs.peso}</div>` : ''}
-                        ${e.specs.temp ? `<div><strong class="text-slate-900 block text-[9px] uppercase text-slate-400">Rango Temp / Viento</strong> ${e.specs.temp}</div>` : ''}
-                        ${e.specs.impermeable ? `<div><strong class="text-slate-900 block text-[9px] uppercase text-slate-400">Impermeabilidad</strong> ${e.specs.impermeable}</div>` : ''}
-                        ${e.specs.cert ? `<div><strong class="text-slate-900 block text-[9px] uppercase text-slate-400">Norma / Cert.</strong> ${e.specs.cert}</div>` : ''}
+                    <div class="grid grid-cols-2 gap-2 bg-white/5 p-3 rounded-2xl border border-white/10 text-[10px] font-bold text-slate-300 mb-4">
+                        ${e.specs.peso ? `<div><strong class="text-white block text-[9px] uppercase text-slate-400">Peso</strong> ${e.specs.peso}</div>` : ''}
+                        ${e.specs.temp ? `<div><strong class="text-white block text-[9px] uppercase text-slate-400">Rango Temp / Viento</strong> ${e.specs.temp}</div>` : ''}
+                        ${e.specs.impermeable ? `<div><strong class="text-white block text-[9px] uppercase text-slate-400">Impermeabilidad</strong> ${e.specs.impermeable}</div>` : ''}
+                        ${e.specs.cert ? `<div><strong class="text-white block text-[9px] uppercase text-slate-400">Norma / Cert.</strong> ${e.specs.cert}</div>` : ''}
                     </div>` : ''}
 
                     <!-- Express Delivery Option -->
                     <div class="mb-4">
-                        <label class="flex items-center gap-2 text-[10px] font-bold text-slate-700 bg-amber-50/70 hover:bg-amber-100/70 p-3 rounded-2xl border border-amber-200/80 cursor-pointer transition-all">
+                        <label class="flex items-center gap-2 text-[10px] font-bold text-slate-200 bg-white/5 hover:bg-white/10 p-3 rounded-2xl border border-white/10 cursor-pointer transition-all">
                             <input type="checkbox" class="accent-amber-500 w-4 h-4 rounded cursor-pointer" onchange="window.toggleEquipDelivery(${i}, this.checked)">
                             <span>🚚 <strong>Delivery Express</strong> a mi Hotel/Agencia en Cusco o Huaraz (+S/ 25.00)</span>
                         </label>
@@ -1415,10 +1441,10 @@ function renderAll(region = 'Todos', category = 'Todos') {
                 </div>
 
                 <!-- Price & Action Buttons -->
-                <div class="grid grid-cols-2 gap-2 pt-3 border-t border-slate-100">
+                <div class="grid grid-cols-2 gap-2 pt-3 border-t border-white/10">
                     <button type="button" onclick="const del = window.selectedEquipDeliveries[${i}]; const p = ${e.price} + (del ? 25 : 0); const n = '${e.name.replace(/'/g, "\\'")}' + (del ? ' (+ Delivery Express)' : ''); addToCartShort(n, p, 'sale', '${e.img}');"
-                        class="flex flex-col items-center justify-center bg-slate-900 hover:bg-primary text-white p-3 rounded-2xl transition-all cursor-pointer shadow-sm group">
-                        <span class="text-[9px] font-bold text-slate-300 uppercase mb-0.5 group-hover:text-white">Comprar</span>
+                        class="flex flex-col items-center justify-center bg-amber-400 hover:bg-amber-300 text-slate-950 p-3 rounded-2xl transition-all cursor-pointer shadow-sm group">
+                        <span class="text-[9px] font-black uppercase mb-0.5">Comprar</span>
                         <span class="text-sm font-black italic">${buyPrice}</span>
                     </button>
                     
@@ -1451,7 +1477,8 @@ function renderEvents(region = 'Todos') {
     const grid = document.getElementById('events-grid');
     if (!grid) return;
 
-    const filtered = (region === 'Todos') ? events : events.filter(e => e.dept === region);
+    const allEvents = (typeof events !== 'undefined') ? events : (window.events || []);
+    const filtered = (region === 'Todos') ? allEvents : allEvents.filter(e => e.dept === region);
 
     if (filtered.length === 0) {
         grid.innerHTML = `<div class="col-span-full py-20 text-center opacity-40"><i class="ri-calendar-event-line text-5xl mb-4 block"></i><p class="font-black italic">${translations[currentLang].status_no_events}</p></div>`;
@@ -1461,52 +1488,53 @@ function renderEvents(region = 'Todos') {
     grid.innerHTML = filtered.map(e => {
         const eventPrice = window.PriceEngine ? window.PriceEngine.format(e.price) : `S/ ${e.price}`;
         return `
-        <div class="bg-white rounded-[48px] overflow-hidden group shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-50 flex flex-col h-full relative" data-action="open-booking" data-id="${e.id}">
+        <div class="neuro-card bg-slate-900/85 backdrop-blur-md text-white rounded-[44px] overflow-hidden group shadow-xl hover:shadow-[0_20px_45px_rgba(244,63,94,0.18)] transition-all duration-500 border border-white/10 hover:border-rose-400/50 flex flex-col h-full relative" data-action="open-booking" data-id="${e.id}">
             <!-- Share Button Overlay -->
             <div class="card-share-overlay">
                 <button 
                     class="share-btn-compact" 
                     onclick="event.stopPropagation(); window.ShareEngine.shareViaWhatsApp({id: ${e.id}, title: '${e.title.replace(/'/g, "\\'")}'', dept: '${e.dept}', date: '${e.date} ${e.month}', price: ${e.price}}, 'event');"
                     title="Invitar a un amigo">
-                    <i class="ri-whatsapp-line"></i>
+                    <i class="ri-whatsapp-line text-emerald-400"></i>
                 </button>
             </div>
-            <div class="h-64 overflow-hidden relative bg-slate-100">
+            <div class="h-64 overflow-hidden relative bg-slate-950">
                 <div class="skeleton-loader absolute inset-0"></div>
                 <img src="${e.img}?w=500" loading="lazy" class="h-full w-full object-cover group-hover:scale-110 transition-all duration-700 img-reveal" onload="this.classList.add('loaded'); if(this.previousElementSibling) this.previousElementSibling.style.display='none';">
-                <div class="absolute top-6 left-6 bg-white/90 backdrop-blur-md px-4 py-3 rounded-2xl shadow-sm text-center min-w-[60px]">
-                    <p class="text-xs font-black text-primary leading-none">${e.date}</p>
-                    <p class="text-[8px] font-black text-slate-400 uppercase tracking-widest mt-1">${e.month}</p>
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-transparent to-transparent"></div>
+                <div class="absolute top-6 left-6 bg-slate-900/90 backdrop-blur-md px-4 py-3 rounded-2xl shadow-sm text-center min-w-[60px] border border-white/15">
+                    <p class="text-xs font-black text-amber-400 leading-none">${e.date}</p>
+                    <p class="text-[8px] font-black text-slate-300 uppercase tracking-widest mt-1">${e.month}</p>
                 </div>
-                <div class="absolute bottom-6 right-6 bg-primary/90 backdrop-blur-md px-4 py-2 rounded-xl text-white text-[9px] font-black uppercase tracking-widest shadow-lg">
+                <div class="absolute bottom-6 right-6 bg-gradient-to-r from-rose-600 to-orange-500 backdrop-blur-md px-4 py-2 rounded-xl text-white text-[9px] font-black uppercase tracking-widest shadow-lg">
                     ${e.cat}
                 </div>
             </div>
-            <div class="p-10 flex-1 flex flex-col justify-between">
+            <div class="p-8 sm:p-10 flex-1 flex flex-col justify-between">
                 <div>
                     <div class="flex justify-between items-start mb-3">
-                        <p class="text-[9px] font-black text-primary uppercase tracking-[0.3em]">${e.dept}</p>
+                        <p class="text-[9px] font-black text-amber-400 uppercase tracking-[0.3em]">${e.dept}</p>
                         <button 
                             onclick="event.stopPropagation(); window.ShareEngine.copyLinkToClipboard('event', ${e.id});" 
-                            class="text-slate-300 hover:text-primary transition-colors" 
+                            class="text-slate-400 hover:text-amber-400 transition-colors" 
                             title="Copiar link">
                             <i class="ri-link text-sm"></i>
                         </button>
                     </div>
-                    <h4 class="text-2xl font-black italic text-slate-900 mb-4 leading-tight">${e.title}</h4>
-                    <p class="text-xs font-bold text-slate-500 mb-8">${e.detail}</p>
+                    <h4 class="text-2xl font-black italic text-white mb-4 leading-tight group-hover:text-amber-300 transition-colors">${e.title}</h4>
+                    <p class="text-xs font-medium text-slate-300 mb-6 leading-relaxed">${e.detail}</p>
                     
-                    <div class="flex flex-wrap gap-2 mb-8">
-                        ${e.whatYouDo.map(tag => `<span class="bg-slate-50 text-slate-400 px-3 py-1.5 rounded-lg text-[8px] font-black uppercase tracking-wider border border-slate-100">${tag}</span>`).join('')}
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        ${e.whatYouDo.map(tag => `<span class="bg-white/5 text-slate-300 px-3 py-1.5 rounded-lg text-[8px] font-black uppercase tracking-wider border border-white/10">${tag}</span>`).join('')}
                     </div>
                 </div>
                 
-                <div class="flex items-center justify-between pt-8 border-t border-slate-50">
+                <div class="flex items-center justify-between pt-6 border-t border-white/10">
                     <div>
                         <p class="text-[8px] font-black text-slate-400 uppercase tracking-widest mb-1">${translations[currentLang].card_inscription}</p>
-                        <p class="text-2xl font-black italic text-slate-900">${eventPrice}</p>
+                        <p class="text-2xl font-black italic text-amber-400">${eventPrice}</p>
                     </div>
-                    <button class="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all shadow-sm">
+                    <button class="w-12 h-12 bg-white/10 hover:bg-amber-400 hover:text-slate-950 rounded-2xl flex items-center justify-center text-white transition-all shadow-sm">
                         <i class="ri-arrow-right-up-line text-xl"></i>
                     </button>
                 </div>
@@ -1549,11 +1577,13 @@ function setupEventListeners() {
         const target = e.target.closest('[data-action]');
         if (!target) return;
 
-        // Evitar comportamiento default si es un link vacio
-        if (target.tagName === 'A' && target.getAttribute('href') === '#') e.preventDefault();
-
         const action = target.dataset.action;
         const data = target.dataset;
+
+        // Evitar comportamiento default si es un enlace de navegacion o enlace hash
+        if (target.tagName === 'A' && (action === 'navigate' || action === 'mobile-navigate' || target.getAttribute('href')?.startsWith('#'))) {
+            e.preventDefault();
+        }
 
         // Router de Acciones
         switch (action) {
@@ -1664,6 +1694,9 @@ document.addEventListener('DOMContentLoaded', () => {
     updateLanguageUI();
     setupEventListeners(); // NEW: Hook up global event delegation
     renderAll();
+    if (typeof renderEvents === 'function') renderEvents();
+    if (typeof renderGuides === 'function') renderGuides();
+    if (typeof window.initInfrastructure === 'function') window.initInfrastructure();
     updateCart();
     if (window.FOMOEngine) FOMOEngine.init();
     if (window.SensoryEngine) SensoryEngine.init();
@@ -1811,6 +1844,7 @@ function navigateTo(id) {
         id = 'home';
         document.querySelectorAll('.section-view').forEach(s => s.classList.remove('active'));
         document.getElementById('section-' + id)?.classList.add('active');
+        if (typeof renderAll === 'function') renderAll();
         setTimeout(() => {
             const destContainer = document.getElementById('home-destinos-container');
             if (destContainer) destContainer.scrollIntoView({ behavior: 'smooth' });
@@ -1819,8 +1853,30 @@ function navigateTo(id) {
     }
 
     document.querySelectorAll('.section-view').forEach(s => s.classList.remove('active'));
-    document.getElementById('section-' + id)?.classList.add('active');
-    if (id === 'socio') { updateWishlistDashboard(); }
+    const targetSection = document.getElementById('section-' + id);
+    if (targetSection) {
+        targetSection.classList.add('active');
+    }
+
+    // Explicitly re-render module grids so contents are never blank
+    if (id === 'socio') {
+        if (typeof updateWishlistDashboard === 'function') updateWishlistDashboard();
+    } else if (id === 'eventos') {
+        if (typeof renderEvents === 'function') renderEvents();
+    } else if (id === 'guias') {
+        if (typeof renderGuides === 'function') renderGuides();
+    } else if (id === 'equipos') {
+        if (typeof renderAll === 'function') renderAll('Todos', 'Todos');
+    } else if (id === 'infraestructura') {
+        if (typeof window.initInfrastructure === 'function') {
+            window.initInfrastructure();
+        } else if (typeof renderInfrastructure === 'function' && window.parks) {
+            renderInfrastructure(window.parks);
+        }
+    } else if (id === 'home') {
+        if (typeof renderAll === 'function') renderAll();
+    }
+
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 

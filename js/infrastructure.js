@@ -2,23 +2,34 @@
 // LIFEXTREME INFRASTRUCTURE (LOCAL DATA)
 // ============================================
 
-// Inicializar directamente
-initInfrastructure();
-
 let allInfrastructure = [];
 
 function initInfrastructure() {
     const grid = document.getElementById('infra-grid');
     if (!grid) return;
 
-    // Simulate small network delay for effect
-    grid.innerHTML = `<div class="col-span-full flex justify-center"><div class="animate-spin text-primary text-4xl"><i class="ri-loader-4-line"></i></div></div>`;
-
-    setTimeout(() => {
-        allInfrastructure = window.parks || [];
+    allInfrastructure = window.parks || [];
+    if (allInfrastructure.length > 0) {
         renderRegionFilters(allInfrastructure);
         renderInfrastructure(allInfrastructure);
-    }, 500);
+    } else {
+        grid.innerHTML = `<div class="col-span-full flex justify-center"><div class="animate-spin text-primary text-4xl"><i class="ri-loader-4-line"></i></div></div>`;
+        setTimeout(() => {
+            allInfrastructure = window.parks || [];
+            renderRegionFilters(allInfrastructure);
+            renderInfrastructure(allInfrastructure);
+        }, 300);
+    }
+}
+
+window.initInfrastructure = initInfrastructure;
+window.renderInfrastructure = renderInfrastructure;
+
+// Inicializar directamente
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initInfrastructure);
+} else {
+    initInfrastructure();
 }
 
 function renderRegionFilters(items) {
@@ -63,28 +74,29 @@ function renderInfrastructure(items) {
         const safeName = (item.nombre_infraestructura || 'Parque de Aventura').replace(/'/g, "\\'");
 
         return `
-        <div class="group bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col">
-            <div class="relative h-48 overflow-hidden">
+        <div class="neuro-card bg-slate-900/85 backdrop-blur-md rounded-3xl overflow-hidden border border-white/10 hover:border-amber-400/50 shadow-xl hover:shadow-[0_20px_45px_rgba(245,158,11,0.18)] transition-all duration-300 flex flex-col group">
+            <div class="relative h-48 overflow-hidden bg-slate-950">
                 <img src="${bgImg}" alt="${item.nombre_infraestructura}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[9px] font-black uppercase text-slate-800 shadow-sm">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
+                <div class="absolute top-4 left-4 bg-slate-900/90 backdrop-blur px-3 py-1 rounded-full text-[9px] font-black uppercase text-amber-400 border border-white/15 shadow-sm">
                     ${item.tipo}
                 </div>
-                <div class="absolute bottom-4 right-4 bg-emerald-500 text-white px-3 py-1 rounded-full text-[9px] font-black uppercase shadow-sm flex items-center gap-1">
+                <div class="absolute bottom-4 right-4 bg-emerald-500 text-slate-950 font-black px-3 py-1 rounded-full text-[9px] uppercase shadow-sm flex items-center gap-1">
                     <i class="ri-shield-check-fill"></i> ${certs}
                 </div>
             </div>
             <div class="p-6 flex-1 flex flex-col">
                 <div class="flex items-start justify-between gap-4 mb-2">
-                    <h3 class="text-xl font-black text-slate-900 leading-tight">${item.nombre_infraestructura}</h3>
+                    <h3 class="text-xl font-black text-white group-hover:text-amber-300 transition-colors leading-tight">${item.nombre_infraestructura}</h3>
                 </div>
                 <p class="text-xs font-bold text-slate-400 mb-4 flex items-center gap-1">
-                    <i class="ri-map-pin-2-fill text-primary"></i> ${ubigeo}
+                    <i class="ri-map-pin-2-fill text-amber-400"></i> ${ubigeo}
                 </p>
-                <p class="text-sm text-slate-600 mb-6 flex-1 line-clamp-3">${desc}</p>
+                <p class="text-sm text-slate-300 mb-6 flex-1 line-clamp-3 leading-relaxed">${desc}</p>
                 
-                <div class="flex items-center justify-between border-t border-slate-100 pt-4 mt-auto gap-2">
+                <div class="flex items-center justify-between border-t border-white/10 pt-4 mt-auto gap-2">
                     <div class="text-[10px] font-bold text-slate-400 uppercase">
-                        Op: <span class="text-slate-700">Lifextreme Partner</span>
+                        Op: <span class="text-slate-200">Lifextreme Partner</span>
                     </div>
                     <div class="flex items-center gap-2">
                         <button type="button" onclick="if(window.maxAddToCartAndPay){window.maxAddToCartAndPay('${safeName}', 180, 1);}else{window.open('${linkAction}','_blank');}" class="bg-primary text-white px-3 py-2 rounded-xl text-[10px] font-black uppercase hover:bg-indigo-700 transition-colors flex items-center gap-1 shadow-md" title="Añadir al Carrito">

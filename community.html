@@ -41,7 +41,7 @@
     </script>
 </head>
 
-<body class="bg-slate-950 text-white selection:bg-primary selection:text-white">
+<body class="neuro-canvas-dark text-white selection:bg-primary selection:text-white">
 
     <!-- HEADER MEJORADO CON BILLETERA LIFECOINS Y ACCESO RÁPIDO -->
     <header class="fixed top-0 w-full z-50 bg-slate-950/85 backdrop-blur-xl border-b border-white/10">
@@ -158,78 +158,102 @@
             </div>
         </section>
 
-        <!-- SECCIÓN EXPLICATIVA CLARA Y PRÁCTICA: ¿CÓMO FUNCIONA EL SISTEMA? -->
+        <!-- SECCIÓN EXPLICATIVA CLARA Y PRÁCTICA: SISTEMA EN 3 CLICS (NEUROMARKETING OPTIMIZADO) -->
         <section id="como-funciona" class="container mx-auto px-4 md:px-6 py-12">
-            <div class="bg-slate-900/90 border border-slate-800 rounded-[36px] p-6 md:p-10 lg:p-12 relative overflow-hidden">
-                <div class="absolute -top-24 -right-24 w-72 h-72 bg-secondary/10 rounded-full blur-[90px] pointer-events-none"></div>
+            <div class="bg-slate-900/80 backdrop-blur-xl border border-white/10 rounded-[36px] md:rounded-[44px] p-6 md:p-10 lg:p-12 relative overflow-hidden shadow-2xl">
+                <!-- Ambient Neuromarketing Glows -->
+                <div class="absolute -top-24 -left-24 w-80 h-80 bg-amber-500/15 rounded-full blur-[100px] pointer-events-none"></div>
+                <div class="absolute -bottom-24 -right-24 w-80 h-80 bg-indigo-500/15 rounded-full blur-[100px] pointer-events-none"></div>
 
-                <div class="text-center max-w-3xl mx-auto mb-10">
-                    <span class="text-[10px] font-black uppercase tracking-[0.25em] text-amber-400 bg-amber-500/10 border border-amber-500/30 px-3.5 py-1 rounded-full">Guía Práctica del Usuario</span>
-                    <h3 class="text-2xl md:text-4xl font-black italic mt-4 mb-3">¿Cómo Funciona Lifextreme Social paso a paso?</h3>
-                    <p class="text-slate-400 text-sm md:text-base">
-                        Funciona como un <strong class="text-white">"Uber + Compra Grupal para Expediciones"</strong>: cuantos más viajeros se unen a una fecha, menor es el costo por persona y mayores son los beneficios para todos.
+                <div class="text-center max-w-3xl mx-auto mb-10 relative z-10">
+                    <span class="text-[9px] md:text-[10px] font-black uppercase tracking-[0.28em] text-amber-300 bg-amber-500/15 border border-amber-400/30 px-4 py-1.5 rounded-full shadow-sm">
+                        ⚡ Ultra Simple • Sin Enredos • 100% Transparente
+                    </span>
+                    <h3 class="text-2xl sm:text-3xl md:text-5xl font-black italic mt-4 mb-3 tracking-tight">
+                        Todo el Viaje en <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-rose-400">3 Simples Clics</span>
+                    </h3>
+                    <p class="text-slate-300 text-sm md:text-base leading-relaxed">
+                        Compra en grupo con amigos o conoce a otros aventureros. Cuantos más seamos, <strong class="text-white">menor es el precio para todos</strong>.
                     </p>
                 </div>
 
-                <!-- 4 PASOS PRÁCTICOS -->
-                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
-                    <!-- Paso 1 -->
-                    <div class="bg-slate-950/80 border border-slate-800 hover:border-primary/60 rounded-3xl p-6 transition-all relative">
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="w-10 h-10 rounded-2xl bg-primary/20 border border-primary/40 text-indigo-400 font-black flex items-center justify-center text-lg">1</span>
-                            <span class="text-[10px] font-black uppercase tracking-widest text-indigo-400 bg-indigo-500/10 px-2.5 py-1 rounded-md">Explora o Crea</span>
+                <!-- LOS 3 CLICS DE ALTA CONVERSIÓN -->
+                <div class="grid md:grid-cols-3 gap-6 mb-10 relative z-10">
+                    <!-- Clic 1 -->
+                    <div class="neuro-card bg-slate-950/70 border border-white/10 hover:border-amber-400/50 rounded-3xl p-6 md:p-8 transition-all flex flex-col justify-between group">
+                        <div>
+                            <div class="flex items-center justify-between mb-5">
+                                <div class="w-12 h-12 rounded-2xl bg-amber-400/15 border border-amber-400/30 text-amber-300 font-black flex items-center justify-center text-xl shadow-sm group-hover:scale-110 transition-transform">
+                                    1
+                                </div>
+                                <span class="text-[9px] font-black uppercase tracking-widest text-amber-300 bg-amber-400/10 px-3 py-1 rounded-full border border-amber-400/20">
+                                    Clic 1
+                                </span>
+                            </div>
+                            <h4 class="font-black italic text-xl text-white mb-2 group-hover:text-amber-300 transition-colors">
+                                Elige o Crea tu Salida
+                            </h4>
+                            <p class="text-xs text-slate-300 leading-relaxed mb-4">
+                                Explora las expediciones abiertas y elige una fecha. ¿Quieres salir otro día o con tu propia mancha? <strong class="text-white">Crea tu grupo en 30 segundos gratis</strong> sin pagar nada.
+                            </p>
                         </div>
-                        <h4 class="font-black text-base text-white mb-2">Elige tu Ruta y Fecha</h4>
-                        <p class="text-xs text-slate-400 leading-relaxed mb-3">
-                            Entra al <strong class="text-slate-200">Lobby de Expediciones</strong>, revisa qué incluye la ruta, el perfil del grupo y cuántos cupos faltan. ¿No está tu fecha? Créala en 30 segundos.
-                        </p>
-                        <div class="text-[11px] font-bold text-indigo-300 flex items-center gap-1.5">
-                            <i class="ri-checkbox-circle-fill"></i> Sin cobros por publicar
-                        </div>
-                    </div>
-
-                    <!-- Paso 2 -->
-                    <div class="bg-slate-950/80 border border-slate-800 hover:border-secondary/60 rounded-3xl p-6 transition-all relative">
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="w-10 h-10 rounded-2xl bg-secondary/20 border border-secondary/40 text-rose-400 font-black flex items-center justify-center text-lg">2</span>
-                            <span class="text-[10px] font-black uppercase tracking-widest text-rose-400 bg-rose-500/10 px-2.5 py-1 rounded-md">Inscripción 30s</span>
-                        </div>
-                        <h4 class="font-black text-base text-white mb-2">Inscríbete y Usa Lifecoins</h4>
-                        <p class="text-xs text-slate-400 leading-relaxed mb-3">
-                            Haz clic en <strong class="text-slate-200">"Unirme / Reservar Cupo"</strong>, completa tu nombre y WhatsApp, aplica tus <strong class="text-amber-400">Lifecoins (-S/ 50)</strong> y separa tu lugar con solo el <strong class="text-white">30%</strong>.
-                        </p>
-                        <div class="text-[11px] font-bold text-rose-300 flex items-center gap-1.5">
-                            <i class="ri-copper-coin-fill text-amber-400"></i> Bono de 800 Lifecoins activo
+                        <div class="pt-4 border-t border-white/10">
+                            <button onclick="document.getElementById('lobby-grid').scrollIntoView({behavior: 'smooth'})"
+                                class="w-full bg-white/10 hover:bg-amber-400 hover:text-slate-950 text-white font-black uppercase text-[10px] tracking-wider py-3 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm">
+                                <i class="ri-compass-3-line"></i> Explorar Salidas Abiertas
+                            </button>
                         </div>
                     </div>
 
-                    <!-- Paso 3 -->
-                    <div class="bg-slate-950/80 border border-slate-800 hover:border-amber-500/60 rounded-3xl p-6 transition-all relative">
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="w-10 h-10 rounded-2xl bg-amber-500/20 border border-amber-500/40 text-amber-400 font-black flex items-center justify-center text-lg">3</span>
-                            <span class="text-[10px] font-black uppercase tracking-widest text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-md">Match IA B2B</span>
+                    <!-- Clic 2 -->
+                    <div class="neuro-card bg-slate-950/70 border border-white/10 hover:border-rose-400/50 rounded-3xl p-6 md:p-8 transition-all flex flex-col justify-between group">
+                        <div>
+                            <div class="flex items-center justify-between mb-5">
+                                <div class="w-12 h-12 rounded-2xl bg-rose-500/15 border border-rose-500/30 text-rose-300 font-black flex items-center justify-center text-xl shadow-sm group-hover:scale-110 transition-transform">
+                                    2
+                                </div>
+                                <span class="text-[9px] font-black uppercase tracking-widest text-rose-300 bg-rose-500/10 px-3 py-1 rounded-full border border-rose-500/20">
+                                    Clic 2
+                                </span>
+                            </div>
+                            <h4 class="font-black italic text-xl text-white mb-2 group-hover:text-rose-300 transition-colors">
+                                Separa con el 30% y Ahorra
+                            </h4>
+                            <p class="text-xs text-slate-300 leading-relaxed mb-4">
+                                Bloquea tu cupo pagando solo el <strong class="text-white">30%</strong> con <strong class="text-amber-300">Yape, Plin o Tarjeta</strong>. Descuenta <strong class="text-emerald-400">-S/ 50</strong> usando tus Lifecoins de bienvenida.
+                            </p>
                         </div>
-                        <h4 class="font-black text-base text-white mb-2">Quórum y Asignación</h4>
-                        <p class="text-xs text-slate-400 leading-relaxed mb-3">
-                            Cuando el grupo alcanza el <strong class="text-slate-200">Mínimo de Viajeros (ej. 4 pax)</strong>, el sistema cambia a <span class="text-emerald-400 font-bold">"Listo para Despegue"</span> y asigna al Operador Certificado mejor calificado.
-                        </p>
-                        <div class="text-[11px] font-bold text-amber-300 flex items-center gap-1.5">
-                            <i class="ri-robot-2-fill"></i> Algoritmo calcula % de Match en vivo
+                        <div class="pt-4 border-t border-white/10 space-y-2">
+                            <div class="flex items-center gap-2 text-[10px] font-bold text-emerald-300 bg-emerald-500/10 px-3 py-2 rounded-xl border border-emerald-500/20">
+                                <i class="ri-shield-check-fill text-sm"></i>
+                                <span>Reembolso 100% si no se llena el cupo</span>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Paso 4 -->
-                    <div class="bg-slate-950/80 border border-slate-800 hover:border-emerald-500/60 rounded-3xl p-6 transition-all relative">
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="w-10 h-10 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 font-black flex items-center justify-center text-lg">4</span>
-                            <span class="text-[10px] font-black uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md">Expedición Segura</span>
+                    <!-- Clic 3 -->
+                    <div class="neuro-card bg-slate-950/70 border border-white/10 hover:border-emerald-400/50 rounded-3xl p-6 md:p-8 transition-all flex flex-col justify-between group">
+                        <div>
+                            <div class="flex items-center justify-between mb-5">
+                                <div class="w-12 h-12 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 font-black flex items-center justify-center text-xl shadow-sm group-hover:scale-110 transition-transform">
+                                    3
+                                </div>
+                                <span class="text-[9px] font-black uppercase tracking-widest text-emerald-300 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
+                                    Clic 3
+                                </span>
+                            </div>
+                            <h4 class="font-black italic text-xl text-white mb-2 group-hover:text-emerald-300 transition-colors">
+                                Entra al WhatsApp de la Tribu
+                            </h4>
+                            <p class="text-xs text-slate-300 leading-relaxed mb-4">
+                                Recibes el link privado al <strong class="text-emerald-400">WhatsApp oficial</strong> con tu Guía UIAGM certificado: coordinas equipo, punto de recojo y <strong class="text-white">el 70% restante se paga antes de partir</strong>.
+                            </p>
                         </div>
-                        <h4 class="font-black text-base text-white mb-2">Briefing y Salida a Montaña</h4>
-                        <p class="text-xs text-slate-400 leading-relaxed mb-3">
-                            Ingresas al grupo oficial de WhatsApp con el guía líder, recibes el checklist de equipo y abonas el 70% restante antes de partir.
-                        </p>
-                        <div class="text-[11px] font-bold text-emerald-400 flex items-center gap-1.5">
-                            <i class="ri-shield-check-fill"></i> Garantía 100% Lifextreme
+                        <div class="pt-4 border-t border-white/10">
+                            <a href="https://wa.me/51958050928?text=Hola%20Lifextreme,%20quiero%20coordinar%20mi%20salida%20grupal%20en%20Comunidad" target="_blank" rel="noopener noreferrer"
+                                class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black uppercase text-[10px] tracking-wider py-3 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-emerald-500/20">
+                                <i class="ri-whatsapp-fill text-base"></i> Coordinar por WhatsApp
+                            </a>
                         </div>
                     </div>
                 </div>
