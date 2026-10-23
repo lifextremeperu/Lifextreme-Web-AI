@@ -4,7 +4,7 @@ venv
 env
 __pycache__
 node_modules
-data
+data/*
 chroma_db
 docker
 backend
@@ -39,3 +39,11 @@ gcp-ai-key.json
 qdrant_inventory.json
 ingestion_state.json
 .env*
+
+# Blog publico: index.json + articulos .md deben desplegarse
+!data/blog
+data/blog/*
+!data/blog/index.json
+!data/blog/articles
+data/blog/articles/*
+!data/blog/articles/*.md
