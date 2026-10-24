@@ -874,16 +874,16 @@
             </nav>
 
             <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
-                <!-- COIN WALLET WIDGET (VISIBLE EN WEB Y MÓVIL) -->
-                <a href="recompensas.html"
-                    class="flex items-center gap-1.5 bg-amber-100/80 hover:bg-amber-400/30 px-2.5 py-1.5 rounded-xl transition-all border border-amber-300 shadow-sm group shrink-0"
+                <!-- COIN WALLET WIDGET (ABRE MÓDULO LIFECOINS) -->
+                <button type="button" onclick="openLifecoinsModal()"
+                    class="flex items-center gap-1.5 bg-amber-100/80 hover:bg-amber-400/30 px-2.5 py-1.5 rounded-xl transition-all border border-amber-300 shadow-sm group shrink-0 cursor-pointer"
                     title="Ver Mis Recompensas y Canjear Lifecoins">
                     <i class="ri-coin-fill text-amber-500 group-hover:rotate-12 transition-transform text-base sm:text-lg"></i>
                     <div class="leading-none text-left">
                         <p class="hidden sm:block text-[7px] font-black text-amber-700 uppercase tracking-widest">Lifecoins</p>
                         <span class="text-[10px] sm:text-[11px] font-black text-slate-900" id="nav-coin-balance">800</span>
                     </div>
-                </a>
+                </button>
 
                 <div class="hidden md:flex items-center gap-2 cursor-pointer hover:bg-slate-50 px-2 py-1 rounded-xl transition-all shrink-0"
                     data-action="navigate" data-target="socio">
@@ -974,11 +974,11 @@
                 <i class="ri-shopping-cart-2-fill text-base"></i>
                 <span>Ver Carrito</span>
             </button>
-            <a href="recompensas.html"
-                class="flex items-center justify-center gap-2 bg-yellow-100/80 text-slate-900 py-3 px-4 rounded-2xl font-black uppercase text-xs tracking-wider border border-yellow-300">
+            <button type="button" onclick="document.getElementById('mobile-menu').classList.add('translate-x-full'); openLifecoinsModal();"
+                class="flex items-center justify-center gap-2 bg-yellow-100/80 text-slate-900 py-3 px-4 rounded-2xl font-black uppercase text-xs tracking-wider border border-yellow-300 cursor-pointer">
                 <i class="ri-coin-fill text-yellow-500 text-base"></i>
                 <span>Lifecoins</span>
-            </a>
+            </button>
         </div>
 
         <a href="#home" data-action="mobile-navigate" data-target="home"
@@ -1184,44 +1184,6 @@
                     </div>
                 </div>
 
-                <!-- MÓDULO INTERACTIVO LIFECOINS & RECOMPENSAS (OPTIMIZADO PARA WEB Y MÓVIL) -->
-                <div id="lifecoins-home-module" class="mb-16 bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 rounded-[32px] sm:rounded-[40px] p-6 sm:p-8 lg:p-10 border border-amber-400/30 shadow-2xl relative overflow-hidden">
-                    <div class="absolute -top-20 -right-20 w-64 h-64 bg-amber-400/15 rounded-full blur-[80px] pointer-events-none"></div>
-                    <div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-                        <div class="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-5">
-                            <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 text-slate-950 flex items-center justify-center text-3xl shadow-lg shadow-amber-500/30 shrink-0">
-                                <i class="ri-coin-fill"></i>
-                            </div>
-                            <div>
-                                <div class="inline-flex items-center gap-2 bg-amber-400/15 border border-amber-400/30 px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest text-amber-300 mb-2">
-                                    <i class="ri-sparkling-2-fill"></i> Programa Lifecoins Activo • 100 LC = $1 USD
-                                </div>
-                                <h3 class="text-xl sm:text-2xl lg:text-3xl font-black italic text-white leading-tight">
-                                    Tu Billetera: <span class="text-amber-400" id="home-module-coin-balance">800</span> Lifecoins Disponibles
-                                </h3>
-                                <p class="text-xs sm:text-sm text-slate-300 mt-1 max-w-xl">
-                                    Usa tus monedas para descontar hasta <strong class="text-white">S/ 50.00 directos</strong> en expediciones, alquiler de equipo técnico o suma más monedas en la Ruleta Diaria.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="grid grid-cols-1 sm:grid-cols-3 lg:flex items-center gap-3 shrink-0">
-                            <button type="button" onclick="if(window.Lifecoins){ Lifecoins.earn('daily_checkin'); var b=document.getElementById('home-module-coin-balance'); if(b) b.innerText=Lifecoins.balance; }"
-                                class="bg-white/10 hover:bg-white/20 text-white border border-white/15 px-4 py-3.5 rounded-2xl font-black uppercase text-[10px] tracking-widest transition-all flex items-center justify-center gap-2 cursor-pointer">
-                                <i class="ri-calendar-check-fill text-amber-400 text-base"></i> Racha Diaria (+20 LC)
-                            </button>
-                            <a href="recompensas.html"
-                                class="bg-gradient-to-r from-amber-400 to-orange-500 hover:brightness-110 text-slate-950 px-5 py-3.5 rounded-2xl font-black uppercase text-[10px] tracking-widest shadow-lg shadow-amber-500/25 transition-all flex items-center justify-center gap-2">
-                                <i class="ri-gift-2-fill text-base"></i> Ganar & Canjear Coins
-                            </a>
-                            <a href="community.html"
-                                class="bg-indigo-600/30 hover:bg-indigo-600 text-indigo-200 hover:text-white border border-indigo-400/30 px-4 py-3.5 rounded-2xl font-black uppercase text-[10px] tracking-widest transition-all flex items-center justify-center gap-2">
-                                <i class="ri-group-line text-base"></i> Usar en Tribu (-S/ 50)
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- INJECTED DESTINOS MODULE (NEUROMARKETING) -->
                 <div id="home-destinos-container" class="mb-32 mt-16">
                     <!-- HEADER SEARCH -->
@@ -1248,32 +1210,6 @@
                         <div class="region-chip" data-action="sel-region" data-region="Ica">Ica</div>
                         <div class="region-chip" data-action="sel-region" data-region="Puno">Puno</div>
                         <div class="region-chip" data-action="sel-region" data-region="Arequipa">Arequipa</div>
-                    </div>
-
-                    <!-- REAL-TIME SENTINEL STATUS BAR (TUBOLETO & TRAIN SYNCHRONIZED TELEMETRY) -->
-                    <div class="mb-8 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-slate-900/90 via-slate-800/80 to-slate-900/90 border border-emerald-500/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 backdrop-blur-md shadow-lg shadow-emerald-950/20">
-                        <div class="flex items-center gap-3">
-                            <span class="relative flex h-3 w-3 shrink-0">
-                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                                <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
-                            </span>
-                            <div>
-                                <div class="flex items-center gap-2 flex-wrap">
-                                    <span class="text-[10px] font-black uppercase tracking-widest text-emerald-400">Sentinel Predictivo Activo</span>
-                                    <span class="text-[9px] bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-2 py-0.5 rounded-full font-bold">API Oficial TuBoleto & Trenes EN VIVO</span>
-                                </div>
-                                <p class="text-xs text-slate-300 font-medium mt-0.5">Machu Picchu (Circuito 1 Panorámico): <strong class="text-white">284 cupos oficiales confirmados</strong> • Trenes PeruRail/Inca Rail: <strong class="text-emerald-400">Asientos Garantizados</strong></p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-3 shrink-0 self-end md:self-center">
-                            <span class="text-[11px] font-bold text-amber-300 bg-amber-400/10 border border-amber-400/20 px-3 py-1.5 rounded-xl">
-                                ⚡ Reserva con 30%
-                            </span>
-                            <button onclick="if(window.openMaxChatWithPrompt) { window.openMaxChatWithPrompt('Deseo cotizar y reservar mi paquete a Machu Picchu con cupo oficial'); } else { const b = document.getElementById('max-chat-btn'); if(b) b.click(); }" class="text-[11px] font-black uppercase tracking-wider text-slate-950 bg-gradient-to-r from-emerald-400 to-teal-300 px-4 py-2 rounded-xl shadow-md hover:scale-105 transition-transform flex items-center gap-1.5 cursor-pointer">
-                                <i class="ri-shield-check-fill text-sm"></i>
-                                <span>Verificar en MAX</span>
-                            </button>
-                        </div>
                     </div>
 
                     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8" id="destinos-grid"></div>
@@ -1674,88 +1610,112 @@
         <section id="section-equipos" class="section-view pt-32 pb-20">
             <div class="container mx-auto px-6">
                 <div class="flex flex-col lg:flex-row gap-12">
-                    <!-- Sidebar Controls -->
+                    <!-- Sidebar Controls (Neuromarketing Pro) -->
                     <div
-                        class="w-full lg:w-[300px] h-fit sticky top-32 space-y-8 bg-white p-10 rounded-[40px] border border-slate-100 shadow-sm">
+                        class="w-full lg:w-[280px] h-fit sticky top-32 space-y-6 bg-slate-900/90 backdrop-blur-md p-6 sm:p-7 rounded-[32px] border border-white/10 shadow-2xl text-white">
 
                         <!-- Mode Selector -->
-                        <div class="bg-slate-50 p-1 rounded-2xl flex relative">
+                        <div class="bg-slate-950/80 p-1.5 rounded-2xl flex border border-white/10">
                             <button onclick="switchEquipMode('buy')" id="btn-mode-buy"
-                                class="flex-1 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all bg-white text-slate-900 shadow-sm">
-                                Comprar
+                                class="flex-1 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-wider transition-all bg-amber-400 text-slate-950 shadow-md cursor-pointer text-center">
+                                Alquilar / Comprar
                             </button>
                             <button onclick="switchEquipMode('sell')" id="btn-mode-sell"
-                                class="flex-1 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all text-slate-400 hover:text-slate-600">
-                                Vender
+                                class="flex-1 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-wider transition-all text-slate-400 hover:text-white cursor-pointer text-center">
+                                Vender C2C
                             </button>
                         </div>
 
+                        <!-- Categorías con Neuromarketing -->
                         <div id="equip-filters">
-                            <h3 class="font-black text-2xl mb-6" data-i18n="section_equipos">Catálogo Pro</h3>
-                            <div class="space-y-4">
-                                <label
-                                    class="flex items-center gap-3 text-xs font-black uppercase tracking-widest cursor-pointer group"
-                                    data-action="filter-equip" data-category="Mochilas">
-                                    <div
-                                        class="w-4 h-4 rounded-full border border-slate-300 group-hover:border-primary flex items-center justify-center">
-                                        <div
-                                            class="w-2 h-2 rounded-full bg-primary opacity-0 radio-dot transition-opacity">
-                                        </div>
-                                    </div>
-                                    <input type="radio" name="eq" class="hidden">
-                                    <span data-i18n="equip_sidebar_backpacks">Mochilas</span>
-                                </label>
-                                <label
-                                    class="flex items-center gap-3 text-xs font-black uppercase tracking-widest cursor-pointer group"
-                                    data-action="filter-equip" data-category="Calzado">
-                                    <div
-                                        class="w-4 h-4 rounded-full border border-slate-300 group-hover:border-primary flex items-center justify-center">
-                                        <div
-                                            class="w-2 h-2 rounded-full bg-primary opacity-0 radio-dot transition-opacity">
-                                        </div>
-                                    </div>
-                                    <input type="radio" name="eq" class="hidden">
-                                    <span data-i18n="equip_sidebar_footwear">Calzado</span>
-                                </label>
-                                <label
-                                    class="flex items-center gap-3 text-xs font-black uppercase tracking-widest cursor-pointer group"
-                                    data-action="filter-equip" data-category="Accesorios">
-                                    <div
-                                        class="w-4 h-4 rounded-full border border-slate-300 group-hover:border-primary flex items-center justify-center">
-                                        <div
-                                            class="w-2 h-2 rounded-full bg-primary opacity-0 radio-dot transition-opacity">
-                                        </div>
-                                    </div>
-                                    <input type="radio" name="eq" class="hidden">
-                                    <span data-i18n="equip_sidebar_accessories">Accesorios</span>
-                                </label>
-                                <label
-                                    class="flex items-center gap-3 text-xs font-black uppercase tracking-widest cursor-pointer group"
+                            <div class="flex items-center justify-between mb-3.5">
+                                <h3 class="font-black text-xl italic text-white flex items-center gap-2">
+                                    <i class="ri-flashlight-fill text-amber-400"></i> Catálogo Pro
+                                </h3>
+                                <span class="text-[9px] font-bold text-slate-400">16 Equipos</span>
+                            </div>
+
+                            <div class="space-y-1.5" id="equip-category-list">
+                                <button type="button"
+                                    class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold transition-all bg-white/10 text-amber-300 border border-amber-400/30 text-left cursor-pointer group"
                                     data-action="filter-equip" data-category="Todos">
-                                    <div
-                                        class="w-4 h-4 rounded-full border border-slate-300 group-hover:border-primary flex items-center justify-center">
-                                        <div
-                                            class="w-2 h-2 rounded-full bg-primary opacity-100 radio-dot transition-opacity">
-                                        </div>
-                                    </div>
-                                    <input type="radio" name="eq" checked class="hidden">
-                                    <span data-i18n="equip_sidebar_all">Ver Todo</span>
-                                </label>
+                                    <span class="flex items-center gap-2">
+                                        <i class="ri-apps-2-line text-amber-400"></i>
+                                        <span>Ver Todo el Equipo</span>
+                                    </span>
+                                    <span class="text-[8px] bg-amber-400/20 px-1.5 py-0.5 rounded-full text-amber-300 font-black">All</span>
+                                </button>
+
+                                <button type="button"
+                                    class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-medium text-slate-300 hover:bg-white/5 hover:text-white border border-transparent hover:border-white/10 transition-all text-left cursor-pointer group"
+                                    data-action="filter-equip" data-category="Carpas & Campamento">
+                                    <span class="flex items-center gap-2">
+                                        <i class="ri-tent-line text-orange-400"></i>
+                                        <span>Carpas & Refugio</span>
+                                    </span>
+                                </button>
+
+                                <button type="button"
+                                    class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-medium text-slate-300 hover:bg-white/5 hover:text-white border border-transparent hover:border-white/10 transition-all text-left cursor-pointer group"
+                                    data-action="filter-equip" data-category="Mochilas & Trekking">
+                                    <span class="flex items-center gap-2">
+                                        <i class="ri-briefcase-3-line text-blue-400"></i>
+                                        <span>Mochilas de Expedición</span>
+                                    </span>
+                                </button>
+
+                                <button type="button"
+                                    class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-medium text-slate-300 hover:bg-white/5 hover:text-white border border-transparent hover:border-white/10 transition-all text-left cursor-pointer group"
+                                    data-action="filter-equip" data-category="Escalada Hielo & Roca">
+                                    <span class="flex items-center gap-2">
+                                        <i class="ri-compass-3-line text-cyan-400"></i>
+                                        <span>Escalada Hielo & Roca</span>
+                                    </span>
+                                </button>
+
+                                <button type="button"
+                                    class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-medium text-slate-300 hover:bg-white/5 hover:text-white border border-transparent hover:border-white/10 transition-all text-left cursor-pointer group"
+                                    data-action="filter-equip" data-category="Sleepings & Matras">
+                                    <span class="flex items-center gap-2">
+                                        <i class="ri-hotel-bed-line text-purple-400"></i>
+                                        <span>Sleepings & Confort</span>
+                                    </span>
+                                </button>
+
+                                <button type="button"
+                                    class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-medium text-slate-300 hover:bg-white/5 hover:text-white border border-transparent hover:border-white/10 transition-all text-left cursor-pointer group"
+                                    data-action="filter-equip" data-category="Casacas & Ropa Técnica">
+                                    <span class="flex items-center gap-2">
+                                        <i class="ri-t-shirt-air-line text-rose-400"></i>
+                                        <span>Ropa Técnica Andina</span>
+                                    </span>
+                                </button>
+                            </div>
+
+                            <!-- Trust Guarantee Box -->
+                            <div class="mt-5 pt-4 border-t border-white/10 space-y-2 text-[10px] text-slate-300">
+                                <div class="flex items-center gap-2 text-emerald-400 font-bold">
+                                    <i class="ri-shield-check-fill text-sm"></i>
+                                    <span>Garantía de Desinfección</span>
+                                </div>
+                                <p class="text-[9px] text-slate-400 leading-relaxed">
+                                    100% esterilizado con luz UV-C y ozono. Entregado e inspeccionado en tu hotel en Cusco o Huaraz.
+                                </p>
                             </div>
                         </div>
 
                         <!-- Sell Mode Info (Hidden by default) -->
-                        <div id="equip-sell-info" class="hidden">
-                            <h3 class="font-black text-2xl mb-4 text-emerald-600 italic">Marketplace C2C</h3>
-                            <p class="text-xs text-slate-500 font-medium leading-relaxed mb-6">
-                                Vende tu equipo usado a otros miembros de la comunidad. Nuestra IA verificará el estado
-                                y sugerirá un precio justo.
+                        <div id="equip-sell-info" class="hidden space-y-3">
+                            <h3 class="font-black text-xl italic text-emerald-400 flex items-center gap-2">
+                                <i class="ri-recycle-line"></i> Vender mi Equipo
+                            </h3>
+                            <p class="text-xs text-slate-300 leading-relaxed">
+                                Monetiza tu equipo usado vendiéndolo a la comunidad. Nuestra IA evalúa el desgaste en segundos.
                             </p>
-                            <div class="bg-indigo-50 p-4 rounded-2xl flex items-start gap-3">
-                                <i class="ri-robot-2-fill text-primary mt-1"></i>
-                                <p class="text-[10px] font-bold text-primary leading-tight">
-                                    "Sube fotos claras. Si detecto desgaste excesivo, rechazaré la publicación por
-                                    seguridad."
+                            <div class="bg-emerald-500/10 border border-emerald-500/20 p-3 rounded-2xl flex items-start gap-2 text-emerald-300">
+                                <i class="ri-robot-2-fill text-base mt-0.5 shrink-0"></i>
+                                <p class="text-[10px] font-bold leading-snug">
+                                    "Sube fotos nítidas de costuras y cierres para certificar la seguridad."
                                 </p>
                             </div>
                         </div>
@@ -1890,32 +1850,35 @@
                     const sellInfo = document.getElementById('equip-sell-info');
 
                     if (mode === 'buy') {
-                        // UI Buttons
-                        btnBuy.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
-                        btnBuy.classList.remove('text-slate-400');
-                        btnSell.classList.remove('bg-white', 'text-slate-900', 'shadow-sm');
-                        btnSell.classList.add('text-slate-400');
+                        btnBuy.className = 'flex-1 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-wider transition-all bg-amber-400 text-slate-950 shadow-md cursor-pointer text-center';
+                        btnSell.className = 'flex-1 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-wider transition-all text-slate-400 hover:text-white cursor-pointer text-center';
 
-                        // Visibility
                         grid.classList.remove('hidden');
                         panel.classList.add('hidden', 'opacity-0');
                         filters.classList.remove('hidden');
                         sellInfo.classList.add('hidden');
                     } else {
-                        // UI Buttons
-                        btnSell.classList.add('bg-white', 'text-slate-900', 'shadow-sm', 'text-emerald-600');
-                        btnSell.classList.remove('text-slate-400');
-                        btnBuy.classList.remove('bg-white', 'text-slate-900', 'shadow-sm');
-                        btnBuy.classList.add('text-slate-400');
+                        btnSell.className = 'flex-1 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-wider transition-all bg-emerald-500 text-slate-950 shadow-md cursor-pointer text-center';
+                        btnBuy.className = 'flex-1 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-wider transition-all text-slate-400 hover:text-white cursor-pointer text-center';
 
-                        // Visibility
                         grid.classList.add('hidden');
                         panel.classList.remove('hidden');
-                        setTimeout(() => panel.classList.remove('opacity-0'), 50); // Fade in
+                        setTimeout(() => panel.classList.remove('opacity-0'), 50);
                         filters.classList.add('hidden');
                         sellInfo.classList.remove('hidden');
                     }
                 }
+
+                // Actualizar estilo visual activo de categorías de equipo
+                document.addEventListener('click', function(e) {
+                    const catBtn = e.target.closest('#equip-category-list [data-action="filter-equip"]');
+                    if (catBtn) {
+                        document.querySelectorAll('#equip-category-list [data-action="filter-equip"]').forEach(el => {
+                            el.className = "w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-medium text-slate-300 hover:bg-white/5 hover:text-white border border-transparent hover:border-white/10 transition-all text-left cursor-pointer group";
+                        });
+                        catBtn.className = "w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold transition-all bg-white/10 text-amber-300 border border-amber-400/30 text-left cursor-pointer group";
+                    }
+                });
 
                 function previewUpload(input) {
                     if (input.files && input.files[0]) {
@@ -2006,158 +1969,157 @@
                     class="bg-white rounded-[44px] lg:rounded-[60px] p-6 sm:p-10 lg:p-14 shadow-2xl border border-slate-100 flex flex-col xl:flex-row items-center gap-10 lg:gap-14">
 
                     <!-- Left: Interactive Gift Card Customizer Studio -->
-                    <div class="flex-1 w-full space-y-6 text-left">
+                    <!-- Left: Interactive Gift Card Customizer Studio (Frictionless 3-Step) -->
+                    <div class="flex-1 w-full space-y-4 text-left">
                         <div>
                             <span
-                                class="inline-flex items-center gap-1.5 py-2 px-4 rounded-full bg-red-50 text-secondary text-[10px] font-black uppercase tracking-widest mb-3 border border-red-100">
-                                <i class="ri-gift-2-fill"></i> Estudio de Personalización Pro
+                                class="inline-flex items-center gap-1.5 py-1 px-3 rounded-full bg-red-50 text-secondary text-[9px] font-black uppercase tracking-widest mb-2 border border-red-100">
+                                <i class="ri-gift-2-fill"></i> Gift Pass Oficial • Experiencias Lifextreme
                             </span>
-                            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black italic text-slate-900 leading-[0.98]">
-                                Regala Experiencias,<br>
-                                <span
-                                    class="text-transparent bg-clip-text bg-gradient-to-r from-secondary via-orange-500 to-amber-500">No
-                                    Cosas.</span>
+                            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black italic text-slate-900 leading-tight">
+                                Regala Experiencias, <span class="text-transparent bg-clip-text bg-gradient-to-r from-secondary via-orange-500 to-amber-500">No Cosas.</span>
                             </h2>
-                            <p class="text-slate-500 text-sm sm:text-base leading-relaxed font-medium mt-3">
-                                Diseña en vivo una <strong>Lifextreme Gift Card Pro</strong> deportiva y personalizada. Elige el estilo de aventura, escribe tu dedicatoria y envíala al instante.
+                            <p class="text-slate-500 text-xs sm:text-sm leading-relaxed font-medium mt-1">
+                                Sorprende a quien más quieres en 3 simples pasos. Válido por 12 meses en más de 40 rutas.
                             </p>
                         </div>
 
-                        <!-- 1. Selector de Diseño de Tarjeta (5 Skins Deportivos & Premium) -->
-                        <div class="space-y-2">
-                            <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 flex items-center justify-between">
-                                <span>1. Elige el Diseño Deportivo de la Tarjeta</span>
-                                <span id="inline-gift-skin-label" class="text-primary font-black">🏔️ Alta Montaña Carbon Pro</span>
-                            </label>
-                            <div class="grid grid-cols-2 sm:grid-cols-5 gap-2" id="inline-gift-skins">
-                                <button type="button" onclick="selectGiftSkin('alpine')" data-skin="alpine"
-                                    class="gift-skin-btn active flex items-center gap-2 p-2.5 rounded-2xl border-2 border-primary bg-slate-900 text-white text-left transition-all cursor-pointer shadow-md">
-                                    <span class="w-5 h-5 rounded-lg bg-gradient-to-br from-slate-800 to-rose-500 shrink-0 border border-white/20"></span>
-                                    <span class="text-[10px] font-black uppercase leading-tight">Alpine<br>Carbon</span>
-                                </button>
-                                <button type="button" onclick="selectGiftSkin('adrenaline')" data-skin="adrenaline"
-                                    class="gift-skin-btn flex items-center gap-2 p-2.5 rounded-2xl border-2 border-slate-100 bg-slate-50 hover:bg-slate-100 text-slate-800 text-left transition-all cursor-pointer">
-                                    <span class="w-5 h-5 rounded-lg bg-gradient-to-br from-orange-500 to-red-600 shrink-0"></span>
-                                    <span class="text-[10px] font-black uppercase leading-tight">Adrenalina<br>Extreme</span>
-                                </button>
-                                <button type="button" onclick="selectGiftSkin('emerald')" data-skin="emerald"
-                                    class="gift-skin-btn flex items-center gap-2 p-2.5 rounded-2xl border-2 border-slate-100 bg-slate-50 hover:bg-slate-100 text-slate-800 text-left transition-all cursor-pointer">
-                                    <span class="w-5 h-5 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-900 shrink-0"></span>
-                                    <span class="text-[10px] font-black uppercase leading-tight">Canyoning<br>Tactical</span>
-                                </button>
-                                <button type="button" onclick="selectGiftSkin('glacier')" data-skin="glacier"
-                                    class="gift-skin-btn flex items-center gap-2 p-2.5 rounded-2xl border-2 border-slate-100 bg-slate-50 hover:bg-slate-100 text-slate-800 text-left transition-all cursor-pointer">
-                                    <span class="w-5 h-5 rounded-lg bg-gradient-to-br from-indigo-600 to-purple-900 shrink-0"></span>
-                                    <span class="text-[10px] font-black uppercase leading-tight">Glaciar<br>VIP Night</span>
-                                </button>
-                                <button type="button" onclick="selectGiftSkin('gold')" data-skin="gold"
-                                    class="gift-skin-btn col-span-2 sm:col-span-1 flex items-center gap-2 p-2.5 rounded-2xl border-2 border-slate-100 bg-slate-50 hover:bg-slate-100 text-slate-800 text-left transition-all cursor-pointer">
-                                    <span class="w-5 h-5 rounded-lg bg-gradient-to-br from-amber-400 to-yellow-700 shrink-0"></span>
-                                    <span class="text-[10px] font-black uppercase leading-tight">Summit<br>Gold Pro</span>
-                                </button>
+                        <!-- PASO 1: ¿A QUIÉN SORPRENDES? -->
+                        <div class="bg-slate-50/80 border border-slate-200/80 rounded-2xl p-4 space-y-2.5 shadow-sm">
+                            <div class="flex items-center justify-between">
+                                <span class="text-[10px] font-black uppercase tracking-wider text-slate-800 flex items-center gap-1.5">
+                                    <span class="w-5 h-5 rounded-full bg-primary text-white flex items-center justify-center text-[10px] font-bold">1</span>
+                                    ¿A quién vas a sorprender?
+                                </span>
+                                <span class="text-[8px] font-bold text-slate-400">Emoción & Dedicatoria</span>
                             </div>
-                        </div>
 
-                        <!-- 2. Destinatario, Remitente y Motivo -->
-                        <div class="grid sm:grid-cols-3 gap-3">
-                            <div>
-                                <label class="block text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1">2. ¿Para quién es? *</label>
-                                <input type="text" id="inline-gift-to" value="Ana" placeholder="Ej: Ana / Mateo"
-                                    oninput="syncInlineGiftCard()"
-                                    class="w-full bg-slate-50 border border-slate-200 focus:border-primary rounded-xl px-3.5 py-2.5 text-xs font-black text-slate-900 outline-none">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                <div>
+                                    <label class="block text-[8px] font-black uppercase tracking-widest text-slate-400 mb-1">Para (Destinatario) *</label>
+                                    <input type="text" id="inline-gift-to" value="Ana" placeholder="Ej: Ana"
+                                        oninput="syncInlineGiftCard()"
+                                        class="w-full bg-white border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/10 rounded-xl px-3 py-2 text-xs font-black text-slate-900 outline-none transition-all">
+                                </div>
+                                <div>
+                                    <label class="block text-[8px] font-black uppercase tracking-widest text-slate-400 mb-1">De parte de *</label>
+                                    <input type="text" id="inline-gift-from" value="Carlos" placeholder="Tu nombre"
+                                        oninput="syncInlineGiftCard()"
+                                        class="w-full bg-white border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/10 rounded-xl px-3 py-2 text-xs font-black text-slate-900 outline-none transition-all">
+                                </div>
                             </div>
+
                             <div>
-                                <label class="block text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1">3. De parte de: *</label>
-                                <input type="text" id="inline-gift-from" value="Carlos" placeholder="Tu nombre"
-                                    oninput="syncInlineGiftCard()"
-                                    class="w-full bg-slate-50 border border-slate-200 focus:border-primary rounded-xl px-3.5 py-2.5 text-xs font-black text-slate-900 outline-none">
-                            </div>
-                            <div>
-                                <label class="block text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1">4. Motivo / Ocasión</label>
-                                <select id="inline-gift-occasion" onchange="syncInlineGiftCard()"
-                                    class="w-full bg-slate-50 border border-slate-200 focus:border-primary rounded-xl px-3 py-2.5 text-xs font-black text-slate-900 outline-none cursor-pointer">
-                                    <option value="¡Feliz Cumpleaños">🎂 ¡Feliz Cumpleaños</option>
-                                    <option value="¡A Conquistar la Cumbre">🏔️ ¡A Conquistar la Cumbre</option>
-                                    <option value="¡Feliz Aniversario">❤️ ¡Feliz Aniversario</option>
-                                    <option value="¡Reto Desbloqueado">⚡ ¡Reto Desbloqueado</option>
-                                    <option value="¡Nos Vamos de Expedición">🧭 ¡Nos Vamos de Expedición</option>
+                                <label class="block text-[8px] font-black uppercase tracking-widest text-slate-400 mb-1">Motivo & Mensaje</label>
+                                <select id="inline-gift-occasion" onchange="handleOccasionChange(this.value)"
+                                    class="w-full bg-white border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/10 rounded-xl px-3 py-2 text-xs font-bold text-slate-800 outline-none cursor-pointer transition-all">
+                                    <option value="¡Feliz Cumpleaños">🎂 ¡Feliz Cumpleaños (Toques el cielo en los Andes)</option>
+                                    <option value="¡A Conquistar la Cumbre">🏔️ ¡A Conquistar la Cumbre (Las cumbres quedan para siempre)</option>
+                                    <option value="¡Feliz Aniversario">❤️ ¡Feliz Aniversario (Rutas y amaneceres épicos juntos)</option>
+                                    <option value="¡Reto Desbloqueado">⚡ ¡Reto Desbloqueado (Sal de la rutina y siente la adrenalina)</option>
+                                    <option value="¡Nos Vamos de Expedición">🧭 ¡Nos Vamos de Expedición (Empaca tu mochila)</option>
                                 </select>
                             </div>
+
+                            <div>
+                                <textarea id="inline-gift-msg" rows="2" maxlength="110" oninput="syncInlineGiftCard()"
+                                    class="w-full bg-white border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/10 rounded-xl px-3 py-2 text-xs font-semibold text-slate-800 outline-none resize-none transition-all"
+                                    placeholder="Mensaje personalizado en la tarjeta...">Te regalo esta aventura para que toques el cielo en los Andes. ¡Rompe tus límites!</textarea>
+                            </div>
                         </div>
 
-                        <!-- 3. Destino/Aventura, Fecha Programada y WhatsApp del Destinatario -->
-                        <div class="grid sm:grid-cols-3 gap-3">
+                        <!-- PASO 2: EXPERIENCIA Y SALDO -->
+                        <div class="bg-slate-50/80 border border-slate-200/80 rounded-2xl p-4 space-y-2.5 shadow-sm">
+                            <div class="flex items-center justify-between">
+                                <span class="text-[10px] font-black uppercase tracking-wider text-slate-800 flex items-center gap-1.5">
+                                    <span class="w-5 h-5 rounded-full bg-primary text-white flex items-center justify-center text-[10px] font-bold">2</span>
+                                    Aventura y Monto
+                                </span>
+                                <span class="text-[8px] font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200">12 Meses Validez</span>
+                            </div>
+
                             <div>
-                                <label class="block text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1">5. ¿Para qué Destino / Tour?</label>
+                                <label class="block text-[8px] font-black uppercase tracking-widest text-slate-400 mb-1">Destino o Saldo Abierto</label>
                                 <select id="inline-gift-destination" onchange="syncInlineGiftCard()"
-                                    class="w-full bg-slate-50 border border-slate-200 focus:border-primary rounded-xl px-3 py-2.5 text-xs font-black text-slate-900 outline-none cursor-pointer">
-                                    <option value="Saldo Libre (Cualquier Tour o Parque)">🌐 Saldo Abierto (Cualquier Tour o Parque)</option>
-                                    <option value="Action Valley Cusco - Bungee Jumping">🎯 Action Valley Cusco (Bungee 122m)</option>
-                                    <option value="Camino Inca Clásico 4D/3N - Machu Picchu">🏔️ Camino Inca Clásico 4D/3N</option>
-                                    <option value="Rafting Extremo Río Urubamba & Apurímac">🌊 Rafting Urubamba & Apurímac</option>
-                                    <option value="Vía Ferrata & Zipline Valle Sagrado">🧗 Vía Ferrata & Zipline Pachar</option>
-                                    <option value="Vuelo Parapente Costa Verde Miraflores">🪂 Vuelo Parapente Miraflores</option>
-                                    <option value="Ascenso Nevado Mateo 5,150m">❄️ Ascenso Glaciar Nevado Mateo</option>
+                                    class="w-full bg-white border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/10 rounded-xl px-3 py-2 text-xs font-bold text-slate-800 outline-none cursor-pointer transition-all">
+                                    <option value="Saldo Abierto (Cualquier Tour o Parque)">🌐 Saldo Abierto (Cualquier Tour o Parque) ⭐ Recomendado</option>
+                                    <option value="Action Valley Cusco - Bungee Jumping">🎯 Action Valley Cusco (Bungee 122m & Slingshot)</option>
+                                    <option value="Camino Inca Clásico 4D/3N - Machu Picchu">🏔️ Camino Inca Clásico 4D/3N (Machu Picchu)</option>
+                                    <option value="Rafting Extremo Río Urubamba & Apurímac">🌊 Rafting Extremo Urubamba & Apurímac</option>
+                                    <option value="Vía Ferrata & Zipline Valle Sagrado">🧗 Vía Ferrata & Zipline Pachar (Cusco)</option>
+                                    <option value="Vuelo Parapente Costa Verde Miraflores">🪂 Vuelo Parapente Costa Verde Miraflores</option>
+                                    <option value="Ascenso Nevado Mateo 5,150m">❄️ Ascenso Glaciar Nevado Mateo (5,150m)</option>
                                 </select>
                             </div>
+
                             <div>
-                                <label class="block text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1">6. Fecha de Entrega / Salida</label>
-                                <input type="date" id="inline-gift-date" value="2026-10-25" oninput="syncInlineGiftCard()"
-                                    class="w-full bg-slate-50 border border-slate-200 focus:border-primary rounded-xl px-3.5 py-2.5 text-xs font-black text-slate-900 outline-none cursor-pointer">
-                            </div>
-                            <div>
-                                <label class="block text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1">7. WhatsApp Destinatario</label>
-                                <input type="tel" id="inline-gift-to-phone" placeholder="+51 987 654 321" oninput="syncInlineGiftCard()"
-                                    class="w-full bg-slate-50 border border-slate-200 focus:border-primary rounded-xl px-3.5 py-2.5 text-xs font-black text-slate-900 outline-none">
+                                <div class="flex items-center justify-between mb-1">
+                                    <label class="text-[8px] font-black uppercase tracking-widest text-slate-400">Monto de la Tarjeta</label>
+                                    <span class="text-[8px] font-bold text-emerald-600">✓ 100% canjeable</span>
+                                </div>
+                                <div class="grid grid-cols-4 gap-2" id="inline-gift-amounts">
+                                    <button type="button" onclick="selectInlineGiftAmount(150)" class="gift-amt-btn py-2 px-1 rounded-xl border border-slate-200 bg-white text-xs font-black text-slate-700 hover:border-primary cursor-pointer text-center transition-all">S/ 150</button>
+                                    <button type="button" onclick="selectInlineGiftAmount(300)" class="gift-amt-btn py-2 px-1 rounded-xl border border-slate-200 bg-white text-xs font-black text-slate-700 hover:border-primary cursor-pointer text-center transition-all">S/ 300</button>
+                                    <button type="button" onclick="selectInlineGiftAmount(500)" class="gift-amt-btn active relative py-2 px-1 rounded-xl border-2 border-primary bg-primary text-white text-xs font-black shadow-md cursor-pointer text-center transition-all">
+                                        <span class="absolute -top-2 left-1/2 -translate-x-1/2 bg-amber-400 text-slate-950 text-[7px] font-black px-1 py-0.2 rounded-full uppercase tracking-tighter whitespace-nowrap shadow-sm">Top</span>
+                                        S/ 500
+                                    </button>
+                                    <button type="button" onclick="selectInlineGiftAmount(1000)" class="gift-amt-btn py-2 px-1 rounded-xl border border-slate-200 bg-white text-xs font-black text-slate-700 hover:border-primary cursor-pointer text-center transition-all">S/ 1,000</button>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- 4. Dedicatoria Personal + Frases Deportivas Rápidas -->
-                        <div class="space-y-2">
-                            <div class="flex flex-wrap items-center justify-between gap-2">
-                                <label class="text-[9px] font-black uppercase tracking-widest text-slate-400">8. Diseña tu Mensaje de Regalo</label>
-                                <div class="flex flex-wrap gap-1.5">
-                                    <button type="button" onclick="setQuickGiftMsg('Te regalo esta aventura para que toques el cielo en los Andes. ¡Rompe tus límites!')"
-                                        class="text-[9px] font-black bg-indigo-50 hover:bg-primary hover:text-white text-primary px-2.5 py-1 rounded-lg transition-all cursor-pointer">
-                                        ⚡ Frase Cumbre
-                                    </button>
-                                    <button type="button" onclick="setQuickGiftMsg('Las cosas pasan, pero las cumbres quedan para siempre. ¡Elige tu ruta y vamos por todo!')"
-                                        class="text-[9px] font-black bg-rose-50 hover:bg-secondary hover:text-white text-secondary px-2.5 py-1 rounded-lg transition-all cursor-pointer">
-                                        🔥 Frase Adrenalina
-                                    </button>
-                                    <button type="button" onclick="setQuickGiftMsg('Por más rutas, glaciares y amaneceres épicos juntos. ¡Tu próxima misión empieza hoy!')"
-                                        class="text-[9px] font-black bg-amber-50 hover:bg-amber-500 hover:text-slate-900 text-amber-700 px-2.5 py-1 rounded-lg transition-all cursor-pointer">
-                                        🏔️ Frase Partner
-                                    </button>
+                        <!-- PASO 3: ESTILO DE TARJETA & ENTREGA -->
+                        <div class="bg-slate-50/80 border border-slate-200/80 rounded-2xl p-4 space-y-2.5 shadow-sm">
+                            <div class="flex items-center justify-between">
+                                <span class="text-[10px] font-black uppercase tracking-wider text-slate-800 flex items-center gap-1.5">
+                                    <span class="w-5 h-5 rounded-full bg-primary text-white flex items-center justify-center text-[10px] font-bold">3</span>
+                                    Estilo Visual y Envío
+                                </span>
+                                <span id="inline-gift-skin-label" class="text-[9px] font-black text-primary">🏔️ Alta Montaña Carbon Pro</span>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                <div>
+                                    <label class="block text-[8px] font-black uppercase tracking-widest text-slate-400 mb-1">Diseño de Tarjeta</label>
+                                    <select id="inline-gift-skin-select" onchange="selectGiftSkin(this.value)"
+                                        class="w-full bg-white border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/10 rounded-xl px-3 py-2 text-xs font-bold text-slate-800 outline-none cursor-pointer transition-all">
+                                        <option value="alpine">🏔️ Alpine Carbon Pro (Alta Montaña)</option>
+                                        <option value="adrenaline">🔥 Adrenalina Extreme (Fuego & Rapidez)</option>
+                                        <option value="emerald">🌲 Canyoning Tactical (Esmeralda Selva)</option>
+                                        <option value="glacier">🌌 Glaciar VIP Night (Índigo Andino)</option>
+                                        <option value="gold">👑 Summit Gold Pro (Campeón Dorado)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-[8px] font-black uppercase tracking-widest text-slate-400 mb-1">WhatsApp Destinatario (Opcional)</label>
+                                    <input type="tel" id="inline-gift-to-phone" placeholder="+51 987 654 321" oninput="syncInlineGiftCard()"
+                                        class="w-full bg-white border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/10 rounded-xl px-3 py-2 text-xs font-bold text-slate-900 outline-none transition-all">
                                 </div>
                             </div>
-                            <textarea id="inline-gift-msg" rows="2" maxlength="110" oninput="syncInlineGiftCard()"
-                                class="w-full bg-slate-50 border border-slate-200 focus:border-primary rounded-2xl px-4 py-3 text-xs font-semibold text-slate-800 outline-none resize-none"
-                                placeholder="Escribe el mensaje que aparecerá en la tarjeta...">Te regalo esta aventura para que toques el cielo en los Andes. ¡Rompe tus límites!</textarea>
+
+                            <!-- Hidden date field for tracking delivery / issue date -->
+                            <input type="hidden" id="inline-gift-date" value="2026-10-25">
                         </div>
 
-                        <!-- 5. Selector de Monto + Botones de Acción -->
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-1">
-                            <div>
-                                <span class="block text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1.5">9. Monto de la Tarjeta</span>
-                                <div class="flex flex-wrap gap-1.5" id="inline-gift-amounts">
-                                    <button type="button" onclick="selectInlineGiftAmount(150)" class="gift-amt-btn px-3.5 py-2 rounded-xl border border-slate-200 bg-slate-50 text-xs font-black text-slate-700 hover:border-primary cursor-pointer">S/ 150</button>
-                                    <button type="button" onclick="selectInlineGiftAmount(300)" class="gift-amt-btn px-3.5 py-2 rounded-xl border border-slate-200 bg-slate-50 text-xs font-black text-slate-700 hover:border-primary cursor-pointer">S/ 300</button>
-                                    <button type="button" onclick="selectInlineGiftAmount(500)" class="gift-amt-btn active px-3.5 py-2 rounded-xl border-2 border-primary bg-primary text-white text-xs font-black shadow-md cursor-pointer">S/ 500</button>
-                                    <button type="button" onclick="selectInlineGiftAmount(1000)" class="gift-amt-btn px-3.5 py-2 rounded-xl border border-slate-200 bg-slate-50 text-xs font-black text-slate-700 hover:border-primary cursor-pointer">S/ 1,000</button>
-                                </div>
-                            </div>
-
-                            <div class="flex flex-wrap gap-2.5">
+                        <!-- BOTONES DE ACCIÓN (NEUROMARKETING CONVERSIÓN) -->
+                        <div class="pt-1 space-y-2">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                                 <button type="button" onclick="emitAndConfirmGiftCard()"
-                                    class="bg-gradient-to-r from-slate-900 to-indigo-950 hover:bg-primary text-white px-7 py-4 rounded-2xl font-black uppercase text-[10px] tracking-widest transition-all shadow-xl flex items-center justify-center gap-2 cursor-pointer group">
-                                    <i class="ri-magic-line text-base text-amber-400 group-hover:rotate-12 transition-transform"></i>
-                                    Emitir y Confirmar Regalo
+                                    class="w-full bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 hover:from-primary hover:to-primary text-white py-3.5 px-4 rounded-2xl font-black uppercase text-[10px] sm:text-[11px] tracking-wider transition-all shadow-xl hover:shadow-2xl flex items-center justify-center gap-2 cursor-pointer group">
+                                    <i class="ri-sparkling-fill text-amber-400 group-hover:rotate-12 transition-transform text-sm"></i>
+                                    Emitir y Confirmar
                                 </button>
                                 <button type="button" onclick="sendGiftCardWhatsApp()"
-                                    class="bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-4 rounded-2xl font-black uppercase text-[10px] tracking-widest transition-all shadow-lg flex items-center justify-center gap-1.5 cursor-pointer">
-                                    <i class="ri-whatsapp-line text-base"></i> Enviar por WhatsApp
+                                    class="w-full bg-emerald-600 hover:bg-emerald-500 text-white py-3.5 px-4 rounded-2xl font-black uppercase text-[10px] sm:text-[11px] tracking-wider transition-all shadow-lg hover:shadow-emerald-600/30 flex items-center justify-center gap-2 cursor-pointer">
+                                    <i class="ri-whatsapp-line text-base"></i>
+                                    Enviar por WhatsApp
                                 </button>
+                            </div>
+                            <div class="flex flex-wrap items-center justify-center gap-3 text-[8px] font-bold text-slate-400 pt-0.5">
+                                <span class="flex items-center gap-1"><i class="ri-shield-check-fill text-emerald-500"></i> Entrega Digital Inmediata</span>
+                                <span class="flex items-center gap-1"><i class="ri-time-line text-amber-500"></i> Validez 12 Meses</span>
+                                <span class="flex items-center gap-1"><i class="ri-arrow-left-right-line text-blue-500"></i> 100% Transferible</span>
                             </div>
                         </div>
                     </div>
@@ -2500,12 +2462,46 @@
             let currentGiftSkin = 'alpine';
             let currentGiftAmount = 500;
 
+            const OCCASION_PRESETS = {
+                "¡Feliz Cumpleaños": "Te regalo esta aventura para que toques el cielo en los Andes. ¡Rompe tus límites!",
+                "¡A Conquistar la Cumbre": "Las cosas pasan, pero las cumbres quedan para siempre. ¡Vamos por todo!",
+                "¡Feliz Aniversario": "Por más rutas, glaciares y amaneceres épicos juntos. ¡Tu próxima aventura empieza hoy!",
+                "¡Reto Desbloqueado": "Sal de la rutina y siente la adrenalina pura. ¡Desafía tus límites!",
+                "¡Nos Vamos de Expedición": "Empaca tu mochila, tu próxima cumbre te espera."
+            };
+
+            function handleOccasionChange(occasion) {
+                const msgEl = document.getElementById('inline-gift-msg');
+                if (msgEl && OCCASION_PRESETS[occasion]) {
+                    msgEl.value = OCCASION_PRESETS[occasion];
+                }
+                syncInlineGiftCard();
+            }
+
+            function openLifecoinsModal() {
+                const modal = document.getElementById('modal-lifecoins-wallet');
+                if (modal) {
+                    modal.classList.remove('hidden');
+                    const nb = document.getElementById('nav-coin-balance');
+                    const wb = document.getElementById('home-module-coin-balance');
+                    if (nb && wb) wb.innerText = nb.innerText;
+                }
+            }
+
+            function closeLifecoinsModal() {
+                const modal = document.getElementById('modal-lifecoins-wallet');
+                if (modal) modal.classList.add('hidden');
+            }
+
             function selectGiftSkin(skinKey) {
                 const skin = GIFT_SKINS[skinKey] || GIFT_SKINS.alpine;
                 currentGiftSkin = skinKey;
 
                 const skinLabel = document.getElementById('inline-gift-skin-label');
                 if (skinLabel) skinLabel.textContent = skin.name;
+
+                const skinSelect = document.getElementById('inline-gift-skin-select');
+                if (skinSelect && skinSelect.value !== skinKey) skinSelect.value = skinKey;
 
                 document.querySelectorAll('#inline-gift-skins .gift-skin-btn').forEach(btn => {
                     if (btn.dataset.skin === skinKey) {
@@ -2542,9 +2538,9 @@
 
                 document.querySelectorAll('#inline-gift-amounts .gift-amt-btn').forEach(btn => {
                     if (btn.textContent.replace(/[^\d]/g, '') === String(amt)) {
-                        btn.className = "gift-amt-btn active px-3.5 py-2 rounded-xl border-2 border-primary bg-primary text-white text-xs font-black shadow-md cursor-pointer";
+                        btn.className = "gift-amt-btn active relative py-2 px-1 rounded-xl border-2 border-primary bg-primary text-white text-xs font-black shadow-md cursor-pointer text-center transition-all";
                     } else {
-                        btn.className = "gift-amt-btn px-3.5 py-2 rounded-xl border border-slate-200 bg-slate-50 text-xs font-black text-slate-700 hover:border-primary cursor-pointer";
+                        btn.className = "gift-amt-btn py-2 px-1 rounded-xl border border-slate-200 bg-white text-xs font-black text-slate-700 hover:border-primary cursor-pointer text-center transition-all";
                     }
                 });
 
@@ -4426,6 +4422,77 @@
                         Volver al Inicio
                     </button>
                 </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================ -->
+    <!-- MODAL LIFECOINS WALLET & RECOMPENSAS -->
+    <!-- ============================================ -->
+    <div id="modal-lifecoins-wallet" class="hidden fixed inset-0 z-[6500] bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 w-full max-w-xl rounded-[36px] sm:rounded-[44px] p-6 sm:p-9 border border-amber-400/40 shadow-2xl relative overflow-hidden text-white animate-in fade-in zoom-in-95 duration-200">
+            <!-- Glow decoration -->
+            <div class="absolute -top-24 -right-24 w-72 h-72 bg-amber-400/20 rounded-full blur-[90px] pointer-events-none"></div>
+            <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-indigo-500/20 rounded-full blur-[90px] pointer-events-none"></div>
+
+            <!-- Header -->
+            <div class="relative z-10 flex items-center justify-between pb-6 border-b border-white/10">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 text-slate-950 flex items-center justify-center text-2xl shadow-lg shadow-amber-500/30">
+                        <i class="ri-coin-fill"></i>
+                    </div>
+                    <div>
+                        <span class="text-[9px] font-black uppercase tracking-widest text-amber-300 block">Billetera de Recompensas</span>
+                        <h3 class="text-xl sm:text-2xl font-black italic">Mis Lifecoins</h3>
+                    </div>
+                </div>
+                <button type="button" onclick="closeLifecoinsModal()" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center cursor-pointer transition-colors">
+                    <i class="ri-close-line text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Body -->
+            <div class="relative z-10 py-6 space-y-5">
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-5 text-center relative overflow-hidden">
+                    <div class="inline-flex items-center gap-2 bg-amber-400/20 border border-amber-400/30 px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest text-amber-300 mb-3">
+                        <i class="ri-sparkling-2-fill"></i> Programa Lifecoins Activo • 100 LC = $1 USD
+                    </div>
+                    <p class="text-xs font-bold text-slate-300 uppercase tracking-wider">Saldo Disponible</p>
+                    <div class="flex items-center justify-center gap-2 my-1">
+                        <i class="ri-coin-fill text-amber-400 text-3xl"></i>
+                        <span class="text-4xl sm:text-5xl font-black text-amber-400" id="home-module-coin-balance">800</span>
+                        <span class="text-xs font-black text-slate-400 uppercase tracking-widest self-end pb-1">LC</span>
+                    </div>
+                    <p class="text-xs text-slate-300 mt-2">
+                        Equivalente a <strong class="text-emerald-400 font-black">S/ 50.00 de descuento directo</strong> en tus reservas de aventura o alquiler de equipo.
+                    </p>
+                </div>
+
+                <!-- Actions grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <button type="button" onclick="if(window.Lifecoins){ Lifecoins.earn('daily_checkin'); var b=document.getElementById('home-module-coin-balance'); if(b) b.innerText=Lifecoins.balance; var nb=document.getElementById('nav-coin-balance'); if(nb) nb.innerText=Lifecoins.balance; if(window.showToast) window.showToast('¡Racha Diaria!', '+20 Lifecoins acreditados a tu billetera', 'ri-coin-fill'); }"
+                        class="bg-white/10 hover:bg-white/20 text-white border border-white/15 p-3.5 rounded-2xl font-black uppercase text-[10px] tracking-widest transition-all flex flex-col items-center justify-center gap-1.5 cursor-pointer text-center group">
+                        <i class="ri-calendar-check-fill text-amber-400 text-xl group-hover:scale-110 transition-transform"></i>
+                        <span>Racha Diaria<br><span class="text-amber-400">+20 LC</span></span>
+                    </button>
+
+                    <a href="recompensas.html"
+                        class="bg-gradient-to-r from-amber-400 to-orange-500 hover:brightness-110 text-slate-950 p-3.5 rounded-2xl font-black uppercase text-[10px] tracking-widest shadow-lg shadow-amber-500/25 transition-all flex flex-col items-center justify-center gap-1.5 text-center font-bold">
+                        <i class="ri-gift-2-fill text-xl"></i>
+                        <span>Canjear<br>Recompensas</span>
+                    </a>
+
+                    <a href="community.html"
+                        class="bg-indigo-600/30 hover:bg-indigo-600 text-indigo-200 hover:text-white border border-indigo-400/30 p-3.5 rounded-2xl font-black uppercase text-[10px] tracking-widest transition-all flex flex-col items-center justify-center gap-1.5 text-center">
+                        <i class="ri-group-line text-xl"></i>
+                        <span>Usar en Tribu<br><span class="text-white">(-S/ 50)</span></span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="relative z-10 pt-4 border-t border-white/10 flex justify-between items-center text-[10px] text-slate-400">
+                <span>🔒 Monedero seguro Lifextreme Pro</span>
+                <a href="recompensas.html" class="text-amber-400 hover:underline font-bold flex items-center gap-1">Ver catálogo completo <i class="ri-arrow-right-line"></i></a>
             </div>
         </div>
     </div>

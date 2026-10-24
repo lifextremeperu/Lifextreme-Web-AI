@@ -1375,8 +1375,8 @@ function renderAll(region = 'Todos', category = 'Todos') {
     const equipGrid = document.getElementById('equip-grid');
     if (equipGrid) {
         let equipsData = (typeof equips !== 'undefined') ? equips : (window.equips || []);
-        if (category !== 'Todos') {
-            equipsData = equipsData.filter(e => e.cat === category);
+        if (category && category !== 'Todos') {
+            equipsData = equipsData.filter(e => e.cat === category || e.cat.toLowerCase().includes(category.toLowerCase()));
         }
 
         equipGrid.innerHTML = equipsData.map((e, i) => {
@@ -1386,25 +1386,24 @@ function renderAll(region = 'Todos', category = 'Todos') {
             const imgId = `equip-img-${i}`;
 
             return `
-            <div class="neuro-card bg-slate-900/85 backdrop-blur-md rounded-[36px] border border-white/10 hover:border-amber-400/50 shadow-xl hover:shadow-[0_20px_45px_rgba(245,158,11,0.18)] transition-all p-6 sm:p-7 flex flex-col justify-between animate-card-entry text-white" style="animation-delay: ${i * 40}ms; animation-fill-mode: both;">
+            <div class="neuro-card bg-slate-900/90 backdrop-blur-md rounded-[32px] sm:rounded-[36px] border border-white/10 hover:border-amber-400/50 shadow-xl hover:shadow-[0_20px_45px_rgba(245,158,11,0.18)] transition-all p-5 sm:p-6 flex flex-col justify-between animate-card-entry text-white" style="animation-delay: ${i * 40}ms; animation-fill-mode: both;">
                 <div>
-                    <!-- Top Category & Recommend Destinos -->
+                    <!-- Top Category & Trust Badge -->
                     <div class="flex items-center justify-between gap-2 mb-3">
-                        <span class="bg-amber-400/15 text-amber-300 border border-amber-400/30 text-[9px] font-black uppercase px-3 py-1 rounded-full tracking-wider">
+                        <span class="bg-amber-400/15 text-amber-300 border border-amber-400/30 text-[9px] font-black uppercase px-2.5 py-1 rounded-full tracking-wider">
                             ${e.cat}
                         </span>
-                        ${e.destinos ? `
-                        <span class="text-[9px] font-bold text-slate-400 truncate max-w-[180px]" title="${e.destinos}">
-                            📍 ${e.destinos}
-                        </span>` : ''}
+                        <span class="text-[9px] font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-full flex items-center gap-1">
+                            <i class="ri-shield-check-fill"></i> 100% Esterilizado
+                        </span>
                     </div>
 
                     <!-- Main Image with 360 Spin Preview Controls -->
-                    <div class="h-60 rounded-3xl relative overflow-hidden bg-slate-950 mb-4 group/img">
+                    <div class="h-52 sm:h-56 rounded-2xl sm:rounded-3xl relative overflow-hidden bg-slate-950 mb-3.5 group/img">
                         <img id="${imgId}" src="${e.img}?w=600" loading="lazy" class="w-full h-full object-cover transition-opacity duration-300" alt="${e.name}">
                         
                         <!-- 360 Spin Angle Bar -->
-                        <div class="absolute bottom-3 left-3 right-3 bg-slate-950/80 backdrop-blur-md rounded-xl p-1.5 flex items-center justify-between gap-1 z-10 border border-white/10">
+                        <div class="absolute bottom-2.5 left-2.5 right-2.5 bg-slate-950/80 backdrop-blur-md rounded-xl p-1.5 flex items-center justify-between gap-1 z-10 border border-white/10">
                             <span class="text-[8px] font-black uppercase text-amber-400 tracking-wider flex items-center gap-1 pl-1">
                                 <i class="ri-360-line text-xs"></i> 360°
                             </span>
@@ -1419,39 +1418,58 @@ function renderAll(region = 'Todos', category = 'Todos') {
                         </div>
                     </div>
 
-                    <h4 class="font-black italic text-lg sm:text-xl text-white group-hover:text-amber-300 transition-colors leading-snug mb-2">${e.name}</h4>
-                    <p class="text-xs text-slate-300 mb-4 leading-relaxed">${e.desc || ''}</p>
+                    <h4 class="font-black italic text-base sm:text-lg text-white group-hover:text-amber-300 transition-colors leading-snug mb-1.5">${e.name}</h4>
+                    <p class="text-xs text-slate-300 mb-3 leading-relaxed line-clamp-2">${e.desc || ''}</p>
 
-                    <!-- Technical Specs Grid -->
+                    <!-- DESPLEGABLE DE FICHA TÉCNICA & CERTIFICACIONES (NEUROMARKETING) -->
                     ${e.specs ? `
-                    <div class="grid grid-cols-2 gap-2 bg-white/5 p-3 rounded-2xl border border-white/10 text-[10px] font-bold text-slate-300 mb-4">
-                        ${e.specs.peso ? `<div><strong class="text-white block text-[9px] uppercase text-slate-400">Peso</strong> ${e.specs.peso}</div>` : ''}
-                        ${e.specs.temp ? `<div><strong class="text-white block text-[9px] uppercase text-slate-400">Rango Temp / Viento</strong> ${e.specs.temp}</div>` : ''}
-                        ${e.specs.impermeable ? `<div><strong class="text-white block text-[9px] uppercase text-slate-400">Impermeabilidad</strong> ${e.specs.impermeable}</div>` : ''}
-                        ${e.specs.cert ? `<div><strong class="text-white block text-[9px] uppercase text-slate-400">Norma / Cert.</strong> ${e.specs.cert}</div>` : ''}
-                    </div>` : ''}
+                    <details class="group/spec mb-3.5 bg-white/5 hover:bg-white/[0.07] border border-white/10 rounded-2xl overflow-hidden transition-all">
+                        <summary class="flex items-center justify-between px-3.5 py-2.5 cursor-pointer text-[10px] font-black uppercase tracking-wider text-slate-300 hover:text-amber-300 select-none">
+                            <span class="flex items-center gap-2">
+                                <i class="ri-information-line text-amber-400 text-xs"></i>
+                                <span>Ver Ficha Técnica & Certificación</span>
+                            </span>
+                            <i class="ri-arrow-down-s-line text-slate-400 group-open/spec:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="px-3.5 pb-3 pt-1 border-t border-white/10 space-y-2 text-[10px]">
+                            <div class="grid grid-cols-2 gap-2 text-slate-300 pt-1">
+                                ${e.specs.peso ? `<div><span class="text-slate-400 block text-[8px] uppercase">Peso</span><strong>${e.specs.peso}</strong></div>` : ''}
+                                ${e.specs.temp ? `<div><span class="text-slate-400 block text-[8px] uppercase">Rango Temp / Viento</span><strong>${e.specs.temp}</strong></div>` : ''}
+                                ${e.specs.impermeable ? `<div><span class="text-slate-400 block text-[8px] uppercase">Impermeabilidad</span><strong>${e.specs.impermeable}</strong></div>` : ''}
+                                ${e.specs.cert ? `<div><span class="text-slate-400 block text-[8px] uppercase">Norma Oficial</span><strong>${e.specs.cert}</strong></div>` : ''}
+                            </div>
+                            ${e.destinos ? `
+                            <div class="text-[9px] text-amber-300/90 bg-amber-400/10 p-2 rounded-xl border border-amber-400/20">
+                                📍 <strong>Ruta recomendada:</strong> ${e.destinos}
+                            </div>` : ''}
+                            <div class="text-[8px] text-slate-400 flex items-center justify-between pt-0.5">
+                                <span>✓ Esterilización médica UV-C</span>
+                                <span>✓ Mantenimiento UIAGM</span>
+                            </div>
+                        </div>
+                    </details>` : ''}
 
                     <!-- Express Delivery Option -->
-                    <div class="mb-4">
-                        <label class="flex items-center gap-2 text-[10px] font-bold text-slate-200 bg-white/5 hover:bg-white/10 p-3 rounded-2xl border border-white/10 cursor-pointer transition-all">
-                            <input type="checkbox" class="accent-amber-500 w-4 h-4 rounded cursor-pointer" onchange="window.toggleEquipDelivery(${i}, this.checked)">
-                            <span>🚚 <strong>Delivery Express</strong> a mi Hotel/Agencia en Cusco o Huaraz (+S/ 25.00)</span>
+                    <div class="mb-3.5">
+                        <label class="flex items-center gap-2 text-[10px] font-bold text-slate-200 bg-white/5 hover:bg-white/10 px-3 py-2 rounded-xl border border-white/10 cursor-pointer transition-all">
+                            <input type="checkbox" class="accent-amber-500 w-3.5 h-3.5 rounded cursor-pointer" onchange="window.toggleEquipDelivery(${i}, this.checked)">
+                            <span>🚚 <strong>Delivery a mi Hotel</strong> en Cusco o Huaraz (+S/ 25)</span>
                         </label>
                     </div>
                 </div>
 
-                <!-- Price & Action Buttons -->
+                <!-- Price & Action Buttons (Neuromarketing: Alquiler destacado) -->
                 <div class="grid grid-cols-2 gap-2 pt-3 border-t border-white/10">
-                    <button type="button" onclick="const del = window.selectedEquipDeliveries[${i}]; const p = ${e.price} + (del ? 25 : 0); const n = '${e.name.replace(/'/g, "\\'")}' + (del ? ' (+ Delivery Express)' : ''); addToCartShort(n, p, 'sale', '${e.img}');"
-                        class="flex flex-col items-center justify-center bg-amber-400 hover:bg-amber-300 text-slate-950 p-3 rounded-2xl transition-all cursor-pointer shadow-sm group">
-                        <span class="text-[9px] font-black uppercase mb-0.5">Comprar</span>
-                        <span class="text-sm font-black italic">${buyPrice}</span>
+                    <button type="button" onclick="const del = window.selectedEquipDeliveries[${i}]; const p = ${e.rentPrice} + (del ? 25 : 0); const n = '${e.name.replace(/'/g, "\'")}' + (del ? ' (+ Delivery)' : ''); addToCartShort(n, p, 'rent', '${e.img}');"
+                        class="flex flex-col items-center justify-center bg-gradient-to-r from-amber-400 to-orange-500 hover:brightness-110 text-slate-950 p-2.5 sm:p-3 rounded-2xl transition-all cursor-pointer shadow-lg shadow-amber-500/20 group">
+                        <span class="text-[8px] font-black uppercase tracking-wider mb-0.5">Alquilar / Día</span>
+                        <span class="text-xs sm:text-sm font-black italic">${rentPrice}</span>
                     </button>
-                    
-                    <button type="button" onclick="const del = window.selectedEquipDeliveries[${i}]; const p = ${e.rentPrice} + (del ? 25 : 0); const n = '${e.name.replace(/'/g, "\\'")}' + (del ? ' (+ Delivery Express)' : ''); addToCartShort(n, p, 'rent', '${e.img}');"
-                        class="flex flex-col items-center justify-center bg-indigo-50 hover:bg-primary hover:text-white text-primary p-3 rounded-2xl transition-all cursor-pointer border border-indigo-100 group">
-                        <span class="text-[9px] font-bold text-indigo-400 uppercase mb-0.5 group-hover:text-indigo-100">Alquilar / Día</span>
-                        <span class="text-sm font-black italic">${rentPrice}</span>
+
+                    <button type="button" onclick="const del = window.selectedEquipDeliveries[${i}]; const p = ${e.price} + (del ? 25 : 0); const n = '${e.name.replace(/'/g, "\'")}' + (del ? ' (+ Delivery)' : ''); addToCartShort(n, p, 'sale', '${e.img}');"
+                        class="flex flex-col items-center justify-center bg-white/10 hover:bg-white/20 text-white p-2.5 sm:p-3 rounded-2xl transition-all cursor-pointer border border-white/15 group">
+                        <span class="text-[8px] font-bold text-slate-400 uppercase tracking-wider mb-0.5 group-hover:text-slate-200">Comprar Nuevo</span>
+                        <span class="text-xs sm:text-sm font-black italic">${buyPrice}</span>
                     </button>
                 </div>
             </div>
