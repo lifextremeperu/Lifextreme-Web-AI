@@ -1,0 +1,31 @@
+[
+  {
+    "booking_id": "LFX-1024-9699",
+    "token": "17a2b332",
+    "timestamp": "2026-10-24T17:44:15.109751",
+    "cliente": {
+      "nombre": "Sarah Jenkins (USA)",
+      "telefono": "+14155552671",
+      "hotel": "Kokopelli Hostel (Calle San Andrés)"
+    },
+    "tour": {
+      "nombre": "Salkantay Trek 4D / 3N con Domos",
+      "fecha": "28 de Octubre 2026",
+      "pax": 2,
+      "pago_operador_pen": 760.0
+    },
+    "operador": {
+      "nombre": "Juan Carlos Quispe",
+      "telefono": "+51984123456"
+    },
+    "links": {
+      "aceptar": "https://www.lifextreme.store/api/booking/operator-action?action=accept&id=LFX-1024-9699&token=17a2b332&op=Juan%20Carlos%20Quispe",
+      "rechazar": "https://www.lifextreme.store/api/booking/operator-action?action=reject&id=LFX-1024-9699&token=17a2b332&op=Juan%20Carlos%20Quispe"
+    },
+    "mensajes": {
+      "operador_wa": "🏔️ *¡NUEVA ASIGNACIÓN DE EXPEDICIÓN LIFEXTREME!*\n\nHola *Juan Carlos Quispe*, tienes una nueva reserva confirmada para operar en Cusco:\n\n📍 *Tour:* Salkantay Trek 4D / 3N con Domos\n📅 *Fecha:* 28 de Octubre 2026\n👥 *Pasajeros:* 2 pax\n🏨 *Hotel de Recojo:* Kokopelli Hostel (Calle San Andrés)\n💰 *Pago directo a ti:* *S/ 760.00 PEN*\n🆔 *Código de Orden:* `LFX-1024-9699`\n\n⚡ *CONFIRMA TU DISPONIBILIDAD CON 1 SOLO TAP:*\n👉 [🟢 ACEPTAR Y ASIGNAR A MI CUPO](https://www.lifextreme.store/api/booking/operator-action?action=accept&id=LFX-1024-9699&token=17a2b332&op=Juan%20Carlos%20Quispe)\n👉 [🔴 NO DISPONIBLE (RECHAZAR)](https://www.lifextreme.store/api/booking/operator-action?action=reject&id=LFX-1024-9699&token=17a2b332&op=Juan%20Carlos%20Quispe)\n\n_🛰️ Red de Operadores Certificados • Lifextreme Adventure AI_",
+      "turista_wa": "🎉 *¡RESERVA CONFIRMADA EN LIFEXTREME!*\n\nHola *Sarah Jenkins (USA)*, tu expedición de aventura está en marcha:\n\n📍 *Experiencia:* Salkantay Trek 4D / 3N con Domos\n📅 *Fecha:* 28 de Octubre 2026\n👥 *Grupo:* 2 persona(s)\n🏨 *Punto de Encuentro:* Kokopelli Hostel (Calle San Andrés)\n🛡️ *Guía Oficial Asignado:* Juan Carlos Quispe (Certificado MINCETUR)\n🆔 *Voucher:* `LFX-1024-9699`\n\n⏰ *Hora de recojo:* Te contactaremos por aquí a las 8:00 PM del día previo con los detalles del briefing y clima.\n\n¿Tienes dudas de equipo o aclimatación? Escríbenos directamente respondiendo a este chat. 🏔️"
+    },
+    "estado": "PENDIENTE_OPERADOR"
+  }
+]
