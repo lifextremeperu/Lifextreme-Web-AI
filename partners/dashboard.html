@@ -758,82 +758,153 @@
                     </div>
                 </div>
             </section>
-            <!-- Inteligencia AI Section (LIFEXTREME-CORE B2B) -->
-            <section id="section-inteligencia" class="dashboard-section hidden h-[calc(100vh-100px)]">
-                <div id="ai-core-container" class="flex flex-col h-[calc(100vh-120px)] bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 shadow-2xl relative transition-all">
+            <!-- Inteligencia AI Section (LIFEXTREME-CORE B2B) - ChatGPT & Claude Interface Style -->
+            <section id="section-inteligencia" class="dashboard-section hidden h-[calc(100vh-80px)]">
+                <div id="ai-core-container" class="flex flex-col h-full bg-slate-950 text-slate-100 rounded-3xl overflow-hidden border border-slate-800/80 shadow-2xl relative transition-all">
                     
-                    <!-- Header -->
-                    <div class="px-6 py-4 bg-slate-900/80 backdrop-blur border-b border-slate-800 flex justify-between items-center z-10">
+                    <!-- Header Superior Estilo Claude / ChatGPT -->
+                    <div class="px-5 py-3.5 bg-slate-900/90 backdrop-blur-md border-b border-slate-800/80 flex justify-between items-center z-10">
                         <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center shadow-lg shadow-indigo-600/30">
-                                <i data-lucide="cpu" class="w-5 h-5 text-white"></i>
-                            </div>
-                            <div>
-                                <h2 class="text-white font-black text-lg">LIFEXTREME-CORE Analyst</h2>
-                                <p class="text-xs text-indigo-400 font-medium flex items-center gap-1">
-                                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> En línea • Cerebro Qdrant B2B (337,012 vectores + 164 Parques)
-                                </p>
+                            <div class="flex items-center gap-2.5 bg-slate-950/80 border border-slate-800 px-3 py-1.5 rounded-2xl shadow-sm">
+                                <div class="w-7 h-7 rounded-xl bg-gradient-to-tr from-indigo-500 via-purple-600 to-amber-400 flex items-center justify-center text-white shadow-md">
+                                    <i data-lucide="sparkles" class="w-4 h-4 text-white"></i>
+                                </div>
+                                <div>
+                                    <div class="flex items-center gap-1.5 leading-none">
+                                        <span class="text-xs font-black text-white tracking-wide">Lifextreme Core 3.5</span>
+                                        <span class="bg-indigo-500/20 text-indigo-300 text-[9px] font-black uppercase px-1.5 py-0.5 rounded border border-indigo-500/30">B2B Analyst</span>
+                                    </div>
+                                    <p class="text-[10px] text-slate-400 font-medium flex items-center gap-1 mt-0.5">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                                        <span>Qdrant Bóveda: 337,012 vectores • MINCETUR & Finanzas</span>
+                                    </p>
+                                </div>
                             </div>
                         </div>
+
+                        <!-- Acciones Header -->
                         <div class="flex items-center gap-2">
-                            <button type="button" onclick="window.clearCoreChat && window.clearCoreChat()" class="text-slate-400 hover:text-white px-3 py-1.5 rounded-lg border border-slate-700 hover:border-slate-500 text-xs font-bold transition-colors" title="Nueva Consulta">
-                                Limpiar Chat
+                            <button type="button" onclick="window.clearCoreChat && window.clearCoreChat()"
+                                class="flex items-center gap-1.5 text-slate-300 hover:text-white px-3 py-1.5 rounded-xl border border-slate-700/80 hover:border-slate-500 hover:bg-slate-800 text-xs font-bold transition-all cursor-pointer shadow-sm"
+                                title="Iniciar una nueva conversación limpia">
+                                <i data-lucide="plus" class="w-3.5 h-3.5 text-amber-400"></i>
+                                <span>Nuevo Chat</span>
                             </button>
-                            <button type="button" id="ai-fullscreen-btn" onclick="window.toggleCoreFullscreen && window.toggleCoreFullscreen()" class="text-slate-400 hover:text-white p-2 rounded-lg hover:bg-slate-800 transition-colors" title="Pantalla Completa">
-                                <i data-lucide="maximize-2" class="w-5 h-5"></i>
+                            <button type="button" id="ai-fullscreen-btn" onclick="window.toggleCoreFullscreen && window.toggleCoreFullscreen()"
+                                class="text-slate-400 hover:text-white p-2 rounded-xl hover:bg-slate-800 border border-transparent hover:border-slate-700/60 transition-colors cursor-pointer"
+                                title="Pantalla Completa">
+                                <i data-lucide="maximize-2" class="w-4 h-4"></i>
                             </button>
                         </div>
                     </div>
 
-                    <!-- Chat History Container -->
-                    <div id="ai-chat-history" class="flex-1 p-6 overflow-y-auto bg-slate-900 space-y-6 scroll-smooth pb-48 custom-scrollbar">
+                    <!-- Canvas Central de Conversación (Centrado estilo ChatGPT / Claude) -->
+                    <div id="ai-chat-history" class="flex-1 p-4 sm:p-6 overflow-y-auto space-y-6 scroll-smooth custom-scrollbar pb-48">
                         
-                        <!-- Mensaje de Bienvenida -->
-                        <div class="flex gap-4 animate-fade-in">
-                            <div class="w-10 h-10 rounded-full bg-indigo-900 flex-shrink-0 flex items-center justify-center border border-indigo-700 mt-1">
-                                <i data-lucide="cpu" class="w-5 h-5 text-indigo-400"></i>
+                        <!-- Empty State de Bienvenida estilo Claude / ChatGPT -->
+                        <div id="ai-empty-welcome" class="max-w-2xl mx-auto text-center pt-8 sm:pt-12 pb-6 animate-fade-in">
+                            <div class="w-16 h-16 rounded-3xl bg-gradient-to-tr from-indigo-600 via-purple-600 to-amber-500 mx-auto flex items-center justify-center shadow-2xl shadow-indigo-600/30 mb-5 border border-white/20">
+                                <i data-lucide="bot" class="w-8 h-8 text-white"></i>
                             </div>
-                            <div class="bg-slate-800 rounded-2xl rounded-tl-none p-5 max-w-[85%] border border-slate-700 shadow-sm">
-                                <p class="text-slate-200 leading-relaxed text-sm">
-                                    Saludos, socio operador. Soy <strong class="text-indigo-400">LIFEXTREME-CORE B2B</strong>, tu consultor estratégico conectado al Cerebro Vectorial Qdrant (<strong class="text-emerald-400">337,012 vectores</strong>: Finanzas, Marco Legal MINCETUR/SERNANP, 164 Parques de Aventura e Inteligencia de Mercado).
-                                    <br><br>
-                                    Selecciona una acción rápida abajo o escribe tu consulta para estructurar un <strong>Proyecto de Inversión Turística (CAPEX/OPEX/ROI)</strong>, auditar normativas o diseñar estrategias comerciales:
-                                </p>
+                            <h3 class="text-2xl sm:text-3xl font-black italic text-white tracking-tight">
+                                ¿En qué puedo ayudarte hoy, socio operador?
+                            </h3>
+                            <p class="text-xs sm:text-sm text-slate-400 mt-2 max-w-lg mx-auto leading-relaxed font-medium">
+                                Soy el consultor estratégico de <strong class="text-white">Lifextreme Core</strong>. Conectado a normativas MINCETUR, concesiones SERNANP, estructuración de CAPEX/OPEX y estrategias comerciales sin intermediarios.
+                            </p>
+
+                            <!-- 4 Sugerencias Rápidas estilo Claude / ChatGPT (2x2 Grid) -->
+                            <div class="grid sm:grid-cols-2 gap-3 mt-8 text-left">
+                                <button type="button" onclick="window.sendSuggestion('Quiero estructurar un proyecto de inversión turística de parque de aventura y ecolodge en Perú con presupuesto de $150,000 USD. Dame el desglose CAPEX, OPEX, ROI proyectado y permisos SERNANP/MINCETUR.')"
+                                    class="p-4 rounded-2xl bg-slate-900/90 hover:bg-slate-850 border border-slate-800 hover:border-amber-400/50 transition-all group cursor-pointer shadow-md text-left flex flex-col justify-between">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-xs font-black text-amber-300 flex items-center gap-1.5">
+                                            <i data-lucide="building-2" class="w-4 h-4 text-amber-400"></i> Inversión CAPEX / ROI
+                                        </span>
+                                        <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slate-500 group-hover:text-amber-400 transition-colors"></i>
+                                    </div>
+                                    <p class="text-[11px] text-slate-400 group-hover:text-slate-300 leading-relaxed font-medium">
+                                        Estructura un parque de aventura, ecolodge o glamping con presupuesto, CAPEX y retorno.
+                                    </p>
+                                </button>
+
+                                <button type="button" onclick="window.sendSuggestion('¿Cuáles son los requisitos legales del MINCETUR (D.S. 005-2016), concesiones SERNANP y beneficios tributarios de exoneración de IGV (Ley 28780) para operar turismo de aventura en Perú?')"
+                                    class="p-4 rounded-2xl bg-slate-900/90 hover:bg-slate-850 border border-slate-800 hover:border-emerald-400/50 transition-all group cursor-pointer shadow-md text-left flex flex-col justify-between">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-xs font-black text-emerald-300 flex items-center gap-1.5">
+                                            <i data-lucide="scale" class="w-4 h-4 text-emerald-400"></i> Marco Legal & Ley IGV
+                                        </span>
+                                        <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slate-500 group-hover:text-emerald-400 transition-colors"></i>
+                                    </div>
+                                    <p class="text-[11px] text-slate-400 group-hover:text-slate-300 leading-relaxed font-medium">
+                                        Audita requisitos D.S. 005-2016, permisos SERNANP y exoneración de IGV Ley 28780.
+                                    </p>
+                                </button>
+
+                                <button type="button" onclick="window.sendSuggestion('¿Cómo puedo conseguir más clientes B2B y B2C con poco presupuesto este mes evitando el 25% de comisión de las OTAs?')"
+                                    class="p-4 rounded-2xl bg-slate-900/90 hover:bg-slate-850 border border-slate-800 hover:border-indigo-400/50 transition-all group cursor-pointer shadow-md text-left flex flex-col justify-between">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-xs font-black text-indigo-300 flex items-center gap-1.5">
+                                            <i data-lucide="megaphone" class="w-4 h-4 text-indigo-400"></i> Marketing Low-Cost
+                                        </span>
+                                        <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slate-500 group-hover:text-indigo-400 transition-colors"></i>
+                                    </div>
+                                    <p class="text-[11px] text-slate-400 group-hover:text-slate-300 leading-relaxed font-medium">
+                                        Captación directa por WhatsApp e Instagram para evitar el 25% de comisiones a OTAs.
+                                    </p>
+                                </button>
+
+                                <button type="button" onclick="window.sendSuggestion('¿Cómo calculo correctamente la estructura de costos, punto de equilibrio y precio de mis tours para asegurar un margen neto superior al 30%?')"
+                                    class="p-4 rounded-2xl bg-slate-900/90 hover:bg-slate-850 border border-slate-800 hover:border-purple-400/50 transition-all group cursor-pointer shadow-md text-left flex flex-col justify-between">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-xs font-black text-purple-300 flex items-center gap-1.5">
+                                            <i data-lucide="calculator" class="w-4 h-4 text-purple-400"></i> Precios & Margen Neto
+                                        </span>
+                                        <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slate-500 group-hover:text-purple-400 transition-colors"></i>
+                                    </div>
+                                    <p class="text-[11px] text-slate-400 group-hover:text-slate-300 leading-relaxed font-medium">
+                                        Estructura costos fijos y variables para garantizar un margen neto superior al 30%.
+                                    </p>
+                                </button>
                             </div>
                         </div>
 
                     </div>
 
-                    <!-- Input Area & Predictive Chips -->
-                    <div class="absolute bottom-0 w-full bg-gradient-to-t from-slate-900 via-slate-900 to-transparent pt-12 pb-4 px-6">
-                        
-                        <!-- Predictive Chips -->
-                        <div class="flex gap-2 overflow-x-auto pb-4 custom-scrollbar hide-scrollbars mb-1" id="predictive-chips">
-                            <button type="button" class="flex-shrink-0 bg-amber-500/15 hover:bg-amber-500 text-amber-300 hover:text-slate-950 border border-amber-500/40 rounded-full px-4 py-2 text-[12px] font-bold transition-all flex items-center gap-2 shadow-sm cursor-pointer" onclick="window.sendSuggestion('Quiero estructurar un proyecto de inversión turística de parque de aventura y ecolodge en Perú con presupuesto de $150,000 USD. Dame el desglose CAPEX, OPEX, ROI proyectado y permisos SERNANP/MINCETUR.')">
-                                <i data-lucide="building-2" class="w-4 h-4"></i> Proyecto de Inversión Turística (CAPEX/ROI)
-                            </button>
-                            <button type="button" class="flex-shrink-0 bg-emerald-500/15 hover:bg-emerald-500 text-emerald-300 hover:text-slate-950 border border-emerald-500/40 rounded-full px-4 py-2 text-[12px] font-bold transition-all flex items-center gap-2 shadow-sm cursor-pointer" onclick="window.sendSuggestion('¿Cuáles son los requisitos legales del MINCETUR (D.S. 005-2016), concesiones SERNANP y beneficios tributarios de exoneración de IGV (Ley 28780) para operar turismo de aventura en Perú?')">
-                                <i data-lucide="scale" class="w-4 h-4"></i> Marco Legal SERNANP & Ley IGV
-                            </button>
-                            <button type="button" class="flex-shrink-0 bg-slate-800 hover:bg-indigo-600 text-slate-300 hover:text-white border border-slate-700 hover:border-indigo-500 rounded-full px-4 py-2 text-[12px] font-medium transition-all flex items-center gap-2 shadow-sm cursor-pointer" onclick="window.sendSuggestion('¿Cómo puedo conseguir más clientes B2B y B2C con poco presupuesto este mes evitando el 25% de comisión de las OTAs?')">
-                                <i data-lucide="megaphone" class="w-4 h-4"></i> Marketing Low-Cost
-                            </button>
-                            <button type="button" class="flex-shrink-0 bg-slate-800 hover:bg-indigo-600 text-slate-300 hover:text-white border border-slate-700 hover:border-indigo-500 rounded-full px-4 py-2 text-[12px] font-medium transition-all flex items-center gap-2 shadow-sm cursor-pointer" onclick="window.sendSuggestion('¿Qué rutas o tours nuevos son más rentables y fáciles de operar para una agencia en Cusco, Huaraz y Selva?')">
-                                <i data-lucide="map" class="w-4 h-4"></i> Tours Rentables
-                            </button>
-                            <button type="button" class="flex-shrink-0 bg-slate-800 hover:bg-indigo-600 text-slate-300 hover:text-white border border-slate-700 hover:border-indigo-500 rounded-full px-4 py-2 text-[12px] font-medium transition-all flex items-center gap-2 shadow-sm cursor-pointer" onclick="window.sendSuggestion('¿Cómo calculo correctamente la estructura de costos, punto de equilibrio y precio de mis tours para asegurar un margen neto superior al 30%?')">
-                                <i data-lucide="calculator" class="w-4 h-4"></i> Cálculo de Precios
-                            </button>
-                        </div>
+                    <!-- Input Dock Flotante estilo Claude / ChatGPT -->
+                    <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950 via-slate-950/95 to-transparent pt-8 pb-4 px-4 sm:px-6 pointer-events-none">
+                        <div class="max-w-3xl sm:max-w-4xl mx-auto pointer-events-auto">
+                            <form id="ai-chat-form" class="bg-slate-900/95 border border-slate-700/80 focus-within:border-indigo-500 focus-within:ring-2 focus-within:ring-indigo-500/20 rounded-[28px] p-3 shadow-2xl backdrop-blur-xl transition-all">
+                                <textarea id="ai-chat-input" rows="1"
+                                    class="w-full bg-transparent text-white placeholder-slate-400 text-sm px-3.5 py-1.5 focus:outline-none resize-none max-h-36 custom-scrollbar leading-relaxed"
+                                    placeholder="Pregúntale a Lifextreme Core sobre inversiones, CAPEX, legal SERNANP, precios..."></textarea>
+                                
+                                <div class="flex items-center justify-between pt-2.5 border-t border-slate-800/80 mt-1 px-1">
+                                    <div class="flex items-center gap-1.5 overflow-x-auto text-slate-400 text-[11px] hide-scrollbars">
+                                        <button type="button" onclick="window.sendSuggestion('Estructurar CAPEX y ROI para un proyecto turístico')"
+                                            class="px-2.5 py-1 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 text-[10px] font-bold transition-colors flex items-center gap-1 cursor-pointer shrink-0">
+                                            <i data-lucide="pie-chart" class="w-3 h-3 text-amber-400"></i> CAPEX
+                                        </button>
+                                        <button type="button" onclick="window.sendSuggestion('Requisitos legales MINCETUR D.S. 005-2016 y SERNANP')"
+                                            class="px-2.5 py-1 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 text-[10px] font-bold transition-colors flex items-center gap-1 cursor-pointer shrink-0">
+                                            <i data-lucide="scale" class="w-3 h-3 text-emerald-400"></i> Legal
+                                        </button>
+                                        <button type="button" onclick="window.sendSuggestion('Estrategia de captación de clientes turísticos sin comisiones OTA')"
+                                            class="px-2.5 py-1 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 text-[10px] font-bold transition-colors flex items-center gap-1 cursor-pointer shrink-0">
+                                            <i data-lucide="megaphone" class="w-3 h-3 text-indigo-400"></i> Marketing
+                                        </button>
+                                    </div>
 
-                        <!-- Chat Input Form -->
-                        <form id="ai-chat-form" class="flex gap-2 relative">
-                            <input type="text" id="ai-chat-input" class="w-full pl-5 pr-14 py-4 rounded-xl border border-slate-700 bg-slate-800 text-white focus:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all shadow-inner placeholder-slate-500 text-sm" placeholder="Describe tu proyecto turístico, consulta financiera, legal u operativa aquí..." autocomplete="off">
-                            <button type="submit" id="ai-chat-submit-btn" class="absolute right-2 top-2 bottom-2 aspect-square bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg flex items-center justify-center transition-colors shadow-md group cursor-pointer">
-                                <i data-lucide="send" class="w-5 h-5 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform"></i>
-                            </button>
-                        </form>
-                        <p class="text-center text-[10px] text-slate-500 mt-2">LIFEXTREME-CORE B2B • Motor Híbrido Qdrant (337K Vectores) + Groq LPU & Nomic Embeddings. Exportable a PDF.</p>
+                                    <button type="submit" id="ai-chat-submit-btn"
+                                        class="w-9 h-9 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 hover:brightness-110 text-white flex items-center justify-center transition-all shadow-md shrink-0 cursor-pointer">
+                                        <i data-lucide="arrow-up" class="w-4 h-4"></i>
+                                    </button>
+                                </div>
+                            </form>
+                            <p class="text-center text-[10px] text-slate-500 mt-2">
+                                Lifextreme Core B2B puede cometer errores. Verifica normativas legales con MINCETUR y SERNANP.
+                            </p>
+                        </div>
                     </div>
 
                 </div>

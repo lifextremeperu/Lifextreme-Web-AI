@@ -1282,8 +1282,8 @@
                     </div>
 
                     <!-- CTA Button -->
-                    <button data-action="activate-membership"
-                        class="bg-gradient-to-r from-secondary to-pink-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest hover:scale-105 transition-transform shadow-lg shadow-secondary/25 mb-10 w-full max-w-md flex items-center justify-center gap-3">
+                    <button type="button" data-action="activate-membership" onclick="window.openSocioRegistrationModal && window.openSocioRegistrationModal()"
+                        class="bg-gradient-to-r from-secondary to-pink-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest hover:scale-105 transition-transform shadow-lg shadow-secondary/25 mb-10 w-full max-w-md flex items-center justify-center gap-3 cursor-pointer">
                         <span>Reclamar Membresía Gratis</span>
                         <i class="ri-arrow-right-line"></i>
                     </button>
@@ -1396,7 +1396,7 @@
                                     <i class="ri-arrow-down-s-line text-lg text-slate-400 socio-acc-arrow transition-transform duration-300"></i>
                                 </button>
                                 <div id="socio-grp-pasos" class="socio-acc-panel hidden px-4 pb-4 pt-1 border-t border-white/5 text-[11px] text-slate-300 space-y-2.5">
-                                    <p><strong class="text-amber-400">1.</strong> Llena el formulario de inscripción: <a href="https://goo.gl/CcvnZB" target="_blank" rel="noopener" class="text-amber-400 underline font-bold hover:text-amber-300">https://goo.gl/CcvnZB</a></p>
+                                    <p><strong class="text-amber-400">1.</strong> Llena el formulario de inscripción: <a href="javascript:void(0)" onclick="window.openSocioRegistrationModal && window.openSocioRegistrationModal()" target="_blank" rel="noopener" class="text-amber-400 underline font-bold hover:text-amber-300">https://goo.gl/CcvnZB</a></p>
                                     <p><strong class="text-amber-400">2.</strong> Realiza el depósito del costo de la membresía en la cuenta indicada.</p>
                                     <p><strong class="text-amber-400">3.</strong> Envíanos una foto nítida del voucher con tu nombre completo y la palabra <strong class="text-white">"Socio Club" ✌</strong> al correo: <a href="mailto:lifextremeperu@gmail.com" class="text-amber-400 underline font-bold">lifextremeperu@gmail.com</a></p>
                                     <p><strong class="text-amber-400">4.</strong> Envíanos una foto tamaño carnet (fondo blanco) y una foto tuya en algún viaje para nuestra Fan Page oficial.</p>
@@ -2934,6 +2934,59 @@
             window.copyGiftCode = copyGiftCode;
             window.dispatchGiftCardToRecipientWA = dispatchGiftCardToRecipientWA;
             window.dispatchGiftCardToConciergeWA = dispatchGiftCardToConciergeWA;
+                        function openSocioRegistrationModal() {
+                const modal = document.getElementById('modal-socio-registration');
+                if (modal) {
+                    modal.classList.remove('hidden');
+                    modal.classList.add('flex');
+                }
+            }
+
+            function closeSocioRegistrationModal() {
+                const modal = document.getElementById('modal-socio-registration');
+                if (modal) {
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                }
+            }
+
+            function submitModalSocioRegistration() {
+                const name = document.getElementById('m-socio-name')?.value.trim();
+                const dni = document.getElementById('m-socio-dni')?.value.trim();
+                const phone = document.getElementById('m-socio-phone')?.value.trim();
+                const email = document.getElementById('m-socio-email')?.value.trim();
+                const city = document.getElementById('m-socio-city')?.value || 'Cusco / Lima';
+                const plan = document.getElementById('m-socio-plan')?.value || 'Admisión FREE (Promoción)';
+                const interest = document.getElementById('m-socio-interest')?.value || 'Trekking & Senderismo';
+
+                if (!name || !dni || !phone || !email) {
+                    if (window.showToast) window.showToast('Campos requeridos', 'Por favor completa todos los campos del formulario.', 'ri-error-warning-line');
+                    return;
+                }
+
+                // Sincronizar con formulario inline si existe
+                const inName = document.getElementById('socio-input-name');
+                if (inName) inName.value = name;
+                const inDni = document.getElementById('socio-input-dni');
+                if (inDni) inDni.value = dni;
+                const inPhone = document.getElementById('socio-input-phone');
+                if (inPhone) inPhone.value = phone;
+                const inEmail = document.getElementById('socio-input-email');
+                if (inEmail) inEmail.value = email;
+                const inCity = document.getElementById('socio-input-city');
+                if (inCity) inCity.value = city;
+                const inPlan = document.getElementById('socio-input-plan');
+                if (inPlan) inPlan.value = plan;
+                const inInterest = document.getElementById('socio-input-interest');
+                if (inInterest) inInterest.value = interest;
+
+                closeSocioRegistrationModal();
+                submitSocioRegistration();
+            }
+
+            window.openSocioRegistrationModal = openSocioRegistrationModal;
+            window.closeSocioRegistrationModal = closeSocioRegistrationModal;
+            window.submitModalSocioRegistration = submitModalSocioRegistration;
             window.submitSocioRegistration = submitSocioRegistration;
             window.closeSocioConfirmationModal = closeSocioConfirmationModal;
             window.dispatchSocioWhatsApp = dispatchSocioWhatsApp;
@@ -3008,10 +3061,10 @@
                                     class="bg-amber-400 hover:bg-amber-300 text-slate-950 px-6 py-3.5 rounded-2xl font-black uppercase text-xs tracking-wider shadow-lg transition-all flex items-center gap-2">
                                     <i class="ri-store-2-fill text-base"></i> Ver Locales Asociados y Descuentos
                                 </a>
-                                <a href="https://goo.gl/CcvnZB" target="_blank" rel="noopener"
-                                    class="bg-white/10 hover:bg-white/20 text-white border border-white/15 px-6 py-3.5 rounded-2xl font-black uppercase text-xs tracking-wider transition-all flex items-center gap-2">
+                                <button type="button" onclick="window.openSocioRegistrationModal && window.openSocioRegistrationModal()"
+                                    class="bg-white/10 hover:bg-white/20 text-white border border-white/15 px-6 py-3.5 rounded-2xl font-black uppercase text-xs tracking-wider transition-all flex items-center gap-2 cursor-pointer shadow-sm">
                                     <i class="ri-file-list-3-fill text-amber-400 text-base"></i> Formulario Oficial de Inscripción
-                                </a>
+                                </button>
                             </div>
                         </div>
 
@@ -3413,7 +3466,7 @@
                                 <span class="bg-amber-500/20 text-amber-400 border border-amber-500/30 px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest">Admisión FREE (Hasta 12 Nov)</span>
                                 <h3 class="text-2xl font-black italic mt-2">4 Módulos de Beneficios Oficiales</h3>
                             </div>
-                            <a href="https://goo.gl/CcvnZB" target="_blank" rel="noopener"
+                            <a href="javascript:void(0)" onclick="window.openSocioRegistrationModal && window.openSocioRegistrationModal()" target="_blank" rel="noopener"
                                 class="bg-amber-500 hover:bg-amber-400 text-slate-900 px-5 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all flex items-center gap-2 shadow-lg">
                                 <i class="ri-file-list-3-fill text-sm"></i> Inscribirme Ahora
                             </a>
@@ -3700,7 +3753,7 @@
                             <div class="grid md:grid-cols-2 gap-3 pt-2">
                                 <div class="bg-slate-800/80 rounded-2xl p-4 border border-white/10 text-xs text-slate-300 space-y-1.5">
                                     <h5 class="text-amber-400 font-black uppercase text-xs mb-2">📋 ¿Cómo puedo ser Socio?</h5>
-                                    <p><strong>1.</strong> Llena el formulario: <a href="https://goo.gl/CcvnZB" target="_blank" rel="noopener" class="text-amber-400 underline font-bold">https://goo.gl/CcvnZB</a></p>
+                                    <p><strong>1.</strong> Llena el formulario: <a href="javascript:void(0)" onclick="window.openSocioRegistrationModal && window.openSocioRegistrationModal()" target="_blank" rel="noopener" class="text-amber-400 underline font-bold">https://goo.gl/CcvnZB</a></p>
                                     <p><strong>2.</strong> Realiza el depósito del costo de la membresía en la cuenta indicada.</p>
                                     <p><strong>3.</strong> Envía foto nítida del voucher con tu nombre completo y <strong>"Socio Club"✌</strong> a: <a href="mailto:lifextremeperu@gmail.com" class="text-amber-400 underline font-bold">lifextremeperu@gmail.com</a></p>
                                     <p><strong>4.</strong> Envíanos foto tamaño carnet (fondo blanco) y una foto en algún viaje para nuestra Fan Page oficial.</p>
@@ -4637,6 +4690,109 @@
     <!-- ============================================ -->
     <!-- MODAL 3: CONFIRMACIÓN Y CARNET DE SOCIO ACTIVO -->
     <!-- ============================================ -->
+        <!-- ============================================ -->
+    <!-- MODAL OFICIAL: INSCRIPCIÓN Y MEMBRESÍA DE SOCIO CLUB LIFEXTREME -->
+    <!-- ============================================ -->
+    <div id="modal-socio-registration" class="hidden fixed inset-0 z-[6500] bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-slate-900 border border-amber-400/40 text-white w-full max-w-2xl rounded-[36px] shadow-2xl relative my-8 overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+            
+            <!-- Header con identidad Lifextreme -->
+            <div class="bg-gradient-to-r from-slate-950 via-slate-900 to-indigo-950 p-6 sm:p-8 border-b border-white/10 relative">
+                <button type="button" onclick="closeSocioRegistrationModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-slate-300 flex items-center justify-center transition-colors cursor-pointer">
+                    <i class="ri-close-line text-xl"></i>
+                </button>
+
+                <div class="inline-flex items-center gap-2 bg-amber-400/15 border border-amber-400/30 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest text-amber-300 mb-2">
+                    <i class="ri-vip-crown-2-fill text-amber-400"></i> Membresía Oficial • Club Exclusivo Lifextreme
+                </div>
+                <h3 class="text-2xl sm:text-3xl font-black italic text-white leading-tight">
+                    Inscripción Oficial de Socio
+                </h3>
+                <p class="text-xs text-slate-300 mt-1 max-w-lg leading-relaxed">
+                    Accede a descuentos del <strong class="text-white">15% al 35%</strong> en más de 12 locales asociados, expediciones grupales y recibe tu <strong class="text-amber-400">Carnet Digital Oficial + Kit de Bienvenida</strong>.
+                </p>
+            </div>
+
+            <!-- Formulario de Inscripción -->
+            <form id="modal-socio-form" onsubmit="event.preventDefault(); submitModalSocioRegistration();" class="p-6 sm:p-8 space-y-4">
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] font-black uppercase text-slate-400 tracking-wider">Nombre Completo *</label>
+                        <input type="text" id="m-socio-name" required placeholder="Ej: Carlos Mendoza"
+                            class="w-full bg-slate-950 border border-slate-700 focus:border-amber-400 rounded-2xl px-4 py-3 text-sm font-bold text-white focus:outline-none transition-colors">
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] font-black uppercase text-slate-400 tracking-wider">DNI o Pasaporte *</label>
+                        <input type="text" id="m-socio-dni" required placeholder="Ej: 72849102"
+                            class="w-full bg-slate-950 border border-slate-700 focus:border-amber-400 rounded-2xl px-4 py-3 text-sm font-bold text-white focus:outline-none transition-colors">
+                    </div>
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] font-black uppercase text-slate-400 tracking-wider">WhatsApp Celular *</label>
+                        <input type="tel" id="m-socio-phone" required placeholder="+51 999 888 777"
+                            class="w-full bg-slate-950 border border-slate-700 focus:border-amber-400 rounded-2xl px-4 py-3 text-sm font-bold text-white focus:outline-none transition-colors">
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] font-black uppercase text-slate-400 tracking-wider">Correo Electrónico *</label>
+                        <input type="email" id="m-socio-email" required placeholder="tu@correo.com"
+                            class="w-full bg-slate-950 border border-slate-700 focus:border-amber-400 rounded-2xl px-4 py-3 text-sm font-bold text-white focus:outline-none transition-colors">
+                    </div>
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] font-black uppercase text-slate-400 tracking-wider">Sede Principal</label>
+                        <select id="m-socio-city"
+                            class="w-full bg-slate-950 border border-slate-700 focus:border-amber-400 rounded-2xl px-4 py-3 text-sm font-bold text-white focus:outline-none transition-colors cursor-pointer">
+                            <option value="Cusco / Lima">Cusco & Lima (Base Central)</option>
+                            <option value="Arequipa">Arequipa (Sede Misti)</option>
+                            <option value="Huaraz / Áncash">Huaraz (Cordillera Blanca)</option>
+                            <option value="Piura / Norte">Piura & Costa Norte</option>
+                            <option value="Tarapoto / Selva">Tarapoto & San Martín</option>
+                        </select>
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] font-black uppercase text-slate-400 tracking-wider">Plan de Membresía</label>
+                        <select id="m-socio-plan"
+                            class="w-full bg-slate-950 border border-slate-700 focus:border-amber-400 rounded-2xl px-4 py-3 text-sm font-bold text-white focus:outline-none transition-colors cursor-pointer">
+                            <option value="Admisión FREE (Promoción)">🎁 Admisión FREE (Bienvenida al Club)</option>
+                            <option value="Promo Sedes (S/ 30/año)">🔥 Promo Sedes (S/ 30/año - Stock 100)</option>
+                            <option value="Anual Pro (S/ 99/año)">⭐ Anual Pro (S/ 99/año - Kit + Polo + Carnet)</option>
+                            <option value="Semestral (S/ 60/6m)">⚡ Semestral (S/ 60 por 6 meses)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="space-y-1.5">
+                    <label class="text-[10px] font-black uppercase text-slate-400 tracking-wider">Deporte / Interés Principal</label>
+                    <select id="m-socio-interest"
+                        class="w-full bg-slate-950 border border-slate-700 focus:border-amber-400 rounded-2xl px-4 py-3 text-sm font-bold text-white focus:outline-none transition-colors cursor-pointer">
+                        <option value="Trekking & Senderismo">🏔️ Trekking & Senderismo de Montaña</option>
+                        <option value="Escalada en Roca y Palestra">🧗 Escalada en Roca y Palestra</option>
+                        <option value="Alta Montaña & Glaciares">❄️ Alta Montaña & Glaciares</option>
+                        <option value="Campamento & Fotografía Outdoor">⛺ Campamento & Fotografía Outdoor</option>
+                        <option value="Ciclismo & Trail Running">🚴 Ciclismo & Trail Running</option>
+                        <option value="Multideporte Aventura">⚡ Multideporte Aventura</option>
+                    </select>
+                </div>
+
+                <!-- Botón de Envío de Alta Conversión -->
+                <div class="pt-3">
+                    <button type="submit"
+                        class="w-full bg-gradient-to-r from-amber-400 via-orange-400 to-amber-300 hover:brightness-110 text-slate-950 font-black uppercase text-xs sm:text-sm tracking-wider py-4 rounded-2xl shadow-xl shadow-amber-400/20 transition-all flex items-center justify-center gap-2 cursor-pointer">
+                        <i class="ri-shield-check-fill text-lg"></i>
+                        <span>Registrarme y Emitir Mi Carnet de Socio</span>
+                    </button>
+                    <p class="text-[10px] text-center text-slate-400 mt-2">
+                        Al inscribirte aceptas el estatuto del Club y recibes atención personalizada por WhatsApp.
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <div id="socio-confirmation-modal" class="hidden fixed inset-0 z-[7000] bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4">
         <div class="bg-white w-full max-w-xl rounded-[40px] shadow-2xl border border-slate-100 overflow-hidden flex flex-col max-h-[92vh] animate-in fade-in zoom-in-95 duration-200">
             <!-- Header -->
@@ -4792,7 +4948,7 @@
     <!-- AI PERSONALIZATION MODAL -->
     <div id="ai-personalization-modal"
         class="hidden fixed inset-0 z-[6000] bg-slate-900/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
-        <div class="bg-white w-full max-w-4xl rounded-[48px] shadow-3xl my-8 relative">
+        <div class="bg-slate-900 border border-white/10 text-slate-100 w-full max-w-4xl rounded-[48px] shadow-3xl my-8 relative overflow-hidden">
             <!-- Header -->
             <div
                 class="bg-gradient-to-r from-primary to-secondary p-8 lg:p-12 text-white text-center relative overflow-hidden">
@@ -4819,30 +4975,30 @@
                     </h3>
                     <div class="grid md:grid-cols-2 gap-6">
                         <div class="space-y-2">
-                            <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Nombre
+                            <label class="text-[10px] font-black uppercase text-slate-300 tracking-widest">Nombre
                                 Completo *</label>
                             <input type="text" name="fullName" required
-                                class="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-primary transition-colors"
+                                class="w-full bg-slate-950 border border-slate-700 text-white rounded-2xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-primary transition-colors"
                                 placeholder="Ej: Carlos Mendoza">
                         </div>
                         <div class="space-y-2">
-                            <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Email
+                            <label class="text-[10px] font-black uppercase text-slate-300 tracking-widest">Email
                                 *</label>
                             <input type="email" name="email" required
-                                class="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-primary transition-colors"
+                                class="w-full bg-slate-950 border border-slate-700 text-white rounded-2xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-primary transition-colors"
                                 placeholder="tu@email.com">
                         </div>
                         <div class="space-y-2">
-                            <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Edad</label>
+                            <label class="text-[10px] font-black uppercase text-slate-300 tracking-widest">Edad</label>
                             <input type="number" name="age" min="18" max="99"
-                                class="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-primary transition-colors"
+                                class="w-full bg-slate-950 border border-slate-700 text-white rounded-2xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-primary transition-colors"
                                 placeholder="28">
                         </div>
                         <div class="space-y-2">
                             <label
-                                class="text-[10px] font-black uppercase text-slate-400 tracking-widest">WhatsApp</label>
+                                class="text-[10px] font-black uppercase text-slate-300 tracking-widest">WhatsApp</label>
                             <input type="tel" name="phone"
-                                class="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-primary transition-colors"
+                                class="w-full bg-slate-950 border border-slate-700 text-white rounded-2xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-primary transition-colors"
                                 placeholder="+51 999 999 999">
                         </div>
                     </div>
@@ -4856,14 +5012,14 @@
                     </h3>
 
                     <div class="space-y-2">
-                        <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Nivel de
+                        <label class="text-[10px] font-black uppercase text-slate-300 tracking-widest">Nivel de
                             Experiencia *</label>
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
                             <label class="relative cursor-pointer">
                                 <input type="radio" name="experienceLevel" value="beginner" class="peer sr-only"
                                     required>
                                 <div
-                                    class="bg-slate-50 border-2 border-slate-100 rounded-2xl p-4 text-center peer-checked:border-primary peer-checked:bg-primary/5 transition-all">
+                                    class="bg-slate-950 border border-slate-700 text-white rounded-2xl p-4 text-center peer-checked:border-primary peer-checked:bg-primary/5 transition-all">
                                     <i class="ri-seedling-line text-2xl mb-2 block"></i>
                                     <p class="text-[10px] font-black uppercase">Principiante</p>
                                 </div>
@@ -4871,7 +5027,7 @@
                             <label class="relative cursor-pointer">
                                 <input type="radio" name="experienceLevel" value="intermediate" class="peer sr-only">
                                 <div
-                                    class="bg-slate-50 border-2 border-slate-100 rounded-2xl p-4 text-center peer-checked:border-primary peer-checked:bg-primary/5 transition-all">
+                                    class="bg-slate-950 border border-slate-700 text-white rounded-2xl p-4 text-center peer-checked:border-primary peer-checked:bg-primary/5 transition-all">
                                     <i class="ri-walk-line text-2xl mb-2 block"></i>
                                     <p class="text-[10px] font-black uppercase">Intermedio</p>
                                 </div>
@@ -4879,7 +5035,7 @@
                             <label class="relative cursor-pointer">
                                 <input type="radio" name="experienceLevel" value="advanced" class="peer sr-only">
                                 <div
-                                    class="bg-slate-50 border-2 border-slate-100 rounded-2xl p-4 text-center peer-checked:border-primary peer-checked:bg-primary/5 transition-all">
+                                    class="bg-slate-950 border border-slate-700 text-white rounded-2xl p-4 text-center peer-checked:border-primary peer-checked:bg-primary/5 transition-all">
                                     <i class="ri-run-line text-2xl mb-2 block"></i>
                                     <p class="text-[10px] font-black uppercase">Avanzado</p>
                                 </div>
@@ -4887,7 +5043,7 @@
                             <label class="relative cursor-pointer">
                                 <input type="radio" name="experienceLevel" value="expert" class="peer sr-only">
                                 <div
-                                    class="bg-slate-50 border-2 border-slate-100 rounded-2xl p-4 text-center peer-checked:border-primary peer-checked:bg-primary/5 transition-all">
+                                    class="bg-slate-950 border border-slate-700 text-white rounded-2xl p-4 text-center peer-checked:border-primary peer-checked:bg-primary/5 transition-all">
                                     <i class="ri-rocket-2-line text-2xl mb-2 block"></i>
                                     <p class="text-[10px] font-black uppercase">Experto</p>
                                 </div>
@@ -4896,41 +5052,41 @@
                     </div>
 
                     <div class="space-y-2">
-                        <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Intereses de
+                        <label class="text-[10px] font-black uppercase text-slate-300 tracking-widest">Intereses de
                             Aventura (Selecciona todos los que apliquen)</label>
                         <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
                             <label
-                                class="flex items-center gap-3 bg-slate-50 p-3 rounded-xl cursor-pointer hover:bg-slate-100 transition-colors">
+                                class="flex items-center gap-3 bg-slate-950 border border-slate-700 text-white p-3 rounded-xl cursor-pointer hover:bg-slate-100 transition-colors">
                                 <input type="checkbox" name="interests" value="trekking"
                                     class="w-5 h-5 accent-primary rounded">
                                 <span class="text-xs font-bold">🏔️ Trekking</span>
                             </label>
                             <label
-                                class="flex items-center gap-3 bg-slate-50 p-3 rounded-xl cursor-pointer hover:bg-slate-100 transition-colors">
+                                class="flex items-center gap-3 bg-slate-950 border border-slate-700 text-white p-3 rounded-xl cursor-pointer hover:bg-slate-100 transition-colors">
                                 <input type="checkbox" name="interests" value="climbing"
                                     class="w-5 h-5 accent-primary rounded">
                                 <span class="text-xs font-bold">🧗 Escalada</span>
                             </label>
                             <label
-                                class="flex items-center gap-3 bg-slate-50 p-3 rounded-xl cursor-pointer hover:bg-slate-100 transition-colors">
+                                class="flex items-center gap-3 bg-slate-950 border border-slate-700 text-white p-3 rounded-xl cursor-pointer hover:bg-slate-100 transition-colors">
                                 <input type="checkbox" name="interests" value="jungle"
                                     class="w-5 h-5 accent-primary rounded">
                                 <span class="text-xs font-bold">🌴 Selva</span>
                             </label>
                             <label
-                                class="flex items-center gap-3 bg-slate-50 p-3 rounded-xl cursor-pointer hover:bg-slate-100 transition-colors">
+                                class="flex items-center gap-3 bg-slate-950 border border-slate-700 text-white p-3 rounded-xl cursor-pointer hover:bg-slate-100 transition-colors">
                                 <input type="checkbox" name="interests" value="cycling"
                                     class="w-5 h-5 accent-primary rounded">
                                 <span class="text-xs font-bold">🚴 Ciclismo</span>
                             </label>
                             <label
-                                class="flex items-center gap-3 bg-slate-50 p-3 rounded-xl cursor-pointer hover:bg-slate-100 transition-colors">
+                                class="flex items-center gap-3 bg-slate-950 border border-slate-700 text-white p-3 rounded-xl cursor-pointer hover:bg-slate-100 transition-colors">
                                 <input type="checkbox" name="interests" value="water"
                                     class="w-5 h-5 accent-primary rounded">
                                 <span class="text-xs font-bold">🏄 Deportes Acuáticos</span>
                             </label>
                             <label
-                                class="flex items-center gap-3 bg-slate-50 p-3 rounded-xl cursor-pointer hover:bg-slate-100 transition-colors">
+                                class="flex items-center gap-3 bg-slate-950 border border-slate-700 text-white p-3 rounded-xl cursor-pointer hover:bg-slate-100 transition-colors">
                                 <input type="checkbox" name="interests" value="camping"
                                     class="w-5 h-5 accent-primary rounded">
                                 <span class="text-xs font-bold">⛺ Camping</span>
@@ -4940,10 +5096,10 @@
 
                     <div class="grid md:grid-cols-2 gap-6">
                         <div class="space-y-2">
-                            <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Presupuesto
+                            <label class="text-[10px] font-black uppercase text-slate-300 tracking-widest">Presupuesto
                                 Promedio por Aventura</label>
                             <select name="budget"
-                                class="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-primary transition-colors cursor-pointer">
+                                class="w-full bg-slate-950 border border-slate-700 text-white rounded-2xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-primary transition-colors cursor-pointer">
                                 <option value="">Seleccionar...</option>
                                 <option value="budget">S/ 500 - S/ 1,000 (Económico)</option>
                                 <option value="moderate">S/ 1,000 - S/ 2,500 (Moderado)</option>
@@ -4952,10 +5108,10 @@
                             </select>
                         </div>
                         <div class="space-y-2">
-                            <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Frecuencia de
+                            <label class="text-[10px] font-black uppercase text-slate-300 tracking-widest">Frecuencia de
                                 Viaje</label>
                             <select name="travelFrequency"
-                                class="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-primary transition-colors cursor-pointer">
+                                class="w-full bg-slate-950 border border-slate-700 text-white rounded-2xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-primary transition-colors cursor-pointer">
                                 <option value="">Seleccionar...</option>
                                 <option value="monthly">Mensual</option>
                                 <option value="quarterly">Trimestral</option>
@@ -4974,13 +5130,13 @@
                     </h3>
 
                     <div class="space-y-2">
-                        <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Tipo de Grupo
+                        <label class="text-[10px] font-black uppercase text-slate-300 tracking-widest">Tipo de Grupo
                             Preferido</label>
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
                             <label class="relative cursor-pointer">
                                 <input type="radio" name="groupType" value="solo" class="peer sr-only">
                                 <div
-                                    class="bg-slate-50 border-2 border-slate-100 rounded-2xl p-4 text-center peer-checked:border-primary peer-checked:bg-primary/5 transition-all">
+                                    class="bg-slate-950 border border-slate-700 text-white rounded-2xl p-4 text-center peer-checked:border-primary peer-checked:bg-primary/5 transition-all">
                                     <i class="ri-user-line text-2xl mb-2 block"></i>
                                     <p class="text-[10px] font-black uppercase">Solo</p>
                                 </div>
@@ -4988,7 +5144,7 @@
                             <label class="relative cursor-pointer">
                                 <input type="radio" name="groupType" value="couple" class="peer sr-only">
                                 <div
-                                    class="bg-slate-50 border-2 border-slate-100 rounded-2xl p-4 text-center peer-checked:border-primary peer-checked:bg-primary/5 transition-all">
+                                    class="bg-slate-950 border border-slate-700 text-white rounded-2xl p-4 text-center peer-checked:border-primary peer-checked:bg-primary/5 transition-all">
                                     <i class="ri-user-heart-line text-2xl mb-2 block"></i>
                                     <p class="text-[10px] font-black uppercase">Pareja</p>
                                 </div>
@@ -4996,7 +5152,7 @@
                             <label class="relative cursor-pointer">
                                 <input type="radio" name="groupType" value="friends" class="peer sr-only">
                                 <div
-                                    class="bg-slate-50 border-2 border-slate-100 rounded-2xl p-4 text-center peer-checked:border-primary peer-checked:bg-primary/5 transition-all">
+                                    class="bg-slate-950 border border-slate-700 text-white rounded-2xl p-4 text-center peer-checked:border-primary peer-checked:bg-primary/5 transition-all">
                                     <i class="ri-group-line text-2xl mb-2 block"></i>
                                     <p class="text-[10px] font-black uppercase">Amigos</p>
                                 </div>
@@ -5004,7 +5160,7 @@
                             <label class="relative cursor-pointer">
                                 <input type="radio" name="groupType" value="family" class="peer sr-only">
                                 <div
-                                    class="bg-slate-50 border-2 border-slate-100 rounded-2xl p-4 text-center peer-checked:border-primary peer-checked:bg-primary/5 transition-all">
+                                    class="bg-slate-950 border border-slate-700 text-white rounded-2xl p-4 text-center peer-checked:border-primary peer-checked:bg-primary/5 transition-all">
                                     <i class="ri-parent-line text-2xl mb-2 block"></i>
                                     <p class="text-[10px] font-black uppercase">Familia</p>
                                 </div>
@@ -5013,29 +5169,29 @@
                     </div>
 
                     <div class="space-y-2">
-                        <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Regiones de
+                        <label class="text-[10px] font-black uppercase text-slate-300 tracking-widest">Regiones de
                             Interés</label>
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
                             <label
-                                class="flex items-center gap-3 bg-slate-50 p-3 rounded-xl cursor-pointer hover:bg-slate-100 transition-colors">
+                                class="flex items-center gap-3 bg-slate-950 border border-slate-700 text-white p-3 rounded-xl cursor-pointer hover:bg-slate-100 transition-colors">
                                 <input type="checkbox" name="regions" value="cusco"
                                     class="w-5 h-5 accent-primary rounded">
                                 <span class="text-xs font-bold">Cusco</span>
                             </label>
                             <label
-                                class="flex items-center gap-3 bg-slate-50 p-3 rounded-xl cursor-pointer hover:bg-slate-100 transition-colors">
+                                class="flex items-center gap-3 bg-slate-950 border border-slate-700 text-white p-3 rounded-xl cursor-pointer hover:bg-slate-100 transition-colors">
                                 <input type="checkbox" name="regions" value="huaraz"
                                     class="w-5 h-5 accent-primary rounded">
                                 <span class="text-xs font-bold">Huaraz</span>
                             </label>
                             <label
-                                class="flex items-center gap-3 bg-slate-50 p-3 rounded-xl cursor-pointer hover:bg-slate-100 transition-colors">
+                                class="flex items-center gap-3 bg-slate-950 border border-slate-700 text-white p-3 rounded-xl cursor-pointer hover:bg-slate-100 transition-colors">
                                 <input type="checkbox" name="regions" value="iquitos"
                                     class="w-5 h-5 accent-primary rounded">
                                 <span class="text-xs font-bold">Iquitos</span>
                             </label>
                             <label
-                                class="flex items-center gap-3 bg-slate-50 p-3 rounded-xl cursor-pointer hover:bg-slate-100 transition-colors">
+                                class="flex items-center gap-3 bg-slate-950 border border-slate-700 text-white p-3 rounded-xl cursor-pointer hover:bg-slate-100 transition-colors">
                                 <input type="checkbox" name="regions" value="arequipa"
                                     class="w-5 h-5 accent-primary rounded">
                                 <span class="text-xs font-bold">Arequipa</span>
@@ -5044,10 +5200,10 @@
                     </div>
 
                     <div class="space-y-2">
-                        <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Motivación
+                        <label class="text-[10px] font-black uppercase text-slate-300 tracking-widest">Motivación
                             Principal</label>
                         <textarea name="motivation" rows="3"
-                            class="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-primary transition-colors resize-none"
+                            class="w-full bg-slate-950 border border-slate-700 text-white rounded-2xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-primary transition-colors resize-none"
                             placeholder="Ej: Busco desconectar del trabajo, superar mis límites físicos, conectar con la naturaleza..."></textarea>
                     </div>
                 </div>
@@ -5064,7 +5220,7 @@
                     </button>
                 </div>
 
-                <p class="text-[9px] text-slate-400 text-center font-bold italic">
+                <p class="text-[9px] text-slate-300 text-center font-bold italic">
                     🔒 Tus datos están protegidos y solo se usan para personalizar tu experiencia
                 </p>
             </form>

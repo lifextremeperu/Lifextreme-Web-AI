@@ -566,41 +566,117 @@ function initAIChat() {
     if (chatForm.dataset.bound === 'true') return;
     chatForm.dataset.bound = 'true';
 
+    // Auto-ajuste de altura textarea estilo ChatGPT / Claude
+    function adjustInputHeight() {
+        chatInput.style.height = 'auto';
+        chatInput.style.height = Math.min(chatInput.scrollHeight, 140) + 'px';
+    }
+    chatInput.addEventListener('input', adjustInputHeight);
+    chatInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            chatForm.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
+        }
+    });
+
     window.sendSuggestion = function(text) {
         chatInput.value = text;
+        adjustInputHeight();
         chatForm.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
     };
 
     window.clearCoreChat = function() {
         chatHistory.innerHTML = `
-            <div class="flex gap-4">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex-shrink-0 flex items-center justify-center shadow-lg border border-white/10">
-                    <i data-lucide="cpu" class="w-5 h-5 text-white"></i>
+            <div id="ai-empty-welcome" class="max-w-2xl mx-auto text-center pt-8 sm:pt-12 pb-6 animate-fade-in">
+                <div class="w-16 h-16 rounded-3xl bg-gradient-to-tr from-indigo-600 via-purple-600 to-amber-500 mx-auto flex items-center justify-center shadow-2xl shadow-indigo-600/30 mb-5 border border-white/20">
+                    <i data-lucide="bot" class="w-8 h-8 text-white"></i>
                 </div>
-                <div class="bg-slate-800/90 backdrop-blur-sm rounded-2xl rounded-tl-none p-5 max-w-[85%] border border-slate-700/80 text-slate-200 shadow-xl">
-                    <div class="flex items-center gap-2 mb-2 text-indigo-400 font-bold text-xs uppercase tracking-wider">
-                        <i data-lucide="terminal" class="w-3.5 h-3.5"></i> Consola Reiniciada • Bóveda B2B Lista
-                    </div>
-                    <p class="text-sm leading-relaxed text-slate-300">Selecciona un módulo predictivo abajo o escribe tu consulta sobre proyectos de inversión turística, costos CAPEX/OPEX o normativa MINCETUR/SERNANP.</p>
+                <h3 class="text-2xl sm:text-3xl font-black italic text-white tracking-tight">
+                    ¿En qué puedo ayudarte hoy, socio operador?
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-400 mt-2 max-w-lg mx-auto leading-relaxed font-medium">
+                    Soy el consultor estratégico de <strong class="text-white">Lifextreme Core</strong>. Conectado a normativas MINCETUR, concesiones SERNANP, estructuración de CAPEX/OPEX y estrategias comerciales sin intermediarios.
+                </p>
+
+                <div class="grid sm:grid-cols-2 gap-3 mt-8 text-left">
+                    <button type="button" onclick="window.sendSuggestion('Quiero estructurar un proyecto de inversión turística de parque de aventura y ecolodge en Perú con presupuesto de $150,000 USD. Dame el desglose CAPEX, OPEX, ROI proyectado y permisos SERNANP/MINCETUR.')"
+                        class="p-4 rounded-2xl bg-slate-900/90 hover:bg-slate-850 border border-slate-800 hover:border-amber-400/50 transition-all group cursor-pointer shadow-md text-left flex flex-col justify-between">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-black text-amber-300 flex items-center gap-1.5">
+                                <i data-lucide="building-2" class="w-4 h-4 text-amber-400"></i> Inversión CAPEX / ROI
+                            </span>
+                            <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slate-500 group-hover:text-amber-400 transition-colors"></i>
+                        </div>
+                        <p class="text-[11px] text-slate-400 group-hover:text-slate-300 leading-relaxed font-medium">
+                            Estructura un parque de aventura, ecolodge o glamping con presupuesto, CAPEX y retorno.
+                        </p>
+                    </button>
+
+                    <button type="button" onclick="window.sendSuggestion('¿Cuáles son los requisitos legales del MINCETUR (D.S. 005-2016), concesiones SERNANP y beneficios tributarios de exoneración de IGV (Ley 28780) para operar turismo de aventura en Perú?')"
+                        class="p-4 rounded-2xl bg-slate-900/90 hover:bg-slate-850 border border-slate-800 hover:border-emerald-400/50 transition-all group cursor-pointer shadow-md text-left flex flex-col justify-between">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-black text-emerald-300 flex items-center gap-1.5">
+                                <i data-lucide="scale" class="w-4 h-4 text-emerald-400"></i> Marco Legal & Ley IGV
+                            </span>
+                            <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slate-500 group-hover:text-emerald-400 transition-colors"></i>
+                        </div>
+                        <p class="text-[11px] text-slate-400 group-hover:text-slate-300 leading-relaxed font-medium">
+                            Audita requisitos D.S. 005-2016, permisos SERNANP y exoneración de IGV Ley 28780.
+                        </p>
+                    </button>
+
+                    <button type="button" onclick="window.sendSuggestion('¿Cómo puedo conseguir más clientes B2B y B2C con poco presupuesto este mes evitando el 25% de comisión de las OTAs?')"
+                        class="p-4 rounded-2xl bg-slate-900/90 hover:bg-slate-850 border border-slate-800 hover:border-indigo-400/50 transition-all group cursor-pointer shadow-md text-left flex flex-col justify-between">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-black text-indigo-300 flex items-center gap-1.5">
+                                <i data-lucide="megaphone" class="w-4 h-4 text-indigo-400"></i> Marketing Low-Cost
+                            </span>
+                            <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slate-500 group-hover:text-indigo-400 transition-colors"></i>
+                        </div>
+                        <p class="text-[11px] text-slate-400 group-hover:text-slate-300 leading-relaxed font-medium">
+                            Captación directa por WhatsApp e Instagram para evitar el 25% de comisiones a OTAs.
+                        </p>
+                    </button>
+
+                    <button type="button" onclick="window.sendSuggestion('¿Cómo calculo correctamente la estructura de costos, punto de equilibrio y precio de mis tours para asegurar un margen neto superior al 30%?')"
+                        class="p-4 rounded-2xl bg-slate-900/90 hover:bg-slate-850 border border-slate-800 hover:border-purple-400/50 transition-all group cursor-pointer shadow-md text-left flex flex-col justify-between">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-black text-purple-300 flex items-center gap-1.5">
+                                <i data-lucide="calculator" class="w-4 h-4 text-purple-400"></i> Precios & Margen Neto
+                            </span>
+                            <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slate-500 group-hover:text-purple-400 transition-colors"></i>
+                        </div>
+                        <p class="text-[11px] text-slate-400 group-hover:text-slate-300 leading-relaxed font-medium">
+                            Estructura costos fijos y variables para garantizar un margen neto superior al 30%.
+                        </p>
+                    </button>
                 </div>
             </div>
         `;
         if (window.lucide) window.lucide.createIcons({ root: chatHistory });
-        showPartnerToast('Consola LIFEXTREME-CORE reiniciada', 'info');
+        showPartnerToast('Nueva sesión de Lifextreme Core iniciada', 'info');
     };
 
     window.toggleCoreFullscreen = function() {
-        const card = chatHistory.closest('.dashboard-card');
-        if (!card) return;
-        card.classList.toggle('fixed');
-        card.classList.toggle('inset-4');
-        card.classList.toggle('z-[150]');
-        if (card.classList.contains('fixed')) {
-            card.style.height = 'calc(100vh - 2rem)';
-            showPartnerToast('Modo Pantalla Completa Activado (Presiona de nuevo para salir)', 'info');
-        } else {
-            card.style.height = '750px';
+        const container = document.getElementById('ai-core-container');
+        if (!container) return;
+        container.classList.toggle('fixed');
+        container.classList.toggle('inset-0');
+        container.classList.toggle('z-[1000]');
+        container.classList.toggle('rounded-none');
+        if (container.classList.contains('fixed')) {
+            showPartnerToast('Pantalla Completa Activada', 'info');
         }
+    };
+
+    window.copyReportContent = function(button) {
+        const report = button.closest('.flex-1').querySelector('.report-content');
+        if (!report) return;
+        navigator.clipboard.writeText(report.innerText).then(() => {
+            showPartnerToast('Dictamen copiado al portapapeles', 'success');
+        }).catch(() => {
+            showPartnerToast('No se pudo copiar el texto', 'error');
+        });
     };
 
     chatForm.addEventListener('submit', async (e) => {
@@ -608,8 +684,13 @@ function initAIChat() {
         const message = chatInput.value.trim();
         if (!message) return;
 
+        // Ocultar empty state si existe
+        const emptyWelcome = document.getElementById('ai-empty-welcome');
+        if (emptyWelcome) emptyWelcome.remove();
+
         appendMessage(message, 'user');
         chatInput.value = '';
+        chatInput.style.height = 'auto';
         const loadingId = appendLoading();
 
         try {
@@ -649,10 +730,10 @@ function initAIChat() {
             const botMsgDiv = appendMessage('', 'ai');
 
             if (!response || !response.ok) {
-                // Fallback inteligente inmediato si el túnel está apagado
                 const fallbackMd = buildOfflineB2BFallback(message);
                 botMsgDiv.innerHTML = formatMarkdown(fallbackMd);
                 chatHistory.scrollTop = chatHistory.scrollHeight;
+                if (window.lucide) window.lucide.createIcons({ root: botMsgDiv.closest('.animate-fade-in') });
                 return;
             }
 
@@ -691,39 +772,49 @@ function initAIChat() {
             if (!fullText.trim()) {
                 botMsgDiv.innerHTML = formatMarkdown(buildOfflineB2BFallback(message));
             }
+            if (window.lucide) window.lucide.createIcons({ root: botMsgDiv.closest('.animate-fade-in') });
         } catch (error) {
             console.warn('Activando síntesis B2B de respaldo:', error);
             removeLoading(loadingId);
             const botMsgDiv = appendMessage('', 'ai');
             botMsgDiv.innerHTML = formatMarkdown(buildOfflineB2BFallback(message));
+            if (window.lucide) window.lucide.createIcons({ root: botMsgDiv.closest('.animate-fade-in') });
         }
     });
 
     function appendMessage(text, sender) {
         const msgDiv = document.createElement('div');
-        msgDiv.className = 'flex gap-4 animate-fade-in';
         let contentDivToReturn = null;
 
         if (sender === 'user') {
-            msgDiv.classList.add('flex-row-reverse');
+            msgDiv.className = 'flex justify-end max-w-3xl sm:max-w-4xl mx-auto w-full animate-fade-in';
             msgDiv.innerHTML = `
-                <div class="w-10 h-10 rounded-full bg-amber-500/20 flex-shrink-0 flex items-center justify-center border border-amber-500/40 shadow-md">
-                    <i data-lucide="user" class="w-5 h-5 text-amber-400"></i>
-                </div>
-                <div class="bg-gradient-to-r from-indigo-600 to-indigo-700 rounded-2xl rounded-tr-none p-4 max-w-[85%] border border-indigo-400/40 shadow-md text-white">
-                    <p class="text-sm font-medium">${escapeHtml(text)}</p>
+                <div class="bg-slate-800 text-slate-100 rounded-3xl rounded-br-sm px-5 py-3.5 max-w-[85%] border border-slate-700/70 shadow-sm text-sm leading-relaxed font-medium">
+                    ${escapeHtml(text)}
                 </div>
             `;
         } else {
+            msgDiv.className = 'flex gap-3.5 max-w-3xl sm:max-w-4xl mx-auto w-full animate-fade-in group';
             msgDiv.innerHTML = `
-                <div class="w-10 h-10 rounded-full bg-indigo-900 flex-shrink-0 flex items-center justify-center border border-indigo-700 mt-1 shadow-md">
-                    <i data-lucide="cpu" class="w-5 h-5 text-indigo-400"></i>
+                <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-indigo-600 via-purple-600 to-amber-500 flex items-center justify-center text-white shrink-0 mt-1 shadow-md">
+                    <i data-lucide="sparkles" class="w-4 h-4 text-white"></i>
                 </div>
-                <div class="bg-slate-800 rounded-2xl rounded-tl-none p-5 max-w-[95%] border border-slate-700 shadow-sm text-slate-200 relative group w-full">
-                    <button onclick="window.downloadReportAsPDF(this)" class="absolute top-4 right-4 bg-indigo-600 hover:bg-amber-500 hover:text-slate-950 text-white px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-all flex items-center gap-2 shadow-lg text-xs font-bold" title="Descargar como PDF">
-                        <i data-lucide="download" class="w-4 h-4"></i> Guardar PDF
-                    </button>
-                    <div class="report-content prose prose-invert prose-sm max-w-none">${formatMarkdown(text)}</div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2 mb-1.5">
+                        <span class="text-xs font-black text-white">Lifextreme Core</span>
+                        <span class="text-[10px] text-slate-400 font-medium">• Qdrant B2B</span>
+                    </div>
+                    <div class="report-content prose prose-invert prose-sm max-w-none text-slate-200 leading-relaxed text-sm">
+                        ${formatMarkdown(text)}
+                    </div>
+                    <div class="flex items-center gap-2 mt-3 pt-2 border-t border-slate-800/60 opacity-80 group-hover:opacity-100 transition-opacity">
+                        <button type="button" onclick="window.copyReportContent(this)" class="px-2.5 py-1 rounded-lg bg-slate-800/70 hover:bg-slate-700 text-slate-300 hover:text-white text-[11px] font-bold flex items-center gap-1 transition-colors cursor-pointer">
+                            <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copiar
+                        </button>
+                        <button type="button" onclick="window.downloadReportAsPDF(this)" class="px-2.5 py-1 rounded-lg bg-slate-800/70 hover:bg-indigo-600 text-slate-300 hover:text-white text-[11px] font-bold flex items-center gap-1 transition-colors cursor-pointer">
+                            <i data-lucide="download" class="w-3.5 h-3.5"></i> Guardar PDF
+                        </button>
+                    </div>
                 </div>
             `;
             contentDivToReturn = msgDiv.querySelector('.report-content');
@@ -736,7 +827,7 @@ function initAIChat() {
     }
 
     window.downloadReportAsPDF = function(button) {
-        const reportContent = button.closest('.relative').querySelector('.report-content').innerHTML;
+        const reportContent = button.closest('.flex-1').querySelector('.report-content').innerHTML;
         const printWindow = window.open('', '_blank', 'width=850,height=950');
         printWindow.document.write(`
             <html>
@@ -778,17 +869,22 @@ function initAIChat() {
         const id = 'loading-' + Date.now();
         const msgDiv = document.createElement('div');
         msgDiv.id = id;
-        msgDiv.className = 'flex gap-4 animate-fade-in w-full';
+        msgDiv.className = 'flex gap-3.5 max-w-3xl sm:max-w-4xl mx-auto w-full animate-fade-in';
         msgDiv.innerHTML = `
-            <div class="w-10 h-10 rounded-full bg-indigo-900 flex-shrink-0 flex items-center justify-center border border-indigo-500 mt-1 shadow-[0_0_15px_#6366f1]">
-                <i data-lucide="cpu" class="w-5 h-5 text-white"></i>
+            <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-indigo-600 via-purple-600 to-amber-500 flex items-center justify-center text-white shrink-0 mt-1 shadow-md">
+                <i data-lucide="sparkles" class="w-4 h-4 text-white"></i>
             </div>
-            <div class="bg-[#0b1120] rounded-2xl rounded-tl-none p-5 w-full max-w-[95%] border border-indigo-500/40 shadow-[0_0_30px_rgba(99,102,241,0.1)] overflow-hidden relative">
-                <div class="flex items-center gap-3 mb-2">
-                    <div class="text-sm text-white font-black tracking-widest">CONSULTANDO BÓVEDA B2B EN QDRANT (337,012 VECTORES)...</div>
-                    <div class="w-2.5 h-2.5 bg-amber-400 rounded-full animate-ping"></div>
+            <div class="flex-1 min-w-0 pt-1">
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="text-xs font-black text-white">Lifextreme Core</span>
+                    <span class="text-[10px] text-indigo-400 font-bold">• Consultando bóveda vectorial...</span>
                 </div>
-                <p class="text-xs text-slate-400">Cruzando parámetros CAPEX/OPEX, riesgos UIAGM y normativa MINCETUR/SERNANP en tiempo real...</p>
+                <div class="flex items-center gap-2 py-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-indigo-400 animate-pulse"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-purple-400 animate-pulse" style="animation-delay: 200ms"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse" style="animation-delay: 400ms"></span>
+                    <span class="text-xs text-slate-400 ml-2 font-medium">Analizando datos CAPEX/OPEX y normativas SERNANP...</span>
+                </div>
             </div>
         `;
         chatHistory.appendChild(msgDiv);
@@ -811,6 +907,7 @@ function initAIChat() {
             .replace(/'/g, "&#039;");
     }
 }
+
 
 // ============================================
 // GLOBAL HELPERS & PARTNER MODULE ACTIONS

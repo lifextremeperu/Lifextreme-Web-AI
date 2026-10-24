@@ -1653,7 +1653,13 @@ function setupEventListeners() {
             case 'close-quiz': closeQuiz(); break;
             case 'quiz-next': nextQuizStep(parseInt(data.step), data.val); break;
             case 'quiz-finish': finishQuiz(); break;
-            case 'activate-membership': openAIPersonalizationModal(); break;
+            case 'activate-membership': 
+                if (typeof window.openSocioRegistrationModal === 'function') {
+                    window.openSocioRegistrationModal();
+                } else {
+                    openAIPersonalizationModal();
+                }
+                break;
             case 'close-ai-modal': closeAIPersonalizationModal(); break;
             case 'send-chat': sendCompactChat(data.msg); break;
             case 'send-chat-input': sendCompactChatFromInput(); break;
