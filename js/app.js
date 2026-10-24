@@ -1236,22 +1236,22 @@ async function renderGuides() {
         const langs = (guide.languages || []).join(' • ');
 
         return `
-        <div class="neuro-card bg-slate-900/90 backdrop-blur-md text-white rounded-[32px] sm:rounded-[36px] overflow-hidden border border-white/10 hover:border-amber-400/50 group hover:shadow-[0_20px_45px_rgba(245,158,11,0.18)] transition-all duration-300 flex flex-col h-full shadow-xl animate-card-entry" style="animation-delay: ${i * 50}ms; animation-fill-mode: both;">
+        <div class="neuro-card bg-slate-50 hover:bg-white text-slate-900 rounded-[32px] sm:rounded-[36px] overflow-hidden border border-slate-200/90 hover:border-amber-400/80 group hover:shadow-[0_20px_45px_rgba(245,158,11,0.18)] transition-all duration-300 flex flex-col h-full shadow-[0_4px_20px_rgba(0,0,0,0.04)] animate-card-entry" style="animation-delay: ${i * 50}ms; animation-fill-mode: both;">
             <!-- Top Image with Badges -->
-            <div class="h-56 sm:h-60 overflow-hidden relative bg-slate-950">
+            <div class="h-56 sm:h-60 overflow-hidden relative bg-slate-100">
                 <img src="${guide.img}?w=600" loading="lazy" class="h-full w-full object-cover group-hover:scale-105 transition-all duration-700" alt="Guía ${guide.name}">
                 
                 <!-- Region & Verification Badges -->
                 <div class="absolute top-3 left-3 flex flex-wrap gap-1.5 z-10">
-                    <span class="bg-slate-950/85 backdrop-blur-md text-amber-300 border border-amber-400/30 px-2.5 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider shadow-sm">
+                    <span class="bg-white/95 backdrop-blur-md text-orange-600 border border-orange-200/80 px-2.5 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider shadow-sm">
                         📍 ${guide.region || 'Perú'}
                     </span>
-                    <span class="bg-emerald-500/90 backdrop-blur-md text-slate-950 px-2.5 py-0.5 rounded-full text-[8px] font-black uppercase tracking-widest shadow-sm">
+                    <span class="bg-emerald-600 text-white px-2.5 py-0.5 rounded-full text-[8px] font-black uppercase tracking-widest shadow-sm">
                         🛡️ ${certShort}
                     </span>
                 </div>
 
-                <div class="absolute bottom-2.5 left-2.5 right-2.5 px-3 py-1.5 bg-slate-950/85 backdrop-blur-md rounded-xl border border-white/10 text-white flex items-center justify-between">
+                <div class="absolute bottom-2.5 left-2.5 right-2.5 px-3 py-1.5 bg-slate-900/85 backdrop-blur-md rounded-xl border border-white/10 text-white flex items-center justify-between">
                     <span class="text-[9px] font-black text-amber-300 italic truncate">${guide.specialty}</span>
                     <span class="text-[9px] font-bold text-slate-300 shrink-0">⭐ ${guide.exp}</span>
                 </div>
@@ -1261,30 +1261,30 @@ async function renderGuides() {
             <div class="p-5 sm:p-6 flex-1 flex flex-col justify-between">
                 <div>
                     <div class="flex items-center justify-between mb-1">
-                        <h4 class="font-black italic text-lg sm:text-xl text-white group-hover:text-amber-300 transition-colors leading-tight">${guide.name}</h4>
+                        <h4 class="font-black italic text-lg sm:text-xl text-slate-950 group-hover:text-orange-600 transition-colors leading-tight">${guide.name}</h4>
                     </div>
 
                     ${langs ? `
-                    <p class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-2 flex items-center gap-1">
-                        <i class="ri-translate-2 text-amber-400"></i> ${langs}
+                    <p class="text-[9px] font-bold text-slate-500 uppercase tracking-widest mb-2 flex items-center gap-1">
+                        <i class="ri-translate-2 text-orange-500"></i> ${langs}
                     </p>` : ''}
 
                     <!-- DESPLEGABLE DE PERFIL & CREDENCIALES (NEUROMARKETING) -->
-                    <details class="group/guide my-2.5 bg-white/5 hover:bg-white/[0.07] border border-white/10 rounded-2xl overflow-hidden transition-all">
-                        <summary class="flex items-center justify-between px-3 py-2 cursor-pointer text-[10px] font-bold uppercase tracking-wider text-slate-300 hover:text-amber-300 select-none">
+                    <details class="group/guide my-2.5 bg-white hover:bg-slate-50 border border-slate-200/80 rounded-2xl overflow-hidden transition-all shadow-sm">
+                        <summary class="flex items-center justify-between px-3 py-2 cursor-pointer text-[10px] font-bold uppercase tracking-wider text-slate-700 hover:text-orange-600 select-none">
                             <span class="flex items-center gap-1.5">
-                                <i class="ri-user-star-line text-amber-400 text-xs"></i>
+                                <i class="ri-user-star-line text-orange-500 text-xs"></i>
                                 <span>Ver Perfil & Credenciales</span>
                             </span>
                             <i class="ri-arrow-down-s-line text-slate-400 group-open/guide:rotate-180 transition-transform text-xs"></i>
                         </summary>
-                        <div class="px-3 pb-3 pt-1 border-t border-white/10 space-y-2 text-[10px]">
-                            <p class="text-slate-300 leading-relaxed font-medium text-[10px]">${guide.desc || 'Guía profesional de montaña certificado para expediciones andinas.'}</p>
+                        <div class="px-3 pb-3 pt-1 border-t border-slate-200/80 space-y-2 text-[10px]">
+                            <p class="text-slate-600 leading-relaxed font-medium text-[10px]">${guide.desc || 'Guía profesional de montaña certificado para expediciones andinas.'}</p>
                             ${guide.cert ? `
-                            <div class="text-[9px] text-amber-300 font-bold bg-amber-400/10 p-2 rounded-xl border border-amber-400/20">
+                            <div class="text-[9px] text-amber-800 font-bold bg-amber-50 p-2 rounded-xl border border-amber-200">
                                 🛡️ ${guide.cert}
                             </div>` : ''}
-                            <div class="text-[8px] text-slate-400 flex items-center justify-between pt-0.5">
+                            <div class="text-[8px] text-slate-500 flex items-center justify-between pt-0.5 font-medium">
                                 <span>✓ Radio Satelital & Oxígeno</span>
                                 <span>✓ Protocolo Primeros Auxilios WFR</span>
                             </div>
@@ -1293,16 +1293,16 @@ async function renderGuides() {
                 </div>
 
                 <!-- Action Buttons -->
-                <div class="grid grid-cols-2 gap-2 pt-3 border-t border-white/10 mt-2">
+                <div class="grid grid-cols-2 gap-2 pt-3 border-t border-slate-200/80 mt-2">
                     <a href="https://wa.me/51958050928?text=${encodeURIComponent('Hola Lifextreme! Deseo consultar disponibilidad para contratar al guía certificado ' + guide.name + ' en ' + (guide.region || 'Perú') + '.')}" 
                         target="_blank" rel="noopener"
-                        class="flex items-center justify-center gap-1.5 py-2.5 px-3 bg-gradient-to-r from-emerald-500 to-teal-500 hover:brightness-110 text-slate-950 rounded-xl text-[9px] sm:text-[10px] font-black uppercase tracking-wider transition-all shadow-md cursor-pointer text-center">
+                        class="flex items-center justify-center gap-1.5 py-2.5 px-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-[9px] sm:text-[10px] font-black uppercase tracking-wider transition-all shadow-md shadow-emerald-600/20 cursor-pointer text-center">
                         <i class="ri-whatsapp-fill text-sm"></i> WhatsApp
                     </a>
 
                     <button type="button" onclick="window.openGuideHireModal('${guide.name.replace(/'/g, "\'")}', ${guide.id});" 
-                        class="flex items-center justify-center gap-1.5 py-2.5 px-3 bg-white/10 hover:bg-white/20 text-white border border-white/15 rounded-xl text-[9px] sm:text-[10px] font-bold uppercase tracking-wider transition-all cursor-pointer text-center">
-                        <i class="ri-calendar-check-line text-amber-400"></i> Contratar
+                        class="flex items-center justify-center gap-1.5 py-2.5 px-3 bg-gradient-to-r from-amber-500 to-orange-600 hover:brightness-105 text-white rounded-xl text-[9px] sm:text-[10px] font-black uppercase tracking-wider transition-all cursor-pointer text-center shadow-md shadow-orange-500/20">
+                        <i class="ri-calendar-check-line"></i> Contratar
                     </button>
                 </div>
             </div>
@@ -1325,64 +1325,69 @@ function renderAll(region = 'Todos', category = 'Todos') {
         let liveTelemetryBadge = '';
         if (isMapi) {
             liveTelemetryBadge = `
-            <div class="mb-3 px-3 py-1.5 rounded-xl bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-between text-[10px]">
-                <span class="flex items-center gap-1.5 text-emerald-400 font-bold">
-                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <div class="mb-3 px-3 py-1.5 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-between text-[10px]">
+                <span class="flex items-center gap-1.5 text-emerald-700 font-black">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                     TuBoleto Cultura: 284 cupos en vivo
                 </span>
-                <span class="text-slate-400 text-[9px] font-medium">Tren: Asientos OK</span>
+                <span class="text-slate-600 text-[9px] font-bold">Tren: Asientos OK</span>
             </div>`;
         } else if (isKuelap) {
             liveTelemetryBadge = `
-            <div class="mb-3 px-3 py-1.5 rounded-xl bg-amber-500/10 border border-amber-500/25 flex items-center justify-between text-[10px]">
-                <span class="flex items-center gap-1.5 text-amber-400 font-bold">
-                    <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+            <div class="mb-3 px-3 py-1.5 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-between text-[10px]">
+                <span class="flex items-center gap-1.5 text-amber-700 font-black">
+                    <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
                     Telecabinas Kuélap: Operativas
                 </span>
-                <span class="text-slate-400 text-[9px] font-medium">Monitoreo Oficial</span>
+                <span class="text-slate-600 text-[9px] font-bold">Monitoreo Oficial</span>
             </div>`;
         }
 
         return `
-        <div class="neuro-card bg-slate-900/85 backdrop-blur-md text-white rounded-[40px] overflow-hidden group cursor-pointer shadow-xl hover:shadow-[0_20px_45px_rgba(245,158,11,0.18)] transition-all animate-card-entry relative border border-white/10 hover:border-amber-400/50" 
+        <div class="neuro-card bg-slate-50 hover:bg-white text-slate-900 rounded-[36px] sm:rounded-[40px] overflow-hidden group cursor-pointer shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_45px_rgba(245,158,11,0.18)] transition-all animate-card-entry relative border border-slate-200/90 hover:border-orange-500" 
              style="animation-delay: ${i * 40}ms; animation-fill-mode: both;"
              data-action="open-booking" data-id="${t.id}">
             <!-- Share Button Overlay -->
             <div class="card-share-overlay">
                 <button 
-                    class="share-btn-compact" 
-                    onclick="event.stopPropagation(); window.ShareEngine.shareViaWhatsApp({id: ${t.id}, title: '${t.title.replace(/'/g, "\\'")}', dept: '${t.dept}', duration: '${t.duration}', price: ${t.price}}, 'tour');"
+                    class="share-btn-compact shadow-md" 
+                    onclick="event.stopPropagation(); window.ShareEngine.shareViaWhatsApp({id: ${t.id}, title: '${t.title.replace(/'/g, "\'")}', dept: '${t.dept}', duration: '${t.duration}', price: ${t.price}}, 'tour');"
                     title="Invitar a un amigo">
-                    <i class="ri-whatsapp-line text-emerald-400"></i>
+                    <i class="ri-whatsapp-line text-emerald-500"></i>
                 </button>
             </div>
-            <div class="h-64 overflow-hidden relative bg-slate-950">
+            <div class="h-64 overflow-hidden relative bg-slate-100">
                 <div class="skeleton-loader absolute inset-0"></div>
-                <img src="${t.img}?w=500" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-700 img-reveal" onload="this.classList.add('loaded'); if(this.previousElementSibling) this.previousElementSibling.style.display='none';">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-transparent to-transparent"></div>
+                <img src="${t.img}?w=500" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 img-reveal" onload="this.classList.add('loaded'); if(this.previousElementSibling) this.previousElementSibling.style.display='none';">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
             </div>
-            <div class="p-8">
-                <div class="flex justify-between items-center mb-2">
-                    <p class="text-[9px] font-black text-amber-400 uppercase tracking-widest">${t.dept}</p>
+            <div class="p-7 sm:p-8">
+                <div class="flex justify-between items-center mb-2.5">
+                    <span class="text-[9px] font-black text-orange-600 bg-orange-50 border border-orange-200/80 px-2.5 py-0.5 rounded-full uppercase tracking-widest">${t.dept}</span>
                     <div class="flex items-center gap-2">
                         <button 
                             onclick="event.stopPropagation(); window.ShareEngine.copyLinkToClipboard('tour', ${t.id});" 
-                            class="text-slate-400 hover:text-amber-400 transition-colors z-10 relative" 
+                            class="text-slate-400 hover:text-orange-500 transition-colors z-10 relative p-1 rounded-lg hover:bg-slate-200/50" 
                             title="Copiar link">
                             <i class="ri-link text-sm"></i>
                         </button>
-                        <button data-action="toggle-wishlist" data-id="${t.id}" class="${wishlist.includes(t.id) ? 'text-secondary' : 'text-slate-500 hover:text-rose-400'} z-10 relative"><i class="ri-heart-pulse-fill"></i></button>
+                        <button data-action="toggle-wishlist" data-id="${t.id}" class="${wishlist.includes(t.id) ? 'text-rose-500' : 'text-slate-300 hover:text-rose-500'} z-10 relative p-1 rounded-lg hover:bg-slate-200/50"><i class="ri-heart-pulse-fill"></i></button>
                     </div>
                 </div>
                 ${liveTelemetryBadge}
-                <h3 class="text-xl font-black italic mb-6 text-white group-hover:text-amber-300 transition-colors">${t.title}</h3>
-                <div class="flex justify-between items-center pt-6 border-t border-white/10 font-black">
-                    <span class="text-2xl italic text-amber-400">${tourPrice}</span>
-                    <i class="ri-arrow-right-line text-amber-400 text-xl group-hover:translate-x-1.5 transition-transform"></i>
+                <h3 class="text-xl font-black italic mb-6 text-slate-900 group-hover:text-orange-600 transition-colors leading-snug">${t.title}</h3>
+                <div class="flex justify-between items-center pt-5 border-t border-slate-200/80 font-black">
+                    <div>
+                        <p class="text-[9px] uppercase tracking-widest text-slate-400 font-black mb-0.5">Precio Oficial</p>
+                        <span class="text-2xl italic font-black text-orange-600">${tourPrice}</span>
+                    </div>
+                    <div class="w-11 h-11 rounded-2xl bg-orange-50 text-orange-600 group-hover:bg-gradient-to-r group-hover:from-amber-500 group-hover:to-orange-600 group-hover:text-white flex items-center justify-center transition-all shadow-sm">
+                        <i class="ri-arrow-right-line text-xl group-hover:translate-x-0.5 transition-transform"></i>
+                    </div>
                 </div>
             </div>
         </div>
-        `;
+`;
     }).join('');
     
     // SEO: Inyectar Schema de Producto para Expediciones
@@ -1405,31 +1410,31 @@ function renderAll(region = 'Todos', category = 'Todos') {
             const imgId = `equip-img-${i}`;
 
             return `
-            <div class="neuro-card bg-slate-900/90 backdrop-blur-md rounded-[32px] sm:rounded-[36px] border border-white/10 hover:border-amber-400/50 shadow-xl hover:shadow-[0_20px_45px_rgba(245,158,11,0.18)] transition-all p-5 sm:p-6 flex flex-col justify-between animate-card-entry text-white" style="animation-delay: ${i * 40}ms; animation-fill-mode: both;">
+            <div class="neuro-card bg-slate-50 hover:bg-white rounded-[32px] sm:rounded-[36px] border border-slate-200/90 hover:border-amber-400 shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_45px_rgba(245,158,11,0.18)] transition-all p-5 sm:p-6 flex flex-col justify-between animate-card-entry text-slate-900" style="animation-delay: ${i * 40}ms; animation-fill-mode: both;">
                 <div>
                     <!-- Top Category & Trust Badge -->
                     <div class="flex items-center justify-between gap-2 mb-3">
-                        <span class="bg-amber-400/15 text-amber-300 border border-amber-400/30 text-[9px] font-black uppercase px-2.5 py-1 rounded-full tracking-wider">
+                        <span class="bg-orange-50 text-orange-600 border border-orange-200/80 text-[9px] font-black uppercase px-2.5 py-1 rounded-full tracking-wider">
                             ${e.cat}
                         </span>
-                        <span class="text-[9px] font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-full flex items-center gap-1">
-                            <i class="ri-shield-check-fill"></i> 100% Esterilizado
+                        <span class="text-[9px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full flex items-center gap-1">
+                            <i class="ri-shield-check-fill text-emerald-600"></i> 100% Esterilizado
                         </span>
                     </div>
 
                     <!-- Main Image with 360 Spin Preview Controls -->
-                    <div class="h-52 sm:h-56 rounded-2xl sm:rounded-3xl relative overflow-hidden bg-slate-950 mb-3.5 group/img">
+                    <div class="h-52 sm:h-56 rounded-2xl sm:rounded-3xl relative overflow-hidden bg-slate-100 mb-3.5 group/img">
                         <img id="${imgId}" src="${e.img}?w=600" loading="lazy" class="w-full h-full object-cover transition-opacity duration-300" alt="${e.name}">
                         
                         <!-- 360 Spin Angle Bar -->
-                        <div class="absolute bottom-2.5 left-2.5 right-2.5 bg-slate-950/80 backdrop-blur-md rounded-xl p-1.5 flex items-center justify-between gap-1 z-10 border border-white/10">
+                        <div class="absolute bottom-2.5 left-2.5 right-2.5 bg-slate-900/85 backdrop-blur-md rounded-xl p-1.5 flex items-center justify-between gap-1 z-10 border border-white/10">
                             <span class="text-[8px] font-black uppercase text-amber-400 tracking-wider flex items-center gap-1 pl-1">
                                 <i class="ri-360-line text-xs"></i> 360°
                             </span>
                             <div class="flex items-center gap-1">
                                 ${views.map((v, vIdx) => `
                                     <button type="button" onclick="window.switchAngle360('${imgId}', '${v}?w=600', this)" 
-                                        class="${vIdx === 0 ? 'bg-amber-400 text-slate-950' : 'bg-white/80 text-slate-700 hover:bg-white'} text-[8px] font-black px-2 py-0.5 rounded-lg transition-all cursor-pointer">
+                                        class="${vIdx === 0 ? 'bg-amber-400 text-slate-950 font-black' : 'bg-white/20 text-white hover:bg-white/40'} text-[8px] font-black px-2 py-0.5 rounded-lg transition-all cursor-pointer">
                                         ${vIdx === 0 ? 'Frente' : vIdx === 1 ? 'Lateral' : vIdx === 2 ? 'Interior' : 'Detalle'}
                                     </button>
                                 `).join('')}
@@ -1437,31 +1442,31 @@ function renderAll(region = 'Todos', category = 'Todos') {
                         </div>
                     </div>
 
-                    <h4 class="font-black italic text-base sm:text-lg text-white group-hover:text-amber-300 transition-colors leading-snug mb-1.5">${e.name}</h4>
-                    <p class="text-xs text-slate-300 mb-3 leading-relaxed line-clamp-2">${e.desc || ''}</p>
+                    <h4 class="font-black italic text-base sm:text-lg text-slate-950 group-hover:text-orange-600 transition-colors leading-snug mb-1.5">${e.name}</h4>
+                    <p class="text-xs text-slate-600 mb-3 leading-relaxed line-clamp-2">${e.desc || ''}</p>
 
                     <!-- DESPLEGABLE DE FICHA TÉCNICA & CERTIFICACIONES (NEUROMARKETING) -->
                     ${e.specs ? `
-                    <details class="group/spec mb-3.5 bg-white/5 hover:bg-white/[0.07] border border-white/10 rounded-2xl overflow-hidden transition-all">
-                        <summary class="flex items-center justify-between px-3.5 py-2.5 cursor-pointer text-[10px] font-black uppercase tracking-wider text-slate-300 hover:text-amber-300 select-none">
+                    <details class="group/spec mb-3.5 bg-white hover:bg-slate-50 border border-slate-200/80 rounded-2xl overflow-hidden transition-all shadow-sm">
+                        <summary class="flex items-center justify-between px-3.5 py-2.5 cursor-pointer text-[10px] font-black uppercase tracking-wider text-slate-700 hover:text-orange-600 select-none">
                             <span class="flex items-center gap-2">
-                                <i class="ri-information-line text-amber-400 text-xs"></i>
+                                <i class="ri-information-line text-orange-500 text-xs"></i>
                                 <span>Ver Ficha Técnica & Certificación</span>
                             </span>
                             <i class="ri-arrow-down-s-line text-slate-400 group-open/spec:rotate-180 transition-transform"></i>
                         </summary>
-                        <div class="px-3.5 pb-3 pt-1 border-t border-white/10 space-y-2 text-[10px]">
-                            <div class="grid grid-cols-2 gap-2 text-slate-300 pt-1">
-                                ${e.specs.peso ? `<div><span class="text-slate-400 block text-[8px] uppercase">Peso</span><strong>${e.specs.peso}</strong></div>` : ''}
-                                ${e.specs.temp ? `<div><span class="text-slate-400 block text-[8px] uppercase">Rango Temp / Viento</span><strong>${e.specs.temp}</strong></div>` : ''}
-                                ${e.specs.impermeable ? `<div><span class="text-slate-400 block text-[8px] uppercase">Impermeabilidad</span><strong>${e.specs.impermeable}</strong></div>` : ''}
-                                ${e.specs.cert ? `<div><span class="text-slate-400 block text-[8px] uppercase">Norma Oficial</span><strong>${e.specs.cert}</strong></div>` : ''}
+                        <div class="px-3.5 pb-3 pt-1 border-t border-slate-200/80 space-y-2 text-[10px]">
+                            <div class="grid grid-cols-2 gap-2 text-slate-600 pt-1">
+                                ${e.specs.peso ? `<div><span class="text-slate-400 block text-[8px] uppercase">Peso</span><strong class="text-slate-800">${e.specs.peso}</strong></div>` : ''}
+                                ${e.specs.temp ? `<div><span class="text-slate-400 block text-[8px] uppercase">Rango Temp / Viento</span><strong class="text-slate-800">${e.specs.temp}</strong></div>` : ''}
+                                ${e.specs.impermeable ? `<div><span class="text-slate-400 block text-[8px] uppercase">Impermeabilidad</span><strong class="text-slate-800">${e.specs.impermeable}</strong></div>` : ''}
+                                ${e.specs.cert ? `<div><span class="text-slate-400 block text-[8px] uppercase">Norma Oficial</span><strong class="text-slate-800">${e.specs.cert}</strong></div>` : ''}
                             </div>
                             ${e.destinos ? `
-                            <div class="text-[9px] text-amber-300/90 bg-amber-400/10 p-2 rounded-xl border border-amber-400/20">
+                            <div class="text-[9px] text-orange-800 bg-orange-50 p-2 rounded-xl border border-orange-200/80 font-bold">
                                 📍 <strong>Ruta recomendada:</strong> ${e.destinos}
                             </div>` : ''}
-                            <div class="text-[8px] text-slate-400 flex items-center justify-between pt-0.5">
+                            <div class="text-[8px] text-slate-500 flex items-center justify-between pt-0.5 font-medium">
                                 <span>✓ Esterilización médica UV-C</span>
                                 <span>✓ Mantenimiento UIAGM</span>
                             </div>
@@ -1470,29 +1475,29 @@ function renderAll(region = 'Todos', category = 'Todos') {
 
                     <!-- Express Delivery Option -->
                     <div class="mb-3.5">
-                        <label class="flex items-center gap-2 text-[10px] font-bold text-slate-200 bg-white/5 hover:bg-white/10 px-3 py-2 rounded-xl border border-white/10 cursor-pointer transition-all">
-                            <input type="checkbox" class="accent-amber-500 w-3.5 h-3.5 rounded cursor-pointer" onchange="window.toggleEquipDelivery(${i}, this.checked)">
+                        <label class="flex items-center gap-2 text-[10px] font-bold text-slate-700 bg-white hover:bg-slate-50 px-3 py-2 rounded-xl border border-slate-200 cursor-pointer transition-all shadow-sm">
+                            <input type="checkbox" class="accent-orange-500 w-3.5 h-3.5 rounded cursor-pointer" onchange="window.toggleEquipDelivery(${i}, this.checked)">
                             <span>🚚 <strong>Delivery a mi Hotel</strong> en Cusco o Huaraz (+S/ 25)</span>
                         </label>
                     </div>
                 </div>
 
                 <!-- Price & Action Buttons (Neuromarketing: Alquiler destacado) -->
-                <div class="grid grid-cols-2 gap-2 pt-3 border-t border-white/10">
+                <div class="grid grid-cols-2 gap-2 pt-3 border-t border-slate-200/80">
                     <button type="button" onclick="const del = window.selectedEquipDeliveries[${i}]; const p = ${e.rentPrice} + (del ? 25 : 0); const n = '${e.name.replace(/'/g, "\'")}' + (del ? ' (+ Delivery)' : ''); addToCartShort(n, p, 'rent', '${e.img}');"
-                        class="flex flex-col items-center justify-center bg-gradient-to-r from-amber-400 to-orange-500 hover:brightness-110 text-slate-950 p-2.5 sm:p-3 rounded-2xl transition-all cursor-pointer shadow-lg shadow-amber-500/20 group">
+                        class="flex flex-col items-center justify-center bg-gradient-to-r from-amber-500 to-orange-600 hover:brightness-105 text-white p-2.5 sm:p-3 rounded-2xl transition-all cursor-pointer shadow-lg shadow-orange-500/20 group">
                         <span class="text-[8px] font-black uppercase tracking-wider mb-0.5">Alquilar / Día</span>
                         <span class="text-xs sm:text-sm font-black italic">${rentPrice}</span>
                     </button>
 
                     <button type="button" onclick="const del = window.selectedEquipDeliveries[${i}]; const p = ${e.price} + (del ? 25 : 0); const n = '${e.name.replace(/'/g, "\'")}' + (del ? ' (+ Delivery)' : ''); addToCartShort(n, p, 'sale', '${e.img}');"
-                        class="flex flex-col items-center justify-center bg-white/10 hover:bg-white/20 text-white p-2.5 sm:p-3 rounded-2xl transition-all cursor-pointer border border-white/15 group">
-                        <span class="text-[8px] font-bold text-slate-400 uppercase tracking-wider mb-0.5 group-hover:text-slate-200">Comprar Nuevo</span>
-                        <span class="text-xs sm:text-sm font-black italic">${buyPrice}</span>
+                        class="flex flex-col items-center justify-center bg-white hover:bg-slate-100 text-slate-800 p-2.5 sm:p-3 rounded-2xl transition-all cursor-pointer border border-slate-200 group shadow-sm">
+                        <span class="text-[8px] font-bold text-slate-500 uppercase tracking-wider mb-0.5 group-hover:text-slate-800">Comprar Nuevo</span>
+                        <span class="text-xs sm:text-sm font-black italic text-slate-900">${buyPrice}</span>
                     </button>
                 </div>
             </div>
-            `;
+`;
         }).join('');
     }
 
@@ -1525,23 +1530,23 @@ function renderEvents(region = 'Todos') {
     grid.innerHTML = filtered.map(e => {
         const eventPrice = window.PriceEngine ? window.PriceEngine.format(e.price) : `S/ ${e.price}`;
         return `
-        <div class="neuro-card bg-slate-900/85 backdrop-blur-md text-white rounded-[44px] overflow-hidden group shadow-xl hover:shadow-[0_20px_45px_rgba(244,63,94,0.18)] transition-all duration-500 border border-white/10 hover:border-rose-400/50 flex flex-col h-full relative" data-action="open-booking" data-id="${e.id}">
+        <div class="neuro-card bg-slate-50 hover:bg-white text-slate-900 rounded-[36px] sm:rounded-[44px] overflow-hidden group shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_45px_rgba(244,63,94,0.18)] transition-all duration-500 border border-slate-200/90 hover:border-rose-400 flex flex-col h-full relative" data-action="open-booking" data-id="${e.id}">
             <!-- Share Button Overlay -->
             <div class="card-share-overlay">
                 <button 
-                    class="share-btn-compact" 
-                    onclick="event.stopPropagation(); window.ShareEngine.shareViaWhatsApp({id: ${e.id}, title: '${e.title.replace(/'/g, "\\'")}'', dept: '${e.dept}', date: '${e.date} ${e.month}', price: ${e.price}}, 'event');"
+                    class="share-btn-compact shadow-md" 
+                    onclick="event.stopPropagation(); window.ShareEngine.shareViaWhatsApp({id: ${e.id}, title: '${e.title.replace(/'/g, "\'")}', dept: '${e.dept}', date: '${e.date} ${e.month}', price: ${e.price}}, 'event');"
                     title="Invitar a un amigo">
-                    <i class="ri-whatsapp-line text-emerald-400"></i>
+                    <i class="ri-whatsapp-line text-emerald-500"></i>
                 </button>
             </div>
-            <div class="h-64 overflow-hidden relative bg-slate-950">
+            <div class="h-64 overflow-hidden relative bg-slate-100">
                 <div class="skeleton-loader absolute inset-0"></div>
-                <img src="${e.img}?w=500" loading="lazy" class="h-full w-full object-cover group-hover:scale-110 transition-all duration-700 img-reveal" onload="this.classList.add('loaded'); if(this.previousElementSibling) this.previousElementSibling.style.display='none';">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-transparent to-transparent"></div>
-                <div class="absolute top-6 left-6 bg-slate-900/90 backdrop-blur-md px-4 py-3 rounded-2xl shadow-sm text-center min-w-[60px] border border-white/15">
-                    <p class="text-xs font-black text-amber-400 leading-none">${e.date}</p>
-                    <p class="text-[8px] font-black text-slate-300 uppercase tracking-widest mt-1">${e.month}</p>
+                <img src="${e.img}?w=500" loading="lazy" class="h-full w-full object-cover group-hover:scale-105 transition-all duration-700 img-reveal" onload="this.classList.add('loaded'); if(this.previousElementSibling) this.previousElementSibling.style.display='none';">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+                <div class="absolute top-6 left-6 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-md text-center min-w-[60px] border border-slate-200 text-slate-900">
+                    <p class="text-xs font-black text-rose-600 leading-none">${e.date}</p>
+                    <p class="text-[8px] font-black text-slate-500 uppercase tracking-widest mt-1">${e.month}</p>
                 </div>
                 <div class="absolute bottom-6 right-6 bg-gradient-to-r from-rose-600 to-orange-500 backdrop-blur-md px-4 py-2 rounded-xl text-white text-[9px] font-black uppercase tracking-widest shadow-lg">
                     ${e.cat}
@@ -1550,34 +1555,34 @@ function renderEvents(region = 'Todos') {
             <div class="p-8 sm:p-10 flex-1 flex flex-col justify-between">
                 <div>
                     <div class="flex justify-between items-start mb-3">
-                        <p class="text-[9px] font-black text-amber-400 uppercase tracking-[0.3em]">${e.dept}</p>
+                        <span class="text-[9px] font-black text-orange-600 bg-orange-50 border border-orange-200/80 px-2.5 py-1 rounded-full uppercase tracking-widest">${e.dept}</span>
                         <button 
                             onclick="event.stopPropagation(); window.ShareEngine.copyLinkToClipboard('event', ${e.id});" 
-                            class="text-slate-400 hover:text-amber-400 transition-colors" 
+                            class="text-slate-400 hover:text-orange-500 transition-colors p-1 rounded-lg hover:bg-slate-200/50" 
                             title="Copiar link">
                             <i class="ri-link text-sm"></i>
                         </button>
                     </div>
-                    <h4 class="text-2xl font-black italic text-white mb-4 leading-tight group-hover:text-amber-300 transition-colors">${e.title}</h4>
-                    <p class="text-xs font-medium text-slate-300 mb-6 leading-relaxed">${e.detail}</p>
+                    <h4 class="text-2xl font-black italic text-slate-950 mb-4 leading-tight group-hover:text-rose-600 transition-colors">${e.title}</h4>
+                    <p class="text-xs font-medium text-slate-600 mb-6 leading-relaxed">${e.detail}</p>
                     
                     <div class="flex flex-wrap gap-2 mb-6">
-                        ${e.whatYouDo.map(tag => `<span class="bg-white/5 text-slate-300 px-3 py-1.5 rounded-lg text-[8px] font-black uppercase tracking-wider border border-white/10">${tag}</span>`).join('')}
+                        ${e.whatYouDo.map(tag => `<span class="bg-white text-slate-700 px-3 py-1.5 rounded-lg text-[8px] font-black uppercase tracking-wider border border-slate-200 shadow-sm">${tag}</span>`).join('')}
                     </div>
                 </div>
                 
-                <div class="flex items-center justify-between pt-6 border-t border-white/10">
+                <div class="flex items-center justify-between pt-6 border-t border-slate-200/80">
                     <div>
                         <p class="text-[8px] font-black text-slate-400 uppercase tracking-widest mb-1">${translations[currentLang].card_inscription}</p>
-                        <p class="text-2xl font-black italic text-amber-400">${eventPrice}</p>
+                        <p class="text-2xl font-black italic text-rose-600">${eventPrice}</p>
                     </div>
-                    <button class="w-12 h-12 bg-white/10 hover:bg-amber-400 hover:text-slate-950 rounded-2xl flex items-center justify-center text-white transition-all shadow-sm">
+                    <button class="w-12 h-12 bg-rose-50 hover:bg-rose-600 hover:text-white rounded-2xl flex items-center justify-center text-rose-600 transition-all shadow-sm cursor-pointer">
                         <i class="ri-arrow-right-up-line text-xl"></i>
                     </button>
                 </div>
             </div>
         </div>
-        `;
+`;
     }).join('');
 }
 

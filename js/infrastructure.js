@@ -74,35 +74,35 @@ function renderInfrastructure(items) {
         const safeName = (item.nombre_infraestructura || 'Parque de Aventura').replace(/'/g, "\\'");
 
         return `
-        <div class="neuro-card bg-slate-900/85 backdrop-blur-md rounded-3xl overflow-hidden border border-white/10 hover:border-amber-400/50 shadow-xl hover:shadow-[0_20px_45px_rgba(245,158,11,0.18)] transition-all duration-300 flex flex-col group">
-            <div class="relative h-48 overflow-hidden bg-slate-950">
+        <div class="neuro-card bg-slate-50 hover:bg-white rounded-3xl overflow-hidden border border-slate-200/90 hover:border-amber-400 shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_45px_rgba(245,158,11,0.18)] transition-all duration-300 flex flex-col group text-slate-900">
+            <div class="relative h-48 overflow-hidden bg-slate-100">
                 <img src="${bgImg}" alt="${item.nombre_infraestructura}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
-                <div class="absolute top-4 left-4 bg-slate-900/90 backdrop-blur px-3 py-1 rounded-full text-[9px] font-black uppercase text-amber-400 border border-white/15 shadow-sm">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+                <div class="absolute top-4 left-4 bg-white/95 backdrop-blur px-3 py-1 rounded-full text-[9px] font-black uppercase text-orange-600 border border-slate-200 shadow-sm">
                     ${item.tipo}
                 </div>
-                <div class="absolute bottom-4 right-4 bg-emerald-500 text-slate-950 font-black px-3 py-1 rounded-full text-[9px] uppercase shadow-sm flex items-center gap-1">
+                <div class="absolute bottom-4 right-4 bg-emerald-600 text-white font-black px-3 py-1 rounded-full text-[9px] uppercase shadow-sm flex items-center gap-1">
                     <i class="ri-shield-check-fill"></i> ${certs}
                 </div>
             </div>
             <div class="p-6 flex-1 flex flex-col">
                 <div class="flex items-start justify-between gap-4 mb-2">
-                    <h3 class="text-xl font-black text-white group-hover:text-amber-300 transition-colors leading-tight">${item.nombre_infraestructura}</h3>
+                    <h3 class="text-xl font-black text-slate-950 group-hover:text-orange-600 transition-colors leading-tight">${item.nombre_infraestructura}</h3>
                 </div>
-                <p class="text-xs font-bold text-slate-400 mb-4 flex items-center gap-1">
-                    <i class="ri-map-pin-2-fill text-amber-400"></i> ${ubigeo}
+                <p class="text-xs font-bold text-slate-500 mb-4 flex items-center gap-1">
+                    <i class="ri-map-pin-2-fill text-orange-500"></i> ${ubigeo}
                 </p>
-                <p class="text-sm text-slate-300 mb-6 flex-1 line-clamp-3 leading-relaxed">${desc}</p>
+                <p class="text-sm text-slate-600 mb-6 flex-1 line-clamp-3 leading-relaxed">${desc}</p>
                 
-                <div class="flex items-center justify-between border-t border-white/10 pt-4 mt-auto gap-2">
+                <div class="flex items-center justify-between border-t border-slate-200/80 pt-4 mt-auto gap-2">
                     <div class="text-[10px] font-bold text-slate-400 uppercase">
-                        Op: <span class="text-slate-200">Lifextreme Partner</span>
+                        Op: <span class="text-slate-700 font-black">Lifextreme Partner</span>
                     </div>
                     <div class="flex items-center gap-2">
-                        <button type="button" onclick="if(window.maxAddToCartAndPay){window.maxAddToCartAndPay('${safeName}', 180, 1);}else{window.open('${linkAction}','_blank');}" class="bg-primary text-white px-3 py-2 rounded-xl text-[10px] font-black uppercase hover:bg-indigo-700 transition-colors flex items-center gap-1 shadow-md" title="Añadir al Carrito">
+                        <button type="button" onclick="if(window.maxAddToCartAndPay){window.maxAddToCartAndPay('${safeName}', 180, 1);}else{window.open('${linkAction}','_blank');}" class="bg-gradient-to-r from-amber-500 to-orange-600 text-white px-3 py-2 rounded-xl text-[10px] font-black uppercase hover:brightness-105 transition-all flex items-center gap-1 shadow-md shadow-orange-500/20" title="Añadir al Carrito">
                             <i class="ri-shopping-bag-3-line text-sm"></i> Pass
                         </button>
-                        <a href="${linkAction}" target="_blank" rel="noopener noreferrer" class="bg-slate-900 text-white px-3 py-2 rounded-xl text-[10px] font-black uppercase hover:bg-emerald-600 transition-colors flex items-center gap-1 shadow-md">
+                        <a href="${linkAction}" target="_blank" rel="noopener noreferrer" class="bg-emerald-600 text-white px-3 py-2 rounded-xl text-[10px] font-black uppercase hover:bg-emerald-700 transition-colors flex items-center gap-1 shadow-md shadow-emerald-600/20">
                             <i class="${linkIcon} text-sm"></i> WhatsApp
                         </a>
                     </div>

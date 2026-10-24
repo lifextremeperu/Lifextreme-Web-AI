@@ -30,16 +30,15 @@ body {
 }
 
 .neuro-card {
-    background: rgba(15, 23, 42, 0.75);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .neuro-card:hover {
-    border-color: rgba(245, 158, 11, 0.4);
-    box-shadow: 0 20px 40px -15px rgba(245, 158, 11, 0.15);
+    border-color: #f97316;
+    box-shadow: 0 20px 45px -10px rgba(234, 88, 12, 0.18);
     transform: translateY(-4px);
 }
 
@@ -646,7 +645,9 @@ body {
 
 .card:hover .card-share-overlay,
 .tour-card:hover .card-share-overlay,
-.event-card:hover .card-share-overlay {
+.event-card:hover .card-share-overlay,
+.group:hover .card-share-overlay,
+.neuro-card:hover .card-share-overlay {
     opacity: 1;
     transform: scale(1);
 }
