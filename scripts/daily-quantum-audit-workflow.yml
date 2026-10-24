@@ -1,0 +1,39 @@
+name: Daily Quantum UX Audit & Simulator
+
+on:
+  schedule:
+    # 14:00 UTC = 09:00 AM America/Lima (UTC-5)
+    - cron: '0 14 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  run-quantum-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pennylane requests beautifulsoup4
+
+      - name: Execute Daily Quantum UX Audit
+        run: |
+          python scripts/daily_quantum_ux_audit.py --users 50 --auto-improve
+
+      - name: Commit and Push Daily Audit Report
+        run: |
+          git config --local user.email "quantum-sentinel@lifextreme.store"
+          git config --local user.name "Lifextreme Quantum Sentinel"
+          git add reports/
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore(audit): automated daily quantum ux report [skip ci]" && git push origin main)

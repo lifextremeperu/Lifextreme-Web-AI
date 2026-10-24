@@ -1,0 +1,47 @@
+{
+  "timestamp": "2026-10-24T16:18:54.896381",
+  "date": "2026-10-24",
+  "engine": "PennyLane Quantum UX Simulator v2.0",
+  "target": "https://www.lifextreme.store",
+  "telemetry": {
+    "status": "OK",
+    "url": "https://www.lifextreme.store",
+    "status_code": 200,
+    "ttfb_ms": 1067.38,
+    "title": "Turismo de Aventura en Peru | Lifextreme",
+    "h1": "EXPLORA, VIVE,VIAJA.",
+    "meta_desc_len": 185,
+    "total_images": 14,
+    "lazy_images": 1,
+    "lazy_ratio": 0.07,
+    "visible_prices_detected": 57,
+    "whatsapp_cta_count": 13,
+    "booking_triggers_count": 74,
+    "friction_weights": [
+      0.12,
+      0.35,
+      0.1,
+      0.12
+    ]
+  },
+  "quantum_simulation": {
+    "total_simulated": 30,
+    "conversions": 9,
+    "simulated_conversion_rate": 30.0,
+    "avg_quantum_probability": 57.66,
+    "quantum_friction_index": 0.172,
+    "drop_stages": {
+      "HERO_BOUNCE": 0,
+      "SCAN_ABANDON": 9,
+      "PRICE_FRICTION": 10,
+      "CHECKOUT_HESITATION": 2
+    },
+    "drop_percentages": {
+      "HERO_BOUNCE": 0.0,
+      "SCAN_ABANDON": 30.0,
+      "PRICE_FRICTION": 33.3,
+      "CHECKOUT_HESITATION": 6.7
+    }
+  },
+  "health_status": "EXCELLENT"
+}
