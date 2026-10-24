@@ -1380,6 +1380,9 @@ function renderAll(region = 'Todos', category = 'Todos') {
                     <div>
                         <p class="text-[9px] uppercase tracking-widest text-slate-400 font-black mb-0.5">Precio Oficial</p>
                         <span class="text-2xl italic font-black text-orange-600">${tourPrice}</span>
+                        <div class="flex items-center gap-1 text-[8px] text-emerald-700 font-black bg-emerald-50 border border-emerald-200/80 px-2 py-0.5 rounded-lg mt-1 w-fit">
+                            <i class="ri-shield-flash-line text-emerald-600"></i> Reserva con 20% • Saldo en destino
+                        </div>
                     </div>
                     <div class="w-11 h-11 rounded-2xl bg-orange-50 text-orange-600 group-hover:bg-gradient-to-r group-hover:from-amber-500 group-hover:to-orange-600 group-hover:text-white flex items-center justify-center transition-all shadow-sm">
                         <i class="ri-arrow-right-line text-xl group-hover:translate-x-0.5 transition-transform"></i>

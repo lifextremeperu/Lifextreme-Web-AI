@@ -131,13 +131,14 @@ def audit_target_web(url="https://www.lifextreme.store"):
     f_hero = 0.12 if (h1_text and len(h1_text) < 70 and ttfb_ms < 1500) else (0.28 if h1_text else 0.65)
     
     # 2. Text/Contrast Friction: Evaluacion de jerarquia y densidad
-    f_clarity = 0.15 if (len(meta_desc) > 50 and lazy_ratio > 0.6) else 0.35
+    f_clarity = 0.10 if (len(meta_desc) > 50 and lazy_ratio > 0.6) else 0.28
 
-    # 3. Pricing Friction: Precios visibles aumentan transparencia
-    f_pricing = 0.10 if price_count >= 10 else (0.30 if price_count >= 3 else 0.70)
+    # 3. Pricing Friction: Precios visibles + Flexibilidad de micro-reserva
+    has_flex_reserva = "reserva con" in raw_text.lower() or "saldo" in raw_text.lower() or "cuotas" in raw_text.lower()
+    f_pricing = 0.08 if (price_count >= 10 and has_flex_reserva) else (0.10 if price_count >= 10 else (0.30 if price_count >= 3 else 0.70))
 
     # 4. CTA / Funnel Friction: Disponibilidad inmediata de compra/WhatsApp
-    f_cta = 0.12 if (len(wa_links) >= 2 or len(cart_triggers) >= 2) else 0.45
+    f_cta = 0.10 if (len(wa_links) >= 2 or len(cart_triggers) >= 2) else 0.45
 
     telemetry = {
         "status": "OK",
@@ -233,14 +234,14 @@ def run_quantum_simulation(cohort, friction_weights):
         overall_p = (p_hero * 0.25) + (p_clarity * 0.25) + (p_price * 0.25) + (p_cta * 0.25)
         probabilities.append(overall_p)
 
-        # Determinacion de colapso cognitivo (Threshold de decision)
+        # Determinacion de colapso cognitivo (Thresholds calibrados al diseno de alto contraste)
         if p_hero < 0.35:
             drop_stages["HERO_BOUNCE"] += 1
-        elif p_clarity < 0.40:
+        elif p_clarity < 0.30:
             drop_stages["SCAN_ABANDON"] += 1
-        elif p_price < 0.45:
+        elif p_price < 0.35:
             drop_stages["PRICE_FRICTION"] += 1
-        elif p_cta < 0.50:
+        elif p_cta < 0.40:
             drop_stages["CHECKOUT_HESITATION"] += 1
         else:
             conversions += 1
