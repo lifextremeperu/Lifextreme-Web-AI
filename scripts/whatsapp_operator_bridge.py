@@ -58,10 +58,10 @@ def crear_solicitud_reserva(
     booking_id = f"LFX-{datetime.now().strftime('%m%d')}-{uuid.uuid4().hex[:4].upper()}"
     token_seguridad = uuid.uuid4().hex[:8]
 
-    # Enlaces de 1 toque para el Operador
+    # Enlaces de 1 toque para el Operador (Optimizado para CDN Móvil en Cusco)
     op_encoded = urllib.parse.quote(operador_nombre)
-    enlace_aceptar = f"{BASE_URL}/api/operator-action?action=accept&id={booking_id}&token={token_seguridad}&op={op_encoded}"
-    enlace_rechazar = f"{BASE_URL}/api/operator-action?action=reject&id={booking_id}&token={token_seguridad}&op={op_encoded}"
+    enlace_aceptar = f"{BASE_URL}/operator-action?action=accept&id={booking_id}&token={token_seguridad}&op={op_encoded}"
+    enlace_rechazar = f"{BASE_URL}/operator-action?action=reject&id={booking_id}&token={token_seguridad}&op={op_encoded}"
 
     # 1. Mensaje formateado para el Operador en Cusco (vía WhatsApp)
     mensaje_operador = f"""🏔️ *¡NUEVA ASIGNACIÓN DE EXPEDICIÓN LIFEXTREME!*
