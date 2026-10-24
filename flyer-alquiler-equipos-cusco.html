@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifextreme - Alquiler de Equipo de Montaña Cusco • Hotel Delivery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;0,900;1,800;1,900&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#f97316',
+                        secondary: '#ea580c',
+                        dark: '#090d16',
+                        pearl: '#f8fafc',
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        logo: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @page {
+            size: A4 portrait;
+            margin: 8mm;
+        }
+        @media print {
+            body {
+                background: #ffffff !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .flyer-container {
+                box-shadow: none !important;
+                border: 2px solid #e2e8f0 !important;
+                margin: 0 !important;
+                max-width: 100% !important;
+                width: 100% !important;
+                min-height: 280mm !important;
+            }
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #090d16 0%, #0f172a 100%);
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-900 font-sans min-h-screen flex flex-col items-center py-6 px-4">
+
+    <!-- FLOATING ACTION BAR (PANTALLA) -->
+    <div class="no-print fixed top-4 right-4 z-50 flex items-center gap-3 bg-white/95 backdrop-blur-md px-5 py-3 rounded-2xl shadow-xl border border-slate-200">
+        <a href="index.html#equipos" class="text-xs font-bold text-slate-600 hover:text-orange-600 transition-colors flex items-center gap-1">
+            <i class="ri-arrow-left-line"></i> Volver a la Web
+        </a>
+        <div class="h-4 w-px bg-slate-200"></div>
+        <button onclick="window.print()" class="bg-gradient-to-r from-amber-500 to-orange-600 text-white font-black uppercase text-xs tracking-wider px-5 py-2.5 rounded-xl shadow-lg shadow-orange-500/25 hover:brightness-110 transition-all flex items-center gap-2 cursor-pointer">
+            <i class="ri-printer-fill text-base"></i> Imprimir Cartel A4 / Guardar en PDF
+        </button>
+    </div>
+
+    <!-- A4 PRINTABLE POSTER CONTAINER -->
+    <div class="flyer-container bg-white w-full max-w-[210mm] min-h-[297mm] p-7 rounded-[32px] shadow-2xl border border-slate-200/80 flex flex-col justify-between relative overflow-hidden">
+        
+        <!-- HEADER ROW: BRAND & RECEPTION HOOK -->
+        <div>
+            <div class="flex items-center justify-between pb-4 border-b-2 border-slate-100">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-11 h-11 bg-orange-600 rounded-2xl flex items-center justify-center text-white shadow-md">
+                        <i class="ri-flashlight-fill text-2xl"></i>
+                    </div>
+                    <div>
+                        <div class="font-logo leading-none select-none">
+                            <span class="text-slate-950 font-normal text-2xl tracking-tight">LIFE</span><span class="text-orange-600 font-black text-2xl tracking-tighter italic">XTREME</span>
+                        </div>
+                        <p class="text-[9px] font-black uppercase tracking-widest text-slate-400 mt-0.5">Cusco Mountain Gear Hub • UIAGM Standards</p>
+                    </div>
+                </div>
+
+                <div class="bg-emerald-50 border border-emerald-200/80 px-3 py-1.5 rounded-xl flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <div class="text-right leading-none">
+                        <p class="text-[8px] font-black uppercase tracking-wider text-emerald-800">Servicio Express Activo</p>
+                        <p class="text-[10px] font-black text-slate-900">Delivery a tu Habitación</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MAIN HERO HOOK (BILINGUAL FOR INTERNATIONAL BACKPACKERS) -->
+            <div class="mt-4 text-center">
+                <div class="inline-flex items-center gap-1.5 bg-orange-50 border border-orange-200 px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest text-orange-600 mb-2">
+                    <i class="ri-compass-3-fill"></i> SALKANTAY • INCA TRAIL • AUSANGATE • CHOQUEQUIRAO
+                </div>
+                <h1 class="text-3xl sm:text-4xl font-black italic text-slate-950 uppercase tracking-tight leading-none mb-1.5">
+                    ¿Haces Trekking en Cusco?
+                </h1>
+                <h2 class="text-lg sm:text-xl font-black italic text-orange-600 leading-tight">
+                    Alquila Equipo de Montaña Profesional con Entrega en tu Hotel
+                </h2>
+                <p class="text-xs text-slate-500 font-bold uppercase tracking-wider mt-1">
+                    Pro Mountain Gear Rental • Delivered Directly to Your Hostel Room
+                </p>
+            </div>
+
+            <!-- 3 NEUROMARKETING TRUST PILLARS -->
+            <div class="grid grid-cols-3 gap-2.5 mt-4">
+                <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200 text-center">
+                    <div class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto mb-1 text-base">
+                        <i class="ri-shield-check-fill"></i>
+                    </div>
+                    <h4 class="text-[10px] font-black uppercase tracking-wider text-slate-900 leading-tight">100% Esterilizado UV-C</h4>
+                    <p class="text-[8px] text-slate-500 font-medium leading-tight mt-0.5">Limpio, desinfectado y embolsado médicamente.</p>
+                </div>
+
+                <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200 text-center">
+                    <div class="w-8 h-8 rounded-xl bg-cyan-100 text-cyan-700 flex items-center justify-center mx-auto mb-1 text-base">
+                        <i class="ri-temp-cold-fill"></i>
+                    </div>
+                    <h4 class="text-[10px] font-black uppercase tracking-wider text-slate-900 leading-tight">Pluma -10°C / -15°C</h4>
+                    <p class="text-[8px] text-slate-500 font-medium leading-tight mt-0.5">Bolsas de dormir térmicas para alta montaña.</p>
+                </div>
+
+                <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200 text-center">
+                    <div class="w-8 h-8 rounded-xl bg-orange-100 text-orange-700 flex items-center justify-center mx-auto mb-1 text-base">
+                        <i class="ri-truck-fill"></i>
+                    </div>
+                    <h4 class="text-[10px] font-black uppercase tracking-wider text-slate-900 leading-tight">Delivery en 90 Min</h4>
+                    <p class="text-[8px] text-slate-500 font-medium leading-tight mt-0.5">Te lo llevamos y lo recogemos al volver.</p>
+                </div>
+            </div>
+
+            <!-- PRICING & FEATURED GEAR MATRIX -->
+            <div class="mt-4">
+                <div class="flex items-center justify-between mb-2">
+                    <h3 class="text-xs font-black uppercase tracking-widest text-slate-400 flex items-center gap-1.5">
+                        <i class="ri-fire-fill text-orange-500"></i> Kits & Tarifas por Día (Precios Oficiales)
+                    </h3>
+                    <span class="text-[8px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">Ahorra hasta 40% vs tiendas de calle</span>
+                </div>
+
+                <div class="grid grid-cols-2 gap-2.5">
+                    <!-- Item 1: Full Pack -->
+                    <div class="p-3 rounded-2xl bg-orange-50/60 border-2 border-orange-400/80 flex items-center justify-between relative overflow-hidden">
+                        <div>
+                            <span class="bg-orange-600 text-white text-[7px] font-black uppercase px-2 py-0.5 rounded-full tracking-wider inline-block mb-1">
+                                ⭐ Kit Más Alquilado
+                            </span>
+                            <h4 class="text-xs font-black italic text-slate-950 leading-tight">Pack Trekker Salkantay</h4>
+                            <p class="text-[8px] text-slate-600 leading-tight">Mochila 65L + Sleeping -10°C + Bastones + Matra</p>
+                        </div>
+                        <div class="text-right shrink-0 pl-2">
+                            <span class="text-lg font-black italic text-orange-600 block leading-none">S/ 70</span>
+                            <span class="text-[7px] font-bold text-slate-500 uppercase">Por Día (~$18)</span>
+                        </div>
+                    </div>
+
+                    <!-- Item 2: Sleeping Bag -->
+                    <div class="p-3 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between">
+                        <div>
+                            <h4 class="text-xs font-black italic text-slate-950 leading-tight">Bolsa de Pluma -10°C / -15°C</h4>
+                            <p class="text-[8px] text-slate-500 leading-tight">Ultra compacta (1.2 kg), pluma de ganso certificada</p>
+                        </div>
+                        <div class="text-right shrink-0 pl-2">
+                            <span class="text-lg font-black italic text-slate-900 block leading-none">S/ 35</span>
+                            <span class="text-[7px] font-bold text-slate-400 uppercase">Por Día (~$9)</span>
+                        </div>
+                    </div>
+
+                    <!-- Item 3: Bastones de Carbono -->
+                    <div class="p-3 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between">
+                        <div>
+                            <h4 class="text-xs font-black italic text-slate-950 leading-tight">Bastones de Trekking (Par)</h4>
+                            <p class="text-[8px] text-slate-500 leading-tight">Fibra de carbono, bloqueo rápido y antishock</p>
+                        </div>
+                        <div class="text-right shrink-0 pl-2">
+                            <span class="text-lg font-black italic text-slate-900 block leading-none">S/ 15</span>
+                            <span class="text-[7px] font-bold text-slate-400 uppercase">Por Día (~$4)</span>
+                        </div>
+                    </div>
+
+                    <!-- Item 4: Carpa 4 Estaciones -->
+                    <div class="p-3 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between">
+                        <div>
+                            <h4 class="text-xs font-black italic text-slate-950 leading-tight">Carpa 4 Estaciones (2 Personas)</h4>
+                            <p class="text-[8px] text-slate-500 leading-tight">Impermeable 5,000mm, varillas aluminio de alta montaña</p>
+                        </div>
+                        <div class="text-right shrink-0 pl-2">
+                            <span class="text-lg font-black italic text-slate-900 block leading-none">S/ 45</span>
+                            <span class="text-[7px] font-bold text-slate-400 uppercase">Por Día (~$12)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CENTERPIECE: HUGE HIGH-CONTRAST QR CODE & CTA -->
+        <div class="mt-4 p-5 rounded-3xl bg-slate-950 text-white flex items-center justify-between gap-6 shadow-xl relative overflow-hidden">
+            <!-- Background Glow Effect -->
+            <div class="absolute -top-10 -right-10 w-48 h-48 bg-orange-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="flex-1 space-y-2">
+                <span class="bg-orange-500 text-slate-950 px-2.5 py-1 rounded-full text-[8px] font-black uppercase tracking-widest inline-block">
+                    📲 Reserva en 60 Segundos Online
+                </span>
+                <h3 class="text-xl sm:text-2xl font-black italic leading-tight text-white">
+                    Escanea con tu Cámara y Reserva tu Equipo
+                </h3>
+                <p class="text-[10px] text-slate-300 leading-relaxed">
+                    Visualiza fotos reales en 360°, selecciona los días de tu trek y coloca el nombre de tu hotel en Cusco. Te lo entregamos empacado.
+                </p>
+                <div class="flex flex-wrap items-center gap-3 pt-1 text-[9px] font-bold text-slate-300">
+                    <span class="flex items-center gap-1 text-emerald-400">
+                        <i class="ri-checkbox-circle-fill"></i> Tarjetas, Yape o Cash
+                    </span>
+                    <span class="flex items-center gap-1 text-amber-400">
+                        <i class="ri-whatsapp-fill"></i> WhatsApp Express
+                    </span>
+                </div>
+            </div>
+
+            <!-- QR Code Container -->
+            <div class="bg-white p-3 rounded-2xl shadow-2xl flex flex-col items-center shrink-0 border-2 border-orange-400">
+                <img src="assets/img/qr_alquiler_equipos_cusco.png" alt="QR Alquiler Equipo Cusco" class="w-36 h-36 sm:w-40 sm:h-40 object-contain">
+                <span class="text-[7px] font-black uppercase tracking-wider text-slate-900 mt-1">SCAN TO RENT GEAR</span>
+            </div>
+        </div>
+
+        <!-- FOOTER BAR: CONTACT & OFFICIAL BACKING -->
+        <div class="mt-4 pt-3 border-t-2 border-slate-100 flex items-center justify-between text-slate-600 text-[9px]">
+            <div class="flex items-center gap-3 font-bold">
+                <span class="flex items-center gap-1 text-slate-900">
+                    <i class="ri-global-line text-orange-600"></i> www.lifextreme.store
+                </span>
+                <span>•</span>
+                <span class="flex items-center gap-1 text-slate-900">
+                    <i class="ri-whatsapp-line text-emerald-600"></i> +51 958 050 928
+                </span>
+                <span>•</span>
+                <span>Cusco, Perú</span>
+            </div>
+            <div class="font-black text-slate-400 uppercase tracking-widest text-[8px]">
+                Lifextreme Pro Mountain Gear • 2026
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
