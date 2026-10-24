@@ -1231,65 +1231,84 @@ async function renderGuides() {
     if (!grid) return;
 
     const guides = window.guides || [];
-    grid.innerHTML = guides.map((guide) => `
-        <div class="neuro-card bg-slate-900/85 backdrop-blur-md text-white rounded-[44px] overflow-hidden border border-white/10 hover:border-amber-400/50 group hover:shadow-[0_20px_45px_rgba(245,158,11,0.18)] transition-all duration-500 flex flex-col h-full shadow-xl">
-            <div class="h-72 overflow-hidden relative bg-slate-900">
-                <div class="skeleton-loader absolute inset-0"></div>
-                <img src="${guide.img}?w=600" loading="lazy" class="h-full w-full object-cover group-hover:scale-105 transition-all duration-700 img-reveal" onload="this.classList.add('loaded'); if(this.previousElementSibling) this.previousElementSibling.style.display='none';">
+    grid.innerHTML = guides.map((guide, i) => {
+        const certShort = guide.cert ? guide.cert.split('•')[0].trim() : 'Guía Oficial';
+        const langs = (guide.languages || []).join(' • ');
+
+        return `
+        <div class="neuro-card bg-slate-900/90 backdrop-blur-md text-white rounded-[32px] sm:rounded-[36px] overflow-hidden border border-white/10 hover:border-amber-400/50 group hover:shadow-[0_20px_45px_rgba(245,158,11,0.18)] transition-all duration-300 flex flex-col h-full shadow-xl animate-card-entry" style="animation-delay: ${i * 50}ms; animation-fill-mode: both;">
+            <!-- Top Image with Badges -->
+            <div class="h-56 sm:h-60 overflow-hidden relative bg-slate-950">
+                <img src="${guide.img}?w=600" loading="lazy" class="h-full w-full object-cover group-hover:scale-105 transition-all duration-700" alt="Guía ${guide.name}">
                 
                 <!-- Region & Verification Badges -->
-                <div class="absolute top-4 left-4 flex flex-col gap-1.5 z-10">
-                    <span class="bg-slate-950/85 backdrop-blur-md text-amber-400 border border-amber-400/30 px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-wider shadow-md">
+                <div class="absolute top-3 left-3 flex flex-wrap gap-1.5 z-10">
+                    <span class="bg-slate-950/85 backdrop-blur-md text-amber-300 border border-amber-400/30 px-2.5 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider shadow-sm">
                         📍 ${guide.region || 'Perú'}
                     </span>
-                    <span class="bg-primary/90 backdrop-blur-md text-white px-3 py-1 rounded-full text-[8px] font-black uppercase tracking-widest shadow-md">
-                        ${guide.cert ? '🛡️ ' + guide.cert.split('•')[0] : 'Guía Oficial'}
+                    <span class="bg-emerald-500/90 backdrop-blur-md text-slate-950 px-2.5 py-0.5 rounded-full text-[8px] font-black uppercase tracking-widest shadow-sm">
+                        🛡️ ${certShort}
                     </span>
                 </div>
 
-                <div class="absolute bottom-4 left-4 right-4 p-3.5 bg-slate-950/85 backdrop-blur-md rounded-2xl border border-white/10 text-white">
-                    <p class="text-[8px] font-black uppercase text-amber-400 tracking-widest">Especialidad</p>
-                    <p class="text-xs font-black italic">${guide.specialty}</p>
+                <div class="absolute bottom-2.5 left-2.5 right-2.5 px-3 py-1.5 bg-slate-950/85 backdrop-blur-md rounded-xl border border-white/10 text-white flex items-center justify-between">
+                    <span class="text-[9px] font-black text-amber-300 italic truncate">${guide.specialty}</span>
+                    <span class="text-[9px] font-bold text-slate-300 shrink-0">⭐ ${guide.exp}</span>
                 </div>
             </div>
 
-            <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-6">
+            <!-- Card Body (Clean & Minimal) -->
+            <div class="p-5 sm:p-6 flex-1 flex flex-col justify-between">
                 <div>
-                    <div class="flex items-center justify-between mb-2">
-                        <h4 class="font-black italic text-2xl text-white group-hover:text-amber-300 transition-colors leading-tight">${guide.name}</h4>
-                        <span class="text-[10px] font-black bg-amber-400/15 text-amber-300 border border-amber-400/30 px-2.5 py-1 rounded-full shrink-0">
-                            ⭐ ${guide.exp}
-                        </span>
+                    <div class="flex items-center justify-between mb-1">
+                        <h4 class="font-black italic text-lg sm:text-xl text-white group-hover:text-amber-300 transition-colors leading-tight">${guide.name}</h4>
                     </div>
-                    <p class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-4">
-                        🗣️ Idiomas: ${(guide.languages || []).join(' • ')}
-                    </p>
-                    
-                    <p class="text-xs font-medium text-slate-300 leading-relaxed mb-4">
-                        ${guide.desc || ''}
-                    </p>
-                    
-                    ${guide.cert ? `
-                    <div class="bg-white/5 p-3 rounded-2xl border border-white/10 mb-4 flex items-center gap-2.5">
-                        <i class="ri-verified-badge-fill text-amber-400 text-lg shrink-0"></i>
-                        <span class="text-[10px] font-black text-slate-200 leading-tight">${guide.cert}</span>
-                    </div>` : ''}
+
+                    ${langs ? `
+                    <p class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-2 flex items-center gap-1">
+                        <i class="ri-translate-2 text-amber-400"></i> ${langs}
+                    </p>` : ''}
+
+                    <!-- DESPLEGABLE DE PERFIL & CREDENCIALES (NEUROMARKETING) -->
+                    <details class="group/guide my-2.5 bg-white/5 hover:bg-white/[0.07] border border-white/10 rounded-2xl overflow-hidden transition-all">
+                        <summary class="flex items-center justify-between px-3 py-2 cursor-pointer text-[10px] font-bold uppercase tracking-wider text-slate-300 hover:text-amber-300 select-none">
+                            <span class="flex items-center gap-1.5">
+                                <i class="ri-user-star-line text-amber-400 text-xs"></i>
+                                <span>Ver Perfil & Credenciales</span>
+                            </span>
+                            <i class="ri-arrow-down-s-line text-slate-400 group-open/guide:rotate-180 transition-transform text-xs"></i>
+                        </summary>
+                        <div class="px-3 pb-3 pt-1 border-t border-white/10 space-y-2 text-[10px]">
+                            <p class="text-slate-300 leading-relaxed font-medium text-[10px]">${guide.desc || 'Guía profesional de montaña certificado para expediciones andinas.'}</p>
+                            ${guide.cert ? `
+                            <div class="text-[9px] text-amber-300 font-bold bg-amber-400/10 p-2 rounded-xl border border-amber-400/20">
+                                🛡️ ${guide.cert}
+                            </div>` : ''}
+                            <div class="text-[8px] text-slate-400 flex items-center justify-between pt-0.5">
+                                <span>✓ Radio Satelital & Oxígeno</span>
+                                <span>✓ Protocolo Primeros Auxilios WFR</span>
+                            </div>
+                        </div>
+                    </details>
                 </div>
-                
-                <div class="space-y-2 pt-4 border-t border-white/10 mt-auto">
-                    <button onclick="window.openGuideHireModal('${guide.name.replace(/'/g, "\\'")}', ${guide.id});" 
-                        class="w-full py-3.5 bg-amber-400 hover:bg-amber-300 text-slate-950 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer">
-                        <i class="ri-file-list-3-line"></i> Ver Itinerario & Recomendaciones
-                    </button>
+
+                <!-- Action Buttons -->
+                <div class="grid grid-cols-2 gap-2 pt-3 border-t border-white/10 mt-2">
                     <a href="https://wa.me/51958050928?text=${encodeURIComponent('Hola Lifextreme! Deseo consultar disponibilidad para contratar al guía certificado ' + guide.name + ' en ' + (guide.region || 'Perú') + '.')}" 
                         target="_blank" rel="noopener"
-                        class="w-full py-3 bg-emerald-500/15 hover:bg-emerald-500 text-emerald-300 hover:text-slate-950 border border-emerald-500/30 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all flex items-center justify-center gap-2">
-                        <i class="ri-whatsapp-fill text-base"></i> Consultar Disponibilidad
+                        class="flex items-center justify-center gap-1.5 py-2.5 px-3 bg-gradient-to-r from-emerald-500 to-teal-500 hover:brightness-110 text-slate-950 rounded-xl text-[9px] sm:text-[10px] font-black uppercase tracking-wider transition-all shadow-md cursor-pointer text-center">
+                        <i class="ri-whatsapp-fill text-sm"></i> WhatsApp
                     </a>
+
+                    <button type="button" onclick="window.openGuideHireModal('${guide.name.replace(/'/g, "\'")}', ${guide.id});" 
+                        class="flex items-center justify-center gap-1.5 py-2.5 px-3 bg-white/10 hover:bg-white/20 text-white border border-white/15 rounded-xl text-[9px] sm:text-[10px] font-bold uppercase tracking-wider transition-all cursor-pointer text-center">
+                        <i class="ri-calendar-check-line text-amber-400"></i> Contratar
+                    </button>
                 </div>
             </div>
         </div>
-    `).join('');
+        `;
+    }).join('');
 }
 
 // --- RENDER MAIN GRIDS ---
