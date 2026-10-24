@@ -27,5 +27,36 @@
       "turista_wa": "🎉 *¡RESERVA CONFIRMADA EN LIFEXTREME!*\n\nHola *Sarah Jenkins (USA)*, tu expedición de aventura está en marcha:\n\n📍 *Experiencia:* Salkantay Trek 4D / 3N con Domos\n📅 *Fecha:* 28 de Octubre 2026\n👥 *Grupo:* 2 persona(s)\n🏨 *Punto de Encuentro:* Kokopelli Hostel (Calle San Andrés)\n🛡️ *Guía Oficial Asignado:* Juan Carlos Quispe (Certificado MINCETUR)\n🆔 *Voucher:* `LFX-1024-9699`\n\n⏰ *Hora de recojo:* Te contactaremos por aquí a las 8:00 PM del día previo con los detalles del briefing y clima.\n\n¿Tienes dudas de equipo o aclimatación? Escríbenos directamente respondiendo a este chat. 🏔️"
     },
     "estado": "PENDIENTE_OPERADOR"
+  },
+  {
+    "booking_id": "LFX-1024-A1E9",
+    "token": "8fd9c6f6",
+    "timestamp": "2026-10-24T17:55:46.649174",
+    "cliente": {
+      "nombre": "Sarah Jenkins (Turista USA)",
+      "telefono": "51958050928",
+      "hotel": "Kokopelli Hostel (Calle San Andrés 260, Cusco)"
+    },
+    "tour": {
+      "nombre": "Salkantay Trek 4D / 3N con Domos Panorámicos",
+      "fecha": "28 de Octubre 2026",
+      "pax": 2,
+      "pago_operador_pen": 760.0
+    },
+    "operador": {
+      "nombre": "Carlos Quispe (Guía Certificado)",
+      "telefono": "51958050928"
+    },
+    "links": {
+      "aceptar": "https://www.lifextreme.store/operator-action?action=accept&id=LFX-1024-A1E9&token=8fd9c6f6&op=Carlos%20Quispe%20%28Gu%C3%ADa%20Certificado%29",
+      "rechazar": "https://www.lifextreme.store/operator-action?action=reject&id=LFX-1024-A1E9&token=8fd9c6f6&op=Carlos%20Quispe%20%28Gu%C3%ADa%20Certificado%29",
+      "wa_send_operador": "https://wa.me/51958050928?text=%F0%9F%8F%94%EF%B8%8F%20%2A%C2%A1NUEVA%20ASIGNACI%C3%93N%20DE%20EXPEDICI%C3%93N%20LIFEXTREME%21%2A%0A%0AHola%20%2ACarlos%20Quispe%20%28Gu%C3%ADa%20Certificado%29%2A%2C%20tienes%20una%20nueva%20reserva%20confirmada%20para%20operar%20en%20Cusco%3A%0A%0A%F0%9F%93%8D%20%2ATour%3A%2A%20Salkantay%20Trek%204D%20/%203N%20con%20Domos%20Panor%C3%A1micos%0A%F0%9F%93%85%20%2AFecha%3A%2A%2028%20de%20Octubre%202026%0A%F0%9F%91%A5%20%2APasajeros%3A%2A%202%20pax%0A%F0%9F%8F%A8%20%2AHotel%20de%20Recojo%3A%2A%20Kokopelli%20Hostel%20%28Calle%20San%20Andr%C3%A9s%20260%2C%20Cusco%29%0A%F0%9F%92%B0%20%2APago%20directo%20a%20ti%3A%2A%20%2AS/%20760.00%20PEN%2A%0A%F0%9F%86%94%20%2AC%C3%B3digo%20de%20Orden%3A%2A%20%60LFX-1024-A1E9%60%0A%0A%E2%9A%A1%20%2ACONFIRMA%20TU%20DISPONIBILIDAD%20CON%201%20SOLO%20TOQUE%3A%2A%0A%0A%F0%9F%91%89%20%2AACEPTAR%20Y%20ASIGNAR%20A%20MI%20CUPO%3A%2A%0Ahttps%3A//www.lifextreme.store/operator-action%3Faction%3Daccept%26id%3DLFX-1024-A1E9%26token%3D8fd9c6f6%26op%3DCarlos%2520Quispe%2520%2528Gu%25C3%25ADa%2520Certificado%2529%0A%0A%F0%9F%91%89%20%2ANO%20DISPONIBLE%20%28RECHAZAR%29%3A%2A%0Ahttps%3A//www.lifextreme.store/operator-action%3Faction%3Dreject%26id%3DLFX-1024-A1E9%26token%3D8fd9c6f6%26op%3DCarlos%2520Quispe%2520%2528Gu%25C3%25ADa%2520Certificado%2529%0A%0A_%F0%9F%9B%B0%EF%B8%8F%20Red%20de%20Operadores%20Certificados%20%E2%80%A2%20Lifextreme%20Adventure%20AI_",
+      "wa_send_turista": "https://wa.me/51958050928?text=%F0%9F%8E%89%20%2A%C2%A1RESERVA%20CONFIRMADA%20EN%20LIFEXTREME%21%2A%0A%0AHola%20%2ASarah%20Jenkins%20%28Turista%20USA%29%2A%2C%20tu%20expedici%C3%B3n%20de%20aventura%20est%C3%A1%20en%20marcha%3A%0A%0A%F0%9F%93%8D%20%2AExperiencia%3A%2A%20Salkantay%20Trek%204D%20/%203N%20con%20Domos%20Panor%C3%A1micos%0A%F0%9F%93%85%20%2AFecha%3A%2A%2028%20de%20Octubre%202026%0A%F0%9F%91%A5%20%2AGrupo%3A%2A%202%20persona%28s%29%0A%F0%9F%8F%A8%20%2APunto%20de%20Encuentro%3A%2A%20Kokopelli%20Hostel%20%28Calle%20San%20Andr%C3%A9s%20260%2C%20Cusco%29%0A%F0%9F%9B%A1%EF%B8%8F%20%2AGu%C3%ADa%20Oficial%20Asignado%3A%2A%20Carlos%20Quispe%20%28Gu%C3%ADa%20Certificado%29%20%28Certificado%20MINCETUR%29%0A%F0%9F%86%94%20%2AVoucher%3A%2A%20%60LFX-1024-A1E9%60%0A%0A%E2%8F%B0%20%2AHora%20de%20recojo%3A%2A%20Te%20contactaremos%20por%20aqu%C3%AD%20a%20las%208%3A00%20PM%20del%20d%C3%ADa%20previo%20con%20los%20detalles%20del%20briefing%20y%20clima.%0A%0A%C2%BFTienes%20dudas%20de%20equipo%20o%20aclimataci%C3%B3n%3F%20Escr%C3%ADbenos%20directamente%20respondiendo%20a%20este%20chat.%20%F0%9F%8F%94%EF%B8%8F"
+    },
+    "mensajes": {
+      "operador_wa": "🏔️ *¡NUEVA ASIGNACIÓN DE EXPEDICIÓN LIFEXTREME!*\n\nHola *Carlos Quispe (Guía Certificado)*, tienes una nueva reserva confirmada para operar en Cusco:\n\n📍 *Tour:* Salkantay Trek 4D / 3N con Domos Panorámicos\n📅 *Fecha:* 28 de Octubre 2026\n👥 *Pasajeros:* 2 pax\n🏨 *Hotel de Recojo:* Kokopelli Hostel (Calle San Andrés 260, Cusco)\n💰 *Pago directo a ti:* *S/ 760.00 PEN*\n🆔 *Código de Orden:* `LFX-1024-A1E9`\n\n⚡ *CONFIRMA TU DISPONIBILIDAD CON 1 SOLO TOQUE:*\n\n👉 *ACEPTAR Y ASIGNAR A MI CUPO:*\nhttps://www.lifextreme.store/operator-action?action=accept&id=LFX-1024-A1E9&token=8fd9c6f6&op=Carlos%20Quispe%20%28Gu%C3%ADa%20Certificado%29\n\n👉 *NO DISPONIBLE (RECHAZAR):*\nhttps://www.lifextreme.store/operator-action?action=reject&id=LFX-1024-A1E9&token=8fd9c6f6&op=Carlos%20Quispe%20%28Gu%C3%ADa%20Certificado%29\n\n_🛰️ Red de Operadores Certificados • Lifextreme Adventure AI_",
+      "turista_wa": "🎉 *¡RESERVA CONFIRMADA EN LIFEXTREME!*\n\nHola *Sarah Jenkins (Turista USA)*, tu expedición de aventura está en marcha:\n\n📍 *Experiencia:* Salkantay Trek 4D / 3N con Domos Panorámicos\n📅 *Fecha:* 28 de Octubre 2026\n👥 *Grupo:* 2 persona(s)\n🏨 *Punto de Encuentro:* Kokopelli Hostel (Calle San Andrés 260, Cusco)\n🛡️ *Guía Oficial Asignado:* Carlos Quispe (Guía Certificado) (Certificado MINCETUR)\n🆔 *Voucher:* `LFX-1024-A1E9`\n\n⏰ *Hora de recojo:* Te contactaremos por aquí a las 8:00 PM del día previo con los detalles del briefing y clima.\n\n¿Tienes dudas de equipo o aclimatación? Escríbenos directamente respondiendo a este chat. 🏔️"
+    },
+    "estado": "PENDIENTE_OPERADOR"
   }
 ]

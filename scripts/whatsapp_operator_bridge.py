@@ -58,12 +58,12 @@ def crear_solicitud_reserva(
     booking_id = f"LFX-{datetime.now().strftime('%m%d')}-{uuid.uuid4().hex[:4].upper()}"
     token_seguridad = uuid.uuid4().hex[:8]
 
-    # Enlaces de 1 toque para el Operador (Optimizado para CDN Móvil en Cusco)
+    # Enlaces de 1 toque para el Operador (URLs limpias clicables en WhatsApp)
     op_encoded = urllib.parse.quote(operador_nombre)
     enlace_aceptar = f"{BASE_URL}/operator-action?action=accept&id={booking_id}&token={token_seguridad}&op={op_encoded}"
     enlace_rechazar = f"{BASE_URL}/operator-action?action=reject&id={booking_id}&token={token_seguridad}&op={op_encoded}"
 
-    # 1. Mensaje formateado para el Operador en Cusco (vía WhatsApp)
+    # 1. Mensaje formateado para el Operador en Cusco (WhatsApp formato nativo)
     mensaje_operador = f"""🏔️ *¡NUEVA ASIGNACIÓN DE EXPEDICIÓN LIFEXTREME!*
 
 Hola *{operador_nombre}*, tienes una nueva reserva confirmada para operar en Cusco:
@@ -75,13 +75,17 @@ Hola *{operador_nombre}*, tienes una nueva reserva confirmada para operar en Cus
 💰 *Pago directo a ti:* *S/ {pago_operador_pen:,.2f} PEN*
 🆔 *Código de Orden:* `{booking_id}`
 
-⚡ *CONFIRMA TU DISPONIBILIDAD CON 1 SOLO TAP:*
-👉 [🟢 ACEPTAR Y ASIGNAR A MI CUPO]({enlace_aceptar})
-👉 [🔴 NO DISPONIBLE (RECHAZAR)]({enlace_rechazar})
+⚡ *CONFIRMA TU DISPONIBILIDAD CON 1 SOLO TOQUE:*
+
+👉 *ACEPTAR Y ASIGNAR A MI CUPO:*
+{enlace_aceptar}
+
+👉 *NO DISPONIBLE (RECHAZAR):*
+{enlace_rechazar}
 
 _🛰️ Red de Operadores Certificados • Lifextreme Adventure AI_"""
 
-    # 2. Mensaje formateado para el Turista / Usuario (vía WhatsApp)
+    # 2. Mensaje formateado para el Turista / Usuario (WhatsApp formato nativo)
     mensaje_turista = f"""🎉 *¡RESERVA CONFIRMADA EN LIFEXTREME!*
 
 Hola *{cliente_nombre}*, tu expedición de aventura está en marcha:
@@ -97,13 +101,20 @@ Hola *{cliente_nombre}*, tu expedición de aventura está en marcha:
 
 ¿Tienes dudas de equipo o aclimatación? Escríbenos directamente respondiendo a este chat. 🏔️"""
 
+    # Enlaces directos wa.me para abrir WhatsApp con 1 tap
+    clean_op_phone = "".join(filter(str.isdigit, operador_telefono))
+    clean_client_phone = "".join(filter(str.isdigit, cliente_telefono))
+
+    wa_url_operador = f"https://wa.me/{clean_op_phone}?text={urllib.parse.quote(mensaje_operador)}"
+    wa_url_turista = f"https://wa.me/{clean_client_phone}?text={urllib.parse.quote(mensaje_turista)}"
+
     registro = {
         "booking_id": booking_id,
         "token": token_seguridad,
         "timestamp": datetime.now().isoformat(),
         "cliente": {
             "nombre": cliente_nombre,
-            "telefono": cliente_telefono,
+            "telefono": clean_client_phone,
             "hotel": cliente_hotel
         },
         "tour": {
@@ -114,11 +125,13 @@ Hola *{cliente_nombre}*, tu expedición de aventura está en marcha:
         },
         "operador": {
             "nombre": operador_nombre,
-            "telefono": operador_telefono
+            "telefono": clean_op_phone
         },
         "links": {
             "aceptar": enlace_aceptar,
-            "rechazar": enlace_rechazar
+            "rechazar": enlace_rechazar,
+            "wa_send_operador": wa_url_operador,
+            "wa_send_turista": wa_url_turista
         },
         "mensajes": {
             "operador_wa": mensaje_operador,
@@ -138,35 +151,41 @@ if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser(description="Lifextreme WhatsApp Operator Bridge")
     parser.add_argument("--demo", action="store_true", help="Simular una orden de prueba completa")
+    parser.add_argument("--phone", type=str, default="51958050928", help="Número de WhatsApp para prueba (ej: 51958050928)")
     args = parser.parse_args()
 
-    if args.demo:
-        print("\n" + "=" * 75)
-        print("🚀 SIMULACIÓN DE RESERVA CRUZADA: TURISTA ↔ OPERADOR VIA WHATSAPP")
-        print("=" * 75)
+    clean_phone = "".join(filter(str.isdigit, args.phone))
+    if not clean_phone.startswith("51") and len(clean_phone) == 9:
+        clean_phone = "51" + clean_phone
 
-        orden = crear_solicitud_reserva(
-            cliente_nombre="Sarah Jenkins (USA)",
-            cliente_telefono="+14155552671",
-            cliente_hotel="Kokopelli Hostel (Calle San Andrés)",
-            tour_nombre="Salkantay Trek 4D / 3N con Domos",
-            fecha_tour="28 de Octubre 2026",
-            pax=2,
-            pago_operador_pen=760.00,
-            operador_nombre="Juan Carlos Quispe",
-            operador_telefono="+51984123456"
-        )
+    print("\n" + "=" * 75)
+    print(f"🚀 GENERANDO SIMULACIÓN EN VIVO PARA WHATSAPP: +{clean_phone}")
+    print("=" * 75)
 
-        print("\n📲 [1. MENSAJE ENVIADO AL WHATSAPP DEL OPERADOR/GUÍA]:")
-        print("-" * 70)
-        print(orden["mensajes"]["operador_wa"])
-        print("-" * 70)
+    orden = crear_solicitud_reserva(
+        cliente_nombre="Sarah Jenkins (Turista USA)",
+        cliente_telefono=clean_phone,
+        cliente_hotel="Kokopelli Hostel (Calle San Andrés 260, Cusco)",
+        tour_nombre="Salkantay Trek 4D / 3N con Domos Panorámicos",
+        fecha_tour="28 de Octubre 2026",
+        pax=2,
+        pago_operador_pen=760.00,
+        operador_nombre="Carlos Quispe (Guía Certificado)",
+        operador_telefono=clean_phone
+    )
 
-        print("\n📲 [2. MENSAJE AUTOMÁTICO ENVIADO AL TURISTA]:")
-        print("-" * 70)
-        print(orden["mensajes"]["turista_wa"])
-        print("-" * 70)
+    print("\n📱 [ENLACE DE 1 CLIC PARA DISPARAR EL WHATSAPP AL OPERADOR]:")
+    print("-" * 75)
+    print(f"👉 Haz clic aquí para abrir WhatsApp con el mensaje listo:")
+    print(orden["links"]["wa_send_operador"])
+    print("-" * 75)
 
-        print(f"\n✅ Registro guardado en {DB_FILE}")
-        print(f"👉 Link de prueba para el operador:")
-        print(f"   {orden['links']['aceptar']}")
+    print("\n🔗 [ENLACE DE ACEPTACIÓN DE 1 TOQUE QUE RECIBE EL GUÍA]:")
+    print("-" * 75)
+    print(orden["links"]["aceptar"])
+    print("-" * 75)
+
+    print("\n📱 [ENLACE DE 1 CLIC PARA ENVIAR CONFIRMACIÓN AL TURISTA]:")
+    print("-" * 75)
+    print(orden["links"]["wa_send_turista"])
+    print("-" * 75)
