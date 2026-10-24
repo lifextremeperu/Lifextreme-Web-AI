@@ -634,17 +634,17 @@ function renderStep2Tools() {
     if (!activeTour) return;
     const recommended = (window.equips || []).slice(0, 3); // Dynamic logic later
     document.getElementById('recommended-equipment-list').innerHTML = recommended.map(e => `
-        <div class="flex items-center justify-between bg-white p-4 rounded-2xl border border-slate-100">
+        <div class="flex items-center justify-between bg-white p-4 rounded-2xl border border-slate-200 shadow-sm text-slate-900">
             <div class="flex items-center gap-4">
                 <img src="${e.img}?w=80" class="w-12 h-12 rounded-xl object-cover">
                 <div>
-                    <p class="text-[9px] font-black text-slate-400 uppercase">${e.cat}</p>
-                    <p class="text-[11px] font-black italic">${e.name}</p>
+                    <p class="text-[9px] font-black text-slate-500 uppercase">${e.cat}</p>
+                    <p class="text-[11px] font-black italic text-slate-900">${e.name}</p>
                 </div>
             </div>
             <div class="flex items-center gap-3">
                 <p class="text-xs font-black text-primary">S/ ${e.price}</p>
-                <button data-action="add-cart-short" data-name="${e.name}" data-price="${e.price}" data-img="${e.img}" class="bg-slate-50 p-2 rounded-lg hover:bg-slate-200">
+                <button data-action="add-cart-short" data-name="${e.name}" data-price="${e.price}" data-img="${e.img}" class="bg-slate-100 text-slate-900 p-2 rounded-lg hover:bg-slate-200 cursor-pointer">
                      <i class="ri-add-line"></i>
                 </button>
             </div>
@@ -751,22 +751,22 @@ function renderWizardStep(step) {
                     </h5>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div class="space-y-1">
-                            <label class="text-[9px] font-black uppercase text-slate-400">Nombre Completo *</label>
-                            <input type="text" id="contact-name" placeholder="Ej: Carlos Mendoza" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs font-bold focus:border-primary outline-none">
+                            <label class="text-[9px] font-black uppercase text-slate-600 font-bold">Nombre Completo *</label>
+                            <input type="text" id="contact-name" placeholder="Ej: Carlos Mendoza" class="w-full bg-white border border-slate-300 text-slate-900 rounded-xl px-4 py-2.5 text-xs font-bold focus:border-primary outline-none">
                         </div>
                         <div class="space-y-1">
-                            <label class="text-[9px] font-black uppercase text-slate-400">DNI / Pasaporte *</label>
-                            <input type="text" id="contact-dni" placeholder="Ej: 72849102" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs font-bold focus:border-primary outline-none">
+                            <label class="text-[9px] font-black uppercase text-slate-600 font-bold">DNI / Pasaporte *</label>
+                            <input type="text" id="contact-dni" placeholder="Ej: 72849102" class="w-full bg-white border border-slate-300 text-slate-900 rounded-xl px-4 py-2.5 text-xs font-bold focus:border-primary outline-none">
                         </div>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div class="space-y-1">
-                            <label class="text-[9px] font-black uppercase text-slate-400">Email *</label>
-                            <input type="email" id="contact-email" placeholder="tu@email.com" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs font-bold focus:border-primary outline-none">
+                            <label class="text-[9px] font-black uppercase text-slate-600 font-bold">Email *</label>
+                            <input type="email" id="contact-email" placeholder="tu@email.com" class="w-full bg-white border border-slate-300 text-slate-900 rounded-xl px-4 py-2.5 text-xs font-bold focus:border-primary outline-none">
                         </div>
                         <div class="space-y-1">
-                            <label class="text-[9px] font-black uppercase text-slate-400">WhatsApp Celular *</label>
-                            <input type="tel" id="contact-phone" placeholder="+51 987 654 321" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs font-bold focus:border-primary outline-none">
+                            <label class="text-[9px] font-black uppercase text-slate-600 font-bold">WhatsApp Celular *</label>
+                            <input type="tel" id="contact-phone" placeholder="+51 987 654 321" class="w-full bg-white border border-slate-300 text-slate-900 rounded-xl px-4 py-2.5 text-xs font-bold focus:border-primary outline-none">
                         </div>
                     </div>
                 </div>
@@ -1154,14 +1154,14 @@ function updateCart() {
     list.innerHTML = items.map((item, idx) => {
         const itemPriceFormatted = window.PriceEngine ? window.PriceEngine.format(item.price) : `S/ ${item.price}`;
         return `
-        <div class="flex items-center gap-4 bg-slate-50 p-4 rounded-3xl border border-slate-100">
+        <div class="flex items-center gap-4 bg-slate-50 p-4 rounded-3xl border border-slate-200 shadow-sm text-slate-900">
             <img src="${item.img}?w=100" class="w-12 h-12 rounded-xl object-cover">
             <div class="flex-1">
-                <h4 class="font-black text-[10px] uppercase">${item.name}</h4>
-                <p class="text-[8px] font-bold text-slate-400">${item.detail}</p>
+                <h4 class="font-black text-[10px] uppercase text-slate-900">${item.name}</h4>
+                <p class="text-[8px] font-bold text-slate-600">${item.detail}</p>
             </div>
-            <p class="font-black text-xs">${itemPriceFormatted}</p>
-            <button data-action="remove-item" data-idx="${idx}" class="text-slate-300 hover:text-red-500 cursor-pointer"><i class="ri-delete-bin-line"></i></button>
+            <p class="font-black text-xs text-slate-900">${itemPriceFormatted}</p>
+            <button data-action="remove-item" data-idx="${idx}" class="text-slate-400 hover:text-red-500 cursor-pointer p-1"><i class="ri-delete-bin-line"></i></button>
         </div>
         `;
     }).join('');
