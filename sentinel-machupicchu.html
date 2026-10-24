@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentinel TuBoleto VIP | Radar 24/7 de Cupos Machu Picchu en Vivo</title>
+    <meta name="description" content="Monitoreo automatizado 24/7 con IA para agencias de viajes y guías en Cusco. Alertas inmediatas al celular cuando TuBoleto libera entradas para Machu Picchu.">
+    <link rel="icon" type="image/png" href="assets/img/logo.png">
+
+    <!-- Fonts & Tailwind -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            cyan: '#06b6d4',
+                            emerald: '#10b981',
+                            amber: '#f59e0b',
+                            red: '#ef4444',
+                            obsidian: '#020617'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .radar-pulse {
+            position: relative;
+        }
+        .radar-pulse::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            border-radius: 9999px;
+            background-color: #10b981;
+            opacity: 0.75;
+            animation: radar-ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+        @keyframes radar-ping {
+            75%, 100% {
+                transform: scale(2.2);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-white min-h-screen">
+
+    <!-- BARRA SUPERIOR DE ESTADO EN VIVO -->
+    <div class="bg-slate-900 border-b border-slate-800 text-xs py-2 px-4">
+        <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-2">
+                <span class="relative flex h-2.5 w-2.5">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                </span>
+                <span class="font-bold text-emerald-400 tracking-wide uppercase">Sensor Sentinel Activo</span>
+                <span class="text-slate-500">|</span>
+                <span class="text-slate-300">API Oficial Cifrada TuBoleto Cultura Perú</span>
+            </div>
+            <div class="flex items-center gap-4 text-slate-400">
+                <span>Latencia: <strong class="text-cyan-400">~420ms</strong></span>
+                <span>Frecuencia: <strong class="text-cyan-400">Cada 45s</strong></span>
+                <a href="/" class="text-slate-300 hover:text-white underline">Volver a Lifextreme Web</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVEGACIÓN -->
+    <header class="border-b border-slate-800/80 bg-slate-950/80 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-3">
+                <img src="assets/img/logo.png" alt="Lifextreme" class="h-9 w-auto">
+                <div class="flex flex-col">
+                    <span class="text-lg font-black tracking-tight text-white">LIFEXTREME <span class="text-cyan-400">SENTINEL</span></span>
+                    <span class="text-[10px] uppercase tracking-widest text-slate-400 font-semibold">Machu Picchu VIP Radar</span>
+                </div>
+            </a>
+            <div class="flex items-center gap-3">
+                <a href="#precios" class="px-4 py-2 rounded-xl text-xs font-bold bg-cyan-500 hover:bg-cyan-400 text-slate-950 shadow-lg shadow-cyan-500/20 transition-all">
+                    Activar Membresía VIP
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-16 pb-20 overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-slate-800 mb-6">
+                <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+                <span class="text-xs font-bold text-slate-300 tracking-wide uppercase">Vigilancia Criptográfica 24/7 sin Intervención Humana</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight max-w-4xl mx-auto">
+                No vuelvas a perder un tour de <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">$500 USD</span> por falta de boletos a Machu Picchu
+            </h1>
+
+            <p class="mt-6 text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
+                El sistema oficial libera entradas canceladas de madrugada sin avisar a nadie. Nuestro sensor las detecta en <strong class="text-white">menos de 2 segundos</strong> y envía una alarma prioritaria directo a tu Telegram.
+            </p>
+
+            <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+                <a href="#precios" class="px-8 py-4 rounded-2xl bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-black text-base shadow-xl shadow-cyan-500/25 transition-all transform hover:-translate-y-0.5">
+                    🚀 Obtener Acceso VIP Inmediato
+                </a>
+                <a href="#como-funciona" class="px-6 py-4 rounded-2xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800 font-bold text-sm transition-all">
+                    Ver Demostración en Vivo
+                </a>
+            </div>
+
+            <div class="mt-8 flex items-center justify-center gap-6 text-xs text-slate-400">
+                <span class="flex items-center gap-1.5">🛡️ 100% Legal y Pasivo</span>
+                <span class="flex items-center gap-1.5">⚡ Sin F5 manual</span>
+                <span class="flex items-center gap-1.5">📱 Canal Exclusivo Telegram</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SIMULADOR EN VIVO DE ALERTA -->
+    <section id="como-funciona" class="py-12 bg-slate-900/40 border-y border-slate-800/80">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="text-center mb-8">
+                <h2 class="text-xs uppercase tracking-widest font-extrabold text-cyan-400">Demostración en Tiempo Real</h2>
+                <h3 class="text-2xl sm:text-3xl font-black text-white mt-1">Cómo se ve la Alerta en tu Celular</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <!-- Simulación Celular -->
+                <div class="bg-slate-950 border border-slate-800 rounded-3xl p-6 shadow-2xl relative overflow-hidden">
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4 text-xs text-slate-400">
+                        <div class="flex items-center gap-2">
+                            <div class="h-3 w-3 rounded-full bg-cyan-500"></div>
+                            <span class="font-bold text-white">Radar Machu Picchu VIP (Telegram)</span>
+                        </div>
+                        <span class="text-slate-500">3:14 AM</span>
+                    </div>
+
+                    <!-- Mensaje simulado Telegram -->
+                    <div class="bg-slate-900/90 border border-emerald-500/30 rounded-2xl p-4 text-sm text-slate-200 shadow-inner">
+                        <div class="flex items-center gap-2 text-emerald-400 font-extrabold mb-2 text-xs uppercase tracking-wider">
+                            <span>🚨 ¡ALERTA URGENTE: CUPOS LIBERADOS!</span>
+                        </div>
+                        <div class="space-y-1.5 text-xs">
+                            <p><strong class="text-white">📍 Circuito:</strong> Circuito 2 - Clásico (Ruta Tradicional)</p>
+                            <p><strong class="text-white">📅 Fecha:</strong> 28 de Octubre 2026</p>
+                            <p><strong class="text-white">🎫 Boletos detectados:</strong> <span class="bg-emerald-500/20 text-emerald-300 font-black px-1.5 py-0.5 rounded border border-emerald-500/40">+6 cupos en vivo</span></p>
+                            <p><strong class="text-white">⚡ Estado:</strong> Disponibles para compra inmediata</p>
+                            <p><strong class="text-white">🕒 Hora detección:</strong> 03:14:22 AM (Hace 12 seg)</p>
+                        </div>
+                        <div class="mt-3 pt-3 border-t border-slate-800">
+                            <a href="https://tuboleto.cultura.pe/" target="_blank" class="block w-full text-center py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs transition-colors">
+                                COMPRAR DIRECTO EN TUBOLETO AHORA ➔
+                            </a>
+                        </div>
+                        <p class="mt-2 text-[10px] text-slate-500 text-right italic">🛰️ Sentinel Lifextreme IA • Sensor Criptográfico 24/7</p>
+                    </div>
+
+                    <div class="mt-4 flex items-center justify-between text-xs text-slate-400 px-2">
+                        <span>🔊 Alarma con sonido prioritario</span>
+                        <span class="text-emerald-400 font-semibold">✔ Notificación entregada</span>
+                    </div>
+                </div>
+
+                <!-- Explicación de Ventaja -->
+                <div class="space-y-6">
+                    <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5">
+                        <h4 class="font-black text-white text-base flex items-center gap-2">
+                            <span class="text-red-400">❌</span> El Método Tradicional
+                        </h4>
+                        <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                            El dueño de agencia o guía se desvela refrescando la web de TuBoleto a las 2:00 AM, perdiendo horas de sueño. Cuando revisa a las 8:00 AM, los cupos cancelados ya fueron comprados por otros.
+                        </p>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-cyan-950/40 to-emerald-950/40 border border-cyan-500/40 rounded-2xl p-5">
+                        <h4 class="font-black text-cyan-300 text-base flex items-center gap-2">
+                            <span class="text-emerald-400">⚡</span> Con Sentinel Lifextreme IA
+                        </h4>
+                        <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                            Duermes tranquilo. Nuestro contenedor en la nube consulta cada 45 segundos la API descifrada con algoritmos AES-CBC. Si alguien cancela o el Ministerio suelta 10 boletos a las 3:14 AM, tu teléfono suena al instante.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-400 flex items-center gap-3">
+                        <span class="text-2xl">🔒</span>
+                        <span><strong>Acceso Exclusivo:</strong> Enlaces de invitación de 1 solo uso para evitar saturación del canal.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRECIOS Y MEMBRESÍA -->
+    <section id="precios" class="py-20 relative">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            
+            <h2 class="text-xs uppercase tracking-widest font-extrabold text-cyan-400">Inversión y Retorno</h2>
+            <h3 class="text-3xl sm:text-4xl font-black text-white mt-1">Con 1 solo tour que salves, pagas todo el año</h3>
+            <p class="mt-3 text-slate-400 text-sm max-w-xl mx-auto">
+                Una reserva de Machu Picchu perdida te cuesta entre $300 y $600 USD. Sentinel te garantiza ser el primero en saber cuándo hay boletos.
+            </p>
+
+            <div class="mt-12 max-w-md mx-auto bg-slate-900 border-2 border-cyan-500/50 rounded-3xl p-8 shadow-2xl relative">
+                
+                <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-cyan-500 to-emerald-500 text-slate-950 text-[11px] font-black uppercase tracking-wider px-4 py-1 rounded-full shadow">
+                    Membresía VIP Agencias & Guías
+                </div>
+
+                <div class="mt-4">
+                    <span class="text-slate-400 text-sm font-semibold">Tarifa plana mensual</span>
+                    <div class="flex items-baseline justify-center gap-1 mt-2">
+                        <span class="text-4xl sm:text-5xl font-black text-white tracking-tight">S/ 180</span>
+                        <span class="text-slate-400 font-bold text-sm">PEN / mes</span>
+                    </div>
+                    <span class="text-xs text-slate-500 block mt-1">(Aprox. $48 USD • Cancela cuando quieras sin compromiso)</span>
+                </div>
+
+                <div class="my-6 border-t border-slate-800"></div>
+
+                <ul class="space-y-3 text-left text-xs text-slate-300">
+                    <li class="flex items-center gap-2">
+                        <span class="text-emerald-400 font-bold">✔</span>
+                        <span>Alertas prioritarias 24/7 en Telegram en vivo.</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <span class="text-emerald-400 font-bold">✔</span>
+                        <span>Monitoreo de <strong>Circuito 1 (Panorámico)</strong> y <strong>Circuito 2 (Clásico)</strong>.</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <span class="text-emerald-400 font-bold">✔</span>
+                        <span>Enlace de 1 solo uso intransferible y seguro.</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <span class="text-emerald-400 font-bold">✔</span>
+                        <span>Link directo con 1 tap al checkout de TuBoleto.</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <span class="text-emerald-400 font-bold">✔</span>
+                        <span>Soporte técnico VIP directo por WhatsApp.</span>
+                    </li>
+                </ul>
+
+                <div class="mt-8 space-y-3">
+                    <a href="https://wa.me/51984000000?text=Hola%20Lifextreme!%20Deseo%20activar%20mi%20Membres%C3%ADa%20VIP%20Sentinel%20TuBoleto%20(S/%20180/mes)" target="_blank" class="w-full py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-black text-sm flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20 transition-all">
+                        <span>💬 Activar VIP por WhatsApp (Yape / Transferencia)</span>
+                    </a>
+
+                    <div class="flex items-center justify-center gap-2 text-[11px] text-slate-400 pt-1">
+                        <span>🔒 Activación inmediata en menos de 5 minutos</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES -->
+    <section class="py-16 bg-slate-900/30 border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-4">
+            <h3 class="text-2xl font-black text-white text-center mb-8">Preguntas Frecuentes</h3>
+            
+            <div class="space-y-4 text-xs">
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+                    <h4 class="font-bold text-white text-sm">¿Cómo recibo mi enlace de Telegram tras pagar?</h4>
+                    <p class="text-slate-400 mt-2 leading-relaxed">
+                        Si pagas por pasarela o coordinas por WhatsApp, nuestro sistema genera un enlace de invitación cifrado de 1 solo uso con vencimiento en 24 horas. Solo tú podrás entrar con tu cuenta de Telegram.
+                    </p>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+                    <h4 class="font-bold text-white text-sm">¿Sentinel compra las entradas por mí?</h4>
+                    <p class="text-slate-400 mt-2 leading-relaxed">
+                        No. Por regulaciones del Ministerio de Cultura, las compras requieren los datos oficiales de identidad del pasajero. Sentinel te avisa en el segundo exacto en que hay cupos y te da el enlace directo para que tú compres en 30 segundos antes que nadie.
+                    </p>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+                    <h4 class="font-bold text-white text-sm">¿Puedo probar el servicio antes de pagar?</h4>
+                    <p class="text-slate-400 mt-2 leading-relaxed">
+                        Sí. Escríbenos al WhatsApp solicitando tu <strong>Demo de 24 Horas Gratis</strong> para verificar en vivo cómo suenan las alertas en tu celular.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-8 bg-slate-950 border-t border-slate-800/80 text-center text-xs text-slate-500">
+        <p>© 2026 Lifextreme Web AI • Sentinel Intelligence Systems • Cusco, Perú.</p>
+        <p class="mt-1">Monitoreo autónomo respetando todas las políticas de ciberseguridad y protección de datos.</p>
+    </footer>
+
+</body>
+</html>
