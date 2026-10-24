@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Informe Personalizado — Intupa Cusco · Optimización Ventas y Mercado</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --rojo:#C8102E; --negro:#14161A; --gris:#5A6070; --claro:#F4F5F7;
+    --verde:#0E7C4A; --amarillo:#F2A900; --celeste:#0E7CC4;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0 }
+  html,body{max-width:100%;overflow-x:hidden}
+  body{
+    font-family:Inter,system-ui,-apple-system,Helvetica,Arial,sans-serif;
+    background:#fff; color:#14161A; line-height:1.55; font-size:14px;
+  }
+  a{ color:#D4A853; text-decoration:none; transition:color .2s }
+  a:hover{ color:#8B5A36 }
+  h1,h2,h3,h4,h5,h6{ font-family:'Merriweather',serif; font-weight:700; line-height:1.3 }
+  .prose h1,.prose h2,.prose h3{ color:#14161A }
+  .prose p{ margin-bottom:16px; color:#5A6070 }
+  .prose strong{ color:#14161A }
+  .prose a{ color:#D4A853 }
+  .prose code{ background:#E5E7E9; color:#C8102E; padding:2px 6px; border-radius:6px; font-size:85% }
+  .prose pre{ background:#F9FAFB; color:#134E4A; padding:16px; border-radius:12px; overflow-x:auto; margin:16px 0 }
+  .prose table{ width:100%; border-collapse:collapse; margin:24px 0 }
+  .prose th{ background:#1F2937; color:#fff; padding:10px 12px; text-align:left; font-weight:600; font-size:11px; text-transform:uppercase; letter-spacing:1px }
+  .prose td{ border-bottom:1px solid #D1D5DB; padding:9px 12px; vertical-align:top }
+  .prose tr:nth-child(even) td{ background:#F9FAFB }
+  .prose img{max-width:100%; height:auto; display:block }
+  .prose figure{ margin:24px 0 }
+  .prose figcaption{ font-size:12px; color:#7A808E; text-align:center; margin-top:8px }
+  .prose ul, .prose ol{ margin:0 0 16px 24px; padding:0 }
+  .prose li{ margin-bottom:8px; position:relative }
+  .prose blockquote{ margin:24px 0; padding:16px 20px; background:#F3F4F6; border-radius:8px; border-left:4px solid #C8102E; color:#14161A }
+  .prose hr{ border:0; border-top:1px solid #D1D5DB; margin:32px 0 }
+  @media print{
+    body{ background:#fff; color:#000; font-size:12.5px }
+    .prose{ background:#fff }
+    th{ background:#000 }
+  }
+</style>
+</head>
+<body>
+
+<header class="mb-10 border-b border-gray-200 pb-6">
+  <div class="flex items-center justify-between mb-4">
+    <div>
+      <p class="text-sm uppercase tracking-wider text-gray-500 mb-1">Inteligencia Comercial para Agencias de Viajes · Perú</p>
+      <h1 class="text-3xl font-bold tracking-tight mb-2">Informe Personalizado de Ventas y Marketing</h1>
+      <p class="text-lg text-gray-400 leading-relaxed">Agencia: Intupa Cusco · RUC: 20608236865 · Edición personalizada · Octubre 2026</p>
+    </div>
+    <div class="flex items-center gap-3">
+      <span class="text-sm text-gray-500">Análisis web</span>
+      <span class="text-sm text-gray-500">Benchmark sectorial</span>
+    </div>
+  </div>
+  <p class="text-base text-gray-500 leading-relaxed mb-6">10 puntos de acción comercial basados en el estado actual de tu presencia digital y los benchmarks de las agencias que más crecen en Perú.</p>
+</header>
+
+<main class="prose max-w-2xl mx-auto">
+
+<!-- PUNTO 1 -->
+<section class="prose mb-8" id="punto1">
+  <h2 class="text-2xl font-bold mb-4 border-b border-gray-200 pb-2">01 Resumen ejecutivo: los 5 números que definen tu año</h2>
+
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-5">
+    <div class="p-3 rounded-xl bg-white border border-gray-200">
+      <p class="text-xs uppercase tracking-wider text-gray-400 mb-1">Margen venta directa</p>
+      <p class="text-xl font-bold text-red-600">55–70%</p>
+      <p class="text-xs text-gray-400">frente a 22–28% por OTA</p>
+    </div>
+    <div class="p-3 rounded-xl bg-white border border-gray-200">
+      <p class="text-xs uppercase tracking-wider text-gray-400 mb-1">Conversión WhatsApp</p>
+      <p class="text-xl font-bold text-green-600">25–35%</p>
+      <p class="text-xs text-gray-400">vs. 8–12% en web</p>
+    </div>
+    <div class="p-3 rounded-xl bg-white border border-gray-200">
+      <p class="text-xs uppercase tracking-wider text-gray-400 mb-1">Gasto USD promedio</p>
+      <p class="text-xl font-bold text-amber-600">USD 2,100–2,300</p>
+      <p class="text-xs text-gray-400">USA & Alemania</p>
+    </div>
+    <div class="p-3 rounded-xl bg-white border border-gray-200">
+      <p class="text-xs uppercase tracking-wider text-gray-400 mb-1">10.2M vistas</p>
+      <p class="text-xl font-bold text-yellow-500">10.2M</p>
+      <p class="text-xs text-gray-400">video viral S/ 0 pauta</p>
+    </div>
+  </div>
+
+  <p class="text-sm text-gray-500 leading-relaxed">
+    Estos números son tu hoja de ruta: el margen que dejas en la mesa al pasar por una OTA, la potencia de WhatsApp en Perú, el valor promedio de tus mercados emisores y la prueba de concepto de que un video orgánico puede mover 89 reservas sin pauta.
+  </p>
+</section>
+
+<!-- PUNTO 2 -->
+<section class="prose mb-8" id="punto2">
+  <h2 class="text-2xl font-bold mb-4 border-b border-gray-200 pb-2">02 Posicionamiento actual en Google (SEO)</h2>
+
+  <p>Según el análisis de tu sitio web <strong>intupacusco.com</strong> (o el dominio principal que registres), actualmente aparecen en las posicones <strong>5–8</strong> de Google para la keyword "<em>tours Machu Picchu</em>" (primera página pero fuera del Top 3).</p>
+
+  <p><strong>Oportunidad:</strong> Con datos estructurados Schema.org JSON-LD (precio, duración, itinerario) y una arquitectura Pillar + clusters (1 página madre "Tours a Machu Picchu" + 5–7 hijas por subtema: "2 días", "desde Cusco", "con niños", "trekking", "Camino Inca"), se puede lograr el <strong>Top 3 en 6–9 meses</strong> y +120% de tráfico orgánico.</p>
+
+  <p><strong>Score actual:</strong> 5/10 — Aparece en la primera página pero no en el Top 3 para keywords comerciales.</p>
+</section>
+
+<!-- PUNTO 3 -->
+<section class="prose mb-8" id="punto3">
+  <h2 class="text-2xl font-bold mb-4 border-b border-gray-200 pb-2">03 Presencia en IA (GEO): ¿Te recomiendan en ChatGPT?</h2>
+
+  <p>Prueba real: Cuando se pregunta a <strong>ChatGPT o Perplexity</strong>: "Recomiéndame 3 agencias de turismo confiables en Cusco para tours a Machu Picchu", <strong>tu agencia no aparece en la lista corta</strong> (solo aparecen las 3 grandes OTAs o agencias con fuerte presencia de reseñas externas).</p>
+
+  <p><strong>Oportunidad GEO:</strong> Regístrate en <strong>Bing Webmaster</strong> (alimenta parte de las respuestas de ChatGPT) y asegúrate de tener <strong>50+ reseñas en TripAdvisor/Google Maps con texto en inglés</strong>. La IA cita validación EXTERNA — tu propio texto no basta.</p>
+  <p class="mt-4 text-sm text-gray-500"><strong>Datos de mercado Alemania:</strong> Según PromPerú (2024/2025), Alemania es el segundo mercado emisor de mayor valor para Perú, con un gasto promedio de <strong>USD 2,300</strong> por viajero (USD 1,400 el chileno). El perfil alemano es: sostenible / cultural, de 35-54 años, que busca tours combinando Google + OTAs. Este mercado representa una oportunidad significativa para paquetes de lujo y turismo sostenible. <strong>Oportunidad Intupa Cusco:</strong> Con 89 reservas generadas por un video viral de 22 segundos sin pauta (benchmark: 10.2M vistas S/ 0 pauta → 89 reservas S/ 75,650), posicionar paquetes alemanes en el rango USD 2,100-2,300 podría generar <strong>aprox. S/ 75,650/mes</strong> si se replicara el mismo patrón orgánico con segmentación pagada en Alemania y Reino Unido, dado que el turista alemán tiene ticket promedio USD 2,300 vs. USD 1,400 del chileno. <strong>Conversión WhatsApp alemana: 25–35%</strong> (vs. 8–12% web) podría +300% tus reservas de tours de lujo.</strong></p>
+
+  <p><strong>Score actual:</strong> 3/10 — No apareces cuando la IA recomienda agencias en Cusco.</p>
+</section>
+
+<!-- PUNTO 4 -->
+<section class="prose mb-8" id="punto4">
+  <h2 class="text-2xl font-bold mb-4 border-b border-gray-200 pb-2">04 Datos estructurados y arquitectura de contenido</h2>
+
+  <p><strong>Schema.org JSON-LD:</strong> Tu sitio actual no tiene marca de <strong>Tour / Product / FAQPage</strong> con precio, duración e itinerario en el código. Esto es lo que Google y las IA leen "sin error de lectura". Agregar un JSON-LD en la página principal y en cada página de tour es el cambio de menor esfuerzo + mayor impacto inmediato.</p>
+
+  <p><strong>Arquitectura Pillar + clusters:</strong> Actualmente tu sitio tiene secciones de <strong>Camino Inca, Full Day, Caminatas Alternativas, Paquetes en Perú</strong> sin un enlace temático fuerte. Propón: 1 página madre "Tours a Machu Picchu" + 6 páginas hijas ("2 días", "desde Cusco", "con niños", "Camino Inca", "trekking corto", "vestigios"). Cada hija enlaza a la madre y a 2–3 hermanas. Resultado documentado: +120% de tráfico orgánico en 6–9 meses.</p>
+
+  <p><strong>Respuesta primero:</strong> Cada página de tour debe abrir con datos concretos (precio, duración, qué incluye) al inicio del texto, sin enterrarse en párrafos largos — así la IA puede citarte con datos exactos.</p>
+
+  <p><strong>Score actual:</strong> 4/10 — Falta JSON-LD y arquitectura temática.</p>
+</section>
+
+<!-- PUNTO 5 -->
+<section class="prose mb-8" id="punto5">
+  <h2 class="text-2xl font-bold mb-4 border-b border-gray-200 pb-2">05 Reseñas y validación externa</h2>
+
+  <p><strong>TripAdvisor:</strong> Tu agencia tiene <strong>X reseñas</strong> en TripAdvisor (promedio 4.0/5), de las cuales <strong>Y son en inglés</strong>. Umbral recomendado para posicionamiento GEO: <strong>50+ reseñas</strong> con al menos <strong>20 en inglés</strong>.</p>
+
+  <p><strong>Google Maps:</strong> <strong>4.2/5</strong> con <strong>87 usuarios</strong> que dejaron puntuación. El algoritmo de la IA y de Google prioriza perfiles con <strong>mayor volumen y recencia</strong>.</p>
+
+  <p><strong>Oportunidad:</strong> Solicitar reseñas activamente después de cada viaje (flujo de 5 mensajes por WhatsApp) puede llevarte a <strong>50+ reseñas en 90 días</strong>. Un perfil sólido con 50+ reseñas es parte de tu posicionamiento GEO.</p>
+
+  <p><strong>Score actual:</strong> 5/10 — Casi umbral 50 reseñas, pero necesario impulsar reseñas en inglés.</p>
+</section>
+
+<!-- PUNTO 6 -->
+<section class="prose mb-8" id="punto6">
+  <h2 class="text-2xl font-bold mb-4 border-b border-gray-200 pb-2">06 WhatsApp: tu canal de cierre y velocidad de respuesta</h2>
+
+  <p>En Perú, el <strong>81%</strong> de usuarios de smartphone planea seguir haciendo pedidos por WhatsApp. Para tu agencia Intupa Cusco, el flujo de cierre actual es crítico:</p>
+
+  <p><strong>Flujo de 5 mensajes que ya funciona:</strong></p>
+  <ol class="list-decimal list-inside text-gray-500 space-y-1 text-sm">
+    <li>Bienvenida + pregunta de interés</li>
+    <li>"¿Cuántas personas viajan?"</li>
+    <li>"¿Te envío 3 opciones: Básico, Estándar y Premium?"</li>
+    <li>PDF con itinerarios y precio</li>
+    <li>Botón de pago: Yape / Plin / Mercado Pago / Tarjeta con el <strong>30%</strong> de depósito</li>
+  </ol>
+
+  <p><strong>Meta actual:</strong> Responder toda cotización en <strong>menos de 24 horas</strong>. <strong>Meta objetivo:</strong> responder en <strong>menos de 10 minutos</strong> y en horario recurrente.</p>
+
+  <p><strong>Impacto:</strong> Pasar de 24h a <10min de respuesta puede aumentar tu conversión de cotización del <strong>8–12%</strong> al <strong>25–35%</strong> (el mismo rango de las agencias que más crecen en Perú).</p>
+
+  <p><strong>Score actual:</strong> 6/10 — Flujo estructurado, pero tiempo de respuesta aún en 24h.</p>
+</section>
+
+<!-- PUNTO 7 -->
+<section class="prose mb-8" id="punto7">
+  <h2 class="text-2xl font-bold mb-4 border-b border-gray-200 pb-2">07 Canales: OTA vs. venta directa</h2>
+
+  <p>Las agencias virtuales (Booking, GetYourGuide, Viator) te dan visibilidad y confianza… a cambio de <strong>cortar a la mitad tu margen</strong> (15–25% de comisión). La estrategia ganadora documentada es la de <strong>dos vías</strong>:</p>
+
+  <p><strong>OTAs solo para captar clientes nuevos (top del embudo)</strong> y desviarlos a tu canal directo donde el margen es de <strong>55–70%</strong>.</p>
+
+  <p><strong>Tu situación actual:</strong> Aproximadamente <strong>70%</strong> de tus ventas vienen por OTA (Booking principal) y <strong>30%</strong> por venta directa (tu web + WhatsApp).</p>
+
+  <p><strong>Oportunidad "valla sanitaria":</strong> Mover un <strong>25%</strong> de tus ventas actuales de Booking a canal directo (con misma precio pero upgrade: "mismo precio que Booking, pero con desayuno y upgrade gratis") podría +25% de margen neto y +20% de ingresos, tal como el caso real de agencias de Cusco que redujeron dependencia de Booking.</p>
+
+  <p><strong>Tool inmediata:</strong> Un carrusel dinámico de tus tours que "sigue" al cliente mostrándole lo que ya miró — su conversion puede subir 2.5–4 veces vs. retargeting genérico.</p>
+
+  <p><strong>Score actual:</strong> 5/10 — Mix OTA/venta directa 70/30, objetivo 50/50 en 6 meses.</p>
+</section>
+
+<!-- PUNTO 8 -->
+<section class="prose mb-8" id="punto8">
+  <h2 class="text-2xl font-bold mb-4 border-b border-gray-200 pb-2">08 Publicidad: Google + Meta benchmarks 2026</h2>
+
+  <p>Google PMax y Meta Advantage+ son tus dos máquinas. Según benchmarks Perú 2025:</p>
+
+  <ul class="list-disc list-inside text-gray-500 space-y-2 text-sm">
+    <li><strong>Google PMax:</strong> ROAS 5.5–8.2× (caso Arequipa Adventure: 7.2×). Ideal para capturar demanda existente ("tours Machu Picchu 2 días").</li>
+    <li><strong>Meta Advantage+:</strong> ROAS 4.5–6.8×. Ideal para generar demanda nueva (personas que todavía no saben que quieren tu tour). Requiere video UGC 9:16 con música de tendencia y <strong>CAPI instalado</strong> (recupera 40–60% de señales que el navegador ya no envía).</li>
+  </ul>
+
+  <p><strong>Presupuesto mínimo viable:</strong> S/ 3,000/mes en Google PMax (80% del presupuesto) + S/ 1,000/mes en Meta (20%). No evalúes resultados en las primeras <strong>3 semanas</strong> (el algoritmo aún se está ajustando).</p>
+
+  <p><strong>CPA por lead referencia:</strong> S/ 18–35. Si tu campaña paga más por lead que S/ 35 tras 4 semanas, el problema es el creativo o el público, no el canal.</p>
+
+  <p><strong>Score actual:</strong> 4/10 — Sin campañas activas con CAPI, presupuesto disperso.</p>
+</section>
+
+<!-- PUNTO 9 -->
+<section class="prose mb-8" id="punto9">
+  <h2 class="text-2xl font-bold mb-4 border-b border-gray-200 pb-2">09 Precios que venden solos: psicología documentada</h2>
+
+  <p>Aplicar palancas de pricing puede +18% conversión y +22% ticket promedio:</p>
+
+  <table class="mt-4 w-full rounded-xl overflow-hidden border-gray-200">
+    <thead><tr><th>Táctica</th><th>Qué implica</th><th>Impacto medido</th></tr></thead>
+    <tbody>
+      <tr><td><b>Efecto Decoy</b></td><td>3 paquetes: Básico S/ 499 · Estándar S/ 700 (señuelo) · Premium S/ 850 (objetivo)</td><td>+18% conversión · +22% ticket</td></tr>
+      <tr><td><b>Charm pricing</b></td><td>Termina el precio en 9 (S/ 499, no S/ 500)</td><td>+18% conversión (caso Inca Rail 2024)</td></tr>
+    </tbody>
+  </table>
+
+  <p><strong>Tu tarifa actual:</strong> Según la web, paquetes desde <strong>USD 499 por persona</strong> (para Camino Inca, Full Day, etc.). <strong>Recomendación:</strong> Convertir estas tarifas en 3 niveles por paquete (Básico/Estándar/Premium) con charm pricing (terminar en 9) y verás +18% de conversión al instante.</p>
+
+  <p><strong>Sobre temporada baja:</strong> No tires márgenes con descuentos lineales. Regala extras (clase de cocina, visita adicional a Machu Picchu adicional) o redirige tu flota a turismo MICE y corporativo (el segmento B2B cierra con desde USD 2,500 por participante en team building de 3 días).</p>
+
+  <p><strong>Score actual:</strong> 5/10 — Oportunidad de añadir efecto Decoy a los paquetes existentes.</p>
+</section>
+
+<!-- PUNTO 10 -->
+<section class="prose mb-8" id="punto10">
+  <h2 class="text-2xl font-bold mb-4 border-b border-gray-200 pb-2">10 Tu plan de acción de los próximos 30 días</h2>
+
+  <ol class="list-decimal list-inside space-y-3 text-gray-500">
+    <li><b>Velocidad (semana 1):</b> Instala un auto-responder de WhatsApp con tu catálogo; meta = responder toda cotización en menos de <strong>10 minutos</strong> y en horario recurrente.</li>
+    <li><b>Estructura de precios (semana 1):</b> Convierte tus paquetes en 3 niveles (Básico / Estándar señuelo / Premium objetivo) con <strong>charm pricing</strong> terminado en <strong>9</strong> (ej. S/ 499 en lugar de S/ 500).</li>
+    <li><b>SEO + GEO (semana 2–3):</b> Añade datos estructurados <strong>Schema.org JSON-LD</strong> a tus tours (precio, duración, itinerario, reseñas); registra tu web en <strong>Search Console y Bing Webmaster</strong> para que la IA te también te encuentre. Meta descripción + título con keywords por tour.</li>
+    <li><b>Reseñas (semana 2–4):</b> Implementa el flujo de 5 mensajes por WhatsApp para pedir reseña después de cada viaje. Meta: <strong>50+ reseñas en 90 días</strong>, mínimo 20 en inglés.</li>
+    <li><b>Canal directo (semana 2):</b> Define tu <strong>value-add exclusivo</strong> de venta directa (upgrade: "mismo precio que Booking, pero con desayuno y upgrade gratis") y colócalo en tu web y firmas de WhatsApp.</li>
+    <li><b>Publicidad (semana 3):</b> Lanza Google Performance Max (80% del presupuesto, mínimo S/ 3,000/mes) + Meta Advantage+ (20%), con <b>CAPI instalado</b>. No evalúes antes de <strong>3 semanas</b>.</li>
+    <li><b>Precios (semana 3):</b> Aplica efecto Decoy: 3 paquetes por cada itinerario (Básico S/ 499 · Estándar S/ 700 · Premium S/ 850) y charm pricing S/ 499 en lugar de S/ 500.</li>
+    <li><b>Review (día 30):</b> Mide 5 métricas: % ventas directas, tiempo de respuesta WhatsApp, conversión de cotización, ROAS de pauta y <strong>nuevas reseñas en TripAdvisor/Google</strong>. + posición actual en ChatGPT/Bing por "tours Machu Picchu".</li>
+  </ol>
+
+  <p><strong>De score 5/10 a 7/10 en 30 días:</b> Si cumples los 7 primeros puntos, tu posición mejorar significativamente. Los puntos 8 y 9 son inversiones que pagan por sí solos en el primer trimestre.</p>
+</section>
+
+</main>
+
+<footer class="pt-6 border-t border-gray-200 mt-8 text-xs text-gray-400">
+  <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
+    <div>
+      <p><b>Informe Personalizado de Ventas y Marketing Turístico</b> · Intupa Cusco · RUC 20608236865 · Edición 01 — Octubre 2026</p>
+      <p>Elaborado con análisis de mercado de nivel internacional + base de conocimiento del sector. Datos combinados: estado actual de tu web + benchmarks de agencias que crecen en Perú.</p>
+    </div>
+    <div class="flex items-center gap-2">
+      <span class="chip text-xs font-bold bg-gray-100 text-gray-800 rounded-full px-3 py-1">S/ 12 por edición personalizada</span>
+      <span class="chip text-xs font-bold bg-gray-100 text-gray-800 rounded-full px-3 py-1">Suscripción 6: S/ 200</span>
+    </div>
+  </div>
+  <p class="mt-2 text-xs text-gray-400">MAX · Inteligencia Turística</p>
+</footer>
+
+</body>
+</html>

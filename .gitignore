@@ -122,3 +122,7 @@ docker/
 .env*.local
 
 SUPABASE_CREDENTIALS.md
+
+auditoria/
+data/*_availability.json
+data/commercial_feasibility.json

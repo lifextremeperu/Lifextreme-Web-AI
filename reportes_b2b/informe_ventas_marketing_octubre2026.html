@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Informe de Ventas y Marketing Turístico — Edición 01 · Octubre 2026</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0d11; --bg-subtle:#11151a; --card:#181c24; --border:#2a2f3a;
+    --fg:#e8e6e3; --muted:#7a808e; --accent:#d4a853; --accent2:#8b5a36;
+    --rojo:#c8102e; --verde:#0e7c4a; --celeste:#0e7cc4;
+    --amarillo:#f2a900; --gris:#5a6070;
+    --radius:12px; --radius-sm:8px;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0 }
+  html,body{max-width:100%;overflow-x:hidden}
+  body{
+    font-family:'Inter',system-ui,-apple-system,Helvetica,Arial,sans-serif;
+    background:var(--bg); color:var(--fg); line-height:1.55; font-size:15px;
+  }
+  a{ color:var(--accent); text-decoration:none; transition:color .2s }
+  a:hover{ color:var(--accent2) }
+  h1,h2,h3,h4,h5,h6{ font-family:'Merriweather',serif; font-weight:700; line-height:1.3 }
+  .prose h1,.prose h2,.prose h3{ color:var(--fg) }
+  .prose p{ margin-bottom:16px; color:var(--muted) }
+  .prose strong{ color:var(--fg) }
+  .prose a{ color:var(--accent) }
+  .prose code{ background:#2a2f3a; color:#d4a853; padding:2px 6px; border-radius:6px; font-size:85% }
+  .prose pre{ background:#181c24; color:#e8e6e3; padding:16px; border-radius:var(--radius); overflow-x:auto; margin:16px 0 }
+  .prose table{ width:100%; border-collapse:collapse; margin:24px 0 }
+  .prose th{ background:#1a1f2a; color:#fff; padding:10px 12px; text-align:left; font-weight:600; font-size:12px; text-transform:uppercase; letter-spacing:1px }
+  .prose td{ border-bottom:1px solid #2a2f3a; padding:9px 12px; vertical-align:top }
+  .prose tr:nth-child(even) td{ background:#1e242e }
+  .prose img{max-width:100%; height:auto; display:block }
+  .prose figure{ margin:24px 0 }
+  .prose figcaption{ font-size:12px; color:var(--muted); text-align:center; margin-top:8px }
+  .prose ul, .prose ol{ margin:0 0 16px 24px; padding:0 }
+  .prose li{ margin-bottom:8px; position:relative }
+  .prose blockquote{ margin:24px 0; padding:16px 20px; background:var(--card); border-radius:var(--radius); border-left:4px solid var(--accent); color:var(--fg) }
+  .prose hr{ border:0; border-top:1px solid #2a2f3a; margin:32px 0 }
+  @media print{
+    body{ background:#fff; color:#000; font-size:12.5px }
+    .prose{ background:#fff; }
+    th{ background:#000 }
+  }
+</style>
+</head>
+<body>
+<div class="prose max-w-4xl mx-auto px-6 py-12">
+
+<header class="mb-12">
+  <div class="flex items-center justify-between mb-6">
+    <div>
+      <p class="text-sm uppercase tracking-wider text-[var(--muted)] mb-2">Inteligencia Comercial para Agencias de Viajes · Perú</p>
+      <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-3">Informe de Ventas y Marketing Turístico</h1>
+      <p class="text-lg text-[var(--muted)] leading-relaxed">Cómo venden las agencias que crecen: el cliente de hoy, los mercados que pagan, los canales que dejan margen y la publicidad que retorna.</p>
+    </div>
+    <div class="flex items-center gap-4">
+      <span class="text-sm text-[var(--muted)]">Edición 01</span>
+      <span class="text-sm text-[var(--muted)]">Octubre 2026</span>
+    </div>
+  </div>
+  <p class="text-base text-[var(--muted)] leading-relaxed mb-8 max-w-xl">Basado en benchmarks del sector (PromPerú, Meta, Google, casos operativos peruanos 2024–2026).</p>
+</header>
+
+<section class="prose mb-12" id="resumen">
+  <h2 class="text-3xl font-bold mb-6 border-b border-[var(--border)] pb-4">Resumen ejecutivo: los 5 números que definen tu año</h2>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+    <div class="p-5 rounded-xl bg-[var(--card)] border border-[var(--border)]">
+      <p class="text-xs uppercase tracking-wider text-[var(--muted)] mb-2">Margen venta directa</p>
+      <p class="text-3xl font-bold text-[var(--rojo)]">55–70%</p>
+      <p class="text-sm text-[var(--muted)]">frente a 22–28% pasando por OTA</p>
+    </div>
+    <div class="p-5 rounded-xl bg-[var(--card)] border border-[var(--border)]">
+      <p class="text-xs uppercase tracking-wider text-[var(--muted)] mb-2">Conversión WhatsApp</p>
+      <p class="text-3xl font-bold text-[var(--verde)]">25–35%</p>
+      <p class="text-sm text-[var(--muted)]">vs. 8–12% en web</p>
+    </div>
+    <div class="p-5 rounded-xl bg-[var(--card)] border border-[var(--border)]">
+      <p class="text-xs uppercase tracking-wider text-[var(--muted)] mb-2">Gasto USD promedio</p>
+      <p class="text-3xl font-bold text-[var(--accent)]">USD 2,100–2,300</p>
+      <p class="text-sm text-[var(--muted)]">USA y Alemania</p>
+    </div>
+    <div class="p-5 rounded-xl bg-[var(--card)] border border-[var(--border)]">
+      <p class="text-xs uppercase tracking-wider text-[var(--muted)] mb-2">10.2M vistas</p>
+      <p class="text-3xl font-bold text-[var(--amarillo)]">10.2M</p>
+      <p class="text-sm text-[var(--muted)]">video viral S/ 0 pauta</p>
+    </div>
+  </div>
+</section>
+
+<section class="prose mb-12" id="cliente">
+  <h2 class="text-3xl font-bold mb-6 border-b border-[var(--border)] pb-4">El cliente de hoy cambia: cómo compra realmente el viajero</h2>
+  <p>El viajero ya no llega a tu local ni te llama por teléfono. Su viaje de compra es <strong>multi-canal</strong>: descubre en TikTok → compara en Google → cierra en WhatsApp. Antes de elegir, <strong>compara entre 5 y 7 agencias</strong> en TripAdvisor y Google Maps, y revisa las páginas de 3–4 de ellas. Tu única ventaja real en esa comparación es la <strong>velocidad de respuesta de tu WhatsApp</strong>.</p>
+  <p>Si tu agencia responde la cotización a las 24 horas, ya perdiste: la mayoría cierra con quien responde en minutos.</p>
+</section>
+
+<section class="prose mb-12" id="mercados">
+  <h2 class="text-3xl font-bold mb-6 border-b border-[var(--border)] pb-4">Los mercados que pagan: dónde poner el foco</h2>
+  <p>Perú recibe turistas de más de 100 países, pero <strong>casi el 80% de las llegadas proviene de solo 15 mercados</strong>. No todos valen lo mismo: el perfil y el gasto cambian radicalmente por país. Estos son los cuatro mercados prioritarios según PromPerú (2024/2025):</p>
+  <table>
+    <thead>
+      <tr><th>Mercado</th><th>Perfil</th><th>Canal donde buscarlo</th><th>Gasto promedio</th><th>Temporada</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><b>EE. UU.</b></td><td>Aventurero, 35–54 años</td><td>Google + TripAdvisor</td><td>USD 2,100</td><td>Jun–Ago</td></tr>
+      <tr><td><b>Alemania</b></td><td>Sostenible / cultural</td><td>Google + OTAs</td><td>USD 2,300</td><td>Abr–Sep</td></tr>
+      <tr><td><b>España</b></td><td>Cultural, 45–64 años</td><td>Google + Booking</td><td>USD 1,800</td><td>May–Oct</td></tr>
+      <tr><td><b>Chile</b></td><td>Turista premium fronterizo</td><td>Instagram + WhatsApp</td><td>USD 1,400</td><td>Dic–Mar</td></tr>
+    </tbody>
+  </table>
+  <div class="mt-6">
+    <p class="text-[var(--muted)] text-sm">El <strong>turismo comunitario</strong> cobra de media <b>USD 2,179 por viaje de 15 noches</b> — unos USD 708 más que el paquete promedio — y ya el <strong>46%</strong> de los viajeros internacionales compra paquetes turísticos. Una agencia que arme un producto con comunidades + ícono clásico puede facturar más con MENOS pasajeros.</p>
+    <p class="mt-3 text-[var(--muted)] text-sm">Acción de este mes: elige <strong>dos mercados</strong> (recomendado: USA por volumen/Aventura + Alemania por ticket/sostenibilidad) y monta tu presencia ahí: reseñas puntuadas en inglés y 6 posts/mes diseñados para ese perfil.</p>
+  </div>
+</section>
+
+<section class="prose mb-12" id="canales">
+  <h2 class="text-3xl font-bold mb-6 border-b border-[var(--border)] pb-4">El conflicto del canal: OTA o venta directa</h2>
+  <p>Las agencias virtuales (Booking, GetYourGuide, Viator) te dan visibilidad y confianza… a cambio de <strong>cortar a la mitad tu margen</strong>. La estrategia ganadora documentada en el sector es la de dos vías: <strong>las OTAs solo para captar clientes nuevos (top del embudo), y desviarlos a tu canal directo</strong> donde el margen es de 55–70%.</p>
+  <table>
+    <thead>
+      <tr><th>Canal</th><th>Comisión que pagas</th><th>Margen neto típico</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Booking.com</td><td>15–18%</td><td>22–28%</td></tr>
+      <tr><td>Expedia</td><td>18–25%</td><td>15–22%</td></tr>
+      <tr><td>Airbnb Experiences</td><td>20%</td><td>20–25%</td></tr>
+      <tr><td>GetYourGuide / Viator</td><td>20–25%</td><td>18–24%</td></tr>
+      <tr><td>Despegar</td><td>18–22%</td><td>20–26%</td></tr>
+      <tr><td><b>Venta Directa</b></td><td>0–3%</td><td>55–70%</td></tr>
+    </tbody>
+  </table>
+  <ul class="list-disc list-inside mt-6 space-y-2 text-[var(--muted)]">
+    <li><b>La valla sanitaria:</b> usa las OTAs hasta un tope de ~40% de tus ventas — la comisión real es de 18–25% por venta.</li>
+    <li><b>Inyectar valor agregado solo en tu canal:</b> upgrade de hotel gratis, traslado aeropuerto, cena de bienvenida — ofertados EXCLUSIVAMENTE si reservan directo. Legal (no rompe paridad de precios) y sí te hace ganarle al sitio de la OTA.</li>
+    <li><b>Caso real peruano:</b> un hotel boutique de Cusco pasó de <strong>75% de dependencia de Booking a 52% en 6 meses</strong> (+22% de margen neto, +18% de ingresos). Receta: retargeting dinámico + oferta "mismo precio que Booking, pero con desayuno y upgrade gratis" + cierre por WhatsApp.</li>
+  </ul>
+</section>
+
+<section class="prose mb-12" id="whatsapp">
+  <h2 class="text-3xl font-bold mb-6 border-b border-[var(--border)] pb-4">WhatsApp: el canal de cierre que decide la venta en Perú</h2>
+  <p>En Perú nadie compra viajes por correo. El <strong>81%</strong> de los usuarios de smartphones planea seguir haciendo pedidos por WhatsApp. Las cifras lo confirman como canal prioritario de cierre:</p>
+  <ul class="list-disc list-inside mt-4 space-y-2 text-[var(--muted)]">
+    <li><strong>Tasa de respuesta:</strong> 85–95% (vs. 30–40% en email)</li>
+    <li><strong>Tiempo de cierre:</strong> 2–5 días (vs. 7–14 días en email)</li>
+    <li><strong>Conversión:</strong> 25–35% (vs. 8–12% en web)</li>
+  </ul>
+  <p class="mt-4"><strong>El flujo de cierre que ya funciona (5 mensajes)</strong></p>
+  <ol class="list-decimal list-inside mt-4 space-y-2 text-[var(--muted)]">
+    <li>Bienvenida + pregunta de interés</li>
+    <li>"¿Cuántas personas viajan?"</li>
+    <li>"¿Te envío 3 opciones: Básico, Estándar y Premium?"</li>
+    <li>PDF con itinerarios y precio</li>
+    <li>Botón de pago: <b>Yape / Plin / Mercado Pago / Niubiz</b> con el <strong>30%</strong> de depósito</li>
+  </ol>
+  <p class="mt-6 text-xs text-[var(--muted)]">Resultado esperado: tasa de respuesta de <strong>85–95%</strong> y cierre en <strong>2–5 días</strong> (no en 14).</p>
+</section>
+
+<section class="prose mb-12" id="tiktok">
+  <h2 class="text-3xl font-bold mb-6 border-b border-[var(--border)] pb-4">Máquina de contenido: TikTok e Instagram con dinero cero</h2>
+  <p>TikTok no es una red social: es un <strong>motor de recomendación</strong>. El video que funciona sigue la estructura ECS en vertical 9:16:</p>
+  <table class="mt-6 w-full rounded-xl overflow-hidden border border-[var(--border)]">
+    <thead><tr><th>Segundos</th><th>Etapa</th><th>Qué se ve</th><th>Ejemplo real</th></tr></thead>
+    <tbody>
+      <tr><td>0–5</td><td><b>Entretenimiento</b> (gancho)</td><td>Plano aéreo impactante o acción extrema</td><td>Video aéreo de Machu Picchu al amanecer</td></tr>
+      <tr><td>5–15</td><td><b>Conexión</b> (emoción)</td><td>Narrativa con sentido</td><td>"Este es el Machu Picchu que nadie conoce"</td></tr>
+      <tr><td>15–30</td><td><b>Solución</b> (llamado)</td><td>CTA claro y simple</td><td>"Comenta 'INFO' y te envío itinerarios"</td></tr>
+    </tbody>
+  </table>
+  <div class="mt-8 grid grid-cols-2 gap-4">
+    <figure><img src="https://images.unsplash.com/photo-1531968455001-5c5272a41129?w=800&q=70&auto=format&fit=crop" alt="TikTok contenido"><figcaption>El contenido vertical UGC gana: 2.3–4.1% de CTR, frente a 0.9–1.5% del video profesional.</figcaption></figure>
+    <figure><img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=800&q=70&auto=format&fit=crop" alt="Turismo aventura"><figcaption>La aventura (Colca, Ausangate) es el contenido con más alcance orgánico.</figcaption></figure>
+  </div>
+  <div class="mt-8 p-5 rounded-xl bg-[var(--card)] border border-[var(--border)]">
+    <p class="font-bold text-[var(--accent)]">Caso Arequipa Adventure (Perú, 2025) — video de 22 segundos, S/ 0 de pauta</p>
+    <p>10.2M de vistas · 840 mil likes · 12 mil comentarios · <b>1,200 leads en 72 horas</b> · 89 reservas cerradas = <b>S/ 75,650 de ingresos</b>. Un celular, un drone y la estructura ECS.</p>
+    <p class="mt-3 text-sm text-[var(--muted)]">Regla de oro: usa música del Top 10 de TikTok Perú en tendencia, un gancho en los primeros 2 segundos, y <b>SIEMPRE un CTA</b>. Con 2 videos por semana sostenidos en 3 meses, llegas al punto exponencial de recomendación del algoritmo.</p>
+  </div>
+</section>
+
+<section class="prose mb-12" id="publicidad">
+  <h2 class="text-3xl font-bold mb-6 border-b border-[var(--border)] pb-4">Publicidad pagada que retorna: Google + Meta benchmarks 2026</h2>
+  <p>La pauta ya no es "salgan mi marca": son dos máquinas distintas que se complementan. <strong>Google</strong> captura demanda existente (buscadores en modo de compra, ej. "tours Machu Picchu 2 días") y <strong>Meta</strong> genera demanda nueva (personas que todavía no saben que quieren tu tour).</p>
+  <table class="mt-8 w-full rounded-xl overflow-hidden border border-[var(--border)]">
+    <thead><tr><th>Campaña</th><th>ROAS (rango)</th></tr></thead>
+    <tbody>
+      <tr><td>Meta Advantage+</td><td>4.5–6.8×</td></tr>
+      <tr><td>Google PMax</td><td>5.5–8.2×</td></tr>
+      <tr><td>Peru Hop</td><td>5.2×</td></tr>
+      <tr><td>Aranwa Cusco</td><td>6.8×</td></tr>
+      <tr><td>Arequipa Adventure</td><td>7.2×</td></tr>
+    </tbody>
+  </table>
+  <h3 class="mt-8 text-base text-[var(--muted)]">Configuración mínima viable (la que recomiendan los benchmarks)</h3>
+  <ul class="list-disc list-inside mt-4 space-y-2 text-[var(--muted)]">
+    <li><b>Google Performance Max</b> con el 80% del presupuesto, mínimo S/ 3,000/mes: 15+ imágenes, 5 videos, y ubicación apuntando a USA, Chile, Colombia, España y Alemania.</li>
+    <li><b>Meta Advantage+</b> si tu presupuesto pasa de S/ 5,000/mes (con CBO por encima de ese techo). Creatividad de video UGC 9:16 con música de tendencia.</li>
+    <li><b>API de Conversiones (CAPI):</b> obligatoria en Meta: iOS 17 bloquea la medición del navegador, y CAPI recupera un <strong>40–60%</strong> de las señales que el navegador ya no envía.</li>
+    <li><b>Presupuesto de learning:</b> al lanzar cualquier campaña, no midas resultados en las primeras 2–3 semanas (el algoritmo aún se está ajustando).</li>
+  </ul>
+  <p class="mt-6 text-xs text-[var(--muted)]">Números de referencia (Perú 2025): CPA por lead: <strong>S/ 18–35</strong> · CPC en video tours: <strong>S/ 1.0–3.5</strong> · CTR del UGC: hasta <strong>4.1%</strong>. Si tu campaña paga más por lead que S/ 35 tras 4 semanas corriendo, el problema es el creativo o el público, no el canal.</p>
+</section>
+
+<section class="prose mb-12" id="precios">
+  <h2 class="text-3xl font-bold mb-6 border-b border-[var(--border)] pb-4">Precios que venden solos: la psicología documentada del sector</h2>
+  <p>La ciencia del pricing (documentada en turismo con Josiam & Hobson 1995 y los trabajos de Kahneman) te brinda palancas verificadas:</p>
+  <table class="mt-8 w-full rounded-xl overflow-hidden border border-[var(--border)]">
+    <thead><tr><th>Táctica</th><th>Qué implica</th><th>Impacto medido</th></tr></thead>
+    <tbody>
+      <tr><td><b>Efecto Decoy</b></td><td>3 paquetes: Básico <strong>S/ 550</strong> · Estándar <strong>S/ 780</strong> (señuelo algo caro para su valor) · Premium <strong>S/ 850</strong> (el objetivo)</td><td>+18% conversión · +22% ticket</td></tr>
+      <tr><td><b>Peak-End Rule</b></td><td>Presupuesta el mejor momento para el <strong>último día</strong> (ej. atardecer con espumante, certificado grupal)</td><td>NPS +30% · +12% recomendaciones (referidos)</td></tr>
+      <tr><td><b>Aversión a la pérdida (FOMO)</b></td><td>"Últimos 3 cupos", "esta oferta expira en 24 h", contador de segundos en la web</td><td>+45% de conversión en temporada baja</td></tr>
+      <tr><td><b>Charm pricing</b></td><td>Termina el precio en 9 (<strong>S/ 499</strong>, no <strong>S/ 500</strong>) y sube transparencia del valor</td><td>+18% de conversión (caso Inca Rail 2024)</td></tr>
+    </tbody>
+  </table>
+  <p class="mt-6 text-sm text-[var(--muted)]"><b>Sobre la temporada baja:</b> el sector profesional <b>NO tira el margen con descuentos lineales</b>: regala extras (value adds) — una clase de cocina, una visita extra — y/o redirige la flota de temporada baja a <b>turismo MICE y corporativo</b> (el segmento B2B cierra con desde <strong>USD 2,500</strong> por participante en team building de 3 días). Precio alza +20–40% para temporada alta y -15–25% para baja, no fijado a mano sino revisado cada trimestre.</p>
+</section>
+
+<section class="prose mb-12" id="retencion">
+  <h2 class="text-3xl font-bold mb-6 border-b border-[var(--border)] pb-4">Retención: el margen olvidado</h2>
+  <p>Cada cliente nuevo cuesta <strong>5–7 veces más</strong> que una recompra. Sin embargo, la mayoría de agencias envía un único email post-viaje y se olvida. Un CRM de <strong>USD 12–50/mes</strong> ya permite automatizar el ciclo:</p>
+  <div class="p-5 rounded-xl bg-[var(--card)] border border-[var(--border)] mb-6">
+    <p class="font-bold text-[var(--accent)]">Pipeline mínimo (HubSpot gratis / Clientify <strong>USD 29</strong> / Zoho <strong>USD 12</strong>)</p>
+    <p>Lead → Calificado → Cotización enviada → Reserva confirmada → Post-viaje. Con respuestas de WhatsApp automatizadas (ManyChat <strong>USD 15–50/mes</strong> si tu volumen se pasa).</p>
+  </div>
+  <ul class="list-disc list-inside space-y-2 text-[var(--muted)]">
+    <li><b>48 h después del viaje:</b> email automático "¿cómo fue tu experiencia?" (pide reseña en TripAdvisor/Google: es tu ranking orgánico más rentable).</li>
+    <li><b>7 días después:</b> "S/ 100 de descuento en tu próximo viaje" (activa la segunda compra).</li>
+    <li><b>30 días después:</b> "Oferta especial para clientes fieles −15% en temporada baja" (llena los silencios de mayo–agosto).</li>
+    <li><b>Sé el Club de clientes repetidor:</b> "Club de Viajeros" por WhatsApp con early access y descuentos <strong>10–15%</strong> permanentes.</li>
+  </ul>
+</section>
+
+<section class="prose mb-12" id="nuevo-buscador">
+  <h2 class="text-3xl font-bold mb-6 border-b border-[var(--border)] pb-4">El nuevo buscador: SEO, GEO y AEO — Google cambió, y también ChatGPT</h2>
+  <p>El viajero ya no busca igual. Antes escribías "<em>tours Cusco</em>" y Google mostraba 10 links; hoy Google responde <strong>ARRIBA</strong> de los resultados con inteligencia artificial (AI Overviews), y millones de viajeros directamente <strong>preguntan a ChatGPT, Gemini o Perplexity</strong>: "¿qué agencia me recomiendas para Cusco?". La IA contesta con <strong>2 o 3 nombres</strong>. Si no estás en esa lista corta, <strong>para ese cliente no existes</strong> — y ni siquiera verá tu web.</p>
+  <p>Este cambio radical abre tres capas de visibilidad que una agencia seria debe dominar:</p>
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+    <div class="p-4 rounded-xl bg-[var(--card)] border border-[var(--border)]">
+      <p class="text-xs uppercase tracking-wider text-[var(--muted)] mb-2">SEO (clásico)</p>
+      <p class="text-xl font-bold">Posicionarte en el listado de Google</p>
+      <p class="text-sm text-[var(--muted)]">Alguien busca una palabra y tu web sale en el Top 3</p>
+    </div>
+    <div class="p-4 rounded-xl bg-[var(--card)] border border-[var(--border)]">
+      <p class="text-xs uppercase tracking-wider text-[var(--muted)] mb-2">AEO (respuesta directa)</p>
+      <p class="text-xl font-bold">Ser la respuesta directa</p>
+      <p class="text-sm text-[var(--muted)]">Google muestra TU información en la cajita, sin click</p>
+    </div>
+    <div class="p-4 rounded-xl bg-[var(--card)] border border-[var(--border)]">
+      <p class="text-xs uppercase tracking-wider text-[var(--muted)] mb-2">GEO (recomendación IA)</p>
+      <p class="text-xl font-bold">Que ChatGPT, Gemini y Perplexity te CITEEN</p>
+      <p class="text-sm text-[var(--muted)]">El viajero pregunta a la IA y la IA te recomienda</p>
+    </div>
+  </div>
+  <h3 class="mt-8 text-base text-[var(--muted)]">Qué indexar en tu web para que Google Y la IA te lean (checklist técnico de indexación)</h3>
+  <ul class="list-disc list-inside mt-4 space-y-2 text-[var(--muted)]">
+    <li><b>Datos estructurados Schema.org (JSON-LD):</b> marca cada tour con precio, duración, itinerario y reseñas en el código de la página. Es el formato que Google y las IA entienden sin error de lectura.</li>
+    <li><b>Respuesta primero:</b> cada página de tour debe abrir con datos concretos (precio, duración, qué incluye, FAQ) al inicio del texto, sin enterrarse en párrafos largos — así la IA puede citarte con datos exactos.</li>
+    <li><b>Arquitectura Pillar + clusters:</b> 1 página madre por tema ("Tours a Machu Picchu") + 10–20 páginas hijas por subtema ("2 días", "desde Lima", "con niños") enlazadas entre sí. Resultado documentado: Top 3 en 6–9 meses y +120% de tráfico orgánico.</li>
+    <li><b>Regístrate en Search Console y en Bing Webmaster:</b> Bing alimenta parte de las respuestas de ChatGPT — indexarte ahí es GEO directo y gratis.</li>
+    <li><b>Reseñas de terceros:</b> la IA cita validación EXTERNA (TripAdvisor, Google Maps, prensa); tu propio texto solo no basta. Un perfil sólido con <strong>50+ reseñas</strong> es parte de tu posicionamiento GEO.</li>
+    <li><b>Web legible por bots:</b> si tu web solo es un video o imágenes sin texto, ni Google ni la IA pueden recomendarla. Texto HTML real con SSR (renderizado del servidor) si tu web usa React/Vue.</li>
+  </ul>
+  <div class="mt-8 p-5 rounded-xl bg-[var(--card)] border border-[var(--border)]">
+    <p class="font-bold text-[var(--accent)]">Prueba que puedes hacer HOY</p>
+    <p>Abre ChatGPT (o Perplexity) y pregunta: <em>"Recomiéndeme 3 agencias de turismo confiables en [tu ciudad] para [tu producto]"</em>. Si no apareces, esa es tu posición GEO actual. Repite la misma pregunta <strong>cada mes</strong>: es tu termómetro de este nuevo canal.</p>
+  </div>
+  <figure><img src="https://images.unsplash.com/photo-1518684079-3c830dcef090?w=800&q=70&auto=format&fit=crop" alt="El viajero moderno busca con IA"><figcaption>El viajero de hoy pregunta a la IA desde su celular: tu información debe estar lista para ser recomendada.</figcaption></figure>
+</section>
+
+<section class="prose mb-12" id="vision-ia">
+  <h2 class="text-3xl font-bold mb-6 border-b border-[var(--border)] pb-4">Visión de mercado: qué hace un operador con IA de verdad</h2>
+  <p class="text-[var(--muted)] mb-6">La IA en un operador turístico no es marketing: es un método para <strong>dejar de depender de la intuición y pasar a operar con datos, velocidad y constancia</strong>, como los que ganan.</p>
+  <p class="text-[var(--muted)] mb-6">Los números del sector lo dejan claro: los chatbots y agentes conversacionales <strong>reducen los costos del servicio al cliente en más de 30%</strong> y responden <strong>el 80%</strong> de las preguntas frecuentes sin intervención humana, manejando <strong>hasta el 85%</strong> de las interacciones punta a punta. Para una agencia pequeña esto equivale a un asesor que <b>nunca duerme</b>.</p>
+  <p class="text-[var(--muted)] mb-6"><strong>Actualización 2026:</strong> los modelos LLM multi-modales ahora entienden fotos de destinos y pueden generar itinerarios personalizados al momento. Los operadores que ya usan IA para <strong>curar contenido visual automáticamente</strong> ven un <strong>+40%</strong> en engagement en redes sociales versus contenido creado solo por humanos.</p>
+  <table class="mt-8 w-full rounded-xl overflow-hidden border border-[var(--border)]">
+    <thead><tr><th>Pieza</th><th>Herramientas probadas</th><th>Costo (USD/mes)</th><th>Para qué sirve</th></tr></thead>
+    <tbody>
+      <tr><td><b>CRM + WhatsApp</b></td><td>Clientify / Zoho / HubSpot + ManyChat</td><td>0 – 79</td><td>Pipeline de leads, historial de conversación, seguimiento automático</td></tr>
+      <tr><td><b>Asistente vendedor (chatbot IA)</b></td><td>MAXTour / Botpress / flows en ManyChat</td><td>0 – 150</td><td>Cotiza 24/7 con tus precios reales y arma el carrito con link de pago</td></tr>
+      <tr><td><b>Motor de reservas propio</b></td><td>Cloudbeds BE / Sirius</td><td>80 – 200</td><td>Reservas sin comisión de OTA en tu web</td></tr>
+      <tr><td><b>Channel Manager</b></td><td>SiteMinder / Octorate</td><td>100 – 300</td><td>Sincronizar 10+ canales y evitar Overbooking</td></tr>
+      <tr><td><b>PMS (si tienes hotel)</b></td><td>Cloudbeds / Mews</td><td>150 – 500</td><td>Toda la operación del hospedaje en la nube</td></tr>
+      <tr><td><b>Automatización (el pegamento entre todo)</b></td><td>n8n / Make / Zapier</td><td>0 – 50</td><td>Conectar: lead nuevo → CRM → WhatsApp → recordatorio → reseña</td></tr>
+    </tbody>
+  </table>
+  <div class="mt-8 grid grid-cols-2 gap-6">
+    <div class="p-6 rounded-xl bg-[var(--card)] border border-[var(--border)]">
+      <p class="font-bold text-[var(--accent)]">Tu caja de herramientas IA por fase</p>
+      <p class="text-sm text-[var(--muted)] mb-4"><b>Fase 1 · Vender:</b> asistente de WhatsApp con tu catálogo + CRM (USD 29–79).</p>
+      <p class="text-sm text-[var(--muted)] mb-4"><b>Fase 2 · Crear contenido:</b> CapCut/Opus Clip corta los reels por ti, Canva diseña con IA, Midjourney/DALL·E crea imágenes de ambientación, ElevenLabs voces en inglés para contenido internacional. ChatGPT para copys y estrategias; Gemini para leer informes y datos.</p>
+      <p class="text-sm text-[var(--muted)] mb-4"><b>Fase 3 · Medir:</b> GA4 + Search Console + Meta Events Manager + CAPI — todo gratis.</p>
+      <p class="text-sm text-[var(--muted)]"><b>Fase 4 · Automatizar:</b> n8n o Make conectando todo (USD 0–50/mes): lead nuevo entra, respondes en segundos, revisión post-viaje envía <strong>reseña automáticamente</strong>.</p>
+    </div>
+    <div class="p-6 rounded-xl bg-[var(--card)] border border-[var(--border)]">
+      <p class="font-bold text-[var(--accent)]">Hay co-financiación disponible</p>
+      <p class="text-sm text-[var(--muted)] mb-4">ProInnóvate (MINCETUR) co-financia proyectos de innovación tecnológica — chatbot con IA, plataforma de reservas, app turística — con contrapartida del <strong>30–50%</strong> del monto. El BID, vía bancos locales, tiene líneas de crédito para turismo sostenible hasta <strong>USD 500,000</strong>. Tu proyecto de IA califica para ambas vías.</p>
+      <p class="text-sm text-[var(--muted)]">No subestimes esto: un chatbot con IA + plataforma de reservas suele calificar para <strong>ambas</strong> vías de financiamiento.</p>
+    </div>
+  </div>
+  <div class="mt-8 p-5 rounded-xl bg-[var(--card)] border border-[var(--border)]">
+    <p class="font-bold text-[var(--accent)]">Lo que NO se delega a la IA</p>
+    <p>Las decisiones de seguridad en aventura, la respuesta a reclamos delicados y la relación humana en el momento del viaje. La IA te libera de lo repetitivo <strong>PARA QUE el humano esté mejor en lo humano</strong>.</p>
+  </div>
+</section>
+
+<section class="prose mb-12" id="plan-accion">
+  <h2 class="text-3xl font-bold mb-6 border-b border-[var(--border)] pb-4">Tu plan de acción de los próximos 30 días</h2>
+  <ol class="list-decimal list-inside space-y-4 text-[var(--muted)]">
+    <li><b>Velocidad (semana 1):</b> instala un auto-responder de WhatsApp con tu catálogo; meta = responder toda cotización en menos de <strong>10 minutos</strong> y en horario recurrente.</li>
+    <li><b>Embudo de precios (semana 1):</b> convierte tu tarifa plana en 3 paquetes (Básico / Estándar señuelo / Premium objetivo) con <strong>charm pricing</strong> terminado en <strong>9</strong>.</li>
+    <li><b>Canal directo (semana 2):</b> define tu <strong>value-add exclusivo</strong> de venta directa (upgrade, traslado, cena) y colócalo en tu web y firmas de WhatsApp: "reservando directo, te llevas X gratis".</li>
+    <li><b>Contenido (semana 2–4):</b> graba con tu equipo celular <strong>2 videos/semana</strong> por la estructura ECS (gancho 0–5s / emoción 5–15s / CTA 15–30s), en vertical, con música trending.</li>
+    <li><b>SEO + GEO (semana 2–3):</b> añade datos estructurados <strong>Schema.org JSON-LD</strong> a tus tours (precio, duración, itinerario, reseñas); registra tu web en <strong>Search Console y Bing Webmaster</strong> para que la IA te también te encuentre. Meta descripción + título con keywords por tour.</li>
+    <li><b>Publicidad (semana 3):</b> lanza Google Performance Max (80% del presupuesto) + Meta Advantage+ (20%), con <b>CAPI instalado</b>. No evalúes antes de <strong>3 semanas</strong>.</li>
+    <li><b>CRM (semana 3–4):</b> activa <b>HubSpot gratis</b> con el pipeline de 5 etapas + los 3 correos automatizados post-viaje.</li>
+    <li><b>Review (día 30):</b> mide 5 métricas: % ventas directas, tiempo de respuesta, conversión de cotización, ROAS de pauta y reseñas nuevas en TripAdvisor/Google. + posición actual en ChatGPT/Bing por tu palabra clave objetivo.</li>
+  </ol>
+</section>
+
+<footer class="pt-12 border-t border-[var(--border)] mt-12 text-sm text-[var(--muted)]">
+  <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+    <div>
+      <p><b>Informe de Ventas y Marketing Turístico</b> · Edición 01 — Octubre 2026</p>
+      <p>Nueva edición el primer día hábil de cada mes: incluimos los benchmarks actualizados del mes.</p>
+    </div>
+    <div class="flex items-center gap-2">
+      <span class="chip text-xs font-bold bg-[var(--card)] text-[var(--fg)] rounded-full px-3 py-1">S/ 19 por edición</span>
+      <span class="chip text-xs font-bold bg-[var(--card)] text-[var(--fg)] rounded-full px-3 py-1">Suscripción 6 ediciones: S/ 100</span>
+    </div>
+  </div>
+  <p class="mt-2 text-xs text-[var(--muted)]">MAX · Inteligencia Turística</p>
+</footer>
+
+</div>
+
+<script>
+  Chart.defaults.font.family = "Inter, system-ui, -apple-system, Helvetica, Arial, sans-serif";
+  Chart.defaults.color = "#e8e6e3";
+
+  // Gráfico embudo
+  new Chart(document.getElementById("chFunnel"), {
+    type: "bar",
+    data: {
+      labels: ["1. Personas interesadas", "2. Compara 5–7 agencias", "3. Visita 3–4 webs", "4. Pregunta por WhatsApp", "5. Cotización recibida", "6. Reserva pagada"],
+      datasets: [
+        {
+          label: "Clientes que quedan en la etapa",
+          data: [100, 64, 41, 18, 9, 4],
+          backgroundColor: ["#0d1117", "#1e242e", "#2a303d", "#c8102e", "#e0687a", "#f0a2ae"],
+          borderRadius: 6,
+        },
+        {
+          label: "Potencial que se pierde (%)",
+          data: [0, 36, 23, 23, 9, 5],
+          backgroundColor: "rgba(200,16,46,0.15)",
+          borderRadius: 6,
+        },
+      ],
+    },
+    options: {
+      indexAxis: "y",
+      maintainAspectRatio: false,
+      plugins: { legend: { position: "bottom" } },
+      scales: {
+        x: { stacked: false, max: 110, ticks: { callback: v => v + "%" } },
+      },
+    },
+  });
+
+  // Gráfico mercados
+  new Chart(document.getElementById("chMercados"), {
+    type: "bar",
+    data: {
+      labels: ["Alemania", "EE. UU.", "España", "Chile"],
+      datasets: [
+        {
+          label: "Gasto promedio por viajero (USD)",
+          data: [2300, 2100, 1800, 1400],
+          backgroundColor: ["#0e7c4a", "#0d1117", "#0e7cc4", "#c8102e"],
+          borderRadius: 6,
+        },
+      ],
+    },
+    options: {
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: { y: { beginAtZero: true, ticks: { callback: v => "$" + v } } },
+    },
+  });
+
+  // Gráfico canales
+  new Chart(document.getElementById("chCanales"), {
+    type: "bar",
+    data: {
+      labels: ["Booking.com", "Expedia", "Airbnb Exp.", "GYG / Viator", "Despegar", "Venta Directa"],
+      datasets: [
+        {
+          label: "Comisión que pagas",
+          data: [16.5, 21.5, 20, 22.5, 20, 1.5],
+          backgroundColor: "#c8102e",
+          borderRadius: 6,
+        },
+        {
+          label: "Margen neto típico",
+          data: [25, 18.5, 22.5, 21, 23, 62.5],
+          backgroundColor: "#0e7c4a",
+          borderRadius: 6,
+        },
+      ],
+    },
+    options: {
+      maintainAspectRatio: false,
+      plugins: { legend: { position: "bottom" } },
+      scales: { y: { ticks: { callback: v => v + "%" }, max: 70 } },
+    },
+  });
+
+  // Gráfico WhatsApp
+  new Chart(document.getElementById("chWhatsApp"), {
+    type: "bar",
+    data: {
+      labels: ["Tasa de respuesta", "Cierre (días↓)", "Conversión"],
+      datasets: [
+        { label: "WhatsApp", data: [90, 3, 30], backgroundColor: "#0e7c4a", borderRadius: 6 },
+        { label: "Email", data: [35, 10, 10], backgroundColor: "#0e7cc4", borderRadius: 6 },
+        { label: "Solo Web", data: [null, null, 10], backgroundColor: "#f2a900", borderRadius: 6 },
+      ],
+    },
+    options: {
+      maintainAspectRatio: false,
+      plugins: { legend: { position: "bottom" } },
+      scales: { y: { beginAtZero: true } },
+    },
+  });
+
+  // Gráfico ROAS
+  new Chart(document.getElementById("chROAS"), {
+    type: "bar",
+    data: {
+      labels: ["Meta Advantage+", "Google PMax", "Peru Hop", "Aranwa Cusco", "Arequipa Adventure"],
+      datasets: [
+        {
+          label: "ROAS (S/ recuperados por cada S/ 1 invertido)",
+          data: [5.7, 6.9, 5.2, 6.8, 7.2],
+          backgroundColor: ["#0e7cc4", "#0d1117", "#c8102e", "#0e7c4a", "#f2a900"],
+          borderRadius: 6,
+        },
+      ],
+    },
+    options: {
+      indexAxis: "y",
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: { x: { beginAtZero: true } },
+    },
+  });
+
+  // Gráfico búsqueda
+  new Chart(document.getElementById("chBusqueda"), {
+    type: "bar",
+    data: {
+      labels: ["Google", "Booking.com", "Instagram", "WhatsApp", "TripAdvisor"],
+      datasets: [
+        {
+          label: "Chile (emisor fronterizo)",
+          data: [65, 45, 40, 35, 25],
+          backgroundColor: "#c8102e",
+          borderRadius: 6,
+        },
+        {
+          label: "España (largo alcance)",
+          data: [75, 50, 20, 15, 60],
+          backgroundColor: "#0e7cc4",
+          borderRadius: 6,
+        },
+      ],
+    },
+    options: {
+      maintainAspectRatio: false,
+      plugins: { legend: { position: "bottom" } },
+      scales: { y: { beginAtZero: true, ticks: { callback: v => v + "%" } } },
+    },
+  });
+
+  // Gráfico IA
+  new Chart(document.getElementById("chIA"), {
+    type: "bar",
+    data: {
+      labels: ["Ahorró costos de servicio", "Preguntas frecuentes resueltas", "Interacciones atendidas sin humano", "Cierres con link de pago 24/7"],
+      datasets: [
+        {
+          label: "Impacto del asistente IA (%)",
+          data: [30, 80, 85, 100],
+          backgroundColor: ["#0e7cc4", "#0e7c4a", "#0d1117", "#f2a900"],
+          borderRadius: 6,
+        },
+      ],
+    },
+    options: {
+      indexAxis: "y",
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: { x: { beginAtZero: true, max: 100, ticks: { callback: v => v + "%" } } },
+    },
+  });
+</script>
+</body>
+</html>
