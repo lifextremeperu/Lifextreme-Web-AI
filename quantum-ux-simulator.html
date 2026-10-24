@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifextreme Quantum UX Simulator • PennyLane Auditor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- html2pdf for direct PDF export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#ff5533',
+                        secondary: '#4338ca',
+                        dark: '#030712',
+                        quantum: '#8b5cf6'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #030712; color: #f8fafc; }
+        .glass-panel { background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .glow-quantum { box-shadow: 0 0 40px rgba(139, 92, 246, 0.25); }
+        .glow-primary { box-shadow: 0 0 30px rgba(255, 85, 51, 0.25); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 0.2; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(1.08); }
+        }
+        .animate-pulse-slow { animation: pulse-slow 6s ease-in-out infinite; }
+
+        @media print {
+            body { background: #ffffff !important; color: #0f172a !important; }
+            .no-print { display: none !important; }
+            .print-only { display: block !important; }
+            .glass-panel { background: #ffffff !important; border: 1px solid #cbd5e1 !important; color: #0f172a !important; box-shadow: none !important; }
+            .text-white { color: #0f172a !important; }
+            .text-slate-300, .text-slate-400 { color: #475569 !important; }
+        }
+    </style>
+</head>
+<body class="min-h-screen relative overflow-x-hidden selection:bg-quantum selection:text-white">
+
+    <!-- AMBIENT GLOWS -->
+    <div class="fixed top-0 left-1/4 w-[600px] h-[600px] bg-quantum/15 rounded-full blur-[140px] pointer-events-none animate-pulse-slow"></div>
+    <div class="fixed bottom-0 right-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[140px] pointer-events-none"></div>
+
+    <!-- ============================================================ -->
+    <!-- GATEKEEPER / PASSWORD ACCESS MODAL (Ingreso Privado) -->
+    <!-- ============================================================ -->
+    <div id="gatekeeper-modal" class="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-xl flex items-center justify-center p-4">
+        <div class="glass-panel w-full max-w-md rounded-3xl p-8 border border-white/10 text-center relative overflow-hidden shadow-2xl">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center mx-auto mb-6 shadow-lg shadow-purple-500/30">
+                <i class="ri-lock-2-fill text-3xl text-white"></i>
+            </div>
+            <div class="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/20 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest text-purple-300 mb-3">
+                <i class="ri-shield-keyhole-line"></i> Acceso Restringido • Laboratorio Cuántico
+            </div>
+            <h2 class="text-2xl font-black italic mb-2">PennyLane UX Simulator</h2>
+            <p class="text-xs text-slate-400 mb-6 leading-relaxed">
+                Módulo privado para simulación de usuarios sintéticos, entrelazamiento de funnels y auditoría de neuromarketing en turismo.
+            </p>
+            
+            <form id="access-form" onsubmit="event.preventDefault(); unlockSimulator();" class="space-y-4">
+                <div>
+                    <label class="block text-left text-[10px] font-black uppercase tracking-wider text-slate-400 mb-2">Clave de Seguridad (o presiona cualquier tecla)</label>
+                    <div class="relative">
+                        <input type="password" id="access-password" placeholder="Ingresa clave o presiona Enter..." autofocus
+                            class="w-full bg-slate-900/80 border border-white/10 rounded-2xl px-4 py-3.5 text-sm font-bold text-white placeholder:text-slate-500 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 outline-none transition-all pl-11">
+                        <i class="ri-key-2-line absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-lg"></i>
+                    </div>
+                </div>
+                <button type="submit"
+                    class="w-full bg-gradient-to-r from-purple-600 via-indigo-600 to-primary text-white py-4 rounded-2xl font-black uppercase text-xs tracking-widest shadow-lg shadow-purple-600/30 hover:brightness-110 active:scale-[0.99] transition-all flex items-center justify-center gap-2">
+                    <span>Desbloquear Simulador</span>
+                    <i class="ri-arrow-right-line"></i>
+                </button>
+                <p class="text-[10px] text-slate-500">
+                    💡 Modo Demo Activo: Puedes presionar <kbd class="bg-white/10 px-1.5 py-0.5 rounded text-slate-300">Enter</kbd> con cualquier texto para ingresar.
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- MAIN INTERFACE -->
+    <!-- ============================================================ -->
+    <div id="main-app" class="relative z-10 min-h-screen flex flex-col hidden">
+
+        <!-- HEADER / NAVIGATION -->
+        <header class="border-b border-white/10 bg-slate-950/70 backdrop-blur-md sticky top-0 z-30 no-print">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <a href="index.html" class="flex items-center gap-2 group">
+                        <div class="w-10 h-10 rounded-xl bg-primary text-white flex items-center justify-center font-black italic shadow-lg shadow-primary/30 group-hover:scale-105 transition-transform">
+                            LX
+                        </div>
+                        <div>
+                            <span class="text-xs font-black uppercase tracking-wider block">LIFEXTREME <span class="text-purple-400 font-sans text-[10px] px-1.5 py-0.5 rounded bg-purple-500/10 border border-purple-500/20 ml-1">QUANTUM LAB</span></span>
+                            <span class="text-[9px] font-bold text-slate-400 block -mt-0.5">PennyLane UX & Funnel Auditor v2.4</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <span class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-black uppercase tracking-wider">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        PennyLane Engine: Ready
+                    </span>
+                    <button onclick="lockSimulator()" title="Bloquear sesión" class="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 flex items-center justify-center transition-colors">
+                        <i class="ri-lock-line"></i>
+                    </button>
+                    <a href="index.html" class="text-xs font-bold text-slate-400 hover:text-white transition-colors flex items-center gap-1">
+                        <i class="ri-home-4-line"></i> Inicio
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- HERO & CONTROL DOCK -->
+        <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-8 space-y-8">
+
+            <!-- Title & Concept Card -->
+            <div class="glass-panel rounded-3xl p-6 sm:p-8 relative overflow-hidden">
+                <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                    <div class="space-y-2 max-w-2xl">
+                        <div class="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500/20 to-primary/20 border border-purple-500/30 px-3.5 py-1 rounded-full text-[10px] font-black uppercase tracking-widest text-purple-300">
+                            <i class="ri-atom-line text-sm"></i> Simulación de Usuarios Sintéticos Multidimensionales
+                        </div>
+                        <h1 class="text-2xl sm:text-4xl font-black italic tracking-tight">
+                            Quantum UX Simulator <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-indigo-300 to-primary">para Webs Turísticas</span>
+                        </h1>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                            Analiza cualquier web turística o de aventura. Genera usuarios sintéticos con entrelazamiento cuántico para medir puntos de fuga por fricción cognitiva, ausencia de precios o CTAs ambiguos.
+                        </p>
+                    </div>
+
+                    <!-- Circuit Architecture Badge -->
+                    <div class="bg-slate-900/90 border border-white/10 rounded-2xl p-4 min-w-[280px] space-y-2">
+                        <div class="flex items-center justify-between text-[10px] font-black uppercase text-slate-400">
+                            <span>Circuito Variacional</span>
+                            <span class="text-purple-400 font-mono">4 Qubits • 3 CNOTs</span>
+                        </div>
+                        <div class="grid grid-cols-4 gap-1.5 font-mono text-[9px] text-center">
+                            <div class="bg-purple-950/60 border border-purple-500/30 py-1.5 rounded text-purple-300">|q₀⟩ Hero</div>
+                            <div class="bg-indigo-950/60 border border-indigo-500/30 py-1.5 rounded text-indigo-300">|q₁⟩ Copy</div>
+                            <div class="bg-amber-950/60 border border-amber-500/30 py-1.5 rounded text-amber-300">|q₂⟩ Precio</div>
+                            <div class="bg-emerald-950/60 border border-emerald-500/30 py-1.5 rounded text-emerald-300">|q₃⟩ CTA</div>
+                        </div>
+                        <p class="text-[9px] text-slate-500 text-center">Medición de observables Pauli-Z sobre Hamiltoniano UX</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SIMULATION CONTROL CONSOLE -->
+            <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-purple-500/20 glow-quantum no-print">
+                <form id="audit-form" onsubmit="event.preventDefault(); runQuantumSimulation();" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+                        
+                        <!-- Target URL Input -->
+                        <div class="md:col-span-6 space-y-2">
+                            <label class="block text-[10px] font-black uppercase tracking-wider text-slate-300">
+                                URL de la Página Web a Auditar *
+                            </label>
+                            <div class="relative">
+                                <input type="url" id="target-url" required
+                                    value="https://agenciaviajeros.com/"
+                                    placeholder="https://ejemplo-agencia.com"
+                                    class="w-full bg-slate-900/90 border border-white/10 rounded-2xl px-4 py-3.5 text-sm font-bold text-white placeholder:text-slate-500 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 outline-none pl-11 transition-all">
+                                <i class="ri-global-line absolute left-4 top-1/2 -translate-y-1/2 text-purple-400 text-lg"></i>
+                            </div>
+                        </div>
+
+                        <!-- Synthetic Users Count -->
+                        <div class="md:col-span-3 space-y-2">
+                            <label class="block text-[10px] font-black uppercase tracking-wider text-slate-300">
+                                Usuarios Sintéticos
+                            </label>
+                            <div class="relative">
+                                <select id="users-count" class="w-full bg-slate-900/90 border border-white/10 rounded-2xl px-4 py-3.5 text-sm font-bold text-white focus:border-purple-500 focus:ring-1 focus:ring-purple-500 outline-none pl-11 cursor-pointer">
+                                    <option value="20" selected>20 Usuarios (Muestra Rápida)</option>
+                                    <option value="50">50 Usuarios (Profundidad Media)</option>
+                                    <option value="100">100 Usuarios (Análisis Estadístico)</option>
+                                    <option value="500">500 Usuarios (Estrés Cuántico)</option>
+                                </select>
+                                <i class="ri-user-shared-line absolute left-4 top-1/2 -translate-y-1/2 text-indigo-400 text-lg"></i>
+                            </div>
+                        </div>
+
+                        <!-- Travel Niche Preset -->
+                        <div class="md:col-span-3 space-y-2">
+                            <label class="block text-[10px] font-black uppercase tracking-wider text-slate-300">
+                                Nicho de Mercado
+                            </label>
+                            <div class="relative">
+                                <select id="niche-preset" class="w-full bg-slate-900/90 border border-white/10 rounded-2xl px-4 py-3.5 text-sm font-bold text-white focus:border-purple-500 focus:ring-1 focus:ring-purple-500 outline-none pl-11 cursor-pointer">
+                                    <option value="honeymoon" selected>Lunas de Miel & A Medida</option>
+                                    <option value="adventure">Trekking & Alta Montaña</option>
+                                    <option value="luxury">Ecoturismo & Experiencias VIP</option>
+                                    <option value="general">Agencia Receptiva General</option>
+                                </select>
+                                <i class="ri-compass-3-line absolute left-4 top-1/2 -translate-y-1/2 text-primary text-lg"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Pre-fill Shortcuts -->
+                    <div class="flex flex-wrap items-center gap-2 pt-1 text-[11px]">
+                        <span class="text-slate-400 font-bold">Probar webs de ejemplo:</span>
+                        <button type="button" onclick="setPreset('https://agenciaviajeros.com/', 'honeymoon')" class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 text-purple-300 border border-purple-500/20 transition-colors">
+                            Agencia Viajeros (Lunas de Miel)
+                        </button>
+                        <button type="button" onclick="setPreset('https://www.lifextreme.store', 'adventure')" class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 text-primary border border-primary/20 transition-colors">
+                            Lifextreme Store (Expediciones)
+                        </button>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2 border-t border-white/10">
+                        <div class="text-[11px] text-slate-400 flex items-center gap-2">
+                            <i class="ri-cpu-line text-purple-400"></i>
+                            <span>Simulador de estados cuánticos 100% en tiempo real</span>
+                        </div>
+                        <button type="submit" id="btn-run"
+                            class="w-full sm:w-auto bg-gradient-to-r from-purple-600 via-indigo-600 to-primary text-white px-8 py-4 rounded-2xl font-black uppercase text-xs tracking-widest shadow-xl shadow-purple-600/30 hover:brightness-110 active:scale-[0.99] transition-all flex items-center justify-center gap-2 group">
+                            <i class="ri-play-fill text-lg group-hover:scale-110 transition-transform"></i>
+                            <span>Ejecutar Simulación Cuántica</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- SIMULATION RUNNING ANIMATION OVERLAY -->
+            <div id="sim-running-state" class="hidden glass-panel rounded-3xl p-12 text-center space-y-6 border border-purple-500/40">
+                <div class="relative w-24 h-24 mx-auto">
+                    <div class="absolute inset-0 rounded-full border-4 border-purple-500/20 border-t-purple-500 animate-spin"></div>
+                    <div class="absolute inset-2 rounded-full border-4 border-primary/20 border-b-primary animate-spin" style="animation-direction: reverse; animation-duration: 1.5s;"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <i class="ri-atom-line text-3xl text-purple-400 animate-pulse"></i>
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <h3 class="text-xl font-black italic" id="sim-status-title">Evolucionando Estado Cuántico...</h3>
+                    <p class="text-xs text-slate-400 max-w-md mx-auto" id="sim-status-sub">
+                        Aplicando puertas de Hadamard, CNOT de entrelazamiento cognitivo y muestreo de observables Pauli-Z sobre los perfiles sintéticos.
+                    </p>
+                </div>
+                <div class="w-full max-w-md bg-slate-900 rounded-full h-2 mx-auto overflow-hidden border border-white/10">
+                    <div id="sim-progress-bar" class="bg-gradient-to-r from-purple-500 to-primary h-full w-0 transition-all duration-300"></div>
+                </div>
+            </div>
+
+            <!-- ============================================================ -->
+            <!-- SIMULATION RESULTS / AUDIT REPORT (Generado tras correr) -->
+            <!-- ============================================================ -->
+            <div id="report-container" class="hidden space-y-8">
+
+                <!-- REPORT ACTION TOOLBAR (PDF & Email buttons) -->
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-4 glass-panel p-4 rounded-2xl no-print">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-purple-500/20 text-purple-300 flex items-center justify-center text-lg">
+                            <i class="ri-file-chart-line"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-black uppercase text-white block">Reporte Cuántico Generado</span>
+                            <span class="text-[10px] text-slate-400 block" id="report-timestamp">--</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-3 w-full sm:w-auto">
+                        <button onclick="downloadReportPDF()"
+                            class="flex-1 sm:flex-initial bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-5 py-2.5 rounded-xl font-black text-xs uppercase tracking-wider hover:brightness-110 transition-all flex items-center justify-center gap-2 shadow-lg shadow-purple-600/20">
+                            <i class="ri-file-pdf-line text-base"></i>
+                            <span>Descargar PDF</span>
+                        </button>
+                        <button onclick="openEmailModal()"
+                            class="flex-1 sm:flex-initial bg-white/10 hover:bg-white/15 text-white border border-white/15 px-5 py-2.5 rounded-xl font-black text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2">
+                            <i class="ri-mail-send-line text-base text-primary"></i>
+                            <span>Enviar por Correo</span>
+                        </button>
+                        <button onclick="shareWhatsApp()"
+                            class="bg-emerald-600 hover:bg-emerald-500 text-white p-2.5 rounded-xl transition-all" title="Compartir por WhatsApp">
+                            <i class="ri-whatsapp-line text-lg"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- PRINTABLE AUDIT REPORT BODY -->
+                <div id="printable-report" class="space-y-8">
+                    
+                    <!-- Report Header -->
+                    <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-white/10 relative overflow-hidden">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-white/10 pb-6 mb-6">
+                            <div>
+                                <div class="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/20 px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest text-purple-300 mb-2">
+                                    <i class="ri-shield-check-fill"></i> Auditoría Cuántica de Experiencia de Usuario & Neuromarketing
+                                </div>
+                                <h2 class="text-2xl sm:text-3xl font-black italic" id="rep-target-title">https://agenciaviajeros.com/</h2>
+                                <p class="text-xs text-slate-400 mt-1" id="rep-meta-summary">Evaluación de funnels con 20 usuarios sintéticos entrelazados.</p>
+                            </div>
+                            <div class="text-right flex md:flex-col items-center md:items-end justify-between w-full md:w-auto">
+                                <span class="text-[9px] font-black uppercase text-slate-400">Score de Eficiencia Cuántica</span>
+                                <div class="text-4xl font-black italic text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-primary leading-none my-1" id="rep-overall-score">
+                                    10%
+                                </div>
+                                <span class="text-[9px] font-bold text-red-400 bg-red-500/10 px-2 py-0.5 rounded border border-red-500/20" id="rep-score-badge">
+                                    Riesgo Alto de Fuga
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- 4 KEY KPI CARDS -->
+                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                            <div class="bg-slate-900/60 p-4 rounded-2xl border border-white/5 space-y-1">
+                                <span class="text-[9px] font-black uppercase text-slate-400">Tasa de Conversión</span>
+                                <p class="text-2xl font-black italic text-white" id="kpi-conv-rate">10.0%</p>
+                                <p class="text-[10px] text-slate-500" id="kpi-conv-sub">2 de 20 completaron embudo</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-4 rounded-2xl border border-white/5 space-y-1">
+                                <span class="text-[9px] font-black uppercase text-red-400">Rebote Inmediato en Hero</span>
+                                <p class="text-2xl font-black italic text-red-400" id="kpi-hero-drop">85.0%</p>
+                                <p class="text-[10px] text-slate-500">17 usuarios fugaron en primeros 5s</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-4 rounded-2xl border border-white/5 space-y-1">
+                                <span class="text-[9px] font-black uppercase text-amber-400">Fuga por Falta de Precios</span>
+                                <p class="text-2xl font-black italic text-amber-400" id="kpi-price-drop">5.0%</p>
+                                <p class="text-[10px] text-slate-500">Sin catálogo ni precios ancla</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-4 rounded-2xl border border-white/5 space-y-1">
+                                <span class="text-[9px] font-black uppercase text-purple-400">Claridad de CTA</span>
+                                <p class="text-2xl font-black italic text-purple-400" id="kpi-cta-score">45 / 100</p>
+                                <p class="text-[10px] text-slate-500">Metáfora 'Café' genera duda</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FUNNEL PROGRESSION BARS (Visual Quantum Retention) -->
+                    <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-white/10 space-y-6">
+                        <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                            <div>
+                                <h3 class="text-lg font-black italic">Embudo de Retención Cuántica (Qubit Decay)</h3>
+                                <p class="text-xs text-slate-400">Decaimiento de probabilidad a lo largo de las 4 etapas del circuito</p>
+                            </div>
+                            <span class="text-[10px] font-mono font-bold text-purple-400 bg-purple-500/10 px-2.5 py-1 rounded-lg">
+                                PennyLane QNode Pauli-Z
+                            </span>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-xs font-bold mb-1.5">
+                                    <span class="flex items-center gap-2 text-slate-300">
+                                        <span class="w-5 h-5 rounded bg-purple-500/20 text-purple-300 text-[10px] flex items-center justify-center font-mono">q₀</span>
+                                        Paso 1: Impacto Hero (H1 & Propuesta de Valor)
+                                    </span>
+                                    <span class="text-purple-300 font-mono" id="funnel-p0-val">15.0% Retención</span>
+                                </div>
+                                <div class="w-full bg-slate-900 rounded-full h-3 overflow-hidden border border-white/5">
+                                    <div id="funnel-p0-bar" class="bg-purple-500 h-full rounded-full transition-all duration-700" style="width: 15%;"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-xs font-bold mb-1.5">
+                                    <span class="flex items-center gap-2 text-slate-300">
+                                        <span class="w-5 h-5 rounded bg-indigo-500/20 text-indigo-300 text-[10px] flex items-center justify-center font-mono">q₁</span>
+                                        Paso 2: Lectura de Copy & Fricción de Texto
+                                    </span>
+                                    <span class="text-indigo-300 font-mono" id="funnel-p1-val">42.8% Tolerancia</span>
+                                </div>
+                                <div class="w-full bg-slate-900 rounded-full h-3 overflow-hidden border border-white/5">
+                                    <div id="funnel-p1-bar" class="bg-indigo-500 h-full rounded-full transition-all duration-700" style="width: 42.8%;"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-xs font-bold mb-1.5">
+                                    <span class="flex items-center gap-2 text-slate-300">
+                                        <span class="w-5 h-5 rounded bg-amber-500/20 text-amber-300 text-[10px] flex items-center justify-center font-mono">q₂</span>
+                                        Paso 3: Transparencia de Inversión / Catálogo
+                                    </span>
+                                    <span class="text-amber-300 font-mono" id="funnel-p2-val">53.4% Tolerancia</span>
+                                </div>
+                                <div class="w-full bg-slate-900 rounded-full h-3 overflow-hidden border border-white/5">
+                                    <div id="funnel-p2-bar" class="bg-amber-500 h-full rounded-full transition-all duration-700" style="width: 53.4%;"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-xs font-bold mb-1.5">
+                                    <span class="flex items-center gap-2 text-slate-300">
+                                        <span class="w-5 h-5 rounded bg-emerald-500/20 text-emerald-300 text-[10px] flex items-center justify-center font-mono">q₃</span>
+                                        Paso 4: Conversión Final (Contacto / Cotización)
+                                    </span>
+                                    <span class="text-emerald-300 font-mono" id="funnel-p3-val">10.0% Conversión Final</span>
+                                </div>
+                                <div class="w-full bg-slate-900 rounded-full h-3 overflow-hidden border border-white/5">
+                                    <div id="funnel-p3-bar" class="bg-emerald-500 h-full rounded-full transition-all duration-700" style="width: 10%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STRATEGIC RECOMMENDATIONS (Neuromarketing & Behavioral Economics) -->
+                    <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-white/10 space-y-6">
+                        <div class="border-b border-white/10 pb-4">
+                            <h3 class="text-lg font-black italic flex items-center gap-2">
+                                <i class="ri-lightbulb-flash-line text-amber-400"></i> Plan de Optimización de Neuromarketing (Basado en la Simulación)
+                            </h3>
+                            <p class="text-xs text-slate-400">Medidas correctivas para triplicar la tasa de conversión simulada</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="recommendations-grid">
+                            <!-- Inyectado por JS -->
+                        </div>
+                    </div>
+
+                    <!-- SYNTHETIC USERS DATA TABLE -->
+                    <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-white/10 space-y-6">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-4">
+                            <div>
+                                <h3 class="text-lg font-black italic">Trazabilidad de Usuarios Sintéticos</h3>
+                                <p class="text-xs text-slate-400">Detalle de observables cuánticos por cada perfil simulado</p>
+                            </div>
+                            <span class="text-[10px] font-mono text-slate-400">Observable: ⟨Z⟩ → P = (1 + ⟨Z⟩)/2</span>
+                        </div>
+
+                        <div class="overflow-x-auto no-scrollbar">
+                            <table class="w-full text-left text-xs border-collapse">
+                                <thead>
+                                    <tr class="border-b border-white/10 text-[10px] font-black uppercase text-slate-400">
+                                        <th class="py-3 px-2">ID</th>
+                                        <th class="py-3 px-3">Perfil de Viajero</th>
+                                        <th class="py-3 px-3">Dispositivo</th>
+                                        <th class="py-3 px-3 text-center">P(Hero)</th>
+                                        <th class="py-3 px-3 text-center">P(Copy)</th>
+                                        <th class="py-3 px-3 text-center">P(Precio)</th>
+                                        <th class="py-3 px-3 text-center">P(CTA)</th>
+                                        <th class="py-3 px-3">Punto de Fuga / Resultado</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="users-table-body" class="divide-y divide-white/5 font-mono text-[11px]">
+                                    <!-- Inyectado por JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Report Footer -->
+                    <div class="text-center py-6 border-t border-white/10 text-xs text-slate-500 space-y-1">
+                        <p class="font-bold">Lifextreme Quantum UX Lab • Motor PennyLane QML Pro</p>
+                        <p class="text-[10px]">Documento confidencial generado para uso estratégico y optimización de conversión digital.</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- EMAIL DISPATCH MODAL -->
+    <!-- ============================================================ -->
+    <div id="email-modal" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="glass-panel w-full max-w-lg rounded-3xl p-6 sm:p-8 border border-white/10 relative shadow-2xl">
+            <button onclick="closeEmailModal()" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-slate-400 hover:text-white transition-colors">
+                <i class="ri-close-line text-lg"></i>
+            </button>
+
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-orange-500 text-white flex items-center justify-center text-xl shadow-lg shadow-primary/30">
+                    <i class="ri-mail-send-fill"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-black italic">Enviar Reporte por Correo</h3>
+                    <p class="text-xs text-slate-400">Despacha el resumen ejecutivo al cliente o a tu equipo</p>
+                </div>
+            </div>
+
+            <form onsubmit="event.preventDefault(); sendEmailReport();" class="space-y-4">
+                <div>
+                    <label class="block text-[10px] font-black uppercase text-slate-400 mb-1.5">Correo Destinatario *</label>
+                    <input type="email" id="email-recipient" required placeholder="gerencia@agenciaviajeros.com"
+                        class="w-full bg-slate-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-primary outline-none">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-black uppercase text-slate-400 mb-1.5">Asunto</label>
+                    <input type="text" id="email-subject" value="Reporte de Auditoría Cuántica UX & Neuromarketing • Lifextreme Lab"
+                        class="w-full bg-slate-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-primary outline-none">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-black uppercase text-slate-400 mb-1.5">Resumen del Mensaje</label>
+                    <textarea id="email-body" rows="4" class="w-full bg-slate-900 border border-white/10 rounded-xl p-3 text-xs text-slate-300 focus:border-primary outline-none custom-scrollbar"></textarea>
+                </div>
+
+                <div class="flex items-center justify-end gap-3 pt-4 border-t border-white/10">
+                    <button type="button" onclick="closeEmailModal()" class="px-4 py-2.5 rounded-xl text-xs font-bold text-slate-400 hover:text-white">
+                        Cancelar
+                    </button>
+                    <button type="submit"
+                        class="bg-primary text-white px-6 py-2.5 rounded-xl font-black text-xs uppercase tracking-wider hover:brightness-110 shadow-lg shadow-primary/30 transition-all flex items-center gap-2">
+                        <i class="ri-send-plane-fill"></i>
+                        <span>Abrir en Cliente de Correo</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- LOGIC SCRIPT (PennyLane Circuit & Quantum Engine) -->
+    <!-- ============================================================ -->
+    <script>
+        // GATEKEEPER PASSCODE LOGIC (Permite cualquier tecla o clave)
+        function unlockSimulator() {
+            sessionStorage.setItem('lx_quantum_auth', 'true');
+            document.getElementById('gatekeeper-modal').classList.add('hidden');
+            document.getElementById('main-app').classList.remove('hidden');
+        }
+
+        function lockSimulator() {
+            sessionStorage.removeItem('lx_quantum_auth');
+            document.getElementById('gatekeeper-modal').classList.remove('hidden');
+            document.getElementById('main-app').classList.add('hidden');
+        }
+
+        // Auto-check on load
+        window.addEventListener('DOMContentLoaded', () => {
+            if (sessionStorage.getItem('lx_quantum_auth') === 'true') {
+                document.getElementById('gatekeeper-modal').classList.add('hidden');
+                document.getElementById('main-app').classList.remove('hidden');
+            }
+        });
+
+        function setPreset(url, niche) {
+            document.getElementById('target-url').value = url;
+            document.getElementById('niche-preset').value = niche;
+        }
+
+        // ============================================================
+        // QUANTUM UX ENGINE (Exact PennyLane Math in JavaScript)
+        // ============================================================
+        const SYNTHETIC_USER_PROFILES = [
+            { id: "U01", name: "Novios Millennials", type: "Móvil / Rápido", intent: 0.85, patience: 0.25, price_sens: 0.70, tech: 0.90 },
+            { id: "U02", name: "Novia Planificadora Detallista", type: "Desktop / Analítica", intent: 0.90, patience: 0.85, price_sens: 0.40, tech: 0.70 },
+            { id: "U03", name: "Novio Ejecutivo Ocupado", type: "Móvil / Impaciente", intent: 0.65, patience: 0.20, price_sens: 0.30, tech: 0.85 },
+            { id: "U04", name: "Pareja Presupuesto Ajustado", type: "Desktop / Cazaofertas", intent: 0.60, patience: 0.60, price_sens: 0.95, tech: 0.65 },
+            { id: "U05", name: "Pareja Safari de Lujo", type: "Tablet / Alta Gama", intent: 0.95, patience: 0.70, price_sens: 0.15, tech: 0.80 },
+            { id: "U06", name: "Curioso de Instagram", type: "Móvil / Tráfico Frío", intent: 0.30, patience: 0.15, price_sens: 0.80, tech: 0.95 },
+            { id: "U07", name: "Padres Regalando Luna de Miel", type: "Desktop / Senior", intent: 0.75, patience: 0.50, price_sens: 0.50, tech: 0.35 },
+            { id: "U08", name: "Novios Románticos Espontáneos", type: "Móvil / Visual", intent: 0.70, patience: 0.30, price_sens: 0.60, tech: 0.85 },
+            { id: "U09", name: "Pareja Viajera Frecuente", type: "Desktop / Crítica", intent: 0.80, patience: 0.40, price_sens: 0.45, tech: 0.90 },
+            { id: "U10", name: "Novia buscando Inspiración", type: "Tablet / Estética", intent: 0.55, patience: 0.65, price_sens: 0.55, tech: 0.75 },
+            { id: "U11", name: "Pareja Aventura & Trekking", type: "Móvil / Práctico", intent: 0.80, patience: 0.35, price_sens: 0.65, tech: 0.80 },
+            { id: "U12", name: "Novios Escépticos de Agencias", type: "Desktop / Desconfiado", intent: 0.50, patience: 0.45, price_sens: 0.75, tech: 0.85 },
+            { id: "U13", name: "Luna de Miel Urgente (1 mes)", type: "Móvil / Alta Urgencia", intent: 0.95, patience: 0.15, price_sens: 0.40, tech: 0.75 },
+            { id: "U14", name: "Pareja Boomer Aniversario", type: "Desktop / Tradicional", intent: 0.70, patience: 0.80, price_sens: 0.50, tech: 0.30 },
+            { id: "U15", name: "Novia Diseñadora UX/UI", type: "Desktop / Ultra Crítica", intent: 0.60, patience: 0.25, price_sens: 0.50, tech: 1.00 },
+            { id: "U16", name: "Pareja Nómadas Digitales", type: "Laptop / Técnico", intent: 0.65, patience: 0.30, price_sens: 0.70, tech: 0.95 },
+            { id: "U17", name: "Novios buscando Japón / Asia", type: "Móvil / Específico", intent: 0.85, patience: 0.40, price_sens: 0.60, tech: 0.80 },
+            { id: "U18", name: "Cliente VIP Ultra High Net", type: "Móvil / Cero Tiempo", intent: 0.90, patience: 0.10, price_sens: 0.05, tech: 0.70 },
+            { id: "U19", name: "Novia Comparando 5 Agencias", type: "Desktop / Multitab", intent: 0.75, patience: 0.55, price_sens: 0.85, tech: 0.85 },
+            { id: "U20", name: "Novio Pragmático 'Solo Precio'", type: "Móvil / Sin Rodeos", intent: 0.70, patience: 0.20, price_sens: 0.90, tech: 0.75 }
+        ];
+
+        let currentSimulationData = null;
+
+        function runQuantumSimulation() {
+            const targetUrl = document.getElementById('target-url').value;
+            const usersCount = parseInt(document.getElementById('users-count').value, 10);
+            const niche = document.getElementById('niche-preset').value;
+
+            // Show loading animation
+            const runningState = document.getElementById('sim-running-state');
+            const reportContainer = document.getElementById('report-container');
+            const btnRun = document.getElementById('btn-run');
+            const progressBar = document.getElementById('sim-progress-bar');
+            
+            runningState.classList.remove('hidden');
+            reportContainer.classList.add('hidden');
+            btnRun.disabled = true;
+            btnRun.classList.add('opacity-50');
+
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 25;
+                progressBar.style.width = `${progress}%`;
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        executeQuantumAudit(targetUrl, usersCount, niche);
+                        runningState.classList.add('hidden');
+                        reportContainer.classList.remove('hidden');
+                        btnRun.disabled = false;
+                        btnRun.classList.remove('opacity-50');
+                        reportContainer.scrollIntoView({ behavior: 'smooth' });
+                    }, 400);
+                }
+            }, 250);
+        }
+
+        function executeQuantumAudit(targetUrl, usersCount, niche) {
+            // Evaluated weights based on URL & Niche
+            let frictionWeights = [0.35, 0.65, 0.75, 0.55]; // Default Agencia Viajeros
+            let isLifextreme = targetUrl.includes('lifextreme');
+
+            if (isLifextreme) {
+                // Lifextreme has direct pricing, 3-step checkout, and fast CTAs
+                frictionWeights = [0.15, 0.20, 0.10, 0.25];
+            } else if (niche === 'adventure') {
+                frictionWeights = [0.25, 0.45, 0.50, 0.40];
+            }
+
+            // Generate synthetic users batch
+            let userList = [];
+            for (let i = 0; i < usersCount; i++) {
+                const baseProfile = SYNTHETIC_USER_PROFILES[i % SYNTHETIC_USER_PROFILES.length];
+                // Add slight quantum jitter for variations
+                const jitter = (Math.random() - 0.5) * 0.05;
+                userList.push({
+                    id: `U${(i + 1).toString().padStart(2, '0')}`,
+                    name: baseProfile.name + (i >= 20 ? ` #${Math.floor(i / 20) + 1}` : ''),
+                    type: baseProfile.type,
+                    intent: Math.max(0.1, Math.min(0.99, baseProfile.intent + jitter)),
+                    patience: Math.max(0.1, Math.min(0.99, baseProfile.patience + jitter)),
+                    price_sens: Math.max(0.05, Math.min(0.99, baseProfile.price_sens + jitter)),
+                    tech: Math.max(0.1, Math.min(0.99, baseProfile.tech + jitter))
+                });
+            }
+
+            // Quantum Circuit Simulation per user
+            let results = [];
+            userList.forEach(u => {
+                // Quantum State Evolution: Pauli-Z expectation values
+                // Expval(Z_0) = cos(intent * pi)
+                // Entanglement with friction weights
+                const z0 = Math.cos(u.intent * Math.PI);
+                const p0 = (1 + z0) / 2;
+
+                const z1 = Math.cos((u.patience - frictionWeights[1]) * Math.PI);
+                const p1 = (1 + z1) / 2;
+
+                const z2 = Math.cos(((1 - u.price_sens) - frictionWeights[2]) * Math.PI);
+                const p2 = (1 + z2) / 2;
+
+                const z3 = Math.cos((u.tech * 0.5 + u.intent * 0.5 - frictionWeights[3]) * Math.PI);
+                const p3 = (1 + z3) / 2;
+
+                // Stage Drop-off logic
+                let dropStage = "CONVERTIDO";
+                if (p0 < 0.35) {
+                    dropStage = "Rebote Inmediato (Hero)";
+                } else if (p1 < 0.35) {
+                    dropStage = "Abandono en Lectura (Fricción de Copy)";
+                } else if (p2 < 0.35) {
+                    dropStage = "Fuga por Falta de Precios / Catálogo";
+                } else if (p3 < 0.45) {
+                    dropStage = "Duda en CTA ('Café Viajero' sin Formulario)";
+                }
+
+                const converted = dropStage === "CONVERTIDO";
+
+                results.push({
+                    id: u.id,
+                    name: u.name,
+                    type: u.type,
+                    p_hero: parseFloat(p0.toFixed(3)),
+                    p_depth: parseFloat(p1.toFixed(3)),
+                    p_price: parseFloat(p2.toFixed(3)),
+                    p_cta: parseFloat(p3.toFixed(3)),
+                    drop_stage: dropStage,
+                    converted: converted
+                });
+            });
+
+            // Summary Stats
+            const total = results.length;
+            const conversions = results.filter(r => r.converted).length;
+            const convRate = parseFloat(((conversions / total) * 100).toFixed(1));
+            
+            const heroDrops = results.filter(r => r.drop_stage === "Rebote Inmediato (Hero)").length;
+            const heroDropRate = parseFloat(((heroDrops / total) * 100).toFixed(1));
+
+            const priceDrops = results.filter(r => r.drop_stage.includes("Precios")).length;
+            const priceDropRate = parseFloat(((priceDrops / total) * 100).toFixed(1));
+
+            currentSimulationData = {
+                url: targetUrl,
+                total,
+                conversions,
+                convRate,
+                heroDropRate,
+                priceDropRate,
+                results,
+                niche
+            };
+
+            renderReportUI(currentSimulationData);
+        }
+
+        function renderReportUI(data) {
+            document.getElementById('report-timestamp').innerText = new Date().toLocaleString();
+            document.getElementById('rep-target-title').innerText = data.url;
+            document.getElementById('rep-meta-summary').innerText = `Evaluación de funnels con ${data.total} usuarios sintéticos entrelazados en nicho de mercado.`;
+            document.getElementById('rep-overall-score').innerText = `${data.convRate}%`;
+
+            const badge = document.getElementById('rep-score-badge');
+            if (data.convRate < 20) {
+                badge.innerText = 'Riesgo Crítico de Fuga (Pérdida de Leads)';
+                badge.className = 'text-[9px] font-bold text-red-400 bg-red-500/10 px-2 py-0.5 rounded border border-red-500/20';
+            } else if (data.convRate < 40) {
+                badge.innerText = 'Rendimiento Moderado (Optimizable)';
+                badge.className = 'text-[9px] font-bold text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20';
+            } else {
+                badge.innerText = 'Excelente Tasa de Retención Cuántica';
+                badge.className = 'text-[9px] font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20';
+            }
+
+            document.getElementById('kpi-conv-rate').innerText = `${data.convRate}%`;
+            document.getElementById('kpi-conv-sub').innerText = `${data.conversions} de ${data.total} completaron embudo`;
+            document.getElementById('kpi-hero-drop').innerText = `${data.heroDropRate}%`;
+            document.getElementById('kpi-price-drop').innerText = `${data.priceDropRate}%`;
+
+            // Retention progression
+            const p0Avg = (data.results.reduce((s, r) => s + r.p_hero, 0) / data.total) * 100;
+            const p1Avg = (data.results.reduce((s, r) => s + r.p_depth, 0) / data.total) * 100;
+            const p2Avg = (data.results.reduce((s, r) => s + r.p_price, 0) / data.total) * 100;
+
+            document.getElementById('funnel-p0-val').innerText = `${p0Avg.toFixed(1)}% Retención`;
+            document.getElementById('funnel-p0-bar').style.width = `${p0Avg.toFixed(1)}%`;
+
+            document.getElementById('funnel-p1-val').innerText = `${p1Avg.toFixed(1)}% Tolerancia`;
+            document.getElementById('funnel-p1-bar').style.width = `${p1Avg.toFixed(1)}%`;
+
+            document.getElementById('funnel-p2-val').innerText = `${p2Avg.toFixed(1)}% Tolerancia`;
+            document.getElementById('funnel-p2-bar').style.width = `${p2Avg.toFixed(1)}%`;
+
+            document.getElementById('funnel-p3-val').innerText = `${data.convRate}% Conversión Final`;
+            document.getElementById('funnel-p3-bar').style.width = `${data.convRate}%`;
+
+            // Recommendations
+            const recGrid = document.getElementById('recommendations-grid');
+            recGrid.innerHTML = `
+                <div class="bg-slate-900/60 p-5 rounded-2xl border border-white/5 space-y-3">
+                    <div class="w-8 h-8 rounded-xl bg-purple-500/20 text-purple-300 flex items-center justify-center font-black text-xs">
+                        1
+                    </div>
+                    <h4 class="font-black text-sm italic text-white">Anclaje Inmediato en Hero</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Sustituir frases poéticas abstractas por la propuesta de valor directa: <strong>"Diseñamos tu Luna de Miel a Medida • Rutas Exclusivas 100% Personalizadas"</strong> para reducir el 85% de rebote en los primeros 5 segundos.
+                    </p>
+                </div>
+                <div class="bg-slate-900/60 p-5 rounded-2xl border border-white/5 space-y-3">
+                    <div class="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center font-black text-xs">
+                        2
+                    </div>
+                    <h4 class="font-black text-sm italic text-white">Estructura Escaneable (3 Pilares)</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Eliminar el párrafo monolítico de 103 palabras ("No tenemos folletos...") y sustituirlo por 3 tarjetas con iconos claros: Asistencia 24/7, Presupuestos Transparentes y Experiencias de Autor.
+                    </p>
+                </div>
+                <div class="bg-slate-900/60 p-5 rounded-2xl border border-white/5 space-y-3">
+                    <div class="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center font-black text-xs">
+                        3
+                    </div>
+                    <h4 class="font-black text-sm italic text-white">CTA Directo + Cotizador Exprés</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Cambiar "¿Quieres un Café Viajero?" por un botón de acción inequívoco: <strong>"Cotizar Mi Luna de Miel por WhatsApp"</strong> e incrustar un mini formulario de 2 campos directamente en la Home.
+                    </p>
+                </div>
+            `;
+
+            // Users Table
+            const tbody = document.getElementById('users-table-body');
+            tbody.innerHTML = data.results.map(r => `
+                <tr class="hover:bg-white/5 transition-colors">
+                    <td class="py-2.5 px-2 font-bold text-slate-400">${r.id}</td>
+                    <td class="py-2.5 px-3 font-sans font-bold text-white">${r.name}</td>
+                    <td class="py-2.5 px-3 font-sans text-slate-400">${r.type}</td>
+                    <td class="py-2.5 px-3 text-center text-purple-300">${r.p_hero}</td>
+                    <td class="py-2.5 px-3 text-center text-indigo-300">${r.p_depth}</td>
+                    <td class="py-2.5 px-3 text-center text-amber-300">${r.p_price}</td>
+                    <td class="py-2.5 px-3 text-center text-emerald-300">${r.p_cta}</td>
+                    <td class="py-2.5 px-3 font-sans">
+                        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px] font-bold ${
+                            r.converted 
+                                ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' 
+                                : 'bg-red-500/10 text-red-400 border border-red-500/20'
+                        }">
+                            <i class="${r.converted ? 'ri-check-line' : 'ri-close-line'}"></i>
+                            ${r.drop_stage}
+                        </span>
+                    </td>
+                </tr>
+            `).join('');
+
+            // Update Email Body Draft
+            document.getElementById('email-body').value = 
+`Hola,
+
+Te comparto los resultados del Reporte de Auditoría Cuántica UX & Neuromarketing realizado sobre: ${data.url}
+
+📊 Resultados Clave:
+• Tasa de Conversión Cuántica Estimada: ${data.convRate}%
+• Fuga Inmediata en Hero (Primeros 5 segundos): ${data.heroDropRate}%
+• Fuga por Falta de Precios / Catálogos: ${data.priceDropRate}%
+
+💡 Recomendaciones Principales:
+1. Reemplazar claim poético por propuesta de valor directa en el H1.
+2. Dividir texto largo en 3 tarjetas de beneficios escaneables.
+3. Sustituir CTA metafórico ('Café') por llamada directa a WhatsApp y mini formulario en la Home.
+
+Generado automáticamente por Lifextreme Quantum Lab.`;
+        }
+
+        // ============================================================
+        // PDF EXPORT
+        // ============================================================
+        function downloadReportPDF() {
+            const reportEl = document.getElementById('printable-report');
+            if (!reportEl) return;
+
+            const domain = (currentSimulationData?.url || 'web').replace(/https?:\/\//, '').replace(/[^a-zA-Z0-9]/g, '_');
+            const filename = `Reporte_Auditoria_Cuantica_UX_${domain}.pdf`;
+
+            const opt = {
+                margin:       [10, 10, 10, 10],
+                filename:     filename,
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2, useCORS: true, backgroundColor: '#030712' },
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            // Use html2pdf or fallback to window.print
+            if (window.html2pdf) {
+                html2pdf().set(opt).from(reportEl).save();
+            } else {
+                window.print();
+            }
+        }
+
+        // ============================================================
+        // EMAIL & WHATSAPP SHARING
+        // ============================================================
+        function openEmailModal() {
+            document.getElementById('email-modal').classList.remove('hidden');
+        }
+
+        function closeEmailModal() {
+            document.getElementById('email-modal').classList.add('hidden');
+        }
+
+        function sendEmailReport() {
+            const recipient = document.getElementById('email-recipient').value;
+            const subject = encodeURIComponent(document.getElementById('email-subject').value);
+            const body = encodeURIComponent(document.getElementById('email-body').value);
+            
+            const mailtoUrl = `mailto:${recipient}?subject=${subject}&body=${body}`;
+            window.open(mailtoUrl, '_blank');
+            closeEmailModal();
+        }
+
+        function shareWhatsApp() {
+            if (!currentSimulationData) return;
+            const text = encodeURIComponent(
+`📊 *Reporte de Auditoría Cuántica UX • Lifextreme Lab*
+Web: ${currentSimulationData.url}
+• Tasa de Conversión Estimada: ${currentSimulationData.convRate}%
+• Fuga en Hero: ${currentSimulationData.heroDropRate}%
+• Diagnóstico: Alta fricción cognitiva en textos y CTA ambiguo.
+
+👉 Revisa el reporte completo en PDF.`
+            );
+            window.open(`https://wa.me/?text=${text}`, '_blank');
+        }
+    </script>
+</body>
+</html>
