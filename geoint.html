@@ -668,15 +668,15 @@
                         </button>
                     </div>
 
-                    <!-- SELECTOR DE ESTACIONES METEOROLÓGICAS WINDY (VISIBLE EN NODO 4: SAN BLAS / URUBAMBA) -->
+                    <!-- SELECTOR DE MODO CÁMARA VISUAL ⇄ RADAR METEOROLÓGICO WINDY EN VIVO (VISIBLE EN NODOS 3 Y 4) -->
                     <div id="windy-stations-bar" class="hidden grid-cols-2 gap-1.5 text-[9px] font-mono">
-                        <button onclick="cambiarEstacionWindy('1647468641', 'Cuesta San Blas (Cusco)')"
-                            class="py-1.5 px-2 rounded-xl bg-cyan-500/20 border border-cyan-400 text-cyan-300 hover:bg-cyan-400 hover:text-black font-bold flex items-center justify-center gap-1 transition-all">
-                            <span>🌤️ Webcam Cuesta San Blas</span>
+                        <button id="btn-windy-visual" onclick="activarVistaVisualDestinoActual()"
+                            class="py-1.5 px-2 rounded-xl bg-emerald-500 text-slate-950 font-black flex items-center justify-center gap-1 shadow-md transition-all">
+                            <span id="lbl-windy-visual">📹 Vista Destino En Vivo</span>
                         </button>
-                        <button onclick="cambiarEstacionWindy('1529184518', 'Valle Sagrado (Urubamba)')"
-                            class="py-1.5 px-2 rounded-xl bg-emerald-500/20 border border-emerald-400 text-emerald-300 hover:bg-emerald-400 hover:text-black font-bold flex items-center justify-center gap-1 transition-all">
-                            <span>🏔️ Webcam Urubamba / Valle</span>
+                        <button id="btn-windy-radar" onclick="activarRadarWindyDestinoActual()"
+                            class="py-1.5 px-2 rounded-xl bg-cyan-500/20 border border-cyan-400 text-cyan-300 hover:bg-cyan-400 hover:text-black font-bold flex items-center justify-center gap-1 transition-all">
+                            <span id="lbl-windy-radar">🌤️ Radar Meteorológico Windy</span>
                         </button>
                     </div>
 
@@ -944,7 +944,7 @@
         // 1. CARGAR CÁMARAS Y CONOS DE VISIÓN (FRUSTUMS)
         async function cargarCamarasYFrustums() {
             try {
-                const res = await fetch('/data/cctv.json?v=cusco_6cams_v7');
+                const res = await fetch('/data/cctv.json?v=cusco_6cams_v8');
                 cameraList = await res.json();
             } catch (e) {
                 console.warn('Fallback a 6 cámaras operativas:', e);
@@ -987,34 +987,33 @@
                         "id": "machupicchu-pueblo-aguas-calientes",
                         "name": "3. Machu Picchu Pueblo (Aguas Calientes - Centro / CONSETTUR)",
                         "sector": "Eje Urbano Aguas Calientes • Estación Buses CONSETTUR / Plaza Manco Cápac",
-                        "ubicacion": "Vista hacia el eje urbano de Aguas Calientes y estación de buses CONSETTUR (Toto's House / Plaza Manco Cápac)",
-                        "plataformaBase": "Redes Agregadoras (WorldCam / Webcam Galore)",
+                        "ubicacion": "Vista hacia el eje urbano de Aguas Calientes, Río Vilcanota y estación de buses CONSETTUR (Plaza Manco Cápac)",
+                        "plataformaBase": "Monitoreo Urbano Aguas Calientes & Clima Windy Live",
                         "utilidadGeoint": "Verificación de flujo masivo hacia la Llaqta, acumulación de turistas en parada de buses CONSETTUR y caudal fluvial.",
                         "latitude": -13.1547, "longitude": -72.5254,
                         "altitude": 2040.0, "heading": 215.0, "fovDeg": 65.0, "range": 750.0, "zoom": 16,
-                        "temp": "19.2°C | Flujo CONSETTUR Activo", "sensor": "WorldCam / Webcam Galore • Aguas Calientes",
-                        "liveYoutubeId": "VYCrrXygJfw", "youtubeId": "iJXYvJ-842U",
+                        "temp": "19.2°C | Flujo CONSETTUR Activo", "sensor": "Cámara Eje Urbano Aguas Calientes / CONSETTUR",
+                        "youtubeId": "U3q6yy7LBcM",
                         "streamUrl": "/api/cusco-cam?cam=plaza_mayor&type=m3u8",
-                        "externalUrl": "https://worldcam.eu/webcams/south-america/peru/16873-machu-picchu-aguas-calientes",
-                        "externalLabel": "🚌 Cámara Aguas Calientes / CONSETTUR",
-                        "format": "live"
+                        "externalUrl": "#aguas-calientes-consettur",
+                        "externalLabel": "🚌 Ver Eje Urbano Aguas Calientes / Parada CONSETTUR",
+                        "format": "aguas_calientes"
                     },
                     {
                         "id": "valle-sagrado-san-blas-urubamba",
                         "name": "4. Valle Sagrado / San Blas (Cuesta San Blas / Urubamba)",
-                        "sector": "Windy Webcams API / Lookr • Ruta hacia Ollantaytambo",
-                        "ubicacion": "Estaciones meteorológicas con webcam en San Blas y comederos/miradores en el Valle Sagrado (Urubamba)",
-                        "plataformaBase": "Windy Webcams API / Lookr (IDs 1647468641 & 1529184518)",
-                        "utilidadGeoint": "Monitoreo de nubosidad orográfica, visibilidad y precipitaciones en ruta hacia Ollantaytambo.",
+                        "sector": "Windy Live Radar & Visual • Ruta hacia Ollantaytambo",
+                        "ubicacion": "Estaciones meteorológicas en San Blas y miradores en el Valle Sagrado (Urubamba - Ollantaytambo)",
+                        "plataformaBase": "Windy Live Telemetry & Visual Valle Sagrado",
+                        "utilidadGeoint": "Monitoreo en tiempo real de nubosidad orográfica, visibilidad y precipitaciones en ruta hacia Ollantaytambo.",
                         "latitude": -13.3075, "longitude": -72.1165,
                         "altitude": 2870.0, "heading": 295.0, "fovDeg": 68.0, "range": 950.0, "zoom": 14,
-                        "temp": "17.5°C | Visibilidad Ruta Ollantaytambo", "sensor": "Windy Webcams API / Lookr • San Blas & Urubamba",
-                        "windyId": "1647468641", "windySecondaryId": "1529184518",
-                        "embedUrl": "https://webcams.windy.com/webcams/public/embed/player/1647468641/day",
+                        "temp": "17.5°C | Visibilidad Ruta Ollantaytambo", "sensor": "Windy Live Telemetry • San Blas & Urubamba",
+                        "windyLat": -13.3075, "windyLon": -72.1165,
                         "youtubeId": "Tijc2eMhZ0A",
                         "streamUrl": "/api/cusco-cam?cam=plaza_mayor&type=m3u8",
                         "externalUrl": "#windy-valle-sagrado",
-                        "externalLabel": "🌤️ Alternar Estación San Blas ⇄ Valle Sagrado Urubamba",
+                        "externalLabel": "🌤️ Alternar Vista Visual Valle Sagrado ⇄ Radar Windy En Vivo",
                         "format": "windy_embed"
                     },
                     {
@@ -1470,8 +1469,20 @@
             reproducirCamaraRealSkyline('831', 'aeropuerto_cusco', '1. PISTA ACTIVA 28/10 • AEROPUERTO VELASCO ASTETE CUSCO');
         }
 
-        // CAMBIAR ENTRE WEBCAM METEOROLÓGICA CUESTA SAN BLAS Y VALLE SAGRADO URUBAMBA (WINDY API / LOOKR)
-        function cambiarEstacionWindy(windyId, stationTitle) {
+        // CONMUTAR ENTRE VISTA VISUAL 4K DEL DESTINO Y RADAR METEOROLÓGICO WINDY EN VIVO (NODOS 3 Y 4)
+        function activarVistaVisualDestinoActual() {
+            const cam = cameraList[currentCamIndex];
+            if (!cam) return;
+            const yid = cam.youtubeId || (currentCamIndex === 2 ? 'U3q6yy7LBcM' : 'Tijc2eMhZ0A');
+            cargarStreamYouTube(yid, cam.name);
+        }
+
+        function activarRadarWindyDestinoActual() {
+            const cam = cameraList[currentCamIndex];
+            const lat = cam ? cam.latitude : -13.3075;
+            const lon = cam ? cam.longitude : -72.1165;
+            const title = cam ? cam.name : '4. Valle Sagrado / San Blas (Windy Live)';
+
             detenerWebRTCActivo();
             if (hlsInstance) {
                 hlsInstance.destroy();
@@ -1486,10 +1497,10 @@
             }
             if (iframeWrapper) iframeWrapper.classList.remove('hidden');
             if (iframe) {
-                iframe.src = `https://webcams.windy.com/webcams/public/embed/player/${windyId}/day`;
+                iframe.src = `https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=mm&metricTemp=°C&metricWind=kt&zoom=11&overlay=clouds&product=ecmwf&level=surface&lat=${lat}&lon=${lon}&detailLat=${lat}&detailLon=${lon}&marker=true`;
             }
-            document.getElementById('active-codec-badge').innerText = `🌤️ WINDY WEBCAM LIVE (${windyId})`;
-            document.getElementById('monitor-title').innerText = `4. ${stationTitle.toUpperCase()}`;
+            document.getElementById('active-codec-badge').innerText = '🌤️ WINDY TELEMETRÍA EN VIVO';
+            document.getElementById('monitor-title').innerText = title.toUpperCase();
         }
 
         // MOSTRAR CONSOLA PROPIA DE ALERTAS VIALES SUTRAN V2.0 EN EL MONITOR DERECHO
@@ -1544,7 +1555,7 @@
             if (locEl) locEl.innerText = cam.ubicacion || cam.sector || '';
             if (utilEl) utilEl.innerText = cam.utilidadGeoint || 'Monitoreo táctico en tiempo real.';
 
-            // Mostrar/ocultar barras de controles específicos (Aeropuerto vs Windy Webcams)
+            // Mostrar/ocultar barras de controles específicos (Aeropuerto vs Nodos 3 y 4)
             const airportBar = document.getElementById('airport-indicators-bar');
             const windyBar = document.getElementById('windy-stations-bar');
             if (airportBar) {
@@ -1557,16 +1568,25 @@
                 }
             }
             if (windyBar) {
-                if (cam.format === 'windy_embed') {
+                if (cam.format === 'windy_embed' || cam.format === 'aguas_calientes') {
                     windyBar.classList.remove('hidden');
                     windyBar.classList.add('grid');
+                    const lblVis = document.getElementById('lbl-windy-visual');
+                    const lblRad = document.getElementById('lbl-windy-radar');
+                    if (cam.format === 'aguas_calientes') {
+                        if (lblVis) lblVis.innerText = '🚌 Vista Aguas Calientes / CONSETTUR';
+                        if (lblRad) lblRad.innerText = '🌧️ Clima & Nubosidad Machu Picchu';
+                    } else {
+                        if (lblVis) lblVis.innerText = '🏔️ Vista Valle Sagrado / Urubamba';
+                        if (lblRad) lblRad.innerText = '🌤️ Radar Windy San Blas / Urubamba';
+                    }
                 } else {
                     windyBar.classList.add('hidden');
                     windyBar.classList.remove('grid');
                 }
             }
 
-            // Configurar botón inferior (sin salir de la plataforma en Aeropuertos, SUTRAN y Windy)
+            // Configurar botón inferior (sin salir de la plataforma en Aeropuertos, SUTRAN y Destinos Cusco)
             const extBtn = document.getElementById('btn-external-portal');
             if (extBtn) {
                 if (cam.format === 'flightradar') {
@@ -1585,14 +1605,14 @@
                         map.flyTo([-13.2583, -72.2639], 9, { duration: 1.3 });
                     };
                     extBtn.innerText = '🛣️ Enfocar Corredor Vial Cusco - Ollantaytambo - Machu Picchu';
-                } else if (cam.format === 'windy_embed') {
+                } else if (cam.format === 'windy_embed' || cam.format === 'aguas_calientes') {
                     extBtn.removeAttribute('target');
                     extBtn.href = 'javascript:void(0)';
                     extBtn.onclick = (e) => {
                         e.preventDefault();
-                        cambiarEstacionWindy('1529184518', 'Valle Sagrado (Urubamba)');
+                        activarRadarWindyDestinoActual();
                     };
-                    extBtn.innerText = '🌤️ Conmutar Cuesta San Blas ⇄ Valle Sagrado Urubamba';
+                    extBtn.innerText = cam.externalLabel || '🌤️ Ver Radar Meteorológico Windy En Vivo en Monitor';
                 } else {
                     extBtn.setAttribute('target', '_blank');
                     extBtn.onclick = null;
@@ -1614,11 +1634,18 @@
                 mostrarOverlayMapaSutran(true);
                 map.flyTo([-13.45, -72.10], 7, { duration: 1.4 });
                 mostrarTableroSutranPropio();
+            } else if (cam.format === 'aguas_calientes') {
+                // Nodo 3: Machu Picchu Pueblo (Aguas Calientes - Plaza Manco Cápac, Río y Estación CONSETTUR)
+                mostrarOverlayMapaRadarNacional(false, null);
+                mostrarOverlayMapaSutran(false);
+                map.flyTo([cam.latitude, cam.longitude], cam.zoom || 16, { duration: 1.4 });
+                cargarStreamYouTube(cam.youtubeId || 'U3q6yy7LBcM', cam.name);
             } else if (cam.format === 'windy_embed') {
+                // Nodo 4: Valle Sagrado / San Blas (Urubamba - Ollantaytambo + Radar Meteorológico Windy En Vivo)
                 mostrarOverlayMapaRadarNacional(false, null);
                 mostrarOverlayMapaSutran(false);
                 map.flyTo([cam.latitude, cam.longitude], cam.zoom || 14, { duration: 1.4 });
-                cambiarEstacionWindy(cam.windyId || '1647468641', 'Cuesta San Blas & Valle Sagrado');
+                activarRadarWindyDestinoActual();
             } else {
                 mostrarOverlayMapaRadarNacional(false, null);
                 mostrarOverlayMapaSutran(false);
