@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>God's Eye View | Centro de Comando Geoespacial 3D & Cámaras en Vivo (GEOINT Cusco)</title>
-    <meta name="description" content="Centro de comando táctico 3D y monitoreo satelital en vivo con cámaras CCTV, visión térmica FLIR, GPS de guías y alertas SUTRAN.">
+    <meta name="description" content="Centro de comando táctico 3D con monitoreo de cámaras en vivo, mapa satelital, visión térmica FLIR y telemetría de expediciones andinas.">
 
     <!-- TAILWIND CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -16,9 +16,9 @@
                     colors: {
                         slate: {
                             950: '#040711',
-                            900: '#090f1d',
-                            850: '#0e1628',
-                            800: '#162238'
+                            900: '#080e1b',
+                            850: '#0d1527',
+                            800: '#141f35'
                         },
                         emerald: {
                             400: '#34d399',
@@ -54,34 +54,32 @@
         .glow-cyan {
             box-shadow: 0 0 30px -5px rgba(34, 211, 238, 0.25);
         }
-        .glow-red {
-            box-shadow: 0 0 30px -5px rgba(239, 68, 68, 0.4);
-        }
 
         /* RETÍCULA MILITAR / HUD */
         .hud-grid {
             background-image: 
-                linear-gradient(rgba(16, 185, 129, 0.06) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(16, 185, 129, 0.06) 1px, transparent 1px);
-            background-size: 40px 40px;
+                linear-gradient(rgba(16, 185, 129, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(16, 185, 129, 0.05) 1px, transparent 1px);
+            background-size: 32px 32px;
         }
 
-        /* FILTRO FLIR TÉRMICO INFRARROJO */
+        /* FLIR TÉRMICO SOBRE EL VIDEO */
         .flir-filter {
-            filter: contrast(200%) hue-rotate(190deg) invert(100%) saturate(250%) !important;
+            filter: contrast(220%) hue-rotate(185deg) invert(100%) saturate(280%) !important;
         }
 
-        /* SCANLINE TÁCTICO DE CÁMARA */
+        /* SCANLINE TÁCTICO */
         @keyframes scanline-radar {
             0% { transform: translateY(-100%); }
-            100% { transform: translateY(800%); }
+            100% { transform: translateY(700%); }
         }
         .radar-scan {
             position: absolute;
             top: 0; left: 0; right: 0; height: 3px;
             background: linear-gradient(180deg, transparent, rgba(52, 211, 153, 0.9), transparent);
-            animation: scanline-radar 3.5s linear infinite;
+            animation: scanline-radar 3s linear infinite;
             pointer-events: none;
+            z-index: 10;
         }
 
         /* LEAFLET CUSTOM STYLING */
@@ -90,22 +88,21 @@
             font-family: 'JetBrains Mono', monospace !important;
         }
         .leaflet-popup-content-wrapper {
-            background: #090f1d !important;
+            background: #080e1b !important;
             color: #e2e8f0 !important;
             border: 1px solid #10b981 !important;
-            border-radius: 14px !important;
-            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.9) !important;
+            border-radius: 12px !important;
         }
         .leaflet-popup-tip {
-            background: #090f1d !important;
+            background: #080e1b !important;
         }
 
-        /* SCROLLBAR */
+        /* CUSTOM SCROLLBAR */
         .custom-scrollbar::-webkit-scrollbar {
             width: 5px;
         }
         .custom-scrollbar::-webkit-scrollbar-track {
-            background: #090f1d;
+            background: #080e1b;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
             background: #1e293b;
@@ -129,33 +126,20 @@
                     <div class="flex items-center gap-2">
                         <span class="font-black text-white text-base tracking-tight font-mono">GOD'S EYE VIEW</span>
                         <span class="px-2 py-0.5 rounded-full text-[9px] font-mono font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                            GEOINT 3D WAR ROOM
+                            WAR ROOM 3D & CCTV
                         </span>
                     </div>
-                    <span class="text-[10px] text-slate-400 font-mono block">Cámaras Satelitales en Vivo & Monitoreo Andino</span>
+                    <span class="text-[10px] text-slate-400 font-mono block">Centro de Monitoreo de Rutas & Cámaras Satelitales en Vivo</span>
                 </div>
             </a>
         </div>
 
-        <div class="flex items-center gap-2 sm:gap-4">
-            <!-- BOTÓN GRID 4 CÁMARAS -->
-            <button onclick="toggleMultiCamGrid()" 
-                class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-mono font-bold text-emerald-300 border border-emerald-500/30 transition-all flex items-center gap-1.5 shadow-sm">
-                <span>🔲 Grid 4 Cámaras</span>
-            </button>
-
-            <!-- INDICADORES EN VIVO -->
-            <div class="hidden lg:flex items-center gap-3 bg-slate-950 px-3 py-1.5 rounded-xl border border-slate-800 text-xs font-mono">
-                <div class="flex items-center gap-1.5">
-                    <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                    <span class="text-slate-400">Stream CCTV:</span>
-                    <span class="text-emerald-300 font-bold">4 Feeds Online</span>
-                </div>
-                <div class="h-3 w-px bg-slate-800"></div>
-                <div class="flex items-center gap-1.5">
-                    <span class="text-slate-400">SUTRAN:</span>
-                    <span class="text-cyan-300 font-bold">Vía Libre (Croma API)</span>
-                </div>
+        <div class="flex items-center gap-2 sm:gap-3">
+            <!-- INDICADOR EN VIVO -->
+            <div class="flex items-center gap-2 bg-slate-950 px-3 py-1.5 rounded-xl border border-slate-800 text-xs font-mono">
+                <span class="h-2 w-2 rounded-full bg-red-500 animate-pulse"></span>
+                <span class="text-slate-400">Transmisión:</span>
+                <span id="header-stream-status" class="text-emerald-300 font-bold">EN DIRECTO (4K)</span>
             </div>
 
             <a href="/hub" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-300 transition-colors flex items-center gap-1.5">
@@ -164,160 +148,134 @@
 
             <button onclick="activarAlertaSOS()" 
                 class="px-3 py-1.5 rounded-xl bg-red-600/90 hover:bg-red-500 text-xs font-black text-white transition-all flex items-center gap-1 shadow-lg shadow-red-600/30 animate-pulse">
-                <span>🚨 ALERTA SOS</span>
+                <span>🚨 SOS</span>
             </button>
         </div>
     </header>
 
-    <!-- ÁREA DE OPERACIONES (MAPA SATELITAL + HUD + CÁMARAS) -->
-    <main class="flex-1 flex flex-col lg:flex-row relative overflow-hidden">
+    <!-- CUERPO PRINCIPAL: DISEÑO SPLIT 3 COLUMNAS TÁCTICAS -->
+    <main class="flex-1 flex flex-col xl:flex-row relative overflow-hidden">
 
-        <!-- BARRA LATERAL IZQUIERDA: SELECTOR DE ZONAS Y CAPAS (340px) -->
-        <aside class="w-full lg:w-80 bg-slate-900 border-r border-slate-800 p-4 flex flex-col justify-between overflow-y-auto custom-scrollbar z-20 space-y-4">
+        <!-- ======================================================== -->
+        <!-- COLUMNA 1 (IZQUIERDA, 280px): SELECTOR DE CÁMARAS Y CAPAS -->
+        <!-- ======================================================== -->
+        <aside class="w-full xl:w-72 bg-slate-900 border-r border-slate-800 p-4 flex flex-col justify-between overflow-y-auto custom-scrollbar z-20 space-y-4">
             
             <div class="space-y-4">
-                <!-- SELECTOR DE CUADRANTE / SECTOR -->
                 <div>
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-400">
-                            🎯 Cámaras Tácticas (Haz Clic)
-                        </span>
-                        <span class="text-[9px] font-mono text-slate-500">Auto-Stream</span>
-                    </div>
-
+                    <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-400 block mb-2">
+                        📹 Cámaras en Vivo (Selecciona)
+                    </span>
                     <div class="space-y-2 text-xs font-mono">
-                        <!-- CAM 1: MACHU PICCHU -->
-                        <button onclick="selectCameraZone(0)" id="btn-zone-0"
-                            class="zone-btn w-full p-2.5 rounded-xl bg-slate-950 border border-emerald-500/50 hover:border-emerald-400 text-left transition-all flex items-center justify-between group shadow-md shadow-emerald-500/10">
+                        
+                        <!-- BOTÓN CAM 1: MACHU PICCHU -->
+                        <button onclick="sintonizarCamara(0)" id="cam-btn-0"
+                            class="cam-selector-btn w-full p-2.5 rounded-xl bg-slate-950 border-2 border-emerald-500 text-left transition-all flex items-center justify-between group shadow-lg shadow-emerald-500/10">
                             <div>
                                 <span class="font-bold text-white group-hover:text-emerald-300 block flex items-center gap-1.5">
-                                    <span class="h-2 w-2 rounded-full bg-emerald-400 animate-ping"></span>
+                                    <span class="h-2 w-2 rounded-full bg-red-500 animate-ping"></span>
                                     🏛️ Machu Picchu
                                 </span>
-                                <span class="text-[10px] text-slate-400">CAM 01 • Puerta & Santuario (2,430m)</span>
+                                <span class="text-[10px] text-slate-400">CAM 01 • Santuario 2,430m</span>
                             </div>
-                            <span class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-[9px] font-bold">STREAM</span>
+                            <span class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[9px] font-bold">ACTIVA</span>
                         </button>
 
-                        <!-- CAM 2: SALKANTAY PASS -->
-                        <button onclick="selectCameraZone(1)" id="btn-zone-1"
-                            class="zone-btn w-full p-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-emerald-500/60 text-left transition-all flex items-center justify-between group">
+                        <!-- BOTÓN CAM 2: SALKANTAY PASS -->
+                        <button onclick="sintonizarCamara(1)" id="cam-btn-1"
+                            class="cam-selector-btn w-full p-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-emerald-500/60 text-left transition-all flex items-center justify-between group">
                             <div>
                                 <span class="font-bold text-white group-hover:text-emerald-300 block flex items-center gap-1.5">
                                     <span class="h-2 w-2 rounded-full bg-slate-600"></span>
-                                    🏔️ Paso Salkantay
+                                    🏔️ Nevado Salkantay
                                 </span>
-                                <span class="text-[10px] text-slate-400">CAM 02 • Abra Glaciar (4,630m)</span>
+                                <span class="text-[10px] text-slate-400">CAM 02 • Abra Glaciar 4,630m</span>
                             </div>
-                            <span class="text-[10px] text-slate-400 font-bold">RADAR</span>
+                            <span class="text-[10px] text-slate-500 font-bold">VER</span>
                         </button>
 
-                        <!-- CAM 3: PLAZA DE ARMAS CUSCO -->
-                        <button onclick="selectCameraZone(2)" id="btn-zone-2"
-                            class="zone-btn w-full p-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-emerald-500/60 text-left transition-all flex items-center justify-between group">
+                        <!-- BOTÓN CAM 3: PLAZA DE ARMAS CUSCO -->
+                        <button onclick="sintonizarCamara(2)" id="cam-btn-2"
+                            class="cam-selector-btn w-full p-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-emerald-500/60 text-left transition-all flex items-center justify-between group">
                             <div>
                                 <span class="font-bold text-white group-hover:text-emerald-300 block flex items-center gap-1.5">
                                     <span class="h-2 w-2 rounded-full bg-slate-600"></span>
-                                    🏛️ Plaza de Armas Cusco
+                                    🏛️ Cusco Plaza Central
                                 </span>
-                                <span class="text-[10px] text-slate-400">CAM 03 • Central HQ & Catedral</span>
+                                <span class="text-[10px] text-slate-400">CAM 03 • HQ Catedral 3,399m</span>
                             </div>
-                            <span class="text-[10px] text-cyan-400 font-bold">CENTRAL</span>
+                            <span class="text-[10px] text-slate-500 font-bold">VER</span>
                         </button>
 
-                        <!-- CAM 4: OLLANTAYTAMBO TREN -->
-                        <button onclick="selectCameraZone(3)" id="btn-zone-3"
-                            class="zone-btn w-full p-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-emerald-500/60 text-left transition-all flex items-center justify-between group">
+                        <!-- BOTÓN CAM 4: OLLANTAYTAMBO TREN -->
+                        <button onclick="sintonizarCamara(3)" id="cam-btn-3"
+                            class="cam-selector-btn w-full p-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-emerald-500/60 text-left transition-all flex items-center justify-between group">
                             <div>
                                 <span class="font-bold text-white group-hover:text-emerald-300 block flex items-center gap-1.5">
                                     <span class="h-2 w-2 rounded-full bg-slate-600"></span>
                                     🚂 Ollantaytambo Tren
                                 </span>
-                                <span class="text-[10px] text-slate-400">CAM 04 • Terminal PeruRail (2,792m)</span>
+                                <span class="text-[10px] text-slate-400">CAM 04 • Terminal PeruRail</span>
                             </div>
-                            <span class="text-[10px] text-emerald-400 font-bold">CCTV</span>
-                        </button>
-
-                        <!-- AUSANGATE -->
-                        <button onclick="selectCameraZone(4)" id="btn-zone-4"
-                            class="zone-btn w-full p-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-emerald-500/60 text-left transition-all flex items-center justify-between group">
-                            <div>
-                                <span class="font-bold text-white group-hover:text-emerald-300 block flex items-center gap-1.5">
-                                    <span class="h-2 w-2 rounded-full bg-slate-600"></span>
-                                    ❄️ Ausangate & Vinicunca
-                                </span>
-                                <span class="text-[10px] text-slate-400">CAM 05 • 7 Lagunas & Nieve (6,384m)</span>
-                            </div>
-                            <span class="text-[10px] text-amber-400 font-bold">ALERTA</span>
+                            <span class="text-[10px] text-slate-500 font-bold">VER</span>
                         </button>
                     </div>
                 </div>
 
-                <!-- CONTROL DE CAPAS TÁCTICAS -->
-                <div class="pt-3 border-t border-slate-800">
-                    <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 block mb-2">
-                        🛰️ Capas de Sensores Tácticos
+                <!-- CAPAS DE SENSORES -->
+                <div class="pt-3 border-t border-slate-800 space-y-2 text-xs font-mono">
+                    <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 block">
+                        🛰️ Sensores Activos en Mapa
                     </span>
-                    <div class="space-y-2 text-xs font-mono">
-                        <label class="flex items-center justify-between p-2 rounded-xl bg-slate-950 border border-slate-800 cursor-pointer">
-                            <span class="text-slate-300 flex items-center gap-2">
-                                <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
-                                Cámaras CCTV en Vivo
-                            </span>
-                            <input type="checkbox" id="layer-cams" checked onchange="toggleLayer('cams')" class="accent-emerald-500" />
-                        </label>
+                    <label class="flex items-center justify-between p-2 rounded-xl bg-slate-950 border border-slate-800 cursor-pointer">
+                        <span class="text-slate-300 flex items-center gap-2">
+                            <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+                            Pines de Cámaras CCTV
+                        </span>
+                        <input type="checkbox" id="layer-cams" checked onchange="toggleLayer('cams')" class="accent-emerald-500" />
+                    </label>
 
-                        <label class="flex items-center justify-between p-2 rounded-xl bg-slate-950 border border-slate-800 cursor-pointer">
-                            <span class="text-slate-300 flex items-center gap-2">
-                                <span class="h-2 w-2 rounded-full bg-cyan-400"></span>
-                                Guías & Expediciones GPS
-                            </span>
-                            <input type="checkbox" id="layer-gps" checked onchange="toggleLayer('gps')" class="accent-cyan-500" />
-                        </label>
+                    <label class="flex items-center justify-between p-2 rounded-xl bg-slate-950 border border-slate-800 cursor-pointer">
+                        <span class="text-slate-300 flex items-center gap-2">
+                            <span class="h-2 w-2 rounded-full bg-cyan-400"></span>
+                            Expediciones Guías GPS
+                        </span>
+                        <input type="checkbox" id="layer-gps" checked onchange="toggleLayer('gps')" class="accent-cyan-500" />
+                    </label>
 
-                        <label class="flex items-center justify-between p-2 rounded-xl bg-slate-950 border border-slate-800 cursor-pointer">
-                            <span class="text-slate-300 flex items-center gap-2">
-                                <span class="h-2 w-2 rounded-full bg-amber-400"></span>
-                                Alertas Viales SUTRAN (Croma)
-                            </span>
-                            <input type="checkbox" id="layer-sutran" checked onchange="toggleLayer('sutran')" class="accent-amber-500" />
-                        </label>
-                    </div>
+                    <label class="flex items-center justify-between p-2 rounded-xl bg-slate-950 border border-slate-800 cursor-pointer">
+                        <span class="text-slate-300 flex items-center gap-2">
+                            <span class="h-2 w-2 rounded-full bg-amber-400"></span>
+                            Alertas SUTRAN (Croma API)
+                        </span>
+                        <input type="checkbox" id="layer-sutran" checked onchange="toggleLayer('sutran')" class="accent-amber-500" />
+                    </label>
                 </div>
 
-                <!-- ESPECIFICACIONES DE CONEXIÓN REAL -->
-                <div class="p-3 rounded-2xl bg-slate-950 border border-slate-800/80 text-[10px] font-mono text-slate-400 space-y-1">
-                    <span class="text-emerald-400 font-bold block mb-1">🔗 TELEMETRÍA DE RED:</span>
-                    <div>PROTOCOLO: <span class="text-slate-200">WebRTC / RTSP-HLS over TLS</span></div>
-                    <div>ENLACE: <span class="text-slate-200">Starlink Mini Satelital Cusco</span></div>
-                    <div>LATENCIA: <span class="text-emerald-400">22 ms</span> | BITRATE: <span class="text-cyan-400">4.8 Mbps</span></div>
-                </div>
-
-            </div>
-
-            <!-- TELEMETRÍA INFERIOR -->
-            <div class="pt-3 border-t border-slate-800 text-[10px] font-mono text-slate-500 space-y-1">
-                <div class="flex justify-between">
-                    <span>SENSOR LAT/LNG:</span>
-                    <span id="coords-readout" class="text-emerald-400">-13.1631, -72.5450</span>
-                </div>
-                <div class="flex justify-between">
-                    <span>ZONA ACTIVA:</span>
-                    <span id="zone-active-label" class="text-slate-300 font-bold">Machu Picchu Gate</span>
+                <!-- ESTADO DE LA RED SATELITAL -->
+                <div class="p-3 rounded-2xl bg-slate-950 border border-slate-800 text-[10px] font-mono text-slate-400 space-y-1">
+                    <span class="text-emerald-400 font-bold block mb-1">🔗 ENLACE DE TRANSMISIÓN:</span>
+                    <div>ENLACE: <span class="text-slate-200">Starlink Satelital Mini Cusco</span></div>
+                    <div>LATENCIA: <span class="text-emerald-400">18 ms</span> | BITRATE: <span class="text-cyan-400">6.2 Mbps</span></div>
+                    <div>RESOLUCIÓN: <span class="text-purple-300 font-bold">4K Ultra HD 60fps</span></div>
                 </div>
             </div>
 
+            <!-- LAT/LNG -->
+            <div class="pt-3 border-t border-slate-800 text-[10px] font-mono text-slate-500 flex justify-between">
+                <span>GPS COORDS:</span>
+                <span id="coords-readout" class="text-emerald-400">-13.1631, -72.5450</span>
+            </div>
         </aside>
 
-        <!-- CONTENEDOR DEL MAPA SATELITAL (LEAFLET / SATELLITE 3D) -->
-        <div class="flex-1 relative h-[500px] lg:h-auto">
-            <!-- RETÍCULA TÁCTICA TRANSPARENTE ENCIMA -->
+        <!-- ======================================================== -->
+        <!-- COLUMNA 2 (CENTRO): MAPA SATELITAL TÁCTICO LEAFLET -->
+        <!-- ======================================================== -->
+        <div class="flex-1 relative h-[360px] xl:h-auto min-h-[350px]">
             <div class="absolute inset-0 pointer-events-none z-10 hud-grid opacity-30"></div>
-            
-            <!-- CONTENEDOR MAPA -->
             <div id="map" class="w-full h-full"></div>
 
-            <!-- BOTONES FLOTANTES DE MODO DE MAPA (SATÉLITE / NOCTURNO / TÉRMICO) -->
+            <!-- CONTROLES FLOTANTES DEL MAPA -->
             <div class="absolute bottom-4 left-4 z-20 flex items-center gap-2">
                 <button onclick="setMapBase('satellite')" id="btn-mode-sat"
                     class="px-3 py-1.5 rounded-xl bg-emerald-500 text-slate-950 text-xs font-mono font-bold shadow-lg shadow-emerald-500/20 border border-emerald-400">
@@ -325,118 +283,125 @@
                 </button>
                 <button onclick="setMapBase('dark')" id="btn-mode-dark"
                     class="px-3 py-1.5 rounded-xl bg-slate-900/90 text-slate-300 text-xs font-mono font-bold hover:text-white border border-slate-700 shadow-lg">
-                    🌑 Dark Matter
-                </button>
-                <button onclick="toggleThermalFLIR()" id="btn-mode-flir"
-                    class="px-3 py-1.5 rounded-xl bg-slate-900/90 text-red-400 text-xs font-mono font-bold hover:text-red-300 border border-red-500/40 shadow-lg">
-                    🔥 FLIR Térmico
+                    🌑 Táctico
                 </button>
             </div>
-
-            <!-- PANEL FLOTANTE EN VIVO DE LA CÁMARA ACTIVA (VISIBLE POR DEFECTO EN PANTALLA) -->
-            <div id="cctv-pip-window" class="absolute top-4 right-4 z-30 w-80 sm:w-96 bg-slate-950/95 border-2 border-emerald-500 rounded-2xl overflow-hidden shadow-2xl glow-emerald backdrop-blur-md">
-                
-                <!-- HEADER DE LA CÁMARA -->
-                <div class="bg-slate-900 px-3.5 py-2 flex items-center justify-between border-b border-slate-800">
-                    <div class="flex items-center gap-2">
-                        <span class="h-2 w-2 rounded-full bg-red-500 animate-pulse"></span>
-                        <span id="cctv-pip-title" class="text-xs font-mono font-bold text-white truncate max-w-[200px]">
-                            CAM 01 • MACHU PICCHU GATEWAY
-                        </span>
-                    </div>
-                    <div class="flex items-center gap-1.5">
-                        <button onclick="toggleFLIRStream()" id="btn-cctv-flir" 
-                            class="px-2 py-0.5 rounded bg-slate-800 text-[9px] font-mono text-emerald-300 border border-emerald-500/40 hover:bg-emerald-500 hover:text-black transition-colors">
-                            FLIR
-                        </button>
-                        <button onclick="minimizePIP()" class="text-slate-400 hover:text-white font-mono text-xs px-1">_</button>
-                    </div>
-                </div>
-
-                <!-- CONTENEDOR DE VIDEO DE LA CÁMARA (STREAM DIRECTO EN BUCLE 60FPS) -->
-                <div id="cctv-video-container" class="relative h-48 sm:h-56 bg-black overflow-hidden group">
-                    <div class="radar-scan"></div>
-                    
-                    <!-- VIDEO ELEMENT CON TRANSMISIÓN REAL -->
-                    <video id="cctv-video-player" autoplay loop muted playsinline 
-                        class="w-full h-full object-cover transition-all duration-300"
-                        src="https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-machu-picchu-42171-large.mp4">
-                    </video>
-                    
-                    <!-- OVERLAY DE RETÍCULA Y HUD -->
-                    <div class="absolute top-2 left-2 text-[10px] font-mono text-emerald-400 bg-slate-950/80 px-2 py-0.5 rounded border border-emerald-500/30 flex items-center gap-1.5">
-                        <span class="h-1.5 w-1.5 rounded-full bg-red-500 animate-ping"></span>
-                        LIVE ● <span id="cctv-clock">16:25:10 UTC</span>
-                    </div>
-
-                    <div class="absolute top-2 right-2 text-[9px] font-mono text-cyan-300 bg-slate-950/80 px-2 py-0.5 rounded border border-cyan-500/30">
-                        FPS: 60.0 • 4K UHD
-                    </div>
-
-                    <div class="absolute bottom-2 left-2 text-[10px] font-mono text-slate-300 bg-slate-950/85 px-2 py-0.5 rounded border border-slate-800 space-y-0.5">
-                        <div>TEMP: <span id="cctv-temp" class="text-cyan-400">17.4°C</span> | VIENTO: <span id="cctv-wind" class="text-cyan-400">12 km/h</span></div>
-                        <div>ELEV: <span id="cctv-elev" class="text-emerald-400">2,430m</span> | SENSOR: <span id="cctv-sensor-model" class="text-slate-400">AXIS Q6215 PTZ</span></div>
-                    </div>
-
-                    <div class="absolute bottom-2 right-2 flex gap-1">
-                        <span id="pip-status-badge" class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[9px] font-mono font-bold border border-emerald-500/30">
-                            SIGNAL: 100%
-                        </span>
-                    </div>
-                </div>
-
-                <!-- CONTROLES PTZ (PAN - TILT - ZOOM) -->
-                <div class="bg-slate-900 p-2.5 flex items-center justify-between text-xs font-mono">
-                    <div class="flex items-center gap-1">
-                        <button onclick="ptzAction('left')" class="px-2 py-0.5 rounded bg-slate-950 border border-slate-800 text-slate-300 hover:text-white">◀</button>
-                        <button onclick="ptzAction('up')" class="px-2 py-0.5 rounded bg-slate-950 border border-slate-800 text-slate-300 hover:text-white">▲</button>
-                        <button onclick="ptzAction('down')" class="px-2 py-0.5 rounded bg-slate-950 border border-slate-800 text-slate-300 hover:text-white">▼</button>
-                        <button onclick="ptzAction('right')" class="px-2 py-0.5 rounded bg-slate-950 border border-slate-800 text-slate-300 hover:text-white">▶</button>
-                    </div>
-                    <span class="text-[9px] text-slate-400">PTZ OPTICAL CONTROL</span>
-                </div>
-
-            </div>
-
         </div>
+
+        <!-- ======================================================== -->
+        <!-- COLUMNA 3 (DERECHA, 500px): MONITOR PRINCIPAL DE VIDEO CCTV -->
+        <!-- ======================================================== -->
+        <aside class="w-full xl:w-[480px] bg-slate-900 border-l border-slate-800 p-4 flex flex-col justify-between overflow-y-auto custom-scrollbar z-20 space-y-4">
+            
+            <div class="space-y-4">
+                
+                <!-- HEADER DEL MONITOR DE VIDEO -->
+                <div class="flex items-center justify-between pb-2 border-b border-slate-800">
+                    <div class="flex items-center gap-2">
+                        <span class="h-2.5 w-2.5 rounded-full bg-red-500 animate-pulse"></span>
+                        <h3 id="monitor-title" class="text-xs font-mono font-bold text-white uppercase tracking-wider">
+                            CAM 01 • SANTUARIO MACHU PICCHU
+                        </h3>
+                    </div>
+
+                    <!-- BOTÓN MODO FLIR TÉRMICO -->
+                    <button onclick="toggleFLIRMode()" id="btn-flir-toggle"
+                        class="px-2.5 py-1 rounded-xl bg-slate-950 border border-red-500/50 text-red-400 hover:bg-red-500 hover:text-white text-[10px] font-mono font-bold transition-all flex items-center gap-1 shadow-sm">
+                        <span>🔥 FLIR TÉRMICO</span>
+                    </button>
+                </div>
+
+                <!-- CONTENEDOR PRINCIPAL DEL VIDEO (TRANSMISIÓN EN VIVO 100% VISIBLE) -->
+                <div class="relative w-full aspect-video rounded-2xl overflow-hidden border-2 border-emerald-500 bg-black shadow-2xl glow-emerald group">
+                    <div class="radar-scan"></div>
+
+                    <!-- IFRAME DE VIDEO YOUTUBE STREAMING CON REPRODUCCIÓN AUTOMÁTICA -->
+                    <div id="video-wrapper" class="w-full h-full relative">
+                        <iframe id="cctv-stream-frame" 
+                            class="w-full h-full object-cover transition-all duration-300"
+                            src="https://www.youtube-nocookie.com/embed/Tve1V3L9qEw?autoplay=1&mute=1&loop=1&playlist=Tve1V3L9qEw&controls=0&modestbranding=1&rel=0"
+                            title="Transmisión Táctica en Vivo"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+
+                    <!-- OVERLAY SUPERIOR: REC Y HORA UTC REAL -->
+                    <div class="absolute top-2.5 left-2.5 pointer-events-none z-20 flex items-center gap-2 bg-slate-950/80 backdrop-blur-md px-2.5 py-1 rounded-lg border border-emerald-500/40 text-[10px] font-mono text-emerald-300">
+                        <span class="h-2 w-2 rounded-full bg-red-500 animate-ping"></span>
+                        <span>EN VIVO ●</span>
+                        <span id="cctv-live-clock" class="text-white font-bold">16:42:15 UTC</span>
+                    </div>
+
+                    <div class="absolute top-2.5 right-2.5 pointer-events-none z-20 bg-slate-950/80 backdrop-blur-md px-2 py-1 rounded-lg border border-slate-700 text-[9px] font-mono text-cyan-300">
+                        ● 4K UHD 60 FPS
+                    </div>
+
+                    <!-- OVERLAY INFERIOR: TELEMETRÍA DEL SENSOR -->
+                    <div class="absolute bottom-2.5 left-2.5 right-2.5 pointer-events-none z-20 flex items-center justify-between bg-slate-950/85 backdrop-blur-md px-3 py-1.5 rounded-xl border border-slate-800 text-[10px] font-mono">
+                        <div>
+                            <span class="text-slate-400">TEMP:</span> <span id="monitor-temp" class="text-cyan-300 font-bold">17.4°C</span>
+                            <span class="text-slate-600 mx-1">|</span>
+                            <span class="text-slate-400">ELEV:</span> <span id="monitor-elev" class="text-emerald-300 font-bold">2,430m</span>
+                        </div>
+                        <div>
+                            <span class="text-slate-400">SENSOR:</span> <span id="monitor-sensor" class="text-slate-200">AXIS Q6215 PTZ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONTROLES TÁCTICOS PTZ (PAN - TILT - ZOOM) -->
+                <div class="p-3 rounded-2xl bg-slate-950 border border-slate-800 flex items-center justify-between text-xs font-mono">
+                    <span class="text-slate-400 text-[10px] font-bold">CONTROLES PTZ VIRTUALES:</span>
+                    <div class="flex items-center gap-1.5">
+                        <button onclick="ptzZoom('in')" class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-emerald-400 hover:bg-slate-800 font-bold text-xs">+</button>
+                        <button onclick="ptzZoom('out')" class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-emerald-400 hover:bg-slate-800 font-bold text-xs">-</button>
+                        <button onclick="ptzPan('reset')" class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:bg-slate-800 text-[10px]">Centrar</button>
+                    </div>
+                </div>
+
+                <!-- MINICATÁLOGO DE LAS 4 CÁMARAS PARA CAMBIO RÁPIDO (1 CLIC) -->
+                <div>
+                    <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 block mb-2">
+                        🔲 Selector Rápido de Canales
+                    </span>
+                    <div class="grid grid-cols-2 gap-2 text-xs font-mono">
+                        <button onclick="sintonizarCamara(0)" class="p-2 rounded-xl bg-slate-950 border border-slate-800 hover:border-emerald-500/60 text-left transition-all">
+                            <span class="font-bold text-emerald-400 block">CH-1: Machu Picchu</span>
+                            <span class="text-[9px] text-slate-500">Santuario Arqueológico</span>
+                        </button>
+
+                        <button onclick="sintonizarCamara(1)" class="p-2 rounded-xl bg-slate-950 border border-slate-800 hover:border-emerald-500/60 text-left transition-all">
+                            <span class="font-bold text-cyan-400 block">CH-2: Nevado Salkantay</span>
+                            <span class="text-[9px] text-slate-500">Abra Glaciar 4,630m</span>
+                        </button>
+
+                        <button onclick="sintonizarCamara(2)" class="p-2 rounded-xl bg-slate-950 border border-slate-800 hover:border-emerald-500/60 text-left transition-all">
+                            <span class="font-bold text-purple-400 block">CH-3: Plaza de Armas</span>
+                            <span class="text-[9px] text-slate-500">Cusco Centro Histórico</span>
+                        </button>
+
+                        <button onclick="sintonizarCamara(3)" class="p-2 rounded-xl bg-slate-950 border border-slate-800 hover:border-emerald-500/60 text-left transition-all">
+                            <span class="font-bold text-amber-400 block">CH-4: Tren Ollanta</span>
+                            <span class="text-[9px] text-slate-500">Terminal PeruRail</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- FOOTER INFORMATIVO -->
+            <div class="pt-3 border-t border-slate-800 text-[9px] font-mono text-slate-500 flex justify-between">
+                <span>ESTADO CCTV: <span class="text-emerald-400 font-bold">ONLINE ●</span></span>
+                <span>CÓDEC: H.264 / VP9 UHD</span>
+            </div>
+
+        </aside>
 
     </main>
 
-    <!-- MODAL MOSAICO: GRID MULTI-CÁMARAS 2X2 (WAR ROOM COMPLETO) -->
-    <div id="multicam-modal" class="hidden fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-lg flex flex-col p-4 sm:p-6 overflow-y-auto">
-        <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-4">
-            <div class="flex items-center gap-2">
-                <span class="h-3 w-3 rounded-full bg-emerald-400 animate-pulse"></span>
-                <h3 class="text-lg font-black text-white font-mono">CENTRO DE MONITOREO MULTI-CÁMARA CUSCO (4 FEEDS SIMULTÁNEOS)</h3>
-            </div>
-            <button onclick="toggleMultiCamGrid()" class="px-3 py-1 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-mono font-bold text-white">✕ Cerrar</button>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 flex-1">
-            <!-- FEED 1 -->
-            <div class="rounded-2xl overflow-hidden border border-emerald-500/50 bg-slate-900 relative">
-                <video autoplay loop muted playsinline class="w-full h-56 object-cover" src="https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-machu-picchu-42171-large.mp4"></video>
-                <div class="absolute top-2 left-2 px-2 py-1 bg-black/80 rounded font-mono text-[10px] text-emerald-400">CAM 01: MACHU PICCHU SANTUARY (2,430m)</div>
-            </div>
-            <!-- FEED 2 -->
-            <div class="rounded-2xl overflow-hidden border border-emerald-500/50 bg-slate-900 relative">
-                <video autoplay loop muted playsinline class="w-full h-56 object-cover" src="https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-a-snowy-mountain-range-42583-large.mp4"></video>
-                <div class="absolute top-2 left-2 px-2 py-1 bg-black/80 rounded font-mono text-[10px] text-emerald-400">CAM 02: PASO SALKANTAY GLACIAR (4,630m)</div>
-            </div>
-            <!-- FEED 3 -->
-            <div class="rounded-2xl overflow-hidden border border-cyan-500/50 bg-slate-900 relative">
-                <video autoplay loop muted playsinline class="w-full h-56 object-cover" src="https://assets.mixkit.co/videos/preview/mixkit-ancient-city-streets-surrounded-by-mountains-43038-large.mp4"></video>
-                <div class="absolute top-2 left-2 px-2 py-1 bg-black/80 rounded font-mono text-[10px] text-cyan-400">CAM 03: PLAZA DE ARMAS CUSCO HQ (3,399m)</div>
-            </div>
-            <!-- FEED 4 -->
-            <div class="rounded-2xl overflow-hidden border border-amber-500/50 bg-slate-900 relative">
-                <video autoplay loop muted playsinline class="w-full h-56 object-cover" src="https://assets.mixkit.co/videos/preview/mixkit-train-passing-through-a-mountain-valley-41716-large.mp4"></video>
-                <div class="absolute top-2 left-2 px-2 py-1 bg-black/80 rounded font-mono text-[10px] text-amber-400">CAM 04: TERMINAL PERURAIL OLLANTAYTAMBO (2,792m)</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- SCRIPT DE MAPAS Y TÁCTICA -->
+    <!-- SCRIPT DE MAPAS Y SINTONIZACIÓN CCTV -->
     <script>
         let map;
         let baseLayers = {};
@@ -447,92 +412,75 @@
             sutran: null
         };
         let isFlirActive = false;
-        let cctvFlir = false;
-        let isPipMinimized = false;
+        let currentZoomLevel = 1.0;
 
-        // DEFINICIÓN DE CÁMARAS Y TRANSMISIONES EN VIVO
-        const cameraFeeds = [
+        // LISTA DE CÁMARAS Y TRANSMISIONES EN VIVO (YOUTUBE EMBEDS CON AUTOPLAY)
+        const cameras = [
             {
                 id: 0,
                 name: "CAM 01 • Santuario Machu Picchu",
-                zone: "Puerta de Control & Ciudadela",
                 coords: [-13.1631, -72.5450],
                 zoom: 15,
-                elev: "2,430m",
                 temp: "17.4°C",
-                wind: "12 km/h NW",
-                sensor: "AXIS Q6215-E PTZ DIRCETUR",
-                videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-machu-picchu-42171-large.mp4"
+                elev: "2,430m",
+                sensor: "AXIS Q6215-E PTZ SERNANP",
+                // Video 4K Machu Picchu Sanctuary & Ruins
+                embedUrl: "https://www.youtube-nocookie.com/embed/Tve1V3L9qEw?autoplay=1&mute=1&loop=1&playlist=Tve1V3L9qEw&controls=0&modestbranding=1&rel=0"
             },
             {
                 id: 1,
-                name: "CAM 02 • Abra Nevado Salkantay",
-                zone: "Paso de Montaña Summit",
+                name: "CAM 02 • Paso Nevado Salkantay",
                 coords: [-13.3333, -72.5436],
                 zoom: 14,
-                elev: "4,630m",
                 temp: "-4.2°C",
-                wind: "38 km/h W",
-                sensor: "SENAMHI High-Alpine Thermal Cam",
-                videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-a-snowy-mountain-range-42583-large.mp4"
+                elev: "4,630m",
+                sensor: "SENAMHI Alpine Thermal Station",
+                // Video 4K Salkantay Glacier & High Mountain Trek
+                embedUrl: "https://www.youtube-nocookie.com/embed/Gg87g88kGjI?autoplay=1&mute=1&loop=1&playlist=Gg87g88kGjI&controls=0&modestbranding=1&rel=0"
             },
             {
                 id: 2,
                 name: "CAM 03 • Plaza de Armas Cusco (HQ)",
-                zone: "Centro Histórico & Catedral",
                 coords: [-13.5167, -71.9789],
                 zoom: 15,
-                elev: "3,399m",
                 temp: "16.8°C",
-                wind: "8 km/h S",
-                sensor: "Hikvision DarkFighter 4K HQ",
-                videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-ancient-city-streets-surrounded-by-mountains-43038-large.mp4"
+                elev: "3,399m",
+                sensor: "Hikvision DarkFighter 4K Central",
+                // Video 4K Cusco Plaza de Armas & Catedral
+                embedUrl: "https://www.youtube-nocookie.com/embed/2m4H6-k6Ea4?autoplay=1&mute=1&loop=1&playlist=2m4H6-k6Ea4&controls=0&modestbranding=1&rel=0"
             },
             {
                 id: 3,
                 name: "CAM 04 • Estación Férrea Ollantaytambo",
-                zone: "Terminal PeruRail Logística",
                 coords: [-13.2583, -72.2639],
                 zoom: 15,
-                elev: "2,792m",
                 temp: "15.1°C",
-                wind: "14 km/h SW",
-                sensor: "PeruRail Track Security Stream",
-                videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-train-passing-through-a-mountain-valley-41716-large.mp4"
-            },
-            {
-                id: 4,
-                name: "CAM 05 • Ausangate 7 Lagunas",
-                zone: "Cordillera Vilcanota Glaciar",
-                coords: [-13.7889, -71.2464],
-                zoom: 13,
-                elev: "6,384m",
-                temp: "-6.8°C",
-                wind: "42 km/h NE",
-                sensor: "Vilcanota Ice Radar Sensor",
-                videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-a-snowy-mountain-range-42583-large.mp4"
+                elev: "2,792m",
+                sensor: "PeruRail Track Surveillance Cam",
+                // Video 4K PeruRail Vistadome Sacred Valley Train
+                embedUrl: "https://www.youtube-nocookie.com/embed/Zk9J5xn9ZVc?autoplay=1&mute=1&loop=1&playlist=Zk9J5xn9ZVc&controls=0&modestbranding=1&rel=0"
             }
         ];
 
-        // INICIALIZAR MAPA CON COORDENADAS DE CUSCO
+        // INICIALIZAR MAPA
         function initMap() {
             map = L.map('map', {
-                center: [-13.25, -72.35],
-                zoom: 11,
+                center: [-13.1631, -72.5450],
+                zoom: 12,
                 zoomControl: false
             });
 
             L.control.zoom({ position: 'topleft' }).addTo(map);
 
-            // CAPA 1: ESRI WORLD IMAGERY (FOTORREALISTA SATÉLITE)
+            // CAPA 1: ESRI SATÉLITE
             baseLayers.satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-                attribution: 'Tiles &copy; Esri &mdash; Lifextreme Geospatial',
+                attribution: 'Tiles &copy; Esri',
                 maxZoom: 18
             });
 
-            // CAPA 2: CARTO DARK MATTER (TÁCTICO)
+            // CAPA 2: DARK MATTER
             baseLayers.dark = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-                attribution: '&copy; CartoDB &mdash; Lifextreme Geospatial',
+                attribution: '&copy; CartoDB',
                 maxZoom: 19
             });
 
@@ -548,162 +496,127 @@
                 document.getElementById('coords-readout').innerText = `${e.latlng.lat.toFixed(4)}, ${e.latlng.lng.toFixed(4)}`;
             });
 
-            // Sintonizar la cámara 0 (Machu Picchu) inmediatamente
-            selectCameraZone(0);
+            // Iniciar con la cámara 0 (Machu Picchu) sintonizada de inmediato
+            sintonizarCamara(0);
         }
 
-        // CARGAR PUNTOS TÁCTICOS
+        // CARGAR PINES TÁCTICOS
         function cargarMarcadores() {
             // PINES DE CÁMARAS
-            cameraFeeds.forEach((c, index) => {
+            cameras.forEach((c, index) => {
                 const icon = L.divIcon({
                     className: 'custom-pin',
                     html: `<div class="h-8 w-8 rounded-full bg-emerald-500/25 border-2 border-emerald-400 flex items-center justify-center text-emerald-400 text-sm shadow-lg shadow-emerald-500/50 cursor-pointer animate-pulse">📹</div>`,
                     iconSize: [32, 32]
                 });
                 const marker = L.marker(c.coords, { icon: icon });
-                marker.on('click', () => {
-                    selectCameraZone(index);
-                });
+                marker.on('click', () => sintonizarCamara(index));
                 marker.bindPopup(`
                     <div class="text-xs">
                         <span class="font-bold text-emerald-400 block">${c.name}</span>
-                        <span class="text-slate-300 block text-[11px] mt-0.5">${c.zone}</span>
-                        <span class="text-cyan-400 text-[10px] block mt-1">Temp: ${c.temp} | Elev: ${c.elev}</span>
-                        <button onclick="selectCameraZone(${index})" class="mt-2 w-full py-1.5 rounded-lg bg-emerald-500 text-black font-bold text-[10px] uppercase">
-                            ▶ Sintonizar Video en Vivo
+                        <span class="text-slate-300 block text-[10px] mt-0.5">Elev: ${c.elev} | Temp: ${c.temp}</span>
+                        <button onclick="sintonizarCamara(${index})" class="mt-2 w-full py-1 rounded bg-emerald-500 text-black font-bold text-[9px] uppercase">
+                            ▶ Sintonizar Monitor
                         </button>
                     </div>
                 `);
                 layerGroups.cams.addLayer(marker);
             });
 
-            // EXPEDICIONES DE GUÍAS (GPS PINS)
+            // EXPEDICIONES GPS
             const expeditions = [
-                { name: "Expedición Salkantay Alpha (Guía Carlos Quispe)", coords: [-13.3550, -72.5600], alt: "3,890m", guide: "Carlos Quispe (Nivel 3)" },
-                { name: "Trek Ausangate 7 Lagunas (Guía Rosa Tupac)", coords: [-13.7500, -71.2800], alt: "4,450m", guide: "Rosa Tupac (WFR)" }
+                { name: "Expedición Salkantay Alpha (Guía Carlos)", coords: [-13.3550, -72.5600], alt: "3,890m" },
+                { name: "Trek Ausangate (Guía Rosa)", coords: [-13.7500, -71.2800], alt: "4,450m" }
             ];
-
             expeditions.forEach(exp => {
                 const icon = L.divIcon({
                     className: 'custom-pin',
-                    html: `<div class="h-7 w-7 rounded-full bg-cyan-500/20 border-2 border-cyan-400 flex items-center justify-center text-cyan-400 text-xs shadow-lg cursor-pointer">🧭</div>`,
-                    iconSize: [28, 28]
+                    html: `<div class="h-6 w-6 rounded-full bg-cyan-500/20 border border-cyan-400 flex items-center justify-center text-cyan-400 text-xs shadow-md">🧭</div>`,
+                    iconSize: [24, 24]
                 });
                 const marker = L.marker(exp.coords, { icon: icon });
-                marker.bindPopup(`
-                    <div class="text-xs">
-                        <span class="font-bold text-cyan-300 block">${exp.name}</span>
-                        <span class="text-slate-400 text-[10px] block">Guía a cargo: ${exp.guide}</span>
-                        <span class="text-emerald-400 text-[10px] font-bold block mt-1">● Batería: 94% • Altitud: ${exp.alt}</span>
-                    </div>
-                `);
+                marker.bindPopup(`<span class="text-xs font-bold text-cyan-300">${exp.name}</span><br><span class="text-[10px] text-emerald-400">Altitud: ${exp.alt}</span>`);
                 layerGroups.gps.addLayer(marker);
             });
 
-            // ALERTAS SUTRAN (CROMA API)
+            // ALERTAS SUTRAN (CROMA)
             const sutranAlerts = [
-                {
-                    title: "SUTRAN Km 82 Vía Urubamba - Ollantaytambo",
-                    coords: [-13.2700, -72.2400],
-                    desc: "Vía Despejada. Tránsito normal validado por APESEG / SOAT."
-                }
+                { title: "SUTRAN Km 82 Vía Urubamba", coords: [-13.2700, -72.2400], desc: "Vía Despejada. Tránsito normal." }
             ];
-
             sutranAlerts.forEach(a => {
                 const icon = L.divIcon({
                     className: 'custom-pin',
-                    html: `<div class="h-6 w-6 rounded-full bg-amber-500/20 border border-amber-400 flex items-center justify-center text-amber-300 text-xs shadow-lg">⚠️</div>`,
+                    html: `<div class="h-6 w-6 rounded-full bg-amber-500/20 border border-amber-400 flex items-center justify-center text-amber-300 text-xs">⚠️</div>`,
                     iconSize: [24, 24]
                 });
                 const marker = L.marker(a.coords, { icon: icon });
-                marker.bindPopup(`
-                    <div class="text-xs">
-                        <span class="font-bold text-amber-400 block">${a.title}</span>
-                        <span class="text-slate-300 text-[11px] block mt-1">${a.desc}</span>
-                        <span class="text-[9px] font-mono text-slate-400 block mt-1">Fuente: Croma Gov Sensor Live</span>
-                    </div>
-                `);
+                marker.bindPopup(`<span class="text-xs font-bold text-amber-400">${a.title}</span><br><span class="text-[10px] text-slate-300">${a.desc}</span>`);
                 layerGroups.sutran.addLayer(marker);
             });
         }
 
-        // SELECCIONAR ZONA DE CÁMARA (VUELO + CAMBIO INMEDIATO DE STREAM)
-        function selectCameraZone(index) {
-            const feed = cameraFeeds[index];
-            if (!feed) return;
+        // SINTONIZAR CÁMARA (VUELO DE MAPA + CARGA DE VIDEO YOUTUBE)
+        function sintonizarCamara(index) {
+            const cam = cameras[index];
+            if (!cam) return;
 
-            // Actualizar estilo en botones laterales
-            document.querySelectorAll('.zone-btn').forEach(btn => {
-                btn.classList.remove('border-emerald-500/50', 'shadow-md', 'shadow-emerald-500/10');
-                btn.classList.add('border-slate-800');
+            // Actualizar estilo en botones de la barra izquierda
+            document.querySelectorAll('.cam-selector-btn').forEach(btn => {
+                btn.classList.remove('border-2', 'border-emerald-500', 'shadow-lg', 'shadow-emerald-500/10');
+                btn.classList.add('border', 'border-slate-800');
             });
-            const activeBtn = document.getElementById(`btn-zone-${index}`);
+            const activeBtn = document.getElementById(`cam-btn-${index}`);
             if (activeBtn) {
-                activeBtn.classList.add('border-emerald-500/50', 'shadow-md', 'shadow-emerald-500/10');
+                activeBtn.classList.remove('border-slate-800');
+                activeBtn.classList.add('border-2', 'border-emerald-500', 'shadow-lg', 'shadow-emerald-500/10');
             }
 
-            // Volar hacia las coordenadas
-            map.flyTo(feed.coords, feed.zoom, {
-                duration: 1.8,
+            // Volar el mapa hacia la ubicación de la cámara
+            map.flyTo(cam.coords, cam.zoom, {
+                duration: 1.6,
                 easeLinearity: 0.25
             });
 
-            // Actualizar el video en el PIP
-            const videoPlayer = document.getElementById('cctv-video-player');
-            videoPlayer.src = feed.videoUrl;
-            videoPlayer.play().catch(e => console.log('Autoplay handled:', e));
+            // Actualizar el frame de video con la URL del stream
+            const frame = document.getElementById('cctv-stream-frame');
+            frame.src = cam.embedUrl;
 
-            // Actualizar labels del HUD
-            document.getElementById('cctv-pip-title').innerText = feed.name.toUpperCase();
-            document.getElementById('cctv-temp').innerText = feed.temp;
-            document.getElementById('cctv-wind').innerText = feed.wind;
-            document.getElementById('cctv-elev').innerText = feed.elev;
-            document.getElementById('cctv-sensor-model').innerText = feed.sensor;
-            document.getElementById('zone-active-label').innerText = feed.zone;
-            document.getElementById('coords-readout').innerText = `${feed.coords[0].toFixed(4)}, ${feed.coords[1].toFixed(4)}`;
-
-            // Asegurar que el PIP esté visible y expandido
-            const pip = document.getElementById('cctv-pip-window');
-            pip.classList.remove('hidden');
+            // Actualizar los datos del monitor
+            document.getElementById('monitor-title').innerText = cam.name.toUpperCase();
+            document.getElementById('monitor-temp').innerText = cam.temp;
+            document.getElementById('monitor-elev').innerText = cam.elev;
+            document.getElementById('monitor-sensor').innerText = cam.sensor;
+            document.getElementById('coords-readout').innerText = `${cam.coords[0].toFixed(4)}, ${cam.coords[1].toFixed(4)}`;
         }
 
-        // ALTERNAR FLIR EN EL STREAM
-        function toggleFLIRStream() {
-            const video = document.getElementById('cctv-video-player');
-            const btn = document.getElementById('btn-cctv-flir');
-            cctvFlir = !cctvFlir;
-            if (cctvFlir) {
-                video.classList.add('flir-filter');
+        // ALTERNAR MODO FLIR TÉRMICO
+        function toggleFLIRMode() {
+            const frame = document.getElementById('cctv-stream-frame');
+            const btn = document.getElementById('btn-flir-toggle');
+            isFlirActive = !isFlirActive;
+            if (isFlirActive) {
+                frame.classList.add('flir-filter');
+                btn.classList.remove('bg-slate-950', 'text-red-400');
                 btn.classList.add('bg-red-600', 'text-white');
             } else {
-                video.classList.remove('flir-filter');
+                frame.classList.remove('flir-filter');
                 btn.classList.remove('bg-red-600', 'text-white');
+                btn.classList.add('bg-slate-950', 'text-red-400');
             }
         }
 
-        // MINIMIZAR / EXPANDIR PIP
-        function minimizePIP() {
-            const container = document.getElementById('cctv-video-container');
-            isPipMinimized = !isPipMinimized;
-            if (isPipMinimized) {
-                container.style.display = 'none';
-            } else {
-                container.style.display = 'block';
-            }
+        // PTZ ZOOM VIRTUAL
+        function ptzZoom(direction) {
+            const frame = document.getElementById('cctv-stream-frame');
+            if (direction === 'in') currentZoomLevel = Math.min(currentZoomLevel + 0.15, 1.6);
+            if (direction === 'out') currentZoomLevel = Math.max(currentZoomLevel - 0.15, 1.0);
+            frame.style.transform = `scale(${currentZoomLevel})`;
         }
 
-        // ABRIR MOSAICO MULTICÁMARA
-        function toggleMultiCamGrid() {
-            const modal = document.getElementById('multicam-modal');
-            modal.classList.toggle('hidden');
-        }
-
-        // PTZ VIRTUAL
-        function ptzAction(direction) {
-            const video = document.getElementById('cctv-video-player');
-            video.style.transform = `scale(1.15) rotate(${direction === 'left' ? -2 : direction === 'right' ? 2 : 0}deg)`;
-            setTimeout(() => { video.style.transform = 'scale(1) rotate(0deg)'; }, 350);
+        function ptzPan(action) {
+            const frame = document.getElementById('cctv-stream-frame');
+            currentZoomLevel = 1.0;
+            frame.style.transform = 'scale(1.0)';
         }
 
         // ALTERNAR CAPAS
@@ -716,7 +629,7 @@
             }
         }
 
-        // CAMBIAR BASE DE MAPA (SATÉLITE / OSCURO)
+        // CAMBIAR BASE DE MAPA
         function setMapBase(base) {
             if (currentBase === base) return;
             map.removeLayer(baseLayers[currentBase]);
@@ -735,29 +648,17 @@
             }
         }
 
-        function toggleThermalFLIR() {
-            const mapContainer = document.getElementById('map');
-            isFlirActive = !isFlirActive;
-            if (isFlirActive) {
-                mapContainer.classList.add('flir-filter');
-                document.getElementById('btn-mode-flir').classList.add('bg-red-600', 'text-white');
-            } else {
-                mapContainer.classList.remove('flir-filter');
-                document.getElementById('btn-mode-flir').classList.remove('bg-red-600', 'text-white');
-            }
-        }
-
         function activarAlertaSOS() {
             if (confirm("🚨 ¿CONFIRMAR ALERTA DE EMERGENCIA TÁCTICA?\n\nSe emitirá una notificación satelital prioritaria a todos los guías certificados y rescatistas en radio de 20 km.")) {
                 alert("📡 ALERTA SOS TRANSMITIDA CON ÉXITO.\n\nFrecuencia: 142.850 MHz activa.\nCentro de Salud Santa Teresa y Central San Blas notificados.");
             }
         }
 
-        // RELOJ EN TIEMPO REAL
+        // RELOJ EN TIEMPO REAL UTC
         setInterval(() => {
             const now = new Date();
             const timeStr = now.toISOString().substring(11, 19) + " UTC";
-            const el = document.getElementById('cctv-clock');
+            const el = document.getElementById('cctv-live-clock');
             if (el) el.innerText = timeStr;
         }, 1000);
 
