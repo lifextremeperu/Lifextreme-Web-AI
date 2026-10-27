@@ -7,26 +7,26 @@ logDestinations: [stdout]
 # HLS output configuration for Web browsers
 hls: yes
 hlsAddress: :8888
-hlsAllowOrigin: '*'
+hlsAllowOrigins: ['*']
 hlsAlwaysRemux: yes
-hlsSegmentCount: 5
-hlsSegmentDuration: 2s
+hlsVariant: lowLatency
+hlsSegmentCount: 7
+hlsSegmentDuration: 1s
 
 # WebRTC output configuration
 webrtc: yes
 webrtcAddress: :8889
-webrtcAllowOrigin: '*'
+webrtcAllowOrigins: ['*']
 
 # RTSP input configuration
 rtsp: yes
 rtspAddress: :8554
+rtspTransports: [tcp]
 
 paths:
   # Canal 1: Plaza Mayor de Cusco
   plaza_mayor:
     source: publisher
-    runOnInit: ""
-    runOnInitRestart: no
 
   # Canal 2: Santuario Machu Picchu
   machu_picchu:
@@ -40,5 +40,5 @@ paths:
   base_san_blas:
     source: publisher
 
-  # Canal de prueba de respaldo (Always on HLS stream)
+  # Canal general
   all:
