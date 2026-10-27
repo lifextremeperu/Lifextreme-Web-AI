@@ -309,12 +309,14 @@
                         </iframe>
                     </div>
 
-                    <!-- REPRODUCTOR 3: CÁMARA IP EN TIEMPO REAL (SKYLINE CUSCO PLAZA DE ARMAS ID-831 / LIMA ID-4293) -->
-                    <div id="live-snapshot-wrapper" class="hidden w-full h-full absolute inset-0 bg-black flex items-center justify-center">
-                        <img id="cctv-live-img" referrerpolicy="no-referrer" alt="Cámara en Tiempo Real Plaza de Armas Cusco"
-                            class="w-full h-full object-cover transition-all duration-300" src="" />
+                    <!-- REPRODUCTOR 3: STREAMING EN TIEMPO REAL PLAZA DE ARMAS CUSCO (SKYLINE ID-831 DOBLE BUFFER CROSSFADE) -->
+                    <div id="live-snapshot-wrapper" class="hidden w-full h-full absolute inset-0 bg-black overflow-hidden">
+                        <img id="cctv-live-img-a" referrerpolicy="no-referrer" alt="Cámara en Directo Cuzco - Plaza Mayor"
+                            class="w-full h-full object-cover absolute inset-0 transition-all duration-1000 opacity-100" src="https://cdn.skylinewebcams.com/live831.jpg" />
+                        <img id="cctv-live-img-b" referrerpolicy="no-referrer" alt="Cámara en Directo Cuzco - Plaza Mayor"
+                            class="w-full h-full object-cover absolute inset-0 transition-all duration-1000 opacity-0" src="" />
                         <div id="live-frame-status" class="absolute bottom-11 left-2.5 z-30 bg-emerald-950/90 border border-emerald-400/60 px-2.5 py-0.5 rounded text-[9px] font-mono text-emerald-300 font-bold shadow-lg">
-                            🟢 SEÑAL VERIFICADA EN TIEMPO REAL • PLAZA DE ARMAS CUSCO (ID-831)
+                            🟢 EN DIRECTO • CUZCO - PLAZA MAYOR (SKYLINEWEBCAMS ID-831)
                         </div>
                     </div>
 
@@ -326,7 +328,7 @@
                     </div>
 
                     <div class="absolute top-2.5 right-2.5 pointer-events-none z-20 bg-slate-950/80 backdrop-blur-md px-2 py-1 rounded-lg border border-slate-700 text-[9px] font-mono text-cyan-300">
-                        <span id="active-codec-badge">● HLS NATIVO (H.264)</span>
+                        <span id="active-codec-badge">🟢 SKYLINE LIVE STREAM</span>
                     </div>
 
                     <!-- OVERLAY INFERIOR: TELEMETRÍA DEL SENSOR -->
@@ -350,17 +352,11 @@
                         <span>📷 CONECTAR MI CÁMARA FÍSICA / BODYCAM EN VIVO (WebRTC)</span>
                     </button>
 
-                    <!-- CONMUTADOR DE SEÑAL DE LA ESTACIÓN SELECCIONADA + PORTAL OFICIAL -->
-                    <div class="grid grid-cols-3 gap-1.5 text-[10px] font-mono">
-                        <button onclick="cambiarModoEstacionActual('skyline')" class="py-1.5 px-2 rounded-lg bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 hover:bg-emerald-500 hover:text-black font-bold transition-all">
-                            🔴 Cam Real IP
-                        </button>
-                        <button onclick="cambiarModoEstacionActual('local4k')" class="py-1.5 px-2 rounded-lg bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 hover:bg-cyan-500 hover:text-black font-bold transition-all">
-                            📹 Video 4K / Live
-                        </button>
+                    <!-- BOTÓN ÚNICO: WEB PLAZA CUSCO (SIN BOTONES STREAM 24/7 NI 4K) -->
+                    <div class="w-full text-[11px] font-mono">
                         <a id="btn-external-portal" href="https://www.skylinewebcams.com/es/webcam/peru/cusco/cusco/plaza-mayor.html" target="_blank"
-                            class="py-1.5 px-2 rounded-lg bg-purple-500/20 border border-purple-500/40 text-purple-300 hover:bg-purple-500 hover:text-white font-bold text-center truncate transition-all">
-                            Fuente Original ↗
+                            class="w-full py-2 px-3 rounded-xl bg-purple-500/20 border border-purple-500/50 text-purple-300 hover:bg-purple-500 hover:text-white font-bold flex items-center justify-center gap-2 transition-all shadow-md">
+                            <span>🏛️ Web Plaza Cusco (Cámara en Directo SkylineWebcams) ↗</span>
                         </a>
                     </div>
 
@@ -463,11 +459,11 @@
 
             L.control.zoom({ position: 'topleft' }).addTo(map);
 
-            // CAPA 1: ESRI SATÉLITE (CON maxNativeZoom PARA EVITAR "Zoom Level Not Supported")
+            // CAPA 1: ESRI SATÉLITE (maxNativeZoom: 13 PARA EVITAR "Zoom Level Not Supported" EN CUSCO)
             baseLayers.satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
                 attribution: 'Tiles &copy; Esri',
-                maxNativeZoom: 15,
-                maxZoom: 19
+                maxNativeZoom: 13,
+                maxZoom: 18
             });
 
             // CAPA 2: DARK MATTER
@@ -516,7 +512,7 @@
         // 1. CARGAR CÁMARAS Y CONOS DE VISIÓN (FRUSTUMS)
         async function cargarCamarasYFrustums() {
             try {
-                const res = await fetch('/data/cctv.json?v=plaza_real');
+                const res = await fetch('/data/cctv.json?v=plaza_stream_v3');
                 cameraList = await res.json();
             } catch (e) {
                 console.warn('Fallback a 6 nodos operativos locales:', e);
@@ -526,13 +522,13 @@
                         "name": "1. Plaza Mayor de Cusco (EN VIVO TIEMPO REAL)",
                         "sector": "Catedral & Compañía de Jesús • Cámara IP 831",
                         "latitude": -13.51687, "longitude": -71.97877,
-                        "altitude": 3405.0, "heading": 78.5, "fovDeg": 62.0, "range": 380.0, "zoom": 17,
-                        "temp": "16.4°C | Señal Real-Time", "sensor": "Skyline Live Feed ID-831 (Proxy Directo)",
+                        "altitude": 3405.0, "heading": 78.5, "fovDeg": 62.0, "range": 380.0, "zoom": 14,
+                        "temp": "16.4°C | Señal Real-Time", "sensor": "SkylineWebcams Cusco - Plaza Mayor (ID-831)",
                         "skylineId": "831", "camKey": "plaza_mayor",
                         "liveYoutubeId": "k9YWRnVRfrY", "youtubeId": "s0rAs0_-bIE",
                         "streamUrl": "/api/cusco-cam?cam=plaza_mayor&type=m3u8",
                         "externalUrl": "https://www.skylinewebcams.com/es/webcam/peru/cusco/cusco/plaza-mayor.html",
-                        "externalLabel": "Fuente Original ↗",
+                        "externalLabel": "🏛️ Web Plaza Cusco (SkylineWebcams En Directo) ↗",
                         "format": "skyline_live"
                     },
                     {
@@ -885,7 +881,8 @@
             }
         }
 
-        // REPRODUCIR SEÑAL EN TIEMPO REAL DE LA PLAZA DE ARMAS DE CUSCO (ID 831) Y LIMA (ID 4293)
+        // REPRODUCIR STREAMING EN DIRECTO DE CUZCO - PLAZA MAYOR (SKYLINE ID-831 HLS + DOBLE BUFFER CROSSFADE)
+        let activeBuffer = 'a';
         function reproducirCamaraRealSkyline(skylineId, camKey, label) {
             detenerWebRTCActivo();
             if (hlsInstance) {
@@ -896,53 +893,82 @@
             const video = document.getElementById('cctv-video-player');
             const iframeWrapper = document.getElementById('iframe-wrapper');
             const snapWrapper = document.getElementById('live-snapshot-wrapper');
-            const liveImg = document.getElementById('cctv-live-img');
+            const imgA = document.getElementById('cctv-live-img-a');
+            const imgB = document.getElementById('cctv-live-img-b');
             const statusBadge = document.getElementById('live-frame-status');
 
-            video.style.display = 'none';
             iframeWrapper.classList.add('hidden');
             snapWrapper.classList.remove('hidden');
+            video.style.display = 'none';
 
-            document.getElementById('active-codec-badge').innerText = `🟢 IP REAL-TIME (ID-${skylineId})`;
+            document.getElementById('active-codec-badge').innerText = `🟢 SKYLINE LIVE (ID-${skylineId})`;
             document.getElementById('monitor-title').innerText = label.toUpperCase();
 
-            const cargarFrameEnVivo = () => {
+            // 1. INTENTAR ENGANCHAR FLUJO DE VIDEO HLS (.M3U8) DE SKYLINEWEBCAMS EN PARALELO
+            const proxyM3u8 = `/api/cusco-cam?cam=${camKey}&type=m3u8`;
+            if (Hls.isSupported()) {
+                hlsInstance = new Hls({ enableWorker: true, lowLatencyMode: true });
+                hlsInstance.loadSource(proxyM3u8);
+                hlsInstance.attachMedia(video);
+                hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => {
+                    video.play().then(() => {
+                        video.style.display = 'block';
+                        video.style.zIndex = '15';
+                        document.getElementById('active-codec-badge').innerText = `🔴 HLS STREAM (ID-${skylineId})`;
+                    }).catch(() => {});
+                });
+                hlsInstance.on(Hls.Events.ERROR, (ev, data) => {
+                    if (data.fatal) {
+                        video.style.display = 'none';
+                    }
+                });
+            }
+
+            // 2. DOBLE BUFFER EN TIEMPO REAL CON TRANSICIÓN CONTINUA DE LA PLAZA DE ARMAS DE CUSCO (ID-831)
+            let microScale = 1.0;
+            const actualizarTransicionEnVivo = () => {
                 const ts = Date.now();
                 const proxyUrl = `/api/cusco-cam?id=${skylineId}&t=${ts}`;
                 const directCdnUrl = `https://cdn.skylinewebcams.com/live${skylineId}.jpg?t=${ts}`;
                 const backupCdnUrl = `https://cdn.skylinewebcams.com/social${skylineId}.jpg?t=${ts}`;
 
-                const preloader = new Image();
-                preloader.referrerPolicy = 'no-referrer';
-                preloader.onload = () => {
-                    liveImg.src = preloader.src;
+                const aplicarNuevoFrame = (validSrc) => {
+                    const nextImg = activeBuffer === 'a' ? imgB : imgA;
+                    const currImg = activeBuffer === 'a' ? imgA : imgB;
+                    if (!nextImg || !currImg) return;
+
+                    nextImg.src = validSrc;
+                    microScale = microScale === 1.0 ? 1.03 : 1.0;
+                    if (currentZoomLevel === 1.0) {
+                        nextImg.style.transform = `scale(${microScale})`;
+                    }
+                    nextImg.classList.remove('opacity-0');
+                    nextImg.classList.add('opacity-100');
+                    currImg.classList.remove('opacity-100');
+                    currImg.classList.add('opacity-0');
+                    activeBuffer = activeBuffer === 'a' ? 'b' : 'a';
+
                     const horaPeru = new Date().toLocaleTimeString('es-PE', { timeZone: 'America/Lima' });
                     if (statusBadge) {
-                        statusBadge.innerText = `🟢 EN VIVO TIEMPO REAL • ${skylineId === '831' ? 'PLAZA DE ARMAS CUSCO (CATEDRAL)' : 'LIMA MIRAFLORES'} • HORA PERÚ: ${horaPeru}`;
+                        statusBadge.innerText = `🟢 EN DIRECTO • ${skylineId === '831' ? 'CUZCO - PLAZA MAYOR (SKYLINEWEBCAMS)' : 'LIMA MIRAFLORES'} • ${horaPeru}`;
                     }
                 };
+
+                const preloader = new Image();
+                preloader.referrerPolicy = 'no-referrer';
+                preloader.onload = () => aplicarNuevoFrame(preloader.src);
                 preloader.onerror = () => {
-                    // Fallback directo al CDN oficial sin Referer
                     const directLoader = new Image();
                     directLoader.referrerPolicy = 'no-referrer';
-                    directLoader.onload = () => {
-                        liveImg.src = directLoader.src;
-                        const horaPeru = new Date().toLocaleTimeString('es-PE', { timeZone: 'America/Lima' });
-                        if (statusBadge) {
-                            statusBadge.innerText = `🟢 EN VIVO TIEMPO REAL • ${skylineId === '831' ? 'PLAZA DE ARMAS CUSCO (CATEDRAL)' : 'LIMA MIRAFLORES'} • HORA PERÚ: ${horaPeru}`;
-                        }
-                    };
-                    directLoader.onerror = () => {
-                        liveImg.src = backupCdnUrl;
-                    };
+                    directLoader.onload = () => aplicarNuevoFrame(directLoader.src);
+                    directLoader.onerror = () => aplicarNuevoFrame(backupCdnUrl);
                     directLoader.src = directCdnUrl;
                 };
                 preloader.src = proxyUrl;
             };
 
-            // Cargar primer frame inmediato y actualizar cada 3.5 segundos en tiempo real
-            cargarFrameEnVivo();
-            snapshotInterval = setInterval(cargarFrameEnVivo, 3500);
+            actualizarTransicionEnVivo();
+            snapshotInterval = setInterval(actualizarTransicionEnVivo, 2500);
         }
 
         // REPRODUCCIÓN NATIVA CON HLS.JS (EN VIVO .M3U8)
@@ -1053,18 +1079,21 @@
         function toggleFLIRMode() {
             const video = document.getElementById('cctv-video-player');
             const iframe = document.getElementById('cctv-stream-frame');
-            const liveImg = document.getElementById('cctv-live-img');
+            const imgA = document.getElementById('cctv-live-img-a');
+            const imgB = document.getElementById('cctv-live-img-b');
             const btn = document.getElementById('btn-flir-toggle');
             isFlirActive = !isFlirActive;
             if (isFlirActive) {
                 video.classList.add('flir-filter');
                 iframe.classList.add('flir-filter');
-                if (liveImg) liveImg.classList.add('flir-filter');
+                if (imgA) imgA.classList.add('flir-filter');
+                if (imgB) imgB.classList.add('flir-filter');
                 btn.classList.add('bg-red-600', 'text-white');
             } else {
                 video.classList.remove('flir-filter');
                 iframe.classList.remove('flir-filter');
-                if (liveImg) liveImg.classList.remove('flir-filter');
+                if (imgA) imgA.classList.remove('flir-filter');
+                if (imgB) imgB.classList.remove('flir-filter');
                 btn.classList.remove('bg-red-600', 'text-white');
             }
         }
@@ -1072,19 +1101,23 @@
         // PTZ ZOOM VIRTUAL (APLICA A VIDEO Y CÁMARA IP PLAZA DE ARMAS)
         function ptzZoom(direction) {
             const video = document.getElementById('cctv-video-player');
-            const liveImg = document.getElementById('cctv-live-img');
+            const imgA = document.getElementById('cctv-live-img-a');
+            const imgB = document.getElementById('cctv-live-img-b');
             if (direction === 'in') currentZoomLevel = Math.min(currentZoomLevel + 0.15, 1.8);
             if (direction === 'out') currentZoomLevel = Math.max(currentZoomLevel - 0.15, 1.0);
             video.style.transform = `scale(${currentZoomLevel})`;
-            if (liveImg) liveImg.style.transform = `scale(${currentZoomLevel})`;
+            if (imgA) imgA.style.transform = `scale(${currentZoomLevel})`;
+            if (imgB) imgB.style.transform = `scale(${currentZoomLevel})`;
         }
 
         function ptzPan(action) {
             const video = document.getElementById('cctv-video-player');
-            const liveImg = document.getElementById('cctv-live-img');
+            const imgA = document.getElementById('cctv-live-img-a');
+            const imgB = document.getElementById('cctv-live-img-b');
             currentZoomLevel = 1.0;
             video.style.transform = 'scale(1.0)';
-            if (liveImg) liveImg.style.transform = 'scale(1.0)';
+            if (imgA) imgA.style.transform = 'scale(1.0)';
+            if (imgB) imgB.style.transform = 'scale(1.0)';
         }
 
         // TOGGLE CAPAS

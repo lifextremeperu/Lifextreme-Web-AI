@@ -1,5 +1,5 @@
-// Vercel Serverless Function: Real-Time Proxy for Cusco Plaza de Armas & Peru Live Webcams
-// Bypasses CORS and Referer restrictions from SkylineWebcams CDN & HLS stream
+// Vercel Serverless Function: Real-Time HLS & Frame Proxy for Cusco Plaza de Armas (Skyline ID-831)
+// Maintains session token cache so HLS.js can play continuous .m3u8 / .ts transitions
 
 const CAMERA_MAP = {
     plaza_mayor: {
@@ -14,11 +14,47 @@ const CAMERA_MAP = {
     }
 };
 
-const HEADERS = {
+const BASE_HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
     'Referer': 'https://www.skylinewebcams.com/',
+    'Origin': 'https://www.skylinewebcams.com',
     'Accept': '*/*'
 };
+
+// Cache en memoria para mantener el mismo token y cookie durante las recargas del manifiesto HLS
+const sessionCache = {};
+
+async function getSkylineSession(camKey) {
+    const now = Date.now();
+    const cached = sessionCache[camKey];
+    if (cached && (now - cached.timestamp < 180000)) {
+        return cached;
+    }
+
+    const targetCam = CAMERA_MAP[camKey] || CAMERA_MAP.plaza_mayor;
+    const pageResp = await fetch(targetCam.page, { headers: BASE_HEADERS });
+    const rawCookies = pageResp.headers.get('set-cookie') || '';
+    const cookieHeader = rawCookies
+        .split(/,(?=\s*[a-zA-Z0-9_-]+=)/)
+        .map(c => c.split(';')[0].trim())
+        .filter(Boolean)
+        .join('; ');
+
+    const html = await pageResp.text();
+    const match = html.match(/livee\.m3u8\?a=([a-zA-Z0-9]+)/);
+    if (!match) {
+        throw new Error('Skyline stream token not found in page');
+    }
+
+    const session = {
+        token: match[1],
+        cookie: cookieHeader,
+        m3u8Url: `https://hd-auth.skylinewebcams.com/live.m3u8?a=${match[1]}`,
+        timestamp: now
+    };
+    sessionCache[camKey] = session;
+    return session;
+}
 
 export default async function handler(req, res) {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -32,17 +68,17 @@ export default async function handler(req, res) {
     const { cam = 'plaza_mayor', id, type = 'frame', seg } = req.query;
 
     try {
-        // MODO 1: Descubrir todas las cámaras activas de Perú en SkylineWebcams
-        if (type === 'discover') {
-            const r = await fetch('https://www.skylinewebcams.com/es/webcam/peru.html', { headers: HEADERS });
-            const html = await r.text();
-            const matches = [...html.matchAll(/href="(\/es\/webcam\/peru\/[^"]+)"[\s\S]{0,600}?(?:live|social)(\d+)\.jpg/g)];
-            const cams = matches.map(m => ({
-                path: m[1],
-                id: m[2],
-                liveImg: `/api/cusco-cam?id=${m[2]}&type=frame`
-            }));
-            return res.status(200).json({ ok: true, cams });
+        // MODO 1: JSON con URL de stream e información de sesión
+        if (type === 'json') {
+            const session = await getSkylineSession(cam);
+            return res.status(200).json({
+                ok: true,
+                cam,
+                token: session.token,
+                directM3u8: session.m3u8Url,
+                proxyM3u8: `/api/cusco-cam?cam=${cam}&type=m3u8`,
+                liveFrame: `/api/cusco-cam?id=${CAMERA_MAP[cam]?.id || '831'}&type=frame`
+            });
         }
 
         // MODO 2: Proxy de segmento de video .ts para HLS
@@ -51,7 +87,12 @@ export default async function handler(req, res) {
             if (!targetTs.startsWith('https://')) {
                 return res.status(400).send('Invalid segment URL');
             }
-            const tsResp = await fetch(targetTs, { headers: HEADERS });
+            const cached = sessionCache[cam];
+            const headers = {
+                ...BASE_HEADERS,
+                ...(cached?.cookie ? { Cookie: cached.cookie } : {})
+            };
+            const tsResp = await fetch(targetTs, { headers });
             if (!tsResp.ok) {
                 return res.status(tsResp.status).send('Segment fetch error');
             }
@@ -60,41 +101,53 @@ export default async function handler(req, res) {
             return res.status(200).send(buf);
         }
 
-        // MODO 3: Extraer y proxificar stream HLS .m3u8 en vivo de la Plaza de Armas de Cusco
+        // MODO 3: Manifiesto HLS .m3u8 recursivo (resuelve master playlist -> chunklist -> segmentos .ts)
         if (type === 'm3u8') {
-            const targetCam = CAMERA_MAP[cam] || CAMERA_MAP.plaza_mayor;
-            const pageResp = await fetch(targetCam.page, { headers: HEADERS });
-            const rawCookies = pageResp.headers.get('set-cookie') || '';
-            const cookieHeader = rawCookies.split(',').map(c => c.split(';')[0]).join('; ');
-            const html = await pageResp.text();
+            let session = await getSkylineSession(cam);
+            const authHeaders = {
+                ...BASE_HEADERS,
+                ...(session.cookie ? { Cookie: session.cookie } : {})
+            };
 
-            const match = html.match(/livee\.m3u8\?a=([a-zA-Z0-9]+)/);
-            if (!match) {
-                return res.status(404).send('Stream token not found');
+            let m3u8Resp = await fetch(session.m3u8Url, { headers: authHeaders });
+            if (!m3u8Resp.ok) {
+                delete sessionCache[cam];
+                session = await getSkylineSession(cam);
+                m3u8Resp = await fetch(session.m3u8Url, {
+                    headers: {
+                        ...BASE_HEADERS,
+                        ...(session.cookie ? { Cookie: session.cookie } : {})
+                    }
+                });
             }
 
-            const token = match[1];
-            const m3u8Url = `https://hd-auth.skylinewebcams.com/live.m3u8?a=${token}`;
-            const m3u8Resp = await fetch(m3u8Url, {
-                headers: {
-                    ...HEADERS,
-                    Cookie: cookieHeader
-                }
-            });
-
             if (!m3u8Resp.ok) {
-                return res.status(m3u8Resp.status).send('Upstream HLS auth bound to client IP');
+                return res.status(m3u8Resp.status).send('Upstream HLS token bound to client IP');
             }
 
             let m3u8Text = await m3u8Resp.text();
-            // Reescribir segmentos relativos o absolutos hacia el proxy
+
+            // Si es un master playlist que apunta a otro .m3u8 (chunklist), lo resolvemos directamente
+            const subM3u8Match = m3u8Text.match(/^(?!#)(.+\.m3u8.*)$/m);
+            if (subM3u8Match) {
+                const subPath = subM3u8Match[1].trim();
+                const subUrl = subPath.startsWith('http')
+                    ? subPath
+                    : `https://hd-auth.skylinewebcams.com/${subPath.replace(/^\//, '')}`;
+                const subResp = await fetch(subUrl, { headers: authHeaders });
+                if (subResp.ok) {
+                    m3u8Text = await subResp.text();
+                }
+            }
+
+            // Reescribir cada segmento .ts hacia nuestro proxy
             m3u8Text = m3u8Text.replace(/^(?!#)(.+)$/gm, (line) => {
                 const trimmed = line.trim();
                 if (!trimmed) return line;
                 const absUrl = trimmed.startsWith('http')
                     ? trimmed
                     : `https://hd-auth.skylinewebcams.com/${trimmed.replace(/^\//, '')}`;
-                return `/api/cusco-cam?type=ts&seg=${encodeURIComponent(absUrl)}`;
+                return `/api/cusco-cam?cam=${cam}&type=ts&seg=${encodeURIComponent(absUrl)}`;
             });
 
             res.setHeader('Content-Type', 'application/vnd.apple.mpegurl');
@@ -110,7 +163,7 @@ export default async function handler(req, res) {
         ];
 
         for (const imgUrl of candidateUrls) {
-            const imgResp = await fetch(imgUrl, { headers: HEADERS });
+            const imgResp = await fetch(imgUrl, { headers: BASE_HEADERS });
             if (imgResp.ok) {
                 const contentType = imgResp.headers.get('content-type') || 'image/jpeg';
                 const lastMod = imgResp.headers.get('last-modified') || new Date().toUTCString();
