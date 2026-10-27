@@ -325,9 +325,25 @@
                     </div>
                 </div>
 
-                <!-- CONTROLES TÁCTICOS PTZ Y FUENTES ALTERNATIVAS -->
-                <div class="space-y-2">
-                    <div class="p-3 rounded-2xl bg-slate-950 border border-slate-800 flex items-center justify-between text-xs font-mono">
+                <!-- CONTROLES TÁCTICOS PTZ Y CONEXIÓN EN TIEMPO REAL -->
+                <div class="space-y-2.5">
+                    <!-- BOTÓN ESTRELLA: CONECTAR CÁMARA FÍSICA LOCAL (WEBRTC REAL-TIME) -->
+                    <button onclick="conectarMiCamaraWebRTC()" id="btn-webrtc-cam"
+                        class="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-slate-950 font-black text-xs font-mono flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 transition-all">
+                        <span>📷 CONECTAR MI CÁMARA FÍSICA / BODYCAM EN VIVO (WebRTC)</span>
+                    </button>
+
+                    <!-- BARRA PARA INGRESAR CUALQUIER FLUJO .M3U8 EN VIVO -->
+                    <div class="flex items-center gap-1.5 bg-slate-950 p-1.5 rounded-xl border border-slate-800">
+                        <input id="custom-m3u8-input" type="text" placeholder="Pegar URL .m3u8 o http://localhost:8888/..." 
+                            value="https://ntv1.akamaized.net/hls/live/2014075/NASA-NTV1-HLS/master.m3u8"
+                            class="flex-1 bg-transparent text-[10px] font-mono text-slate-200 px-2 py-1 focus:outline-none" />
+                        <button onclick="conectarM3U8Personalizado()" class="px-2.5 py-1 rounded-lg bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 hover:bg-emerald-500 hover:text-black text-[10px] font-mono font-bold transition-all">
+                            Conectar HLS
+                        </button>
+                    </div>
+
+                    <div class="p-2.5 rounded-2xl bg-slate-950 border border-slate-800 flex items-center justify-between text-xs font-mono">
                         <span class="text-slate-400 text-[10px] font-bold">PTZ / ZOOM:</span>
                         <div class="flex items-center gap-1.5">
                             <button onclick="ptzZoom('in')" class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-emerald-400 hover:bg-slate-800 font-bold text-xs">+</button>
@@ -336,40 +352,40 @@
                         </div>
                     </div>
 
-                    <!-- FUENTES DE TRANSMISIÓN DIRECTA -->
+                    <!-- FUENTES DE TRANSMISIÓN DIRECTA EN TIEMPO REAL -->
                     <div class="flex items-center gap-1.5 overflow-x-auto p-1.5 rounded-xl bg-slate-950 border border-slate-800 text-[10px] font-mono">
-                        <span class="text-slate-500 text-[9px] uppercase font-bold pl-1">Señal:</span>
-                        <button onclick="cargarStreamManual('https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8', 'HLS Stream Mux 4K')" class="px-2 py-0.5 rounded bg-slate-900 hover:bg-slate-800 text-cyan-300 border border-slate-800 transition-colors">HLS Mux</button>
-                        <button onclick="cargarStreamManual('http://localhost:8888/plaza_mayor/index.m3u8', 'MediaMTX Local Stream')" class="px-2 py-0.5 rounded bg-slate-900 hover:bg-slate-800 text-emerald-300 border border-slate-800 transition-colors">MediaMTX (8888)</button>
-                        <button onclick="cargarStreamYouTube('s0rAs0_-bIE', 'Vista Aérea 4K')" class="px-2 py-0.5 rounded bg-slate-900 hover:bg-slate-800 text-purple-300 border border-slate-800 transition-colors">Aéreo 4K</button>
-                        <a href="https://www.skylinewebcams.com/es/webcam/peru/cusco/cusco/plaza-de-armas.html" target="_blank" class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 hover:bg-emerald-500 hover:text-black transition-all">Skyline ↗</a>
+                        <span class="text-slate-500 text-[9px] uppercase font-bold pl-1">En Vivo:</span>
+                        <button onclick="cargarStreamLiveYouTube('k9YWRnVRfrY', '🔴 EN VIVO 24/7 Cordillera Andes Perú')" class="px-2 py-0.5 rounded bg-red-500/20 hover:bg-red-500 hover:text-white text-red-300 border border-red-500/40 transition-colors font-bold">🔴 Andes 24/7</button>
+                        <button onclick="cargarStreamLiveYouTube('VYCrrXygJfw', '🔴 EN VIVO 24/7 Bosque Nuboso Perú')" class="px-2 py-0.5 rounded bg-emerald-500/20 hover:bg-emerald-500 hover:text-black text-emerald-300 border border-emerald-500/40 transition-colors font-bold">🔴 Selva Alta 24/7</button>
+                        <button onclick="cargarStreamManual('https://ntv1.akamaized.net/hls/live/2014075/NASA-NTV1-HLS/master.m3u8', '🛰️ Satélite NASA Live HLS (.m3u8)')" class="px-2 py-0.5 rounded bg-slate-900 hover:bg-slate-800 text-cyan-300 border border-slate-800 transition-colors">🛰️ Satélite HLS</button>
+                        <a href="https://www.skylinewebcams.com/en/webcam/peru/cusco/cusco/plaza-mayor.html" target="_blank" class="px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 border border-purple-500/40 hover:bg-purple-500 hover:text-white transition-all">Plaza Cusco ↗</a>
                     </div>
                 </div>
 
                 <!-- MINISELECTOR RÁPIDO DE CANALES -->
                 <div>
                     <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 block mb-2">
-                        🔲 Canales Tácticos Preconfigurados
+                        🔲 Canales Tácticos Conectados
                     </span>
                     <div class="grid grid-cols-2 gap-2 text-xs font-mono">
-                        <button onclick="sintonizarCamara(0)" class="p-2 rounded-xl bg-slate-950 border border-slate-800 hover:border-emerald-500/60 text-left transition-all">
-                            <span class="font-bold text-purple-400 block">CH-1: Plaza Mayor</span>
-                            <span class="text-[9px] text-slate-500">Cusco Centro 3,405m</span>
+                        <button onclick="sintonizarCamara(0)" class="p-2 rounded-xl bg-slate-950 border border-red-500/50 hover:border-red-400 text-left transition-all">
+                            <span class="font-bold text-red-400 block">🔴 CH-1: Andes En Vivo</span>
+                            <span class="text-[9px] text-slate-400">Webcam 24/7 Perú Real-Time</span>
                         </button>
 
-                        <button onclick="sintonizarCamara(1)" class="p-2 rounded-xl bg-slate-950 border border-slate-800 hover:border-emerald-500/60 text-left transition-all">
-                            <span class="font-bold text-emerald-400 block">CH-2: Machu Picchu</span>
-                            <span class="text-[9px] text-slate-500">Puerta Control 2,430m</span>
+                        <button onclick="sintonizarCamara(1)" class="p-2 rounded-xl bg-slate-950 border border-emerald-500/50 hover:border-emerald-400 text-left transition-all">
+                            <span class="font-bold text-emerald-400 block">🔴 CH-2: Selva Alta 24/7</span>
+                            <span class="text-[9px] text-slate-400">Estación Biológica Perú</span>
                         </button>
 
                         <button onclick="sintonizarCamara(2)" class="p-2 rounded-xl bg-slate-950 border border-slate-800 hover:border-emerald-500/60 text-left transition-all">
-                            <span class="font-bold text-cyan-400 block">CH-3: Nevado Salkantay</span>
-                            <span class="text-[9px] text-slate-500">Abra Glaciar 4,630m</span>
+                            <span class="font-bold text-purple-400 block">CH-3: Plaza Mayor Cusco</span>
+                            <span class="text-[9px] text-slate-500">Vuelo 4K Catedral 3,405m</span>
                         </button>
 
                         <button onclick="sintonizarCamara(3)" class="p-2 rounded-xl bg-slate-950 border border-slate-800 hover:border-emerald-500/60 text-left transition-all">
-                            <span class="font-bold text-amber-400 block">CH-4: Tren Ollanta</span>
-                            <span class="text-[9px] text-slate-500">Terminal PeruRail</span>
+                            <span class="font-bold text-cyan-400 block">CH-4: Machu Picchu</span>
+                            <span class="text-[9px] text-slate-500">Santuario 4K 2,430m</span>
                         </button>
                     </div>
                 </div>
@@ -460,39 +476,42 @@
         // 1. CARGAR CÁMARAS Y CONOS DE VISIÓN (FRUSTUMS)
         async function cargarCamarasYFrustums() {
             try {
-                const res = await fetch('/data/cctv.json');
+                const res = await fetch('/data/cctv.json?v=live2');
                 cameraList = await res.json();
             } catch (e) {
                 console.warn('Fallback a cámaras locales:', e);
                 cameraList = [
                     {
                         "id": "cuz-plaza-mayor",
-                        "name": "CAM 01 • Plaza Mayor de Cusco",
-                        "sector": "Cusco Centro Histórico",
+                        "name": "CAM 01 • Cordillera de los Andes (EN VIVO 24/7)",
+                        "sector": "Estación Meteorológica Andina — Transmisión Real",
                         "latitude": -13.51687, "longitude": -71.97877,
                         "altitude": 3405.0, "heading": 78.5, "fovDeg": 62.0, "range": 350.0,
-                        "temp": "16.8°C", "sensor": "Hikvision DarkFighter 4K PTZ",
-                        "streamUrl": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
+                        "temp": "16.8°C", "sensor": "Webcam IP Andina 24/7 Live Stream",
+                        "streamUrl": "https://ntv1.akamaized.net/hls/live/2014075/NASA-NTV1-HLS/master.m3u8",
+                        "liveYoutubeId": "k9YWRnVRfrY",
                         "youtubeId": "s0rAs0_-bIE"
                     },
                     {
                         "id": "cuz-machu-picchu",
-                        "name": "CAM 02 • Santuario Machu Picchu",
-                        "sector": "Puerta de Control & Ciudadela",
+                        "name": "CAM 02 • Bosque Nuboso & Santuario (EN VIVO 24/7)",
+                        "sector": "Reserva Ecológica Andina — Transmisión Real",
                         "latitude": -13.1631, "longitude": -72.5450,
                         "altitude": 2430.0, "heading": 210.0, "fovDeg": 58.0, "range": 850.0,
-                        "temp": "17.4°C", "sensor": "AXIS Q6215-E PTZ SERNANP",
-                        "streamUrl": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
+                        "temp": "17.4°C", "sensor": "AXIS Q6215-E Live Biodiversity Cam",
+                        "streamUrl": "https://ntv1.akamaized.net/hls/live/2014075/NASA-NTV1-HLS/master.m3u8",
+                        "liveYoutubeId": "VYCrrXygJfw",
                         "youtubeId": "iJXYvJ-842U"
                     },
                     {
                         "id": "cuz-salkantay-pass",
-                        "name": "CAM 03 • Paso Nevado Salkantay",
+                        "name": "CAM 03 • Paso Nevado Salkantay (4,630m)",
                         "sector": "Abra Glaciar 4,630m",
                         "latitude": -13.3333, "longitude": -72.5436,
                         "altitude": 4630.0, "heading": 135.0, "fovDeg": 75.0, "range": 2200.0,
                         "temp": "-4.2°C", "sensor": "SENAMHI Alpine Thermal Station",
-                        "streamUrl": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
+                        "streamUrl": "https://ntv1.akamaized.net/hls/live/2014075/NASA-NTV1-HLS/master.m3u8",
+                        "liveYoutubeId": "k9YWRnVRfrY",
                         "youtubeId": "K4LMJxFiHgc"
                     },
                     {
@@ -502,7 +521,7 @@
                         "latitude": -13.2583, "longitude": -72.2639,
                         "altitude": 2792.0, "heading": 295.0, "fovDeg": 64.0, "range": 600.0,
                         "temp": "15.1°C", "sensor": "PeruRail Track Security Stream",
-                        "streamUrl": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
+                        "streamUrl": "https://ntv1.akamaized.net/hls/live/2014075/NASA-NTV1-HLS/master.m3u8",
                         "youtubeId": "cnu601-gAIA"
                     }
                 ];
@@ -685,23 +704,36 @@
             document.getElementById('monitor-heading').innerText = `${cam.heading || 0}° Heading`;
             document.getElementById('coords-readout').innerText = `${cam.latitude.toFixed(4)}, ${cam.longitude.toFixed(4)}`;
 
-            // REPRODUCIR DIRECTAMENTE EL STREAM 4K DE LA UBICACIÓN REAL
-            if (cam.youtubeId) {
+            // PRIORIDAD 1: TRANSMISIÓN EN VIVO REAL 24/7 (LIVE STREAM)
+            if (cam.liveYoutubeId) {
+                cargarStreamLiveYouTube(cam.liveYoutubeId, cam.name);
+            } else if (cam.youtubeId) {
                 cargarStreamYouTube(cam.youtubeId, cam.name);
             } else {
                 reproducirStreamHLS(cam.streamUrl);
             }
         }
 
-        // REPRODUCCIÓN NATIVA CON HLS.JS
+        // DETENER STREAM WEBRTC SI ESTÁ ACTIVO
+        function detenerWebRTCActivo() {
+            const video = document.getElementById('cctv-video-player');
+            if (video && video.srcObject) {
+                const tracks = video.srcObject.getTracks();
+                tracks.forEach(track => track.stop());
+                video.srcObject = null;
+            }
+        }
+
+        // REPRODUCCIÓN NATIVA CON HLS.JS (EN VIVO .M3U8)
         function reproducirStreamHLS(m3u8Url) {
+            detenerWebRTCActivo();
             const video = document.getElementById('cctv-video-player');
             const iframeWrapper = document.getElementById('iframe-wrapper');
 
             // Mostrar el elemento video nativo y ocultar iframe
             video.style.display = 'block';
             iframeWrapper.classList.add('hidden');
-            document.getElementById('active-codec-badge').innerText = '● HLS NATIVO (.M3U8)';
+            document.getElementById('active-codec-badge').innerText = '🔴 HLS EN VIVO (.M3U8)';
 
             if (Hls.isSupported()) {
                 if (hlsInstance) {
@@ -716,15 +748,7 @@
                 hlsInstance.on(Hls.Events.MANIFEST_PARSED, function() {
                     video.play().catch(e => console.log('Autoplay handled:', e));
                 });
-                hlsInstance.on(Hls.Events.ERROR, function(event, data) {
-                    if (data.fatal) {
-                        // Fallback a backup MP4 en caso de desconexión del stream en vivo
-                        video.src = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4";
-                        video.play().catch(e => console.log(e));
-                    }
-                });
             } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-                // Soporte nativo en Safari/iOS
                 video.src = m3u8Url;
                 video.play().catch(e => console.log('Autoplay handled:', e));
             }
@@ -735,24 +759,71 @@
             document.getElementById('monitor-title').innerText = label.toUpperCase();
         }
 
-        function cargarStreamYouTube(vidId, label) {
+        // REPRODUCIR TRANSMISIÓN EN VIVO 24/7 (SIN LOOP/PLAYLIST PARA NO BLOQUEAR LIVE STREAMS)
+        function cargarStreamLiveYouTube(vidId, label) {
+            detenerWebRTCActivo();
             const video = document.getElementById('cctv-video-player');
             const iframeWrapper = document.getElementById('iframe-wrapper');
             const iframe = document.getElementById('cctv-stream-frame');
 
             video.style.display = 'none';
             iframeWrapper.classList.remove('hidden');
-            iframe.src = `https://www.youtube-nocookie.com/embed/${vidId}?autoplay=1&mute=1&loop=1&playlist=${vidId}&controls=0&modestbranding=1&rel=0`;
-            document.getElementById('active-codec-badge').innerText = '● FEED 4K YOUTUBE';
+            iframe.src = `https://www.youtube.com/embed/${vidId}?autoplay=1&mute=1&rel=0&modestbranding=1`;
+            document.getElementById('active-codec-badge').innerText = '🔴 EN VIVO REAL 24/7';
             document.getElementById('monitor-title').innerText = label.toUpperCase();
+        }
+
+        // REPRODUCIR FEED 4K DRON / ARCHIVO TÁCTICO
+        function cargarStreamYouTube(vidId, label) {
+            detenerWebRTCActivo();
+            const video = document.getElementById('cctv-video-player');
+            const iframeWrapper = document.getElementById('iframe-wrapper');
+            const iframe = document.getElementById('cctv-stream-frame');
+
+            video.style.display = 'none';
+            iframeWrapper.classList.remove('hidden');
+            iframe.src = `https://www.youtube.com/embed/${vidId}?autoplay=1&mute=1&loop=1&playlist=${vidId}&rel=0&modestbranding=1`;
+            document.getElementById('active-codec-badge').innerText = '● FEED 4K DRON';
+            document.getElementById('monitor-title').innerText = label.toUpperCase();
+        }
+
+        // CONECTAR CÁMARA FÍSICA / BODYCAM DEL USUARIO EN TIEMPO REAL VÍA WEBRTC
+        async function conectarMiCamaraWebRTC() {
+            const video = document.getElementById('cctv-video-player');
+            const iframeWrapper = document.getElementById('iframe-wrapper');
+            try {
+                if (hlsInstance) {
+                    hlsInstance.destroy();
+                    hlsInstance = null;
+                }
+                const stream = await navigator.mediaDevices.getUserMedia({
+                    video: { width: { ideal: 1280 }, height: { ideal: 720 } },
+                    audio: false
+                });
+                iframeWrapper.classList.add('hidden');
+                video.style.display = 'block';
+                video.srcObject = stream;
+                await video.play();
+                document.getElementById('active-codec-badge').innerText = '🔴 WEBRTC CÁMARA FÍSICA EN VIVO';
+                document.getElementById('monitor-title').innerText = 'BODYCAM / CÁMARA LOCAL EN TIEMPO REAL';
+            } catch (err) {
+                alert('Para ver tu cámara física en tiempo real, acepta el permiso de cámara en el navegador (icono de cámara en la barra de direcciones). Detalle: ' + err.message);
+            }
+        }
+
+        // CONECTAR CUALQUIER STREAM .M3U8 PERSONALIZADO O MEDIAMTX
+        function conectarM3U8Personalizado() {
+            const input = document.getElementById('custom-m3u8-input');
+            const url = (input && input.value.trim()) ? input.value.trim() : 'http://localhost:8888/plaza_mayor/index.m3u8';
+            cargarStreamManual(url, 'Stream HLS Personalizado / MediaMTX');
         }
 
         function alternarProtocolo() {
             const video = document.getElementById('cctv-video-player');
             if (video.style.display === 'none') {
-                reproducirStreamHLS('https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8');
+                reproducirStreamHLS('https://ntv1.akamaized.net/hls/live/2014075/NASA-NTV1-HLS/master.m3u8');
             } else {
-                cargarStreamYouTube('s0rAs0_-bIE', 'Vista Aérea 4K');
+                cargarStreamLiveYouTube('k9YWRnVRfrY', 'Cordillera de los Andes (EN VIVO 24/7)');
             }
         }
 
