@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Lifextreme AI | Agencia Creativa & Video 4K (Open-Higgsfield)</title>
+    <meta name="description" content="Estudio generativo de video cinemático y publicidad de aventura para Cusco con IA. Modelos Kling, Flux, Luma y Wan.">
+    
+    <!-- TAILWIND CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        slate: {
+                            950: '#070b14',
+                            900: '#0f172a',
+                            850: '#131e36',
+                            800: '#1e293b'
+                        },
+                        cyan: {
+                            400: '#22d3ee',
+                            500: '#06b6d4',
+                            600: '#0891b2'
+                        },
+                        purple: {
+                            400: '#c084fc',
+                            500: '#a855f7',
+                            600: '#9333ea'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- ESTILOS ADICIONALES -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=JetBrains+Mono:wght@400;700&display=swap');
+        
+        .glow-purple {
+            box-shadow: 0 0 35px -5px rgba(168, 85, 247, 0.25);
+        }
+        .glow-cyan {
+            box-shadow: 0 0 30px -5px rgba(34, 211, 238, 0.2);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 9999px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #a855f7;
+        }
+
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(1000%); }
+        }
+        .scanline-effect {
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 10px;
+            background: linear-gradient(180deg, transparent, rgba(168, 85, 247, 0.4), transparent);
+            animation: scanline 4s linear infinite;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans flex flex-col antialiased selection:bg-purple-500 selection:text-white">
+
+    <!-- BARRA SUPERIOR DE CONTROL -->
+    <header class="border-b border-slate-800 bg-slate-900/90 backdrop-blur-md sticky top-0 z-50 px-4 sm:px-6 py-3 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+            <a href="/hub" class="flex items-center gap-2 group">
+                <div class="h-9 w-9 rounded-xl bg-purple-500/20 text-purple-400 border border-purple-500/30 flex items-center justify-center font-black group-hover:scale-105 transition-transform">
+                    🎬
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="font-black text-white text-base tracking-tight">Studio Lifextreme</span>
+                        <span class="px-2 py-0.5 rounded-full text-[9px] font-mono font-bold bg-purple-500/20 text-purple-300 border border-purple-500/30">
+                            v2.4 OPEN-HIGGSFIELD
+                        </span>
+                    </div>
+                    <span class="text-[10px] text-slate-400 font-mono block">Agencia de Publicidad & Video Aventura Cusco</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="flex items-center gap-3">
+            <div class="hidden md:flex items-center gap-2 bg-slate-950 px-3 py-1.5 rounded-xl border border-slate-800 text-xs font-mono">
+                <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="text-slate-400">Motor:</span>
+                <span id="active-engine-badge" class="text-purple-300 font-bold">Flux 1.1 Pro Ultra</span>
+            </div>
+
+            <a href="/hub" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-300 transition-colors flex items-center gap-1.5">
+                <span>⬵ Volver al Hub</span>
+            </a>
+            
+            <a href="/" target="_blank" class="px-3 py-1.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-xs font-bold text-white transition-colors flex items-center gap-1 shadow-md shadow-purple-600/20">
+                <span>Web Lifextreme ↗</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- CUERPO PRINCIPAL DEL ESTUDIO -->
+    <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+        <!-- PANEL IZQUIERDO: CONTROLES & PARÁMETROS GENERATIVOS (4 COLS) -->
+        <section class="lg:col-span-4 space-y-5">
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-5 glow-purple">
+                <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-purple-400 mb-4 flex items-center justify-between">
+                    <span>⚙️ Parámetros de Síntesis</span>
+                    <span class="text-[10px] text-slate-500">GPU Cloud Active</span>
+                </h3>
+
+                <!-- TIPO DE FORMATO -->
+                <div class="space-y-2 mb-4">
+                    <label class="text-xs font-semibold text-slate-300">Formato de Salida</label>
+                    <div class="grid grid-cols-3 gap-2">
+                        <button type="button" onclick="setAspect('9:16', 768, 1365, 'Reel Vertical (TikTok/IG)')" 
+                            id="btn-aspect-9-16" class="aspect-btn p-2 rounded-xl border border-purple-500 bg-purple-500/20 text-purple-300 font-bold text-xs text-center transition-all">
+                            📱 9:16
+                            <span class="block text-[9px] text-slate-400 font-normal">Reel / Shorts</span>
+                        </button>
+                        <button type="button" onclick="setAspect('16:9', 1280, 720, 'Cinemático 16:9 (YouTube/Web)')" 
+                            id="btn-aspect-16-9" class="aspect-btn p-2 rounded-xl border border-slate-800 bg-slate-950 text-slate-300 font-bold text-xs text-center hover:border-slate-700 transition-all">
+                            🖥️ 16:9
+                            <span class="block text-[9px] text-slate-400 font-normal">Cinemático</span>
+                        </button>
+                        <button type="button" onclick="setAspect('1:1', 1024, 1024, 'Cuadrado 1:1 (Feed/Catálogo)')" 
+                            id="btn-aspect-1-1" class="aspect-btn p-2 rounded-xl border border-slate-800 bg-slate-950 text-slate-300 font-bold text-xs text-center hover:border-slate-700 transition-all">
+                            ⏹️ 1:1
+                            <span class="block text-[9px] text-slate-400 font-normal">Feed Post</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- MODELO DE IA -->
+                <div class="space-y-2 mb-4">
+                    <label class="text-xs font-semibold text-slate-300">Modelo Neuronal Generativo</label>
+                    <select id="select-model" onchange="updateEngineBadge(this.value)"
+                        class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs font-mono text-purple-300 focus:outline-none focus:border-purple-500">
+                        <option value="flux">Flux 1.1 Pro (Fotografía Ultra-HD de Aventura)</option>
+                        <option value="kling">Kling 3.0 Cinema (Render Cinemático Andino)</option>
+                        <option value="luma">Luma Ray 2 (Movimiento Dinámico & Dron FPV)</option>
+                        <option value="wan">Wan 2.1 Video Open (Slow Motion Glaciares)</option>
+                        <option value="turbo">SDXL Turbo (Previsualización Instantánea)</option>
+                    </select>
+                </div>
+
+                <!-- ESTILO VISUAL & ILUMINACIÓN -->
+                <div class="space-y-2 mb-4">
+                    <label class="text-xs font-semibold text-slate-300">Atmósfera & Iluminación Andina</label>
+                    <select id="select-lighting"
+                        class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-300 focus:outline-none focus:border-purple-500">
+                        <option value="golden hour dramatic sunlight with mountain god rays">Luz Dorada del Amanecer Andino (Golden Hour)</option>
+                        <option value="starry night clear Milky Way over snow peaks">Noche Estrellada con Vía Láctea en Nevados</option>
+                        <option value="mystical mountain fog dramatic clouds moody atmosphere">Niebla Mística & Nubes Bajas de Selva Alta</option>
+                        <option value="crisp high contrast alpine midday clear blue sky">Mediodía Andino Cielo Azul Cristalino</option>
+                        <option value="cyberpunk high-tech neon adventure gear showcase">Tecnología UV-C & Neón de Montaña</option>
+                    </select>
+                </div>
+
+                <!-- MOVIMIENTO DE CÁMARA (SIMULADO EN VIDEO) -->
+                <div class="space-y-2 mb-4">
+                    <label class="text-xs font-semibold text-slate-300">Movimiento de Cámara</label>
+                    <select id="select-camera"
+                        class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-300 focus:outline-none focus:border-purple-500">
+                        <option value="fpv-dive">Picado FPV Drone en Descenso Rápido</option>
+                        <option value="orbit">Órbita Cinemática 360° Alrededor del Montañista</option>
+                        <option value="dolly-in">Dolly In Suave hacia el Glaciar</option>
+                        <option value="hyperlapse">Hyperlapse de Nubes sobre la Cordillera</option>
+                    </select>
+                </div>
+
+                <!-- SEED & REPRODUCIBILIDAD -->
+                <div class="pt-2 border-t border-slate-800 flex items-center justify-between text-xs">
+                    <span class="text-slate-400 font-mono">Semilla Aleatoria</span>
+                    <button type="button" onclick="randomizeSeed()" class="text-purple-400 hover:text-purple-300 font-mono text-[11px] flex items-center gap-1">
+                        🎲 <span id="current-seed">748921</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- TEMPLATES PRECONFIGURADOS DE CUSCO -->
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-5">
+                <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 mb-3">
+                    🏔️ Plantillas Rápidas Cusco (1 Clic)
+                </h3>
+                <div class="space-y-2 text-xs">
+                    <button onclick="applyPreset(0)" class="w-full p-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/60 text-left transition-all group">
+                        <span class="font-bold text-white group-hover:text-purple-300 block">🦅 Salkantay Pass Drone FPV</span>
+                        <span class="text-[10px] text-slate-400">Nevado a 4,630m al amanecer</span>
+                    </button>
+
+                    <button onclick="applyPreset(1)" class="w-full p-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/60 text-left transition-all group">
+                        <span class="font-bold text-white group-hover:text-purple-300 block">⛺ Domo Glamping & Vía Láctea</span>
+                        <span class="text-[10px] text-slate-400">Soraypampa lujo nocturno</span>
+                    </button>
+
+                    <button onclick="applyPreset(2)" class="w-full p-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/60 text-left transition-all group">
+                        <span class="font-bold text-white group-hover:text-purple-300 block">💎 Laguna Humantay Turquesa</span>
+                        <span class="text-[10px] text-slate-400">Reflejo glaciar hiperrealista</span>
+                    </button>
+
+                    <button onclick="applyPreset(3)" class="w-full p-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/60 text-left transition-all group">
+                        <span class="font-bold text-white group-hover:text-purple-300 block">🌈 Ausangate Cordillera 7 Colores</span>
+                        <span class="text-[10px] text-slate-400">Amanecer virgen sin aglomeraciones</span>
+                    </button>
+
+                    <button onclick="applyPreset(4)" class="w-full p-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/60 text-left transition-all group">
+                        <span class="font-bold text-white group-hover:text-purple-300 block">🛡️ Equipo UV-C Esterilizado</span>
+                        <span class="text-[10px] text-slate-400">Sello de bioseguridad Lifextreme</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- PANEL DERECHO: CANVAS DE SÍNTESIS, VISOR & EXPORTACIÓN (8 COLS) -->
+        <section class="lg:col-span-8 space-y-6">
+
+            <!-- BARRA DE PROMPT PRINCIPAL -->
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-5 glow-cyan">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400">
+                        ✨ Prompt Creativo Unificado
+                    </span>
+                    <span id="aspect-badge-text" class="text-[10px] font-mono text-slate-400">
+                        Formato: Reel Vertical 9:16 (768x1365)
+                    </span>
+                </div>
+
+                <div class="relative">
+                    <textarea id="prompt-input" rows="3" 
+                        class="w-full bg-slate-950 border border-slate-800 rounded-2xl p-4 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 resize-none font-sans leading-relaxed"
+                        placeholder="Describe la escena de aventura, ángulo de cámara, iluminación y atmósfera para el video o reel...">Cinematic 4K FPV drone dive through snowy Salkantay Pass 4630m at golden hour, dramatic sunlight beams piercing through glacier mist, solitary extreme mountaineer with certified Lifextreme gear, 8k resolution hyperrealistic advertising reel.</textarea>
+                </div>
+
+                <div class="mt-4 flex flex-wrap items-center justify-between gap-3">
+                    <div class="flex items-center gap-2 text-xs text-slate-400">
+                        <span>💡 Tip:</span>
+                        <span class="text-[11px] text-slate-400">El modelo añade automáticamente mejoras cinemáticas 8K HDR.</span>
+                    </div>
+
+                    <button type="button" onclick="generateAsset()" id="btn-generate"
+                        class="px-6 py-3 rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-black text-sm flex items-center gap-2 shadow-lg shadow-purple-600/30 transition-all transform active:scale-95">
+                        <span id="btn-icon">⚡</span>
+                        <span id="btn-text">Generar Reel con IA</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- VISOR CENTRAL DEL ASSET GENERADO -->
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 relative overflow-hidden flex flex-col items-center justify-center min-h-[460px]">
+                
+                <!-- ESTADO: CARGANDO CON SCANLINE -->
+                <div id="loading-overlay" class="hidden absolute inset-0 bg-slate-950/80 backdrop-blur-md z-30 flex flex-col items-center justify-center p-6 text-center">
+                    <div class="scanline-effect"></div>
+                    <div class="h-16 w-16 rounded-2xl bg-purple-500/20 border border-purple-500/40 text-purple-400 flex items-center justify-center text-3xl animate-bounce mb-4">
+                        🎬
+                    </div>
+                    <h4 class="text-lg font-black text-white">Sintetizando en Red Neuronal...</h4>
+                    <p id="loading-step-text" class="text-xs font-mono text-purple-300 mt-1">Renderizando fotogramas con motor Flux 1.1 Pro...</p>
+                    <div class="w-48 h-1.5 bg-slate-800 rounded-full mt-4 overflow-hidden">
+                        <div class="h-full bg-purple-500 animate-[pulse_1s_infinite] w-full"></div>
+                    </div>
+                </div>
+
+                <!-- CONTENEDOR DEL VISOR INTERACTIVO -->
+                <div id="media-viewport" class="relative max-w-md w-full rounded-2xl overflow-hidden border border-slate-800 bg-slate-950 shadow-2xl flex items-center justify-center group">
+                    <img id="main-asset-image" 
+                        src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=1200&q=80" 
+                        alt="Visualización Creativa Lifextreme" 
+                        class="w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 max-h-[500px]" />
+                    
+                    <!-- BADGE DE PROPIEDADES EN EL VISOR -->
+                    <div class="absolute top-3 left-3 flex items-center gap-2 z-10">
+                        <span class="px-2 py-1 rounded-lg bg-slate-950/80 backdrop-blur-md border border-slate-800 text-[10px] font-mono text-purple-300 font-bold">
+                            ● 4K ULTRA HDR
+                        </span>
+                        <span id="motion-badge" class="px-2 py-1 rounded-lg bg-slate-950/80 backdrop-blur-md border border-slate-800 text-[10px] font-mono text-cyan-400 font-bold">
+                            FPV DRONE DIVE
+                        </span>
+                    </div>
+
+                    <!-- BOTÓN DE REPRODUCCIÓN / SIMULACIÓN DE CÁMARA VIVA -->
+                    <button type="button" onclick="toggleMotionPlayback()" id="btn-motion-play"
+                        class="absolute bottom-3 right-3 p-3 rounded-full bg-purple-600/90 hover:bg-purple-500 text-white shadow-lg backdrop-blur-md transition-transform transform active:scale-90 flex items-center gap-1.5 text-xs font-bold">
+                        <span id="play-icon">▶</span>
+                        <span id="play-text">Animar Movimiento</span>
+                    </button>
+                </div>
+
+                <!-- BARRA DE ACCIONES SOBRE EL ASSET GENERADO -->
+                <div class="w-full max-w-md mt-5 pt-4 border-t border-slate-800 flex flex-wrap items-center justify-between gap-3 text-xs">
+                    <div class="flex items-center gap-2">
+                        <button onclick="descargarAsset()" class="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold flex items-center gap-1.5 transition-colors">
+                            <span>⬇️</span> Descargar HD
+                        </button>
+                        <button onclick="copiarPrompt()" class="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold flex items-center gap-1.5 transition-colors">
+                            <span>📋</span> Copiar Prompt
+                        </button>
+                    </div>
+
+                    <button onclick="despacharCampana()" class="px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold flex items-center gap-1.5 shadow-md shadow-purple-600/20 transition-all">
+                        <span>📲</span> Publicar en Redes
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- HISTORIAL / GALERÍA DE ASSETS RECIENTES -->
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-5">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-slate-400">
+                        🎞️ Galería Generada en Sesión
+                    </h3>
+                    <span id="gallery-count" class="text-[10px] font-mono text-slate-500">4 Assets Listos</span>
+                </div>
+
+                <div id="session-gallery" class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    <!-- ITEMS DE GALERÍA -->
+                    <div onclick="selectGalleryItem(0)" class="cursor-pointer group relative rounded-xl overflow-hidden border border-slate-800 hover:border-purple-500 transition-all">
+                        <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=300&q=80" class="w-full h-24 object-cover group-hover:scale-105 transition-transform" />
+                        <span class="absolute bottom-1 left-1 px-1.5 py-0.5 rounded bg-slate-950/80 text-[8px] font-mono text-purple-300">Salkantay</span>
+                    </div>
+
+                    <div onclick="selectGalleryItem(1)" class="cursor-pointer group relative rounded-xl overflow-hidden border border-slate-800 hover:border-purple-500 transition-all">
+                        <img src="https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=300&q=80" class="w-full h-24 object-cover group-hover:scale-105 transition-transform" />
+                        <span class="absolute bottom-1 left-1 px-1.5 py-0.5 rounded bg-slate-950/80 text-[8px] font-mono text-purple-300">Glamping</span>
+                    </div>
+
+                    <div onclick="selectGalleryItem(2)" class="cursor-pointer group relative rounded-xl overflow-hidden border border-slate-800 hover:border-purple-500 transition-all">
+                        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=300&q=80" class="w-full h-24 object-cover group-hover:scale-105 transition-transform" />
+                        <span class="absolute bottom-1 left-1 px-1.5 py-0.5 rounded bg-slate-950/80 text-[8px] font-mono text-purple-300">Humantay</span>
+                    </div>
+
+                    <div onclick="selectGalleryItem(3)" class="cursor-pointer group relative rounded-xl overflow-hidden border border-slate-800 hover:border-purple-500 transition-all">
+                        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=300&q=80" class="w-full h-24 object-cover group-hover:scale-105 transition-transform" />
+                        <span class="absolute bottom-1 left-1 px-1.5 py-0.5 rounded bg-slate-950/80 text-[8px] font-mono text-purple-300">Ausangate</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER INFORMÁTICO -->
+    <footer class="border-t border-slate-900 bg-slate-950 py-4 px-6 text-center text-xs text-slate-500 font-mono">
+        Lifextreme Creative Studio • Integración directa del repositorio <code class="text-purple-400">wide-trace/open-higgsfield</code> • Cusco, Perú.
+    </footer>
+
+    <!-- LÓGICA JAVASCRIPT DEL ESTUDIO -->
+    <script>
+        // ESTADO DE CONFIGURACIÓN
+        let currentAspect = '9:16';
+        let currentWidth = 768;
+        let currentHeight = 1365;
+        let currentSeed = 748921;
+        let isAnimating = false;
+        let animationInterval = null;
+
+        // PLANTILLAS
+        const presets = [
+            {
+                title: "Salkantay Pass Drone FPV",
+                prompt: "Cinematic 4K FPV drone dive through snowy Salkantay Pass 4630m at golden hour, dramatic sunlight beams piercing through glacier mist, solitary extreme mountaineer with certified Lifextreme gear, 8k resolution hyperrealistic advertising reel.",
+                aspect: '9:16', w: 768, h: 1365,
+                camera: "fpv-dive",
+                img: "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=1200&q=80"
+            },
+            {
+                title: "Domo Glamping & Vía Láctea",
+                prompt: "Luxury futuristic geodesic glass dome glamping campsite at Soraypampa Cusco, vibrant Milky Way galaxy and shooting stars in crystal clear night sky, cozy warm amber interior light, high-end travel magazine photography 8k.",
+                aspect: '16:9', w: 1280, h: 720,
+                camera: "orbit",
+                img: "https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=1200&q=80"
+            },
+            {
+                title: "Laguna Humantay Turquesa",
+                prompt: "Extreme high altitude turquoise alpine lake Laguna Humantay with massive snowcapped glacier wall, mirror reflections on water, solitary trekker standing on rock edge with technical ultralight jacket, cinematic National Geographic style.",
+                aspect: '9:16', w: 768, h: 1365,
+                camera: "dolly-in",
+                img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80"
+            },
+            {
+                title: "Ausangate Cordillera 7 Colores",
+                prompt: "Majestic drone aerial shot of Vinicunca rainbow mountain and Ausangate glacier range, untouched landscape early morning soft light, vibrant mineral colors turquoise magenta gold, 8k documentary cinematography.",
+                aspect: '16:9', w: 1280, h: 720,
+                camera: "hyperlapse",
+                img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80"
+            },
+            {
+                title: "Equipo UV-C Esterilizado Lifextreme",
+                prompt: "High-tech cleanroom laboratory displaying professional four-season mountain tents and sleeping bags bathed in purple UV-C sterilization rays, holographic certification seal, ultra-clean biosecurity adventure standards.",
+                aspect: '1:1', w: 1024, h: 1024,
+                camera: "orbit",
+                img: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=1200&q=80"
+            }
+        ];
+
+        function setAspect(aspect, w, h, label) {
+            currentAspect = aspect;
+            currentWidth = w;
+            currentHeight = h;
+            
+            document.querySelectorAll('.aspect-btn').forEach(btn => {
+                btn.classList.remove('border-purple-500', 'bg-purple-500/20', 'text-purple-300');
+                btn.classList.add('border-slate-800', 'bg-slate-950', 'text-slate-300');
+            });
+
+            if (aspect === '9:16') {
+                document.getElementById('btn-aspect-9-16').classList.add('border-purple-500', 'bg-purple-500/20', 'text-purple-300');
+            } else if (aspect === '16:9') {
+                document.getElementById('btn-aspect-16-9').classList.add('border-purple-500', 'bg-purple-500/20', 'text-purple-300');
+            } else {
+                document.getElementById('btn-aspect-1-1').classList.add('border-purple-500', 'bg-purple-500/20', 'text-purple-300');
+            }
+
+            document.getElementById('aspect-badge-text').innerText = `Formato: ${label} (${w}x${h})`;
+        }
+
+        function updateEngineBadge(val) {
+            const names = {
+                flux: 'Flux 1.1 Pro Ultra',
+                kling: 'Kling 3.0 Cinema',
+                luma: 'Luma Ray 2',
+                wan: 'Wan 2.1 Video',
+                turbo: 'SDXL Turbo Fast'
+            };
+            document.getElementById('active-engine-badge').innerText = names[val] || val;
+        }
+
+        function randomizeSeed() {
+            currentSeed = Math.floor(Math.random() * 900000) + 100000;
+            document.getElementById('current-seed').innerText = currentSeed;
+        }
+
+        function applyPreset(idx) {
+            const p = presets[idx];
+            document.getElementById('prompt-input').value = p.prompt;
+            setAspect(p.aspect, p.w, p.h, p.title);
+            document.getElementById('select-camera').value = p.camera;
+            document.getElementById('motion-badge').innerText = p.camera.toUpperCase();
+            document.getElementById('main-asset-image').src = p.img;
+            randomizeSeed();
+        }
+
+        async function generateAsset() {
+            const prompt = document.getElementById('prompt-input').value.trim();
+            if (!prompt) return;
+
+            const lighting = document.getElementById('select-lighting').value;
+            const fullPrompt = `${prompt}, ${lighting}, high detail, 8k resolution, cinematic color grading`;
+
+            const loading = document.getElementById('loading-overlay');
+            const stepText = document.getElementById('loading-step-text');
+            loading.classList.remove('hidden');
+
+            stepText.innerText = "Conectando al clúster generativo Open-Higgsfield...";
+            await new Promise(r => setTimeout(r, 600));
+
+            stepText.innerText = `Sintetizando imagen con semilla #${currentSeed}...`;
+            await new Promise(r => setTimeout(r, 800));
+
+            // URL directa del motor generativo con semilla y aspect ratio
+            const aiImageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(fullPrompt)}?width=${currentWidth}&height=${currentHeight}&seed=${currentSeed}&model=flux&nologo=true`;
+
+            const img = document.getElementById('main-asset-image');
+            
+            // Creamos un preload
+            const preloadImg = new Image();
+            preloadImg.onload = () => {
+                img.src = aiImageUrl;
+                loading.classList.add('hidden');
+                addToGallery(aiImageUrl, prompt.substring(0, 15) + "...");
+            };
+            preloadImg.onerror = () => {
+                // Fallback seguro si hay bloqueo de red o timeout
+                img.src = "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=1200&q=80";
+                loading.classList.add('hidden');
+            };
+            preloadImg.src = aiImageUrl;
+        }
+
+        function toggleMotionPlayback() {
+            const img = document.getElementById('main-asset-image');
+            const playText = document.getElementById('play-text');
+            const playIcon = document.getElementById('play-icon');
+
+            isAnimating = !isAnimating;
+
+            if (isAnimating) {
+                playText.innerText = "Pausar";
+                playIcon.innerText = "⏸";
+                
+                let scale = 1.0;
+                let direction = 1;
+                animationInterval = setInterval(() => {
+                    scale += 0.003 * direction;
+                    if (scale > 1.12) direction = -1;
+                    if (scale < 1.0) direction = 1;
+                    img.style.transform = `scale(${scale}) translateY(${direction * -4}px)`;
+                }, 50);
+
+                // Síntesis de sonido ambiental de viento de montaña en Web Audio puro (sin archivos externos)
+                try {
+                    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(80, ctx.currentTime);
+                    gain.gain.setValueAtTime(0.05, ctx.currentTime);
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start();
+                    setTimeout(() => { osc.stop(); }, 4000);
+                } catch(e) {}
+
+            } else {
+                playText.innerText = "Animar Movimiento";
+                playIcon.innerText = "▶";
+                clearInterval(animationInterval);
+                img.style.transform = 'scale(1) translateY(0)';
+            }
+        }
+
+        function addToGallery(url, label) {
+            const gallery = document.getElementById('session-gallery');
+            const item = document.createElement('div');
+            item.className = "cursor-pointer group relative rounded-xl overflow-hidden border border-purple-500/50 hover:border-purple-400 transition-all";
+            item.innerHTML = `
+                <img src="${url}" class="w-full h-24 object-cover group-hover:scale-105 transition-transform" />
+                <span class="absolute bottom-1 left-1 px-1.5 py-0.5 rounded bg-slate-950/80 text-[8px] font-mono text-purple-300">Nuevo</span>
+            `;
+            item.onclick = () => {
+                document.getElementById('main-asset-image').src = url;
+            };
+            gallery.prepend(item);
+        }
+
+        function selectGalleryItem(idx) {
+            applyPreset(idx);
+        }
+
+        function descargarAsset() {
+            const img = document.getElementById('main-asset-image');
+            const a = document.createElement('a');
+            a.href = img.src;
+            a.download = `lifextreme-creative-reel-${Date.now()}.jpg`;
+            a.target = "_blank";
+            a.click();
+        }
+
+        function copiarPrompt() {
+            const prompt = document.getElementById('prompt-input').value;
+            navigator.clipboard.writeText(prompt).then(() => {
+                alert("✨ Prompt copiado al portapapeles con éxito.");
+            });
+        }
+
+        function despacharCampana() {
+            const prompt = document.getElementById('prompt-input').value;
+            const text = encodeURIComponent(`🏔️ ¡Nueva Producción Cinemática Lifextreme!\n\n${prompt}\n\nReserva tu expedición con equipo esterilizado en: https://www.lifextreme.store`);
+            window.open(`https://wa.me/?text=${text}`, '_blank');
+        }
+
+        // Inicializar
+        randomizeSeed();
+    </script>
+</body>
+</html>

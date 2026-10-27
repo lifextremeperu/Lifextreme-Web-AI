@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>God's Eye View | Centro de Comando Geoespacial 3D (GEOINT Cusco)</title>
+    <meta name="description" content="Centro de comando táctico 3D y monitoreo satelital de expediciones, cámaras en vivo y alertas viales en los Andes peruanos.">
+
+    <!-- TAILWIND CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        slate: {
+                            950: '#050811',
+                            900: '#0b1220',
+                            850: '#0f182c',
+                            800: '#1b263b'
+                        },
+                        emerald: {
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669'
+                        },
+                        cyan: {
+                            400: '#22d3ee',
+                            500: '#06b6d4',
+                            600: '#0891b2'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- LEAFLET MAPS CSS & JS (SATELLITE & TACTICAL LAYERS) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- ESTILOS TÁCTICOS -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=JetBrains+Mono:wght@400;700;800&display=swap');
+        
+        .glow-emerald {
+            box-shadow: 0 0 30px -5px rgba(16, 185, 129, 0.25);
+        }
+        .glow-cyan {
+            box-shadow: 0 0 30px -5px rgba(34, 211, 238, 0.25);
+        }
+        .glow-red {
+            box-shadow: 0 0 30px -5px rgba(239, 68, 68, 0.35);
+        }
+
+        /* RETÍCULA MILITAR / HUD */
+        .hud-grid {
+            background-image: 
+                linear-gradient(rgba(16, 185, 129, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(16, 185, 129, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* FLIR MODO TÉRMICO */
+        .flir-filter {
+            filter: contrast(180%) hue-rotate(180deg) invert(100%) saturate(220%);
+        }
+
+        /* SCANLINE TÁCTICO */
+        @keyframes scanline-radar {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(1000%); }
+        }
+        .radar-scan {
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(180deg, transparent, rgba(52, 211, 153, 0.8), transparent);
+            animation: scanline-radar 3s linear infinite;
+        }
+
+        /* CUSTOM LEAFLET MAP DARK STYLING */
+        .leaflet-container {
+            background: #050811 !important;
+            font-family: 'JetBrains Mono', monospace !important;
+        }
+        .leaflet-popup-content-wrapper {
+            background: #0b1220 !important;
+            color: #e2e8f0 !important;
+            border: 1px solid #10b981 !important;
+            border-radius: 12px !important;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.8) !important;
+        }
+        .leaflet-popup-tip {
+            background: #0b1220 !important;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans flex flex-col antialiased selection:bg-emerald-500 selection:text-black">
+
+    <!-- HEADER DE COMANDO TÁCTICO -->
+    <header class="border-b border-slate-800 bg-slate-900/90 backdrop-blur-md sticky top-0 z-50 px-4 sm:px-6 py-2.5 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+            <a href="/hub" class="flex items-center gap-2 group">
+                <div class="h-9 w-9 rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center font-black group-hover:scale-105 transition-transform text-lg">
+                    🛰️
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="font-black text-white text-base tracking-tight font-mono">GOD'S EYE VIEW</span>
+                        <span class="px-2 py-0.5 rounded-full text-[9px] font-mono font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                            GEOINT 3D WAR ROOM
+                        </span>
+                    </div>
+                    <span class="text-[10px] text-slate-400 font-mono block">Centro de Control de Rutas, Cámaras & Telemetría Andina</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="flex items-center gap-2 sm:gap-4">
+            <!-- INDICADORES EN VIVO -->
+            <div class="hidden md:flex items-center gap-3 bg-slate-950 px-3 py-1.5 rounded-xl border border-slate-800 text-xs font-mono">
+                <div class="flex items-center gap-1.5">
+                    <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span class="text-slate-400">GPS Grupos:</span>
+                    <span class="text-emerald-300 font-bold">14 Activos</span>
+                </div>
+                <div class="h-3 w-px bg-slate-800"></div>
+                <div class="flex items-center gap-1.5">
+                    <span class="text-slate-400">SUTRAN:</span>
+                    <span class="text-cyan-300 font-bold">Normal (Vía Libre)</span>
+                </div>
+            </div>
+
+            <a href="/hub" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-300 transition-colors flex items-center gap-1.5">
+                <span>⬵ Volver al Hub</span>
+            </a>
+
+            <button onclick="activarAlertaSOS()" 
+                class="px-3 py-1.5 rounded-xl bg-red-600/90 hover:bg-red-500 text-xs font-black text-white transition-all flex items-center gap-1 shadow-lg shadow-red-600/30 animate-pulse">
+                <span>🚨 ALERTA SOS</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ÁREA DE OPERACIONES (MAPA SATELITAL + HUD + CÁMARAS) -->
+    <main class="flex-1 flex flex-col lg:flex-row relative overflow-hidden">
+
+        <!-- BARRA LATERAL IZQUIERDA: SELECTOR DE ZONAS Y CAPAS (340px) -->
+        <aside class="w-full lg:w-80 bg-slate-900 border-r border-slate-800 p-4 flex flex-col justify-between overflow-y-auto custom-scrollbar z-20 space-y-4">
+            
+            <div class="space-y-4">
+                <!-- SELECTOR DE CUADRANTE / SECTOR -->
+                <div>
+                    <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-400 block mb-2">
+                        🎯 Sectores Tácticos Monitoreados
+                    </span>
+                    <div class="space-y-1.5 text-xs font-mono">
+                        <button onclick="flyToLocation(-13.1631, -72.5450, 15, 'Santuario Machu Picchu')" 
+                            class="zone-btn w-full p-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-emerald-500/60 text-left transition-all flex items-center justify-between group">
+                            <div>
+                                <span class="font-bold text-white group-hover:text-emerald-300 block">🏛️ Machu Picchu</span>
+                                <span class="text-[10px] text-slate-400">Elev: 2,430m • Puerta de Control</span>
+                            </div>
+                            <span class="text-[10px] text-emerald-400 font-bold">LIVE CAM</span>
+                        </button>
+
+                        <button onclick="flyToLocation(-13.3333, -72.5436, 14, 'Paso Salkantay (Abra 4,630m)')" 
+                            class="zone-btn w-full p-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-emerald-500/60 text-left transition-all flex items-center justify-between group">
+                            <div>
+                                <span class="font-bold text-white group-hover:text-emerald-300 block">🏔️ Nevado Salkantay</span>
+                                <span class="text-[10px] text-slate-400">Elev: 4,630m • Vientos -4°C</span>
+                            </div>
+                            <span class="text-[10px] text-emerald-400 font-bold">RADAR</span>
+                        </button>
+
+                        <button onclick="flyToLocation(-13.3889, -72.5714, 15, 'Soraypampa Eco-Campsite')" 
+                            class="zone-btn w-full p-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-emerald-500/60 text-left transition-all flex items-center justify-between group">
+                            <div>
+                                <span class="font-bold text-white group-hover:text-emerald-300 block">⛺ Soraypampa Domes</span>
+                                <span class="text-[10px] text-slate-400">Elev: 3,900m • Campamento Base</span>
+                            </div>
+                            <span class="text-[10px] text-emerald-400 font-bold">GPS: 4</span>
+                        </button>
+
+                        <button onclick="flyToLocation(-13.7889, -71.2464, 13, 'Cordillera Ausangate')" 
+                            class="zone-btn w-full p-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-emerald-500/60 text-left transition-all flex items-center justify-between group">
+                            <div>
+                                <span class="font-bold text-white group-hover:text-emerald-300 block">❄️ Ausangate & Vinicunca</span>
+                                <span class="text-[10px] text-slate-400">Elev: 6,384m • Alerta Glaciar</span>
+                            </div>
+                            <span class="text-[10px] text-amber-400 font-bold">ALERTA</span>
+                        </button>
+
+                        <button onclick="flyToLocation(-13.2583, -72.2639, 15, 'Estación Ollantaytambo PeruRail')" 
+                            class="zone-btn w-full p-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-emerald-500/60 text-left transition-all flex items-center justify-between group">
+                            <div>
+                                <span class="font-bold text-white group-hover:text-emerald-300 block">🚂 Ollantaytambo Tren</span>
+                                <span class="text-[10px] text-slate-400">Elev: 2,792m • Despacho Logístico</span>
+                            </div>
+                            <span class="text-[10px] text-emerald-400 font-bold">CAM 03</span>
+                        </button>
+
+                        <button onclick="flyToLocation(-13.5167, -71.9789, 15, 'Centro de Comando Cusco HQ')" 
+                            class="zone-btn w-full p-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-emerald-500/60 text-left transition-all flex items-center justify-between group">
+                            <div>
+                                <span class="font-bold text-white group-hover:text-emerald-300 block">🏛️ Cusco Centro (HQ)</span>
+                                <span class="text-[10px] text-slate-400">Plaza de Armas • San Blas</span>
+                            </div>
+                            <span class="text-[10px] text-cyan-400 font-bold">CENTRAL</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CONTROL DE CAPAS TÁCTICAS -->
+                <div class="pt-3 border-t border-slate-800">
+                    <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 block mb-2">
+                        🛰️ Capas de Sensores Tácticos
+                    </span>
+                    <div class="space-y-2 text-xs font-mono">
+                        <label class="flex items-center justify-between p-2 rounded-xl bg-slate-950 border border-slate-800 cursor-pointer">
+                            <span class="text-slate-300 flex items-center gap-2">
+                                <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+                                Cámaras CCTV en Vivo
+                            </span>
+                            <input type="checkbox" id="layer-cams" checked onchange="toggleLayer('cams')" class="accent-emerald-500" />
+                        </label>
+
+                        <label class="flex items-center justify-between p-2 rounded-xl bg-slate-950 border border-slate-800 cursor-pointer">
+                            <span class="text-slate-300 flex items-center gap-2">
+                                <span class="h-2 w-2 rounded-full bg-cyan-400"></span>
+                                Guías & Expediciones GPS
+                            </span>
+                            <input type="checkbox" id="layer-gps" checked onchange="toggleLayer('gps')" class="accent-cyan-500" />
+                        </label>
+
+                        <label class="flex items-center justify-between p-2 rounded-xl bg-slate-950 border border-slate-800 cursor-pointer">
+                            <span class="text-slate-300 flex items-center gap-2">
+                                <span class="h-2 w-2 rounded-full bg-amber-400"></span>
+                                Alertas Viales SUTRAN (Croma)
+                            </span>
+                            <input type="checkbox" id="layer-sutran" checked onchange="toggleLayer('sutran')" class="accent-amber-500" />
+                        </label>
+
+                        <label class="flex items-center justify-between p-2 rounded-xl bg-slate-950 border border-slate-800 cursor-pointer">
+                            <span class="text-slate-300 flex items-center gap-2">
+                                <span class="h-2 w-2 rounded-full bg-purple-400"></span>
+                                Satélite Órbita Sentinel
+                            </span>
+                            <input type="checkbox" id="layer-satellite" checked onchange="toggleLayer('satellite')" class="accent-purple-500" />
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- TELEMETRÍA INFERIOR -->
+            <div class="pt-3 border-t border-slate-800 text-[10px] font-mono text-slate-500 space-y-1">
+                <div class="flex justify-between">
+                    <span>SENSOR LAT/LNG:</span>
+                    <span id="coords-readout" class="text-emerald-400">-13.1631, -72.5450</span>
+                </div>
+                <div class="flex justify-between">
+                    <span>ALTITUD GEOID:</span>
+                    <span id="alt-readout" class="text-slate-300">2,430 m s.n.m.</span>
+                </div>
+                <div class="flex justify-between">
+                    <span>ESTADO SATÉLITE:</span>
+                    <span class="text-emerald-400 font-bold">LOCK 100%</span>
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- CONTENEDOR DEL MAPA SATELITAL (LEAFLET / SATELLITE 3D) -->
+        <div class="flex-1 relative h-[500px] lg:h-auto">
+            <!-- RETÍCULA TÁCTICA TRANSPARENTE ENCIMA -->
+            <div class="absolute inset-0 pointer-events-none z-10 hud-grid opacity-30"></div>
+            
+            <!-- CONTENEDOR MAPA -->
+            <div id="map" class="w-full h-full"></div>
+
+            <!-- RADAR DE ESQUINAS Y OVERLAYS HUD -->
+            <div class="absolute top-4 right-4 z-20 pointer-events-none hidden sm:block">
+                <div class="bg-slate-950/80 backdrop-blur-md border border-emerald-500/40 rounded-2xl p-3 text-xs font-mono text-emerald-400 shadow-xl">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="h-2 w-2 rounded-full bg-emerald-400 animate-ping"></span>
+                        <span class="font-bold">RADAR CUSCO OMNI-DIRECTIONAL</span>
+                    </div>
+                    <div class="text-[10px] text-slate-400 space-y-0.5">
+                        <p>FOV: 120° AZIMUTH 284°</p>
+                        <p>COBERTURA: SALKANTAY - MAPI - AUSANGATE</p>
+                        <p>FRECUENCIA: 142.850 MHz (CANAL RESCATE)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BOTONES FLOTANTES DE MODO DE MAPA (SATÉLITE / NOCTURNO / TÉRMICO) -->
+            <div class="absolute bottom-4 left-4 z-20 flex items-center gap-2">
+                <button onclick="setMapBase('satellite')" id="btn-mode-sat"
+                    class="px-3 py-1.5 rounded-xl bg-emerald-500 text-slate-950 text-xs font-mono font-bold shadow-lg shadow-emerald-500/20 border border-emerald-400">
+                    🛰️ Fotorrealista Satélite
+                </button>
+                <button onclick="setMapBase('dark')" id="btn-mode-dark"
+                    class="px-3 py-1.5 rounded-xl bg-slate-900/90 text-slate-300 text-xs font-mono font-bold hover:text-white border border-slate-700 shadow-lg">
+                    🌑 Táctico Dark Matter
+                </button>
+                <button onclick="toggleThermalFLIR()" id="btn-mode-flir"
+                    class="px-3 py-1.5 rounded-xl bg-slate-900/90 text-red-400 text-xs font-mono font-bold hover:text-red-300 border border-red-500/40 shadow-lg">
+                    🔥 Visión FLIR Térmica
+                </button>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- VENTANA FLOTANTE: FEED DE CÁMARA TÁCTICA EN VIVO (CCTV SIMULATOR) -->
+    <div id="cctv-modal" class="hidden fixed bottom-6 right-6 z-50 w-96 bg-slate-950 border-2 border-emerald-500 rounded-3xl overflow-hidden shadow-2xl glow-emerald">
+        
+        <!-- HEADER DE LA CÁMARA -->
+        <div class="bg-slate-900 px-4 py-2.5 flex items-center justify-between border-b border-slate-800">
+            <div class="flex items-center gap-2">
+                <span class="h-2 w-2 rounded-full bg-red-500 animate-pulse"></span>
+                <span id="cctv-title" class="text-xs font-mono font-bold text-white">CAM 01 • SALKANTAY PASS 4,630M</span>
+            </div>
+            <button onclick="closeCCTV()" class="text-slate-400 hover:text-white font-mono text-sm">✕</button>
+        </div>
+
+        <!-- VISOR DE VIDEO DE LA CÁMARA -->
+        <div class="relative h-56 bg-black overflow-hidden group">
+            <div class="radar-scan"></div>
+            
+            <img id="cctv-stream-img" 
+                src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=800&q=80" 
+                alt="Stream Cámaras Tácticas" 
+                class="w-full h-full object-cover transition-all duration-300" />
+            
+            <!-- HUD DE LA CÁMARA -->
+            <div class="absolute top-2 left-2 text-[10px] font-mono text-emerald-400 bg-slate-950/80 px-2 py-0.5 rounded border border-emerald-500/30">
+                REC ● <span id="cctv-clock">12:45:02 UTC</span>
+            </div>
+
+            <div class="absolute bottom-2 left-2 text-[10px] font-mono text-slate-300 bg-slate-950/80 px-2 py-0.5 rounded border border-slate-800 space-y-0.5">
+                <div>TEMP: <span id="cctv-temp" class="text-cyan-400">-3.2°C</span> | VIENTO: <span class="text-cyan-400">34 km/h NW</span></div>
+                <div>OPTICAL ZOOM: <span id="cctv-zoom">4.8X</span> | FPS: 30.0</div>
+            </div>
+
+            <div class="absolute bottom-2 right-2 flex gap-1">
+                <button onclick="toggleCCTVOVMode()" class="px-2 py-1 rounded bg-slate-900/90 text-[10px] font-mono text-emerald-300 border border-emerald-500/40 hover:bg-emerald-500 hover:text-black">
+                    FLIR / OPT
+                </button>
+            </div>
+        </div>
+
+        <!-- CONTROLES PTZ (PAN - TILT - ZOOM) -->
+        <div class="bg-slate-900 p-3 flex items-center justify-between text-xs font-mono">
+            <div class="flex items-center gap-1.5">
+                <button onclick="ptzMove('left')" class="p-1 rounded bg-slate-950 border border-slate-800 text-slate-300 hover:text-white">◀</button>
+                <button onclick="ptzMove('up')" class="p-1 rounded bg-slate-950 border border-slate-800 text-slate-300 hover:text-white">▲</button>
+                <button onclick="ptzMove('down')" class="p-1 rounded bg-slate-950 border border-slate-800 text-slate-300 hover:text-white">▼</button>
+                <button onclick="ptzMove('right')" class="p-1 rounded bg-slate-950 border border-slate-800 text-slate-300 hover:text-white">▶</button>
+            </div>
+            <span class="text-[10px] text-slate-400">PAN TILT ZOOM MOTOR ACTIVE</span>
+        </div>
+
+    </div>
+
+    <!-- SCRIPT DE MAPAS Y TÁCTICA -->
+    <script>
+        let map;
+        let baseLayers = {};
+        let currentBase = 'satellite';
+        let layerGroups = {
+            cams: null,
+            gps: null,
+            sutran: null,
+            satellite: null
+        };
+        let isFlirActive = false;
+        let cctvFlir = false;
+
+        // INICIALIZAR MAPA CON COORDENADAS DE CUSCO
+        function initMap() {
+            // Centro por defecto: Valle Sagrado / Machu Picchu / Salkantay
+            map = L.map('map', {
+                center: [-13.25, -72.35],
+                zoom: 11,
+                zoomControl: false
+            });
+
+            // CONTROL DE ZOOM EN ESQUINA SUPERIOR DERECHA
+            L.control.zoom({ position: 'topright' }).addTo(map);
+
+            // CAPA 1: ESRI WORLD IMAGERY (FOTORREALISTA SATÉLITE)
+            baseLayers.satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                attribution: 'Tiles &copy; Esri &mdash; Lifextreme Geospatial',
+                maxZoom: 18
+            });
+
+            // CAPA 2: CARTO DARK MATTER (TÁCTICO)
+            baseLayers.dark = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; CartoDB &mdash; Lifextreme Geospatial',
+                maxZoom: 19
+            });
+
+            // ACTIVAR SATÉLITE POR DEFECTO
+            baseLayers.satellite.addTo(map);
+
+            // INICIALIZAR GRUPOS DE CAPAS
+            layerGroups.cams = L.layerGroup().addTo(map);
+            layerGroups.gps = L.layerGroup().addTo(map);
+            layerGroups.sutran = L.layerGroup().addTo(map);
+            layerGroups.satellite = L.layerGroup().addTo(map);
+
+            // CARGAR MARCADORES TÁCTICOS
+            cargarMarcadores();
+
+            // EVENTO DE LECTURA DE COORDENADAS CON EL MOUSE
+            map.on('mousemove', function(e) {
+                document.getElementById('coords-readout').innerText = `${e.latlng.lat.toFixed(4)}, ${e.latlng.lng.toFixed(4)}`;
+            });
+        }
+
+        // CARGAR PUNTOS TÁCTICOS
+        function cargarMarcadores() {
+            // 1. CÁMARAS EN VIVO (CCTV PINS)
+            const cams = [
+                {
+                    name: "CAM 01 • Paso Salkantay (4,630m)",
+                    coords: [-13.3333, -72.5436],
+                    img: "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=800&q=80",
+                    temp: "-4.1°C",
+                    status: "Óptima Visibilidad"
+                },
+                {
+                    name: "CAM 02 • Puerta de Control Machu Picchu",
+                    coords: [-13.1631, -72.5450],
+                    img: "https://images.unsplash.com/photo-1526392060635-9d6019884377?auto=format&fit=crop&w=800&q=80",
+                    temp: "17.4°C",
+                    status: "Ingreso Fluido"
+                },
+                {
+                    name: "CAM 03 • Estación Férrea Ollantaytambo",
+                    coords: [-13.2583, -72.2639],
+                    img: "https://images.unsplash.com/photo-1587595431973-160d0d94add1?auto=format&fit=crop&w=800&q=80",
+                    temp: "15.0°C",
+                    status: "Trenes a Horario"
+                },
+                {
+                    name: "CAM 04 • Plaza de Armas Cusco HQ",
+                    coords: [-13.5167, -71.9789],
+                    img: "https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?auto=format&fit=crop&w=800&q=80",
+                    temp: "16.8°C",
+                    status: "Seguridad Normal"
+                }
+            ];
+
+            cams.forEach(c => {
+                const icon = L.divIcon({
+                    className: 'custom-pin',
+                    html: `<div class="h-8 w-8 rounded-full bg-emerald-500/20 border-2 border-emerald-400 flex items-center justify-center text-emerald-400 text-sm shadow-lg shadow-emerald-500/50 cursor-pointer animate-pulse">📹</div>`,
+                    iconSize: [32, 32]
+                });
+                const marker = L.marker(c.coords, { icon: icon });
+                marker.bindPopup(`
+                    <div class="text-xs">
+                        <span class="font-bold text-emerald-400 block">${c.name}</span>
+                        <span class="text-slate-300 block text-[11px] mt-1">Estado: ${c.status}</span>
+                        <button onclick="openCCTV('${c.name}', '${c.img}', '${c.temp}')" class="mt-2 w-full py-1.5 rounded-lg bg-emerald-500 text-black font-bold text-[10px] uppercase">
+                            Abrir Transmisión Táctica
+                        </button>
+                    </div>
+                `);
+                layerGroups.cams.addLayer(marker);
+            });
+
+            // 2. EXPEDICIONES DE GUÍAS EN VIVO (GPS TRACKING)
+            const expeditions = [
+                { name: "Expedición Salkantay Alpha (Guía Carlos Quispe)", coords: [-13.3550, -72.5600], alt: "3,890m", guide: "Carlos Quispe (Nivel 3)" },
+                { name: "Trek Ausangate 7 Lagunas (Guía Rosa Tupac)", coords: [-13.7500, -71.2800], alt: "4,450m", guide: "Rosa Tupac (WFR)" },
+                { name: "Inca Trail Clásico Grupo Delta", coords: [-13.2300, -72.5100], alt: "3,100m", guide: "Mateo Huamán (Certificado)" }
+            ];
+
+            expeditions.forEach(exp => {
+                const icon = L.divIcon({
+                    className: 'custom-pin',
+                    html: `<div class="h-7 w-7 rounded-full bg-cyan-500/20 border-2 border-cyan-400 flex items-center justify-center text-cyan-400 text-xs shadow-lg shadow-cyan-500/50 cursor-pointer">🧭</div>`,
+                    iconSize: [28, 28]
+                });
+                const marker = L.marker(exp.coords, { icon: icon });
+                marker.bindPopup(`
+                    <div class="text-xs">
+                        <span class="font-bold text-cyan-300 block">${exp.name}</span>
+                        <span class="text-slate-400 text-[10px] block">Guía a cargo: ${exp.guide}</span>
+                        <span class="text-emerald-400 text-[10px] font-bold block mt-1">● Batería Satelital: 94% • Altitud: ${exp.alt}</span>
+                    </div>
+                `);
+                layerGroups.gps.addLayer(marker);
+            });
+
+            // 3. SUTRAN ALERTA EN VIVO (CROMA API SENSOR)
+            const sutranAlerts = [
+                {
+                    title: "SUTRAN Km 82 Vía Urubamba - Ollantaytambo",
+                    coords: [-13.2700, -72.2400],
+                    desc: "Vía Despejada. Tránsito turístico normal verificado por APESEG / SOAT.",
+                    status: "VERDE"
+                },
+                {
+                    title: "Ruta Cusco - Mollepata (Acceso Salkantay)",
+                    coords: [-13.4800, -72.4100],
+                    desc: "Llovizna leve en la madrugada. Tránsito precavido con unidades 4x4.",
+                    status: "AMARILLO"
+                }
+            ];
+
+            sutranAlerts.forEach(a => {
+                const icon = L.divIcon({
+                    className: 'custom-pin',
+                    html: `<div class="h-6 w-6 rounded-full bg-amber-500/20 border border-amber-400 flex items-center justify-center text-amber-300 text-xs shadow-lg">⚠️</div>`,
+                    iconSize: [24, 24]
+                });
+                const marker = L.marker(a.coords, { icon: icon });
+                marker.bindPopup(`
+                    <div class="text-xs">
+                        <span class="font-bold text-amber-400 block">${a.title}</span>
+                        <span class="text-slate-300 text-[11px] block mt-1">${a.desc}</span>
+                        <span class="text-[9px] font-mono text-slate-400 block mt-1">Fuente: Croma API Live Gov Sensor</span>
+                    </div>
+                `);
+                layerGroups.sutran.addLayer(marker);
+            });
+        }
+
+        // VOLAR A COORDENADAS CON ANIMACIÓN
+        function flyToLocation(lat, lng, zoom, label) {
+            map.flyTo([lat, lng], zoom, {
+                duration: 2.0,
+                easeLinearity: 0.25
+            });
+            document.getElementById('coords-readout').innerText = `${lat.toFixed(4)}, ${lng.toFixed(4)}`;
+        }
+
+        // ALTERNAR CAPAS
+        function toggleLayer(layerKey) {
+            const isChecked = document.getElementById(`layer-${layerKey}`).checked;
+            if (isChecked) {
+                map.addLayer(layerGroups[layerKey]);
+            } else {
+                map.removeLayer(layerGroups[layerKey]);
+            }
+        }
+
+        // CAMBIAR BASE DE MAPA (SATÉLITE / OSCURO)
+        function setMapBase(base) {
+            if (currentBase === base) return;
+            map.removeLayer(baseLayers[currentBase]);
+            baseLayers[base].addTo(map);
+            currentBase = base;
+
+            const btnSat = document.getElementById('btn-mode-sat');
+            const btnDark = document.getElementById('btn-mode-dark');
+
+            if (base === 'satellite') {
+                btnSat.className = "px-3 py-1.5 rounded-xl bg-emerald-500 text-slate-950 text-xs font-mono font-bold shadow-lg shadow-emerald-500/20 border border-emerald-400";
+                btnDark.className = "px-3 py-1.5 rounded-xl bg-slate-900/90 text-slate-300 text-xs font-mono font-bold hover:text-white border border-slate-700 shadow-lg";
+            } else {
+                btnDark.className = "px-3 py-1.5 rounded-xl bg-emerald-500 text-slate-950 text-xs font-mono font-bold shadow-lg shadow-emerald-500/20 border border-emerald-400";
+                btnSat.className = "px-3 py-1.5 rounded-xl bg-slate-900/90 text-slate-300 text-xs font-mono font-bold hover:text-white border border-slate-700 shadow-lg";
+            }
+        }
+
+        // FLIR TÉRMICO SOBRE EL MAPA
+        function toggleThermalFLIR() {
+            const mapContainer = document.getElementById('map');
+            isFlirActive = !isFlirActive;
+            if (isFlirActive) {
+                mapContainer.classList.add('flir-filter');
+                document.getElementById('btn-mode-flir').classList.add('bg-red-600', 'text-white');
+            } else {
+                mapContainer.classList.remove('flir-filter');
+                document.getElementById('btn-mode-flir').classList.remove('bg-red-600', 'text-white');
+            }
+        }
+
+        // ABRIR / CERRAR MODAL CCTV
+        function openCCTV(title, imgUrl, temp) {
+            document.getElementById('cctv-modal').classList.remove('hidden');
+            document.getElementById('cctv-title').innerText = title.toUpperCase();
+            document.getElementById('cctv-stream-img').src = imgUrl;
+            document.getElementById('cctv-temp').innerText = temp;
+        }
+
+        function closeCCTV() {
+            document.getElementById('cctv-modal').classList.add('hidden');
+        }
+
+        function toggleCCTVOVMode() {
+            const img = document.getElementById('cctv-stream-img');
+            cctvFlir = !cctvFlir;
+            if (cctvFlir) {
+                img.classList.add('flir-filter');
+            } else {
+                img.classList.remove('flir-filter');
+            }
+        }
+
+        function ptzMove(direction) {
+            const img = document.getElementById('cctv-stream-img');
+            img.style.transform = `scale(1.1) rotate(${direction === 'left' ? -2 : direction === 'right' ? 2 : 0}deg)`;
+            setTimeout(() => { img.style.transform = 'scale(1) rotate(0deg)'; }, 300);
+        }
+
+        function activarAlertaSOS() {
+            if (confirm("🚨 ¿CONFIRMAR ALERTA DE EMERGENCIA TÁCTICA?\n\nSe emitirá una notificación satelital prioritaria a todos los guías certificados y rescatistas en radio de 20 km.")) {
+                alert("📡 ALERTA SOS TRANSMITIDA CON ÉXITO.\n\nFrecuencia: 142.850 MHz activa.\nCentro de Salud Santa Teresa y Central San Blas notificados.");
+            }
+        }
+
+        // RELOJ EN TIEMPO REAL
+        setInterval(() => {
+            const now = new Date();
+            const timeStr = now.toISOString().substring(11, 19) + " UTC";
+            const el = document.getElementById('cctv-clock');
+            if (el) el.innerText = timeStr;
+        }, 1000);
+
+        // INICIAR AL CARGAR DOM
+        window.addEventListener('DOMContentLoaded', initMap);
+    </script>
+</body>
+</html>
