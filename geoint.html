@@ -239,11 +239,97 @@
         </aside>
 
         <!-- ======================================================== -->
-        <!-- COLUMNA 2 (CENTRO): MAPA SATELITAL TÁCTICO LEAFLET -->
+        <!-- COLUMNA 2 (CENTRO): MAPA SATELITAL TÁCTICO LEAFLET + RADAR AÉREO NACIONAL PROPIO -->
         <!-- ======================================================== -->
-        <div class="flex-1 relative h-[360px] xl:h-auto min-h-[350px]">
+        <div class="flex-1 relative h-[360px] xl:h-auto min-h-[350px] overflow-hidden">
             <div class="absolute inset-0 pointer-events-none z-10 hud-grid opacity-30"></div>
             <div id="map" class="w-full h-full"></div>
+
+            <!-- CABECERA RADAR AÉREO NACIONAL PROPIO (ESTILO FLIGHTRADAR24 SIN SALIR DE LIFEXTREME) -->
+            <div id="fr24-top-banner" class="hidden absolute top-3 left-1/2 -translate-x-1/2 z-30 bg-slate-950/90 backdrop-blur-md border border-amber-400/60 px-4 py-1.5 rounded-full shadow-2xl flex items-center gap-3 font-mono">
+                <span class="flex items-center gap-1.5 text-amber-400 font-black text-xs tracking-wider">
+                    <span>✈️ LIFEXTREME FLIGHTRADAR</span>
+                    <span class="px-1.5 py-0.5 rounded bg-amber-400 text-black text-[9px] font-black">LIVE PERÚ</span>
+                </span>
+                <span class="text-slate-400 text-[10px] hidden sm:inline">Corredor Aéreo Nacional Cusco (CUZ) ⇄ Lima (LIM)</span>
+                <button onclick="verCorredorCompletoPeru()" class="px-2 py-0.5 rounded bg-amber-500/20 border border-amber-400 text-amber-300 hover:bg-amber-400 hover:text-black text-[9px] font-bold transition-all">
+                    🗺️ Ver Corredor Perú
+                </button>
+            </div>
+
+            <!-- PANELES FLOTANTES IZQUIERDOS ESTILO FLIGHTRADAR24 (SOLO VUELOS NACIONALES PERÚ) -->
+            <div id="fr24-map-overlay" class="hidden absolute top-14 left-3 z-30 w-[265px] space-y-2.5 font-mono pointer-events-auto max-h-[82%] overflow-y-auto custom-scrollbar">
+                
+                <!-- WIDGET 1: VUELOS SEGUIDOS EN VIVO (NACIONALES PERÚ: CUSCO ⇄ LIMA) -->
+                <div class="bg-slate-950/92 backdrop-blur-md border border-slate-700/90 rounded-xl shadow-2xl overflow-hidden">
+                    <div class="px-3 py-2 bg-slate-900/95 border-b border-slate-800 flex items-center justify-between">
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-[11px] font-bold text-white">Vuelos Perú</span>
+                            <span class="px-1.5 py-0.5 rounded bg-amber-400 text-slate-950 text-[8px] font-black uppercase">LIVE</span>
+                            <span class="text-[9px] text-slate-400 bg-slate-800 px-1.5 py-0.5 rounded">Call sign</span>
+                        </div>
+                        <span class="text-[9px] text-amber-400 font-bold" id="fr24-map-route-badge">CUZ ⇄ LIM</span>
+                    </div>
+                    <div id="fr24-tracked-flights-list" class="p-2 space-y-1.5 max-h-[220px] overflow-y-auto custom-scrollbar">
+                        <!-- Renderizado dinámico de vuelos nacionales en ruta -->
+                    </div>
+                </div>
+
+                <!-- WIDGET 2: ESTADO DE AEROPUERTOS NACIONALES PERÚ (CUSCO, LIMA, AREQUIPA, JULIACA) -->
+                <div class="bg-slate-950/92 backdrop-blur-md border border-slate-700/90 rounded-xl shadow-2xl overflow-hidden">
+                    <div class="px-3 py-2 bg-slate-900/95 border-b border-slate-800 flex items-center justify-between">
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-[11px] font-bold text-white">Aeropuertos Perú</span>
+                            <span class="px-1.5 py-0.5 rounded bg-amber-400 text-slate-950 text-[8px] font-black uppercase">LIVE</span>
+                        </div>
+                        <span class="text-[9px] text-emerald-400 font-bold">CORPAC / METAR</span>
+                    </div>
+                    <div class="p-2 space-y-1.5 text-[10px]">
+                        <!-- CUSCO CUZ -->
+                        <div onclick="sintonizarCamara(0)" class="p-2 rounded-lg bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-amber-400/60 cursor-pointer transition-all flex items-center justify-between">
+                            <div>
+                                <div class="flex items-center gap-1.5">
+                                    <span class="font-bold text-white text-[11px]">Cusco</span>
+                                    <span class="px-1 py-0.2 rounded bg-slate-800 text-amber-300 font-bold text-[9px] border border-slate-700">CUZ</span>
+                                </div>
+                                <span class="text-slate-300 text-[9px] block mt-0.5">☀️ 16°C &nbsp;↑ 280° 12 kts</span>
+                            </div>
+                            <div class="text-right text-[9px] space-y-0.5">
+                                <div class="flex items-center justify-end gap-1"><span>🛫</span><span class="h-2 w-2 rounded-full bg-emerald-400 inline-block"></span><span class="text-white font-bold">4.9</span></div>
+                                <div class="flex items-center justify-end gap-1"><span>🛬</span><span class="h-2 w-2 rounded-full bg-emerald-400 inline-block"></span><span class="text-white font-bold">4.8</span></div>
+                            </div>
+                        </div>
+                        <!-- LIMA LIM -->
+                        <div onclick="sintonizarCamara(4)" class="p-2 rounded-lg bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-amber-400/60 cursor-pointer transition-all flex items-center justify-between">
+                            <div>
+                                <div class="flex items-center gap-1.5">
+                                    <span class="font-bold text-white text-[11px]">Lima</span>
+                                    <span class="px-1 py-0.2 rounded bg-slate-800 text-amber-300 font-bold text-[9px] border border-slate-700">LIM</span>
+                                </div>
+                                <span class="text-slate-300 text-[9px] block mt-0.5">⛅ 22°C &nbsp;← 180° 13 kts</span>
+                            </div>
+                            <div class="text-right text-[9px] space-y-0.5">
+                                <div class="flex items-center justify-end gap-1"><span>🛫</span><span class="h-2 w-2 rounded-full bg-emerald-400 inline-block"></span><span class="text-white font-bold">4.8</span></div>
+                                <div class="flex items-center justify-end gap-1"><span>🛬</span><span class="h-2 w-2 rounded-full bg-emerald-400 inline-block"></span><span class="text-white font-bold">4.9</span></div>
+                            </div>
+                        </div>
+                        <!-- AREQUIPA AQP -->
+                        <div onclick="verCorredorCompletoPeru()" class="p-2 rounded-lg bg-slate-900/90 hover:bg-slate-800 border border-slate-800 cursor-pointer transition-all flex items-center justify-between">
+                            <div>
+                                <div class="flex items-center gap-1.5">
+                                    <span class="font-bold text-white text-[11px]">Arequipa</span>
+                                    <span class="px-1 py-0.2 rounded bg-slate-800 text-slate-300 font-bold text-[9px] border border-slate-700">AQP</span>
+                                </div>
+                                <span class="text-slate-300 text-[9px] block mt-0.5">☀️ 20°C &nbsp;↗ 240° 9 kts</span>
+                            </div>
+                            <div class="text-right text-[9px] space-y-0.5">
+                                <div class="flex items-center justify-end gap-1"><span>🛫</span><span class="h-2 w-2 rounded-full bg-emerald-400 inline-block"></span><span class="text-white font-bold">5.0</span></div>
+                                <div class="flex items-center justify-end gap-1"><span>🛬</span><span class="h-2 w-2 rounded-full bg-emerald-400 inline-block"></span><span class="text-white font-bold">4.9</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <!-- CONTROLES FLOTANTES DEL MAPA -->
             <div class="absolute bottom-4 left-4 z-20 flex items-center gap-2">
@@ -254,6 +340,10 @@
                 <button onclick="setMapBase('dark')" id="btn-mode-dark"
                     class="px-3 py-1.5 rounded-xl bg-slate-900/90 text-slate-300 text-xs font-mono font-bold hover:text-white border border-slate-700 shadow-lg">
                     🌑 Táctico
+                </button>
+                <button onclick="toggleModoRadarAereoNacional()" id="btn-mode-fr24"
+                    class="px-3 py-1.5 rounded-xl bg-amber-400 text-slate-950 text-xs font-mono font-black hover:bg-amber-300 border border-amber-300 shadow-lg flex items-center gap-1">
+                    ✈️ Radar Vuelos Perú
                 </button>
             </div>
         </div>
@@ -585,60 +675,107 @@
 
         let snapshotInterval = null;
         let currentAirportCode = 'CUZ';
+        let selectedFlightRouteLine = null;
 
-        // BASE DE DATOS EN TIEMPO REAL ESTILO FLIGHTRADAR24 PARA MÓDULO 1 (CUZ) Y MÓDULO 8 (LIM)
+        // BASE DE DATOS PROPIA DE VUELOS NACIONALES PERÚ (CUSCO ⇄ LIMA) INTEGRADA EN LIFEXTREME GEOINT
+        const PERU_NATIONAL_FLIGHTS = [
+            {
+                id: 1, callsign: 'LAN2027', flight: 'LA2027', type: 'A320', airline: 'LATAM Perú',
+                origin: 'Lima', originCode: 'LIM', dest: 'Cusco', destCode: 'CUZ',
+                routeLabel: 'Lima LIM – Cusco CUZ', direction: 'lim_cuz',
+                time: '16:10', status: 'APROX. CUZ ✈️', statusColor: 'text-emerald-400',
+                lat: -13.4250, lng: -72.2400, heading: 122, alt: '4,850 m', spd: '420 km/h', viewers: '1,842'
+            },
+            {
+                id: 2, callsign: 'SKX5311', flight: 'H85311', type: 'A20N', airline: 'SKY Airline Perú',
+                origin: 'Lima', originCode: 'LIM', dest: 'Cusco', destCode: 'CUZ',
+                routeLabel: 'Lima LIM – Cusco CUZ', direction: 'lim_cuz',
+                time: '16:25', status: 'FINAL PISTA 28', statusColor: 'text-amber-400',
+                lat: -13.5290, lng: -71.9650, heading: 105, alt: '3,480 m', spd: '255 km/h', viewers: '1,420'
+            },
+            {
+                id: 3, callsign: 'LAN2028', flight: 'LA2028', type: 'A320', airline: 'LATAM Perú',
+                origin: 'Cusco', originCode: 'CUZ', dest: 'Lima', destCode: 'LIM',
+                routeLabel: 'Cusco CUZ – Lima LIM', direction: 'cuz_lim',
+                time: '16:15', status: 'EN VUELO ✈️', statusColor: 'text-emerald-400',
+                lat: -13.1800, lng: -73.3500, heading: 302, alt: '9,450 m', spd: '765 km/h', viewers: '1,290'
+            },
+            {
+                id: 4, callsign: 'JAT7210', flight: 'JA7210', type: 'A320', airline: 'JetSMART Perú',
+                origin: 'Lima', originCode: 'LIM', dest: 'Cusco', destCode: 'CUZ',
+                routeLabel: 'Lima LIM – Cusco CUZ', direction: 'lim_cuz',
+                time: '16:50', status: 'EN CRUCERO ✈️', statusColor: 'text-emerald-400',
+                lat: -12.7800, lng: -74.8500, heading: 124, alt: '10,100 m', spd: '790 km/h', viewers: '965'
+            },
+            {
+                id: 5, callsign: 'SKX5312', flight: 'H85312', type: 'A20N', airline: 'SKY Airline Perú',
+                origin: 'Cusco', originCode: 'CUZ', dest: 'Lima', destCode: 'LIM',
+                routeLabel: 'Cusco CUZ – Lima LIM', direction: 'cuz_lim',
+                time: '16:40', status: 'ASCENSO CUZ ✈️', statusColor: 'text-amber-400',
+                lat: -13.4600, lng: -72.1800, heading: 298, alt: '5,900 m', spd: '540 km/h', viewers: '840'
+            },
+            {
+                id: 6, callsign: 'LAN2044', flight: 'LA2044', type: 'A319', airline: 'LATAM Perú',
+                origin: 'Cusco', originCode: 'CUZ', dest: 'Lima', destCode: 'LIM',
+                routeLabel: 'Cusco CUZ – Lima LIM', direction: 'cuz_lim',
+                time: '17:05', status: 'EN RUTA LIM ✈️', statusColor: 'text-emerald-400',
+                lat: -12.4200, lng: -75.8900, heading: 305, alt: '10,360 m', spd: '810 km/h', viewers: '730'
+            },
+            {
+                id: 7, callsign: 'LAN2041', flight: 'LA2041', type: 'A319', airline: 'LATAM Perú',
+                origin: 'Lima', originCode: 'LIM', dest: 'Cusco', destCode: 'CUZ',
+                routeLabel: 'Lima LIM – Cusco CUZ', direction: 'lim_cuz',
+                time: '17:20', status: 'DESPEGANDO LIM', statusColor: 'text-amber-400',
+                lat: -12.1400, lng: -76.8800, heading: 126, alt: '2,800 m', spd: '460 km/h', viewers: '685'
+            },
+            {
+                id: 8, callsign: 'JAT7211', flight: 'JA7211', type: 'A320', airline: 'JetSMART Perú',
+                origin: 'Cusco', originCode: 'CUZ', dest: 'Lima', destCode: 'LIM',
+                routeLabel: 'Cusco CUZ – Lima LIM', direction: 'cuz_lim',
+                time: '17:30', status: 'EMBARQUE CUZ', statusColor: 'text-sky-400',
+                lat: -13.5357, lng: -71.9388, heading: 280, alt: '3,310 m', spd: 'En Pista 28', viewers: '540'
+            },
+            {
+                id: 9, callsign: 'SKX5319', flight: 'H85319', type: 'A20N', airline: 'SKY Airline Perú',
+                origin: 'Lima', originCode: 'LIM', dest: 'Cusco', destCode: 'CUZ',
+                routeLabel: 'Lima LIM – Cusco CUZ', direction: 'lim_cuz',
+                time: '17:55', status: 'PUERTA 14 LIM', statusColor: 'text-sky-400',
+                lat: -12.0219, lng: -77.1143, heading: 150, alt: '34 m', spd: 'En Embarque', viewers: '490'
+            },
+            {
+                id: 10, callsign: 'LAN2110', flight: 'LA2110', type: 'A320', airline: 'LATAM Perú',
+                origin: 'Cusco', originCode: 'CUZ', dest: 'Arequipa', destCode: 'AQP',
+                routeLabel: 'Cusco CUZ – Arequipa AQP', direction: 'cuz_lim',
+                time: '18:00', status: 'EN VUELO SUR ✈️', statusColor: 'text-emerald-400',
+                lat: -14.6500, lng: -71.6800, heading: 175, alt: '8,900 m', spd: '720 km/h', viewers: '410'
+            }
+        ];
+
         const AIRPORT_BOARDS = {
             'CUZ': {
-                title: 'AEROPUERTO VELASCO ASTETE (CUZ / SPZO)',
-                subtitle: 'SALIDAS DIRECTAS CUSCO ➔ LIMA • PISTA 10/28',
+                iata: 'CUZ / SPZO',
+                title: 'AEROPUERTO VELASCO ASTETE (CUSCO)',
+                subtitle: 'RADAR NACIONAL PROPIO • SALIDAS CUSCO ➔ LIMA',
                 cond: '☀️ VFR',
                 temp: '16°C',
                 wind: '280° 12kt',
-                nacionalLabel: '🇵🇪 Salidas Cusco ➔ Lima (Nacional)',
-                internacionalLabel: '🌍 Vuelos Internacionales (CUZ)',
-                nacionales: [
-                    { time: '16:15', flight: 'LA2028', route: 'Cusco (CUZ) ➔ Lima (LIM)', airline: 'LATAM (A320)', status: 'EN VUELO ✈️', statusColor: 'text-emerald-400', lat: -13.3850, lng: -72.6200 },
-                    { time: '16:40', flight: 'H85312', route: 'Cusco (CUZ) ➔ Lima (LIM)', airline: 'SKY (A320neo)', status: 'EMBARCANDO', statusColor: 'text-amber-400', lat: -13.5357, lng: -71.9388 },
-                    { time: '17:05', flight: 'LA2044', route: 'Cusco (CUZ) ➔ Lima (LIM)', airline: 'LATAM (A319)', status: 'EN HORARIO', statusColor: 'text-emerald-400', lat: -13.5357, lng: -71.9388 },
-                    { time: '17:30', flight: 'JA7211', route: 'Cusco (CUZ) ➔ Lima (LIM)', airline: 'JetSMART (A320)', status: 'EN HORARIO', statusColor: 'text-emerald-400', lat: -13.5357, lng: -71.9388 },
-                    { time: '18:00', flight: 'LA2110', route: 'Cusco (CUZ) ➔ Lima (LIM)', airline: 'LATAM (A320)', status: 'PROGRAMADO', statusColor: 'text-sky-400', lat: -13.5357, lng: -71.9388 }
-                ],
-                internacionales: [
-                    { time: '15:50', flight: 'AV106', route: 'Cusco (CUZ) ➔ Bogotá (BOG)', airline: 'Avianca (A320neo)', status: 'EN RUTA ✈️', statusColor: 'text-emerald-400', lat: -11.8500, lng: -73.1200 },
-                    { time: '16:35', flight: 'AV149', route: 'Cusco (CUZ) ➔ La Paz (LPB)', airline: 'Avianca (A320)', status: 'EMBARCANDO', statusColor: 'text-amber-400', lat: -13.5357, lng: -71.9388 },
-                    { time: '18:15', flight: 'LA2367', route: 'Cusco (CUZ) ➔ Santiago (SCL)', airline: 'LATAM (A320)', status: 'EN HORARIO', statusColor: 'text-emerald-400', lat: -13.5357, lng: -71.9388 },
-                    { time: '19:10', flight: 'OB743', route: 'La Paz (LPB) ➔ Cusco (CUZ)', airline: 'BoA (B737-800)', status: 'EST. 19:10', statusColor: 'text-sky-400', lat: -15.2100, lng: -69.4500 }
-                ]
+                defaultDir: 'cuz_lim'
             },
             'LIM': {
-                title: 'AEROPUERTO JORGE CHÁVEZ (LIM / SPJC)',
-                subtitle: 'VUELOS LIMA ➔ CUSCO & HUB INTERNACIONAL',
-                cond: '☀️ Clear',
+                iata: 'LIM / SPJC',
+                title: 'AEROPUERTO JORGE CHÁVEZ (LIMA)',
+                subtitle: 'RADAR NACIONAL PROPIO • VUELOS LIMA ➔ CUSCO',
+                cond: '⛅ Clear',
                 temp: '22°C',
                 wind: '180° 13kt',
-                nacionalLabel: '🇵🇪 Vuelos Lima ➔ Cusco (Nacional)',
-                internacionalLabel: '🌍 Conexiones Internacionales (LIM)',
-                nacionales: [
-                    { time: '16:10', flight: 'LA2027', route: 'Lima (LIM) ➔ Cusco (CUZ)', airline: 'LATAM (A320)', status: 'APROX. CUZ ✈️', statusColor: 'text-emerald-400', lat: -13.4820, lng: -72.0850 },
-                    { time: '16:25', flight: 'H85311', route: 'Lima (LIM) ➔ Cusco (CUZ)', airline: 'SKY (A320neo)', status: 'FINAL PISTA 28', statusColor: 'text-amber-400', lat: -13.5310, lng: -71.9520 },
-                    { time: '16:50', flight: 'JA7210', route: 'Lima (LIM) ➔ Cusco (CUZ)', airline: 'JetSMART (A320)', status: 'EN VUELO ✈️', statusColor: 'text-emerald-400', lat: -12.8200, lng: -74.9100 },
-                    { time: '17:20', flight: 'LA2041', route: 'Lima (LIM) ➔ Cusco (CUZ)', airline: 'LATAM (A319)', status: 'PUERTA 14 LIM', statusColor: 'text-amber-400', lat: -12.0219, lng: -77.1143 },
-                    { time: '17:55', flight: 'H85319', route: 'Lima (LIM) ➔ Cusco (CUZ)', airline: 'SKY (A320neo)', status: 'EN HORARIO', statusColor: 'text-emerald-400', lat: -12.0219, lng: -77.1143 }
-                ],
-                internacionales: [
-                    { time: '16:05', flight: 'DL151', route: 'Atlanta (ATL) ➔ Lima (LIM)', airline: 'Delta (A350-900)', status: 'ATERRIZÓ LIM', statusColor: 'text-emerald-400', lat: -12.0219, lng: -77.1143 },
-                    { time: '16:30', flight: 'AA917', route: 'Miami (MIA) ➔ Lima (LIM)', airline: 'American (B777)', status: 'APROX. LIM ✈️', statusColor: 'text-amber-400', lat: -11.4200, lng: -77.4500 },
-                    { time: '17:15', flight: 'IB6659', route: 'Madrid (MAD) ➔ Lima (LIM)', airline: 'Iberia (A350-900)', status: 'EN VUELO ✈️', statusColor: 'text-emerald-400', lat: -10.1500, lng: -75.8000 },
-                    { time: '17:45', flight: 'KL743', route: 'Ámsterdam (AMS) ➔ Lima (LIM)', airline: 'KLM (B777-300)', status: 'EN VUELO ✈️', statusColor: 'text-emerald-400', lat: -9.6200, lng: -74.9000 },
-                    { time: '18:20', flight: 'LA2465', route: 'New York (JFK) ➔ Lima (LIM)', airline: 'LATAM (B787-9)', status: 'EST. 18:20', statusColor: 'text-sky-400', lat: -8.9000, lng: -76.2000 }
-                ]
+                defaultDir: 'lim_cuz'
             }
         };
 
         // 1. CARGAR CÁMARAS Y CONOS DE VISIÓN (FRUSTUMS)
         async function cargarCamarasYFrustums() {
             try {
-                const res = await fetch('/data/cctv.json?v=fr24_v5');
+                const res = await fetch('/data/cctv.json?v=fr24_peru_v6');
                 cameraList = await res.json();
             } catch (e) {
                 console.warn('Fallback a 6 nodos operativos locales:', e);
@@ -646,14 +783,14 @@
                     {
                         "id": "cuz-aeropuerto-velasco-astete",
                         "name": "1. Aeropuerto Velasco Astete (Cusco - CUZ)",
-                        "sector": "Salidas Directas Cusco ➔ Lima • Pista 10/28 SPZO",
+                        "sector": "Salidas Nacionales Cusco ➔ Lima • Radar Aéreo Propio",
                         "latitude": -13.53572, "longitude": -71.93881,
-                        "altitude": 3310.0, "heading": 285.0, "fovDeg": 56.0, "range": 1400.0, "zoom": 15,
-                        "temp": "16.0°C | Viento 280° 12kt", "sensor": "Flightradar24 Live CUZ • Salidas Cusco -> Lima",
+                        "altitude": 3310.0, "heading": 285.0, "fovDeg": 56.0, "range": 1400.0, "zoom": 8,
+                        "temp": "16.0°C | Viento 280° 12kt", "sensor": "Lifextreme Radar ADS-B Nacional • SPZO",
                         "airportCode": "CUZ", "youtubeId": "zx7b-sCrpDo",
                         "streamUrl": "/api/cusco-cam?cam=plaza_mayor&type=m3u8",
-                        "externalUrl": "https://www.flightradar24.com/airport/cuz",
-                        "externalLabel": "✈️ Abrir Plataforma Flightradar24 Cusco (CUZ) ↗",
+                        "externalUrl": "#radar-nacional",
+                        "externalLabel": "✈️ Ver Corredor Aéreo Cusco ⇄ Lima en Mapa Propio",
                         "format": "flightradar"
                     },
                     {
@@ -699,15 +836,15 @@
                     {
                         "id": "lima-aeropuerto-jorge-chavez",
                         "name": "8. Aeropuerto Jorge Chávez (Lima - LIM / SPJC)",
-                        "sector": "Vuelos Lima ➔ Cusco & Conexiones Internacionales",
+                        "sector": "Vuelos Nacionales Lima ➔ Cusco • Radar Aéreo Propio",
                         "latitude": -12.0219, "longitude": -77.1143,
-                        "altitude": 34.0, "heading": 150.0, "fovDeg": 54.0, "range": 1800.0, "zoom": 13,
-                        "temp": "22.0°C | Viento 180° 13kt", "sensor": "Flightradar24 Hub LIM • Nacionales e Internacionales",
+                        "altitude": 34.0, "heading": 150.0, "fovDeg": 54.0, "range": 1800.0, "zoom": 8,
+                        "temp": "22.0°C | Viento 180° 13kt", "sensor": "Lifextreme Radar ADS-B Nacional • SPJC",
                         "airportCode": "LIM", "skylineId": "4293", "camKey": "lima_miraflores",
                         "youtubeId": "Rx9n_EzznSA",
                         "streamUrl": "/api/cusco-cam?cam=lima_miraflores&type=m3u8",
-                        "externalUrl": "https://www.flightradar24.com/airport/lim",
-                        "externalLabel": "🛬 Abrir Plataforma Flightradar24 Lima (LIM) ↗",
+                        "externalUrl": "#radar-nacional",
+                        "externalLabel": "🛫 Ver Corredor Aéreo Lima ⇄ Cusco en Mapa Propio",
                         "format": "flightradar"
                     },
                     {
@@ -731,7 +868,7 @@
 
             cameraList.forEach((c, index) => {
                 const isFlightRadar = c.format === 'flightradar';
-                const badgeText = isFlightRadar ? 'FR24' : (c.format === 'skyline_live' ? 'LIVE' : 'HLS');
+                const badgeText = isFlightRadar ? 'RADAR' : (c.format === 'skyline_live' ? 'LIVE' : 'HLS');
                 const badgeColor = isFlightRadar ? 'text-amber-400' : 'text-emerald-400';
 
                 // Agregar botón a la lista izquierda
@@ -752,9 +889,9 @@
                 selectorList.appendChild(btn);
 
                 // Agregar Pin de la Cámara o Aeropuerto
-                const pinIcon = isFlightRadar ? '✈️' : '📹';
+                const pinIcon = isFlightRadar ? '🛫' : '📹';
                 const pinStyle = isFlightRadar
-                    ? 'bg-amber-500/30 border-2 border-amber-400 text-amber-300 shadow-amber-500/50'
+                    ? 'bg-sky-500/30 border-2 border-sky-400 text-sky-300 shadow-sky-500/50'
                     : 'bg-emerald-500/25 border-2 border-emerald-400 text-emerald-400 shadow-emerald-500/50';
                 const icon = L.divIcon({
                     className: 'custom-pin',
@@ -768,7 +905,7 @@
                         <span class="font-bold text-emerald-400 block">${c.name}</span>
                         <span class="text-slate-300 block text-[10px] mt-0.5">Alt: ${c.altitude || c.elev}m | Sensor: ${c.sensor}</span>
                         <button onclick="sintonizarCamara(${index})" class="mt-2 w-full py-1 rounded bg-emerald-500 text-black font-bold text-[9px] uppercase">
-                            ▶ Sintonizar Nodo
+                            ▶ Sintonizar en Plataforma
                         </button>
                     </div>
                 `);
@@ -798,12 +935,11 @@
             for (let i = 0; i <= steps; i++) {
                 const angle = startAngle + (i / steps) * fovDeg;
                 const rad = (angle * Math.PI) / 180;
-                // Proyección aproximada de coordenadas geográficas
                 const dLat = (rangeKm / 111.32) * Math.cos(rad);
                 const dLng = (rangeKm / (111.32 * Math.cos((lat * Math.PI) / 180))) * Math.sin(rad);
                 points.push([lat + dLat, lng + dLng]);
             }
-            points.push([lat, lng]); // Cerrar polígono
+            points.push([lat, lng]);
             return points;
         }
 
@@ -883,52 +1019,146 @@
             });
         }
 
-        // 5. TRÁFICO AÉREO EN TIEMPO REAL ADS-B (ESTILO FLIGHTRADAR24 AMARILLO: CORREDOR LIM ⇄ CUZ)
-        async function cargarTraficoAereoADSB() {
-            const fallbackFlights = [
-                { callsign: "LA2027 (LIM➔CUZ)", lat: -13.4820, lng: -72.0850, alt: "4,850m", spd: "410 km/h" },
-                { callsign: "H85311 (LIM➔CUZ)", lat: -13.5310, lng: -71.9520, alt: "3,450m (Final Pista 28)", spd: "260 km/h" },
-                { callsign: "LA2028 (CUZ➔LIM)", lat: -13.3850, lng: -72.6200, alt: "7,400m", spd: "690 km/h" },
-                { callsign: "JA7210 (LIM➔CUZ)", lat: -12.8200, lng: -74.9100, alt: "9,100m", spd: "780 km/h" },
-                { callsign: "LA2041 (Plataforma LIM)", lat: -12.0219, lng: -77.1143, alt: "34m", spd: "Puerta 14 LIM" },
-                { callsign: "AA917 (MIA➔LIM)", lat: -11.4200, lng: -77.4500, alt: "3,200m", spd: "480 km/h" }
-            ];
-
-            let flights = fallbackFlights;
-            try {
-                const res = await fetch('https://opensky-network.org/api/states/all?lamin=-16.5&lomin=-78.0&lamax=-11.0&lomax=-70.0');
-                if (res.ok) {
-                    const data = await res.json();
-                    if (data && data.states && data.states.length > 0) {
-                        const liveStates = data.states.slice(0, 12).map(s => ({
-                            callsign: (s[1] || 'VUELO-PERU').trim(),
-                            lat: s[6] || -13.5357,
-                            lng: s[5] || -71.9388,
-                            alt: `${Math.round(s[7] || 3500)}m`,
-                            spd: `${Math.round((s[9] || 120) * 3.6)} km/h`
-                        }));
-                        flights = [...fallbackFlights, ...liveStates];
-                    }
-                }
-            } catch (e) {
-                console.log('OpenSky ADS-B fallback active');
-            }
-
-            layerGroups.air.clearLayers();
-            flights.forEach(f => {
-                if (!f.lat || !f.lng) return;
-                const icon = L.divIcon({
-                    className: 'custom-pin',
-                    html: `<div class="h-6 w-6 rounded-full bg-amber-400/25 border-2 border-amber-400 flex items-center justify-center text-amber-300 text-xs shadow-md shadow-amber-500/40">✈️</div>`,
-                    iconSize: [24, 24]
-                });
-                const marker = L.marker([f.lat, f.lng], { icon: icon });
-                marker.bindPopup(`<span class="text-xs font-bold text-amber-400">✈️ ${f.callsign}</span><br><span class="text-[10px] text-slate-300">Alt: ${f.alt} | Vel: ${f.spd}</span>`);
-                layerGroups.air.addLayer(marker);
+        // GENERADOR DE ICONO SVG DE AVIÓN AMARILLO ESTILO FLIGHTRADAR24 ORIENTADO SEGÚN RUMBO (HEADING)
+        function crearIconoAvionAmarilloFR24(headingDeg, callsign) {
+            return L.divIcon({
+                className: 'fr24-aircraft-pin',
+                html: `
+                    <div class="relative flex items-center justify-center group cursor-pointer" style="width:30px;height:30px;">
+                        <svg viewBox="0 0 24 24" class="w-7 h-7 drop-shadow-[0_2px_4px_rgba(0,0,0,0.95)] transition-transform duration-300" style="transform: rotate(${headingDeg}deg);">
+                            <path fill="#facc15" stroke="#0f172a" stroke-width="1.3" d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+                        </svg>
+                        <span class="absolute -bottom-3.5 left-1/2 -translate-x-1/2 px-1 py-0.2 rounded bg-slate-950/90 border border-amber-400/60 text-[8px] font-mono font-bold text-amber-300 whitespace-nowrap shadow">
+                            ${callsign}
+                        </span>
+                    </div>
+                `,
+                iconSize: [30, 30],
+                iconAnchor: [15, 15]
             });
         }
 
-        // SINTONIZAR CÁMARA O TABLERO DE AEROPUERTO FLIGHTRADAR24
+        // 5. TRÁFICO AÉREO NACIONAL EN TIEMPO REAL EN NUESTRO PROPIO MAPA (CORREDOR CUSCO ⇄ LIMA)
+        async function cargarTraficoAereoADSB() {
+            layerGroups.air.clearLayers();
+
+            // Dibujar línea del Corredor Aéreo Nacional Lima (LIM) ⇄ Cusco (CUZ)
+            const corridorLine = L.polyline([
+                [-12.0219, -77.1143], // Aeropuerto Jorge Chávez Lima (LIM)
+                [-12.7800, -74.8500], // Corredor Andes Centrales (Ayacucho/Huancavelica)
+                [-13.5357, -71.9388]  // Aeropuerto Velasco Astete Cusco (CUZ)
+            ], {
+                color: '#facc15',
+                weight: 2,
+                dashArray: '6, 8',
+                opacity: 0.55
+            });
+            layerGroups.air.addLayer(corridorLine);
+
+            // Renderizar cada aeronave nacional con avión amarillo SVG orientado
+            PERU_NATIONAL_FLIGHTS.forEach(f => {
+                if (!f.lat || !f.lng) return;
+                const icon = crearIconoAvionAmarilloFR24(f.heading || 120, f.flight);
+                const marker = L.marker([f.lat, f.lng], { icon: icon });
+                marker.on('click', () => enfocarVueloEnMapa(f.lat, f.lng, f.flight));
+                marker.bindPopup(`
+                    <div class="font-mono text-xs p-1 min-w-[180px]">
+                        <div class="flex items-center justify-between border-b border-slate-700 pb-1 mb-1">
+                            <span class="font-black text-amber-400 text-sm">✈️ ${f.callsign}</span>
+                            <span class="px-1.5 py-0.5 rounded bg-sky-500/20 text-sky-300 text-[9px] font-bold border border-sky-400/40">${f.type}</span>
+                        </div>
+                        <div class="text-white font-bold text-[11px]">${f.routeLabel}</div>
+                        <div class="text-slate-400 text-[10px]">${f.airline} • Vuelo ${f.flight}</div>
+                        <div class="mt-1.5 pt-1 border-t border-slate-800 flex justify-between text-[10px]">
+                            <span class="text-emerald-400 font-bold">ALT: ${f.alt}</span>
+                            <span class="text-cyan-300 font-bold">VEL: ${f.spd}</span>
+                        </div>
+                    </div>
+                `);
+                layerGroups.air.addLayer(marker);
+            });
+
+            // Simulación de avance suave de aeronaves en vuelo cada 4 segundos dentro del corredor Lima-Cusco
+            if (!window.fr24MotionInterval) {
+                window.fr24MotionInterval = setInterval(() => {
+                    PERU_NATIONAL_FLIGHTS.forEach(f => {
+                        if (f.spd.includes('km/h')) {
+                            const rad = (f.heading * Math.PI) / 180;
+                            f.lat += Math.cos(rad) * 0.0035;
+                            f.lng += Math.sin(rad) * 0.0035;
+                        }
+                    });
+                    cargarTraficoAereoADSB();
+                }, 4500);
+            }
+        }
+
+        // RENDERIZAR EL PANEL FLOTANTE IZQUIERDO DEL MAPA (ESTILO FLIGHTRADAR24 PERÚ)
+        function renderizarPanelFlotanteMapaFR24(directionFilter) {
+            const container = document.getElementById('fr24-tracked-flights-list');
+            const badge = document.getElementById('fr24-map-route-badge');
+            if (!container) return;
+
+            const lista = directionFilter
+                ? PERU_NATIONAL_FLIGHTS.filter(f => f.direction === directionFilter)
+                : PERU_NATIONAL_FLIGHTS;
+
+            if (badge) {
+                badge.innerText = directionFilter === 'cuz_lim'
+                    ? 'SALIDAS CUZ ➔ LIM'
+                    : (directionFilter === 'lim_cuz' ? 'VUELOS LIM ➔ CUZ' : 'PERÚ NACIONAL');
+            }
+
+            container.innerHTML = lista.map((f, idx) => `
+                <div onclick="enfocarVueloEnMapa(${f.lat}, ${f.lng}, '${f.flight}')"
+                    class="p-2 rounded-lg bg-slate-900/95 hover:bg-slate-800 border border-slate-800 hover:border-amber-400/70 cursor-pointer transition-all">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-1">
+                            <span class="text-white font-black text-[10px]">${idx + 1}. ${f.callsign}</span>
+                            <span class="px-1 py-0.2 rounded bg-slate-800 text-slate-300 text-[8px] font-bold border border-slate-700">${f.flight}</span>
+                            <span class="px-1 py-0.2 rounded bg-sky-900/70 text-sky-300 text-[8px] font-bold border border-sky-500/40">${f.type}</span>
+                        </div>
+                        <span class="text-amber-400 font-bold text-[9px] flex items-center gap-0.5">${f.viewers} 👥</span>
+                    </div>
+                    <div class="flex items-center justify-between mt-1 text-[9px]">
+                        <span class="text-slate-300">${f.origin} <strong class="text-white bg-slate-800 px-1 rounded">${f.originCode}</strong> – ${f.dest} <strong class="text-white bg-slate-800 px-1 rounded">${f.destCode}</strong></span>
+                        <span class="${f.statusColor} font-bold text-[8px]">${f.status}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // ACTIVAR/DESACTIVAR LOS PANELES FLOTANTES DE FLIGHTRADAR EN EL MAPA PROPIO
+        function mostrarOverlayMapaRadarNacional(mostrar, directionFilter) {
+            const overlay = document.getElementById('fr24-map-overlay');
+            const banner = document.getElementById('fr24-top-banner');
+            if (mostrar) {
+                if (overlay) overlay.classList.remove('hidden');
+                if (banner) banner.classList.remove('hidden');
+                renderizarPanelFlotanteMapaFR24(directionFilter);
+            } else {
+                if (overlay) overlay.classList.add('hidden');
+                if (banner) banner.classList.add('hidden');
+            }
+        }
+
+        function toggleModoRadarAereoNacional() {
+            const overlay = document.getElementById('fr24-map-overlay');
+            const isHidden = overlay ? overlay.classList.contains('hidden') : true;
+            if (isHidden) {
+                mostrarOverlayMapaRadarNacional(true, null);
+                verCorredorCompletoPeru();
+            } else {
+                mostrarOverlayMapaRadarNacional(false, null);
+            }
+        }
+
+        function verCorredorCompletoPeru() {
+            mostrarOverlayMapaRadarNacional(true, null);
+            map.flyTo([-12.85, -74.55], 7, { duration: 1.4 });
+        }
+
+        // SINTONIZAR CÁMARA O TABLERO DE AEROPUERTO PROPIO (SIN SALIR DE LIFEXTREME GEOINT)
         function sintonizarCamara(index) {
             const cam = cameraList[index];
             if (!cam) return;
@@ -945,12 +1175,6 @@
                 activeBtn.classList.add('border-2', 'border-emerald-500', 'shadow-lg', 'shadow-emerald-500/10');
             }
 
-            // Volar mapa a la ubicación
-            map.flyTo([cam.latitude, cam.longitude], cam.zoom || 14, {
-                duration: 1.5,
-                easeLinearity: 0.25
-            });
-
             // Actualizar HUD Superior
             document.getElementById('monitor-title').innerText = cam.name.toUpperCase();
             document.getElementById('monitor-temp').innerText = cam.temp || '16.5°C';
@@ -958,14 +1182,26 @@
             document.getElementById('monitor-heading').innerText = `${cam.heading || 0}° Heading`;
             document.getElementById('coords-readout').innerText = `${cam.latitude.toFixed(4)}, ${cam.longitude.toFixed(4)}`;
 
-            // Actualizar botón de Portal Oficial Externo
+            // Actualizar botón inferior (en Módulos 1 y 8 NO sale a otra página, enfoca el corredor en nuestro propio mapa)
             const extBtn = document.getElementById('btn-external-portal');
-            if (extBtn && cam.externalUrl) {
-                extBtn.href = cam.externalUrl;
-                extBtn.innerText = cam.externalLabel || '🏛️ Web Plaza Cusco (Cámara en Directo SkylineWebcams) ↗';
+            if (extBtn) {
+                if (cam.format === 'flightradar') {
+                    extBtn.removeAttribute('target');
+                    extBtn.href = 'javascript:void(0)';
+                    extBtn.onclick = (e) => {
+                        e.preventDefault();
+                        verCorredorCompletoPeru();
+                    };
+                    extBtn.innerText = '🗺️ Ver Mapa Radar Aéreo Nacional Cusco ⇄ Lima (En Plataforma)';
+                } else {
+                    extBtn.setAttribute('target', '_blank');
+                    extBtn.onclick = null;
+                    extBtn.href = cam.externalUrl || 'https://www.skylinewebcams.com/es/webcam/peru/cusco/cusco/plaza-mayor.html';
+                    extBtn.innerText = cam.externalLabel || '🏛️ Web Plaza Cusco (Cámara en Directo SkylineWebcams) ↗';
+                }
             }
 
-            // Mostrar u ocultar barra de botones indicadores de Aeropuerto (Vuelos Nacionales / Internacionales)
+            // Mostrar u ocultar barra de botones indicadores de Vuelos Nacionales (Cusco -> Lima / Lima -> Cusco)
             const airportBar = document.getElementById('airport-indicators-bar');
             if (airportBar) {
                 if (cam.format === 'flightradar') {
@@ -979,26 +1215,36 @@
 
             // SELECCIÓN INTELIGENTE SEGÚN EL TIPO DE NODO OPERATIVO
             if (cam.format === 'flightradar') {
-                // Módulos 1 (Velasco Astete CUZ) y 8 (Jorge Chávez LIM): Tablero Directo Estilo Flightradar24
-                mostrarTableroFlightradar(cam.airportCode || 'CUZ', cam.name);
-            } else if (cam.format === 'skyline_live' && cam.skylineId) {
-                // Módulo 2 (Plaza Mayor de Cusco ID-831): Señal IP Real en Tiempo Real
-                reproducirCamaraRealSkyline(cam.skylineId, cam.camKey || 'plaza_mayor', cam.name);
-            } else if (cam.format === 'hls_direct') {
-                // Módulo 10: Cámara IP Abierta HLS Nativo + FLIR
-                reproducirStreamHLS(cam.streamUrl);
-            } else if ((cam.format === 'aviation' || cam.format === 'local4k') && cam.youtubeId) {
-                cargarStreamYouTube(cam.youtubeId, cam.name);
-            } else if (cam.liveYoutubeId) {
-                cargarStreamLiveYouTube(cam.liveYoutubeId, cam.name);
-            } else if (cam.youtubeId) {
-                cargarStreamYouTube(cam.youtubeId, cam.name);
+                const code = cam.airportCode || 'CUZ';
+                const dir = code === 'LIM' ? 'lim_cuz' : 'cuz_lim';
+                // Activar paneles estilo Flightradar24 directamente sobre el mapa de Lifextreme GEOINT
+                mostrarOverlayMapaRadarNacional(true, dir);
+                // Volar mapa mostrando el aeropuerto y los aviones amarillos en su corredor
+                map.flyTo([cam.latitude, cam.longitude], 8, { duration: 1.4 });
+                // Mostrar tablero propio en el monitor derecho
+                mostrarTableroFlightradar(code, cam.name);
             } else {
-                reproducirStreamHLS(cam.streamUrl);
+                // Ocultar overlay de aeropuertos cuando se miran cámaras ópticas (Plaza de Armas, SUTRAN, Machu Picchu)
+                mostrarOverlayMapaRadarNacional(false, null);
+                map.flyTo([cam.latitude, cam.longitude], cam.zoom || 15, { duration: 1.5, easeLinearity: 0.25 });
+
+                if (cam.format === 'skyline_live' && cam.skylineId) {
+                    reproducirCamaraRealSkyline(cam.skylineId, cam.camKey || 'plaza_mayor', cam.name);
+                } else if (cam.format === 'hls_direct') {
+                    reproducirStreamHLS(cam.streamUrl);
+                } else if ((cam.format === 'aviation' || cam.format === 'local4k') && cam.youtubeId) {
+                    cargarStreamYouTube(cam.youtubeId, cam.name);
+                } else if (cam.liveYoutubeId) {
+                    cargarStreamLiveYouTube(cam.liveYoutubeId, cam.name);
+                } else if (cam.youtubeId) {
+                    cargarStreamYouTube(cam.youtubeId, cam.name);
+                } else {
+                    reproducirStreamHLS(cam.streamUrl);
+                }
             }
         }
 
-        // MOSTRAR TABLERO EN VIVO ESTILO FLIGHTRADAR24 PARA AEROPUERTOS (MÓDULOS 1 Y 8)
+        // MOSTRAR TABLERO PROPIO DE VUELOS NACIONALES PERÚ (MÓDULO 1 CUSCO Y MÓDULO 8 LIMA)
         function mostrarTableroFlightradar(airportCode, label) {
             detenerWebRTCActivo();
             if (hlsInstance) {
@@ -1021,72 +1267,123 @@
             if (snapWrapper) snapWrapper.classList.add('hidden');
             if (frWrapper) frWrapper.classList.remove('hidden');
 
-            // Poblar cabecera METAR estilo Flightradar24
-            document.getElementById('fr24-airport-title').innerText = board.title;
-            document.getElementById('fr24-airport-subtitle').innerText = board.subtitle;
+            // Poblar cabecera METAR propia
+            const iataBadge = document.getElementById('fr24-iata-badge');
+            const titleEl = document.getElementById('fr24-airport-title');
+            const subEl = document.getElementById('fr24-subtitle');
+            if (iataBadge) iataBadge.innerText = board.iata;
+            if (titleEl) titleEl.innerText = board.title;
+            if (subEl) subEl.innerText = board.subtitle;
+
             document.getElementById('fr24-cond').innerText = board.cond;
             document.getElementById('fr24-temp').innerText = board.temp;
             document.getElementById('fr24-wind').innerText = board.wind;
 
-            // Actualizar etiquetas de botones indicadores Nacionales e Internacionales
+            // Configurar botones exclusivamente para Vuelos Nacionales Perú (Cusco ➔ Lima y Lima ➔ Cusco)
             const tabNac = document.getElementById('tab-fr24-nac');
             const tabInt = document.getElementById('tab-fr24-int');
             const btnNac = document.getElementById('btn-ind-nacional');
             const btnInt = document.getElementById('btn-ind-internacional');
-            if (tabNac) tabNac.innerText = board.nacionalLabel;
-            if (tabInt) tabInt.innerText = board.internacionalLabel;
-            if (btnNac) btnNac.innerText = board.nacionalLabel;
-            if (btnInt) btnInt.innerText = board.internacionalLabel;
 
-            // Mostrar por defecto Vuelos Nacionales (Salidas Cusco->Lima en CUZ, o Lima->Cusco en LIM)
-            filtrarTableroAeropuerto('nacional');
+            if (tabNac) {
+                tabNac.innerText = '🛫 Salidas Cusco ➔ Lima (CUZ)';
+                tabNac.onclick = () => filtrarTableroAeropuerto('cuz_lim');
+            }
+            if (tabInt) {
+                tabInt.innerText = '🛬 Vuelos Lima ➔ Cusco (LIM)';
+                tabInt.onclick = () => filtrarTableroAeropuerto('lim_cuz');
+            }
+            if (btnNac) {
+                btnNac.innerText = '🛫 Salidas Cusco ➔ Lima (CUZ)';
+                btnNac.onclick = () => filtrarTableroAeropuerto('cuz_lim');
+            }
+            if (btnInt) {
+                btnInt.innerText = '🛬 Vuelos Lima ➔ Cusco (LIM)';
+                btnInt.onclick = () => filtrarTableroAeropuerto('lim_cuz');
+            }
+
+            // En Módulo 1 (CUZ) abre Salidas Cusco->Lima; en Módulo 8 (LIM) abre Vuelos Lima->Cusco
+            filtrarTableroAeropuerto(board.defaultDir);
         }
 
-        // FILTRAR ENTRE VUELOS NACIONALES (CUSCO ⇄ LIMA) E INTERNACIONALES EN EL TABLERO FLIGHTRADAR24
-        function filtrarTableroAeropuerto(tipo) {
-            const board = AIRPORT_BOARDS[currentAirportCode] || AIRPORT_BOARDS['CUZ'];
-            const lista = tipo === 'internacional' ? board.internacionales : board.nacionales;
+        // FILTRAR ENTRE SALIDAS CUSCO ➔ LIMA Y VUELOS LIMA ➔ CUSCO (100% NACIONAL EN PLATAFORMA PROPIA)
+        function filtrarTableroAeropuerto(dir) {
+            const direction = (dir === 'lim_cuz' || dir === 'internacional') ? 'lim_cuz' : 'cuz_lim';
+            const lista = PERU_NATIONAL_FLIGHTS.filter(f => f.direction === direction);
 
             const tabNac = document.getElementById('tab-fr24-nac');
             const tabInt = document.getElementById('tab-fr24-int');
             const btnNac = document.getElementById('btn-ind-nacional');
             const btnInt = document.getElementById('btn-ind-internacional');
 
-            if (tipo === 'nacional') {
-                if (tabNac) tabNac.className = "py-1 px-2 rounded bg-amber-500 text-black font-bold text-[9px] uppercase tracking-wider transition-all";
+            if (direction === 'cuz_lim') {
+                if (tabNac) tabNac.className = "py-1 px-2 rounded bg-amber-400 text-black font-black text-[9px] uppercase tracking-wider transition-all shadow";
                 if (tabInt) tabInt.className = "py-1 px-2 rounded bg-slate-900 text-slate-300 border border-slate-700 hover:border-amber-400 font-bold text-[9px] uppercase tracking-wider transition-all";
-                if (btnNac) btnNac.className = "py-1.5 px-2 rounded-lg bg-amber-500/20 border-2 border-amber-400 text-amber-300 text-[9px] font-bold uppercase tracking-wider flex items-center justify-center gap-1 shadow-md";
-                if (btnInt) btnInt.className = "py-1.5 px-2 rounded-lg bg-slate-900 border border-slate-700 hover:border-sky-400 text-slate-300 text-[9px] font-bold uppercase tracking-wider flex items-center justify-center gap-1 transition-all";
+                if (btnNac) btnNac.className = "py-1.5 px-2 rounded-xl bg-amber-400 text-slate-950 text-[9px] font-black uppercase tracking-wider flex items-center justify-center gap-1 shadow-md";
+                if (btnInt) btnInt.className = "py-1.5 px-2 rounded-xl bg-slate-950 border border-slate-700 hover:border-amber-400 text-slate-300 text-[9px] font-bold uppercase tracking-wider flex items-center justify-center gap-1 transition-all";
             } else {
-                if (tabInt) tabInt.className = "py-1 px-2 rounded bg-sky-500 text-black font-bold text-[9px] uppercase tracking-wider transition-all";
+                if (tabInt) tabInt.className = "py-1 px-2 rounded bg-amber-400 text-black font-black text-[9px] uppercase tracking-wider transition-all shadow";
                 if (tabNac) tabNac.className = "py-1 px-2 rounded bg-slate-900 text-slate-300 border border-slate-700 hover:border-amber-400 font-bold text-[9px] uppercase tracking-wider transition-all";
-                if (btnInt) btnInt.className = "py-1.5 px-2 rounded-lg bg-sky-500/20 border-2 border-sky-400 text-sky-300 text-[9px] font-bold uppercase tracking-wider flex items-center justify-center gap-1 shadow-md";
-                if (btnNac) btnNac.className = "py-1.5 px-2 rounded-lg bg-slate-900 border border-slate-700 hover:border-amber-400 text-slate-300 text-[9px] font-bold uppercase tracking-wider flex items-center justify-center gap-1 transition-all";
+                if (btnInt) btnInt.className = "py-1.5 px-2 rounded-xl bg-amber-400 text-slate-950 text-[9px] font-black uppercase tracking-wider flex items-center justify-center gap-1 shadow-md";
+                if (btnNac) btnNac.className = "py-1.5 px-2 rounded-xl bg-slate-950 border border-slate-700 hover:border-amber-400 text-slate-300 text-[9px] font-bold uppercase tracking-wider flex items-center justify-center gap-1 transition-all";
             }
+
+            // Sincronizar también el panel flotante izquierdo del mapa
+            renderizarPanelFlotanteMapaFR24(direction);
 
             const tbody = document.getElementById('fr24-flights-tbody');
-            if (!tbody) return;
-            tbody.innerHTML = lista.map(f => `
-                <tr onclick="enfocarVueloEnMapa(${f.lat}, ${f.lng}, '${f.flight}')" class="hover:bg-slate-900/90 cursor-pointer transition-colors">
-                    <td class="px-2 py-1 text-slate-300 font-bold">${f.time}</td>
-                    <td class="px-2 py-1 text-amber-400 font-bold">${f.flight}</td>
-                    <td class="px-2 py-1 text-white">${f.route} <span class="text-slate-500 block text-[8px]">${f.airline}</span></td>
-                    <td class="px-2 py-1 text-right font-bold ${f.statusColor}">${f.status}</td>
-                </tr>
-            `).join('');
+            if (tbody) {
+                tbody.innerHTML = lista.map(f => `
+                    <tr onclick="enfocarVueloEnMapa(${f.lat}, ${f.lng}, '${f.flight}')" class="hover:bg-slate-800/90 cursor-pointer transition-colors">
+                        <td class="px-1.5 py-1.5">
+                            <span class="text-amber-400 font-black block">${f.callsign}</span>
+                            <span class="text-slate-400 text-[8px]">${f.time} • ${f.flight}</span>
+                        </td>
+                        <td class="px-1.5 py-1.5 text-white font-bold">
+                            ${f.originCode} ➔ ${f.destCode}
+                            <span class="text-slate-400 block text-[8px] font-normal">${f.routeLabel}</span>
+                        </td>
+                        <td class="px-1.5 py-1.5">
+                            <span class="px-1.5 py-0.5 rounded bg-sky-500/20 text-sky-300 border border-sky-500/40 font-bold text-[8px]">${f.type}</span>
+                        </td>
+                        <td class="px-1.5 py-1.5 text-right font-bold ${f.statusColor}">
+                            ${f.status}
+                            <span class="text-slate-400 block text-[8px] font-normal">${f.alt}</span>
+                        </td>
+                    </tr>
+                `).join('');
+            }
 
-            const statusBadge = document.getElementById('stream-status-badge');
-            if (statusBadge) {
-                statusBadge.innerText = tipo === 'nacional'
-                    ? `✈️ RADAR ${currentAirportCode}: VUELOS NACIONALES (CUSCO ⇄ LIMA)`
-                    : `🌍 RADAR ${currentAirportCode}: CONEXIONES INTERNACIONALES`;
-                statusBadge.className = "text-[8px] font-mono bg-amber-500/20 text-amber-300 px-1.5 py-0.5 rounded border border-amber-500/40 uppercase";
+            const badgeEl = document.getElementById('active-codec-badge');
+            if (badgeEl) {
+                badgeEl.innerText = direction === 'cuz_lim'
+                    ? '✈️ RADAR PERÚ: SALIDAS CUSCO ➔ LIMA'
+                    : '✈️ RADAR PERÚ: VUELOS LIMA ➔ CUSCO';
             }
         }
 
+        // ENFOCAR CUALQUIER VUELO NACIONAL EN NUESTRO PROPIO MAPA Y TRAZAR SU RUTA
         function enfocarVueloEnMapa(lat, lng, flightCode) {
             if (!lat || !lng) return;
-            map.flyTo([lat, lng], 11, { duration: 1.2 });
+            const vuelo = PERU_NATIONAL_FLIGHTS.find(f => f.flight === flightCode || f.callsign === flightCode);
+
+            if (selectedFlightRouteLine) {
+                map.removeLayer(selectedFlightRouteLine);
+                selectedFlightRouteLine = null;
+            }
+
+            if (vuelo) {
+                const originCoords = vuelo.originCode === 'LIM' ? [-12.0219, -77.1143] : [-13.5357, -71.9388];
+                const destCoords = vuelo.destCode === 'CUZ' ? [-13.5357, -71.9388] : (vuelo.destCode === 'AQP' ? [-16.3411, -71.5831] : [-12.0219, -77.1143]);
+                selectedFlightRouteLine = L.polyline([originCoords, [vuelo.lat, vuelo.lng], destCoords], {
+                    color: '#38bdf8',
+                    weight: 3,
+                    dashArray: '4, 6',
+                    opacity: 0.95
+                }).addTo(map);
+            }
+
+            map.flyTo([lat, lng], 9, { duration: 1.2 });
         }
 
         // DETENER STREAM WEBRTC O LOOP DE SNAPSHOT SI ESTÁ ACTIVO

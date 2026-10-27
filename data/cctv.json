@@ -2,7 +2,7 @@
   {
     "id": "cuz-aeropuerto-velasco-astete",
     "name": "1. Aeropuerto Velasco Astete (Cusco - CUZ / SPZO)",
-    "sector": "Salidas Cusco -> Lima • Vuelos Nacionales e Internacionales",
+    "sector": "Salidas Nacionales Cusco ➔ Lima • Radar Aéreo Propio",
     "latitude": -13.53572,
     "longitude": -71.93881,
     "altitude": 3310.0,
@@ -11,13 +11,13 @@
     "roll": 0.0,
     "fovDeg": 56.0,
     "range": 1400.0,
-    "zoom": 14,
+    "zoom": 9,
     "temp": "16.0°C | Viento 280° 12kt",
-    "sensor": "Flightradar24 Live Telemetry • SPZO",
+    "sensor": "Lifextreme Radar ADS-B Nacional • SPZO",
     "airportCode": "CUZ",
     "icaoCode": "SPZO",
-    "externalUrl": "https://www.flightradar24.com/data/airports/cuz/departures",
-    "externalLabel": "✈️ Abrir Flightradar24 Cusco (Salidas CUZ) ↗",
+    "externalUrl": "#radar-nacional",
+    "externalLabel": "✈️ Ver Corredor Aéreo Cusco ⇄ Lima en Mapa Propio",
     "format": "flightradar"
   },
   {
@@ -89,7 +89,7 @@
   {
     "id": "lima-aeropuerto-jorge-chavez",
     "name": "8. Aeropuerto Jorge Chávez (Lima - LIM / SPJC)",
-    "sector": "Vuelos Lima -> Cusco & Conexiones Internacionales",
+    "sector": "Vuelos Nacionales Lima ➔ Cusco • Radar Aéreo Propio",
     "latitude": -12.0219,
     "longitude": -77.1143,
     "altitude": 34.0,
@@ -98,13 +98,13 @@
     "roll": 0.0,
     "fovDeg": 54.0,
     "range": 1800.0,
-    "zoom": 13,
+    "zoom": 9,
     "temp": "22.0°C | Viento 180° 13kt",
-    "sensor": "Flightradar24 Live Telemetry • SPJC",
+    "sensor": "Lifextreme Radar ADS-B Nacional • SPJC",
     "airportCode": "LIM",
     "icaoCode": "SPJC",
-    "externalUrl": "https://www.flightradar24.com/data/airports/lim/departures",
-    "externalLabel": "🛫 Abrir Flightradar24 Lima (Vuelos LIM -> CUZ) ↗",
+    "externalUrl": "#radar-nacional",
+    "externalLabel": "🛫 Ver Corredor Aéreo Lima ⇄ Cusco en Mapa Propio",
     "format": "flightradar"
   },
   {
