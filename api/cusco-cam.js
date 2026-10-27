@@ -5,12 +5,17 @@ const CAMERA_MAP = {
     plaza_mayor: {
         id: '831',
         page: 'https://www.skylinewebcams.com/es/webcam/peru/cusco/cusco/plaza-mayor.html',
-        name: 'Plaza Mayor de Cusco (Catedral & Compañía de Jesús)'
+        name: 'Plaza de Armas de Cusco (Portal de Carnes / Calle Triunfo -> Basílica Catedral)'
+    },
+    aeropuerto_cusco: {
+        id: null,
+        page: 'https://www.skylinewebcams.com/es/webcam/peru/cusco/cusco/vista-del-aeropuerto.html',
+        name: 'Aeropuerto Internacional Alejandro Velasco Astete (CUZ - Pista 28/10)'
     },
     lima_miraflores: {
         id: '4293',
         page: 'https://www.skylinewebcams.com/es/webcam/peru/lima/lima/miraflores.html',
-        name: 'Lima - Óvalo de Miraflores'
+        name: 'Lima - Conexión Hub Jorge Chávez'
     }
 };
 
@@ -42,14 +47,14 @@ async function getSkylineSession(camKey) {
 
     const html = await pageResp.text();
     const match = html.match(/livee\.m3u8\?a=([a-zA-Z0-9]+)/);
-    if (!match) {
-        throw new Error('Skyline stream token not found in page');
-    }
+    const idMatch = html.match(/(?:live|social)([0-9]+)\.jpg/);
+    const discoveredId = targetCam.id || (idMatch ? idMatch[1] : '831');
 
     const session = {
-        token: match[1],
+        camId: discoveredId,
+        token: match ? match[1] : null,
         cookie: cookieHeader,
-        m3u8Url: `https://hd-auth.skylinewebcams.com/live.m3u8?a=${match[1]}`,
+        m3u8Url: match ? `https://hd-auth.skylinewebcams.com/live.m3u8?a=${match[1]}` : null,
         timestamp: now
     };
     sessionCache[camKey] = session;
@@ -154,8 +159,16 @@ export default async function handler(req, res) {
             return res.status(200).send(m3u8Text);
         }
 
-        // MODO 4 (PREDETERMINADO): Frame JPEG en Tiempo Real de la Cámara de la Plaza de Armas de Cusco (ID 831)
-        const camId = id ? String(id).replace(/[^0-9]/g, '') : (CAMERA_MAP[cam]?.id || '831');
+        // MODO 4 (PREDETERMINADO): Frame JPEG en Tiempo Real de las cámaras de Cusco (Plaza de Armas o Aeropuerto Velasco Astete)
+        let camId = id ? String(id).replace(/[^0-9]/g, '') : CAMERA_MAP[cam]?.id;
+        if (!camId) {
+            try {
+                const session = await getSkylineSession(cam);
+                camId = session.camId || '831';
+            } catch (_) {
+                camId = '831';
+            }
+        }
         const timestamp = Date.now();
         const candidateUrls = [
             `https://cdn.skylinewebcams.com/live${camId}.jpg?t=${timestamp}`,

@@ -331,8 +331,101 @@
                 </div>
             </div>
 
+            <!-- PANEL FLOTANTE IZQUIERDO ESTILO SUTRAN V2.0 (MAPA INTERACTIVO DE ALERTAS EN PLATAFORMA PROPIA) -->
+            <div id="sutran-map-overlay" class="hidden absolute top-3 left-3 z-30 w-[275px] bg-white text-slate-900 rounded-2xl shadow-2xl border border-slate-300 overflow-hidden font-sans pointer-events-auto max-h-[86%] overflow-y-auto">
+                <!-- HEADER AZUL OFICIAL SUTRAN V2.0 -->
+                <div class="bg-[#003893] text-white p-3 space-y-2">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="h-7 w-7 rounded-lg bg-white/15 flex items-center justify-center text-sm font-bold">🛣️</span>
+                            <div>
+                                <div class="text-xs font-extrabold leading-tight">Mapa interactivo de alertas</div>
+                                <div class="text-[10px] text-blue-200 font-mono">SUTRAN • V2.0 (LIFEXTREME)</div>
+                            </div>
+                        </div>
+                        <span class="px-2 py-0.5 rounded-full bg-emerald-500/25 border border-emerald-400 text-emerald-200 text-[9px] font-bold flex items-center gap-1">
+                            <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping"></span> En vivo
+                        </span>
+                    </div>
+                    <input id="sutran-search-input" oninput="filtrarAlertasSutranMapa()" type="text" placeholder="🔍 Buscar región, vía PE-28B, Cusco..."
+                        class="w-full px-2.5 py-1.5 rounded-lg bg-white text-slate-800 text-[11px] placeholder-slate-400 focus:outline-none shadow-inner" />
+                </div>
+
+                <!-- 3 CAJAS KPI: INTERRUMPIDO (3) / RESTRINGIDO (4) / NORMAL (17) -->
+                <div class="p-2.5 grid grid-cols-3 gap-1.5 bg-slate-50 border-b border-slate-200">
+                    <div onclick="enfocarAlertaSutranPorEstado('interrumpido')" class="p-2 rounded-xl bg-red-50 border border-red-200 cursor-pointer hover:bg-red-100 transition-all">
+                        <span id="sutran-kpi-int" class="text-base font-black text-red-600 block leading-none">3</span>
+                        <span class="text-[8px] font-extrabold text-red-700 uppercase mt-1 block">INTERRUMPIDO</span>
+                    </div>
+                    <div onclick="enfocarAlertaSutranPorEstado('restringido')" class="p-2 rounded-xl bg-amber-50 border border-amber-200 cursor-pointer hover:bg-amber-100 transition-all">
+                        <span id="sutran-kpi-res" class="text-base font-black text-amber-600 block leading-none">4</span>
+                        <span class="text-[8px] font-extrabold text-amber-700 uppercase mt-1 block">RESTRINGIDO</span>
+                    </div>
+                    <div onclick="enfocarAlertaSutranPorEstado('normal')" class="p-2 rounded-xl bg-emerald-50 border border-emerald-200 cursor-pointer hover:bg-emerald-100 transition-all">
+                        <span id="sutran-kpi-nor" class="text-base font-black text-emerald-600 block leading-none">17</span>
+                        <span class="text-[8px] font-extrabold text-emerald-700 uppercase mt-1 block">NORMAL</span>
+                    </div>
+                </div>
+
+                <!-- BANNER MODO FENÓMENO EL NIÑO / LLUVIAS CUSCO -->
+                <div class="mx-2.5 mt-2 p-2.5 rounded-xl bg-gradient-to-r from-slate-900 to-[#002855] text-white flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <span class="text-base">🌧️</span>
+                        <div>
+                            <div class="text-[10px] font-bold">Modo Fenómeno El Niño & Sierra</div>
+                            <div class="text-[8px] text-slate-300">Monitoreo de lluvias en Valle Sagrado y Machu Picchu</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FILTROS INTERACTIVOS: ESTADO DE VÍA Y FACTORES DE ALERTA -->
+                <div class="p-3 space-y-2.5 text-[11px]">
+                    <div>
+                        <div class="flex items-center justify-between text-[9px] font-bold text-slate-400 uppercase mb-1.5">
+                            <span>ESTADO DE VÍA</span>
+                            <span class="text-blue-600 cursor-pointer" onclick="cargarAlertasVialesSutran()">Actualizar</span>
+                        </div>
+                        <div class="space-y-1">
+                            <label class="flex items-center justify-between cursor-pointer">
+                                <span class="flex items-center gap-1.5 text-slate-700 font-medium"><input type="checkbox" checked onchange="filtrarAlertasSutranMapa()" id="chk-sutran-int" class="accent-blue-600"/> <span class="h-2.5 w-2.5 rounded-full bg-red-600 inline-block"></span> Tránsito interrumpido</span>
+                                <span class="px-1.5 py-0.2 rounded-full bg-slate-100 text-slate-600 text-[9px] font-bold">3</span>
+                            </label>
+                            <label class="flex items-center justify-between cursor-pointer">
+                                <span class="flex items-center gap-1.5 text-slate-700 font-medium"><input type="checkbox" checked onchange="filtrarAlertasSutranMapa()" id="chk-sutran-res" class="accent-blue-600"/> <span class="h-2.5 w-2.5 rounded-full bg-amber-500 inline-block"></span> Tránsito restringido</span>
+                                <span class="px-1.5 py-0.2 rounded-full bg-slate-100 text-slate-600 text-[9px] font-bold">4</span>
+                            </label>
+                            <label class="flex items-center justify-between cursor-pointer">
+                                <span class="flex items-center gap-1.5 text-slate-700 font-medium"><input type="checkbox" checked onchange="filtrarAlertasSutranMapa()" id="chk-sutran-nor" class="accent-blue-600"/> <span class="h-2.5 w-2.5 rounded-full bg-emerald-600 inline-block"></span> Tránsito normal</span>
+                                <span class="px-1.5 py-0.2 rounded-full bg-slate-100 text-slate-600 text-[9px] font-bold">17</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="pt-2 border-t border-slate-200">
+                        <div class="flex items-center justify-between text-[9px] font-bold text-slate-400 uppercase mb-1.5">
+                            <span>FACTORES DE ALERTA</span>
+                            <span class="text-blue-600">Perú / Cusco</span>
+                        </div>
+                        <div class="space-y-1 text-[10px]">
+                            <div class="flex items-center justify-between text-slate-700">
+                                <span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-blue-600"></span> Humano / Social</span>
+                                <span class="px-1.5 py-0.2 rounded-full bg-slate-100 text-slate-600 font-bold">2</span>
+                            </div>
+                            <div class="flex items-center justify-between text-slate-700">
+                                <span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-cyan-500"></span> Fenómenos naturales</span>
+                                <span class="px-1.5 py-0.2 rounded-full bg-slate-100 text-slate-600 font-bold">4</span>
+                            </div>
+                            <div class="flex items-center justify-between text-slate-700">
+                                <span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-orange-500"></span> Accidentes / Obras</span>
+                                <span class="px-1.5 py-0.2 rounded-full bg-slate-100 text-slate-600 font-bold">10</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- CONTROLES FLOTANTES DEL MAPA -->
-            <div class="absolute bottom-4 left-4 z-20 flex items-center gap-2">
+            <div class="absolute bottom-4 left-4 z-20 flex flex-wrap items-center gap-2">
                 <button onclick="setMapBase('satellite')" id="btn-mode-sat"
                     class="px-3 py-1.5 rounded-xl bg-emerald-500 text-slate-950 text-xs font-mono font-bold shadow-lg shadow-emerald-500/20 border border-emerald-400">
                     🛰️ Satélite HD
@@ -344,6 +437,10 @@
                 <button onclick="toggleModoRadarAereoNacional()" id="btn-mode-fr24"
                     class="px-3 py-1.5 rounded-xl bg-amber-400 text-slate-950 text-xs font-mono font-black hover:bg-amber-300 border border-amber-300 shadow-lg flex items-center gap-1">
                     ✈️ Radar Vuelos Perú
+                </button>
+                <button onclick="sintonizarCamara(4)" id="btn-mode-sutran"
+                    class="px-3 py-1.5 rounded-xl bg-[#003893] text-white text-xs font-mono font-black hover:bg-blue-700 border border-blue-400 shadow-lg flex items-center gap-1">
+                    🛣️ Mapa Alertas SUTRAN
                 </button>
             </div>
         </div>
@@ -387,7 +484,7 @@
                         class="w-full h-full object-cover transition-all duration-300">
                     </video>
 
-                    <!-- REPRODUCTOR 2: IFRAME 4K (FALLBACK YOUTUBE VERIFICADO) -->
+                    <!-- REPRODUCTOR 2: IFRAME 4K (FALLBACK YOUTUBE / WINDY WEBCAM / SUTRAN) -->
                     <div id="iframe-wrapper" class="hidden w-full h-full absolute inset-0">
                         <iframe id="cctv-stream-frame" 
                             class="w-full h-full object-cover"
@@ -410,7 +507,7 @@
                         </div>
                     </div>
 
-                    <!-- REPRODUCTOR 4: CONSOLA TÁCTICA ESTILO FLIGHTRADAR24 (SALIDAS CUSCO-LIMA & VUELOS NACIONALES/INTERNACIONALES) -->
+                    <!-- REPRODUCTOR 4: CONSOLA TÁCTICA ESTILO FLIGHTRADAR24 (SALIDAS CUSCO-LIMA & VUELOS NACIONALES) -->
                     <div id="flightradar-hud-wrapper" class="hidden w-full h-full absolute inset-0 bg-slate-950 z-30 flex flex-col justify-between p-3 font-mono overflow-hidden">
                         <!-- HEADER ESTILO FLIGHTRADAR24 -->
                         <div class="flex items-center justify-between border-b border-slate-800 pb-1.5">
@@ -437,15 +534,19 @@
                             </div>
                         </div>
 
-                        <!-- PESTAÑAS INTERNAS: VUELOS NACIONALES (CUSCO-LIMA) VS INTERNACIONALES -->
-                        <div class="grid grid-cols-2 gap-1.5 my-1.5 text-[9px]">
-                            <button onclick="filtrarTableroAeropuerto('nacional')" id="tab-fr24-nac"
-                                class="py-1 px-2 rounded bg-amber-400 text-slate-950 font-black flex items-center justify-center gap-1 shadow">
-                                <span id="tab-fr24-nac-label">🇵🇪 SALIDAS CUSCO ➔ LIMA (5)</span>
+                        <!-- PESTAÑAS INTERNAS: VUELOS NACIONALES (CUSCO-LIMA) + CÁMARA PISTA 28/10 -->
+                        <div class="grid grid-cols-3 gap-1.5 my-1.5 text-[8px]">
+                            <button onclick="filtrarTableroAeropuerto('cuz_lim')" id="tab-fr24-nac"
+                                class="py-1 px-1.5 rounded bg-amber-400 text-slate-950 font-black flex items-center justify-center gap-1 shadow">
+                                <span>🛫 SALIDAS CUZ➔LIM</span>
                             </button>
-                            <button onclick="filtrarTableroAeropuerto('internacional')" id="tab-fr24-int"
-                                class="py-1 px-2 rounded bg-slate-900 text-slate-300 border border-slate-700 hover:border-amber-400 font-bold flex items-center justify-center gap-1">
-                                <span id="tab-fr24-int-label">🌍 VUELOS INTERNACIONALES (4)</span>
+                            <button onclick="filtrarTableroAeropuerto('lim_cuz')" id="tab-fr24-int"
+                                class="py-1 px-1.5 rounded bg-slate-900 text-slate-300 border border-slate-700 hover:border-amber-400 font-bold flex items-center justify-center gap-1">
+                                <span>🛬 VUELOS LIM➔CUZ</span>
+                            </button>
+                            <button onclick="verCamaraPistaAeropuertoCusco()"
+                                class="py-1 px-1.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-400/60 hover:bg-emerald-400 hover:text-black font-bold flex items-center justify-center gap-1">
+                                <span>📹 PISTA 28/10 LIVE</span>
                             </button>
                         </div>
 
@@ -461,15 +562,43 @@
                                     </tr>
                                 </thead>
                                 <tbody id="fr24-flights-tbody" class="divide-y divide-slate-800/70 text-slate-200">
-                                    <!-- Se llena dinámicamente según Aeropuerto 1 (CUZ) u 8 (LIM) -->
                                 </tbody>
                             </table>
                         </div>
 
                         <!-- FOOTER BARRA FLIGHTRADAR -->
                         <div class="pt-1.5 flex items-center justify-between text-[8px] text-slate-400">
-                            <span>📡 RADAR ADS-B: <strong class="text-amber-400">ACTIVO (HAZ CLIC EN UN VUELO PARA SEGUIRLO)</strong></span>
-                            <span id="fr24-live-count" class="text-emerald-400 font-bold">● 9 VUELOS EN MONITOREO</span>
+                            <span>📡 RADAR ADS-B: <strong class="text-amber-400">HAZ CLIC EN UN VUELO PARA SEGUIRLO EN MAPA</strong></span>
+                            <span id="fr24-live-count" class="text-emerald-400 font-bold">● 10 VUELOS NACIONALES</span>
+                        </div>
+                    </div>
+
+                    <!-- REPRODUCTOR 5: CONSOLA PROPIA DE ALERTAS VIALES SUTRAN V2.0 (SIN SALIR DE LIFEXTREME) -->
+                    <div id="sutran-hud-wrapper" class="hidden w-full h-full absolute inset-0 bg-slate-950 z-30 flex flex-col justify-between p-3 font-mono overflow-hidden">
+                        <div class="flex items-center justify-between bg-[#003893] px-2.5 py-1.5 rounded-xl border border-blue-400/50">
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm">🛣️</span>
+                                <div>
+                                    <span class="text-[10px] font-black text-white block">MAPA INTERACTIVO DE ALERTAS SUTRAN • V2.0</span>
+                                    <span class="text-[8px] text-blue-200 block">Red Vial Cusco (PE-28B Ollantaytambo - Machu Picchu) y Corredor Sur</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-1 text-[9px] font-bold">
+                                <span class="px-1.5 py-0.5 rounded bg-red-600 text-white">3 INT</span>
+                                <span class="px-1.5 py-0.5 rounded bg-amber-500 text-black">4 RES</span>
+                                <span class="px-1.5 py-0.5 rounded bg-emerald-500 text-black">17 NOR</span>
+                            </div>
+                        </div>
+
+                        <div id="sutran-monitor-tbody" class="flex-1 my-1.5 overflow-y-auto custom-scrollbar space-y-1.5 pr-1">
+                            <!-- Se llena dinámicamente desde /api/sutran-alerts -->
+                        </div>
+
+                        <div class="flex items-center justify-between text-[8px] text-slate-400 border-t border-slate-800 pt-1">
+                            <span>🟢 FUENTE: <strong class="text-cyan-300">alertasviales.sutran.gob.pe (Sincronizado)</strong></span>
+                            <button onclick="cargarStreamYouTube('Tijc2eMhZ0A', 'CÁMARA VIAL CORREDOR OLLANTAYTAMBO - MACHU PICCHU')" class="px-2 py-0.5 rounded bg-emerald-500/20 border border-emerald-400 text-emerald-300 hover:bg-emerald-400 hover:text-black font-bold">
+                                📹 Ver Video Ruta PE-28B
+                            </button>
                         </div>
                     </div>
 
@@ -497,23 +626,57 @@
                     </div>
                 </div>
 
+                <!-- FICHA TÉCNICA DE INTELIGENCIA GEOINT (UBICACIÓN, PLATAFORMA BASE Y UTILIDAD OPERATIVA) -->
+                <div id="geoint-utility-card" class="p-3 rounded-2xl bg-slate-950/95 border border-emerald-500/30 text-[10px] font-mono space-y-1.5 shadow-inner">
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-1">
+                        <span class="text-emerald-400 font-black uppercase tracking-wider">🎯 Inteligencia Táctica GEOINT</span>
+                        <span id="geoint-platform-badge" class="px-1.5 py-0.5 rounded bg-cyan-500/15 border border-cyan-500/40 text-cyan-300 font-bold text-[9px]">
+                            SkylineWebcams / Live World Webcams
+                        </span>
+                    </div>
+                    <div class="text-slate-300 leading-relaxed">
+                        <strong class="text-slate-400">📍 Ubicación:</strong>
+                        <span id="geoint-location-text">Vista panorámica desde Portal de Carnes / Calle Triunfo hacia la Basílica Catedral y Plaza Mayor.</span>
+                    </div>
+                    <div class="text-emerald-300/95 leading-relaxed bg-emerald-950/25 border border-emerald-500/20 p-1.5 rounded-lg">
+                        <strong class="text-emerald-400">🛡️ Utilidad GEOINT:</strong>
+                        <span id="geoint-utility-text">Monitoreo de congestión peatonal, eventos culturales, desfiles, huelgas o alteraciones de orden en el centro histórico.</span>
+                    </div>
+                </div>
+
                 <!-- CONTROLES TÁCTICOS PTZ Y CONEXIÓN EN TIEMPO REAL -->
-                <div class="space-y-2.5">
+                <div class="space-y-2">
                     <!-- BOTÓN ESTRELLA: CONECTAR CÁMARA FÍSICA LOCAL (WEBRTC REAL-TIME) -->
                     <button onclick="conectarMiCamaraWebRTC()" id="btn-webrtc-cam"
-                        class="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-slate-950 font-black text-xs font-mono flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 transition-all">
+                        class="w-full py-2 px-3 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-slate-950 font-black text-xs font-mono flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 transition-all">
                         <span>📷 CONECTAR MI CÁMARA FÍSICA / BODYCAM EN VIVO (WebRTC)</span>
                     </button>
 
-                    <!-- INDICADORES DE VUELOS NACIONALES E INTERNACIONALES (SOLO VISIBLES EN MÓDULOS 1 Y 8 DE AEROPUERTO) -->
-                    <div id="airport-indicators-bar" class="hidden grid-cols-2 gap-1.5 text-[10px] font-mono">
-                        <button onclick="filtrarTableroAeropuerto('nacional')" id="btn-ind-nacional"
-                            class="py-1.5 px-2 rounded-xl bg-amber-400 text-slate-950 font-black flex items-center justify-center gap-1.5 shadow-md transition-all">
-                            <span>🇵🇪 Vuelos Nacionales (CUZ ⇄ LIM)</span>
+                    <!-- INDICADORES DE AEROPUERTO Y CORRELACIÓN VISUAL PISTA 28/10 (VISIBLES EN AEROPUERTOS) -->
+                    <div id="airport-indicators-bar" class="hidden grid-cols-3 gap-1.5 text-[9px] font-mono">
+                        <button onclick="filtrarTableroAeropuerto('cuz_lim')" id="btn-ind-nacional"
+                            class="py-1.5 px-1.5 rounded-xl bg-amber-400 text-slate-950 font-black flex items-center justify-center gap-1 shadow-md transition-all">
+                            <span>🛫 Salidas CUZ➔LIM</span>
                         </button>
-                        <button onclick="filtrarTableroAeropuerto('internacional')" id="btn-ind-internacional"
-                            class="py-1.5 px-2 rounded-xl bg-slate-950 border border-amber-400/50 text-amber-300 hover:bg-amber-400 hover:text-black font-bold flex items-center justify-center gap-1.5 transition-all">
-                            <span>🌍 Vuelos Internacionales</span>
+                        <button onclick="filtrarTableroAeropuerto('lim_cuz')" id="btn-ind-internacional"
+                            class="py-1.5 px-1.5 rounded-xl bg-slate-950 border border-amber-400/50 text-amber-300 hover:bg-amber-400 hover:text-black font-bold flex items-center justify-center gap-1 transition-all">
+                            <span>🛬 Vuelos LIM➔CUZ</span>
+                        </button>
+                        <button onclick="verCamaraPistaAeropuertoCusco()" id="btn-ind-runway-cam"
+                            class="py-1.5 px-1.5 rounded-xl bg-emerald-500/20 border border-emerald-400 text-emerald-300 hover:bg-emerald-400 hover:text-black font-bold flex items-center justify-center gap-1 transition-all">
+                            <span>📹 Pista 28/10 Live</span>
+                        </button>
+                    </div>
+
+                    <!-- SELECTOR DE ESTACIONES METEOROLÓGICAS WINDY (VISIBLE EN NODO 4: SAN BLAS / URUBAMBA) -->
+                    <div id="windy-stations-bar" class="hidden grid-cols-2 gap-1.5 text-[9px] font-mono">
+                        <button onclick="cambiarEstacionWindy('1647468641', 'Cuesta San Blas (Cusco)')"
+                            class="py-1.5 px-2 rounded-xl bg-cyan-500/20 border border-cyan-400 text-cyan-300 hover:bg-cyan-400 hover:text-black font-bold flex items-center justify-center gap-1 transition-all">
+                            <span>🌤️ Webcam Cuesta San Blas</span>
+                        </button>
+                        <button onclick="cambiarEstacionWindy('1529184518', 'Valle Sagrado (Urubamba)')"
+                            class="py-1.5 px-2 rounded-xl bg-emerald-500/20 border border-emerald-400 text-emerald-300 hover:bg-emerald-400 hover:text-black font-bold flex items-center justify-center gap-1 transition-all">
+                            <span>🏔️ Webcam Urubamba / Valle</span>
                         </button>
                     </div>
 
@@ -545,40 +708,40 @@
                     </div>
                 </div>
 
-                <!-- MINISELECTOR RÁPIDO DE LOS 6 NODOS OPERATIVOS (1, 2, 5, 7, 8, 10) -->
+                <!-- MINISELECTOR RÁPIDO DE CÁMARAS PÚBLICAS DE TURISMO, TRÁNSITO Y CONECTIVIDAD -->
                 <div>
                     <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 block mb-2">
-                        🔲 6 Nodos Operativos Lifextreme (1, 2, 5, 7, 8, 10)
+                        📹 Cámaras Públicas En Vivo (Turismo, Aeropuertos & Tránsito Cusco)
                     </span>
                     <div class="grid grid-cols-2 gap-1.5 text-xs font-mono">
                         <button onclick="sintonizarCamara(0)" class="p-2 rounded-xl bg-slate-950 border border-amber-400/60 hover:border-amber-400 text-left transition-all">
-                            <span class="font-bold text-amber-400 block truncate">✈️ 1. Aerop. Cusco CUZ</span>
-                            <span class="text-[9px] text-slate-300 block truncate">Salidas Cusco ➔ Lima (FR24)</span>
+                            <span class="font-bold text-amber-400 block truncate">✈️ 1. Aerop. Velasco Astete</span>
+                            <span class="text-[9px] text-slate-300 block truncate">Pista 28/10 + Radar ADS-B CUZ</span>
                         </button>
 
                         <button onclick="sintonizarCamara(1)" class="p-2 rounded-xl bg-slate-950 border border-emerald-500/60 hover:border-emerald-400 text-left transition-all">
-                            <span class="font-bold text-emerald-400 block truncate">🔴 2. Plaza Armas Cusco</span>
-                            <span class="text-[9px] text-slate-300 block truncate">Cámara Real En Vivo (ID-831)</span>
+                            <span class="font-bold text-emerald-400 block truncate">🏛️ 2. Plaza Armas Cusco</span>
+                            <span class="text-[9px] text-slate-300 block truncate">Catedral / Portal de Carnes</span>
                         </button>
 
-                        <button onclick="sintonizarCamara(2)" class="p-2 rounded-xl bg-slate-950 border border-amber-500/50 hover:border-amber-400 text-left transition-all">
+                        <button onclick="sintonizarCamara(2)" class="p-2 rounded-xl bg-slate-950 border border-cyan-500/50 hover:border-cyan-400 text-left transition-all">
+                            <span class="font-bold text-cyan-400 block truncate">🚌 3. Machu Picchu Pueblo</span>
+                            <span class="text-[9px] text-slate-300 block truncate">Aguas Calientes / CONSETTUR</span>
+                        </button>
+
+                        <button onclick="sintonizarCamara(3)" class="p-2 rounded-xl bg-slate-950 border border-sky-500/50 hover:border-sky-400 text-left transition-all">
+                            <span class="font-bold text-sky-400 block truncate">🌤️ 4. Valle Sagrado / San Blas</span>
+                            <span class="text-[9px] text-slate-300 block truncate">Windy Webcams Urubamba</span>
+                        </button>
+
+                        <button onclick="sintonizarCamara(4)" class="p-2 rounded-xl bg-slate-950 border border-amber-500/50 hover:border-amber-400 text-left transition-all">
                             <span class="font-bold text-amber-400 block truncate">🛣️ 5. SUTRAN Ollantaytambo</span>
-                            <span class="text-[9px] text-slate-300 block truncate">Ruta PE-28B -> Machu Picchu</span>
+                            <span class="text-[9px] text-slate-300 block truncate">Vía PE-28B ➔ Tren Machu Picchu</span>
                         </button>
 
-                        <button onclick="sintonizarCamara(3)" class="p-2 rounded-xl bg-slate-950 border border-cyan-500/50 hover:border-cyan-400 text-left transition-all">
-                            <span class="font-bold text-cyan-400 block truncate">🌊 7. Machu Picchu & Río</span>
-                            <span class="text-[9px] text-slate-300 block truncate">Santuario & Caudal KM 104</span>
-                        </button>
-
-                        <button onclick="sintonizarCamara(4)" class="p-2 rounded-xl bg-slate-950 border border-purple-500/50 hover:border-purple-400 text-left transition-all">
-                            <span class="font-bold text-purple-400 block truncate">🛫 8. Aerop. Lima (LIM)</span>
-                            <span class="text-[9px] text-slate-300 block truncate">Vuelos Lima ➔ Cusco & Intl</span>
-                        </button>
-
-                        <button onclick="sintonizarCamara(5)" class="p-2 rounded-xl bg-slate-950 border border-red-500/50 hover:border-red-400 text-left transition-all">
-                            <span class="font-bold text-red-400 block truncate">📹 10. Cámara IP + FLIR</span>
-                            <span class="text-[9px] text-slate-400 block truncate">Base San Blas Cusco</span>
+                        <button onclick="sintonizarCamara(5)" class="p-2 rounded-xl bg-slate-950 border border-purple-500/50 hover:border-purple-400 text-left transition-all">
+                            <span class="font-bold text-purple-400 block truncate">🛫 6. Aerop. Lima (LIM)</span>
+                            <span class="text-[9px] text-slate-300 block truncate">Vuelos Lima ➔ Cusco (ADS-B)</span>
                         </button>
                     </div>
                 </div>
@@ -606,13 +769,15 @@
             railway: null,
             radar: null,
             gps: null,
-            air: null
+            air: null,
+            sutran: null
         };
         let isFlirActive = false;
         let currentCamIndex = 0;
         let currentZoomLevel = 1.0;
         let hlsInstance = null;
         let cameraList = [];
+        let sutranAlertsData = [];
 
         // INICIALIZAR MAPA Y CAPAS
         async function initWarRoom() {
@@ -622,7 +787,7 @@
                 zoomControl: false
             });
 
-            L.control.zoom({ position: 'topleft' }).addTo(map);
+            L.control.zoom({ position: 'topright' }).addTo(map);
 
             // CAPA 1: GOOGLE SATÉLITE HÍBRIDO HD (SOPORTA HASTA ZOOM 20 EN TODO CUSCO Y MACHU PICCHU SIN ERROR DE TILES)
             baseLayers.satellite = L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
@@ -645,6 +810,7 @@
             layerGroups.radar = L.layerGroup().addTo(map);
             layerGroups.gps = L.layerGroup().addTo(map);
             layerGroups.air = L.layerGroup().addTo(map);
+            layerGroups.sutran = L.layerGroup().addTo(map);
 
             // 1. CARGAR CÁMARAS Y FRUSTUMS DESDE data/cctv.json
             await cargarCamarasYFrustums();
@@ -661,11 +827,14 @@
             // 5. CARGAR TRÁFICO AÉREO ADS-B OPENSKY EN VIVO (CORREDOR LIMA-CUSCO)
             cargarTraficoAereoADSB();
 
+            // 6. CARGAR ALERTAS VIALES SUTRAN EN VIVO DESDE /api/sutran-alerts
+            await cargarAlertasVialesSutran();
+
             map.on('mousemove', function(e) {
                 document.getElementById('coords-readout').innerText = `${e.latlng.lat.toFixed(4)}, ${e.latlng.lng.toFixed(4)}`;
             });
 
-            // Sintonizar Nodo 2 (Plaza Mayor de Cusco - ID 831) por defecto al ingresar al módulo
+            // Sintonizar Nodo 2 (Plaza de Armas de Cusco - ID 831) por defecto al ingresar al módulo
             if (cameraList.length > 1) {
                 sintonizarCamara(1);
             } else if (cameraList.length > 0) {
@@ -755,7 +924,7 @@
             'CUZ': {
                 iata: 'CUZ / SPZO',
                 title: 'AEROPUERTO VELASCO ASTETE (CUSCO)',
-                subtitle: 'RADAR NACIONAL PROPIO • SALIDAS CUSCO ➔ LIMA',
+                subtitle: 'PISTA 28/10 + SALIDAS NACIONALES CUSCO ➔ LIMA',
                 cond: '☀️ VFR',
                 temp: '16°C',
                 wind: '280° 12kt',
@@ -775,31 +944,38 @@
         // 1. CARGAR CÁMARAS Y CONOS DE VISIÓN (FRUSTUMS)
         async function cargarCamarasYFrustums() {
             try {
-                const res = await fetch('/data/cctv.json?v=fr24_peru_v6');
+                const res = await fetch('/data/cctv.json?v=cusco_6cams_v7');
                 cameraList = await res.json();
             } catch (e) {
-                console.warn('Fallback a 6 nodos operativos locales:', e);
+                console.warn('Fallback a 6 cámaras operativas:', e);
                 cameraList = [
                     {
                         "id": "cuz-aeropuerto-velasco-astete",
-                        "name": "1. Aeropuerto Velasco Astete (Cusco - CUZ)",
-                        "sector": "Salidas Nacionales Cusco ➔ Lima • Radar Aéreo Propio",
+                        "name": "1. Aeropuerto Alejandro Velasco Astete (Cusco - CUZ)",
+                        "sector": "Pista Activa 28/10 + Salidas Nacionales Cusco ➔ Lima",
+                        "ubicacion": "Vista directa a la pista activa de aterrizajes y despegues (orientación pista 28/10)",
+                        "plataformaBase": "SkylineWebcams + Radar ADS-B Lifextreme GEOINT",
+                        "utilidadGeoint": "Correlación visual directa con el tráfico aéreo en tiempo real (vuelos entrantes/salientes Cusco ⇄ Lima).",
                         "latitude": -13.53572, "longitude": -71.93881,
-                        "altitude": 3310.0, "heading": 285.0, "fovDeg": 56.0, "range": 1400.0, "zoom": 8,
-                        "temp": "16.0°C | Viento 280° 12kt", "sensor": "Lifextreme Radar ADS-B Nacional • SPZO",
-                        "airportCode": "CUZ", "youtubeId": "zx7b-sCrpDo",
-                        "streamUrl": "/api/cusco-cam?cam=plaza_mayor&type=m3u8",
+                        "altitude": 3310.0, "heading": 280.0, "fovDeg": 58.0, "range": 1450.0, "zoom": 9,
+                        "temp": "16.0°C | Viento 280° 12kt", "sensor": "SkylineWebcams CUZ + Radar ADS-B Pista 28/10",
+                        "airportCode": "CUZ", "camKey": "aeropuerto_cusco", "skylineId": "831",
+                        "youtubeId": "zx7b-sCrpDo",
+                        "streamUrl": "/api/cusco-cam?cam=aeropuerto_cusco&type=m3u8",
                         "externalUrl": "#radar-nacional",
                         "externalLabel": "✈️ Ver Corredor Aéreo Cusco ⇄ Lima en Mapa Propio",
                         "format": "flightradar"
                     },
                     {
                         "id": "cuz-plaza-mayor",
-                        "name": "2. Plaza Mayor de Cusco (EN VIVO TIEMPO REAL)",
-                        "sector": "Catedral & Compañía de Jesús • Cámara IP 831",
+                        "name": "2. Plaza de Armas de Cusco (Catedral / Centro Histórico)",
+                        "sector": "Portal de Carnes / Calle Triunfo ➔ Basílica Catedral y Plaza Mayor",
+                        "ubicacion": "Vista panorámica desde Portal de Carnes / Calle Triunfo hacia la Basílica Catedral y Plaza Mayor",
+                        "plataformaBase": "SkylineWebcams / Live World Webcams (ID-831)",
+                        "utilidadGeoint": "Monitoreo de congestión peatonal, eventos culturales, desfiles, huelgas o alteraciones de orden en el ombligo del centro histórico.",
                         "latitude": -13.51687, "longitude": -71.97877,
                         "altitude": 3405.0, "heading": 78.5, "fovDeg": 62.0, "range": 380.0, "zoom": 17,
-                        "temp": "16.4°C | Señal Real-Time", "sensor": "SkylineWebcams Cusco - Plaza Mayor (ID-831)",
+                        "temp": "16.4°C | Señal Real-Time", "sensor": "SkylineWebcams / Live World Webcams (ID-831)",
                         "skylineId": "831", "camKey": "plaza_mayor",
                         "youtubeId": "s0rAs0_-bIE",
                         "streamUrl": "/api/cusco-cam?cam=plaza_mayor&type=m3u8",
@@ -808,35 +984,62 @@
                         "format": "skyline_live"
                     },
                     {
-                        "id": "sutran-corredor-machupicchu",
-                        "name": "5. SUTRAN Cusco • Ruta Ollantaytambo - Machu Picchu",
-                        "sector": "Vía Nacional PE-28B (Valle Sagrado -> Tren Machu Picchu)",
-                        "latitude": -13.2583, "longitude": -72.2639,
-                        "altitude": 2792.0, "heading": 295.0, "fovDeg": 68.0, "range": 950.0, "zoom": 15,
-                        "temp": "17.2°C | Vía PE-28B Operativa", "sensor": "SUTRAN / PROVIAS • Acceso Vial Tren Machu Picchu",
-                        "youtubeId": "Tijc2eMhZ0A",
-                        "streamUrl": "/api/cusco-cam?cam=plaza_mayor&type=m3u8",
-                        "externalUrl": "http://gis.sutran.gob.pe/alerta_sutran/",
-                        "externalLabel": "🛣️ Mapa Oficial Alertas SUTRAN Cusco ↗",
-                        "format": "local4k"
-                    },
-                    {
-                        "id": "senamhi-rio-vilcanota-mapi",
-                        "name": "7. Santuario Machu Picchu & Río Vilcanota (KM 104)",
-                        "sector": "SENAMHI / ANA • Clima y Caudal Acceso Machu Picchu",
-                        "latitude": -13.1631, "longitude": -72.5450,
-                        "altitude": 2430.0, "heading": 210.0, "fovDeg": 64.0, "range": 850.0, "zoom": 15,
-                        "temp": "18.4°C | Caudal Vilcanota: Normal", "sensor": "Estación Ceja de Selva Machu Picchu 24/7",
+                        "id": "machupicchu-pueblo-aguas-calientes",
+                        "name": "3. Machu Picchu Pueblo (Aguas Calientes - Centro / CONSETTUR)",
+                        "sector": "Eje Urbano Aguas Calientes • Estación Buses CONSETTUR / Plaza Manco Cápac",
+                        "ubicacion": "Vista hacia el eje urbano de Aguas Calientes y estación de buses CONSETTUR (Toto's House / Plaza Manco Cápac)",
+                        "plataformaBase": "Redes Agregadoras (WorldCam / Webcam Galore)",
+                        "utilidadGeoint": "Verificación de flujo masivo hacia la Llaqta, acumulación de turistas en parada de buses CONSETTUR y caudal fluvial.",
+                        "latitude": -13.1547, "longitude": -72.5254,
+                        "altitude": 2040.0, "heading": 215.0, "fovDeg": 65.0, "range": 750.0, "zoom": 16,
+                        "temp": "19.2°C | Flujo CONSETTUR Activo", "sensor": "WorldCam / Webcam Galore • Aguas Calientes",
                         "liveYoutubeId": "VYCrrXygJfw", "youtubeId": "iJXYvJ-842U",
                         "streamUrl": "/api/cusco-cam?cam=plaza_mayor&type=m3u8",
-                        "externalUrl": "https://www.senamhi.gob.pe/?p=monitoreo-hidrologico",
-                        "externalLabel": "🌊 Monitoreo Caudal Vilcanota SENAMHI ↗",
+                        "externalUrl": "https://worldcam.eu/webcams/south-america/peru/16873-machu-picchu-aguas-calientes",
+                        "externalLabel": "🚌 Cámara Aguas Calientes / CONSETTUR",
                         "format": "live"
                     },
                     {
+                        "id": "valle-sagrado-san-blas-urubamba",
+                        "name": "4. Valle Sagrado / San Blas (Cuesta San Blas / Urubamba)",
+                        "sector": "Windy Webcams API / Lookr • Ruta hacia Ollantaytambo",
+                        "ubicacion": "Estaciones meteorológicas con webcam en San Blas y comederos/miradores en el Valle Sagrado (Urubamba)",
+                        "plataformaBase": "Windy Webcams API / Lookr (IDs 1647468641 & 1529184518)",
+                        "utilidadGeoint": "Monitoreo de nubosidad orográfica, visibilidad y precipitaciones en ruta hacia Ollantaytambo.",
+                        "latitude": -13.3075, "longitude": -72.1165,
+                        "altitude": 2870.0, "heading": 295.0, "fovDeg": 68.0, "range": 950.0, "zoom": 14,
+                        "temp": "17.5°C | Visibilidad Ruta Ollantaytambo", "sensor": "Windy Webcams API / Lookr • San Blas & Urubamba",
+                        "windyId": "1647468641", "windySecondaryId": "1529184518",
+                        "embedUrl": "https://webcams.windy.com/webcams/public/embed/player/1647468641/day",
+                        "youtubeId": "Tijc2eMhZ0A",
+                        "streamUrl": "/api/cusco-cam?cam=plaza_mayor&type=m3u8",
+                        "externalUrl": "#windy-valle-sagrado",
+                        "externalLabel": "🌤️ Alternar Estación San Blas ⇄ Valle Sagrado Urubamba",
+                        "format": "windy_embed"
+                    },
+                    {
+                        "id": "sutran-corredor-machupicchu",
+                        "name": "5. SUTRAN Cusco • Mapa Interactivo de Alertas (PE-28B Machu Picchu)",
+                        "sector": "Alertas Viales En Vivo (3 Interrumpido • 4 Restringido • 17 Normal)",
+                        "ubicacion": "Red Vial Nacional en Cusco: Corredor PE-28B (Valle Sagrado - Ollantaytambo - Tren Machu Picchu) y accesos sur",
+                        "plataformaBase": "SUTRAN Mapa Interactivo de Alertas V2.0 (Integrado en Lifextreme)",
+                        "utilidadGeoint": "Visualización en nuestra propia plataforma del estado de vías (Interrumpido, Restringido, Normal) y factores de alerta hacia Machu Picchu.",
+                        "latitude": -13.2583, "longitude": -72.2639,
+                        "altitude": 2792.0, "heading": 295.0, "fovDeg": 68.0, "range": 950.0, "zoom": 7,
+                        "temp": "17.2°C | 17 Vías Normales • 4 Restringidas", "sensor": "SUTRAN Alertas Viales V2.0 • Ingesta En Vivo",
+                        "youtubeId": "Tijc2eMhZ0A",
+                        "streamUrl": "/api/cusco-cam?cam=plaza_mayor&type=m3u8",
+                        "externalUrl": "#sutran-mapa-propio",
+                        "externalLabel": "🛣️ Ver Mapa Completo de Alertas SUTRAN en Plataforma",
+                        "format": "sutran_live"
+                    },
+                    {
                         "id": "lima-aeropuerto-jorge-chavez",
-                        "name": "8. Aeropuerto Jorge Chávez (Lima - LIM / SPJC)",
+                        "name": "8. Aeropuerto Jorge Chávez (Lima - LIM • Vuelos a Cusco)",
                         "sector": "Vuelos Nacionales Lima ➔ Cusco • Radar Aéreo Propio",
+                        "ubicacion": "Hub Nacional Aeropuerto Jorge Chávez Callao-Lima (Corredor LIM ➔ CUZ)",
+                        "plataformaBase": "Integración ADS-B Lifextreme FlightRadar Perú",
+                        "utilidadGeoint": "Seguimiento en tiempo real de vuelos nacionales saliendo de Lima hacia Cusco sin salir de la plataforma.",
                         "latitude": -12.0219, "longitude": -77.1143,
                         "altitude": 34.0, "heading": 150.0, "fovDeg": 54.0, "range": 1800.0, "zoom": 8,
                         "temp": "22.0°C | Viento 180° 13kt", "sensor": "Lifextreme Radar ADS-B Nacional • SPJC",
@@ -846,19 +1049,6 @@
                         "externalUrl": "#radar-nacional",
                         "externalLabel": "🛫 Ver Corredor Aéreo Lima ⇄ Cusco en Mapa Propio",
                         "format": "flightradar"
-                    },
-                    {
-                        "id": "ip-cam-abierta-flir-hls",
-                        "name": "10. Cámara IP Abierta (Base San Blas Cusco + FLIR)",
-                        "sector": "Ingesta Directa MediaMTX / Stream .M3U8 & WebRTC",
-                        "latitude": -13.5150, "longitude": -71.9750,
-                        "altitude": 3460.0, "heading": 230.0, "fovDeg": 70.0, "range": 500.0, "zoom": 16,
-                        "temp": "16.0°C | FLIR Ready", "sensor": "Stream IP Directo H.264 / MediaMTX Port 8888",
-                        "skylineId": "831", "camKey": "plaza_mayor",
-                        "streamUrl": "https://ntv1.akamaized.net/hls/live/2014075/NASA-NTV1-HLS/master.m3u8",
-                        "externalUrl": "https://www.skylinewebcams.com/es/webcam/peru/cusco/cusco/plaza-mayor.html",
-                        "externalLabel": "🏛️ Web Plaza Cusco (SkylineWebcams) ↗",
-                        "format": "hls_direct"
                     }
                 ];
             }
@@ -868,8 +1058,9 @@
 
             cameraList.forEach((c, index) => {
                 const isFlightRadar = c.format === 'flightradar';
-                const badgeText = isFlightRadar ? 'RADAR' : (c.format === 'skyline_live' ? 'LIVE' : 'HLS');
-                const badgeColor = isFlightRadar ? 'text-amber-400' : 'text-emerald-400';
+                const isSutran = c.format === 'sutran_live';
+                const badgeText = isFlightRadar ? 'RADAR' : (isSutran ? 'SUTRAN' : (c.format === 'windy_embed' ? 'WINDY' : 'LIVE'));
+                const badgeColor = isFlightRadar ? 'text-amber-400' : (isSutran ? 'text-blue-400' : 'text-emerald-400');
 
                 // Agregar botón a la lista izquierda
                 const btn = document.createElement('button');
@@ -879,7 +1070,7 @@
                 btn.innerHTML = `
                     <div>
                         <span class="font-bold text-white group-hover:text-emerald-300 block flex items-center gap-1.5">
-                            <span class="h-2 w-2 rounded-full ${index === 1 ? 'bg-red-500 animate-ping' : (isFlightRadar ? 'bg-amber-400' : 'bg-slate-600')}"></span>
+                            <span class="h-2 w-2 rounded-full ${index === 1 ? 'bg-red-500 animate-ping' : (isFlightRadar ? 'bg-amber-400' : (isSutran ? 'bg-blue-400' : 'bg-emerald-400'))}"></span>
                             ${c.name}
                         </span>
                         <span class="text-[10px] text-slate-400">${c.sector}</span>
@@ -889,10 +1080,10 @@
                 selectorList.appendChild(btn);
 
                 // Agregar Pin de la Cámara o Aeropuerto
-                const pinIcon = isFlightRadar ? '🛫' : '📹';
+                const pinIcon = isFlightRadar ? '🛫' : (isSutran ? '🛣️' : '📹');
                 const pinStyle = isFlightRadar
                     ? 'bg-sky-500/30 border-2 border-sky-400 text-sky-300 shadow-sky-500/50'
-                    : 'bg-emerald-500/25 border-2 border-emerald-400 text-emerald-400 shadow-emerald-500/50';
+                    : (isSutran ? 'bg-blue-600/40 border-2 border-blue-400 text-white shadow-blue-500/50' : 'bg-emerald-500/25 border-2 border-emerald-400 text-emerald-400 shadow-emerald-500/50');
                 const icon = L.divIcon({
                     className: 'custom-pin',
                     html: `<div class="h-8 w-8 rounded-full ${pinStyle} flex items-center justify-center text-sm shadow-lg cursor-pointer animate-pulse">${pinIcon}</div>`,
@@ -901,9 +1092,10 @@
                 const marker = L.marker([c.latitude, c.longitude], { icon: icon });
                 marker.on('click', () => sintonizarCamara(index));
                 marker.bindPopup(`
-                    <div class="text-xs">
+                    <div class="text-xs font-mono">
                         <span class="font-bold text-emerald-400 block">${c.name}</span>
-                        <span class="text-slate-300 block text-[10px] mt-0.5">Alt: ${c.altitude || c.elev}m | Sensor: ${c.sensor}</span>
+                        <span class="text-slate-300 block text-[10px] mt-0.5">${c.ubicacion || c.sector}</span>
+                        <span class="text-cyan-300 block text-[9px] mt-0.5">Plataforma: ${c.plataformaBase || c.sensor}</span>
                         <button onclick="sintonizarCamara(${index})" class="mt-2 w-full py-1 rounded bg-emerald-500 text-black font-bold text-[9px] uppercase">
                             ▶ Sintonizar en Plataforma
                         </button>
@@ -912,7 +1104,7 @@
                 layerGroups.cams.addLayer(marker);
 
                 // DIBUJAR EL CONO DE VISIÓN (VIEWSHED FRUSTUM) EN EL MAPA
-                const frustumColor = isFlightRadar ? '#f59e0b' : '#10b981';
+                const frustumColor = isFlightRadar ? '#f59e0b' : (isSutran ? '#3b82f6' : '#10b981');
                 const frustumPolygon = calcularPoligonoFrustum(c.latitude, c.longitude, c.heading || 0, c.fovDeg || 60, (c.range || 400) / 1000);
                 const frustumLayer = L.polygon(frustumPolygon, {
                     color: frustumColor,
@@ -927,9 +1119,8 @@
 
         // CÁLCULO TRIGONOMÉTRICO DEL CONO DE VISIÓN (VIEWSHED FRUSTUM)
         function calcularPoligonoFrustum(lat, lng, headingDeg, fovDeg, rangeKm) {
-            const points = [[lat, lng]]; // Origen en la cámara
+            const points = [[lat, lng]];
             const startAngle = headingDeg - fovDeg / 2;
-            const endAngle = headingDeg + fovDeg / 2;
             const steps = 12;
 
             for (let i = 0; i <= steps; i++) {
@@ -1019,6 +1210,108 @@
             });
         }
 
+        // 6. CARGAR Y DIBUJAR ALERTAS VIALES SUTRAN V2.0 EN NUESTRO PROPIO MAPA Y CONSOLA
+        async function cargarAlertasVialesSutran() {
+            try {
+                const res = await fetch('/api/sutran-alerts');
+                const data = await res.json();
+                sutranAlertsData = data.alerts || [];
+                if (data.summary) {
+                    const kpiInt = document.getElementById('sutran-kpi-int');
+                    const kpiRes = document.getElementById('sutran-kpi-res');
+                    const kpiNor = document.getElementById('sutran-kpi-nor');
+                    if (kpiInt) kpiInt.innerText = data.summary.interrumpido;
+                    if (kpiRes) kpiRes.innerText = data.summary.restringido;
+                    if (kpiNor) kpiNor.innerText = data.summary.normal;
+                }
+            } catch (e) {
+                console.log('Fallback SUTRAN local active');
+            }
+            filtrarAlertasSutranMapa();
+        }
+
+        function filtrarAlertasSutranMapa() {
+            if (!layerGroups.sutran) return;
+            layerGroups.sutran.clearLayers();
+
+            const showInt = document.getElementById('chk-sutran-int')?.checked !== false;
+            const showRes = document.getElementById('chk-sutran-res')?.checked !== false;
+            const showNor = document.getElementById('chk-sutran-nor')?.checked !== false;
+            const query = (document.getElementById('sutran-search-input')?.value || '').toLowerCase().trim();
+
+            const filtradas = sutranAlertsData.filter(a => {
+                if (a.estado === 'interrumpido' && !showInt) return false;
+                if (a.estado === 'restringido' && !showRes) return false;
+                if (a.estado === 'normal' && !showNor) return false;
+                if (query && !(`${a.via} ${a.region} ${a.km} ${a.detalle}`).toLowerCase().includes(query)) return false;
+                return true;
+            });
+
+            filtradas.forEach(a => {
+                const haloBg = a.estado === 'interrumpido'
+                    ? 'rgba(220,38,38,0.28)'
+                    : (a.estado === 'restringido' ? 'rgba(245,158,11,0.30)' : 'rgba(16,185,129,0.28)');
+                const coreBg = a.estado === 'interrumpido'
+                    ? '#dc2626'
+                    : (a.estado === 'restringido' ? '#f59e0b' : '#15803d');
+
+                // Marcador circular con halo idéntico a alertasviales.sutran.gob.pe
+                const icon = L.divIcon({
+                    className: 'sutran-cluster-pin',
+                    html: `
+                        <div style="width:46px;height:46px;border-radius:9999px;background:${haloBg};display:flex;align-items:center;justify-content:center;">
+                            <div style="width:28px;height:28px;border-radius:9999px;background:${coreBg};border:2.5px solid #ffffff;color:#ffffff;font-weight:900;font-size:11px;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 8px rgba(0,0,0,0.45);">
+                                ${a.badgeCount}
+                            </div>
+                        </div>
+                    `,
+                    iconSize: [46, 46],
+                    iconAnchor: [23, 23]
+                });
+
+                const marker = L.marker([a.lat, a.lng], { icon });
+                marker.bindPopup(`
+                    <div class="font-mono text-xs p-1 min-w-[210px]">
+                        <div class="flex items-center justify-between border-b border-slate-700 pb-1 mb-1">
+                            <span class="font-black text-white text-[11px]">${a.region}</span>
+                            <span class="px-1.5 py-0.5 rounded text-[8px] font-black uppercase ${a.estado === 'interrumpido' ? 'bg-red-600 text-white' : (a.estado === 'restringido' ? 'bg-amber-500 text-black' : 'bg-emerald-500 text-black')}">
+                                ${a.estadoLabel}
+                            </span>
+                        </div>
+                        <div class="text-amber-300 font-bold text-[10px]">${a.via}</div>
+                        <div class="text-slate-400 text-[9px] mt-0.5">${a.km} • ${a.factorLabel}</div>
+                        <div class="text-slate-200 text-[9px] mt-1 bg-slate-900 p-1.5 rounded border border-slate-800">${a.detalle}</div>
+                    </div>
+                `);
+                layerGroups.sutran.addLayer(marker);
+            });
+
+            // Actualizar también la lista dentro del monitor derecho cuando SUTRAN está activo
+            const monitorBody = document.getElementById('sutran-monitor-tbody');
+            if (monitorBody) {
+                monitorBody.innerHTML = filtradas.map(a => `
+                    <div onclick="map.flyTo([${a.lat}, ${a.lng}], 12, {duration:1.2})"
+                        class="p-2 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-blue-400 cursor-pointer transition-all">
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-white text-[10px]">${a.via}</span>
+                            <span class="px-1.5 py-0.5 rounded text-[8px] font-black uppercase ${a.estado === 'interrumpido' ? 'bg-red-600 text-white' : (a.estado === 'restringido' ? 'bg-amber-500 text-black' : 'bg-emerald-500 text-black')}">
+                                ${a.estadoLabel}
+                            </span>
+                        </div>
+                        <div class="text-[9px] text-cyan-300 mt-0.5">${a.km} — ${a.factorLabel}</div>
+                        <div class="text-[8px] text-slate-400 mt-0.5">${a.detalle}</div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function enfocarAlertaSutranPorEstado(estado) {
+            const target = sutranAlertsData.find(a => a.estado === estado);
+            if (target) {
+                map.flyTo([target.lat, target.lng], 10, { duration: 1.3 });
+            }
+        }
+
         // GENERADOR DE ICONO SVG DE AVIÓN AMARILLO ESTILO FLIGHTRADAR24 ORIENTADO SEGÚN RUMBO (HEADING)
         function crearIconoAvionAmarilloFR24(headingDeg, callsign) {
             return L.divIcon({
@@ -1044,9 +1337,9 @@
 
             // Dibujar línea del Corredor Aéreo Nacional Lima (LIM) ⇄ Cusco (CUZ)
             const corridorLine = L.polyline([
-                [-12.0219, -77.1143], // Aeropuerto Jorge Chávez Lima (LIM)
-                [-12.7800, -74.8500], // Corredor Andes Centrales (Ayacucho/Huancavelica)
-                [-13.5357, -71.9388]  // Aeropuerto Velasco Astete Cusco (CUZ)
+                [-12.0219, -77.1143],
+                [-12.7800, -74.8500],
+                [-13.5357, -71.9388]
             ], {
                 color: '#facc15',
                 weight: 2,
@@ -1055,7 +1348,6 @@
             });
             layerGroups.air.addLayer(corridorLine);
 
-            // Renderizar cada aeronave nacional con avión amarillo SVG orientado
             PERU_NATIONAL_FLIGHTS.forEach(f => {
                 if (!f.lat || !f.lng) return;
                 const icon = crearIconoAvionAmarilloFR24(f.heading || 120, f.flight);
@@ -1078,7 +1370,6 @@
                 layerGroups.air.addLayer(marker);
             });
 
-            // Simulación de avance suave de aeronaves en vuelo cada 4 segundos dentro del corredor Lima-Cusco
             if (!window.fr24MotionInterval) {
                 window.fr24MotionInterval = setInterval(() => {
                     PERU_NATIONAL_FLIGHTS.forEach(f => {
@@ -1128,17 +1419,33 @@
             `).join('');
         }
 
-        // ACTIVAR/DESACTIVAR LOS PANELES FLOTANTES DE FLIGHTRADAR EN EL MAPA PROPIO
+        // ACTIVAR/DESACTIVAR LOS PANELES FLOTANTES DE FLIGHTRADAR O SUTRAN EN EL MAPA PROPIO
         function mostrarOverlayMapaRadarNacional(mostrar, directionFilter) {
             const overlay = document.getElementById('fr24-map-overlay');
             const banner = document.getElementById('fr24-top-banner');
+            const sutranOverlay = document.getElementById('sutran-map-overlay');
             if (mostrar) {
+                if (sutranOverlay) sutranOverlay.classList.add('hidden');
                 if (overlay) overlay.classList.remove('hidden');
                 if (banner) banner.classList.remove('hidden');
                 renderizarPanelFlotanteMapaFR24(directionFilter);
             } else {
                 if (overlay) overlay.classList.add('hidden');
                 if (banner) banner.classList.add('hidden');
+            }
+        }
+
+        function mostrarOverlayMapaSutran(mostrar) {
+            const sutranOverlay = document.getElementById('sutran-map-overlay');
+            const frOverlay = document.getElementById('fr24-map-overlay');
+            const frBanner = document.getElementById('fr24-top-banner');
+            if (mostrar) {
+                if (frOverlay) frOverlay.classList.add('hidden');
+                if (frBanner) frBanner.classList.add('hidden');
+                if (sutranOverlay) sutranOverlay.classList.remove('hidden');
+                filtrarAlertasSutranMapa();
+            } else {
+                if (sutranOverlay) sutranOverlay.classList.add('hidden');
             }
         }
 
@@ -1158,7 +1465,54 @@
             map.flyTo([-12.85, -74.55], 7, { duration: 1.4 });
         }
 
-        // SINTONIZAR CÁMARA O TABLERO DE AEROPUERTO PROPIO (SIN SALIR DE LIFEXTREME GEOINT)
+        // CORRELACIÓN VISUAL PISTA 28/10 AEROPUERTO VELASCO ASTETE (SKYLINEWEBCAMS EN MONITOR PROPIO)
+        function verCamaraPistaAeropuertoCusco() {
+            reproducirCamaraRealSkyline('831', 'aeropuerto_cusco', '1. PISTA ACTIVA 28/10 • AEROPUERTO VELASCO ASTETE CUSCO');
+        }
+
+        // CAMBIAR ENTRE WEBCAM METEOROLÓGICA CUESTA SAN BLAS Y VALLE SAGRADO URUBAMBA (WINDY API / LOOKR)
+        function cambiarEstacionWindy(windyId, stationTitle) {
+            detenerWebRTCActivo();
+            if (hlsInstance) {
+                hlsInstance.destroy();
+                hlsInstance = null;
+            }
+            const video = document.getElementById('cctv-video-player');
+            const iframeWrapper = document.getElementById('iframe-wrapper');
+            const iframe = document.getElementById('cctv-stream-frame');
+            if (video) {
+                video.pause();
+                video.classList.add('hidden');
+            }
+            if (iframeWrapper) iframeWrapper.classList.remove('hidden');
+            if (iframe) {
+                iframe.src = `https://webcams.windy.com/webcams/public/embed/player/${windyId}/day`;
+            }
+            document.getElementById('active-codec-badge').innerText = `🌤️ WINDY WEBCAM LIVE (${windyId})`;
+            document.getElementById('monitor-title').innerText = `4. ${stationTitle.toUpperCase()}`;
+        }
+
+        // MOSTRAR CONSOLA PROPIA DE ALERTAS VIALES SUTRAN V2.0 EN EL MONITOR DERECHO
+        function mostrarTableroSutranPropio() {
+            detenerWebRTCActivo();
+            if (hlsInstance) {
+                hlsInstance.destroy();
+                hlsInstance = null;
+            }
+            const video = document.getElementById('cctv-video-player');
+            const iframeWrapper = document.getElementById('iframe-wrapper');
+            const sutranHud = document.getElementById('sutran-hud-wrapper');
+            if (video) {
+                video.pause();
+                video.classList.add('hidden');
+            }
+            if (iframeWrapper) iframeWrapper.classList.add('hidden');
+            if (sutranHud) sutranHud.classList.remove('hidden');
+            document.getElementById('active-codec-badge').innerText = '🛣️ SUTRAN ALERTAS V2.0 LIVE';
+            filtrarAlertasSutranMapa();
+        }
+
+        // SINTONIZAR CÁMARA, RADAR AÉREO O MAPA SUTRAN PROPIO (SIN SALIR DE LIFEXTREME GEOINT)
         function sintonizarCamara(index) {
             const cam = cameraList[index];
             if (!cam) return;
@@ -1182,7 +1536,37 @@
             document.getElementById('monitor-heading').innerText = `${cam.heading || 0}° Heading`;
             document.getElementById('coords-readout').innerText = `${cam.latitude.toFixed(4)}, ${cam.longitude.toFixed(4)}`;
 
-            // Actualizar botón inferior (en Módulos 1 y 8 NO sale a otra página, enfoca el corredor en nuestro propio mapa)
+            // Actualizar Ficha Técnica GEOINT (Ubicación, Plataforma Base y Utilidad GEOINT)
+            const platEl = document.getElementById('geoint-platform-badge');
+            const locEl = document.getElementById('geoint-location-text');
+            const utilEl = document.getElementById('geoint-utility-text');
+            if (platEl) platEl.innerText = cam.plataformaBase || cam.sensor || 'Lifextreme GEOINT';
+            if (locEl) locEl.innerText = cam.ubicacion || cam.sector || '';
+            if (utilEl) utilEl.innerText = cam.utilidadGeoint || 'Monitoreo táctico en tiempo real.';
+
+            // Mostrar/ocultar barras de controles específicos (Aeropuerto vs Windy Webcams)
+            const airportBar = document.getElementById('airport-indicators-bar');
+            const windyBar = document.getElementById('windy-stations-bar');
+            if (airportBar) {
+                if (cam.format === 'flightradar') {
+                    airportBar.classList.remove('hidden');
+                    airportBar.classList.add('grid');
+                } else {
+                    airportBar.classList.add('hidden');
+                    airportBar.classList.remove('grid');
+                }
+            }
+            if (windyBar) {
+                if (cam.format === 'windy_embed') {
+                    windyBar.classList.remove('hidden');
+                    windyBar.classList.add('grid');
+                } else {
+                    windyBar.classList.add('hidden');
+                    windyBar.classList.remove('grid');
+                }
+            }
+
+            // Configurar botón inferior (sin salir de la plataforma en Aeropuertos, SUTRAN y Windy)
             const extBtn = document.getElementById('btn-external-portal');
             if (extBtn) {
                 if (cam.format === 'flightradar') {
@@ -1193,6 +1577,22 @@
                         verCorredorCompletoPeru();
                     };
                     extBtn.innerText = '🗺️ Ver Mapa Radar Aéreo Nacional Cusco ⇄ Lima (En Plataforma)';
+                } else if (cam.format === 'sutran_live') {
+                    extBtn.removeAttribute('target');
+                    extBtn.href = 'javascript:void(0)';
+                    extBtn.onclick = (e) => {
+                        e.preventDefault();
+                        map.flyTo([-13.2583, -72.2639], 9, { duration: 1.3 });
+                    };
+                    extBtn.innerText = '🛣️ Enfocar Corredor Vial Cusco - Ollantaytambo - Machu Picchu';
+                } else if (cam.format === 'windy_embed') {
+                    extBtn.removeAttribute('target');
+                    extBtn.href = 'javascript:void(0)';
+                    extBtn.onclick = (e) => {
+                        e.preventDefault();
+                        cambiarEstacionWindy('1529184518', 'Valle Sagrado (Urubamba)');
+                    };
+                    extBtn.innerText = '🌤️ Conmutar Cuesta San Blas ⇄ Valle Sagrado Urubamba';
                 } else {
                     extBtn.setAttribute('target', '_blank');
                     extBtn.onclick = null;
@@ -1201,32 +1601,28 @@
                 }
             }
 
-            // Mostrar u ocultar barra de botones indicadores de Vuelos Nacionales (Cusco -> Lima / Lima -> Cusco)
-            const airportBar = document.getElementById('airport-indicators-bar');
-            if (airportBar) {
-                if (cam.format === 'flightradar') {
-                    airportBar.classList.remove('hidden');
-                    airportBar.classList.add('grid');
-                } else {
-                    airportBar.classList.add('hidden');
-                    airportBar.classList.remove('grid');
-                }
-            }
-
             // SELECCIÓN INTELIGENTE SEGÚN EL TIPO DE NODO OPERATIVO
             if (cam.format === 'flightradar') {
                 const code = cam.airportCode || 'CUZ';
                 const dir = code === 'LIM' ? 'lim_cuz' : 'cuz_lim';
-                // Activar paneles estilo Flightradar24 directamente sobre el mapa de Lifextreme GEOINT
+                mostrarOverlayMapaSutran(false);
                 mostrarOverlayMapaRadarNacional(true, dir);
-                // Volar mapa mostrando el aeropuerto y los aviones amarillos en su corredor
                 map.flyTo([cam.latitude, cam.longitude], 8, { duration: 1.4 });
-                // Mostrar tablero propio en el monitor derecho
                 mostrarTableroFlightradar(code, cam.name);
-            } else {
-                // Ocultar overlay de aeropuertos cuando se miran cámaras ópticas (Plaza de Armas, SUTRAN, Machu Picchu)
+            } else if (cam.format === 'sutran_live') {
                 mostrarOverlayMapaRadarNacional(false, null);
-                map.flyTo([cam.latitude, cam.longitude], cam.zoom || 15, { duration: 1.5, easeLinearity: 0.25 });
+                mostrarOverlayMapaSutran(true);
+                map.flyTo([-13.45, -72.10], 7, { duration: 1.4 });
+                mostrarTableroSutranPropio();
+            } else if (cam.format === 'windy_embed') {
+                mostrarOverlayMapaRadarNacional(false, null);
+                mostrarOverlayMapaSutran(false);
+                map.flyTo([cam.latitude, cam.longitude], cam.zoom || 14, { duration: 1.4 });
+                cambiarEstacionWindy(cam.windyId || '1647468641', 'Cuesta San Blas & Valle Sagrado');
+            } else {
+                mostrarOverlayMapaRadarNacional(false, null);
+                mostrarOverlayMapaSutran(false);
+                map.flyTo([cam.latitude, cam.longitude], cam.zoom || 16, { duration: 1.5, easeLinearity: 0.25 });
 
                 if (cam.format === 'skyline_live' && cam.skylineId) {
                     reproducirCamaraRealSkyline(cam.skylineId, cam.camKey || 'plaza_mayor', cam.name);
@@ -1267,7 +1663,6 @@
             if (snapWrapper) snapWrapper.classList.add('hidden');
             if (frWrapper) frWrapper.classList.remove('hidden');
 
-            // Poblar cabecera METAR propia
             const iataBadge = document.getElementById('fr24-iata-badge');
             const titleEl = document.getElementById('fr24-airport-title');
             const subEl = document.getElementById('fr24-subtitle');
@@ -1279,30 +1674,6 @@
             document.getElementById('fr24-temp').innerText = board.temp;
             document.getElementById('fr24-wind').innerText = board.wind;
 
-            // Configurar botones exclusivamente para Vuelos Nacionales Perú (Cusco ➔ Lima y Lima ➔ Cusco)
-            const tabNac = document.getElementById('tab-fr24-nac');
-            const tabInt = document.getElementById('tab-fr24-int');
-            const btnNac = document.getElementById('btn-ind-nacional');
-            const btnInt = document.getElementById('btn-ind-internacional');
-
-            if (tabNac) {
-                tabNac.innerText = '🛫 Salidas Cusco ➔ Lima (CUZ)';
-                tabNac.onclick = () => filtrarTableroAeropuerto('cuz_lim');
-            }
-            if (tabInt) {
-                tabInt.innerText = '🛬 Vuelos Lima ➔ Cusco (LIM)';
-                tabInt.onclick = () => filtrarTableroAeropuerto('lim_cuz');
-            }
-            if (btnNac) {
-                btnNac.innerText = '🛫 Salidas Cusco ➔ Lima (CUZ)';
-                btnNac.onclick = () => filtrarTableroAeropuerto('cuz_lim');
-            }
-            if (btnInt) {
-                btnInt.innerText = '🛬 Vuelos Lima ➔ Cusco (LIM)';
-                btnInt.onclick = () => filtrarTableroAeropuerto('lim_cuz');
-            }
-
-            // En Módulo 1 (CUZ) abre Salidas Cusco->Lima; en Módulo 8 (LIM) abre Vuelos Lima->Cusco
             filtrarTableroAeropuerto(board.defaultDir);
         }
 
@@ -1311,24 +1682,30 @@
             const direction = (dir === 'lim_cuz' || dir === 'internacional') ? 'lim_cuz' : 'cuz_lim';
             const lista = PERU_NATIONAL_FLIGHTS.filter(f => f.direction === direction);
 
+            const frWrapper = document.getElementById('flightradar-hud-wrapper');
+            const snapWrapper = document.getElementById('live-snapshot-wrapper');
+            if (frWrapper && frWrapper.classList.contains('hidden')) {
+                if (snapWrapper) snapWrapper.classList.add('hidden');
+                frWrapper.classList.remove('hidden');
+            }
+
             const tabNac = document.getElementById('tab-fr24-nac');
             const tabInt = document.getElementById('tab-fr24-int');
             const btnNac = document.getElementById('btn-ind-nacional');
             const btnInt = document.getElementById('btn-ind-internacional');
 
             if (direction === 'cuz_lim') {
-                if (tabNac) tabNac.className = "py-1 px-2 rounded bg-amber-400 text-black font-black text-[9px] uppercase tracking-wider transition-all shadow";
-                if (tabInt) tabInt.className = "py-1 px-2 rounded bg-slate-900 text-slate-300 border border-slate-700 hover:border-amber-400 font-bold text-[9px] uppercase tracking-wider transition-all";
-                if (btnNac) btnNac.className = "py-1.5 px-2 rounded-xl bg-amber-400 text-slate-950 text-[9px] font-black uppercase tracking-wider flex items-center justify-center gap-1 shadow-md";
-                if (btnInt) btnInt.className = "py-1.5 px-2 rounded-xl bg-slate-950 border border-slate-700 hover:border-amber-400 text-slate-300 text-[9px] font-bold uppercase tracking-wider flex items-center justify-center gap-1 transition-all";
+                if (tabNac) tabNac.className = "py-1 px-1.5 rounded bg-amber-400 text-black font-black text-[8px] uppercase tracking-wider transition-all shadow";
+                if (tabInt) tabInt.className = "py-1 px-1.5 rounded bg-slate-900 text-slate-300 border border-slate-700 hover:border-amber-400 font-bold text-[8px] uppercase tracking-wider transition-all";
+                if (btnNac) btnNac.className = "py-1.5 px-1.5 rounded-xl bg-amber-400 text-slate-950 text-[9px] font-black uppercase tracking-wider flex items-center justify-center gap-1 shadow-md";
+                if (btnInt) btnInt.className = "py-1.5 px-1.5 rounded-xl bg-slate-950 border border-slate-700 hover:border-amber-400 text-slate-300 text-[9px] font-bold uppercase tracking-wider flex items-center justify-center gap-1 transition-all";
             } else {
-                if (tabInt) tabInt.className = "py-1 px-2 rounded bg-amber-400 text-black font-black text-[9px] uppercase tracking-wider transition-all shadow";
-                if (tabNac) tabNac.className = "py-1 px-2 rounded bg-slate-900 text-slate-300 border border-slate-700 hover:border-amber-400 font-bold text-[9px] uppercase tracking-wider transition-all";
-                if (btnInt) btnInt.className = "py-1.5 px-2 rounded-xl bg-amber-400 text-slate-950 text-[9px] font-black uppercase tracking-wider flex items-center justify-center gap-1 shadow-md";
-                if (btnNac) btnNac.className = "py-1.5 px-2 rounded-xl bg-slate-950 border border-slate-700 hover:border-amber-400 text-slate-300 text-[9px] font-bold uppercase tracking-wider flex items-center justify-center gap-1 transition-all";
+                if (tabInt) tabInt.className = "py-1 px-1.5 rounded bg-amber-400 text-black font-black text-[8px] uppercase tracking-wider transition-all shadow";
+                if (tabNac) tabNac.className = "py-1 px-1.5 rounded bg-slate-900 text-slate-300 border border-slate-700 hover:border-amber-400 font-bold text-[8px] uppercase tracking-wider transition-all";
+                if (btnInt) btnInt.className = "py-1.5 px-1.5 rounded-xl bg-amber-400 text-slate-950 text-[9px] font-black uppercase tracking-wider flex items-center justify-center gap-1 shadow-md";
+                if (btnNac) btnNac.className = "py-1.5 px-1.5 rounded-xl bg-slate-950 border border-slate-700 hover:border-amber-400 text-slate-300 text-[9px] font-bold uppercase tracking-wider flex items-center justify-center gap-1 transition-all";
             }
 
-            // Sincronizar también el panel flotante izquierdo del mapa
             renderizarPanelFlotanteMapaFR24(direction);
 
             const tbody = document.getElementById('fr24-flights-tbody');
@@ -1396,6 +1773,8 @@
             if (snapWrapper) snapWrapper.classList.add('hidden');
             const frWrapper = document.getElementById('flightradar-hud-wrapper');
             if (frWrapper) frWrapper.classList.add('hidden');
+            const sutranWrapper = document.getElementById('sutran-hud-wrapper');
+            if (sutranWrapper) sutranWrapper.classList.add('hidden');
 
             const video = document.getElementById('cctv-video-player');
             if (video && video.srcObject) {
