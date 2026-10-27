@@ -309,6 +309,15 @@
                         </iframe>
                     </div>
 
+                    <!-- REPRODUCTOR 3: CÁMARA IP EN TIEMPO REAL (SKYLINE CUSCO PLAZA DE ARMAS ID-831 / LIMA ID-4293) -->
+                    <div id="live-snapshot-wrapper" class="hidden w-full h-full absolute inset-0 bg-black flex items-center justify-center">
+                        <img id="cctv-live-img" referrerpolicy="no-referrer" alt="Cámara en Tiempo Real Plaza de Armas Cusco"
+                            class="w-full h-full object-cover transition-all duration-300" src="" />
+                        <div id="live-frame-status" class="absolute bottom-11 left-2.5 z-30 bg-emerald-950/90 border border-emerald-400/60 px-2.5 py-0.5 rounded text-[9px] font-mono text-emerald-300 font-bold shadow-lg">
+                            🟢 SEÑAL VERIFICADA EN TIEMPO REAL • PLAZA DE ARMAS CUSCO (ID-831)
+                        </div>
+                    </div>
+
                     <!-- OVERLAY SUPERIOR: REC Y HORA UTC REAL -->
                     <div class="absolute top-2.5 left-2.5 pointer-events-none z-20 flex items-center gap-2 bg-slate-950/80 backdrop-blur-md px-2.5 py-1 rounded-lg border border-emerald-500/40 text-[10px] font-mono text-emerald-300">
                         <span class="h-2 w-2 rounded-full bg-red-500 animate-ping"></span>
@@ -343,15 +352,15 @@
 
                     <!-- CONMUTADOR DE SEÑAL DE LA ESTACIÓN SELECCIONADA + PORTAL OFICIAL -->
                     <div class="grid grid-cols-3 gap-1.5 text-[10px] font-mono">
-                        <button onclick="cambiarModoEstacionActual('live')" class="py-1.5 px-2 rounded-lg bg-red-500/20 border border-red-500/40 text-red-300 hover:bg-red-500 hover:text-white font-bold transition-all">
-                            🔴 Stream 24/7
+                        <button onclick="cambiarModoEstacionActual('skyline')" class="py-1.5 px-2 rounded-lg bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 hover:bg-emerald-500 hover:text-black font-bold transition-all">
+                            🔴 Cam Real IP
                         </button>
                         <button onclick="cambiarModoEstacionActual('local4k')" class="py-1.5 px-2 rounded-lg bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 hover:bg-cyan-500 hover:text-black font-bold transition-all">
-                            📹 Vista Perú 4K
+                            📹 Video 4K / Live
                         </button>
-                        <a id="btn-external-portal" href="https://www.flightradar24.com/airport/cuz" target="_blank"
+                        <a id="btn-external-portal" href="https://www.skylinewebcams.com/es/webcam/peru/cusco/cusco/plaza-mayor.html" target="_blank"
                             class="py-1.5 px-2 rounded-lg bg-purple-500/20 border border-purple-500/40 text-purple-300 hover:bg-purple-500 hover:text-white font-bold text-center truncate transition-all">
-                            Portal Oficial ↗
+                            Fuente Original ↗
                         </a>
                     </div>
 
@@ -381,14 +390,14 @@
                         🔲 6 Nodos Operativos Lifextreme (1, 2, 5, 7, 8, 10)
                     </span>
                     <div class="grid grid-cols-2 gap-1.5 text-xs font-mono">
-                        <button onclick="sintonizarCamara(0)" class="p-2 rounded-xl bg-slate-950 border border-sky-500/50 hover:border-sky-400 text-left transition-all">
-                            <span class="font-bold text-sky-400 block truncate">✈️ 1. Aerop. Cusco CUZ</span>
-                            <span class="text-[9px] text-slate-400 block truncate">Pista 28 • METAR & Vuelos</span>
+                        <button onclick="sintonizarCamara(0)" class="p-2 rounded-xl bg-slate-950 border border-emerald-500/60 hover:border-emerald-400 text-left transition-all">
+                            <span class="font-bold text-emerald-400 block truncate">🔴 1. Plaza Armas Cusco</span>
+                            <span class="text-[9px] text-slate-300 block truncate">Cámara Real En Vivo (ID-831)</span>
                         </button>
 
-                        <button onclick="sintonizarCamara(1)" class="p-2 rounded-xl bg-slate-950 border border-emerald-500/50 hover:border-emerald-400 text-left transition-all">
-                            <span class="font-bold text-emerald-400 block truncate">🏛️ 2. Plaza Mayor Cusco</span>
-                            <span class="text-[9px] text-slate-400 block truncate">Centro Histórico & Skyline</span>
+                        <button onclick="sintonizarCamara(1)" class="p-2 rounded-xl bg-slate-950 border border-sky-500/50 hover:border-sky-400 text-left transition-all">
+                            <span class="font-bold text-sky-400 block truncate">✈️ 2. Aerop. Cusco CUZ</span>
+                            <span class="text-[9px] text-slate-400 block truncate">Pista 28 • METAR & Vuelos</span>
                         </button>
 
                         <button onclick="sintonizarCamara(2)" class="p-2 rounded-xl bg-slate-950 border border-amber-500/50 hover:border-amber-400 text-left transition-all">
@@ -402,8 +411,8 @@
                         </button>
 
                         <button onclick="sintonizarCamara(4)" class="p-2 rounded-xl bg-slate-950 border border-purple-500/50 hover:border-purple-400 text-left transition-all">
-                            <span class="font-bold text-purple-400 block truncate">🛬 8. Aerop. Lima (LIM)</span>
-                            <span class="text-[9px] text-slate-400 block truncate">Conexiones Lima -> Cusco</span>
+                            <span class="font-bold text-purple-400 block truncate">🔴 8. Lima Real + Aerop.</span>
+                            <span class="text-[9px] text-slate-300 block truncate">Cámara Real En Vivo (ID-4293)</span>
                         </button>
 
                         <button onclick="sintonizarCamara(5)" class="p-2 rounded-xl bg-slate-950 border border-red-500/50 hover:border-red-400 text-left transition-all">
@@ -502,39 +511,43 @@
             }
         }
 
+        let snapshotInterval = null;
+
         // 1. CARGAR CÁMARAS Y CONOS DE VISIÓN (FRUSTUMS)
         async function cargarCamarasYFrustums() {
             try {
-                const res = await fetch('/data/cctv.json?v=nodes6');
+                const res = await fetch('/data/cctv.json?v=plaza_real');
                 cameraList = await res.json();
             } catch (e) {
                 console.warn('Fallback a 6 nodos operativos locales:', e);
                 cameraList = [
                     {
+                        "id": "cuz-plaza-mayor",
+                        "name": "1. Plaza Mayor de Cusco (EN VIVO TIEMPO REAL)",
+                        "sector": "Catedral & Compañía de Jesús • Cámara IP 831",
+                        "latitude": -13.51687, "longitude": -71.97877,
+                        "altitude": 3405.0, "heading": 78.5, "fovDeg": 62.0, "range": 380.0, "zoom": 17,
+                        "temp": "16.4°C | Señal Real-Time", "sensor": "Skyline Live Feed ID-831 (Proxy Directo)",
+                        "skylineId": "831", "camKey": "plaza_mayor",
+                        "liveYoutubeId": "k9YWRnVRfrY", "youtubeId": "s0rAs0_-bIE",
+                        "streamUrl": "/api/cusco-cam?cam=plaza_mayor&type=m3u8",
+                        "externalUrl": "https://www.skylinewebcams.com/es/webcam/peru/cusco/cusco/plaza-mayor.html",
+                        "externalLabel": "Fuente Original ↗",
+                        "format": "skyline_live"
+                    },
+                    {
                         "id": "cuz-aeropuerto-velasco-astete",
-                        "name": "1. Aeropuerto Velasco Astete (Cusco - CUZ)",
+                        "name": "2. Aeropuerto Velasco Astete (Cusco - CUZ)",
                         "sector": "Cabecera Pista 28 • METAR SPZO & Tráfico Aéreo",
                         "latitude": -13.53572, "longitude": -71.93881,
                         "altitude": 3310.0, "heading": 285.0, "fovDeg": 56.0, "range": 1400.0, "zoom": 14,
                         "temp": "15.8°C | Viento 12kt", "sensor": "CORPAC Visual Approach + ADS-B OpenSky",
+                        "skylineId": "831",
                         "youtubeId": "zx7b-sCrpDo", "liveYoutubeId": "k9YWRnVRfrY",
                         "streamUrl": "https://ntv1.akamaized.net/hls/live/2014075/NASA-NTV1-HLS/master.m3u8",
                         "externalUrl": "https://www.flightradar24.com/airport/cuz",
                         "externalLabel": "Radar Vuelos CUZ ↗",
                         "format": "aviation"
-                    },
-                    {
-                        "id": "cuz-plaza-mayor",
-                        "name": "2. Plaza Mayor de Cusco (Catedral & Centro)",
-                        "sector": "Centro Histórico HQ • Monitoreo Orden Público",
-                        "latitude": -13.51687, "longitude": -71.97877,
-                        "altitude": 3405.0, "heading": 78.5, "fovDeg": 62.0, "range": 380.0, "zoom": 16,
-                        "temp": "16.4°C | Despejado", "sensor": "PTZ Centro Histórico + Skyline Live",
-                        "liveYoutubeId": "k9YWRnVRfrY", "youtubeId": "s0rAs0_-bIE",
-                        "streamUrl": "https://ntv1.akamaized.net/hls/live/2014075/NASA-NTV1-HLS/master.m3u8",
-                        "externalUrl": "https://www.skylinewebcams.com/es/webcam/peru/cusco/cusco/plaza-mayor.html",
-                        "externalLabel": "Webcam Plaza Cusco ↗",
-                        "format": "live"
                     },
                     {
                         "id": "sutran-corredor-vial-sur",
@@ -543,11 +556,11 @@
                         "latitude": -13.6880, "longitude": -71.6250,
                         "altitude": 3150.0, "heading": 145.0, "fovDeg": 68.0, "range": 950.0, "zoom": 12,
                         "temp": "13.2°C | Vía Libre", "sensor": "SUTRAN / PROVIAS Control Tránsito",
-                        "liveYoutubeId": "1PaGIyy7vrs", "youtubeId": "cyJy09R4sm8",
+                        "youtubeId": "cyJy09R4sm8", "liveYoutubeId": "k9YWRnVRfrY",
                         "streamUrl": "https://ntv1.akamaized.net/hls/live/2014075/NASA-NTV1-HLS/master.m3u8",
                         "externalUrl": "http://gis.sutran.gob.pe/alerta_sutran/",
                         "externalLabel": "Alertas SUTRAN ↗",
-                        "format": "traffic"
+                        "format": "local4k"
                     },
                     {
                         "id": "senamhi-rio-vilcanota",
@@ -560,20 +573,21 @@
                         "streamUrl": "https://ntv1.akamaized.net/hls/live/2014075/NASA-NTV1-HLS/master.m3u8",
                         "externalUrl": "https://www.senamhi.gob.pe/?p=monitoreo-hidrologico",
                         "externalLabel": "Caudal SENAMHI ↗",
-                        "format": "hydro"
+                        "format": "live"
                     },
                     {
                         "id": "lima-aeropuerto-jorge-chavez",
-                        "name": "8. Aeropuerto Jorge Chávez (Lima - LIM)",
-                        "sector": "Hub Conexiones Internacionales -> Cusco (SPJC)",
+                        "name": "8. Lima (Cámara Real Miraflores & Aerop. LIM)",
+                        "sector": "Cámara IP 4293 En Vivo • Hub Lima -> Cusco",
                         "latitude": -12.0219, "longitude": -77.1143,
                         "altitude": 34.0, "heading": 150.0, "fovDeg": 54.0, "range": 1800.0, "zoom": 13,
-                        "temp": "19.5°C | Visibilidad 8km", "sensor": "LAP / CORPAC Pista 16L/34R & Radar LIM",
-                        "youtubeId": "Rx9n_EzznSA", "liveYoutubeId": "T_QsY01tIK0",
-                        "streamUrl": "https://ntv1.akamaized.net/hls/live/2014075/NASA-NTV1-HLS/master.m3u8",
+                        "temp": "19.5°C | Señal Real-Time", "sensor": "Skyline Live Feed ID-4293 + Radar LIM",
+                        "skylineId": "4293", "camKey": "lima_miraflores",
+                        "youtubeId": "Rx9n_EzznSA", "liveYoutubeId": "k9YWRnVRfrY",
+                        "streamUrl": "/api/cusco-cam?cam=lima_miraflores&type=m3u8",
                         "externalUrl": "https://www.flightradar24.com/airport/lim",
                         "externalLabel": "Salidas LIM->CUZ ↗",
-                        "format": "aviation"
+                        "format": "skyline_live"
                     },
                     {
                         "id": "ip-cam-abierta-flir-hls",
@@ -818,14 +832,16 @@
             }
 
             // SELECCIÓN INTELIGENTE SEGÚN EL TIPO DE NODO OPERATIVO
-            if (cam.format === 'hls_direct') {
+            if (cam.format === 'skyline_live' && cam.skylineId) {
+                // Nodos 1 (Plaza de Armas de Cusco ID-831) y 8 (Lima ID-4293): Señal IP Real en Tiempo Real
+                reproducirCamaraRealSkyline(cam.skylineId, cam.camKey || 'plaza_mayor', cam.name);
+            } else if (cam.format === 'hls_direct') {
                 // Nodo 10: Cámara IP Abierta HLS Nativo + FLIR
                 reproducirStreamHLS(cam.streamUrl);
-            } else if (cam.format === 'aviation' && cam.youtubeId) {
-                // Nodos 1 y 8 (Aeropuertos Cusco y Lima): Mostrar vista real de aproximación a pista en Perú
+            } else if ((cam.format === 'aviation' || cam.format === 'local4k') && cam.youtubeId) {
+                // Nodos 2 (Aeropuerto Cusco) y 5 (Rutas SUTRAN): Vista real de ubicación en Perú
                 cargarStreamYouTube(cam.youtubeId, cam.name);
             } else if (cam.liveYoutubeId) {
-                // Nodos 2, 5, 7: Mostrar transmisión en vivo 24/7
                 cargarStreamLiveYouTube(cam.liveYoutubeId, cam.name);
             } else if (cam.youtubeId) {
                 cargarStreamYouTube(cam.youtubeId, cam.name);
@@ -834,33 +850,99 @@
             }
         }
 
-        // CONMUTAR ENTRE STREAM EN VIVO 24/7 Y VISTA LOCAL PERÚ 4K DE LA ESTACIÓN ACTUAL
+        // CONMUTAR ENTRE CÁMARA REAL IP (SKYLINE) Y VIDEO 4K/LIVE DE LA ESTACIÓN ACTUAL
         function cambiarModoEstacionActual(mode) {
             const cam = cameraList[currentCamIndex] || cameraList[0];
             if (!cam) return;
-            if (mode === 'live') {
-                if (cam.liveYoutubeId) {
-                    cargarStreamLiveYouTube(cam.liveYoutubeId, cam.name + ' (EN VIVO 24/7)');
-                } else {
-                    reproducirStreamHLS(cam.streamUrl);
-                }
+            if (mode === 'skyline') {
+                const sid = cam.skylineId || '831';
+                reproducirCamaraRealSkyline(sid, cam.camKey || 'plaza_mayor', cam.name);
             } else if (mode === 'local4k') {
                 if (cam.youtubeId) {
                     cargarStreamYouTube(cam.youtubeId, cam.name + ' (VISTA PERÚ 4K)');
+                } else if (cam.liveYoutubeId) {
+                    cargarStreamLiveYouTube(cam.liveYoutubeId, cam.name + ' (EN VIVO 24/7)');
                 } else {
                     reproducirStreamHLS(cam.streamUrl);
                 }
             }
         }
 
-        // DETENER STREAM WEBRTC SI ESTÁ ACTIVO
+        // DETENER STREAM WEBRTC O LOOP DE SNAPSHOT SI ESTÁ ACTIVO
         function detenerWebRTCActivo() {
+            if (snapshotInterval) {
+                clearInterval(snapshotInterval);
+                snapshotInterval = null;
+            }
+            const snapWrapper = document.getElementById('live-snapshot-wrapper');
+            if (snapWrapper) snapWrapper.classList.add('hidden');
+
             const video = document.getElementById('cctv-video-player');
             if (video && video.srcObject) {
                 const tracks = video.srcObject.getTracks();
                 tracks.forEach(track => track.stop());
                 video.srcObject = null;
             }
+        }
+
+        // REPRODUCIR SEÑAL EN TIEMPO REAL DE LA PLAZA DE ARMAS DE CUSCO (ID 831) Y LIMA (ID 4293)
+        function reproducirCamaraRealSkyline(skylineId, camKey, label) {
+            detenerWebRTCActivo();
+            if (hlsInstance) {
+                hlsInstance.destroy();
+                hlsInstance = null;
+            }
+
+            const video = document.getElementById('cctv-video-player');
+            const iframeWrapper = document.getElementById('iframe-wrapper');
+            const snapWrapper = document.getElementById('live-snapshot-wrapper');
+            const liveImg = document.getElementById('cctv-live-img');
+            const statusBadge = document.getElementById('live-frame-status');
+
+            video.style.display = 'none';
+            iframeWrapper.classList.add('hidden');
+            snapWrapper.classList.remove('hidden');
+
+            document.getElementById('active-codec-badge').innerText = `🟢 IP REAL-TIME (ID-${skylineId})`;
+            document.getElementById('monitor-title').innerText = label.toUpperCase();
+
+            const cargarFrameEnVivo = () => {
+                const ts = Date.now();
+                const proxyUrl = `/api/cusco-cam?id=${skylineId}&t=${ts}`;
+                const directCdnUrl = `https://cdn.skylinewebcams.com/live${skylineId}.jpg?t=${ts}`;
+                const backupCdnUrl = `https://cdn.skylinewebcams.com/social${skylineId}.jpg?t=${ts}`;
+
+                const preloader = new Image();
+                preloader.referrerPolicy = 'no-referrer';
+                preloader.onload = () => {
+                    liveImg.src = preloader.src;
+                    const horaPeru = new Date().toLocaleTimeString('es-PE', { timeZone: 'America/Lima' });
+                    if (statusBadge) {
+                        statusBadge.innerText = `🟢 EN VIVO TIEMPO REAL • ${skylineId === '831' ? 'PLAZA DE ARMAS CUSCO (CATEDRAL)' : 'LIMA MIRAFLORES'} • HORA PERÚ: ${horaPeru}`;
+                    }
+                };
+                preloader.onerror = () => {
+                    // Fallback directo al CDN oficial sin Referer
+                    const directLoader = new Image();
+                    directLoader.referrerPolicy = 'no-referrer';
+                    directLoader.onload = () => {
+                        liveImg.src = directLoader.src;
+                        const horaPeru = new Date().toLocaleTimeString('es-PE', { timeZone: 'America/Lima' });
+                        if (statusBadge) {
+                            statusBadge.innerText = `🟢 EN VIVO TIEMPO REAL • ${skylineId === '831' ? 'PLAZA DE ARMAS CUSCO (CATEDRAL)' : 'LIMA MIRAFLORES'} • HORA PERÚ: ${horaPeru}`;
+                        }
+                    };
+                    directLoader.onerror = () => {
+                        liveImg.src = backupCdnUrl;
+                    };
+                    directLoader.src = directCdnUrl;
+                };
+                preloader.src = proxyUrl;
+            };
+
+            // Cargar primer frame inmediato y actualizar cada 3.5 segundos en tiempo real
+            cargarFrameEnVivo();
+            snapshotInterval = setInterval(cargarFrameEnVivo, 3500);
         }
 
         // REPRODUCCIÓN NATIVA CON HLS.JS (EN VIVO .M3U8)
@@ -928,6 +1010,7 @@
 
         // CONECTAR CÁMARA FÍSICA / BODYCAM DEL USUARIO EN TIEMPO REAL VÍA WEBRTC
         async function conectarMiCamaraWebRTC() {
+            detenerWebRTCActivo();
             const video = document.getElementById('cctv-video-player');
             const iframeWrapper = document.getElementById('iframe-wrapper');
             try {
@@ -958,43 +1041,50 @@
         }
 
         function alternarProtocolo() {
-            const video = document.getElementById('cctv-video-player');
-            if (video.style.display === 'none') {
+            const snapWrapper = document.getElementById('live-snapshot-wrapper');
+            if (snapWrapper && !snapWrapper.classList.contains('hidden')) {
                 reproducirStreamHLS('https://ntv1.akamaized.net/hls/live/2014075/NASA-NTV1-HLS/master.m3u8');
             } else {
-                cargarStreamLiveYouTube('k9YWRnVRfrY', 'Cordillera de los Andes (EN VIVO 24/7)');
+                reproducirCamaraRealSkyline('831', 'plaza_mayor', '1. Plaza Mayor de Cusco (EN VIVO TIEMPO REAL)');
             }
         }
 
-        // FLIR TÉRMICO
+        // FLIR TÉRMICO (APLICA A VIDEO, IFRAME Y CÁMARA IP PLAZA DE ARMAS)
         function toggleFLIRMode() {
             const video = document.getElementById('cctv-video-player');
             const iframe = document.getElementById('cctv-stream-frame');
+            const liveImg = document.getElementById('cctv-live-img');
             const btn = document.getElementById('btn-flir-toggle');
             isFlirActive = !isFlirActive;
             if (isFlirActive) {
                 video.classList.add('flir-filter');
                 iframe.classList.add('flir-filter');
+                if (liveImg) liveImg.classList.add('flir-filter');
                 btn.classList.add('bg-red-600', 'text-white');
             } else {
                 video.classList.remove('flir-filter');
                 iframe.classList.remove('flir-filter');
+                if (liveImg) liveImg.classList.remove('flir-filter');
                 btn.classList.remove('bg-red-600', 'text-white');
             }
         }
 
-        // PTZ ZOOM VIRTUAL
+        // PTZ ZOOM VIRTUAL (APLICA A VIDEO Y CÁMARA IP PLAZA DE ARMAS)
         function ptzZoom(direction) {
             const video = document.getElementById('cctv-video-player');
-            if (direction === 'in') currentZoomLevel = Math.min(currentZoomLevel + 0.15, 1.6);
+            const liveImg = document.getElementById('cctv-live-img');
+            if (direction === 'in') currentZoomLevel = Math.min(currentZoomLevel + 0.15, 1.8);
             if (direction === 'out') currentZoomLevel = Math.max(currentZoomLevel - 0.15, 1.0);
             video.style.transform = `scale(${currentZoomLevel})`;
+            if (liveImg) liveImg.style.transform = `scale(${currentZoomLevel})`;
         }
 
         function ptzPan(action) {
             const video = document.getElementById('cctv-video-player');
+            const liveImg = document.getElementById('cctv-live-img');
             currentZoomLevel = 1.0;
             video.style.transform = 'scale(1.0)';
+            if (liveImg) liveImg.style.transform = 'scale(1.0)';
         }
 
         // TOGGLE CAPAS
