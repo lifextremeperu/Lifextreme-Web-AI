@@ -319,7 +319,7 @@
                     <div id="video-wrapper" class="w-full h-full relative">
                         <iframe id="cctv-stream-frame" 
                             class="w-full h-full object-cover transition-all duration-300"
-                            src="https://www.youtube-nocookie.com/embed/Tve1V3L9qEw?autoplay=1&mute=1&loop=1&playlist=Tve1V3L9qEw&controls=0&modestbranding=1&rel=0"
+                            src="https://www.youtube-nocookie.com/embed/iJXYvJ-842U?autoplay=1&mute=1&loop=1&playlist=iJXYvJ-842U&controls=0&modestbranding=1&rel=0"
                             title="Transmisión Táctica en Vivo"
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -351,13 +351,24 @@
                     </div>
                 </div>
 
-                <!-- CONTROLES TÁCTICOS PTZ (PAN - TILT - ZOOM) -->
-                <div class="p-3 rounded-2xl bg-slate-950 border border-slate-800 flex items-center justify-between text-xs font-mono">
-                    <span class="text-slate-400 text-[10px] font-bold">CONTROLES PTZ VIRTUALES:</span>
-                    <div class="flex items-center gap-1.5">
-                        <button onclick="ptzZoom('in')" class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-emerald-400 hover:bg-slate-800 font-bold text-xs">+</button>
-                        <button onclick="ptzZoom('out')" class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-emerald-400 hover:bg-slate-800 font-bold text-xs">-</button>
-                        <button onclick="ptzPan('reset')" class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:bg-slate-800 text-[10px]">Centrar</button>
+                <!-- CONTROLES TÁCTICOS PTZ Y FUENTES ALTERNATIVAS -->
+                <div class="space-y-2">
+                    <div class="p-3 rounded-2xl bg-slate-950 border border-slate-800 flex items-center justify-between text-xs font-mono">
+                        <span class="text-slate-400 text-[10px] font-bold">PTZ / ZOOM:</span>
+                        <div class="flex items-center gap-1.5">
+                            <button onclick="ptzZoom('in')" class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-emerald-400 hover:bg-slate-800 font-bold text-xs">+</button>
+                            <button onclick="ptzZoom('out')" class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-emerald-400 hover:bg-slate-800 font-bold text-xs">-</button>
+                            <button onclick="ptzPan('reset')" class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:bg-slate-800 text-[10px]">Centrar</button>
+                        </div>
+                    </div>
+
+                    <!-- FUENTES SECUNDARIAS DE CUSCO EN VIVO -->
+                    <div class="flex items-center gap-1.5 overflow-x-auto p-1.5 rounded-xl bg-slate-950 border border-slate-800 text-[10px] font-mono">
+                        <span class="text-slate-500 text-[9px] uppercase font-bold pl-1">Señal:</span>
+                        <button onclick="cambiarFuenteDirecta('s0rAs0_-bIE', 'Vista Aérea Plaza 4K')" class="px-2 py-0.5 rounded bg-slate-900 hover:bg-slate-800 text-cyan-300 border border-slate-800 transition-colors">Aérea</button>
+                        <button onclick="cambiarFuenteDirecta('cnu601-gAIA', 'Patrullaje Calle 4K')" class="px-2 py-0.5 rounded bg-slate-900 hover:bg-slate-800 text-purple-300 border border-slate-800 transition-colors">Caminata</button>
+                        <button onclick="cambiarFuenteDirecta('T72ec5OJjH8', 'Webcam 24/7 Live')" class="px-2 py-0.5 rounded bg-slate-900 hover:bg-slate-800 text-emerald-300 border border-slate-800 transition-colors">Webcam 24/7</button>
+                        <a href="https://www.skylinewebcams.com/es/webcam/peru/cusco/cusco/plaza-de-armas.html" target="_blank" class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 hover:bg-emerald-500 hover:text-black transition-all">Skyline ↗</a>
                     </div>
                 </div>
 
@@ -414,7 +425,7 @@
         let isFlirActive = false;
         let currentZoomLevel = 1.0;
 
-        // LISTA DE CÁMARAS Y TRANSMISIONES EN VIVO (YOUTUBE EMBEDS CON AUTOPLAY)
+        // LISTA DE CÁMARAS Y TRANSMISIONES EN VIVO (VIDEOS 4K VERIFICADOS EN PRODUCCIÓN)
         const cameras = [
             {
                 id: 0,
@@ -424,8 +435,8 @@
                 temp: "17.4°C",
                 elev: "2,430m",
                 sensor: "AXIS Q6215-E PTZ SERNANP",
-                // Video 4K Machu Picchu Sanctuary & Ruins
-                embedUrl: "https://www.youtube-nocookie.com/embed/Tve1V3L9qEw?autoplay=1&mute=1&loop=1&playlist=Tve1V3L9qEw&controls=0&modestbranding=1&rel=0"
+                // Video 4K Machu Picchu Santuario & Ciudadela
+                embedUrl: "https://www.youtube-nocookie.com/embed/iJXYvJ-842U?autoplay=1&mute=1&loop=1&playlist=iJXYvJ-842U&controls=0&modestbranding=1&rel=0"
             },
             {
                 id: 1,
@@ -435,8 +446,8 @@
                 temp: "-4.2°C",
                 elev: "4,630m",
                 sensor: "SENAMHI Alpine Thermal Station",
-                // Video 4K Salkantay Glacier & High Mountain Trek
-                embedUrl: "https://www.youtube-nocookie.com/embed/Gg87g88kGjI?autoplay=1&mute=1&loop=1&playlist=Gg87g88kGjI&controls=0&modestbranding=1&rel=0"
+                // Video 4K Salkantay Glaciar & Alta Montaña
+                embedUrl: "https://www.youtube-nocookie.com/embed/K4LMJxFiHgc?autoplay=1&mute=1&loop=1&playlist=K4LMJxFiHgc&controls=0&modestbranding=1&rel=0"
             },
             {
                 id: 2,
@@ -446,8 +457,8 @@
                 temp: "16.8°C",
                 elev: "3,399m",
                 sensor: "Hikvision DarkFighter 4K Central",
-                // Video 4K Cusco Plaza de Armas & Catedral
-                embedUrl: "https://www.youtube-nocookie.com/embed/2m4H6-k6Ea4?autoplay=1&mute=1&loop=1&playlist=2m4H6-k6Ea4&controls=0&modestbranding=1&rel=0"
+                // Video 4K Aéreo & Catedral Plaza Mayor Cusco
+                embedUrl: "https://www.youtube-nocookie.com/embed/s0rAs0_-bIE?autoplay=1&mute=1&loop=1&playlist=s0rAs0_-bIE&controls=0&modestbranding=1&rel=0"
             },
             {
                 id: 3,
@@ -457,8 +468,8 @@
                 temp: "15.1°C",
                 elev: "2,792m",
                 sensor: "PeruRail Track Surveillance Cam",
-                // Video 4K PeruRail Vistadome Sacred Valley Train
-                embedUrl: "https://www.youtube-nocookie.com/embed/Zk9J5xn9ZVc?autoplay=1&mute=1&loop=1&playlist=Zk9J5xn9ZVc&controls=0&modestbranding=1&rel=0"
+                // Video 4K Patrullaje Valle Sagrado & Rutas
+                embedUrl: "https://www.youtube-nocookie.com/embed/cnu601-gAIA?autoplay=1&mute=1&loop=1&playlist=cnu601-gAIA&controls=0&modestbranding=1&rel=0"
             }
         ];
 
@@ -617,6 +628,15 @@
             const frame = document.getElementById('cctv-stream-frame');
             currentZoomLevel = 1.0;
             frame.style.transform = 'scale(1.0)';
+        }
+
+        // CAMBIAR FUENTE DE STREAM DIRECTO
+        function cambiarFuenteDirecta(vidId, label) {
+            const frame = document.getElementById('cctv-stream-frame');
+            frame.src = `https://www.youtube-nocookie.com/embed/${vidId}?autoplay=1&mute=1&loop=1&playlist=${vidId}&controls=0&modestbranding=1&rel=0`;
+            if (label) {
+                document.getElementById('monitor-title').innerText = `SEÑAL SECUNDARIA • ${label.toUpperCase()}`;
+            }
         }
 
         // ALTERNAR CAPAS
