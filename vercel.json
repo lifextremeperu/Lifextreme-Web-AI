@@ -2,7 +2,22 @@
     "outputDirectory": ".",
     "cleanUrls": true,
     "trailingSlash": false,
+    "rewrites": [
+        {
+            "source": "/api/v1/geoint/layers/webcams",
+            "destination": "/api/windy-webcams.js"
+        }
+    ],
     "headers": [
+        {
+            "source": "/api/v1/geoint/layers/webcams",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=1800"
+                }
+            ]
+        },
         {
             "source": "/(geoint|data/cctv.json)",
             "headers": [

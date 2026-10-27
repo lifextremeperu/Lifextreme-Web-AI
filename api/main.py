@@ -20,6 +20,7 @@ from src.integrations.sensors.maps_sensor import GoogleMapsTrafficSensor
 from src.integrations.sensors.logistics.sutran_service import SutranService
 from src.integrations.sensors.risk.gdelt_sensor import GdeltCrisisSensor
 from src.integrations.risk_correlator import RiskCorrelator
+from app.routers.geoint import router as geoint_router
 
 # ==========================================
 # 1. Configuración de API y BD Local
@@ -32,6 +33,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(geoint_router)
 
 load_dotenv()
 supabase_url = os.getenv("SUPABASE_URL", "https://zobpkmiqrvhbepqnjshr.supabase.co")
