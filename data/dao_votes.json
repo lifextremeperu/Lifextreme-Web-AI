@@ -1,0 +1,63 @@
+{
+  "propuestas": {},
+  "votos": [
+    {
+      "id_voto": "VOTE-752619",
+      "timestamp": "2026-10-27T10:55:37.323698",
+      "telefono": "51958050928",
+      "guia": "Carlos Quispe (Guía Certificado)",
+      "nivel": "Amauta / Guía Maestro",
+      "peso_ponderado": 3,
+      "proposal_id": "LFX-PROP-2026-SALKANTAY-DESVIO",
+      "choice": 1,
+      "motivo": "Prefiero desvío por seguridad de los pasajeros ante hielo en el paso.",
+      "snapshot_eip712": {
+        "address": "0x490b0b68b0db0cc7b675ff3f1621b5fa8a5e749d",
+        "sig": "0xe18e059da3f4e35b8231767717aa8460d6d9a933da9e9fc9dcab3905c15802cb",
+        "data": {
+          "domain": {
+            "name": "snapshot",
+            "version": "0.1.4"
+          },
+          "types": {
+            "Vote": [
+              {
+                "name": "from",
+                "type": "address"
+              },
+              {
+                "name": "space",
+                "type": "string"
+              },
+              {
+                "name": "timestamp",
+                "type": "uint64"
+              },
+              {
+                "name": "proposal",
+                "type": "bytes32"
+              },
+              {
+                "name": "choice",
+                "type": "uint32"
+              },
+              {
+                "name": "metadata",
+                "type": "string"
+              }
+            ]
+          },
+          "message": {
+            "space": "lifextreme.eth",
+            "proposal": "LFX-PROP-2026-SALKANTAY-DESVIO",
+            "choice": 1,
+            "app": "lifextreme-invisible-dao",
+            "timestamp": 1793116537
+          }
+        },
+        "ipfs_hash": "bafkrei1f460d4ffa2b202deab500a6aee3c6b0951b02e751129be10259"
+      }
+    }
+  ],
+  "disputas": {}
+}
