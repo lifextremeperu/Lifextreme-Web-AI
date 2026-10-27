@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  mediamtx:
+    image: bluenviron/mediamtx:latest
+    container_name: lifextreme-stream-mediamtx
+    restart: always
+    ports:
+      - "8554:8554" # RTSP Server Ingest
+      - "8888:8888" # HLS Server (.m3u8 Output for Browsers)
+      - "8889:8889" # WebRTC Server (Ultra-low latency <500ms)
+    environment:
+      - MTX_PROTOCOLS=tcp
+      - MTX_HLSALWAYSREMOVEMUXERAFTER=30s
+    volumes:
+      - ./mediamtx.yml:/mediamtx.yml:ro
+    networks:
+      - lifextreme-net
+
+networks:
+  lifextreme-net:
+    driver: bridge
