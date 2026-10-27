@@ -397,13 +397,13 @@
                         </button>
 
                         <button onclick="sintonizarCamara(2)" class="p-2 rounded-xl bg-slate-950 border border-amber-500/50 hover:border-amber-400 text-left transition-all">
-                            <span class="font-bold text-amber-400 block truncate">🛣️ 5. Vías SUTRAN Cusco</span>
-                            <span class="text-[9px] text-slate-400 block truncate">Rutas Vinicunca / Humantay</span>
+                            <span class="font-bold text-amber-400 block truncate">🛣️ 5. SUTRAN Ollantaytambo</span>
+                            <span class="text-[9px] text-slate-300 block truncate">Ruta PE-28B -> Machu Picchu</span>
                         </button>
 
                         <button onclick="sintonizarCamara(3)" class="p-2 rounded-xl bg-slate-950 border border-cyan-500/50 hover:border-cyan-400 text-left transition-all">
-                            <span class="font-bold text-cyan-400 block truncate">🌊 7. Río Vilcanota ANA</span>
-                            <span class="text-[9px] text-slate-400 block truncate">Caudal Tren Machu Picchu</span>
+                            <span class="font-bold text-cyan-400 block truncate">🌊 7. Machu Picchu & Río</span>
+                            <span class="text-[9px] text-slate-300 block truncate">Santuario & Caudal KM 104</span>
                         </button>
 
                         <button onclick="sintonizarCamara(4)" class="p-2 rounded-xl bg-slate-950 border border-purple-500/50 hover:border-purple-400 text-left transition-all">
@@ -413,7 +413,7 @@
 
                         <button onclick="sintonizarCamara(5)" class="p-2 rounded-xl bg-slate-950 border border-red-500/50 hover:border-red-400 text-left transition-all">
                             <span class="font-bold text-red-400 block truncate">📹 10. Cámara IP + FLIR</span>
-                            <span class="text-[9px] text-slate-400 block truncate">HLS Nativo .m3u8 Directo</span>
+                            <span class="text-[9px] text-slate-400 block truncate">Base San Blas Cusco</span>
                         </button>
                     </div>
                 </div>
@@ -453,17 +453,16 @@
         async function initWarRoom() {
             map = L.map('map', {
                 center: [-13.51687, -71.97877],
-                zoom: 12,
+                zoom: 14,
                 zoomControl: false
             });
 
             L.control.zoom({ position: 'topleft' }).addTo(map);
 
-            // CAPA 1: ESRI SATÉLITE (maxNativeZoom: 13 PARA EVITAR "Zoom Level Not Supported" EN CUSCO)
-            baseLayers.satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-                attribution: 'Tiles &copy; Esri',
-                maxNativeZoom: 13,
-                maxZoom: 18
+            // CAPA 1: GOOGLE SATÉLITE HÍBRIDO HD (SOPORTA HASTA ZOOM 20 EN TODO CUSCO Y MACHU PICCHU SIN ERROR DE TILES)
+            baseLayers.satellite = L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
+                attribution: 'Satellite &copy; Google Earth Geospatial',
+                maxZoom: 20
             });
 
             // CAPA 2: DARK MATTER
@@ -501,7 +500,7 @@
                 document.getElementById('coords-readout').innerText = `${e.latlng.lat.toFixed(4)}, ${e.latlng.lng.toFixed(4)}`;
             });
 
-            // Sintonizar Nodo 1 por defecto
+            // Sintonizar Nodo 1 (Plaza Mayor de Cusco) por defecto al ingresar
             if (cameraList.length > 0) {
                 sintonizarCamara(0);
             }
@@ -512,7 +511,7 @@
         // 1. CARGAR CÁMARAS Y CONOS DE VISIÓN (FRUSTUMS)
         async function cargarCamarasYFrustums() {
             try {
-                const res = await fetch('/data/cctv.json?v=plaza_stream_v3');
+                const res = await fetch('/data/cctv.json?v=cusco_mapi_v4');
                 cameraList = await res.json();
             } catch (e) {
                 console.warn('Fallback a 6 nodos operativos locales:', e);
@@ -522,10 +521,10 @@
                         "name": "1. Plaza Mayor de Cusco (EN VIVO TIEMPO REAL)",
                         "sector": "Catedral & Compañía de Jesús • Cámara IP 831",
                         "latitude": -13.51687, "longitude": -71.97877,
-                        "altitude": 3405.0, "heading": 78.5, "fovDeg": 62.0, "range": 380.0, "zoom": 14,
+                        "altitude": 3405.0, "heading": 78.5, "fovDeg": 62.0, "range": 380.0, "zoom": 17,
                         "temp": "16.4°C | Señal Real-Time", "sensor": "SkylineWebcams Cusco - Plaza Mayor (ID-831)",
                         "skylineId": "831", "camKey": "plaza_mayor",
-                        "liveYoutubeId": "k9YWRnVRfrY", "youtubeId": "s0rAs0_-bIE",
+                        "youtubeId": "s0rAs0_-bIE",
                         "streamUrl": "/api/cusco-cam?cam=plaza_mayor&type=m3u8",
                         "externalUrl": "https://www.skylinewebcams.com/es/webcam/peru/cusco/cusco/plaza-mayor.html",
                         "externalLabel": "🏛️ Web Plaza Cusco (SkylineWebcams En Directo) ↗",
@@ -536,65 +535,65 @@
                         "name": "2. Aeropuerto Velasco Astete (Cusco - CUZ)",
                         "sector": "Cabecera Pista 28 • METAR SPZO & Tráfico Aéreo",
                         "latitude": -13.53572, "longitude": -71.93881,
-                        "altitude": 3310.0, "heading": 285.0, "fovDeg": 56.0, "range": 1400.0, "zoom": 14,
+                        "altitude": 3310.0, "heading": 285.0, "fovDeg": 56.0, "range": 1400.0, "zoom": 15,
                         "temp": "15.8°C | Viento 12kt", "sensor": "CORPAC Visual Approach + ADS-B OpenSky",
-                        "skylineId": "831",
-                        "youtubeId": "zx7b-sCrpDo", "liveYoutubeId": "k9YWRnVRfrY",
-                        "streamUrl": "https://ntv1.akamaized.net/hls/live/2014075/NASA-NTV1-HLS/master.m3u8",
+                        "youtubeId": "zx7b-sCrpDo",
+                        "streamUrl": "/api/cusco-cam?cam=plaza_mayor&type=m3u8",
                         "externalUrl": "https://www.flightradar24.com/airport/cuz",
-                        "externalLabel": "Radar Vuelos CUZ ↗",
+                        "externalLabel": "✈️ Radar Vuelos Cusco CUZ (En Vivo) ↗",
                         "format": "aviation"
                     },
                     {
-                        "id": "sutran-corredor-vial-sur",
-                        "name": "5. Red Vial SUTRAN (Rutas Vinicunca & Humantay)",
-                        "sector": "PE-3S Cusco-Urcos-Cusipata & Abra Huillque",
-                        "latitude": -13.6880, "longitude": -71.6250,
-                        "altitude": 3150.0, "heading": 145.0, "fovDeg": 68.0, "range": 950.0, "zoom": 12,
-                        "temp": "13.2°C | Vía Libre", "sensor": "SUTRAN / PROVIAS Control Tránsito",
-                        "youtubeId": "cyJy09R4sm8", "liveYoutubeId": "k9YWRnVRfrY",
-                        "streamUrl": "https://ntv1.akamaized.net/hls/live/2014075/NASA-NTV1-HLS/master.m3u8",
+                        "id": "sutran-corredor-machupicchu",
+                        "name": "5. SUTRAN Cusco • Ruta Ollantaytambo - Machu Picchu",
+                        "sector": "Vía Nacional PE-28B (Valle Sagrado -> Tren Machu Picchu)",
+                        "latitude": -13.2583, "longitude": -72.2639,
+                        "altitude": 2792.0, "heading": 295.0, "fovDeg": 68.0, "range": 950.0, "zoom": 15,
+                        "temp": "17.2°C | Vía PE-28B Operativa", "sensor": "SUTRAN / PROVIAS • Acceso Vial Tren Machu Picchu",
+                        "youtubeId": "Tijc2eMhZ0A",
+                        "streamUrl": "/api/cusco-cam?cam=plaza_mayor&type=m3u8",
                         "externalUrl": "http://gis.sutran.gob.pe/alerta_sutran/",
-                        "externalLabel": "Alertas SUTRAN ↗",
+                        "externalLabel": "🛣️ Mapa Oficial Alertas SUTRAN Cusco ↗",
                         "format": "local4k"
                     },
                     {
-                        "id": "senamhi-rio-vilcanota",
-                        "name": "7. Cuenca Río Vilcanota (Ollantaytambo / KM 104)",
-                        "sector": "SENAMHI / ANA • Alerta Caudal Trenes Machu Picchu",
-                        "latitude": -13.2583, "longitude": -72.2639,
-                        "altitude": 2792.0, "heading": 295.0, "fovDeg": 64.0, "range": 850.0, "zoom": 14,
-                        "temp": "18.1°C | Caudal: Normal (Verde)", "sensor": "Estación Hidrológica EHMA Vilcanota",
-                        "liveYoutubeId": "VYCrrXygJfw", "youtubeId": "Tijc2eMhZ0A",
-                        "streamUrl": "https://ntv1.akamaized.net/hls/live/2014075/NASA-NTV1-HLS/master.m3u8",
+                        "id": "senamhi-rio-vilcanota-mapi",
+                        "name": "7. Santuario Machu Picchu & Río Vilcanota (KM 104)",
+                        "sector": "SENAMHI / ANA • Clima y Caudal Acceso Machu Picchu",
+                        "latitude": -13.1631, "longitude": -72.5450,
+                        "altitude": 2430.0, "heading": 210.0, "fovDeg": 64.0, "range": 850.0, "zoom": 15,
+                        "temp": "18.4°C | Caudal Vilcanota: Normal", "sensor": "Estación Ceja de Selva Machu Picchu 24/7",
+                        "liveYoutubeId": "VYCrrXygJfw", "youtubeId": "iJXYvJ-842U",
+                        "streamUrl": "/api/cusco-cam?cam=plaza_mayor&type=m3u8",
                         "externalUrl": "https://www.senamhi.gob.pe/?p=monitoreo-hidrologico",
-                        "externalLabel": "Caudal SENAMHI ↗",
+                        "externalLabel": "🌊 Monitoreo Caudal Vilcanota SENAMHI ↗",
                         "format": "live"
                     },
                     {
                         "id": "lima-aeropuerto-jorge-chavez",
-                        "name": "8. Lima (Cámara Real Miraflores & Aerop. LIM)",
-                        "sector": "Cámara IP 4293 En Vivo • Hub Lima -> Cusco",
+                        "name": "8. Lima (Cámara Real En Vivo & Hub Aerop. LIM)",
+                        "sector": "Cámara IP 4293 En Vivo • Conexión Vuelos a Cusco",
                         "latitude": -12.0219, "longitude": -77.1143,
-                        "altitude": 34.0, "heading": 150.0, "fovDeg": 54.0, "range": 1800.0, "zoom": 13,
+                        "altitude": 34.0, "heading": 150.0, "fovDeg": 54.0, "range": 1800.0, "zoom": 14,
                         "temp": "19.5°C | Señal Real-Time", "sensor": "Skyline Live Feed ID-4293 + Radar LIM",
                         "skylineId": "4293", "camKey": "lima_miraflores",
-                        "youtubeId": "Rx9n_EzznSA", "liveYoutubeId": "k9YWRnVRfrY",
+                        "youtubeId": "Rx9n_EzznSA",
                         "streamUrl": "/api/cusco-cam?cam=lima_miraflores&type=m3u8",
                         "externalUrl": "https://www.flightradar24.com/airport/lim",
-                        "externalLabel": "Salidas LIM->CUZ ↗",
+                        "externalLabel": "🛬 Salidas Lima -> Cusco (FR24) ↗",
                         "format": "skyline_live"
                     },
                     {
                         "id": "ip-cam-abierta-flir-hls",
-                        "name": "10. Cámara IP Abierta (HLS Nativo + Térmico FLIR)",
+                        "name": "10. Cámara IP Abierta (Base San Blas Cusco + FLIR)",
                         "sector": "Ingesta Directa MediaMTX / Stream .M3U8 & WebRTC",
                         "latitude": -13.5150, "longitude": -71.9750,
-                        "altitude": 3460.0, "heading": 230.0, "fovDeg": 70.0, "range": 500.0, "zoom": 15,
+                        "altitude": 3460.0, "heading": 230.0, "fovDeg": 70.0, "range": 500.0, "zoom": 16,
                         "temp": "16.0°C | FLIR Ready", "sensor": "Stream IP Directo H.264 / MediaMTX Port 8888",
+                        "skylineId": "831", "camKey": "plaza_mayor",
                         "streamUrl": "https://ntv1.akamaized.net/hls/live/2014075/NASA-NTV1-HLS/master.m3u8",
-                        "externalUrl": "https://www.skylinewebcams.com/es/webcam/peru.html",
-                        "externalLabel": "Webcams IP Perú ↗",
+                        "externalUrl": "https://www.skylinewebcams.com/es/webcam/peru/cusco/cusco/plaza-mayor.html",
+                        "externalLabel": "🏛️ Web Plaza Cusco (SkylineWebcams) ↗",
                         "format": "hls_direct"
                     }
                 ];
