@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifextreme Universal Hub | Acceso Maestro al Ecosistema</title>
+    <meta name="description" content="Portal de acceso genérico y autenticación unificada para los 3 pilares del ecosistema Lifextreme: Reservas Web AI, Studio Creativo de Publicidad y Centro Geoespacial 3D.">
+    <link rel="icon" type="image/png" href="assets/img/logo.png">
+
+    <!-- Fonts & Tailwind -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            cyan: '#06b6d4',
+                            emerald: '#10b981',
+                            purple: '#a855f7',
+                            obsidian: '#020617'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .glow-cyan { box-shadow: 0 0 25px rgba(6, 182, 212, 0.15); }
+        .glow-purple { box-shadow: 0 0 25px rgba(168, 85, 247, 0.15); }
+        .glow-emerald { box-shadow: 0 0 25px rgba(16, 185, 129, 0.15); }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-white min-h-screen flex flex-col justify-between">
+
+    <!-- BARRA SUPERIOR DE ESTADO -->
+    <div class="bg-slate-900/90 border-b border-slate-800 text-xs py-2 px-4 backdrop-blur">
+        <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-2">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+                </span>
+                <span class="font-mono text-[11px] text-cyan-400 font-bold uppercase">Lifextreme SSO Gateway</span>
+                <span class="text-slate-600">|</span>
+                <span class="text-slate-400 text-[11px]">Autenticación Unificada para los 3 Pilares</span>
+            </div>
+            <div class="flex items-center gap-4 text-slate-400 text-[11px]">
+                <span class="font-mono">Ambiente: <strong class="text-emerald-400">PROD-ONLINE</strong></span>
+                <a href="/" class="text-slate-300 hover:text-white underline">Ir a www.lifextreme.store</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <main class="flex-1 flex items-center justify-center p-4 sm:p-6 lg:p-8">
+        <div class="max-w-4xl w-full mx-auto">
+
+            <!-- ======================================================== -->
+            <!-- VISTA 1: FORMULARIO DE INGRESO GENÉRICO (LOGIN) -->
+            <!-- ======================================================== -->
+            <div id="view-login" class="max-w-md mx-auto">
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+                    
+                    <div class="text-center mb-6">
+                        <div class="h-16 w-16 mx-auto rounded-2xl bg-gradient-to-tr from-cyan-500 to-emerald-500 p-0.5 flex items-center justify-center shadow-lg shadow-cyan-500/20 mb-3">
+                            <div class="h-full w-full bg-slate-950 rounded-[14px] flex items-center justify-center">
+                                <img src="assets/img/logo.png" alt="Lifextreme" class="h-9 w-auto">
+                            </div>
+                        </div>
+                        <h1 class="text-2xl font-black text-white tracking-tight">Acceso Universal Hub</h1>
+                        <p class="text-xs text-slate-400 mt-1">Ingresa con tus credenciales genéricas para acceder a los 3 sistemas</p>
+                    </div>
+
+                    <!-- FORMULARIO -->
+                    <form id="login-form" class="space-y-4" onsubmit="event.preventDefault(); procesarLogin();">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">Usuario o Correo</label>
+                            <input type="text" id="input-username" value="admin@lifextreme.store" required
+                                class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 transition-colors">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">Contraseña</label>
+                            <input type="password" id="input-password" value="lifextreme2026" required
+                                class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 transition-colors">
+                        </div>
+
+                        <div class="pt-2">
+                            <button type="submit" 
+                                class="w-full py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-black text-sm shadow-lg shadow-cyan-500/20 transition-all flex items-center justify-center gap-2">
+                                <span>🔐 Ingresar al Ecosistema</span>
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- PRESETS DE ACCESO RÁPIDO (1-CLIC) -->
+                    <div class="mt-6 pt-5 border-t border-slate-800/80">
+                        <span class="block text-[10px] font-bold uppercase tracking-wider text-slate-500 text-center mb-3">O selecciona un perfil genérico de prueba (1 Clic)</span>
+                        
+                        <div class="grid grid-cols-2 gap-2 text-xs">
+                            <button onclick="seleccionarPreset('admin@lifextreme.store', 'Master Admin', 'Acceso Total')"
+                                class="p-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-cyan-500/60 text-left transition-all group">
+                                <span class="font-bold text-cyan-400 block group-hover:text-cyan-300">👑 Administrador</span>
+                                <span class="text-[10px] text-slate-400">Acceso a los 3 pilares</span>
+                            </button>
+
+                            <button onclick="seleccionarPreset('operador@lifextreme.store', 'Operador Cusco', 'Guías & Despacho')"
+                                class="p-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-emerald-500/60 text-left transition-all group">
+                                <span class="font-bold text-emerald-400 block group-hover:text-emerald-300">🧗 Operador Guía</span>
+                                <span class="text-[10px] text-slate-400">Reservas y WhatsApp</span>
+                            </button>
+
+                            <button onclick="seleccionarPreset('creative@lifextreme.store', 'Director Creativo', 'Marketing & Video')"
+                                class="p-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/60 text-left transition-all group">
+                                <span class="font-bold text-purple-400 block group-hover:text-purple-300">🎬 Studio Creativo</span>
+                                <span class="text-[10px] text-slate-400">Reels & OpenHiggsfield</span>
+                            </button>
+
+                            <button onclick="seleccionarPreset('tactical@lifextreme.store', 'Comando Geoespacial', 'War Room 3D')"
+                                class="p-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-amber-500/60 text-left transition-all group">
+                                <span class="font-bold text-amber-400 block group-hover:text-amber-300">🛰️ Comando 3D</span>
+                                <span class="text-[10px] text-slate-400">God's Eye & Sensores</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ======================================================== -->
+            <!-- VISTA 2: EL LAUNCHER MAESTRO (LOS 3 PILARES) -->
+            <!-- ======================================================== -->
+            <div id="view-launcher" class="hidden space-y-6">
+                
+                <!-- ENCABEZADO DE BIENVENIDA DEL USUARIO -->
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 flex flex-wrap items-center justify-between gap-4">
+                    <div class="flex items-center gap-4">
+                        <div class="h-12 w-12 rounded-2xl bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 flex items-center justify-center text-xl font-black">
+                            <span id="user-avatar">LX</span>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <h2 id="user-display-name" class="text-xl font-black text-white">Master Admin</h2>
+                                <span id="user-role-badge" class="px-2 py-0.5 rounded-full text-[10px] font-black uppercase bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">Acceso Total</span>
+                            </div>
+                            <p id="user-email-display" class="text-xs text-slate-400 font-mono mt-0.5">admin@lifextreme.store</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                        <button onclick="cerrarSesion()" 
+                            class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-300 transition-colors">
+                            Cerrar Sesión
+                        </button>
+                    </div>
+                </div>
+
+                <!-- TÍTULO DE SELECCIÓN -->
+                <div class="text-center sm:text-left">
+                    <span class="text-xs font-mono font-bold text-cyan-400 uppercase tracking-widest">Ecosistema Lifextreme Multi-Portal</span>
+                    <h3 class="text-2xl sm:text-3xl font-black text-white mt-1">Selecciona el Sistema a Operar</h3>
+                </div>
+
+                <!-- LAS 3 TARJETAS DE LOS PILARES -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                    <!-- PILAR 1: LIFEXTREME WEB AI -->
+                    <div class="bg-slate-900 border border-slate-800 hover:border-cyan-500/50 rounded-3xl p-6 flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1 glow-cyan">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="h-12 w-12 rounded-2xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 flex items-center justify-center text-2xl">
+                                    🏔️
+                                </div>
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-mono font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                                    ● ONLINE
+                                </span>
+                            </div>
+
+                            <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-cyan-400">Pilar 1 • Core Business</span>
+                            <h4 class="text-xl font-black text-white mt-1 group-hover:text-cyan-300 transition-colors">
+                                Lifextreme Web AI
+                            </h4>
+
+                            <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                                Plataforma de reservas directas, catálogo de 164 parques, alquiler de equipo UV-C y automatización de despacho con guías por WhatsApp.
+                            </p>
+
+                            <div class="mt-4 pt-3 border-t border-slate-800/80 space-y-1.5 text-[11px] text-slate-300">
+                                <div class="flex items-center gap-1.5">
+                                    <span class="text-cyan-400">✔</span> Portal Público: <code class="text-slate-400">/</code>
+                                </div>
+                                <div class="flex items-center gap-1.5">
+                                    <span class="text-cyan-400">✔</span> Radar TuBoleto: <code class="text-slate-400">/sentinel-machupicchu</code>
+                                </div>
+                                <div class="flex items-center gap-1.5">
+                                    <span class="text-cyan-400">✔</span> Despacho 1-Tap: <code class="text-slate-400">/operator-action</code>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-slate-800">
+                            <a href="/" 
+                               class="w-full py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-black text-xs flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20 transition-all">
+                                <span>Lanzar Plataforma Web ➔</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- PILAR 2: STUDIO LIFEXTREME (OPEN-HIGGSFIELD) -->
+                    <div class="bg-slate-900 border border-slate-800 hover:border-purple-500/50 rounded-3xl p-6 flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1 glow-purple">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="h-12 w-12 rounded-2xl bg-purple-500/10 text-purple-400 border border-purple-500/20 flex items-center justify-center text-2xl">
+                                    🎬
+                                </div>
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-mono font-bold bg-purple-500/10 text-purple-300 border border-purple-500/20">
+                                    ● 38 MODELOS
+                                </span>
+                            </div>
+
+                            <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-purple-400">Pilar 2 • Agencia Creativa</span>
+                            <h4 class="text-xl font-black text-white mt-1 group-hover:text-purple-300 transition-colors">
+                                Studio Lifextreme
+                            </h4>
+
+                            <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                                Estudio generativo de video cinemático y fotografía publicitaria con IA (OpenHiggsfield). Creación masiva de Reels para Instagram, TikTok y packs B2B para agencias.
+                            </p>
+
+                            <div class="mt-4 pt-3 border-t border-slate-800/80 space-y-1.5 text-[11px] text-slate-300">
+                                <div class="flex items-center gap-1.5">
+                                    <span class="text-purple-400">✔</span> Motores: Kling, Flux, Luma, Wan
+                                </div>
+                                <div class="flex items-center gap-1.5">
+                                    <span class="text-purple-400">✔</span> Subdominio: <code class="text-slate-400">studio.lifextreme.store</code>
+                                </div>
+                                <div class="flex items-center gap-1.5">
+                                    <span class="text-purple-400">✔</span> Prompt unificado para video 4K
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-slate-800">
+                            <a href="https://studio.lifextreme.store" target="_blank"
+                               class="w-full py-3 rounded-xl bg-purple-500 hover:bg-purple-400 text-white font-black text-xs flex items-center justify-center gap-2 shadow-lg shadow-purple-500/20 transition-all">
+                                <span>Abrir Estudio Creativo ➔</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- PILAR 3: GOD'S EYE VIEW (GEOINT 3D) -->
+                    <div class="bg-slate-900 border border-slate-800 hover:border-emerald-500/50 rounded-3xl p-6 flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1 glow-emerald">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="h-12 w-12 rounded-2xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center text-2xl">
+                                    🛰️
+                                </div>
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-mono font-bold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+                                    ● 3D GEOINT
+                                </span>
+                            </div>
+
+                            <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-400">Pilar 3 • Comando Táctico</span>
+                            <h4 class="text-xl font-black text-white mt-1 group-hover:text-emerald-300 transition-colors">
+                                God's Eye View
+                            </h4>
+
+                            <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                                Simulador satelital 3D en CesiumJS. Sala de control táctico (War Room) para monitoreo de rutas andinas, trenes PeruRail, clima en nevados y seguridad SUTRAN.
+                            </p>
+
+                            <div class="mt-4 pt-3 border-t border-slate-800/80 space-y-1.5 text-[11px] text-slate-300">
+                                <div class="flex items-center gap-1.5">
+                                    <span class="text-emerald-400">✔</span> Globo 3D Fotorrealista
+                                </div>
+                                <div class="flex items-center gap-1.5">
+                                    <span class="text-emerald-400">✔</span> Rutas: Salkantay, Ausangate, Mapi
+                                </div>
+                                <div class="flex items-center gap-1.5">
+                                    <span class="text-emerald-400">✔</span> Sensores SUTRAN y GDELT en vivo
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-slate-800">
+                            <a href="/vr-experience.html" 
+                               class="w-full py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 transition-all">
+                                <span>Acceder al War Room 3D ➔</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="py-4 bg-slate-950 border-t border-slate-800/80 text-center text-xs text-slate-500">
+        <p>Lifextreme Enterprise Hub • Single Sign-On Architecture • Cusco, Perú.</p>
+    </footer>
+
+    <!-- LOGICA JAVASCRIPT DEL LOGIN Y LAUNCHER -->
+    <script>
+        const SESSION_KEY = 'lfx_hub_session';
+
+        function checkSession() {
+            const sessionData = localStorage.getItem(SESSION_KEY);
+            if (sessionData) {
+                try {
+                    const session = JSON.parse(sessionData);
+                    mostrarLauncher(session);
+                } catch (e) {
+                    localStorage.removeItem(SESSION_KEY);
+                }
+            }
+        }
+
+        function seleccionarPreset(email, name, role) {
+            document.getElementById('input-username').value = email;
+            document.getElementById('input-password').value = 'lifextreme2026';
+            procesarLogin(email, name, role);
+        }
+
+        function procesarLogin(customEmail, customName, customRole) {
+            const email = customEmail || document.getElementById('input-username').value.trim();
+            const name = customName || (email.split('@')[0].toUpperCase());
+            const role = customRole || 'Operador Autorizado';
+
+            const session = {
+                email: email,
+                name: name,
+                role: role,
+                loginTime: new Date().toISOString()
+            };
+
+            localStorage.setItem(SESSION_KEY, JSON.stringify(session));
+            mostrarLauncher(session);
+        }
+
+        function mostrarLauncher(session) {
+            document.getElementById('view-login').classList.add('hidden');
+            document.getElementById('view-launcher').classList.remove('hidden');
+
+            document.getElementById('user-display-name').textContent = session.name;
+            document.getElementById('user-email-display').textContent = session.email;
+            document.getElementById('user-role-badge').textContent = session.role;
+            document.getElementById('user-avatar').textContent = session.name.substring(0, 2).toUpperCase();
+        }
+
+        function cerrarSesion() {
+            localStorage.removeItem(SESSION_KEY);
+            document.getElementById('view-launcher').classList.add('hidden');
+            document.getElementById('view-login').classList.remove('hidden');
+        }
+
+        // Verificar sesión al cargar la página
+        document.addEventListener('DOMContentLoaded', checkSession);
+    </script>
+</body>
+</html>
