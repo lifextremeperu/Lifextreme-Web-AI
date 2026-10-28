@@ -157,6 +157,12 @@
                 </button>
             </div>
 
+            <!-- BOTÓN PORTALES PÚBLICOS PERÚ MCP (CULTURA / SENAMHI / INGEMMET-IGP) -->
+            <button onclick="togglePanelGovTechMCP()" id="btn-toggle-govtech-mcp"
+                class="px-3 py-1.5 rounded-xl bg-emerald-500/15 hover:bg-emerald-500 text-emerald-300 hover:text-slate-950 border border-emerald-500/40 text-[11px] font-bold transition-all flex items-center gap-1.5">
+                <span>🏛️ Portales Perú (MCP)</span>
+            </button>
+
             <!-- BOTÓN COPILOTO DE DECISIONES PARA OPERADORES -->
             <button onclick="togglePanelDecisionesOperador()" id="btn-toggle-operator-hud"
                 class="px-3 py-1.5 rounded-xl bg-amber-500/15 hover:bg-amber-500 text-amber-300 hover:text-slate-950 border border-amber-500/40 text-[11px] font-bold transition-all flex items-center gap-1.5">
@@ -202,6 +208,30 @@
                     <span class="text-xs font-bold text-white block mb-2">
                         🗺️ Capas del Mapa en Vivo
                     </span>
+
+                    <label class="flex items-center justify-between p-2.5 rounded-xl bg-slate-900/90 border border-emerald-500/40 cursor-pointer hover:border-emerald-400 transition-colors">
+                        <span class="text-slate-100 font-semibold flex items-center gap-2">
+                            <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+                            🎟️ Cupos Machu Picchu &amp; Camino Inca
+                        </span>
+                        <input type="checkbox" id="layer-cultura" checked onchange="toggleLayer('cultura')" class="accent-emerald-500 h-4 w-4 rounded" />
+                    </label>
+
+                    <label class="flex items-center justify-between p-2.5 rounded-xl bg-slate-900/90 border border-sky-500/40 cursor-pointer hover:border-sky-400 transition-colors">
+                        <span class="text-slate-100 font-semibold flex items-center gap-2">
+                            <span class="h-2.5 w-2.5 rounded-full bg-sky-400"></span>
+                            🌊 Caudal Río Vilcanota (SENAMHI)
+                        </span>
+                        <input type="checkbox" id="layer-senamhi" checked onchange="toggleLayer('senamhi')" class="accent-sky-500 h-4 w-4 rounded" />
+                    </label>
+
+                    <label class="flex items-center justify-between p-2.5 rounded-xl bg-slate-900/90 border border-amber-500/40 cursor-pointer hover:border-amber-400 transition-colors">
+                        <span class="text-slate-100 font-semibold flex items-center gap-2">
+                            <span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span>
+                            🌋 Geología &amp; Sismos (IGP / INDECI)
+                        </span>
+                        <input type="checkbox" id="layer-geologia" checked onchange="toggleLayer('geologia')" class="accent-amber-500 h-4 w-4 rounded" />
+                    </label>
 
                     <label class="flex items-center justify-between p-2.5 rounded-xl bg-slate-900/90 border border-slate-800/90 cursor-pointer hover:border-indigo-500/50 transition-colors">
                         <span class="text-slate-200 font-medium flex items-center gap-2">
@@ -402,6 +432,51 @@
                         </p>
                         <p class="text-cyan-200 text-[9px] mt-1 font-bold">
                             💡 Acción Operador: Embarcar grupos de Circuito 2 con ponchos impermeables; caudal Río Vilcanota estable.
+                        </p>
+                    </div>
+
+                    <!-- 6. MINISTERIO DE CULTURA (TUBOLETO.CULTURA.PE) + SERNANP — CUPOS MACHU PICCHU & CAMINO INCA -->
+                    <div onclick="abrirTabGovTechMCP('cultura', [-13.1631, -72.5450], 13)"
+                        class="p-2.5 rounded-xl bg-slate-900/95 hover:bg-slate-800/90 border-l-4 border-emerald-400 border border-slate-800 cursor-pointer transition-all">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="font-black text-emerald-400 text-[10px]">🎟️ 6. CUPOS MACHU PICCHU &amp; CAMINO INCA (MCP)</span>
+                            <span class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[8px] font-black">UPGRADE EN VIVO</span>
+                        </div>
+                        <p class="text-slate-200 text-[9.5px] leading-snug">
+                            <b>Cultura / SERNANP:</b> Hoy quedan <span class="text-amber-300 font-bold">18 cupos</span> en <b>Circuito 2 Clásico</b>, <span class="text-emerald-300 font-bold">64</span> en <b>Circuito 1</b> y <span class="text-cyan-300 font-bold">14</span> en <b>Camino Inca Km 104</b>.
+                        </p>
+                        <p class="text-emerald-200 text-[9px] mt-1 font-bold">
+                            💡 Acción Operador: Ofrecer Last-Minute Upgrade a turistas en Cusco u Ollantaytambo sin salir del panel.
+                        </p>
+                    </div>
+
+                    <!-- 7. SENAMHI + ANA — CAUDAL RÍO VILCANOTA & CRUCE CON TRENES / RAFTING -->
+                    <div onclick="abrirTabGovTechMCP('senamhi', [-13.1538, -72.5264], 12)"
+                        class="p-2.5 rounded-xl bg-slate-900/95 hover:bg-slate-800/90 border-l-4 border-sky-400 border border-slate-800 cursor-pointer transition-all">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="font-black text-sky-400 text-[10px]">🌊 7. CAUDAL RÍO VILCANOTA (SENAMHI / ANA)</span>
+                            <span class="px-1.5 py-0.5 rounded bg-sky-500/20 text-sky-300 text-[8px] font-black">148.6 m³/s • VERDE</span>
+                        </div>
+                        <p class="text-slate-200 text-[9.5px] leading-snug">
+                            <b>Estación Km 105 &amp; Chilca:</b> Caudal en <b>148.6 m³/s</b> (umbral de cierre ferroviario: 340 m³/s). Chuquicahuana en <b>74.8 m³/s</b>.
+                        </p>
+                        <p class="text-sky-200 text-[9px] mt-1 font-bold">
+                            💡 Acción Operador: Vía férrea PeruRail/Inca Rail fuera de peligro hídrico; Rafting Clase III-IV autorizado.
+                        </p>
+                    </div>
+
+                    <!-- 8. INGEMMET + IGP / COEN-INDECI — PELIGROS GEOLÓGICOS, HUAYCOS Y SISMOS -->
+                    <div onclick="abrirTabGovTechMCP('geologia', [-13.1480, -72.3280], 11)"
+                        class="p-2.5 rounded-xl bg-slate-900/95 hover:bg-slate-800/90 border-l-4 border-amber-500 border border-slate-800 cursor-pointer transition-all">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="font-black text-amber-400 text-[10px]">🌋 8. GEOLOGÍA &amp; QUEBRADAS (INGEMMET / IGP / INDECI)</span>
+                            <span class="px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[8px] font-black">PRECAUCIÓN 16:00H</span>
+                        </div>
+                        <p class="text-slate-200 text-[9.5px] leading-snug">
+                            <b>Dato INDECI / IGP:</b> Lluvia acumulada (14 mm) en quebradas de <b>Santa María – Hidroeléctrica</b>; talud Humantay estable.
+                        </p>
+                        <p class="text-amber-200 text-[9px] mt-1 font-bold">
+                            💡 Acción Operador: Grupos saliendo después de 15:30 hrs de Aguas Calientes deben retornar en Tren en vez de Abra Málaga.
                         </p>
                     </div>
                 </div>
@@ -743,6 +818,46 @@
                     <div id="train-hud-fleet-list" class="space-y-1 max-h-[155px] overflow-y-auto custom-scrollbar text-[9.5px]">
                         <!-- Poblado dinámicamente -->
                     </div>
+                </div>
+            </div>
+
+            <!-- ========================================================================= -->
+            <!-- PANEL OPERATIVO OUTDOOR LIFEXTREME OS — MCP PORTALES PÚBLICOS PERÚ        -->
+            <!-- 1. Ministerio de Cultura (tuboleto.cultura.pe) + SERNANP (Camino Inca)    -->
+            <!-- 2. SENAMHI + ANA (Caudal Río Vilcanota Km 105 / Chilca / Pisac)           -->
+            <!-- 3. INGEMMET + IGP / COEN-INDECI (Peligros Geológicos, Huaycos y Sismos)   -->
+            <!-- ========================================================================= -->
+            <div id="govtech-mcp-hud-panel" class="hidden absolute bottom-3 left-3 z-30 w-[395px] max-w-[94vw] bg-slate-950/95 backdrop-blur-xl border-2 border-emerald-500/75 rounded-2xl shadow-[0_0_38px_rgba(16,185,129,0.28)] overflow-hidden transition-all duration-300">
+                <div class="bg-gradient-to-r from-slate-900 via-slate-900 to-emerald-950/75 px-3.5 py-2.5 border-b border-emerald-500/40 flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <span class="h-2.5 w-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+                        <div>
+                            <div class="text-[10.5px] font-extrabold text-emerald-400 uppercase tracking-wider">🏛️ LIFEXTREME OS • MCP PORTALES PÚBLICOS PERÚ</div>
+                            <div class="text-[8.5px] text-slate-300">Conector Directo Sin API Key • Cultura • SERNANP • SENAMHI • IGP</div>
+                        </div>
+                    </div>
+                    <button onclick="togglePanelGovTechMCP(false)" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-red-600 text-slate-300 hover:text-white text-[10px] font-bold">✕</button>
+                </div>
+
+                <!-- PESTAÑAS DE LOS 3 CONECTORES ESTATALES -->
+                <div class="grid grid-cols-3 gap-1 p-1.5 bg-slate-900/90 border-b border-slate-800 text-[9.5px] font-bold">
+                    <button onclick="abrirTabGovTechMCP('cultura')" id="tab-gov-cultura"
+                        class="py-1.5 px-2 rounded-lg bg-emerald-500 text-slate-950 font-black transition-all truncate">
+                        🎟️ 1. Cupos MP/Inca
+                    </button>
+                    <button onclick="abrirTabGovTechMCP('senamhi')" id="tab-gov-senamhi"
+                        class="py-1.5 px-2 rounded-lg bg-slate-800 text-slate-300 hover:text-white transition-all truncate">
+                        🌊 2. Río Vilcanota
+                    </button>
+                    <button onclick="abrirTabGovTechMCP('geologia')" id="tab-gov-geologia"
+                        class="py-1.5 px-2 rounded-lg bg-slate-800 text-slate-300 hover:text-white transition-all truncate">
+                        🌋 3. IGP / INDECI
+                    </button>
+                </div>
+
+                <!-- CONTENIDO DINÁMICO DEL PORTAL SELECCIONADO -->
+                <div id="govtech-mcp-body" class="p-3 space-y-2 max-h-[290px] overflow-y-auto custom-scrollbar text-[10px]">
+                    <!-- Renderizado dinámico por JS -->
                 </div>
             </div>
         </div>
@@ -1131,6 +1246,9 @@
             layerGroups.firms = L.layerGroup().addTo(map);
             layerGroups.goes16 = L.layerGroup().addTo(map);
             layerGroups.windy = L.layerGroup().addTo(map);
+            layerGroups.cultura = L.layerGroup().addTo(map);
+            layerGroups.senamhi = L.layerGroup().addTo(map);
+            layerGroups.geologia = L.layerGroup().addTo(map);
 
             // 1. CARGAR CÁMARAS Y FRUSTUMS DESDE data/cctv.json
             await cargarCamarasYFrustums();
@@ -1158,6 +1276,9 @@
 
             // 8. CARGAR CAPA WINDY WEBCAMS API v3 DESDE /api/v1/geoint/layers/webcams
             await cargarCapaWindyWebcamsV3();
+
+            // 9. CARGAR PORTALES PÚBLICOS PERÚ MCP (MINISTERIO DE CULTURA / SERNANP, SENAMHI / ANA Y INGEMMET / IGP / INDECI)
+            await cargarCapasGovTechPeruMCP();
 
             map.on('mousemove', function(e) {
                 document.getElementById('coords-readout').innerText = `${e.latlng.lat.toFixed(4)}, ${e.latlng.lng.toFixed(4)}`;
@@ -3029,6 +3150,488 @@
             map.flyTo([-13.3400, -72.1800], 10, { duration: 1.2 });
             if (windyFeaturesCache.length > 0) {
                 abrirModalTacticoWindy(windyFeaturesCache[0]);
+            }
+        }
+
+        // ============================================================================
+        // 9. LIFEXTREME OS — CONECTOR MCP PORTALES PÚBLICOS PERÚ (SIN API KEY)
+        //    1) Ministerio de Cultura (tuboleto.cultura.pe) + SERNANP (Cupos Machu Picchu y Camino Inca)
+        //    2) SENAMHI + ANA (Caudal Río Vilcanota en Km 105, Chilca y Pisac + Alertas Lluvia/Trenes)
+        //    3) INGEMMET + IGP / COEN-INDECI (Peligros Geológicos, Huaycos y Sismos en Pasos de Trekking)
+        // ============================================================================
+        let govtechDataCache = null;
+        let currentGovtechTab = 'cultura';
+
+        const GOVTECH_FALLBACK_DATA = {
+            cultura_sernanp: {
+                tool_name: 'cultura_cupos_machupicchu_camino_inca',
+                portal_oficial: 'https://tuboleto.cultura.pe',
+                nodos: [
+                    {
+                        id: 'CULTURA-LLAQTA-MP',
+                        nombre: 'Llaqta Machu Picchu • Boletería DDC Cusco (Aguas Calientes)',
+                        short_badge: '🎟️ MP: 91 Cupos Hoy',
+                        lat: -13.1631,
+                        lng: -72.5450,
+                        elevacion_m: 2430,
+                        color: '#10b981',
+                        circuitos: [
+                            { codigo: 'Circuito 1 (Panorámico)', detalle: 'Terraza Superior + Montaña Machu Picchu', cupos_hoy: 64, cupos_manana: 142, estado: 'DISPONIBLE UPGRADE', badge_color: '#10b981' },
+                            { codigo: 'Circuito 2 (Clásico Llaqta)', detalle: 'Recorrido Clásico Completo & Intihuatana', cupos_hoy: 18, cupos_manana: 47, estado: 'ÚLTIMOS 18 CUPOS HOY', badge_color: '#f59e0b' },
+                            { codigo: 'Circuito 3 (Realeza + Huayna Picchu)', detalle: 'Sector Realeza + Ascenso Huayna Picchu', cupos_hoy: 9, cupos_manana: 31, estado: 'ALTA DEMANDA', badge_color: '#f97316' }
+                        ],
+                        decision_operador: 'Quedan 18 cupos hoy en Circuito 2 Clásico y 64 en Circuito 1 Panorámico. Emitir Last-Minute Upgrade a pasajeros en Cusco u Ollantaytambo.'
+                    },
+                    {
+                        id: 'SERNANP-KM82-PISCACUCHO',
+                        nombre: 'Control SERNANP Km 82 (Piscacucho — Camino Inca Clásico 4D/3N)',
+                        short_badge: '🥾 Km 82: 12 Cupos Mañana',
+                        lat: -13.2135,
+                        lng: -72.3712,
+                        elevacion_m: 2720,
+                        color: '#14b8a6',
+                        circuitos: [
+                            { codigo: 'Camino Inca Clásico 4D/3N (Km 82)', detalle: 'Piscacucho ➔ Wayllabamba ➔ Warmiwañusqa ➔ Intipunku', cupos_hoy: 0, cupos_manana: 12, estado: '12 CUPOS MAÑANA', badge_color: '#14b8a6' }
+                        ],
+                        decision_operador: 'Puesto de control SERNANP Km 82 y puente Piscacucho 100% operativos. 12 permisos disponibles para salidas de mañana.'
+                    },
+                    {
+                        id: 'SERNANP-KM104-CHACHABAMBA',
+                        nombre: 'Control SERNANP Km 104 (Chachabamba — Camino Inca Corto 2D/1N)',
+                        short_badge: '🥾 Km 104: 14 Cupos Hoy',
+                        lat: -13.1842,
+                        lng: -72.5015,
+                        elevacion_m: 2170,
+                        color: '#06b6d4',
+                        circuitos: [
+                            { codigo: 'Camino Inca Corto 2D/1N (Km 104)', detalle: 'Chachabamba ➔ Wiñay Wayna ➔ Puerta del Sol (Intipunku)', cupos_hoy: 14, cupos_manana: 38, estado: 'DISPONIBLE VENTA RÁPIDA', badge_color: '#06b6d4' }
+                        ],
+                        decision_operador: '14 cupos hoy y 38 mañana en Km 104. Ideal para ofrecer upgrade de Trekking 2D/Full Day con parada de tren en Km 104.'
+                    }
+                ]
+            },
+            senamhi_ana_vilcanota: {
+                tool_name: 'senamhi_caudal_vilcanota_y_avisos_cusco',
+                portal_oficial: 'https://www.senamhi.gob.pe',
+                aviso_activo: 'Aviso SENAMHI N° 298 — Nivel Amarillo (Lluvias vespertinas en Sierra Sur)',
+                estaciones: [
+                    {
+                        id: 'SENAMHI-KM105-RUINAS',
+                        estacion: 'Estación Hidrológica Km 105 / Puente Ruinas (Aguas Calientes)',
+                        short_badge: '🌊 Km 105: 148.6 m³/s (OK)',
+                        rio: 'Río Vilcanota - Urubamba (Acceso Machu Picchu)',
+                        lat: -13.1538,
+                        lng: -72.5264,
+                        elevacion_m: 2015,
+                        caudal_m3s: 148.6,
+                        umbral_amarillo_m3s: 260.0,
+                        umbral_cierre_tren_m3s: 340.0,
+                        estado: 'NORMAL-ESTABLE (VERDE)',
+                        color: '#0ea5e9',
+                        cruce_ferroviario: 'Trenes PeruRail / Inca Rail 100% OPERATIVOS (Margen seguro de +191.4 m³/s antes de umbral de suspensión ferroviaria).',
+                        decision_operador: 'Operación normal de trenes hacia Aguas Calientes y acceso peatonal por Puente Ruinas / Hidroeléctrica sin riesgo hídrico.'
+                    },
+                    {
+                        id: 'SENAMHI-CHILCA-OLLANTA',
+                        estacion: 'Estación Hidrológica Chilca / Ollantaytambo (Valle Sagrado)',
+                        short_badge: '🌊 Ollanta: 112.4 m³/s',
+                        rio: 'Río Vilcanota (Tramo Pachar – Ollantaytambo – Chilca)',
+                        lat: -13.2520,
+                        lng: -72.2750,
+                        elevacion_m: 2765,
+                        caudal_m3s: 112.4,
+                        umbral_amarillo_m3s: 210.0,
+                        umbral_cierre_tren_m3s: 290.0,
+                        estado: 'ÓPTIMO (VERDE)',
+                        color: '#38bdf8',
+                        cruce_ferroviario: 'Vía férrea en Pachar y Ollantaytambo despejada. Caudal apto para Canotaje (Rafting Clase II-III) en Bajo Urubamba.',
+                        decision_operador: 'Autorizar salidas de Rafting en sector Ollantaytambo y embarque normal en estación ferroviaria.'
+                    },
+                    {
+                        id: 'SENAMHI-PISAC-CHUQUI',
+                        estacion: 'Estación Hidrológica Pisac / Chuquicahuana (Alto Vilcanota)',
+                        short_badge: '🌊 Pisac: 74.8 m³/s (Rafting OK)',
+                        rio: 'Río Vilcanota (Tramo Chuquicahuana – Pisac)',
+                        lat: -13.4245,
+                        lng: -71.8490,
+                        elevacion_m: 2972,
+                        caudal_m3s: 74.8,
+                        umbral_amarillo_m3s: 165.0,
+                        umbral_cierre_tren_m3s: 230.0,
+                        estado: 'ÓPTIMO RAFTING (VERDE)',
+                        color: '#22d3ee',
+                        cruce_ferroviario: 'Caudal limpio y estable en Alto Vilcanota. Puente Pisac 100% seguro.',
+                        decision_operador: 'Condiciones ideales para grupos de Canotaje (Rafting Clase III-IV) en Chuquicahuana y Cusipata.'
+                    }
+                ]
+            },
+            ingemmet_igp_indeci: {
+                tool_name: 'ingemmet_igp_alertas_geologicas_cusco',
+                portal_oficial: 'https://geocatmin.ingemmet.gob.pe',
+                ultimo_sismo_igp: 'M 3.4 — Sur de Cusco / Apurímac (Prof. 114 km • Imperceptible en superficie)',
+                zonas: [
+                    {
+                        id: 'INDECI-ABRA-MALAGA-HIDRO',
+                        sector: 'Abra Málaga – Santa María – Santa Teresa – Hidroeléctrica',
+                        short_badge: '🌋 Abra Málaga: Precaución 16h',
+                        lat: -13.1480,
+                        lng: -72.3280,
+                        elevacion_m: 4316,
+                        organismo: 'COEN-INDECI / INGEMMET',
+                        tipo_peligro: 'Activación de Quebradas y Neblina Densa en Ceja de Selva',
+                        nivel_alerta: 'PRECAUCIÓN VESPERTINA (NARANJA DESDE 16:00 HRS)',
+                        color: '#f59e0b',
+                        detalle_tecnico: 'Lluvia acumulada (14 mm) en quebradas de Santa María – Santa Teresa con desprendimiento menor de gravilla en Km 138.',
+                        decision_operador: 'BLOQUEO PREVENTIVO VESPERTINO: Para pasajeros retornando después de las 15:30 hrs de Aguas Calientes, usar retorno seguro en Tren (PeruRail/Inca Rail) y evitar ruta terrestre Hidroeléctrica – Abra Málaga de noche.'
+                    },
+                    {
+                        id: 'INGEMMET-SALKANTAY-HUMANTAY',
+                        sector: 'Cuenca Salkantay — Laguna Humantay / Sahuayacco – Chaullay',
+                        short_badge: '🌋 Salkantay: Talud Estable',
+                        lat: -13.3010,
+                        lng: -72.5890,
+                        elevacion_m: 3850,
+                        organismo: 'INGEMMET GEOCATMIN',
+                        tipo_peligro: 'Monitoreo Glacio-Aluvional y Estabilidad de Taludes',
+                        nivel_alerta: 'ESTABLE EN MAÑANA / VIGILANCIA TARDE (AMARILLO)',
+                        color: '#eab308',
+                        detalle_tecnico: 'Laguna Humantay sin anomalías dinámicas; saturación de suelo 68% en descenso Wayraqtambo – Chaullay.',
+                        decision_operador: 'Ruta Laguna Humantay y Trek Salkantay habilitadas. Completar descenso a Chaullay/Collpapampa antes de las 15:00 hrs.'
+                    },
+                    {
+                        id: 'IGP-SISMO-CUSCO-AUSANGATE',
+                        sector: 'Vigilancia Sísmica IGP — Sistema de Fallas Cusco / Ausangate',
+                        short_badge: '🌋 IGP Cusco: Sin Sismos Críticos',
+                        lat: -13.4810,
+                        lng: -71.9690,
+                        elevacion_m: 3720,
+                        organismo: 'IGP (Instituto Geofísico del Perú)',
+                        tipo_peligro: 'Monitoreo Sísmico Instrumental en Tiempo Real',
+                        nivel_alerta: 'NORMAL (VERDE)',
+                        color: '#a855f7',
+                        detalle_tecnico: 'Reporte IGP / USGS: M 3.4 (Prof. 114 km • Imperceptible). Taludes en Sacsayhuamán, Valle Sagrado y Ausangate estables.',
+                        decision_operador: 'Operaciones de escalada, vía ferrata, zipline y trekking Ausangate 100% autorizadas.'
+                    }
+                ]
+            }
+        };
+
+        async function cargarCapasGovTechPeruMCP() {
+            try {
+                const res = await fetch('/api/v1/geoint/layers/govtech');
+                if (res.ok) {
+                    govtechDataCache = await res.json();
+                }
+            } catch (e) {
+                console.warn('Usando respaldo local verificado para GovTech MCP Perú:', e);
+            }
+            if (!govtechDataCache) {
+                govtechDataCache = GOVTECH_FALLBACK_DATA;
+            }
+
+            // 1. RENDERIZAR MARCADORES DE MINISTERIO DE CULTURA + SERNANP (CUPOS MACHU PICCHU & CAMINO INCA)
+            if (layerGroups.cultura) {
+                layerGroups.cultura.clearLayers();
+                (govtechDataCache.cultura_sernanp?.nodos || []).forEach((nodo) => {
+                    const icon = L.divIcon({
+                        className: 'govtech-cultura-marker',
+                        html: `
+                            <div style="display:flex;flex-direction:column;align-items:center;cursor:pointer;filter:drop-shadow(0 3px 8px rgba(0,0,0,0.8));">
+                                <div style="background:#065f46;border:1.5px solid #34d399;color:#ffffff;padding:2px 7px;border-radius:6px;font-family:'Outfit',sans-serif;font-size:9px;font-weight:800;white-space:nowrap;">
+                                    ${nodo.short_badge}
+                                </div>
+                                <div style="width:24px;height:24px;border-radius:8px;background:#10b981;border:2px solid #a7f3d0;display:flex;align-items:center;justify-content:center;font-size:12px;margin-top:2px;">
+                                    🎟️
+                                </div>
+                            </div>
+                        `,
+                        iconSize: [130, 46],
+                        iconAnchor: [65, 32],
+                        popupAnchor: [0, -28]
+                    });
+
+                    const circuitosHtml = (nodo.circuitos || []).map(c => `
+                        <div style="background:#f8fafc;border:1px solid #cbd5e1;border-radius:6px;padding:5px 7px;margin-bottom:4px;">
+                            <div style="display:flex;justify-content:space-between;align-items:center;font-size:10px;font-weight:800;color:#0f172a;">
+                                <span>${c.codigo}</span>
+                                <span style="background:${c.badge_color};color:#fff;padding:1px 5px;border-radius:4px;font-size:8.5px;">${c.estado}</span>
+                            </div>
+                            <div style="font-size:9px;color:#475569;margin-top:2px;">${c.detalle}</div>
+                            <div style="display:flex;justify-content:space-between;font-size:9.5px;margin-top:3px;font-weight:700;">
+                                <span style="color:#059669;">🟢 Cupos Hoy: <b>${c.cupos_hoy}</b></span>
+                                <span style="color:#0284c7;">📅 Cupos Mañana: <b>${c.cupos_manana}</b></span>
+                            </div>
+                        </div>
+                    `).join('');
+
+                    const popupHtml = `
+                        <div style="font-family:'Outfit',sans-serif;min-width:265px;color:#0f172a;">
+                            <div style="background:#059669;color:#fff;padding:6px 9px;border-radius:7px;font-weight:800;font-size:10.5px;margin-bottom:6px;display:flex;justify-content:space-between;">
+                                <span>🎟️ CULTURA / SERNANP (MCP)</span>
+                                <span>${nodo.elevacion_m} m</span>
+                            </div>
+                            <strong style="font-size:11px;display:block;margin-bottom:5px;">${nodo.nombre}</strong>
+                            ${circuitosHtml}
+                            <div style="margin-top:5px;padding:5px 7px;background:#ecfdf5;border-left:3px solid #10b981;font-size:9.5px;color:#064e3b;">
+                                <b>💡 Decisión Operador:</b> ${nodo.decision_operador}
+                            </div>
+                        </div>
+                    `;
+
+                    const marker = L.marker([nodo.lat, nodo.lng], { icon, zIndexOffset: 620 }).bindPopup(popupHtml, { maxWidth: 300 });
+                    marker.on('click', () => {
+                        abrirTabGovTechMCP('cultura');
+                    });
+                    marker.addTo(layerGroups.cultura);
+                });
+            }
+
+            // 2. RENDERIZAR ESTACIONES HIDROLÓGICAS SENAMHI + ANA (CAUDAL RÍO VILCANOTA)
+            if (layerGroups.senamhi) {
+                layerGroups.senamhi.clearLayers();
+                (govtechDataCache.senamhi_ana_vilcanota?.estaciones || []).forEach((est) => {
+                    const pctUmbral = Math.min(100, Math.round((est.caudal_m3s / est.umbral_cierre_tren_m3s) * 100));
+                    const icon = L.divIcon({
+                        className: 'govtech-senamhi-marker',
+                        html: `
+                            <div style="display:flex;flex-direction:column;align-items:center;cursor:pointer;filter:drop-shadow(0 3px 8px rgba(0,0,0,0.8));">
+                                <div style="background:#0c4a6e;border:1.5px solid #38bdf8;color:#ffffff;padding:2px 7px;border-radius:6px;font-family:'Outfit',sans-serif;font-size:9px;font-weight:800;white-space:nowrap;">
+                                    ${est.short_badge}
+                                </div>
+                                <div style="width:24px;height:24px;border-radius:9999px;background:#0284c7;border:2px solid #bae6fd;display:flex;align-items:center;justify-content:center;font-size:12px;margin-top:2px;">
+                                    🌊
+                                </div>
+                            </div>
+                        `,
+                        iconSize: [135, 46],
+                        iconAnchor: [67, 32],
+                        popupAnchor: [0, -28]
+                    });
+
+                    const popupHtml = `
+                        <div style="font-family:'Outfit',sans-serif;min-width:265px;color:#0f172a;">
+                            <div style="background:#0284c7;color:#fff;padding:6px 9px;border-radius:7px;font-weight:800;font-size:10.5px;margin-bottom:6px;display:flex;justify-content:space-between;">
+                                <span>🌊 SENAMHI / ANA • VILCANOTA</span>
+                                <span>${est.estado}</span>
+                            </div>
+                            <strong style="font-size:11px;display:block;margin-bottom:4px;">${est.estacion}</strong>
+                            <div style="background:#f0f9ff;border:1px solid #bae6fd;border-radius:6px;padding:6px 8px;font-size:10px;margin-bottom:5px;">
+                                <div style="display:flex;justify-content:space-between;margin-bottom:3px;">
+                                    <span><b>Caudal Actual:</b> <strong style="color:#0369a1;font-size:11px;">${est.caudal_m3s} m³/s</strong></span>
+                                    <span style="color:#64748b;">Cierre Tren: ${est.umbral_cierre_tren_m3s} m³/s</span>
+                                </div>
+                                <div style="width:100%;height:7px;background:#cbd5e1;border-radius:999px;overflow:hidden;">
+                                    <div style="width:${pctUmbral}%;height:100%;background:#0ea5e9;"></div>
+                                </div>
+                                <div style="font-size:9px;color:#334155;margin-top:4px;"><b>🚂 Cruce Trenes / Rafting:</b> ${est.cruce_ferroviario}</div>
+                            </div>
+                            <div style="padding:5px 7px;background:#ecfeff;border-left:3px solid #0284c7;font-size:9.5px;color:#083344;">
+                                <b>💡 Decisión Operador:</b> ${est.decision_operador}
+                            </div>
+                        </div>
+                    `;
+
+                    const marker = L.marker([est.lat, est.lng], { icon, zIndexOffset: 610 }).bindPopup(popupHtml, { maxWidth: 300 });
+                    marker.on('click', () => {
+                        abrirTabGovTechMCP('senamhi');
+                    });
+                    marker.addTo(layerGroups.senamhi);
+                });
+            }
+
+            // 3. RENDERIZAR ZONAS DE PELIGRO GEOLÓGICO Y SISMOS (INGEMMET + IGP / COEN-INDECI)
+            if (layerGroups.geologia) {
+                layerGroups.geologia.clearLayers();
+                (govtechDataCache.ingemmet_igp_indeci?.zonas || []).forEach((zona) => {
+                    L.circle([zona.lat, zona.lng], {
+                        radius: 4200,
+                        color: zona.color,
+                        weight: 2,
+                        fillColor: zona.color,
+                        fillOpacity: 0.16,
+                        dashArray: '5, 5'
+                    }).addTo(layerGroups.geologia);
+
+                    const icon = L.divIcon({
+                        className: 'govtech-geologia-marker',
+                        html: `
+                            <div style="display:flex;flex-direction:column;align-items:center;cursor:pointer;filter:drop-shadow(0 3px 8px rgba(0,0,0,0.8));">
+                                <div style="background:#451a03;border:1.5px solid ${zona.color};color:#ffffff;padding:2px 7px;border-radius:6px;font-family:'Outfit',sans-serif;font-size:9px;font-weight:800;white-space:nowrap;">
+                                    ${zona.short_badge}
+                                </div>
+                                <div style="width:24px;height:24px;border-radius:8px;background:${zona.color};border:2px solid #fef3c7;display:flex;align-items:center;justify-content:center;font-size:12px;margin-top:2px;">
+                                    🌋
+                                </div>
+                            </div>
+                        `,
+                        iconSize: [145, 46],
+                        iconAnchor: [72, 32],
+                        popupAnchor: [0, -28]
+                    });
+
+                    const popupHtml = `
+                        <div style="font-family:'Outfit',sans-serif;min-width:265px;color:#0f172a;">
+                            <div style="background:#b45309;color:#fff;padding:6px 9px;border-radius:7px;font-weight:800;font-size:10.5px;margin-bottom:6px;display:flex;justify-content:space-between;">
+                                <span>🌋 ${zona.organismo}</span>
+                                <span>${zona.elevacion_m} m</span>
+                            </div>
+                            <strong style="font-size:11px;display:block;margin-bottom:4px;">${zona.sector}</strong>
+                            <div style="font-size:9.5px;line-height:1.45;background:#fffbeb;border:1px solid #fde68a;border-radius:6px;padding:6px 8px;margin-bottom:5px;">
+                                <b>PELIGRO MONITORIZADO:</b> ${zona.tipo_peligro}<br>
+                                <b>NIVEL DE ALERTA:</b> <span style="color:#b45309;font-weight:800;">${zona.nivel_alerta}</span><br>
+                                <b>ESTADO TÉCNICO:</b> ${zona.detalle_tecnico}
+                            </div>
+                            <div style="padding:5px 7px;background:#fef2f2;border-left:3px solid #ef4444;font-size:9.5px;color:#7f1d1d;">
+                                <b>💡 Decisión Operador:</b> ${zona.decision_operador}
+                            </div>
+                        </div>
+                    `;
+
+                    const marker = L.marker([zona.lat, zona.lng], { icon, zIndexOffset: 605 }).bindPopup(popupHtml, { maxWidth: 300 });
+                    marker.on('click', () => {
+                        abrirTabGovTechMCP('geologia');
+                    });
+                    marker.addTo(layerGroups.geologia);
+                });
+            }
+
+            renderizarContenidoGovTechMCP(currentGovtechTab);
+        }
+
+        function togglePanelGovTechMCP(forceState) {
+            const panel = document.getElementById('govtech-mcp-hud-panel');
+            if (!panel) return;
+            if (typeof forceState === 'boolean') {
+                panel.classList.toggle('hidden', !forceState);
+            } else {
+                panel.classList.toggle('hidden');
+            }
+            if (!panel.classList.contains('hidden')) {
+                renderizarContenidoGovTechMCP(currentGovtechTab);
+            }
+        }
+
+        function abrirTabGovTechMCP(tabKey, flyCoords = null, flyZoom = 12) {
+            currentGovtechTab = tabKey;
+            const panel = document.getElementById('govtech-mcp-hud-panel');
+            if (panel) panel.classList.remove('hidden');
+
+            const tabCultura = document.getElementById('tab-gov-cultura');
+            const tabSenamhi = document.getElementById('tab-gov-senamhi');
+            const tabGeologia = document.getElementById('tab-gov-geologia');
+
+            [tabCultura, tabSenamhi, tabGeologia].forEach(b => {
+                if (b) b.className = 'py-1.5 px-2 rounded-lg bg-slate-800 text-slate-300 hover:text-white transition-all truncate';
+            });
+
+            if (tabKey === 'cultura' && tabCultura) {
+                tabCultura.className = 'py-1.5 px-2 rounded-lg bg-emerald-500 text-slate-950 font-black transition-all truncate';
+            } else if (tabKey === 'senamhi' && tabSenamhi) {
+                tabSenamhi.className = 'py-1.5 px-2 rounded-lg bg-sky-400 text-slate-950 font-black transition-all truncate';
+            } else if (tabKey === 'geologia' && tabGeologia) {
+                tabGeologia.className = 'py-1.5 px-2 rounded-lg bg-amber-400 text-slate-950 font-black transition-all truncate';
+            }
+
+            renderizarContenidoGovTechMCP(tabKey);
+
+            if (flyCoords && map) {
+                map.flyTo(flyCoords, flyZoom, { duration: 1.2 });
+            }
+        }
+
+        function renderizarContenidoGovTechMCP(tabKey) {
+            const body = document.getElementById('govtech-mcp-body');
+            if (!body) return;
+            const data = govtechDataCache || GOVTECH_FALLBACK_DATA;
+
+            if (tabKey === 'cultura') {
+                const nodos = data.cultura_sernanp?.nodos || [];
+                body.innerHTML = `
+                    <div class="p-2 rounded-xl bg-emerald-950/50 border border-emerald-500/40 flex items-center justify-between text-[9px]">
+                        <span class="text-emerald-300 font-bold">🔗 MCP Tool: <code>cultura_cupos_machupicchu_camino_inca</code></span>
+                        <span class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-black">SIN API KEY</span>
+                    </div>
+                    ${nodos.map(n => `
+                        <div onclick="map.flyTo([${n.lat}, ${n.lng}], 13, {duration:1.1})" class="p-2.5 rounded-xl bg-slate-900 hover:bg-slate-800/90 border border-slate-800 cursor-pointer transition-all space-y-1.5">
+                            <div class="flex items-center justify-between">
+                                <span class="font-bold text-white text-[10.5px]">${n.nombre}</span>
+                                <span class="text-[8.5px] text-emerald-400 font-bold">${n.elevacion_m}m</span>
+                            </div>
+                            <div class="space-y-1">
+                                ${(n.circuitos || []).map(c => `
+                                    <div class="p-1.5 rounded-lg bg-slate-950/90 border border-slate-800 flex items-center justify-between">
+                                        <div>
+                                            <span class="text-slate-200 font-bold block text-[9.5px]">${c.codigo}</span>
+                                            <span class="text-slate-400 text-[8.5px]">${c.detalle}</span>
+                                        </div>
+                                        <div class="text-right">
+                                            <span class="text-emerald-400 font-black text-[9.5px] block">Hoy: ${c.cupos_hoy}</span>
+                                            <span class="text-sky-300 font-bold text-[8.5px]">Mañana: ${c.cupos_manana}</span>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                            <div class="text-[9px] text-emerald-300 font-semibold pt-1 border-t border-slate-800/80">
+                                💡 ${n.decision_operador}
+                            </div>
+                        </div>
+                    `).join('')}
+                `;
+            } else if (tabKey === 'senamhi') {
+                const estaciones = data.senamhi_ana_vilcanota?.estaciones || [];
+                body.innerHTML = `
+                    <div class="p-2 rounded-xl bg-sky-950/50 border border-sky-500/40 flex items-center justify-between text-[9px]">
+                        <span class="text-sky-300 font-bold">🔗 MCP Tool: <code>senamhi_caudal_vilcanota_y_avisos_cusco</code></span>
+                        <span class="px-1.5 py-0.5 rounded bg-sky-500/20 text-sky-300 font-black">SENAMHI + ANA</span>
+                    </div>
+                    ${estaciones.map(e => {
+                        const pct = Math.min(100, Math.round((e.caudal_m3s / e.umbral_cierre_tren_m3s) * 100));
+                        return `
+                            <div onclick="map.flyTo([${e.lat}, ${e.lng}], 12, {duration:1.1})" class="p-2.5 rounded-xl bg-slate-900 hover:bg-slate-800/90 border border-slate-800 cursor-pointer transition-all space-y-1.5">
+                                <div class="flex items-center justify-between">
+                                    <span class="font-bold text-white text-[10px]">${e.estacion}</span>
+                                    <span class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[8px] font-black">${e.estado}</span>
+                                </div>
+                                <div class="flex items-center justify-between text-[9.5px]">
+                                    <span class="text-sky-300 font-extrabold">🌊 Caudal: ${e.caudal_m3s} m³/s</span>
+                                    <span class="text-slate-400">Umbral Cierre Tren: ${e.umbral_cierre_tren_m3s} m³/s</span>
+                                </div>
+                                <div class="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-sky-400 to-emerald-400" style="width:${pct}%"></div>
+                                </div>
+                                <p class="text-[9px] text-slate-300 leading-snug"><b>🚂 Cruce Ferroviario &amp; Rafting:</b> ${e.cruce_ferroviario}</p>
+                                <div class="text-[9px] text-sky-300 font-semibold pt-1 border-t border-slate-800/80">
+                                    💡 ${e.decision_operador}
+                                </div>
+                            </div>
+                        `;
+                    }).join('')}
+                `;
+            } else {
+                const zonas = data.ingemmet_igp_indeci?.zonas || [];
+                const sismo = data.ingemmet_igp_indeci?.ultimo_sismo_igp || 'Sin actividad crítica';
+                body.innerHTML = `
+                    <div class="p-2 rounded-xl bg-amber-950/50 border border-amber-500/40 space-y-1 text-[9px]">
+                        <div class="flex items-center justify-between">
+                            <span class="text-amber-300 font-bold">🔗 MCP Tool: <code>ingemmet_igp_alertas_geologicas_cusco</code></span>
+                            <span class="px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 font-black">IGP / INDECI</span>
+                        </div>
+                        <div class="text-slate-200">📡 <b>Último Reporte Sísmico IGP:</b> ${sismo}</div>
+                    </div>
+                    ${zonas.map(z => `
+                        <div onclick="map.flyTo([${z.lat}, ${z.lng}], 11, {duration:1.1})" class="p-2.5 rounded-xl bg-slate-900 hover:bg-slate-800/90 border border-slate-800 cursor-pointer transition-all space-y-1.5">
+                            <div class="flex items-center justify-between">
+                                <span class="font-bold text-white text-[10px]">${z.sector}</span>
+                                <span class="px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[8px] font-black">${z.organismo}</span>
+                            </div>
+                            <div class="text-[9px] text-amber-300 font-bold">${z.nivel_alerta}</div>
+                            <p class="text-[9px] text-slate-300 leading-snug">${z.detalle_tecnico}</p>
+                            <div class="text-[9px] text-amber-200 font-semibold pt-1 border-t border-slate-800/80">
+                                💡 ${z.decision_operador}
+                            </div>
+                        </div>
+                    `).join('')}
+                `;
             }
         }
 
