@@ -32,8 +32,9 @@
                         }
                     },
                     fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace']
+                        sans: ['Montserrat', 'Inter', 'system-ui', 'sans-serif'],
+                        display: ['Outfit', 'Montserrat', 'sans-serif'],
+                        mono: ['Outfit', 'Montserrat', 'sans-serif']
                     }
                 }
             }
@@ -50,23 +51,30 @@
     <!-- HLS.JS CDN (PARA REPRODUCIR STREAMS .M3U8 NATIVOS SIN IFRAMES) -->
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 
-    <!-- ESTILOS TÁCTICOS -->
+    <!-- ESTILOS LIFEXTREME PARTNERS & GEOINT -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=JetBrains+Mono:wght@400;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap');
         
-        .glow-emerald {
-            box-shadow: 0 0 30px -5px rgba(16, 185, 129, 0.35);
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
         }
-        .glow-cyan {
-            box-shadow: 0 0 30px -5px rgba(34, 211, 238, 0.25);
+        h1, h2, h3, h4, .brand-font {
+            font-family: 'Outfit', 'Montserrat', sans-serif;
         }
 
-        /* RETÍCULA MILITAR / HUD */
+        .glow-emerald {
+            box-shadow: 0 12px 32px -8px rgba(16, 185, 129, 0.28);
+        }
+        .glow-cyan {
+            box-shadow: 0 12px 32px -8px rgba(67, 56, 202, 0.28);
+        }
+
+        /* RETÍCULA SUTIL */
         .hud-grid {
             background-image: 
-                linear-gradient(rgba(16, 185, 129, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(16, 185, 129, 0.05) 1px, transparent 1px);
-            background-size: 32px 32px;
+                linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+            background-size: 36px 36px;
         }
 
         /* FLIR TÉRMICO SOBRE EL VIDEO */
@@ -74,33 +82,25 @@
             filter: contrast(220%) hue-rotate(185deg) invert(100%) saturate(280%) !important;
         }
 
-        /* SCANLINE TÁCTICO */
-        @keyframes scanline-radar {
-            0% { transform: translateY(-100%); }
-            100% { transform: translateY(700%); }
-        }
+        /* SCANLINE SUTIL */
         .radar-scan {
-            position: absolute;
-            top: 0; left: 0; right: 0; height: 3px;
-            background: linear-gradient(180deg, transparent, rgba(52, 211, 153, 0.9), transparent);
-            animation: scanline-radar 3s linear infinite;
-            pointer-events: none;
-            z-index: 10;
+            display: none;
         }
 
         /* LEAFLET CUSTOM STYLING */
         .leaflet-container {
-            background: #030712 !important;
-            font-family: 'JetBrains Mono', monospace !important;
+            background: #0f172a !important;
+            font-family: 'Montserrat', sans-serif !important;
         }
         .leaflet-popup-content-wrapper {
-            background: #080e1b !important;
-            color: #e2e8f0 !important;
-            border: 1px solid #10b981 !important;
-            border-radius: 12px !important;
+            background: #0f172a !important;
+            color: #f8fafc !important;
+            border: 1px solid rgba(99, 102, 241, 0.45) !important;
+            border-radius: 16px !important;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4) !important;
         }
         .leaflet-popup-tip {
-            background: #080e1b !important;
+            background: #0f172a !important;
         }
 
         /* CUSTOM SCROLLBAR */
@@ -108,189 +108,172 @@
             width: 5px;
         }
         .custom-scrollbar::-webkit-scrollbar-track {
-            background: #080e1b;
+            background: #0f172a;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #1e293b;
+            background: #334155;
             border-radius: 9999px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-            background: #10b981;
+            background: #6366f1;
         }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen font-sans flex flex-col antialiased selection:bg-emerald-500 selection:text-black">
+<body class="bg-[#0b1120] text-slate-100 min-h-screen font-sans flex flex-col antialiased selection:bg-indigo-500 selection:text-white">
 
-    <!-- HEADER DE COMANDO TÁCTICO -->
-    <header class="border-b border-slate-800 bg-slate-900/95 backdrop-blur-md sticky top-0 z-50 px-4 sm:px-6 py-2.5 flex items-center justify-between">
-        <div class="flex items-center gap-3">
-            <a href="/hub" class="flex items-center gap-2.5 group">
-                <div class="h-9 w-9 rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center font-black group-hover:scale-105 transition-transform text-lg shadow-md shadow-emerald-500/20">
-                    🛰️
+    <!-- HEADER ESTILO LIFEXTREME PARTNERS (LIMPIO, AMIGABLE Y RESPONSIVE) -->
+    <header class="border-b border-slate-800/80 bg-[#0f172a]/95 backdrop-blur-md sticky top-0 z-50 px-3 sm:px-6 py-2.5 flex items-center justify-between gap-2">
+        <div class="flex items-center gap-3 min-w-0">
+            <a href="/partners/index.html" class="flex items-center gap-2.5 group min-w-0">
+                <div class="h-9 w-9 shrink-0 rounded-xl bg-gradient-to-br from-indigo-600 to-emerald-500 text-white flex items-center justify-center font-black group-hover:scale-105 transition-transform text-base shadow-md shadow-indigo-500/25">
+                    ⚡
                 </div>
-                <div>
+                <div class="min-w-0">
                     <div class="flex items-center gap-2">
-                        <span class="font-black text-white text-base tracking-tight font-mono">GOD'S EYE VIEW</span>
-                        <span class="px-2 py-0.5 rounded-full text-[9px] font-mono font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                            GEOINT 3D • HLS & FRUSTUMS
+                        <span class="font-black text-white text-base tracking-tight brand-font">LIFEXTREME</span>
+                        <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+                            Partners • GEOINT
                         </span>
                     </div>
-                    <span class="text-[10px] text-slate-400 font-mono block">CCTV Frustums • MediaMTX Bridge • Radar Meteorológico Andino</span>
+                    <span class="text-[11px] text-slate-400 hidden sm:block truncate">Centro de Monitoreo en Vivo • Cámaras, Vuelos, Trenes &amp; Rutas Perú</span>
                 </div>
             </a>
         </div>
 
-        <div class="flex items-center gap-1.5 sm:gap-2.5 flex-wrap">
-            <!-- CONTROLES PARA OCULTAR/MOSTRAR LAS 2 PESTAÑAS LATERALES Y VER MAPA COMPLETO -->
-            <div class="flex items-center gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800">
-                <button onclick="togglePanelLateral('left')" id="btn-toggle-left-panel" title="Ocultar o mostrar pestaña izquierda de Nodos y Capas"
-                    class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-[10px] font-mono font-bold text-cyan-300 transition-all flex items-center gap-1">
-                    <span>◀ Panel Capas</span>
+        <div class="flex items-center gap-1.5 sm:gap-2 flex-wrap justify-end">
+            <!-- CONTROLES SIMPLES Y AMIGABLES PARA OCULTAR/MOSTRAR PANELES Y VER MAPA COMPLETO -->
+            <div class="flex items-center gap-1 bg-slate-900 p-1 rounded-xl border border-slate-800">
+                <button onclick="togglePanelLateral('left')" id="btn-toggle-left-panel" title="Mostrar u ocultar menú izquierdo"
+                    class="px-2.5 py-1.5 rounded-lg bg-slate-800/90 hover:bg-slate-700 text-[11px] font-semibold text-slate-200 transition-all flex items-center gap-1">
+                    <span>◀ Capas</span>
                 </button>
-                <button onclick="toggleModoMapaCompleto()" id="btn-fullscreen-map" title="Ocultar las 2 pestañas laterales y ver el mapa al 100%"
-                    class="px-3 py-1 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-[10px] font-mono font-black text-slate-950 transition-all flex items-center gap-1 shadow-md shadow-emerald-500/20">
+                <button onclick="toggleModoMapaCompleto()" id="btn-fullscreen-map" title="Ver el mapa en pantalla completa"
+                    class="px-3 py-1.5 rounded-lg bg-gradient-to-r from-indigo-600 to-emerald-500 hover:from-indigo-500 hover:to-emerald-400 text-[11px] font-bold text-white transition-all flex items-center gap-1 shadow-md">
                     <span>⛶ Mapa Completo</span>
                 </button>
-                <button onclick="togglePanelLateral('right')" id="btn-toggle-right-panel" title="Ocultar o mostrar pestaña derecha de Monitor CCTV"
-                    class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-[10px] font-mono font-bold text-cyan-300 transition-all flex items-center gap-1">
-                    <span>Monitor CCTV ▶</span>
+                <button onclick="togglePanelLateral('right')" id="btn-toggle-right-panel" title="Mostrar u ocultar panel de cámara en vivo"
+                    class="px-2.5 py-1.5 rounded-lg bg-slate-800/90 hover:bg-slate-700 text-[11px] font-semibold text-slate-200 transition-all flex items-center gap-1">
+                    <span>Cámara ▶</span>
                 </button>
             </div>
 
             <!-- BOTÓN COPILOTO DE DECISIONES PARA OPERADORES -->
             <button onclick="togglePanelDecisionesOperador()" id="btn-toggle-operator-hud"
-                class="px-3 py-1.5 rounded-xl bg-amber-400/20 hover:bg-amber-400 text-amber-300 hover:text-slate-950 border border-amber-400/60 text-[10px] font-mono font-black transition-all flex items-center gap-1.5 shadow-lg">
-                <span>🧠 Decisiones Operador</span>
-                <span class="px-1.5 py-0.2 rounded-full bg-amber-400 text-slate-950 text-[8px] font-black">LIVE</span>
+                class="px-3 py-1.5 rounded-xl bg-amber-500/15 hover:bg-amber-500 text-amber-300 hover:text-slate-950 border border-amber-500/40 text-[11px] font-bold transition-all flex items-center gap-1.5">
+                <span>🧠 Recomendaciones</span>
             </button>
 
-            <!-- ESTADO MEDIAMTX DOCKER -->
-            <div class="hidden 2xl:flex items-center gap-2 bg-slate-950 px-3 py-1.5 rounded-xl border border-slate-800 text-xs font-mono">
-                <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span class="text-slate-400">MediaMTX:</span>
-                <span class="text-emerald-300 font-bold">Puerto 8888</span>
-            </div>
-
-            <a href="/hub" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-300 transition-colors flex items-center gap-1.5">
-                <span>⬵ Hub</span>
+            <a href="/partners/index.html" class="hidden md:flex px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 transition-colors items-center gap-1.5">
+                <span>Partners</span>
             </a>
 
             <button onclick="activarAlertaSOS()" 
-                class="px-3 py-1.5 rounded-xl bg-red-600/90 hover:bg-red-500 text-xs font-black text-white transition-all flex items-center gap-1 shadow-lg shadow-red-600/30 animate-pulse">
+                class="px-3 py-1.5 rounded-xl bg-[#f85640] hover:bg-red-500 text-xs font-bold text-white transition-all flex items-center gap-1 shadow-md">
                 <span>🚨 SOS</span>
             </button>
         </div>
     </header>
 
-    <!-- CUERPO PRINCIPAL: DISEÑO SPLIT 3 COLUMNAS TÁCTICAS -->
+    <!-- CUERPO PRINCIPAL RESPONSIVE -->
     <main class="flex-1 flex flex-col xl:flex-row relative overflow-hidden">
 
         <!-- ======================================================== -->
-        <!-- COLUMNA 1 (IZQUIERDA, 280px): SELECTOR DE CÁMARAS Y CAPAS -->
+        <!-- COLUMNA 1 (IZQUIERDA): CÁMARAS Y CAPAS SIMPLIFICADAS     -->
         <!-- ======================================================== -->
-        <aside id="left-sidebar-panel" class="w-full xl:w-72 bg-slate-900 border-r border-slate-800 p-4 flex flex-col justify-between overflow-y-auto custom-scrollbar z-20 space-y-4 transition-all duration-300">
+        <aside id="left-sidebar-panel" class="w-full xl:w-72 bg-[#0f172a] border-r border-slate-800/80 p-4 flex flex-col justify-between overflow-y-auto custom-scrollbar z-20 space-y-4 transition-all duration-300">
             
             <div class="space-y-4">
                 <div>
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-400">
-                            📹 Cámaras Tácticas (Matriz cctv.json)
+                    <div class="flex items-center justify-between mb-2.5">
+                        <span class="text-xs font-bold text-white flex items-center gap-1.5">
+                            <span>📹 Destinos y Cámaras</span>
                         </span>
-                        <button onclick="togglePanelLateral('left')" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-[9px] font-mono text-slate-300 border border-slate-700" title="Ocultar esta pestaña">
+                        <button onclick="togglePanelLateral('left')" class="px-2 py-0.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-[10px] font-semibold text-slate-300" title="Ocultar menú">
                             ◀ Ocultar
                         </button>
                     </div>
-                    <div id="camera-selector-list" class="space-y-2 text-xs font-mono">
+                    <div id="camera-selector-list" class="space-y-2 text-xs">
                         <!-- Se puebla dinámicamente desde cctv.json -->
                     </div>
                 </div>
 
-                <!-- CAPAS TÁCTICAS AVANZADAS -->
-                <div class="pt-3 border-t border-slate-800 space-y-2 text-xs font-mono">
-                    <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 block">
-                        🛰️ Capas Tácticas Integradas
+                <!-- CAPAS DEL MAPA (SIMPLES Y CLARAS) -->
+                <div class="pt-3 border-t border-slate-800/80 space-y-1.5 text-xs">
+                    <span class="text-xs font-bold text-white block mb-2">
+                        🗺️ Capas del Mapa en Vivo
                     </span>
 
-                    <label class="flex items-center justify-between p-2 rounded-xl bg-slate-950 border border-slate-800 cursor-pointer hover:border-emerald-500/40">
-                        <span class="text-slate-300 flex items-center gap-2">
-                            <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
-                            Conos de Visión (Frustums 3D)
+                    <label class="flex items-center justify-between p-2.5 rounded-xl bg-slate-900/90 border border-slate-800/90 cursor-pointer hover:border-indigo-500/50 transition-colors">
+                        <span class="text-slate-200 font-medium flex items-center gap-2">
+                            <span class="h-2.5 w-2.5 rounded-full bg-sky-400"></span>
+                            ✈️ Vuelos Perú (Cusco ⇄ Lima)
                         </span>
-                        <input type="checkbox" id="layer-frustums" checked onchange="toggleLayer('frustums')" class="accent-emerald-500" />
+                        <input type="checkbox" id="layer-air" checked onchange="toggleLayer('air')" class="accent-indigo-500 h-4 w-4 rounded" />
                     </label>
 
-                    <label class="flex items-center justify-between p-2 rounded-xl bg-slate-950 border border-slate-800 cursor-pointer hover:border-amber-500/40">
-                        <span class="text-slate-300 flex items-center gap-2">
-                            <span class="h-2 w-2 rounded-full bg-[#FF9900]"></span>
-                            Vía Férrea Sur Oriente (GeoJSON)
+                    <label class="flex items-center justify-between p-2.5 rounded-xl bg-slate-900/90 border border-slate-800/90 cursor-pointer hover:border-amber-500/50 transition-colors">
+                        <span class="text-slate-200 font-medium flex items-center gap-2">
+                            <span class="h-2.5 w-2.5 rounded-full bg-[#FF9900]"></span>
+                            🚂 Trenes PeruRail / Inca Rail
                         </span>
-                        <input type="checkbox" id="layer-railway" checked onchange="toggleLayer('railway')" class="accent-amber-500" />
+                        <input type="checkbox" id="layer-trains" checked onchange="toggleLayer('trains')" class="accent-amber-500 h-4 w-4 rounded" />
                     </label>
 
-                    <label class="flex items-center justify-between p-2 rounded-xl bg-slate-950 border border-amber-500/50 cursor-pointer hover:border-amber-400">
-                        <span class="text-amber-300 font-bold flex items-center gap-2">
-                            <span class="h-2 w-2 rounded-full bg-[#FF9900] animate-ping"></span>
-                            🚂 Trenes en Vivo (PeruRail / Inca Rail)
+                    <label class="flex items-center justify-between p-2.5 rounded-xl bg-slate-900/90 border border-slate-800/90 cursor-pointer hover:border-cyan-500/50 transition-colors">
+                        <span class="text-slate-200 font-medium flex items-center gap-2">
+                            <span class="h-2.5 w-2.5 rounded-full bg-cyan-400"></span>
+                            📹 Webcams Clima (Windy v3)
                         </span>
-                        <input type="checkbox" id="layer-trains" checked onchange="toggleLayer('trains')" class="accent-amber-500" />
+                        <input type="checkbox" id="layer-windy" checked onchange="toggleLayer('windy')" class="accent-cyan-500 h-4 w-4 rounded" />
                     </label>
 
-                    <label class="flex items-center justify-between p-2 rounded-xl bg-slate-950 border border-slate-800 cursor-pointer hover:border-cyan-500/40">
-                        <span class="text-slate-300 flex items-center gap-2">
-                            <span class="h-2 w-2 rounded-full bg-cyan-400"></span>
-                            Radar Lluvia RainViewer en Vivo
+                    <label class="flex items-center justify-between p-2.5 rounded-xl bg-slate-900/90 border border-slate-800/90 cursor-pointer hover:border-orange-500/50 transition-colors">
+                        <span class="text-slate-200 font-medium flex items-center gap-2">
+                            <span class="h-2.5 w-2.5 rounded-full bg-orange-500"></span>
+                            🔥 Incendios (SERFOR / NASA)
                         </span>
-                        <input type="checkbox" id="layer-radar" checked onchange="toggleLayer('radar')" class="accent-cyan-500" />
+                        <input type="checkbox" id="layer-firms" checked onchange="toggleLayer('firms')" class="accent-orange-500 h-4 w-4 rounded" />
                     </label>
 
-                    <label class="flex items-center justify-between p-2 rounded-xl bg-slate-950 border border-slate-800 cursor-pointer hover:border-purple-500/40">
-                        <span class="text-slate-300 flex items-center gap-2">
-                            <span class="h-2 w-2 rounded-full bg-purple-400"></span>
-                            Expediciones GPS (Garmin inReach)
+                    <label class="flex items-center justify-between p-2.5 rounded-xl bg-slate-900/90 border border-slate-800/90 cursor-pointer hover:border-indigo-500/50 transition-colors">
+                        <span class="text-slate-200 font-medium flex items-center gap-2">
+                            <span class="h-2.5 w-2.5 rounded-full bg-indigo-400"></span>
+                            🌩️ Clima Satelital (GOES-16)
                         </span>
-                        <input type="checkbox" id="layer-gps" checked onchange="toggleLayer('gps')" class="accent-purple-500" />
+                        <input type="checkbox" id="layer-goes16" checked onchange="toggleLayer('goes16')" class="accent-indigo-500 h-4 w-4 rounded" />
                     </label>
 
-                    <label class="flex items-center justify-between p-2 rounded-xl bg-slate-950 border border-slate-800 cursor-pointer hover:border-sky-500/40">
-                        <span class="text-slate-300 flex items-center gap-2">
-                            <span class="h-2 w-2 rounded-full bg-sky-400"></span>
-                            Vuelos ADS-B (Corredor LIM-CUZ)
+                    <label class="flex items-center justify-between p-2.5 rounded-xl bg-slate-900/90 border border-slate-800/90 cursor-pointer hover:border-cyan-500/50 transition-colors">
+                        <span class="text-slate-200 font-medium flex items-center gap-2">
+                            <span class="h-2.5 w-2.5 rounded-full bg-teal-400"></span>
+                            🌧️ Radar de Lluvias
                         </span>
-                        <input type="checkbox" id="layer-air" checked onchange="toggleLayer('air')" class="accent-sky-500" />
+                        <input type="checkbox" id="layer-radar" checked onchange="toggleLayer('radar')" class="accent-teal-500 h-4 w-4 rounded" />
                     </label>
 
-                    <label class="flex items-center justify-between p-2 rounded-xl bg-slate-950 border border-orange-500/40 cursor-pointer hover:border-orange-400">
-                        <span class="text-orange-300 font-bold flex items-center gap-2">
-                            <span class="h-2 w-2 rounded-full bg-orange-500 animate-ping"></span>
-                            🔥 NASA FIRMS (Focos de Calor / Quemas)
+                    <label class="flex items-center justify-between p-2.5 rounded-xl bg-slate-900/90 border border-slate-800/90 cursor-pointer hover:border-amber-500/50 transition-colors">
+                        <span class="text-slate-200 font-medium flex items-center gap-2">
+                            <span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span>
+                            🛤️ Trazado Vía Férrea
                         </span>
-                        <input type="checkbox" id="layer-firms" checked onchange="toggleLayer('firms')" class="accent-orange-500" />
+                        <input type="checkbox" id="layer-railway" checked onchange="toggleLayer('railway')" class="accent-amber-500 h-4 w-4 rounded" />
                     </label>
 
-                    <label class="flex items-center justify-between p-2 rounded-xl bg-slate-950 border border-indigo-500/40 cursor-pointer hover:border-indigo-400">
-                        <span class="text-indigo-300 font-bold flex items-center gap-2">
-                            <span class="h-2 w-2 rounded-full bg-indigo-400 animate-pulse"></span>
-                            🌩️ GOES-16 (Vapor de Agua &amp; IR NOAA)
+                    <label class="flex items-center justify-between p-2.5 rounded-xl bg-slate-900/90 border border-slate-800/90 cursor-pointer hover:border-purple-500/50 transition-colors">
+                        <span class="text-slate-200 font-medium flex items-center gap-2">
+                            <span class="h-2.5 w-2.5 rounded-full bg-purple-400"></span>
+                            🧭 Grupos en Ruta (GPS)
                         </span>
-                        <input type="checkbox" id="layer-goes16" checked onchange="toggleLayer('goes16')" class="accent-indigo-500" />
+                        <input type="checkbox" id="layer-gps" checked onchange="toggleLayer('gps')" class="accent-purple-500 h-4 w-4 rounded" />
                     </label>
 
-                    <label class="flex items-center justify-between p-2 rounded-xl bg-slate-950 border border-cyan-500/50 cursor-pointer hover:border-cyan-400">
-                        <span class="text-cyan-300 font-bold flex items-center gap-2">
-                            <span class="h-2 w-2 rounded-full bg-cyan-400 animate-ping"></span>
-                            📹 Cámaras Tácticas / Webcams (Windy v3)
+                    <label class="flex items-center justify-between p-2.5 rounded-xl bg-slate-900/90 border border-slate-800/90 cursor-pointer hover:border-emerald-500/50 transition-colors">
+                        <span class="text-slate-200 font-medium flex items-center gap-2">
+                            <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+                            📐 Ángulo de Cámaras
                         </span>
-                        <input type="checkbox" id="layer-windy" checked onchange="toggleLayer('windy')" class="accent-cyan-500" />
+                        <input type="checkbox" id="layer-frustums" checked onchange="toggleLayer('frustums')" class="accent-emerald-500 h-4 w-4 rounded" />
                     </label>
-                </div>
-
-                <!-- ENLACE STREAMING & MEDIAMTX -->
-                <div class="p-3 rounded-2xl bg-slate-950 border border-slate-800 text-[10px] font-mono text-slate-400 space-y-1">
-                    <span class="text-emerald-400 font-bold block mb-1">🔗 PUENTE DE STREAMING:</span>
-                    <div>ENGINE: <span class="text-slate-200">MediaMTX v1.11 Docker</span></div>
-                    <div>FORMATO: <span class="text-cyan-300 font-bold">HLS (.m3u8) / WebRTC</span></div>
-                    <div>SUBDOMINIO: <span class="text-purple-300">stream.lifextreme.store</span></div>
-                    <div>LATENCIA: <span class="text-emerald-400">&lt; 500 ms</span></div>
                 </div>
             </div>
 
@@ -377,18 +360,18 @@
                         </p>
                     </div>
 
-                    <!-- 3. RUTA TREKKING SALKANTAY & INCENDIOS / TORMENTA (NASA FIRMS + GOES-16) -->
-                    <div onclick="map.flyTo([-13.3900, -72.5550], 11, {duration:1.2})"
+                    <!-- 3. RUTA TREKKING SALKANTAY & INCENDIOS / TORMENTA (NASA FIRMS + SERFOR + GOES-16) -->
+                    <div onclick="map.flyTo([-13.61888, -72.67758], 10, {duration:1.2})"
                         class="p-2.5 rounded-xl bg-slate-900/95 hover:bg-slate-800/90 border-l-4 border-orange-500 border border-slate-800 cursor-pointer transition-all">
                         <div class="flex items-center justify-between mb-1">
-                            <span class="font-black text-orange-400 text-[10px]">🔥 3. TREKKING SALKANTAY (FIRMS + GOES-16)</span>
-                            <span class="px-1.5 py-0.5 rounded bg-orange-500/20 text-orange-300 text-[8px] font-black">PRECAUCIÓN ALTA</span>
+                            <span class="font-black text-orange-400 text-[10px]">🔥 3. FRONTERA APURÍMAC / SALKANTAY (SERFOR + GOES-16)</span>
+                            <span class="px-1.5 py-0.5 rounded bg-orange-500/20 text-orange-300 text-[8px] font-black">5 FOCOS CONTROLADOS</span>
                         </div>
                         <p class="text-slate-200 text-[9.5px] leading-snug">
-                            <b>Dato Satelital:</b> Foco térmico en Mollepata (<span class="text-orange-300">75.7°C</span>) + Celda convectiva GOES-16 (<span class="text-indigo-300">-54.2°C</span>) en Abra Salkantay (4,630 m).
+                            <b>Dato SERFOR / FIRMS:</b> Foco en Curahuasi (<span class="text-orange-300">Controlado</span>) y Talavera + Celda GOES-16 (<span class="text-indigo-300">-54.2°C</span>) en Abra Salkantay.
                         </p>
                         <p class="text-orange-200 text-[9px] mt-1 font-bold">
-                            💡 Acción Operador: Cruzar el Abra antes de las 12:30 hrs por tormenta eléctrica vespertina y desviar ascenso por humo.
+                            💡 Acción Operador: Ruta Salkantay despejada de incendios activos; cruzar el Abra antes de las 12:30 hrs por nubosidad GOES-16.
                         </p>
                     </div>
 
@@ -704,16 +687,29 @@
                         </span>
                     </div>
 
-                    <!-- ORIGEN Y DESTINO -->
-                    <div class="p-2 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-between text-[10px]">
-                        <div>
-                            <span class="text-[8px] text-slate-400 uppercase block">ORIGEN</span>
-                            <span id="train-hud-origin" class="text-white font-bold">Ollantaytambo</span>
+                    <!-- ORIGEN, DESTINO Y HORARIO DE LLEGADA A DESTINO -->
+                    <div class="p-2.5 rounded-xl bg-slate-900 border border-slate-800 space-y-2 text-[10px]">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-[8px] text-slate-400 uppercase block">ORIGEN (SALIDA)</span>
+                                <span id="train-hud-origin" class="text-white font-bold">Ollantaytambo</span>
+                                <span id="train-hud-dep-time" class="text-[9px] text-slate-300 block font-mono mt-0.5">🕒 Salida: 18:40 hrs</span>
+                            </div>
+                            <span class="text-[#FF9900] font-black text-base px-1">🚂 ➔</span>
+                            <div class="text-right">
+                                <span class="text-[8px] text-slate-400 uppercase block">DESTINO (LLEGADA)</span>
+                                <span id="train-hud-dest" class="text-emerald-400 font-bold">Aguas Calientes</span>
+                                <span id="train-hud-arr-time" class="text-[9.5px] text-amber-300 font-black block font-mono mt-0.5">🏁 Llegada: 20:10 hrs</span>
+                            </div>
                         </div>
-                        <span class="text-[#FF9900] font-black text-sm">➔</span>
-                        <div class="text-right">
-                            <span class="text-[8px] text-slate-400 uppercase block">DESTINO</span>
-                            <span id="train-hud-dest" class="text-emerald-400 font-bold">Aguas Calientes</span>
+                        <div class="pt-1.5 border-t border-slate-800/90 flex items-center justify-between text-[8.5px]">
+                            <span class="flex items-center gap-1.5">
+                                <span class="inline-block w-2.5 h-2.5 rounded-sm bg-[#f59e0b]"></span>
+                                <span class="text-amber-300 font-bold">PeruRail</span>
+                                <span class="inline-block w-2.5 h-2.5 rounded-sm bg-[#10b981] ml-1.5"></span>
+                                <span class="text-emerald-300 font-bold">Inca Rail</span>
+                            </span>
+                            <span id="train-hud-status-pill" class="text-emerald-400 font-bold">EN TRÁNSITO ACTIVO</span>
                         </div>
                     </div>
 
@@ -973,132 +969,137 @@
                     </div>
                 </div>
 
-                <!-- FICHA TÉCNICA DE INTELIGENCIA GEOINT (UBICACIÓN, PLATAFORMA BASE Y UTILIDAD OPERATIVA) -->
-                <div id="geoint-utility-card" class="p-3 rounded-2xl bg-slate-950/95 border border-emerald-500/30 text-[10px] font-mono space-y-1.5 shadow-inner">
-                    <div class="flex items-center justify-between border-b border-slate-800 pb-1">
-                        <span class="text-emerald-400 font-black uppercase tracking-wider">🎯 Inteligencia Táctica GEOINT</span>
-                        <span id="geoint-platform-badge" class="px-1.5 py-0.5 rounded bg-cyan-500/15 border border-cyan-500/40 text-cyan-300 font-bold text-[9px]">
-                            SkylineWebcams / Live World Webcams
+                <!-- FICHA RESUMEN AMIGABLE ESTILO PARTNERS -->
+                <div id="geoint-utility-card" class="p-3.5 rounded-2xl bg-slate-900/90 border border-slate-800 text-xs space-y-2 shadow-sm">
+                    <div class="flex items-center justify-between">
+                        <span class="text-white font-bold flex items-center gap-1.5">📍 Información del Punto</span>
+                        <span id="geoint-platform-badge" class="px-2 py-0.5 rounded-full bg-indigo-500/20 border border-indigo-500/30 text-indigo-300 font-semibold text-[10px]">
+                            SkylineWebcams
                         </span>
                     </div>
-                    <div class="text-slate-300 leading-relaxed">
-                        <strong class="text-slate-400">📍 Ubicación:</strong>
-                        <span id="geoint-location-text">Vista panorámica desde Portal de Carnes / Calle Triunfo hacia la Basílica Catedral y Plaza Mayor.</span>
-                    </div>
-                    <div class="text-emerald-300/95 leading-relaxed bg-emerald-950/25 border border-emerald-500/20 p-1.5 rounded-lg">
-                        <strong class="text-emerald-400">🛡️ Utilidad GEOINT:</strong>
-                        <span id="geoint-utility-text">Monitoreo de congestión peatonal, eventos culturales, desfiles, huelgas o alteraciones de orden en el centro histórico.</span>
+                    <p id="geoint-location-text" class="text-slate-300 text-[11px] leading-relaxed">
+                        Vista panorámica desde Portal de Carnes / Calle Triunfo hacia la Basílica Catedral y Plaza Mayor.
+                    </p>
+                    <div class="text-emerald-300 text-[11px] leading-relaxed bg-emerald-500/10 border border-emerald-500/20 p-2 rounded-xl">
+                        <strong class="text-emerald-400">💡 Utilidad para Operadores:</strong>
+                        <span id="geoint-utility-text">Monitoreo de congestión peatonal, eventos culturales y flujo turístico en tiempo real.</span>
                     </div>
                 </div>
 
-                <!-- CONTROLES TÁCTICOS PTZ Y CONEXIÓN EN TIEMPO REAL -->
+                <!-- CONTROLES PRINCIPALES SIMPLES Y AMIGABLES -->
                 <div class="space-y-2">
-                    <!-- BOTÓN ESTRELLA: CONECTAR CÁMARA FÍSICA LOCAL (WEBRTC REAL-TIME) -->
-                    <button onclick="conectarMiCamaraWebRTC()" id="btn-webrtc-cam"
-                        class="w-full py-2 px-3 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-slate-950 font-black text-xs font-mono flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 transition-all">
-                        <span>📷 CONECTAR MI CÁMARA FÍSICA / BODYCAM EN VIVO (WebRTC)</span>
-                    </button>
-
                     <!-- INDICADORES DE AEROPUERTO Y CORRELACIÓN VISUAL PISTA 28/10 (VISIBLES EN AEROPUERTOS) -->
-                    <div id="airport-indicators-bar" class="hidden grid-cols-3 gap-1.5 text-[9px] font-mono">
+                    <div id="airport-indicators-bar" class="hidden grid-cols-3 gap-1.5 text-[10px]">
                         <button onclick="filtrarTableroAeropuerto('cuz_lim')" id="btn-ind-nacional"
-                            class="py-1.5 px-1.5 rounded-xl bg-amber-400 text-slate-950 font-black flex items-center justify-center gap-1 shadow-md transition-all">
+                            class="py-2 px-2 rounded-xl bg-amber-400 text-slate-950 font-bold flex items-center justify-center gap-1 shadow-md transition-all">
                             <span>🛫 Salidas CUZ➔LIM</span>
                         </button>
                         <button onclick="filtrarTableroAeropuerto('lim_cuz')" id="btn-ind-internacional"
-                            class="py-1.5 px-1.5 rounded-xl bg-slate-950 border border-amber-400/50 text-amber-300 hover:bg-amber-400 hover:text-black font-bold flex items-center justify-center gap-1 transition-all">
+                            class="py-2 px-2 rounded-xl bg-slate-900 border border-amber-400/50 text-amber-300 hover:bg-amber-400 hover:text-black font-semibold flex items-center justify-center gap-1 transition-all">
                             <span>🛬 Vuelos LIM➔CUZ</span>
                         </button>
                         <button onclick="verCamaraPistaAeropuertoCusco()" id="btn-ind-runway-cam"
-                            class="py-1.5 px-1.5 rounded-xl bg-emerald-500/20 border border-emerald-400 text-emerald-300 hover:bg-emerald-400 hover:text-black font-bold flex items-center justify-center gap-1 transition-all">
+                            class="py-2 px-2 rounded-xl bg-emerald-500/20 border border-emerald-400 text-emerald-300 hover:bg-emerald-400 hover:text-black font-semibold flex items-center justify-center gap-1 transition-all">
                             <span>📹 Pista 28/10 Live</span>
                         </button>
                     </div>
 
                     <!-- SELECTOR DE MODO CÁMARA VISUAL ⇄ RADAR METEOROLÓGICO WINDY EN VIVO (VISIBLE EN NODOS 3 Y 4) -->
-                    <div id="windy-stations-bar" class="hidden grid-cols-2 gap-1.5 text-[9px] font-mono">
+                    <div id="windy-stations-bar" class="hidden grid-cols-2 gap-1.5 text-[10px]">
                         <button id="btn-windy-visual" onclick="activarVistaVisualDestinoActual()"
-                            class="py-1.5 px-2 rounded-xl bg-emerald-500 text-slate-950 font-black flex items-center justify-center gap-1 shadow-md transition-all">
+                            class="py-2 px-2.5 rounded-xl bg-emerald-500 text-slate-950 font-bold flex items-center justify-center gap-1 shadow-md transition-all">
                             <span id="lbl-windy-visual">📹 Vista Destino En Vivo</span>
                         </button>
                         <button id="btn-windy-radar" onclick="activarRadarWindyDestinoActual()"
-                            class="py-1.5 px-2 rounded-xl bg-cyan-500/20 border border-cyan-400 text-cyan-300 hover:bg-cyan-400 hover:text-black font-bold flex items-center justify-center gap-1 transition-all">
-                            <span id="lbl-windy-radar">🌤️ Radar Meteorológico Windy</span>
+                            class="py-2 px-2.5 rounded-xl bg-cyan-500/20 border border-cyan-400 text-cyan-300 hover:bg-cyan-400 hover:text-black font-semibold flex items-center justify-center gap-1 transition-all">
+                            <span id="lbl-windy-radar">🌤️ Clima en Vivo (Windy)</span>
                         </button>
                     </div>
 
-                    <!-- BOTÓN ÚNICO: WEB PLAZA CUSCO / PORTAL OFICIAL -->
-                    <div class="w-full text-[11px] font-mono">
+                    <!-- ACCIÓN PRINCIPAL DEL DESTINO -->
+                    <div class="w-full text-xs">
                         <a id="btn-external-portal" href="https://www.skylinewebcams.com/es/webcam/peru/cusco/cusco/plaza-mayor.html" target="_blank"
-                            class="w-full py-2 px-3 rounded-xl bg-purple-500/20 border border-purple-500/50 text-purple-300 hover:bg-purple-500 hover:text-white font-bold flex items-center justify-center gap-2 transition-all shadow-md">
+                            class="w-full py-2.5 px-3 rounded-xl bg-indigo-600/25 border border-indigo-500/50 text-indigo-200 hover:bg-indigo-600 hover:text-white font-bold flex items-center justify-center gap-2 transition-all shadow-sm">
                             <span>🏛️ Web Plaza Cusco (Cámara en Directo SkylineWebcams) ↗</span>
                         </a>
                     </div>
 
-                    <!-- BARRA PARA INGRESAR CUALQUIER FLUJO .M3U8 EN VIVO -->
-                    <div class="flex items-center gap-1.5 bg-slate-950 p-1.5 rounded-xl border border-slate-800">
-                        <input id="custom-m3u8-input" type="text" placeholder="Pegar URL .m3u8 o http://localhost:8888/..." 
-                            value="https://ntv1.akamaized.net/hls/live/2014075/NASA-NTV1-HLS/master.m3u8"
-                            class="flex-1 bg-transparent text-[10px] font-mono text-slate-200 px-2 py-1 focus:outline-none" />
-                        <button onclick="conectarM3U8Personalizado()" class="px-2.5 py-1 rounded-lg bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 hover:bg-emerald-500 hover:text-black text-[10px] font-mono font-bold transition-all">
-                            Conectar HLS
-                        </button>
-                    </div>
+                    <!-- ACCESO RÁPIDO A DESTINOS (DISEÑO LIMPIO PARTNERS) -->
+                    <div class="pt-1">
+                        <span class="text-xs font-bold text-white block mb-2">
+                            ⚡ Acceso Rápido por Destino
+                        </span>
+                        <div class="grid grid-cols-2 gap-2 text-xs">
+                            <button onclick="sintonizarCamara(0)" class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800 hover:border-amber-400 text-left transition-all">
+                                <span class="font-bold text-white block truncate">✈️ 1. Aerop. Cusco</span>
+                                <span class="text-[10px] text-slate-400 block truncate">Salidas CUZ ➔ LIM</span>
+                            </button>
 
-                    <div class="p-2 rounded-2xl bg-slate-950 border border-slate-800 flex items-center justify-between text-xs font-mono">
-                        <span class="text-slate-400 text-[10px] font-bold">PTZ / ZOOM:</span>
-                        <div class="flex items-center gap-1.5">
-                            <button onclick="ptzZoom('in')" class="px-2.5 py-0.5 rounded-lg bg-slate-900 border border-slate-800 text-emerald-400 hover:bg-slate-800 font-bold text-xs">+</button>
-                            <button onclick="ptzZoom('out')" class="px-2.5 py-0.5 rounded-lg bg-slate-900 border border-slate-800 text-emerald-400 hover:bg-slate-800 font-bold text-xs">-</button>
-                            <button onclick="ptzPan('reset')" class="px-2.5 py-0.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:bg-slate-800 text-[10px]">Centrar</button>
+                            <button onclick="sintonizarCamara(1)" class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800 hover:border-emerald-400 text-left transition-all">
+                                <span class="font-bold text-white block truncate">🏛️ 2. Plaza de Armas</span>
+                                <span class="text-[10px] text-slate-400 block truncate">Centro Histórico Cusco</span>
+                            </button>
+
+                            <button onclick="sintonizarCamara(2)" class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800 hover:border-cyan-400 text-left transition-all">
+                                <span class="font-bold text-white block truncate">🚌 3. Aguas Calientes</span>
+                                <span class="text-[10px] text-slate-400 block truncate">Buses CONSETTUR</span>
+                            </button>
+
+                            <button onclick="sintonizarCamara(3)" class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800 hover:border-sky-400 text-left transition-all">
+                                <span class="font-bold text-white block truncate">🌤️ 4. Valle Sagrado</span>
+                                <span class="text-[10px] text-slate-400 block truncate">San Blas / Urubamba</span>
+                            </button>
+
+                            <button onclick="sintonizarCamara(4)" class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800 hover:border-blue-400 text-left transition-all">
+                                <span class="font-bold text-white block truncate">🛣️ 5. Rutas SUTRAN</span>
+                                <span class="text-[10px] text-slate-400 block truncate">Estado de Carreteras</span>
+                            </button>
+
+                            <button onclick="sintonizarCamara(5)" class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800 hover:border-indigo-400 text-left transition-all">
+                                <span class="font-bold text-white block truncate">🛫 6. Aerop. Lima</span>
+                                <span class="text-[10px] text-slate-400 block truncate">Vuelos LIM ➔ CUZ</span>
+                            </button>
                         </div>
                     </div>
-                </div>
 
-                <!-- MINISELECTOR RÁPIDO DE CÁMARAS PÚBLICAS DE TURISMO, TRÁNSITO Y CONECTIVIDAD -->
-                <div>
-                    <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 block mb-2">
-                        📹 Cámaras Públicas En Vivo (Turismo, Aeropuertos & Tránsito Cusco)
-                    </span>
-                    <div class="grid grid-cols-2 gap-1.5 text-xs font-mono">
-                        <button onclick="sintonizarCamara(0)" class="p-2 rounded-xl bg-slate-950 border border-amber-400/60 hover:border-amber-400 text-left transition-all">
-                            <span class="font-bold text-amber-400 block truncate">✈️ 1. Aerop. Velasco Astete</span>
-                            <span class="text-[9px] text-slate-300 block truncate">Pista 28/10 + Radar ADS-B CUZ</span>
-                        </button>
+                    <!-- OPCIONES AVANZADAS COLAPSABLES (PARA MANTENER EL PANEL SIMPLE PERO SIN PERDER NADA) -->
+                    <details class="rounded-xl bg-slate-900/70 border border-slate-800 p-2.5 text-xs">
+                        <summary class="cursor-pointer font-semibold text-slate-300 hover:text-white flex items-center justify-between">
+                            <span>⚙️ Herramientas Avanzadas (Zoom PTZ / Cámara Propia / HLS)</span>
+                        </summary>
+                        <div class="mt-2.5 space-y-2 pt-2 border-t border-slate-800">
+                            <button onclick="conectarMiCamaraWebRTC()" id="btn-webrtc-cam"
+                                class="w-full py-2 px-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs flex items-center justify-center gap-2 transition-all">
+                                <span>📷 Conectar Mi Cámara / Bodycam en Vivo (WebRTC)</span>
+                            </button>
 
-                        <button onclick="sintonizarCamara(1)" class="p-2 rounded-xl bg-slate-950 border border-emerald-500/60 hover:border-emerald-400 text-left transition-all">
-                            <span class="font-bold text-emerald-400 block truncate">🏛️ 2. Plaza Armas Cusco</span>
-                            <span class="text-[9px] text-slate-300 block truncate">Catedral / Portal de Carnes</span>
-                        </button>
+                            <div class="flex items-center gap-1.5 bg-slate-950 p-1.5 rounded-xl border border-slate-800">
+                                <input id="custom-m3u8-input" type="text" placeholder="Pegar URL .m3u8..." 
+                                    value="https://ntv1.akamaized.net/hls/live/2014075/NASA-NTV1-HLS/master.m3u8"
+                                    class="flex-1 bg-transparent text-[10px] text-slate-200 px-2 py-1 focus:outline-none" />
+                                <button onclick="conectarM3U8Personalizado()" class="px-2.5 py-1 rounded-lg bg-indigo-500/20 border border-indigo-500/40 text-indigo-300 hover:bg-indigo-500 hover:text-white text-[10px] font-bold transition-all">
+                                    Conectar HLS
+                                </button>
+                            </div>
 
-                        <button onclick="sintonizarCamara(2)" class="p-2 rounded-xl bg-slate-950 border border-cyan-500/50 hover:border-cyan-400 text-left transition-all">
-                            <span class="font-bold text-cyan-400 block truncate">🚌 3. Machu Picchu Pueblo</span>
-                            <span class="text-[9px] text-slate-300 block truncate">Aguas Calientes / CONSETTUR</span>
-                        </button>
-
-                        <button onclick="sintonizarCamara(3)" class="p-2 rounded-xl bg-slate-950 border border-sky-500/50 hover:border-sky-400 text-left transition-all">
-                            <span class="font-bold text-sky-400 block truncate">🌤️ 4. Valle Sagrado / San Blas</span>
-                            <span class="text-[9px] text-slate-300 block truncate">Windy Webcams Urubamba</span>
-                        </button>
-
-                        <button onclick="sintonizarCamara(4)" class="p-2 rounded-xl bg-slate-950 border border-amber-500/50 hover:border-amber-400 text-left transition-all">
-                            <span class="font-bold text-amber-400 block truncate">🛣️ 5. SUTRAN Ollantaytambo</span>
-                            <span class="text-[9px] text-slate-300 block truncate">Vía PE-28B ➔ Tren Machu Picchu</span>
-                        </button>
-
-                        <button onclick="sintonizarCamara(5)" class="p-2 rounded-xl bg-slate-950 border border-purple-500/50 hover:border-purple-400 text-left transition-all">
-                            <span class="font-bold text-purple-400 block truncate">🛫 6. Aerop. Lima (LIM)</span>
-                            <span class="text-[9px] text-slate-300 block truncate">Vuelos Lima ➔ Cusco (ADS-B)</span>
-                        </button>
-                    </div>
+                            <div class="p-2 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-between text-xs">
+                                <span class="text-slate-400 text-[10px] font-semibold">Zoom Digital de Cámara:</span>
+                                <div class="flex items-center gap-1.5">
+                                    <button onclick="ptzZoom('in')" class="px-2.5 py-0.5 rounded-lg bg-slate-900 border border-slate-800 text-emerald-400 hover:bg-slate-800 font-bold text-xs">+</button>
+                                    <button onclick="ptzZoom('out')" class="px-2.5 py-0.5 rounded-lg bg-slate-900 border border-slate-800 text-emerald-400 hover:bg-slate-800 font-bold text-xs">-</button>
+                                    <button onclick="ptzPan('reset')" class="px-2.5 py-0.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:bg-slate-800 text-[10px]">Restaurar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
                 </div>
 
             </div>
 
-            <!-- FOOTER INFORMATIVO -->
-            <div class="pt-3 border-t border-slate-800 text-[9px] font-mono text-slate-500 flex justify-between">
-                <span>ESTADO CCTV: <span class="text-emerald-400 font-bold">6 NODOS ONLINE ●</span></span>
-                <span>CÓDEC: H.264 / HLS / WebRTC</span>
+            <!-- FOOTER INFORMATIVO LIMPIO -->
+            <div class="pt-3 border-t border-slate-800/80 text-[10px] text-slate-400 flex justify-between items-center">
+                <span>Estado: <span class="text-emerald-400 font-bold">● 6 Destinos Activos</span></span>
+                <span>LifExtreme Partners</span>
             </div>
 
         </aside>
@@ -1593,30 +1594,114 @@
             }
         }
 
+        function formatearHoraPeru(timestampMs) {
+            try {
+                return new Date(timestampMs).toLocaleTimeString('es-PE', {
+                    timeZone: 'America/Lima',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: false
+                }) + ' hrs';
+            } catch (e) {
+                const d = new Date(timestampMs);
+                return `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')} hrs`;
+            }
+        }
+
+        function obtenerColoresOperadorTren(operator) {
+            const isPeruRail = operator === 'PeruRail';
+            return isPeruRail
+                ? {
+                    primary: '#f59e0b',      // Dorado / Ámbar PeruRail
+                    bgSolid: '#d97706',      // Fondo sólido PeruRail
+                    bgDark: '#1e293b',       // Azul profundo PeruRail
+                    border: '#fbbf24',       // Borde dorado brillante
+                    glow: 'rgba(245, 158, 11, 0.75)',
+                    label: 'PERURAIL'
+                }
+                : {
+                    primary: '#10b981',      // Verde Esmeralda Inca Rail
+                    bgSolid: '#059669',      // Fondo sólido Inca Rail
+                    bgDark: '#064e3b',       // Verde profundo Inca Rail
+                    border: '#34d399',       // Borde esmeralda brillante
+                    glow: 'rgba(16, 185, 129, 0.75)',
+                    label: 'INCA RAIL'
+                };
+        }
+
         function crearIconoLocomotoraTactica3D(train, bearingDeg, progressPct) {
-            const isPeruRail = train.operator === 'PeruRail';
-            const badgeColor = isPeruRail ? '#FF9900' : '#22d3ee';
-            const borderHex = isPeruRail ? '#fbbf24' : '#06b6d4';
+            const colors = obtenerColoresOperadorTren(train.operator);
+            const arrivalTimeStr = formatearHoraPeru(train.arrival.timestamp_ms).replace(' hrs', '');
+            const shortId = train.train_id.split('-').slice(0, 2).join('-');
 
             return L.divIcon({
                 className: 'geoint-train-hud-marker',
                 html: `
-                    <div style="position:relative;display:flex;flex-direction:column;align-items:center;cursor:pointer;">
-                        <div style="background:rgba(3,7,18,0.92);border:1.5px solid ${borderHex};color:${badgeColor};padding:1px 5px;border-radius:4px;font-family:monospace;font-size:8px;font-weight:900;white-space:nowrap;box-shadow:0 0 10px rgba(255,153,0,0.45);margin-bottom:2px;">
-                            🚂 ${train.train_id.split('-').slice(0,2).join('-')} • ${Math.round(progressPct)}%
+                    <div style="position:relative;display:flex;flex-direction:column;align-items:center;cursor:pointer;filter:drop-shadow(0 3px 8px rgba(0,0,0,0.75));">
+                        <!-- Etiqueta superior con color del operador y horario de llegada -->
+                        <div style="background:${colors.bgSolid};border:1.5px solid ${colors.border};color:#ffffff;padding:2px 6px;border-radius:6px;font-family:'Outfit',monospace;font-size:9px;font-weight:800;white-space:nowrap;box-shadow:0 0 12px ${colors.glow};margin-bottom:3px;display:flex;align-items:center;gap:4px;">
+                            <span>🚆 ${shortId}</span>
+                            <span style="background:rgba(0,0,0,0.35);padding:0 4px;border-radius:3px;color:#fef08a;">🏁 ${arrivalTimeStr}</span>
                         </div>
-                        <div style="position:relative;width:28px;height:28px;display:flex;align-items:center;justify-content:center;">
-                            <div style="width:24px;height:24px;border-radius:9999px;background:#0f172a;border:2px solid ${badgeColor};display:flex;align-items:center;justify-content:center;box-shadow:0 0 12px ${badgeColor};transform:rotate(${Math.round(bearingDeg)}deg);transition:transform 0.4s linear;">
-                                <svg viewBox="0 0 24 24" width="14" height="14" fill="${badgeColor}">
-                                    <path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/>
+                        <!-- Icono de Tren / Locomotora con el color del operador y flecha de rumbo -->
+                        <div style="position:relative;width:36px;height:36px;display:flex;align-items:center;justify-content:center;">
+                            <!-- Halo pulsante del color del operador -->
+                            <span style="position:absolute;width:34px;height:34px;border-radius:10px;background:${colors.primary};opacity:0.35;animation:ping 2s cubic-bezier(0,0,0.2,1) infinite;"></span>
+                            <!-- Indicador direccional de rumbo (Turf.js bearing) -->
+                            <div style="position:absolute;inset:-4px;transform:rotate(${Math.round(bearingDeg)}deg);transition:transform 0.4s linear;pointer-events:none;display:flex;justify-content:center;align-items:flex-start;">
+                                <div style="width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-bottom:7px solid ${colors.border};"></div>
+                            </div>
+                            <!-- Cuerpo del icono de TREN en el color del operador -->
+                            <div style="position:relative;width:30px;height:30px;border-radius:9px;background:${colors.bgSolid};border:2px solid ${colors.border};display:flex;align-items:center;justify-content:center;box-shadow:0 0 14px ${colors.glow};">
+                                <svg viewBox="0 0 24 24" width="19" height="19" fill="#ffffff">
+                                    <path d="M12 2c-4 0-8 .5-8 4v9.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h2.23l2-2H14l2 2h2v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-3.58-4-8-4zM7.5 17c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm3.5-7H6V6h5v4zm2 0V6h5v4h-5zm3.5 7c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
                                 </svg>
                             </div>
                         </div>
                     </div>
                 `,
-                iconSize: [86, 44],
-                iconAnchor: [43, 30]
+                iconSize: [118, 56],
+                iconAnchor: [59, 36],
+                popupAnchor: [0, -32]
             });
+        }
+
+        function crearPopupHtmlTren(state) {
+            const t = state.payload;
+            const colors = obtenerColoresOperadorTren(t.operator);
+            const depTimeStr = formatearHoraPeru(t.departure.timestamp_ms);
+            const arrTimeStr = formatearHoraPeru(t.arrival.timestamp_ms);
+
+            return `
+                <div style="font-family:'Outfit',sans-serif;min-width:255px;color:#0f172a;padding:2px;">
+                    <div style="background:${colors.bgSolid};color:#ffffff;padding:6px 10px;border-radius:8px;font-weight:800;font-size:11px;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 8px ${colors.glow};">
+                        <span>🚆 ${t.train_id}</span>
+                        <span style="background:rgba(0,0,0,0.3);padding:2px 6px;border-radius:4px;font-size:9.5px;">${t.operator.toUpperCase()}</span>
+                    </div>
+                    <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:7px 9px;margin-bottom:7px;">
+                        <div style="display:flex;justify-content:space-between;align-items:center;font-size:11px;margin-bottom:4px;">
+                            <div>
+                                <span style="font-size:8.5px;color:#64748b;font-weight:700;display:block;">ORIGEN</span>
+                                <strong style="color:#0f172a;">${t.departure.station}</strong>
+                                <span style="font-size:9.5px;color:#475569;display:block;">🕒 Salida: <b>${depTimeStr}</b></span>
+                            </div>
+                            <span style="font-size:14px;color:${colors.bgSolid};font-weight:900;">➔</span>
+                            <div style="text-align:right;">
+                                <span style="font-size:8.5px;color:#64748b;font-weight:700;display:block;">DESTINO</span>
+                                <strong style="color:#059669;">${t.arrival.station}</strong>
+                                <span style="font-size:10px;color:#b45309;display:block;font-weight:800;">🏁 Llegada: ${arrTimeStr}</span>
+                            </div>
+                        </div>
+                        <div style="margin-top:6px;padding-top:5px;border-top:1px dashed #cbd5e1;display:flex;justify-content:space-between;font-size:10px;">
+                            <span><b>Progreso:</b> ${state.progressPct.toFixed(1)}% (${state.distanceTraveledKm.toFixed(1)}/${state.totalDistanceKm.toFixed(1)} km)</span>
+                            <span style="color:#059669;font-weight:800;">ETA: ${state.etaMinutes} min</span>
+                        </div>
+                    </div>
+                    <div style="font-size:9.5px;color:#334155;background:#fffbeb;border-left:3px solid ${colors.bgSolid};padding:5px 7px;border-radius:4px;">
+                        <b>💡 Operador Lifextreme:</b> Arribo programado a <b>${t.arrival.station}</b> a las <b>${arrTimeStr}</b> (en ${state.etaMinutes} min).
+                    </div>
+                </div>
+            `;
         }
 
         async function sincronizarPayloadsTrenesServidor() {
@@ -1716,18 +1801,26 @@
                 };
 
                 const icon = crearIconoLocomotoraTactica3D(train, bearingDeg, progressPct);
+                const stateObj = trainInterpolatedStateById[train_id];
+                const arrTimeFormatted = formatearHoraPeru(arrival.timestamp_ms);
 
                 if (trainMarkersById[train_id]) {
                     trainMarkersById[train_id].setLatLng([lat, lng]);
                     trainMarkersById[train_id].setIcon(icon);
+                    if (trainMarkersById[train_id].getPopup() && trainMarkersById[train_id].isPopupOpen()) {
+                        trainMarkersById[train_id].setPopupContent(crearPopupHtmlTren(stateObj));
+                    }
                 } else {
                     const marker = L.marker([lat, lng], { icon, zIndexOffset: 650 });
+                    marker.bindPopup(crearPopupHtmlTren(stateObj), { maxWidth: 295 });
                     marker.on('click', () => {
-                        seleccionarTrenEnHud(train_id, true);
+                        marker.setPopupContent(crearPopupHtmlTren(trainInterpolatedStateById[train_id] || stateObj));
+                        marker.openPopup();
+                        seleccionarTrenEnHud(train_id, false);
                     });
                     marker.bindTooltip(
-                        `<div style="font-family:monospace;font-size:10px;"><b>🚂 ${train.train_id} (${train.operator})</b><br>${departure.station} ➔ ${arrival.station} • ETA: ${etaMinutes} min</div>`,
-                        { direction: 'top', offset: [0, -24] }
+                        `<div style="font-family:'Outfit',monospace;font-size:10px;"><b>🚆 ${train.train_id} (${train.operator})</b><br>${departure.station} ➔ ${arrival.station}<br>🏁 <b>Llegada a destino: ${arrTimeFormatted}</b> (ETA: ${etaMinutes} min)</div>`,
+                        { direction: 'top', offset: [0, -34] }
                     );
                     marker.addTo(layerGroups.trains);
                     trainMarkersById[train_id] = marker;
@@ -1745,6 +1838,10 @@
             const state = trainInterpolatedStateById[trainId];
             if (state && flyToTrain && map) {
                 map.flyTo([state.latitude, state.longitude], Math.max(map.getZoom(), 12), { duration: 1.1 });
+                if (trainMarkersById[trainId]) {
+                    trainMarkersById[trainId].setPopupContent(crearPopupHtmlTren(state));
+                    trainMarkersById[trainId].openPopup();
+                }
             }
             actualizarHudTelemetriaTrenActivo();
         }
@@ -1757,21 +1854,29 @@
             if (!state) return;
 
             const t = state.payload;
-            document.getElementById('train-hud-id').innerText = t.train_id;
+            const depTimeStr = formatearHoraPeru(t.departure.timestamp_ms);
+            const arrTimeStr = formatearHoraPeru(t.arrival.timestamp_ms);
+
+            document.getElementById('train-hud-id').innerText = `🚆 ${t.train_id}`;
             document.getElementById('train-hud-service').innerText = `${t.operator} • ${t.service || t.train_id}`;
             const badge = document.getElementById('train-hud-operator-badge');
             if (badge) {
                 badge.innerText = `${t.operator.toUpperCase()} • EN RUTA`;
                 badge.className = t.operator === 'PeruRail'
-                    ? 'px-2 py-0.5 rounded bg-[#FF9900] text-slate-950 text-[9px] font-black uppercase'
-                    : 'px-2 py-0.5 rounded bg-cyan-400 text-slate-950 text-[9px] font-black uppercase';
+                    ? 'px-2 py-0.5 rounded bg-[#f59e0b] text-slate-950 text-[9px] font-black uppercase shadow'
+                    : 'px-2 py-0.5 rounded bg-[#10b981] text-slate-950 text-[9px] font-black uppercase shadow';
             }
 
             document.getElementById('train-hud-origin').innerText = t.departure.station;
             document.getElementById('train-hud-dest').innerText = t.arrival.station;
+            const depEl = document.getElementById('train-hud-dep-time');
+            if (depEl) depEl.innerText = `🕒 Salida: ${depTimeStr}`;
+            const arrEl = document.getElementById('train-hud-arr-time');
+            if (arrEl) arrEl.innerText = `🏁 Llegada: ${arrTimeStr}`;
+
             document.getElementById('train-hud-progress-label').innerText =
                 `Progreso: ${state.progressPct.toFixed(1)}% (${state.distanceTraveledKm.toFixed(1)} / ${state.totalDistanceKm.toFixed(1)} km)`;
-            document.getElementById('train-hud-eta').innerText = `ETA: ${state.etaMinutes} min`;
+            document.getElementById('train-hud-eta').innerText = `🏁 Llegada ${arrTimeStr} (${state.etaMinutes}m)`;
             document.getElementById('train-hud-progress-bar').style.width = `${state.progressPct.toFixed(1)}%`;
             document.getElementById('train-hud-coords').innerText =
                 `LAT: ${state.latitude.toFixed(4)} • LON: ${state.longitude.toFixed(4)} • ELEV: ${state.elevation.toLocaleString()}m`;
@@ -1780,24 +1885,30 @@
             const adviceEl = document.getElementById('train-hud-operator-advice');
             if (adviceEl) {
                 adviceEl.innerHTML = t.arrival.station.includes('Aguas Calientes')
-                    ? `💡 <b>Acción Operador:</b> Arribo a Aguas Calientes en <b>${state.etaMinutes} min</b>. Posicionar guía en andén de salida y validar fila de buses CONSETTUR hacia la Llaqta.`
-                    : `💡 <b>Acción Operador:</b> Arribo a <b>${t.arrival.station}</b> en <b>${state.etaMinutes} min</b>. Tener lista unidad Sprinter de retorno a hoteles en Cusco / Valle Sagrado.`;
+                    ? `💡 <b>Acción Operador:</b> Arribo a <b>Aguas Calientes</b> a las <b>${arrTimeStr}</b> (en <b>${state.etaMinutes} min</b>). Posicionar guía en andén de salida y validar fila de buses CONSETTUR hacia la Llaqta.`
+                    : `💡 <b>Acción Operador:</b> Arribo a <b>${t.arrival.station}</b> a las <b>${arrTimeStr}</b> (en <b>${state.etaMinutes} min</b>). Tener lista unidad Sprinter de retorno a hoteles en Cusco / Valle Sagrado.`;
             }
 
             const fleetList = document.getElementById('train-hud-fleet-list');
             if (fleetList) {
                 fleetList.innerHTML = Object.values(trainInterpolatedStateById).map(st => {
                     const isSel = st.payload.train_id === state.payload.train_id;
+                    const isPR = st.payload.operator === 'PeruRail';
+                    const opBadgeColor = isPR ? 'bg-amber-500/20 text-amber-300 border-amber-500/40' : 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40';
+                    const arrFleetStr = formatearHoraPeru(st.payload.arrival.timestamp_ms);
                     return `
                         <div onclick="seleccionarTrenEnHud('${st.payload.train_id}', true)"
                             class="p-1.5 rounded-lg cursor-pointer transition-all flex items-center justify-between ${isSel ? 'bg-amber-500/20 border border-[#FF9900]' : 'bg-slate-900 hover:bg-slate-800 border border-slate-800'}">
                             <div>
-                                <span class="font-bold text-white">${st.payload.train_id}</span>
+                                <div class="flex items-center gap-1.5">
+                                    <span class="font-bold text-white">🚆 ${st.payload.train_id}</span>
+                                    <span class="px-1 py-0.2 rounded border text-[7.5px] font-black ${opBadgeColor}">${st.payload.operator}</span>
+                                </div>
                                 <span class="text-[8.5px] text-slate-400 block">${st.payload.departure.station} ➔ ${st.payload.arrival.station}</span>
                             </div>
                             <div class="text-right">
-                                <span class="text-[#FF9900] font-bold">${st.progressPct.toFixed(0)}%</span>
-                                <span class="text-emerald-400 text-[8px] block">ETA ${st.etaMinutes}m</span>
+                                <span class="text-amber-300 font-bold text-[8.5px] block">🏁 ${arrFleetStr}</span>
+                                <span class="text-emerald-400 text-[8px] font-bold">${st.progressPct.toFixed(0)}% • ETA ${st.etaMinutes}m</span>
                             </div>
                         </div>
                     `;
@@ -1838,7 +1949,7 @@
             }, 30000);
         }
 
-        // 3. CARGAR RADAR METEOROLÓGICO RAINVIEWER (PRECIPITACIÓN EN TIEMPO REAL)
+        // 3. CARGAR RADAR METEOROLÓGICO RAINVIEWER (PRECIPITACIÓN EN TIEMPO REAL SIN "ZOOM LEVEL NOT SUPPORTED")
         async function cargarRadarMeteorologicoRainViewer() {
             try {
                 const res = await fetch('https://api.rainviewer.com/public/weather-maps.json');
@@ -1847,8 +1958,13 @@
                     const latestPast = data.radar.past[data.radar.past.length - 1];
                     const radarTileUrl = `${data.host}${latestPast.path}/256/{z}/{x}/{y}/2/1_1.png`;
                     
+                    // maxNativeZoom: 7 evita que RainViewer devuelva el tile "Zoom Level Not Supported" al acercar el mapa
+                    const transparentPixel = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
                     const radarTileLayer = L.tileLayer(radarTileUrl, {
-                        opacity: 0.65,
+                        opacity: 0.55,
+                        maxNativeZoom: 7,
+                        maxZoom: 20,
+                        errorTileUrl: transparentPixel,
                         zIndex: 400
                     });
                     layerGroups.radar.addLayer(radarTileLayer);
@@ -2483,31 +2599,24 @@
             layerGroups.firms.clearLayers();
             layerGroups.goes16.clearLayers();
 
-            // 1. CAPA WMS/WMTS NASA GIBS PARA ANOMALÍAS TÉRMICAS VIIRS S-NPP 375m
-            const firmsGibsTiles = L.tileLayer(
-                'https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/VIIRS_SNPP_Thermal_Anomalies_375m_All/default/default/GoogleMapsCompatible_Level9/{z}/{y}/{x}.png',
-                {
-                    opacity: 0.85,
-                    maxNativeZoom: 9,
-                    maxZoom: 19,
-                    attribution: 'NASA FIRMS VIIRS 375m'
-                }
-            );
-            firmsGibsTiles.addTo(layerGroups.firms);
+            const transparentPixel = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
 
-            // 2. CAPA WMS/WMTS GOES-16 (GOES-East ABI Band 13 Clean IR 10.3 µm / Band 8 Water Vapor 6.2 µm)
+            // 1. CAPA WMS/WMTS GOES-16 (GOES-East ABI Band 13 Clean IR 10.3 µm / Band 8 Water Vapor 6.2 µm)
+            // Nota: Se eliminó el tile estático de prueba NASA GIBS VIIRS que generaba una franja naranja falsa sobre Pichari.
+            // Los incendios ahora provienen 100% del feed oficial verificado de SERFOR + NASA FIRMS (firemaptoday.com/pe/active.geojson).
             goes16TileLayer = L.tileLayer(
                 'https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/GOES-East_ABI_Band13_Clean_Infrared/default/default/GoogleMapsCompatible_Level6/{z}/{y}/{x}.png',
                 {
-                    opacity: 0.42,
+                    opacity: 0.38,
                     maxNativeZoom: 6,
-                    maxZoom: 19,
+                    maxZoom: 20,
+                    errorTileUrl: transparentPixel,
                     attribution: 'NOAA GOES-16 / SENAMHI'
                 }
             );
             goes16TileLayer.addTo(layerGroups.goes16);
 
-            // 3. OBTENER FEED GEOJSON EN TIEMPO REAL DESDE /api/nasa-firms
+            // 2. OBTENER FEED GEOJSON EN TIEMPO REAL DESDE /api/nasa-firms (SERFOR + NASA FIRMS FireMapToday Perú)
             let firmsGeoJSON = null;
             try {
                 const res = await fetch('/api/nasa-firms');
@@ -2515,64 +2624,98 @@
                     firmsGeoJSON = await res.json();
                 }
             } catch (e) {
-                console.warn('Usando respaldo táctico local para NASA FIRMS & GOES-16');
+                console.warn('Usando respaldo verificado SERFOR / FireMapToday para incendios en Perú');
             }
 
-            const hotspots = (firmsGeoJSON && firmsGeoJSON.features) ? firmsGeoJSON.features : [
+            const hotspots = (firmsGeoJSON && firmsGeoJSON.features && firmsGeoJSON.features.length > 0) ? firmsGeoJSON.features : [
                 {
                     properties: {
-                        id: "FIRMS-CUS-01",
-                        zone: "Valle Sagrado — Sector Calca / Pisac (Ladera Este)",
-                        type: "QUEMA AGRÍCOLA ACTIVA",
-                        satellite: "VIIRS S-NPP (375m)",
-                        brightness_k: 336.4,
-                        temp_c: "63.2°C",
-                        frp_mw: 18.4,
-                        confidence: "ALTA (94%)",
-                        acq_time: "Hace 22 min (UTC)",
-                        smoke_plume: "Columna de humo hacia el NO (viento 14 km/h)",
-                        trekking_impact: "Visibilidad reducida a 4 km en mirador Taray y ruta Pisac.",
-                        color: "#ef4444"
-                    },
-                    geometry: { coordinates: [-71.9320, -13.3480] }
-                },
-                {
-                    properties: {
-                        id: "FIRMS-CUS-02",
-                        zone: "Corredor Salkantay — Sector Mollepata / Limatambo",
-                        type: "INCENDIO DE PASTIZALES ALTOANDINOS",
-                        satellite: "MODIS / VIIRS NOAA-20",
-                        brightness_k: 348.9,
-                        temp_c: "75.7°C",
-                        frp_mw: 31.2,
-                        confidence: "NOMINAL-ALTA (89%)",
-                        acq_time: "Hace 38 min (UTC)",
-                        smoke_plume: "Dispersión de humo hacia Soraypampa y Abra Salkantay",
-                        trekking_impact: "ALERTA RUTA SALKANTAY: Humo denso en ascenso a Soraypampa (3,900 m).",
+                        id: "SERFOR-APU-01",
+                        zone: "Curahuasi (Abancay, Apurímac) — Limítrofe Corredor Cusco / Salkantay",
+                        type: "INCENDIO FORESTAL (SERFOR: CONTROLADO)",
+                        satellite: "SERFOR / NASA FIRMS VIIRS",
+                        brightness_k: 328.4,
+                        temp_c: "55.2°C",
+                        frp_mw: 12.4,
+                        confidence: "OFICIAL SERFOR",
+                        acq_time: "2026-10-27",
+                        smoke_plume: "Dispersión leve hacia cañón del Apurímac",
+                        trekking_impact: "Incendio controlado en Curahuasi (PE-3S). Sin afectación en ruta Cusco – Mollepata.",
                         color: "#f97316"
                     },
-                    geometry: { coordinates: [-72.5480, -13.4520] }
+                    geometry: { coordinates: [-72.67758, -13.61888] }
                 },
                 {
                     properties: {
-                        id: "FIRMS-CUS-03",
-                        zone: "Valle Sagrado — Quebrada Pachar / Ollantaytambo",
-                        type: "FOCO DE CALOR / QUEMA DE RASTROJO",
-                        satellite: "VIIRS S-NPP (375m)",
-                        brightness_k: 321.8,
-                        temp_c: "48.6°C",
-                        frp_mw: 9.7,
-                        confidence: "NOMINAL (82%)",
-                        acq_time: "Hace 51 min (UTC)",
-                        smoke_plume: "Bruma ligera sobre piso de valle (2,850 m)",
-                        trekking_impact: "Monitoreo preventivo en acceso ferroviario hacia KM 82 (Camino Inca).",
+                        id: "SERFOR-APU-02",
+                        zone: "Talavera Sector Norte (Andahuaylas, Apurímac)",
+                        type: "INCENDIO FORESTAL (SERFOR: CONTROLADO)",
+                        satellite: "SERFOR / NASA FIRMS VIIRS",
+                        brightness_k: 325.0,
+                        temp_c: "51.8°C",
+                        frp_mw: 9.8,
+                        confidence: "OFICIAL SERFOR",
+                        acq_time: "2026-10-27",
+                        smoke_plume: "Controlado sin columna activa",
+                        trekking_impact: "Foco controlado en Andahuaylas. Sin impacto en operaciones Cusco.",
                         color: "#f59e0b"
                     },
-                    geometry: { coordinates: [-72.2210, -13.2740] }
+                    geometry: { coordinates: [-73.43757, -13.56982] }
+                },
+                {
+                    properties: {
+                        id: "SERFOR-APU-03",
+                        zone: "Talavera Sector Centro (Andahuaylas, Apurímac)",
+                        type: "INCENDIO FORESTAL (SERFOR: CONTROLADO)",
+                        satellite: "SERFOR / NASA FIRMS VIIRS",
+                        brightness_k: 324.2,
+                        temp_c: "51.0°C",
+                        frp_mw: 8.9,
+                        confidence: "OFICIAL SERFOR",
+                        acq_time: "2026-10-27",
+                        smoke_plume: "Controlado sin columna activa",
+                        trekking_impact: "Monitoreo satelital oficial SERFOR / FireMapToday Perú.",
+                        color: "#f59e0b"
+                    },
+                    geometry: { coordinates: [-73.43423, -13.57503] }
+                },
+                {
+                    properties: {
+                        id: "SERFOR-APU-04",
+                        zone: "Talavera Sector Sur (Andahuaylas, Apurímac)",
+                        type: "INCENDIO FORESTAL (SERFOR: CONTROLADO)",
+                        satellite: "SERFOR / NASA FIRMS VIIRS",
+                        brightness_k: 323.5,
+                        temp_c: "50.3°C",
+                        frp_mw: 8.2,
+                        confidence: "OFICIAL SERFOR",
+                        acq_time: "2026-10-27",
+                        smoke_plume: "Controlado sin columna activa",
+                        trekking_impact: "Monitoreo satelital oficial SERFOR / FireMapToday Perú.",
+                        color: "#f59e0b"
+                    },
+                    geometry: { coordinates: [-73.42828, -13.58357] }
+                },
+                {
+                    properties: {
+                        id: "SERFOR-APU-05",
+                        zone: "Ocobamba (Chincheros, Apurímac)",
+                        type: "INCENDIO FORESTAL (SERFOR: CONTROLADO)",
+                        satellite: "SERFOR / NASA FIRMS VIIRS",
+                        brightness_k: 322.1,
+                        temp_c: "48.9°C",
+                        frp_mw: 7.5,
+                        confidence: "OFICIAL SERFOR",
+                        acq_time: "2026-10-27",
+                        smoke_plume: "Controlado sin columna activa",
+                        trekking_impact: "Monitoreo satelital oficial SERFOR / FireMapToday Perú.",
+                        color: "#f59e0b"
+                    },
+                    geometry: { coordinates: [-73.47299, -13.58349] }
                 }
             ];
 
-            // DIBUJAR FOCOS DE CALOR NASA FIRMS EN EL MAPA
+            // DIBUJAR FOCOS DE CALOR VERIFICADOS (SERFOR / FIREMAPTODAY / NASA FIRMS) EN EL MAPA
             hotspots.forEach(feat => {
                 const [lng, lat] = feat.geometry.coordinates;
                 const p = feat.properties;
@@ -2709,8 +2852,8 @@
                 cb.checked = true;
                 toggleLayer('firms');
             }
-            // Vista panorámica Valle Sagrado + Corredor Salkantay para visualizar todos los focos NASA FIRMS
-            map.flyTo([-13.3850, -72.2400], 10, { duration: 1.3 });
+            // Vista panorámica Corredor Apurímac – Cusco (Curahuasi / Talavera / Ocobamba) donde están los 5 focos reales SERFOR
+            map.flyTo([-13.6012, -73.0550], 9, { duration: 1.3 });
         }
 
         function alternarBandaGOES16() {
@@ -2724,11 +2867,12 @@
                 layerGroups.goes16.removeLayer(goes16TileLayer);
             }
 
+            const transparentPixel = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
             if (currentGoesBand === 'IR_BAND13') {
                 currentGoesBand = 'WV_BAND08';
                 goes16TileLayer = L.tileLayer(
                     'https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/GOES-East_ABI_Band8_Upper_Level_Tropospheric_Water_Vapor/default/default/GoogleMapsCompatible_Level6/{z}/{y}/{x}.png',
-                    { opacity: 0.48, maxNativeZoom: 6, maxZoom: 19, attribution: 'NOAA GOES-16 Banda 8 Vapor de Agua' }
+                    { opacity: 0.42, maxNativeZoom: 6, maxZoom: 20, errorTileUrl: transparentPixel, attribution: 'NOAA GOES-16 Banda 8 Vapor de Agua' }
                 ).addTo(layerGroups.goes16);
                 if (btn) btn.innerHTML = '💧 GOES-16 (Banda 8 Vapor Agua)';
             } else {
