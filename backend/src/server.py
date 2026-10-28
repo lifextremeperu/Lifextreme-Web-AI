@@ -9,11 +9,25 @@ import traceback
 from fastapi import FastAPI, Request, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
-from .max_agent import process_message, process_message_stream
-from .rag_service import find_matching_catalog_item
-from .partner_agent import process_b2b_stream
+import sys
+from pathlib import Path
+_ROOT_DIR = Path(__file__).resolve().parents[2]
+if str(_ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(_ROOT_DIR))
+
+try:
+    from .max_agent import process_message, process_message_stream
+    from .rag_service import find_matching_catalog_item
+    from .partner_agent import process_b2b_stream
+except ImportError:
+    from max_agent import process_message, process_message_stream
+    from rag_service import find_matching_catalog_item
+    from partner_agent import process_b2b_stream
+
+from app.routers.geoint import router as geoint_router
 
 app = FastAPI(title="Lifextreme MAX AI OS v2.5 - Hybrid Catalog + Qdrant + Groq LPU")
+app.include_router(geoint_router)
 
 app.add_middleware(
     CORSMiddleware,

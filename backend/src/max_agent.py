@@ -8,7 +8,10 @@ import httpx
 from datetime import datetime
 from typing import List, AsyncGenerator
 from dotenv import load_dotenv
-from .rag_service import get_rag_context
+try:
+    from .rag_service import get_rag_context
+except ImportError:
+    from rag_service import get_rag_context
 
 load_dotenv(override=True)
 
