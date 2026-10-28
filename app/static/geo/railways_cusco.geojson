@@ -1,0 +1,192 @@
+{
+  "type": "FeatureCollection",
+  "name": "Railways_Cusco_Sur_Oriente_Tactical",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "segment_id": "Full_Corridor_SanPedro_Hidroelectrica",
+        "name": "Vía Férrea Tramo Sur Oriente: San Pedro (Cusco) -> Poroy -> Ollantaytambo -> Aguas Calientes -> Hidroeléctrica",
+        "operator": "Ferrocarril Trasandino / PeruRail / Inca Rail",
+        "gauge": "914 mm",
+        "color": "#FF9900",
+        "opacity": 0.6
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-71.9840, -13.5220, 3399],
+          [-71.9950, -13.5180, 3425],
+          [-72.0120, -13.5040, 3460],
+          [-72.0450, -13.4890, 3499],
+          [-72.0910, -13.4720, 3380],
+          [-72.1550, -13.4450, 3290],
+          [-72.1950, -13.4150, 3150],
+          [-72.2180, -13.3650, 2960],
+          [-72.2210, -13.2740, 2850],
+          [-72.2639, -13.2583, 2792],
+          [-72.2850, -13.2420, 2740],
+          [-72.3300, -13.2200, 2680],
+          [-72.3850, -13.2050, 2635],
+          [-72.4400, -13.1890, 2590],
+          [-72.4820, -13.1750, 2380],
+          [-72.5050, -13.1650, 2190],
+          [-72.5255, -13.1547, 2040],
+          [-72.5390, -13.1585, 1960],
+          [-72.5480, -13.1660, 1890],
+          [-72.5545, -13.1725, 1810]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "segment_id": "SanPedro_Ollantaytambo",
+        "name": "Tramo San Pedro (Cusco) -> Poroy -> Ollantaytambo",
+        "from_station": "San Pedro (Cusco)",
+        "to_station": "Ollantaytambo"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-71.9840, -13.5220, 3399],
+          [-71.9950, -13.5180, 3425],
+          [-72.0120, -13.5040, 3460],
+          [-72.0450, -13.4890, 3499],
+          [-72.0910, -13.4720, 3380],
+          [-72.1550, -13.4450, 3290],
+          [-72.1950, -13.4150, 3150],
+          [-72.2180, -13.3650, 2960],
+          [-72.2210, -13.2740, 2850],
+          [-72.2639, -13.2583, 2792]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "segment_id": "Poroy_AguasCalientes",
+        "name": "Tramo Poroy (Cusco) -> Ollantaytambo -> Aguas Calientes",
+        "from_station": "Poroy (Cusco)",
+        "to_station": "Aguas Calientes"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-72.0450, -13.4890, 3499],
+          [-72.0910, -13.4720, 3380],
+          [-72.1550, -13.4450, 3290],
+          [-72.1950, -13.4150, 3150],
+          [-72.2180, -13.3650, 2960],
+          [-72.2210, -13.2740, 2850],
+          [-72.2639, -13.2583, 2792],
+          [-72.2850, -13.2420, 2740],
+          [-72.3300, -13.2200, 2680],
+          [-72.3850, -13.2050, 2635],
+          [-72.4400, -13.1890, 2590],
+          [-72.4820, -13.1750, 2380],
+          [-72.5050, -13.1650, 2190],
+          [-72.5255, -13.1547, 2040]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "segment_id": "Ollantaytambo_AguasCalientes",
+        "name": "Tramo Ollantaytambo -> Km 82 -> Km 104 -> Aguas Calientes",
+        "from_station": "Ollantaytambo",
+        "to_station": "Aguas Calientes"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-72.2639, -13.2583, 2792],
+          [-72.2850, -13.2420, 2740],
+          [-72.3300, -13.2200, 2680],
+          [-72.3850, -13.2050, 2635],
+          [-72.4400, -13.1890, 2590],
+          [-72.4820, -13.1750, 2380],
+          [-72.5050, -13.1650, 2190],
+          [-72.5255, -13.1547, 2040]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "segment_id": "AguasCalientes_Ollantaytambo",
+        "name": "Tramo Retorno: Aguas Calientes -> Km 104 -> Km 82 -> Ollantaytambo",
+        "from_station": "Aguas Calientes",
+        "to_station": "Ollantaytambo"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-72.5255, -13.1547, 2040],
+          [-72.5050, -13.1650, 2190],
+          [-72.4820, -13.1750, 2380],
+          [-72.4400, -13.1890, 2590],
+          [-72.3850, -13.2050, 2635],
+          [-72.3300, -13.2200, 2680],
+          [-72.2850, -13.2420, 2740],
+          [-72.2639, -13.2583, 2792]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "segment_id": "AguasCalientes_Hidroelectrica",
+        "name": "Tramo Aguas Calientes -> Mandor -> Hidroeléctrica",
+        "from_station": "Aguas Calientes",
+        "to_station": "Hidroeléctrica"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-72.5255, -13.1547, 2040],
+          [-72.5390, -13.1585, 1960],
+          [-72.5480, -13.1660, 1890],
+          [-72.5545, -13.1725, 1810]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Estación San Pedro (Cusco)", "type": "Station", "elevation": 3399 },
+      "geometry": { "type": "Point", "coordinates": [-71.9840, -13.5220, 3399] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Estación Poroy (Cusco)", "type": "Station", "elevation": 3499 },
+      "geometry": { "type": "Point", "coordinates": [-72.0450, -13.4890, 3499] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Estación Ollantaytambo (Valle Sagrado)", "type": "Hub Station", "elevation": 2792 },
+      "geometry": { "type": "Point", "coordinates": [-72.2639, -13.2583, 2792] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Km 82 (Piscacucho - Control Camino Inca)", "type": "Checkpoint", "elevation": 2590 },
+      "geometry": { "type": "Point", "coordinates": [-72.4400, -13.1890, 2590] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Estación Aguas Calientes (Machu Picchu Pueblo)", "type": "Terminal Station", "elevation": 2040 },
+      "geometry": { "type": "Point", "coordinates": [-72.5255, -13.1547, 2040] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Estación Hidroeléctrica (Santa Teresa)", "type": "Terminal Station", "elevation": 1810 },
+      "geometry": { "type": "Point", "coordinates": [-72.5545, -13.1725, 1810] }
+    }
+  ]
+}

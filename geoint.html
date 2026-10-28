@@ -44,6 +44,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
 
+    <!-- TURF.JS MOTOR DE INTERPOLACIÓN ESPACIOTEMPORAL (@turf/turf v7) -->
+    <script src="https://cdn.jsdelivr.net/npm/@turf/turf@7/turf.min.js"></script>
+
     <!-- HLS.JS CDN (PARA REPRODUCIR STREAMS .M3U8 NATIVOS SIN IFRAMES) -->
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 
@@ -218,10 +221,18 @@
 
                     <label class="flex items-center justify-between p-2 rounded-xl bg-slate-950 border border-slate-800 cursor-pointer hover:border-amber-500/40">
                         <span class="text-slate-300 flex items-center gap-2">
-                            <span class="h-2 w-2 rounded-full bg-amber-400"></span>
-                            Ferrocarril PeruRail (GeoJSON)
+                            <span class="h-2 w-2 rounded-full bg-[#FF9900]"></span>
+                            Vía Férrea Sur Oriente (GeoJSON)
                         </span>
                         <input type="checkbox" id="layer-railway" checked onchange="toggleLayer('railway')" class="accent-amber-500" />
+                    </label>
+
+                    <label class="flex items-center justify-between p-2 rounded-xl bg-slate-950 border border-amber-500/50 cursor-pointer hover:border-amber-400">
+                        <span class="text-amber-300 font-bold flex items-center gap-2">
+                            <span class="h-2 w-2 rounded-full bg-[#FF9900] animate-ping"></span>
+                            🚂 Trenes en Vivo (PeruRail / Inca Rail)
+                        </span>
+                        <input type="checkbox" id="layer-trains" checked onchange="toggleLayer('trains')" class="accent-amber-500" />
                     </label>
 
                     <label class="flex items-center justify-between p-2 rounded-xl bg-slate-950 border border-slate-800 cursor-pointer hover:border-cyan-500/40">
@@ -666,6 +677,79 @@
                 </div>
             </div>
 
+            <!-- ========================================================================= -->
+            <!-- PANEL LATERAL TÁCTICO DE TELEMETRÍA FERROVIARIA (PERURAIL / INCA RAIL)    -->
+            <!-- ========================================================================= -->
+            <div id="train-telemetry-hud-panel" class="hidden absolute top-14 left-3 z-30 w-[335px] max-w-[92vw] bg-slate-950/95 backdrop-blur-xl border-2 border-[#FF9900]/80 rounded-2xl shadow-[0_0_35px_rgba(255,153,0,0.30)] overflow-hidden font-mono transition-all duration-300">
+                <div class="bg-gradient-to-r from-slate-900 via-slate-900 to-amber-950/80 px-3.5 py-2.5 border-b border-[#FF9900]/40 flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <span class="h-2.5 w-2.5 rounded-full bg-[#FF9900] animate-ping"></span>
+                        <div>
+                            <div class="text-[10px] font-black text-[#FF9900] uppercase tracking-wider">🚂 TELEMETRÍA FERROVIARIA 3D • TURF.JS</div>
+                            <div class="text-[8.5px] text-slate-300">Interpolación Espaciotemporal PeruRail &amp; Inca Rail</div>
+                        </div>
+                    </div>
+                    <button onclick="cerrarPanelTelemetriaTren()" class="px-2 py-0.5 rounded bg-red-950/80 hover:bg-red-600 text-red-300 hover:text-white text-[10px] font-bold">✕</button>
+                </div>
+
+                <!-- DETALLE DEL TREN SELECCIONADO -->
+                <div class="p-3 space-y-2.5 border-b border-slate-800">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span id="train-hud-id" class="text-xs font-black text-white block">PR-84P-Expedition</span>
+                            <span id="train-hud-service" class="text-[9.5px] text-amber-300 font-bold">PeruRail • Expedition 84</span>
+                        </div>
+                        <span id="train-hud-operator-badge" class="px-2 py-0.5 rounded bg-[#FF9900] text-slate-950 text-[9px] font-black uppercase">
+                            EN RUTA
+                        </span>
+                    </div>
+
+                    <!-- ORIGEN Y DESTINO -->
+                    <div class="p-2 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-between text-[10px]">
+                        <div>
+                            <span class="text-[8px] text-slate-400 uppercase block">ORIGEN</span>
+                            <span id="train-hud-origin" class="text-white font-bold">Ollantaytambo</span>
+                        </div>
+                        <span class="text-[#FF9900] font-black text-sm">➔</span>
+                        <div class="text-right">
+                            <span class="text-[8px] text-slate-400 uppercase block">DESTINO</span>
+                            <span id="train-hud-dest" class="text-emerald-400 font-bold">Aguas Calientes</span>
+                        </div>
+                    </div>
+
+                    <!-- BARRA DE PROGRESO Y ETA EN VIVO -->
+                    <div>
+                        <div class="flex items-center justify-between text-[9.5px] mb-1">
+                            <span id="train-hud-progress-label" class="text-amber-300 font-bold">Progreso: 54.2% (23.4 / 43.1 km)</span>
+                            <span id="train-hud-eta" class="text-emerald-400 font-black">ETA: 41 min</span>
+                        </div>
+                        <div class="w-full h-2.5 rounded-full bg-slate-800 overflow-hidden border border-slate-700">
+                            <div id="train-hud-progress-bar" class="h-full bg-gradient-to-r from-[#FF9900] to-emerald-400 transition-all duration-500" style="width: 54%;"></div>
+                        </div>
+                        <div class="flex items-center justify-between text-[8.5px] text-slate-400 mt-1">
+                            <span id="train-hud-coords">LAT: -13.2105 • LON: -72.3610 • ELEV: 2,640m</span>
+                            <span id="train-hud-bearing" class="text-cyan-300">RUMBO: 294° NO</span>
+                        </div>
+                    </div>
+
+                    <!-- RECOMENDACIÓN TÁCTICA PARA OPERADOR -->
+                    <div id="train-hud-operator-advice" class="p-2 rounded-xl bg-slate-900/90 border-l-2 border-emerald-400 text-[9px] text-emerald-200 leading-snug">
+                        💡 <b>Acción Operador:</b> Coordinar guía oficial en boletería CONSETTUR de Aguas Calientes 15 min antes del arribo.
+                    </div>
+                </div>
+
+                <!-- LISTA DE FLOTA ACTIVA EN EL CORREDOR -->
+                <div class="p-2.5 bg-slate-950/90">
+                    <div class="text-[9px] font-bold text-slate-400 uppercase mb-1.5 flex items-center justify-between">
+                        <span>FLOTA EN TRÁNSITO (CORREDOR CUSCO – MACHU PICCHU)</span>
+                        <span class="text-[#FF9900]">7 ACTIVOS</span>
+                    </div>
+                    <div id="train-hud-fleet-list" class="space-y-1 max-h-[155px] overflow-y-auto custom-scrollbar text-[9.5px]">
+                        <!-- Poblado dinámicamente -->
+                    </div>
+                </div>
+            </div>
+
             <!-- CONTROLES FLOTANTES DEL MAPA -->
             <div class="absolute bottom-4 left-4 z-20 flex flex-wrap items-center gap-2">
                 <button onclick="setMapBase('satellite')" id="btn-mode-sat"
@@ -679,6 +763,10 @@
                 <button onclick="toggleModoRadarAereoNacional()" id="btn-mode-fr24"
                     class="px-3 py-1.5 rounded-xl bg-amber-400 text-slate-950 text-xs font-mono font-black hover:bg-amber-300 border border-amber-300 shadow-lg flex items-center gap-1">
                     ✈️ Radar Vuelos Perú
+                </button>
+                <button onclick="enfocarFlotaFerroviaria()" id="btn-mode-trains"
+                    class="px-3 py-1.5 rounded-xl bg-[#FF9900] text-slate-950 text-xs font-mono font-black hover:bg-amber-400 border border-amber-300 shadow-lg flex items-center gap-1">
+                    🚂 Trenes PeruRail / Inca Rail
                 </button>
                 <button onclick="sintonizarCamara(4)" id="btn-mode-sutran"
                     class="px-3 py-1.5 rounded-xl bg-[#003893] text-white text-xs font-mono font-black hover:bg-blue-700 border border-blue-400 shadow-lg flex items-center gap-1">
@@ -1026,6 +1114,7 @@
             cams: null,
             frustums: null,
             railway: null,
+            trains: null,
             radar: null,
             gps: null,
             air: null,
@@ -1069,6 +1158,7 @@
             layerGroups.cams = L.layerGroup().addTo(map);
             layerGroups.frustums = L.layerGroup().addTo(map);
             layerGroups.railway = L.layerGroup().addTo(map);
+            layerGroups.trains = L.layerGroup().addTo(map);
             layerGroups.radar = L.layerGroup().addTo(map);
             layerGroups.gps = L.layerGroup().addTo(map);
             layerGroups.air = L.layerGroup().addTo(map);
@@ -1080,8 +1170,11 @@
             // 1. CARGAR CÁMARAS Y FRUSTUMS DESDE data/cctv.json
             await cargarCamarasYFrustums();
 
-            // 2. CARGAR VÍA FÉRREA PERURAIL DESDE data/perurail_route.geojson
+            // 2. CARGAR VÍA FÉRREA TÁCTICA (app/static/geo/railways_cusco.geojson) Y CACHEAR LONGITUDES TURF.JS
             await cargarFerrocarrilPeruRail();
+
+            // 2.5. INICIAR RASTREO DE TRENES EN TIEMPO REAL CON INTERPOLACIÓN TURF.JS (/api/v1/geoint/layers/trains)
+            await iniciarRastreoTrenesTurfJS();
 
             // 3. CARGAR RADAR METEOROLÓGICO RAINVIEWER EN TIEMPO REAL
             await cargarRadarMeteorologicoRainViewer();
@@ -1404,42 +1497,345 @@
             return points;
         }
 
-        // 2. CARGAR VÍA FÉRREA PERURAIL (GEOJSON)
+        // ============================================================================
+        // 2. VÍA FÉRREA TÁCTICA (railways_cusco.geojson) + MOTOR TURF.JS DE TRENES
+        // ============================================================================
+        const RAILWAY_SEGMENTS_CACHE = {}; // segment_id -> { lineFeature, totalDistanceKm }
+        let activeTrainsPayloads = [];
+        const trainMarkersById = {};
+        const trainPreviousCoordsById = {};
+        const trainInterpolatedStateById = {};
+        let selectedTrainId = 'PR-84P-Expedition';
+        let trainInterpolationInterval = null;
+
+        function getRouteSegment(routeSegmentId) {
+            if (RAILWAY_SEGMENTS_CACHE[routeSegmentId]) {
+                return RAILWAY_SEGMENTS_CACHE[routeSegmentId].lineFeature;
+            }
+            if (RAILWAY_SEGMENTS_CACHE['Ollantaytambo_AguasCalientes']) {
+                return RAILWAY_SEGMENTS_CACHE['Ollantaytambo_AguasCalientes'].lineFeature;
+            }
+            return null;
+        }
+
+        function getCachedSegmentDistanceKm(routeSegmentId, lineFeature) {
+            if (RAILWAY_SEGMENTS_CACHE[routeSegmentId] && RAILWAY_SEGMENTS_CACHE[routeSegmentId].totalDistanceKm > 0) {
+                return RAILWAY_SEGMENTS_CACHE[routeSegmentId].totalDistanceKm;
+            }
+            if (typeof turf !== 'undefined' && lineFeature) {
+                const dist = turf.length(lineFeature, { units: 'kilometers' });
+                RAILWAY_SEGMENTS_CACHE[routeSegmentId] = { lineFeature, totalDistanceKm: dist };
+                return dist;
+            }
+            return 43.0;
+        }
+
         async function cargarFerrocarrilPeruRail() {
             try {
-                const res = await fetch('/data/perurail_route.geojson');
+                let res = await fetch('/app/static/geo/railways_cusco.geojson');
+                if (!res.ok) {
+                    res = await fetch('/data/perurail_route.geojson');
+                }
                 const geojsonData = await res.json();
-                
+
+                // Pre-cachear cada segmento LineString y su longitud total con Turf.js una sola vez
+                if (geojsonData && Array.isArray(geojsonData.features)) {
+                    geojsonData.features.forEach(feat => {
+                        if (feat.geometry && feat.geometry.type === 'LineString') {
+                            const segId = (feat.properties && feat.properties.segment_id) || 'Full_Corridor_SanPedro_Hidroelectrica';
+                            const totalDistanceKm = (typeof turf !== 'undefined')
+                                ? turf.length(feat, { units: 'kilometers' })
+                                : 43.1;
+                            RAILWAY_SEGMENTS_CACHE[segId] = {
+                                lineFeature: feat,
+                                totalDistanceKm
+                            };
+                        }
+                    });
+                }
+
+                // Renderizar polilínea sólida sobre el terreno (Color: #FF9900, opacidad 0.6, estilo táctico)
                 L.geoJSON(geojsonData, {
+                    filter: function(feature) {
+                        if (feature.geometry.type === 'LineString') {
+                            return !feature.properties.segment_id || feature.properties.segment_id === 'Full_Corridor_SanPedro_Hidroelectrica';
+                        }
+                        return true;
+                    },
                     style: function(feature) {
                         if (feature.geometry.type === 'LineString') {
                             return {
-                                color: '#f59e0b',
-                                weight: 3.5,
-                                dashArray: '6, 6',
-                                opacity: 0.85
+                                color: '#FF9900',
+                                weight: 4,
+                                opacity: 0.6
                             };
                         }
                     },
                     pointToLayer: function(feature, latlng) {
                         return L.circleMarker(latlng, {
                             radius: 6,
-                            fillColor: '#fbbf24',
-                            color: '#78350f',
+                            fillColor: '#FF9900',
+                            color: '#0f172a',
                             weight: 2,
                             opacity: 1,
-                            fillOpacity: 0.9
+                            fillOpacity: 0.95
                         });
                     },
                     onEachFeature: function(feature, layer) {
                         if (feature.properties && feature.properties.name) {
-                            layer.bindPopup(`<span class="text-xs font-bold text-amber-400">${feature.properties.name}</span>`);
+                            const elevText = feature.properties.elevation ? ` • Elevación: ${feature.properties.elevation} m s.n.m.` : '';
+                            layer.bindPopup(`<span class="text-xs font-mono font-bold text-[#FF9900]">🚉 ${feature.properties.name}${elevText}</span>`);
                         }
                     }
                 }).addTo(layerGroups.railway);
             } catch (e) {
-                console.log('PeruRail GeoJSON loaded locally');
+                console.warn('Error cargando railways_cusco.geojson:', e);
             }
+        }
+
+        function crearIconoLocomotoraTactica3D(train, bearingDeg, progressPct) {
+            const isPeruRail = train.operator === 'PeruRail';
+            const badgeColor = isPeruRail ? '#FF9900' : '#22d3ee';
+            const borderHex = isPeruRail ? '#fbbf24' : '#06b6d4';
+
+            return L.divIcon({
+                className: 'geoint-train-hud-marker',
+                html: `
+                    <div style="position:relative;display:flex;flex-direction:column;align-items:center;cursor:pointer;">
+                        <div style="background:rgba(3,7,18,0.92);border:1.5px solid ${borderHex};color:${badgeColor};padding:1px 5px;border-radius:4px;font-family:monospace;font-size:8px;font-weight:900;white-space:nowrap;box-shadow:0 0 10px rgba(255,153,0,0.45);margin-bottom:2px;">
+                            🚂 ${train.train_id.split('-').slice(0,2).join('-')} • ${Math.round(progressPct)}%
+                        </div>
+                        <div style="position:relative;width:28px;height:28px;display:flex;align-items:center;justify-content:center;">
+                            <div style="width:24px;height:24px;border-radius:9999px;background:#0f172a;border:2px solid ${badgeColor};display:flex;align-items:center;justify-content:center;box-shadow:0 0 12px ${badgeColor};transform:rotate(${Math.round(bearingDeg)}deg);transition:transform 0.4s linear;">
+                                <svg viewBox="0 0 24 24" width="14" height="14" fill="${badgeColor}">
+                                    <path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                iconSize: [86, 44],
+                iconAnchor: [43, 30]
+            });
+        }
+
+        async function sincronizarPayloadsTrenesServidor() {
+            try {
+                const res = await fetch('/api/v1/geoint/layers/trains');
+                if (res.ok) {
+                    const data = await res.json();
+                    if (Array.isArray(data) && data.length > 0) {
+                        activeTrainsPayloads = data;
+                        return;
+                    }
+                }
+            } catch (err) {
+                console.warn('Usando respaldo local de itinerarios ferroviarios:', err);
+            }
+
+            if (activeTrainsPayloads.length === 0) {
+                const now = Date.now();
+                activeTrainsPayloads = [
+                    {
+                        train_id: 'PR-84P-Expedition',
+                        operator: 'PeruRail',
+                        service: 'Expedition 84',
+                        status: 'en_ruta',
+                        route_segment: 'Ollantaytambo_AguasCalientes',
+                        departure: { station: 'Ollantaytambo', timestamp_ms: now - 2400000 },
+                        arrival: { station: 'Aguas Calientes', timestamp_ms: now + 3000000 }
+                    },
+                    {
+                        train_id: 'IR-43-Voyager',
+                        operator: 'Inca Rail',
+                        service: 'The Voyager 43',
+                        status: 'en_ruta',
+                        route_segment: 'AguasCalientes_Ollantaytambo',
+                        departure: { station: 'Aguas Calientes', timestamp_ms: now - 1800000 },
+                        arrival: { station: 'Ollantaytambo', timestamp_ms: now + 3600000 }
+                    }
+                ];
+            }
+        }
+
+        function interpolarPosicionTrenesFrame() {
+            if (typeof turf === 'undefined' || !layerGroups.trains || activeTrainsPayloads.length === 0) return;
+            const now = Date.now();
+
+            activeTrainsPayloads.forEach((train) => {
+                const { train_id, route_segment, departure, arrival } = train;
+                const totalDuration = arrival.timestamp_ms - departure.timestamp_ms;
+                if (totalDuration <= 0) return;
+
+                // 1. Calcular el porcentaje del viaje completado
+                const elapsed = now - departure.timestamp_ms;
+                let progress = elapsed / totalDuration;
+                progress = Math.max(0, Math.min(1, progress)); // Clamp entre 0 y 1
+
+                // 2. Extraer la línea GeoJSON del segmento correspondiente y su longitud cacheada
+                const lineString = getRouteSegment(route_segment);
+                if (!lineString) return;
+                const totalDistance = getCachedSegmentDistanceKm(route_segment, lineString);
+
+                // 3. Obtener la coordenada exacta con turf.along()
+                const currentDistance = totalDistance * progress;
+                const currentPosition = turf.along(lineString, currentDistance, { units: 'kilometers' });
+                const [lng, lat] = currentPosition.geometry.coordinates;
+
+                // 4. Calcular el vector de rumbo (bearing) con turf.bearing() respecto a la posición anterior o un paso adelante
+                let bearingDeg = 300;
+                const prevCoords = trainPreviousCoordsById[train_id];
+                if (prevCoords && (prevCoords[0] !== lng || prevCoords[1] !== lat)) {
+                    bearingDeg = turf.bearing(turf.point(prevCoords), currentPosition);
+                } else {
+                    const lookAheadDist = Math.min(totalDistance, currentDistance + 0.35);
+                    const lookAheadPt = turf.along(lineString, lookAheadDist, { units: 'kilometers' });
+                    bearingDeg = turf.bearing(currentPosition, lookAheadPt);
+                }
+                trainPreviousCoordsById[train_id] = [lng, lat];
+
+                const progressPct = progress * 100;
+                const remainingMs = Math.max(0, arrival.timestamp_ms - now);
+                const etaMinutes = Math.ceil(remainingMs / 60000);
+
+                // Interpolación de elevación entre estaciones del valle
+                const startElev = departure.station.includes('Poroy') ? 3499 : (departure.station.includes('San Pedro') ? 3399 : (departure.station.includes('Ollantaytambo') ? 2792 : 2040));
+                const endElev = arrival.station.includes('Hidro') ? 1810 : (arrival.station.includes('Aguas Calientes') ? 2040 : 2792);
+                const currentElev = Math.round(startElev + (endElev - startElev) * progress);
+
+                trainInterpolatedStateById[train_id] = {
+                    payload: train,
+                    longitude: lng,
+                    latitude: lat,
+                    elevation: currentElev,
+                    bearingDeg,
+                    progressPct,
+                    distanceTraveledKm: currentDistance,
+                    totalDistanceKm: totalDistance,
+                    etaMinutes
+                };
+
+                const icon = crearIconoLocomotoraTactica3D(train, bearingDeg, progressPct);
+
+                if (trainMarkersById[train_id]) {
+                    trainMarkersById[train_id].setLatLng([lat, lng]);
+                    trainMarkersById[train_id].setIcon(icon);
+                } else {
+                    const marker = L.marker([lat, lng], { icon, zIndexOffset: 650 });
+                    marker.on('click', () => {
+                        seleccionarTrenEnHud(train_id, true);
+                    });
+                    marker.bindTooltip(
+                        `<div style="font-family:monospace;font-size:10px;"><b>🚂 ${train.train_id} (${train.operator})</b><br>${departure.station} ➔ ${arrival.station} • ETA: ${etaMinutes} min</div>`,
+                        { direction: 'top', offset: [0, -24] }
+                    );
+                    marker.addTo(layerGroups.trains);
+                    trainMarkersById[train_id] = marker;
+                }
+            });
+
+            actualizarHudTelemetriaTrenActivo();
+        }
+
+        function seleccionarTrenEnHud(trainId, flyToTrain = false) {
+            selectedTrainId = trainId;
+            const panel = document.getElementById('train-telemetry-hud-panel');
+            if (panel) panel.classList.remove('hidden');
+
+            const state = trainInterpolatedStateById[trainId];
+            if (state && flyToTrain && map) {
+                map.flyTo([state.latitude, state.longitude], Math.max(map.getZoom(), 12), { duration: 1.1 });
+            }
+            actualizarHudTelemetriaTrenActivo();
+        }
+
+        function actualizarHudTelemetriaTrenActivo() {
+            const panel = document.getElementById('train-telemetry-hud-panel');
+            if (!panel || panel.classList.contains('hidden')) return;
+
+            const state = trainInterpolatedStateById[selectedTrainId] || Object.values(trainInterpolatedStateById)[0];
+            if (!state) return;
+
+            const t = state.payload;
+            document.getElementById('train-hud-id').innerText = t.train_id;
+            document.getElementById('train-hud-service').innerText = `${t.operator} • ${t.service || t.train_id}`;
+            const badge = document.getElementById('train-hud-operator-badge');
+            if (badge) {
+                badge.innerText = `${t.operator.toUpperCase()} • EN RUTA`;
+                badge.className = t.operator === 'PeruRail'
+                    ? 'px-2 py-0.5 rounded bg-[#FF9900] text-slate-950 text-[9px] font-black uppercase'
+                    : 'px-2 py-0.5 rounded bg-cyan-400 text-slate-950 text-[9px] font-black uppercase';
+            }
+
+            document.getElementById('train-hud-origin').innerText = t.departure.station;
+            document.getElementById('train-hud-dest').innerText = t.arrival.station;
+            document.getElementById('train-hud-progress-label').innerText =
+                `Progreso: ${state.progressPct.toFixed(1)}% (${state.distanceTraveledKm.toFixed(1)} / ${state.totalDistanceKm.toFixed(1)} km)`;
+            document.getElementById('train-hud-eta').innerText = `ETA: ${state.etaMinutes} min`;
+            document.getElementById('train-hud-progress-bar').style.width = `${state.progressPct.toFixed(1)}%`;
+            document.getElementById('train-hud-coords').innerText =
+                `LAT: ${state.latitude.toFixed(4)} • LON: ${state.longitude.toFixed(4)} • ELEV: ${state.elevation.toLocaleString()}m`;
+            document.getElementById('train-hud-bearing').innerText = `RUMBO: ${Math.round((state.bearingDeg + 360) % 360)}°`;
+
+            const adviceEl = document.getElementById('train-hud-operator-advice');
+            if (adviceEl) {
+                adviceEl.innerHTML = t.arrival.station.includes('Aguas Calientes')
+                    ? `💡 <b>Acción Operador:</b> Arribo a Aguas Calientes en <b>${state.etaMinutes} min</b>. Posicionar guía en andén de salida y validar fila de buses CONSETTUR hacia la Llaqta.`
+                    : `💡 <b>Acción Operador:</b> Arribo a <b>${t.arrival.station}</b> en <b>${state.etaMinutes} min</b>. Tener lista unidad Sprinter de retorno a hoteles en Cusco / Valle Sagrado.`;
+            }
+
+            const fleetList = document.getElementById('train-hud-fleet-list');
+            if (fleetList) {
+                fleetList.innerHTML = Object.values(trainInterpolatedStateById).map(st => {
+                    const isSel = st.payload.train_id === state.payload.train_id;
+                    return `
+                        <div onclick="seleccionarTrenEnHud('${st.payload.train_id}', true)"
+                            class="p-1.5 rounded-lg cursor-pointer transition-all flex items-center justify-between ${isSel ? 'bg-amber-500/20 border border-[#FF9900]' : 'bg-slate-900 hover:bg-slate-800 border border-slate-800'}">
+                            <div>
+                                <span class="font-bold text-white">${st.payload.train_id}</span>
+                                <span class="text-[8.5px] text-slate-400 block">${st.payload.departure.station} ➔ ${st.payload.arrival.station}</span>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-[#FF9900] font-bold">${st.progressPct.toFixed(0)}%</span>
+                                <span class="text-emerald-400 text-[8px] block">ETA ${st.etaMinutes}m</span>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+        }
+
+        function cerrarPanelTelemetriaTren() {
+            const panel = document.getElementById('train-telemetry-hud-panel');
+            if (panel) panel.classList.add('hidden');
+        }
+
+        function enfocarFlotaFerroviaria() {
+            const cb = document.getElementById('layer-trains');
+            if (cb && !cb.checked) {
+                cb.checked = true;
+                toggleLayer('trains');
+            }
+            const panel = document.getElementById('train-telemetry-hud-panel');
+            if (panel) panel.classList.remove('hidden');
+            map.flyTo([-13.2150, -72.3850], 11, { duration: 1.2 });
+            actualizarHudTelemetriaTrenActivo();
+        }
+
+        async function iniciarRastreoTrenesTurfJS() {
+            await sincronizarPayloadsTrenesServidor();
+            interpolarPosicionTrenesFrame();
+
+            // Bucle de interpolación ligera de 1 segundo con Turf.js (sin recalcular longitudes GeoJSON)
+            if (trainInterpolationInterval) clearInterval(trainInterpolationInterval);
+            trainInterpolationInterval = setInterval(() => {
+                interpolarPosicionTrenesFrame();
+            }, 1000);
+
+            // Re-sincronizar con /api/v1/geoint/layers/trains cada 30 segundos
+            setInterval(() => {
+                sincronizarPayloadsTrenesServidor();
+            }, 30000);
         }
 
         // 3. CARGAR RADAR METEOROLÓGICO RAINVIEWER (PRECIPITACIÓN EN TIEMPO REAL)

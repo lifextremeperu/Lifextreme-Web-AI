@@ -6,6 +6,10 @@
         {
             "source": "/api/v1/geoint/layers/webcams",
             "destination": "/api/windy-webcams.js"
+        },
+        {
+            "source": "/api/v1/geoint/layers/trains",
+            "destination": "/api/trains-telemetry.js"
         }
     ],
     "headers": [
