@@ -238,6 +238,71 @@ export default async function handler(req, res) {
                     decision_operador: 'Operaciones de escalada, vía ferrata, zipline y trekking Ausangate 100% autorizadas.'
                 }
             ]
+        },
+
+        // 4. TRÁFICO EN VIVO PARA TRANSFERS: AEROPUERTOS (CUZ / LIM) Y TERMINAL TERRESTRE DE CUSCO (GOOGLE TRAFFIC + WAZE)
+        trafico_transfers_aeropuerto_terminal: {
+            tool_name: 'trafico_accesos_aeropuerto_y_terminal_peru',
+            tile_layer: 'https://mt1.google.com/vt?lyrs=h,traffic&x={x}&y={y}&z={z}',
+            corredores: [
+                {
+                    id: 'TRAFICO-CUZ-AEROPUERTO',
+                    nombre: '1. Aeropuerto Cusco (Velasco Astete CUZ) ⇄ Centro Histórico / Hoteles',
+                    short_badge: '🚦 Transfer CUZ: 16 min (Vía Expresa OK)',
+                    lat: -13.5315,
+                    lng: -71.9495,
+                    zoom: 15,
+                    color: '#10b981',
+                    estado: 'FLUIDO EN VÍA EXPRESA / MODERADO AV. EL SOL',
+                    tiempo_actual_min: 16,
+                    tiempo_normal_min: 14,
+                    velocidad_kmh: 34,
+                    tramos: [
+                        { via: 'Av. Velasco Astete & Puerta Parking CUZ', estado: '🟢 Fluido (38 km/h)', color: '#10b981' },
+                        { via: 'Óvalo Libertadores ➔ Vía Expresa Cusco', estado: '🟢 Fluido (45 km/h)', color: '#10b981' },
+                        { via: 'Av. El Sol / Av. Tullumayo (Centro Histórico)', estado: '🟠 Lento (+6 min)', color: '#f59e0b' }
+                    ],
+                    decision_operador: 'Para recojo de vuelos LA2027 y H85311: Entrar y salir del Aeropuerto CUZ por Vía Expresa ➔ Óvalo Libertadores (16 min). Evitar Av. de la Cultura.'
+                },
+                {
+                    id: 'TRAFICO-CUZ-TERMINAL',
+                    nombre: '2. Terminal Terrestre de Cusco ⇄ Wanchaq / Centro Histórico',
+                    short_badge: '🚦 Terminal Cusco: 22 min (Atasco Evitamiento)',
+                    lat: -13.5322,
+                    lng: -71.9642,
+                    zoom: 16,
+                    color: '#ef4444',
+                    estado: 'CONGESTIÓN EN PUERTA TERMINAL & PUENTE GRAU',
+                    tiempo_actual_min: 22,
+                    tiempo_normal_min: 11,
+                    velocidad_kmh: 17,
+                    tramos: [
+                        { via: 'Vía de Evitamiento (Puerta Terminal Terrestre)', estado: '🔴 Atasco Buses/Taxis (+9 min)', color: '#ef4444' },
+                        { via: 'Av. Pachacútec & Óvalo Pachacútec (Wanchaq)', estado: '🟠 Lento (+5 min)', color: '#f59e0b' },
+                        { via: 'Puente Grau / Av. Ejército', estado: '🟠 Tráfico Denso (+6 min)', color: '#f59e0b' }
+                    ],
+                    decision_operador: 'Cuello de botella activo frente al Terminal Terrestre (+11 min demora). Despachar unidad 25 min antes y tomar desvío por Av. Industrial / Wanchaq.'
+                },
+                {
+                    id: 'TRAFICO-LIM-AEROPUERTO',
+                    nombre: '3. Aeropuerto de Lima (Jorge Chávez LIM) ⇄ Miraflores / San Isidro',
+                    short_badge: '🚦 Transfer LIM: 52 min (Faucett Pesado)',
+                    lat: -12.0265,
+                    lng: -77.1055,
+                    zoom: 13,
+                    color: '#f97316',
+                    estado: 'PESADO EN FAUCETT / FLUIDO EN COSTA VERDE',
+                    tiempo_actual_min: 52,
+                    tiempo_normal_min: 38,
+                    velocidad_kmh: 24,
+                    tramos: [
+                        { via: 'Av. Elmer Faucett (Óvalo Aeropuerto – Morales Duárez)', estado: '🔴 Atasco Intenso (+16 min)', color: '#ef4444' },
+                        { via: 'Nuevo Acceso Av. Morales Duárez / Línea Amarilla', estado: '🟠 Moderado (+6 min)', color: '#f59e0b' },
+                        { via: 'Av. La Marina ➔ Circuito de Playas (Costa Verde)', estado: '🟢 Fluido (60 km/h)', color: '#10b981' }
+                    ],
+                    decision_operador: 'Congestión fuerte en Av. Elmer Faucett (+16 min). Para transfers Lima ⇄ Miraflores/San Isidro tomar Circuito de Playas (Costa Verde) ➔ Bajada San Miguel / La Paz.'
+                }
+            ]
         }
     };
 

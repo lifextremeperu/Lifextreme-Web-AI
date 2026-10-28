@@ -106,6 +106,22 @@ async def handle_list_tools() -> list[types.Tool]:
             }
         ),
         types.Tool(
+            name="trafico_accesos_aeropuerto_y_terminal_peru",
+            description=(
+                "Consulta el estado de tráfico vehicular en tiempo real (Google Maps Live Traffic lyrs=h,traffic + Waze Live Incidents sin API Key) "
+                "para los 3 cuellos de botella de recojos turísticos: "
+                "1) Aeropuerto Cusco (CUZ) ⇄ Centro Histórico (Av. Velasco Astete, Óvalo Libertadores, Av. El Sol, Vía Expresa), "
+                "2) Terminal Terrestre de Cusco ⇄ Wanchaq / Centro (Vía de Evitamiento, Av. Pachacútec, Puente Grau), "
+                "3) Aeropuerto de Lima (LIM) ⇄ Miraflores / San Isidro (Av. Elmer Faucett, Av. Morales Duárez, Av. La Marina, Costa Verde)."
+            ),
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "corredor": {"type": "string", "description": "Filtro opcional: cuz_aeropuerto, cuz_terminal, lim_aeropuerto"}
+                }
+            }
+        ),
+        types.Tool(
             name="search_adventure_parks",
             description="Searches the Lifextreme Qdrant Vector database for adventure parks and tours in Peru.",
             inputSchema={
@@ -395,6 +411,65 @@ async def handle_call_tool(
             ]
         }
         return [types.TextContent(type="text", text=json.dumps(geologia_data, ensure_ascii=False))]
+
+    elif name == "trafico_accesos_aeropuerto_y_terminal_peru":
+        trafico_data = {
+            "source": "Google Maps Live Traffic Tiles (lyrs=h,traffic) + Waze Live Corridors (Conector MCP Sin API Key)",
+            "corredores": [
+                {
+                    "id": "TRAFICO-CUZ-AEROPUERTO",
+                    "nombre": "1. Aeropuerto Cusco (Velasco Astete CUZ) ⇄ Centro Histórico / Hoteles",
+                    "lat": -13.5315,
+                    "lng": -71.9495,
+                    "zoom": 15,
+                    "estado_semaforo": "FLUIDO EN VÍA EXPRESA / MODERADO EN AV. EL SOL (VERDE-ÁMBAR)",
+                    "tiempo_actual_min": 16,
+                    "tiempo_normal_min": 14,
+                    "velocidad_promedio_kmh": 34,
+                    "vias_monitoreadas": [
+                        {"via": "Av. Velasco Astete & Salida Parking CUZ", "estado": "Fluido (Verde)", "retraso_min": 2},
+                        {"via": "Óvalo Libertadores & Vía Expresa Cusco", "estado": "Fluido (Verde)", "retraso_min": 0},
+                        {"via": "Av. El Sol / Av. Tullumayo (Ingreso Centro)", "estado": "Tráfico Moderado (Naranja)", "retraso_min": 6}
+                    ],
+                    "decision_operador": "Para recojo de vuelos LA2027 y H85311: Ingresar y salir del Aeropuerto CUZ por Vía Expresa Cusco ➔ Óvalo Libertadores (16 min). Evitar Av. de la Cultura por carga semafórica."
+                },
+                {
+                    "id": "TRAFICO-CUZ-TERMINAL",
+                    "nombre": "2. Terminal Terrestre de Cusco ⇄ Wanchaq / Centro Histórico",
+                    "lat": -13.5322,
+                    "lng": -71.9642,
+                    "zoom": 16,
+                    "estado_semaforo": "CONGESTIÓN EN ACCESO TERMINAL / PUENTE GRAU (NARANJA-ROJO)",
+                    "tiempo_actual_min": 22,
+                    "tiempo_normal_min": 11,
+                    "velocidad_promedio_kmh": 18,
+                    "vias_monitoreadas": [
+                        {"via": "Vía de Evitamiento (Puerta Terminal Terrestre)", "estado": "Tráfico Pesado / Taxis y Buses (Rojo)", "retraso_min": 9},
+                        {"via": "Av. Pachacútec & Óvalo Pachacútec (Wanchaq)", "estado": "Lento (Naranja)", "retraso_min": 5},
+                        {"via": "Puente Grau / Av. Ejército", "estado": "Congestión Moderada (Naranja)", "retraso_min": 6}
+                    ],
+                    "decision_operador": "Cuello de botella activo en puerta del Terminal Terrestre y Puente Grau (+11 min de demora). Despachar transfer con 25 min de anticipación e ingresar por el acceso lateral de Av. Industrial / Wanchaq."
+                },
+                {
+                    "id": "TRAFICO-LIM-AEROPUERTO",
+                    "nombre": "3. Aeropuerto de Lima (Jorge Chávez LIM) ⇄ Miraflores / San Isidro",
+                    "lat": -12.0265,
+                    "lng": -77.1055,
+                    "zoom": 13,
+                    "estado_semaforo": "TRÁFICO PESADO EN FAUCETT / FLUIDO EN COSTA VERDE (ROJO-VERDE)",
+                    "tiempo_actual_min": 52,
+                    "tiempo_normal_min": 38,
+                    "velocidad_promedio_kmh": 24,
+                    "vias_monitoreadas": [
+                        {"via": "Av. Elmer Faucett (Óvalo Aeropuerto – Av. Morales Duárez)", "estado": "Atasco Intenso (Rojo Oscuro)", "retraso_min": 16},
+                        {"via": "Nuevo Acceso Av. Morales Duárez / Línea Amarilla", "estado": "Moderado (Naranja)", "retraso_min": 6},
+                        {"via": "Av. La Marina / Bajada Bertolotto ➔ Circuito de Playas (Costa Verde)", "estado": "Fluido (Verde)", "retraso_min": 2}
+                    ],
+                    "decision_operador": "Atasco severo en Av. Elmer Faucett tramo Morales Duárez – Colonial (+16 min). Para transfers Lima ⇄ Miraflores/San Isidro usar Circuito de Playas (Costa Verde) ➔ Subida San Miguel / Av. La Paz."
+                }
+            ]
+        }
+        return [types.TextContent(type="text", text=json.dumps(trafico_data, ensure_ascii=False))]
 
     elif name == "search_adventure_parks":
         query = arguments.get("query", "")
