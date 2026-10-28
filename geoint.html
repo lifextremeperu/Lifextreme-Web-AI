@@ -745,42 +745,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- CONTROLES FLOTANTES DEL MAPA -->
-            <div class="absolute bottom-4 left-4 z-20 flex flex-wrap items-center gap-2">
-                <button onclick="setMapBase('satellite')" id="btn-mode-sat"
-                    class="px-3 py-1.5 rounded-xl bg-emerald-500 text-slate-950 text-xs font-mono font-bold shadow-lg shadow-emerald-500/20 border border-emerald-400">
-                    🛰️ Satélite HD
-                </button>
-                <button onclick="setMapBase('dark')" id="btn-mode-dark"
-                    class="px-3 py-1.5 rounded-xl bg-slate-900/90 text-slate-300 text-xs font-mono font-bold hover:text-white border border-slate-700 shadow-lg">
-                    🌑 Táctico
-                </button>
-                <button onclick="toggleModoRadarAereoNacional()" id="btn-mode-fr24"
-                    class="px-3 py-1.5 rounded-xl bg-amber-400 text-slate-950 text-xs font-mono font-black hover:bg-amber-300 border border-amber-300 shadow-lg flex items-center gap-1">
-                    ✈️ Radar Vuelos Perú
-                </button>
-                <button onclick="enfocarFlotaFerroviaria()" id="btn-mode-trains"
-                    class="px-3 py-1.5 rounded-xl bg-[#FF9900] text-slate-950 text-xs font-mono font-black hover:bg-amber-400 border border-amber-300 shadow-lg flex items-center gap-1">
-                    🚂 Trenes PeruRail / Inca Rail
-                </button>
-                <button onclick="sintonizarCamara(4)" id="btn-mode-sutran"
-                    class="px-3 py-1.5 rounded-xl bg-[#003893] text-white text-xs font-mono font-black hover:bg-blue-700 border border-blue-400 shadow-lg flex items-center gap-1">
-                    🛣️ Mapa Alertas SUTRAN
-                </button>
-                <button onclick="enfocarFocosCalorNASAFIRMS()" id="btn-mode-firms"
-                    class="px-3 py-1.5 rounded-xl bg-orange-600/95 text-white text-xs font-mono font-black hover:bg-orange-500 border border-orange-400 shadow-lg flex items-center gap-1">
-                    🔥 NASA FIRMS (Incendios)
-                </button>
-                <button onclick="alternarBandaGOES16()" id="btn-mode-goes16"
-                    class="px-3 py-1.5 rounded-xl bg-indigo-700/95 text-white text-xs font-mono font-black hover:bg-indigo-600 border border-indigo-400 shadow-lg flex items-center gap-1">
-                    🌩️ GOES-16 (IR / Vapor Agua)
-                </button>
-                <button onclick="enfocarCapaWindyWebcams()" id="btn-mode-windy"
-                    class="px-3 py-1.5 rounded-xl bg-cyan-500 text-slate-950 text-xs font-mono font-black hover:bg-cyan-400 border border-cyan-300 shadow-lg flex items-center gap-1">
-                    📹 Webcams Windy v3
-                </button>
-            </div>
         </div>
 
         <!-- ======================================================== -->
@@ -3349,12 +3313,18 @@
             map.removeLayer(baseLayers[currentBase]);
             baseLayers[base].addTo(map);
             currentBase = base;
-            document.getElementById('btn-mode-sat').className = base === 'satellite' ? 
-                "px-3 py-1.5 rounded-xl bg-emerald-500 text-slate-950 text-xs font-mono font-bold shadow-lg shadow-emerald-500/20 border border-emerald-400" :
-                "px-3 py-1.5 rounded-xl bg-slate-900/90 text-slate-300 text-xs font-mono font-bold hover:text-white border border-slate-700 shadow-lg";
-            document.getElementById('btn-mode-dark').className = base === 'dark' ? 
-                "px-3 py-1.5 rounded-xl bg-emerald-500 text-slate-950 text-xs font-mono font-bold shadow-lg shadow-emerald-500/20 border border-emerald-400" :
-                "px-3 py-1.5 rounded-xl bg-slate-900/90 text-slate-300 text-xs font-mono font-bold hover:text-white border border-slate-700 shadow-lg";
+            const btnSat = document.getElementById('btn-mode-sat');
+            const btnDark = document.getElementById('btn-mode-dark');
+            if (btnSat) {
+                btnSat.className = base === 'satellite' ? 
+                    "px-3 py-1.5 rounded-xl bg-emerald-500 text-slate-950 text-xs font-mono font-bold shadow-lg shadow-emerald-500/20 border border-emerald-400" :
+                    "px-3 py-1.5 rounded-xl bg-slate-900/90 text-slate-300 text-xs font-mono font-bold hover:text-white border border-slate-700 shadow-lg";
+            }
+            if (btnDark) {
+                btnDark.className = base === 'dark' ? 
+                    "px-3 py-1.5 rounded-xl bg-emerald-500 text-slate-950 text-xs font-mono font-bold shadow-lg shadow-emerald-500/20 border border-emerald-400" :
+                    "px-3 py-1.5 rounded-xl bg-slate-900/90 text-slate-300 text-xs font-mono font-bold hover:text-white border border-slate-700 shadow-lg";
+            }
         }
 
         // =========================================================================
