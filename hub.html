@@ -4,6 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lifextreme Universal Hub | Acceso Maestro al Ecosistema</title>
+    <meta name="robots" content="noindex, nofollow, noarchive">
+    <script>
+        // ACCESO PRIVADO: el Hub solo abre con el enlace secreto (?acceso=CLAVE).
+        // Vercel (vercel.json) redirige a "/" a quien llegue sin la clave ni la cookie.
+        (function () {
+            var KEY = 'lfx-equipo-7Q4mZ9xR';
+            var params = new URLSearchParams(window.location.search);
+            if (params.get('acceso') === KEY) {
+                document.cookie = 'lx_hub=' + KEY + '; path=/; max-age=' + (60 * 60 * 24 * 30) + '; SameSite=Lax; Secure';
+                history.replaceState(null, '', window.location.pathname);
+            }
+        })();
+    </script>
     <meta name="description" content="Portal de acceso genérico y autenticación unificada para los 3 pilares del ecosistema Lifextreme: Reservas Web AI, Studio Creativo de Publicidad y Centro Geoespacial 3D.">
     <link rel="icon" type="image/png" href="assets/img/logo.png">
 

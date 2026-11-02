@@ -2,6 +2,17 @@
     "outputDirectory": ".",
     "cleanUrls": true,
     "trailingSlash": false,
+    "redirects": [
+        {
+            "source": "/hub(.html)?",
+            "missing": [
+                { "type": "query", "key": "acceso", "value": "lfx-equipo-7Q4mZ9xR" },
+                { "type": "cookie", "key": "lx_hub", "value": "lfx-equipo-7Q4mZ9xR" }
+            ],
+            "destination": "/",
+            "permanent": false
+        }
+    ],
     "rewrites": [
         {
             "source": "/api/v1/geoint/layers/webcams",

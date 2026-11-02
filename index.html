@@ -353,7 +353,7 @@
         script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://www.googletagmanager.com https://js.stripe.com https://static.readdy.ai https://cdn.jsdelivr.net; 
         style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdn.jsdelivr.net https://fonts.googleapis.com; 
         img-src 'self' data: blob: https:; 
-        connect-src 'self' http://localhost:* ws://localhost:* https://max.lifextreme.store wss://max.lifextreme.store https://hub-cusco-2026.tail883d62.ts.net https://desktop-sedhoop.tail883d62.ts.net https://*.supabase.co https://www.google-analytics.com https://stats.g.doubleclick.net https://*.readdy.ai https://ipapi.co https://api.open-meteo.com https://cdn.jsdelivr.net https:;
+        connect-src 'self' https://max.lifextreme.store wss://max.lifextreme.store https://*.supabase.co https://www.google-analytics.com https://stats.g.doubleclick.net https://*.readdy.ai https://ipapi.co https://api.open-meteo.com https://cdn.jsdelivr.net https:;
         font-src 'self' data: https://cdn.jsdelivr.net https://fonts.gstatic.com;
         frame-src 'self' https://js.stripe.com https://www.youtube.com https://www.google.com https://maps.google.com;">
     <title>Turismo de Aventura en Peru | Lifextreme</title>
@@ -871,13 +871,6 @@
                     <span class="font-black text-[9px] uppercase tracking-wider">Partners</span>
                     <span class="px-1.5 py-0.5 rounded bg-secondary text-white text-[7px] font-black uppercase">PRO</span>
                 </a>
-                <!-- UNIVERSAL HUB LOGIN -->
-                <a href="hub.html"
-                    class="group flex items-center gap-1.5 bg-slate-900 hover:bg-slate-800 text-cyan-400 hover:text-cyan-300 px-2.5 py-1.5 rounded-xl border border-cyan-500/30 transition-all whitespace-nowrap shrink-0 shadow-sm">
-                    <i class="ri-key-2-line text-xs text-cyan-400"></i>
-                    <span class="font-black text-[9px] uppercase tracking-wider">Hub Login</span>
-                    <span class="px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 text-[7px] font-black uppercase">3-in-1</span>
-                </a>
             </nav>
 
             <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
@@ -1051,8 +1044,6 @@
             <div class="container mx-auto px-4 sm:px-6 relative z-10">
                 <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-16 lg:mb-24">
                     <div class="text-center lg:text-left text-slate-900">
-                        <span data-i18n="hero_tag"
-                            class="bg-amber-100 text-amber-800 px-4 py-2 rounded-full text-[9px] font-black uppercase tracking-[0.25em] mb-6 inline-block italic border border-amber-300 shadow-sm">🔥 LA TRIBU MÁS EXTREMA DEL PERÚ • GUÍAS UIAGM • +15,000 EXPEDICIONARIOS</span>
                         <h1 class="text-4xl sm:text-5xl lg:text-6xl 2xl:text-7xl font-black text-slate-950 leading-[0.95] mb-6 tracking-tighter italic">
                             <span data-i18n="hero_title_1">EXPLORA, VIVE,</span> <br>
                             <span data-i18n="hero_title_2" class="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-amber-500 to-rose-600 pr-3 inline-block">VIAJA.</span>
@@ -5316,7 +5307,7 @@
                         // f) Error Handling
                         btn.disabled = false;
                         btn.innerHTML = originalContent;
-                        alert('Hubo un error al activar tu cuenta. Por favor intenta nuevamente.');
+                        alert('Hubo un error al activar tu cuenta. Por favor intenta nuevamente o escríbenos al WhatsApp +51 958 050 928.');
                     }
                 });
             }
@@ -5463,7 +5454,13 @@
                 submitBtn.classList.add('bg-slate-900');
                 submitBtn.innerHTML = '<i class="ri-check-double-line text-lg"></i> Solicitud Enviada';
 
-                if (window.showToast) window.showToast('Solicitud Registrada', 'El guía confirmará tu fecha en WhatsApp', 'ri-user-star-fill');
+                if (result.success) {
+                    if (window.showToast) window.showToast('Solicitud Registrada', 'El guía confirmará tu fecha en WhatsApp', 'ri-user-star-fill');
+                } else {
+                    // La solicitud no quedó en el CRM: el cierre continúa por WhatsApp, sin fingir persistencia.
+                    console.warn('⚠️ Solicitud de guía no guardada en el CRM; cierre continúa por WhatsApp');
+                    if (window.showToast) window.showToast('Cierre por WhatsApp', 'Continúa tu solicitud directamente con el guía', 'ri-user-star-fill');
+                }
 
                 // 5. WhatsApp Redirect (The final step)
                 const msg = `Hola ${guideName}! 🏔️ Soy ${clientName}. He enviado una solicitud de reserva (ID: ${result.data?.[0]?.id || 'WEB'}).\n\n📋 *Tipo:* ${tourType}\n💎 *Nivel:* ${serviceLevel}\n📅 *Fecha:* ${date}\n📞 *Contacto:* ${clientPhone}\n\nEspero confirmación de disponibilidad para proceder.`;
