@@ -1384,8 +1384,8 @@ function renderAll(region = 'Todos', category = 'Todos') {
                             <i class="ri-shield-flash-line text-emerald-600"></i> Reserva con 20% • Saldo en destino
                         </div>
                     </div>
-                    <div class="w-11 h-11 rounded-2xl bg-orange-50 text-orange-600 group-hover:bg-gradient-to-r group-hover:from-amber-500 group-hover:to-orange-600 group-hover:text-white flex items-center justify-center transition-all shadow-sm">
-                        <i class="ri-arrow-right-line text-xl group-hover:translate-x-0.5 transition-transform"></i>
+                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950 font-black shadow-md shadow-orange-500/20 group-hover:from-amber-300 group-hover:to-orange-400 group-hover:scale-105 flex items-center justify-center transition-all shadow-sm">
+                        <i class="ri-arrow-right-line text-xl text-slate-950 font-black group-hover:translate-x-0.5 transition-transform"></i>
                     </div>
                 </div>
             </div>
