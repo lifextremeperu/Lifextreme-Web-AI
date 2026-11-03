@@ -87,9 +87,10 @@ export async function createGuideBooking(bookingData) {
         console.log('✅ Solicitud de guía guardada:', data);
         return { success: true, data };
     } catch (error) {
-        console.warn('⚠️ Error guardando solicitud (Usando fallback local):', error);
-        // Fallback: Simulamos éxito para no romper flow del usuario si no hay tabla
-        return { success: true, mock: true };
+        console.error('❌ Error guardando solicitud de guía en Supabase:', error);
+        // NO simulamos éxito: el caller continúa el cierre por WhatsApp (canal real),
+        // pero sabe que la solicitud NO quedó registrada en el CRM.
+        return { success: false, error };
     }
 }
 
@@ -186,8 +187,9 @@ export async function createEliteProfile(profileData) {
         return { success: true, profile: data[0] }
     } catch (error) {
         console.error('❌ Error registrando socio Elite:', error)
-        // Fallback: Si falla Supabase, devolvemos éxito simulado para no romper UX (pero logueamos error)
-        return { success: true, warning: 'Offline mode', error }
+        // Honesto: si Supabase falla, el caller debe mostrar el error real
+        // y ofrecer el canal de recuperación por WhatsApp (+51 958 050 928).
+        return { success: false, error }
     }
 }
 

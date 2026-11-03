@@ -5,7 +5,9 @@
     "type": "module",
     "scripts": {
         "build": "tailwindcss -i ./css/input.css -o ./css/output.css --minify",
-        "dev": "tailwindcss -i ./css/input.css -o ./css/output.css --watch"
+        "dev": "tailwindcss -i ./css/input.css -o ./css/output.css --watch",
+        "test:rag": "npx --yes promptfoo@0.100.0 eval --no-write -j 1 -o eval_results.html",
+        "test:view": "npx --yes promptfoo@0.100.0 view"
     },
     "dependencies": {
         "@google/generative-ai": "^0.21.0",

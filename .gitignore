@@ -126,3 +126,8 @@ SUPABASE_CREDENTIALS.md
 auditoria/
 data/*_availability.json
 data/commercial_feasibility.json
+data/pdfs_publicos/*.pdf
+data/pdfs_publicos/*.part
+
+.promptfoo/
+eval_results.html

@@ -47,3 +47,34 @@ data/blog/*
 !data/blog/articles
 data/blog/articles/*
 !data/blog/articles/*.md
+
+# ═══════════════════════════════════════════════════════════════════════
+# HARDENING PRODUCCIÓN (auditoría 30-Oct-2026)
+# NUNCA desplegar al CDN público: páginas de administración con SERVICE KEY,
+# páginas de prueba/debug y datos protegidos de terceros.
+# Motivo legal: los CSV de prospectos B2B contienen emails de terceros.
+# Motivo de seguridad: admin-setup.html y create-partner.html exponen la
+#   sb_secret de Supabase en el código fuente del CDN.
+# ═══════════════════════════════════════════════════════════════════════
+
+# Páginas de administración e intégración supabase-service (investor-brain* quedan públicas:
+# no contienen credenciales y están enlazadas desde investors.html)
+admin-setup.html
+admin-brain.html
+lifextreme_admin_portal.html
+eliminar-datos.html
+
+# Páginas de login/test/debug del root
+login.html
+test.html
+test-blog.html
+test-supabase.html
+test_alpaca.html
+demo_pareja.html
+create-partner.html
+
+# Secretos y datos protegidos (defensa en profundidad además de *.csv / *.sql / *.md ya excluidos)
+Lifextreme_B2B_Prospects*.csv
+B2B_Prospectos*.csv
+agencias_emails_reporte.md
+SUPABASE_CREDENTIALS.md
