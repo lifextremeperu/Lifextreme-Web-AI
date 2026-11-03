@@ -825,14 +825,24 @@
     <!-- HEADER MASTER -->
     <header class="glass-header shadow-sm fixed top-0 w-full z-[1000]">
         <div class="container mx-auto px-3 sm:px-6 py-3 flex justify-between items-center gap-2">
-            <a href="#" onclick="navigateTo('home')" class="flex items-center group shrink-0">
-                <div
-                    class="w-9 h-9 lg:w-10 lg:h-10 bg-primary rounded-2xl flex items-center justify-center text-white shadow-xl group-hover:rotate-12 transition-all">
-                    <i class="ri-flashlight-fill text-lg lg:text-xl"></i>
+            <a href="#" onclick="navigateTo('home')" class="flex items-center group shrink-0" title="Lifextreme - Motor IA de Aventura en Perú">
+                <!-- ISOTIPO EVOLUCIONADO 10X (Cumbre Andina + Vector Solar Táctico) -->
+                <div class="relative w-9 h-9 lg:w-10 lg:h-10 rounded-2xl bg-gradient-to-br from-amber-400 via-orange-500 to-amber-600 flex items-center justify-center text-slate-950 shadow-md shadow-orange-500/25 group-hover:scale-105 group-hover:shadow-orange-500/40 transition-all border border-amber-300/40">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" class="transition-transform group-hover:-translate-y-0.5 duration-300">
+                        <!-- Cumbre Andina Principal -->
+                        <path d="M12 3L2 20H22L12 3Z" fill="currentColor" fill-opacity="0.15"/>
+                        <path d="M12 3L3.5 19H20.5L12 3Z" stroke="#090d16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <!-- Cima de Hielo / Nieve -->
+                        <path d="M12 3L9 9L12 8L15 9L12 3Z" fill="#ffffff" stroke="#090d16" stroke-width="1.2"/>
+                        <!-- Destello Solar / Brújula de Expedición -->
+                        <circle cx="12" cy="14" r="2.2" fill="#090d16"/>
+                        <path d="M12 11.8V16.2M9.8 14H14.2" stroke="#f59e0b" stroke-width="1.2" stroke-linecap="round"/>
+                    </svg>
                 </div>
-                <div class="logo-font ml-2 leading-none select-none">
-                    <span class="text-slate-900 font-normal text-base sm:text-lg lg:text-xl tracking-tight">LIFE</span><span
-                        class="logo-gradient font-black text-base sm:text-lg lg:text-xl tracking-tighter italic pr-1">XTREME</span>
+                <div class="logo-font ml-2.5 leading-none select-none">
+                    <span class="text-slate-950 font-black text-base sm:text-lg lg:text-xl tracking-tight">LIFE</span><span
+                        class="font-black text-base sm:text-lg lg:text-xl tracking-tighter italic pr-1 text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600">XTREME</span>
+                    <span class="block text-[6.5px] font-black uppercase tracking-[0.25em] text-slate-400 group-hover:text-amber-500 transition-colors">Outdoor AI • Perú</span>
                 </div>
             </a>
 
@@ -1049,7 +1059,7 @@
                             <span data-i18n="hero_title_2" class="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-amber-500 to-rose-600 pr-3 inline-block">VIAJA.</span>
                         </h1>
                         <p class="text-md lg:text-lg text-slate-600 font-medium mb-10 max-w-lg mx-auto lg:mx-0 leading-relaxed"
-                            data-i18n="hero_desc">Lifextreme es un motor de inteligencia artificial vertical potenciado con agentes geoespaciales especializado en turismo de aventura y expedición en Perú. ¡Únete a la tribu!</p>
+                            data-i18n="hero_desc">El motor de inteligencia artificial que coordina tu próxima cumbre en Perú: expediciones con guías acreditados, reservas flexibles, equipamiento técnico y alertas satelitales en tiempo real. ¡Únete a la tribu!</p>
                         <div class="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start">
                             <button onclick="document.getElementById('home-destinos-container').scrollIntoView({behavior: 'smooth'})" data-i18n="btn_explore"
                                 class="bg-gradient-to-r from-amber-400 via-orange-500 to-amber-500 hover:brightness-110 text-slate-950 px-8 py-4 sm:px-10 sm:py-5 rounded-3xl font-black uppercase text-[10px] tracking-widest shadow-xl hover:shadow-2xl transition-all flex items-center justify-center gap-2 cursor-pointer">
@@ -1269,209 +1279,151 @@
 
                     <!-- CTA Button -->
                     <button type="button" data-action="activate-membership" onclick="window.openSocioRegistrationModal && window.openSocioRegistrationModal()"
-                        class="bg-gradient-to-r from-secondary to-pink-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest hover:scale-105 transition-transform shadow-lg shadow-secondary/25 mb-10 w-full max-w-md flex items-center justify-center gap-3 cursor-pointer">
+                        class="bg-gradient-to-r from-amber-400 via-orange-500 to-amber-500 hover:brightness-110 text-slate-950 px-10 py-5 rounded-2xl font-black uppercase tracking-widest hover:scale-105 transition-transform shadow-lg shadow-orange-500/30 mb-8 w-full max-w-md flex items-center justify-center gap-3 cursor-pointer border border-amber-300/40">
                         <span>Reclamar Membresía Gratis</span>
                         <i class="ri-arrow-right-line"></i>
                     </button>
 
                     <!-- 4 GRUPOS DE BENEFICIOS + INSCRIPCIÓN Y COSTOS (MÓDULOS DESPLEGABLES) -->
-                    <div class="space-y-3 text-left w-full max-w-2xl mx-auto mb-6 socio-accordion-group" id="home-socio-accordions">
+                    <div class="space-y-2.5 text-left w-full max-w-2xl mx-auto mb-6 socio-accordion-group" id="home-socio-accordions">
 
-                        <!-- GRUPO 1: EXPEDICIONES, EQUIPOS Y RUTAS -->
-                        <div class="socio-acc-item rounded-2xl bg-white border border-slate-200/80 transition-all duration-300 overflow-hidden shadow-sm">
+                        <!-- GRUPO 1: EXPEDICIONES & EQUIPOS -->
+                        <div class="socio-acc-item rounded-2xl bg-white border border-slate-200/90 hover:border-amber-400 transition-all duration-200 overflow-hidden shadow-sm">
                             <button type="button" onclick="window.toggleSocioModule(this, 'socio-grp-1')"
                                 class="socio-acc-btn w-full flex items-center justify-between gap-4 p-4 text-left transition-all cursor-pointer group">
-                                <div class="flex items-center gap-3.5">
-                                    <div class="socio-acc-badge w-11 h-11 rounded-xl bg-amber-500/15 text-amber-400 flex items-center justify-center shrink-0 transition-all">
-                                        <i class="ri-compass-3-fill text-xl"></i>
+                                <div class="flex items-center gap-3">
+                                    <div class="socio-acc-badge w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 text-slate-950 flex items-center justify-center shrink-0 shadow-sm">
+                                        <i class="ri-compass-3-fill text-lg"></i>
                                     </div>
                                     <div>
-                                        <span class="text-[9px] font-black uppercase tracking-widest text-amber-400 block">Grupo 1 • Outdoor & Logística</span>
-                                        <h4 class="socio-acc-title text-amber-400 text-xs sm:text-sm font-black uppercase tracking-wider transition-colors">Expediciones, Equipos y Rutas Sostenibles</h4>
+                                        <span class="text-[8.5px] font-black uppercase tracking-wider text-amber-600 block">Outdoor & Logística</span>
+                                        <h4 class="socio-acc-title text-slate-900 text-xs sm:text-sm font-black uppercase tracking-wide">Expediciones, Equipos y Rutas</h4>
                                     </div>
                                 </div>
-                                <i class="ri-arrow-down-s-line text-xl text-amber-400 socio-acc-arrow transition-transform duration-300" style="transform: rotate(180deg);"></i>
+                                <div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-amber-100 transition-colors">
+                                    <i class="ri-arrow-down-s-line text-lg text-slate-600 socio-acc-arrow transition-transform duration-300"></i>
+                                </div>
                             </button>
-                            <div id="socio-grp-1" class="socio-acc-panel px-5 pb-5 pt-1 border-t border-white/5 text-xs text-slate-300 space-y-2">
-                                <div class="flex items-start gap-2.5"><i class="ri-checkbox-circle-fill text-amber-400 mt-0.5 shrink-0"></i><span>Descuentos en las actividades Outdoor nacionales e internacionales que realice el Club.</span></div>
-                                <div class="flex items-start gap-2.5"><i class="ri-checkbox-circle-fill text-amber-400 mt-0.5 shrink-0"></i><span>Disposición de equipos para expediciones (Carpas, Sleeping, Matra, Cuerdas, Casco, etc.) <strong class="text-amber-400">(*)</strong></span></div>
-                                <div class="flex items-start gap-2.5"><i class="ri-checkbox-circle-fill text-amber-400 mt-0.5 shrink-0"></i><span>Descuento en la compra y/o venta de equipos especializados (nuevos o usados).</span></div>
-                                <div class="flex items-start gap-2.5"><i class="ri-checkbox-circle-fill text-amber-400 mt-0.5 shrink-0"></i><span>Red de contactos y guías para organizar tus expediciones.</span></div>
-                                <div class="flex items-start gap-2.5"><i class="ri-checkbox-circle-fill text-amber-400 mt-0.5 shrink-0"></i><span>Participación en proyectos de turismo sostenible y expediciones para crear nuevas rutas.</span></div>
+                            <div id="socio-grp-1" class="socio-acc-panel hidden px-5 pb-4 pt-1 border-t border-slate-100 text-xs text-slate-600 space-y-2 bg-slate-50/50">
+                                <div class="flex items-center gap-2"><i class="ri-check-line text-emerald-500 font-bold"></i><span>Descuentos en actividades Outdoor del Club.</span></div>
+                                <div class="flex items-center gap-2"><i class="ri-check-line text-emerald-500 font-bold"></i><span>Alquiler de equipos técnicos (carpas 4 estaciones, sleeping, cuerdas, piolets).</span></div>
+                                <div class="flex items-center gap-2"><i class="ri-check-line text-emerald-500 font-bold"></i><span>Descuento exclusivo en compra y venta de material especializado.</span></div>
+                                <div class="flex items-center gap-2"><i class="ri-check-line text-emerald-500 font-bold"></i><span>Red de contactos y guías UIAGM para tus salidas.</span></div>
                             </div>
                         </div>
 
-                        <!-- GRUPO 2: CURSOS, CAPACITACIÓN, EVENTOS Y CONCURSOS -->
-                        <div class="socio-acc-item rounded-2xl bg-white border border-slate-200/80 transition-all duration-300 overflow-hidden shadow-sm">
+                        <!-- GRUPO 2: FORMACIÓN & CURSOS -->
+                        <div class="socio-acc-item rounded-2xl bg-white border border-slate-200/90 hover:border-amber-400 transition-all duration-200 overflow-hidden shadow-sm">
                             <button type="button" onclick="window.toggleSocioModule(this, 'socio-grp-2')"
                                 class="socio-acc-btn w-full flex items-center justify-between gap-4 p-4 text-left transition-all cursor-pointer group">
-                                <div class="flex items-center gap-3.5">
-                                    <div class="socio-acc-badge w-11 h-11 rounded-xl bg-slate-700/60 text-slate-300 flex items-center justify-center shrink-0 transition-all">
-                                        <i class="ri-medal-fill text-xl"></i>
+                                <div class="flex items-center gap-3">
+                                    <div class="socio-acc-badge w-10 h-10 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center shrink-0">
+                                        <i class="ri-book-open-fill text-lg"></i>
                                     </div>
                                     <div>
-                                        <span class="text-[9px] font-black uppercase tracking-widest text-slate-400 block">Grupo 2 • Formación & Comunidad</span>
-                                        <h4 class="socio-acc-title text-slate-200 text-xs sm:text-sm font-black uppercase tracking-wider transition-colors">Cursos, Eventos, Biblioteca y Sorteos</h4>
+                                        <span class="text-[8.5px] font-black uppercase tracking-wider text-slate-400 block">Formación & Talleres</span>
+                                        <h4 class="socio-acc-title text-slate-900 text-xs sm:text-sm font-black uppercase tracking-wide">Cursos, Biblioteca y Eventos</h4>
                                     </div>
                                 </div>
-                                <i class="ri-arrow-down-s-line text-xl text-slate-400 socio-acc-arrow transition-transform duration-300"></i>
+                                <div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-amber-100 transition-colors">
+                                    <i class="ri-arrow-down-s-line text-lg text-slate-600 socio-acc-arrow transition-transform duration-300"></i>
+                                </div>
                             </button>
-                            <div id="socio-grp-2" class="socio-acc-panel hidden px-5 pb-5 pt-1 border-t border-white/5 text-xs text-slate-300 space-y-2">
-                                <div class="flex items-start gap-2.5"><i class="ri-checkbox-circle-fill text-amber-400 mt-0.5 shrink-0"></i><span>Cursos de capacitación de especialistas <strong class="text-emerald-400">(gratuitos)</strong>.</span></div>
-                                <div class="flex items-start gap-2.5"><i class="ri-checkbox-circle-fill text-amber-400 mt-0.5 shrink-0"></i><span>Descuentos para participar en cursos en distintos deportes (Escalada, Rafting, Downhill, etc.) <strong class="text-amber-400">(*)</strong></span></div>
-                                <div class="flex items-start gap-2.5"><i class="ri-checkbox-circle-fill text-amber-400 mt-0.5 shrink-0"></i><span>Descuentos en eventos de deportes de aventura. <strong class="text-amber-400">(*)</strong></span></div>
-                                <div class="flex items-start gap-2.5"><i class="ri-checkbox-circle-fill text-amber-400 mt-0.5 shrink-0"></i><span>Material informativo de la biblioteca virtual. <strong class="text-amber-400">(*)</strong></span></div>
-                                <div class="flex items-start gap-2.5"><i class="ri-checkbox-circle-fill text-amber-400 mt-0.5 shrink-0"></i><span>Concursos mensuales de viajes, material y equipos. <strong class="text-amber-400">(*)</strong></span></div>
+                            <div id="socio-grp-2" class="socio-acc-panel hidden px-5 pb-4 pt-1 border-t border-slate-100 text-xs text-slate-600 space-y-2 bg-slate-50/50">
+                                <div class="flex items-center gap-2"><i class="ri-check-line text-emerald-500 font-bold"></i><span>Capacitación con especialistas en montaña <strong>(100% GRATIS)</strong>.</span></div>
+                                <div class="flex items-center gap-2"><i class="ri-check-line text-emerald-500 font-bold"></i><span>Descuentos en cursos de escalada, primeros auxilios WFA y rescate.</span></div>
+                                <div class="flex items-center gap-2"><i class="ri-check-line text-emerald-500 font-bold"></i><span>Acceso libre a biblioteca virtual de tracks GPX y guías de altimetría.</span></div>
                             </div>
                         </div>
 
-                        <!-- GRUPO 3: HOSPEDAJES, GASTRONOMÍA Y TIENDAS -->
-                        <div class="socio-acc-item rounded-2xl bg-white border border-slate-200/80 transition-all duration-300 overflow-hidden shadow-sm">
+                        <!-- GRUPO 3: RED COMERCIAL Y ALIANZAS -->
+                        <div class="socio-acc-item rounded-2xl bg-white border border-slate-200/90 hover:border-amber-400 transition-all duration-200 overflow-hidden shadow-sm">
                             <button type="button" onclick="window.toggleSocioModule(this, 'socio-grp-3')"
                                 class="socio-acc-btn w-full flex items-center justify-between gap-4 p-4 text-left transition-all cursor-pointer group">
-                                <div class="flex items-center gap-3.5">
-                                    <div class="socio-acc-badge w-11 h-11 rounded-xl bg-slate-700/60 text-slate-300 flex items-center justify-center shrink-0 transition-all">
-                                        <i class="ri-hotel-bed-fill text-xl"></i>
+                                <div class="flex items-center gap-3">
+                                    <div class="socio-acc-badge w-10 h-10 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center shrink-0">
+                                        <i class="ri-store-2-fill text-lg"></i>
                                     </div>
                                     <div>
-                                        <span class="text-[9px] font-black uppercase tracking-widest text-slate-400 block">Grupo 3 • Red Comercial Nacional</span>
-                                        <h4 class="socio-acc-title text-slate-200 text-xs sm:text-sm font-black uppercase tracking-wider transition-colors">Hospedajes, Restaurantes y Tiendas Aliadas</h4>
+                                        <span class="text-[8.5px] font-black uppercase tracking-wider text-slate-400 block">Convenios Nacionales</span>
+                                        <h4 class="socio-acc-title text-slate-900 text-xs sm:text-sm font-black uppercase tracking-wide">Hospedajes, Restaurantes y Tiendas</h4>
                                     </div>
                                 </div>
-                                <i class="ri-arrow-down-s-line text-xl text-slate-400 socio-acc-arrow transition-transform duration-300"></i>
+                                <div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-amber-100 transition-colors">
+                                    <i class="ri-arrow-down-s-line text-lg text-slate-600 socio-acc-arrow transition-transform duration-300"></i>
+                                </div>
                             </button>
-                            <div id="socio-grp-3" class="socio-acc-panel hidden px-5 pb-5 pt-1 border-t border-white/5 text-xs text-slate-300 space-y-2">
-                                <div class="flex items-start gap-2.5"><i class="ri-checkbox-circle-fill text-amber-400 mt-0.5 shrink-0"></i><span>Descuentos en tiendas especializadas. <strong class="text-amber-400">(*)</strong></span></div>
-                                <div class="flex items-start gap-2.5"><i class="ri-checkbox-circle-fill text-amber-400 mt-0.5 shrink-0"></i><span>Descuentos en alojamientos u hospedajes a nivel nacional. <strong class="text-amber-400">(*)</strong></span></div>
-                                <div class="flex items-start gap-2.5"><i class="ri-checkbox-circle-fill text-amber-400 mt-0.5 shrink-0"></i><span>Descuentos en Restaurantes y Bares. <strong class="text-amber-400">(*)</strong></span></div>
+                            <div id="socio-grp-3" class="socio-acc-panel hidden px-5 pb-4 pt-1 border-t border-slate-100 text-xs text-slate-600 space-y-2 bg-slate-50/50">
+                                <div class="flex items-center gap-2"><i class="ri-check-line text-emerald-500 font-bold"></i><span>Tarifas preferenciales en hoteles y hostels de montaña (15% - 30% OFF).</span></div>
+                                <div class="flex items-center gap-2"><i class="ri-check-line text-emerald-500 font-bold"></i><span>Descuentos en cafeterías, restaurantes y cervecerías artesanales aliadas.</span></div>
+                                <div class="flex items-center gap-2"><i class="ri-check-line text-emerald-500 font-bold"></i><span>Precios preferenciales en tiendas de aventura asociadas.</span></div>
                             </div>
                         </div>
 
-                        <!-- GRUPO 4: SALUD, GIMNASIOS Y PALESTRAS -->
-                        <div class="socio-acc-item rounded-2xl bg-white border border-slate-200/80 transition-all duration-300 overflow-hidden shadow-sm">
+                        <!-- GRUPO 4: RENDIMIENTO Y SALUD -->
+                        <div class="socio-acc-item rounded-2xl bg-white border border-slate-200/90 hover:border-amber-400 transition-all duration-200 overflow-hidden shadow-sm">
                             <button type="button" onclick="window.toggleSocioModule(this, 'socio-grp-4')"
                                 class="socio-acc-btn w-full flex items-center justify-between gap-4 p-4 text-left transition-all cursor-pointer group">
-                                <div class="flex items-center gap-3.5">
-                                    <div class="socio-acc-badge w-11 h-11 rounded-xl bg-slate-700/60 text-slate-300 flex items-center justify-center shrink-0 transition-all">
-                                        <i class="ri-heart-pulse-fill text-xl"></i>
+                                <div class="flex items-center gap-3">
+                                    <div class="socio-acc-badge w-10 h-10 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center shrink-0">
+                                        <i class="ri-heart-pulse-fill text-lg"></i>
                                     </div>
                                     <div>
-                                        <span class="text-[9px] font-black uppercase tracking-widest text-slate-400 block">Grupo 4 • Rendimiento Físico & Salud</span>
-                                        <h4 class="socio-acc-title text-slate-200 text-xs sm:text-sm font-black uppercase tracking-wider transition-colors">Salud, Gimnasios y Palestras</h4>
+                                        <span class="text-[8.5px] font-black uppercase tracking-wider text-slate-400 block">Salud & Acondicionamiento</span>
+                                        <h4 class="socio-acc-title text-slate-900 text-xs sm:text-sm font-black uppercase tracking-wide">Salud, Gimnasios y Palestras</h4>
                                     </div>
                                 </div>
-                                <i class="ri-arrow-down-s-line text-xl text-slate-400 socio-acc-arrow transition-transform duration-300"></i>
+                                <div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-amber-100 transition-colors">
+                                    <i class="ri-arrow-down-s-line text-lg text-slate-600 socio-acc-arrow transition-transform duration-300"></i>
+                                </div>
                             </button>
-                            <div id="socio-grp-4" class="socio-acc-panel hidden px-5 pb-5 pt-1 border-t border-white/5 text-xs text-slate-300 space-y-2">
-                                <div class="flex items-start gap-2.5"><i class="ri-checkbox-circle-fill text-amber-400 mt-0.5 shrink-0"></i><span>Descuentos en centros de cuidado de la Salud. <strong class="text-amber-400">(*)</strong></span></div>
-                                <div class="flex items-start gap-2.5"><i class="ri-checkbox-circle-fill text-amber-400 mt-0.5 shrink-0"></i><span>Descuentos en gimnasios y palestras según convenios y presentación del carnet. <strong class="text-amber-400">(*)</strong></span></div>
-                                <p class="text-[10px] text-amber-400/90 italic pt-2 border-t border-white/5">* Actualmente en gestión de alianzas estratégicas.</p>
+                            <div id="socio-grp-4" class="socio-acc-panel hidden px-5 pb-4 pt-1 border-t border-slate-100 text-xs text-slate-600 space-y-2 bg-slate-50/50">
+                                <div class="flex items-center gap-2"><i class="ri-check-line text-emerald-500 font-bold"></i><span>Descuentos en palestras de escalada (boulder y cuerda).</span></div>
+                                <div class="flex items-center gap-2"><i class="ri-check-line text-emerald-500 font-bold"></i><span>Fisioterapia y descarga muscular pre y post expedición.</span></div>
                             </div>
                         </div>
 
-                        <!-- MÓDULO DESPLEGABLE: ¿CÓMO PUEDO SER SOCIO? + COSTOS Y KIT -->
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                            <!-- ¿Cómo puedo ser socio? -->
-                            <div class="socio-acc-item rounded-2xl bg-slate-800/60 border border-white/10 transition-all duration-300 overflow-hidden">
+                        <!-- TARJETAS COMPACTAS: PASOS Y COSTOS -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+                            <!-- ¿Cómo ser Socio? -->
+                            <div class="socio-acc-item rounded-2xl bg-slate-900 text-white transition-all overflow-hidden border border-slate-800">
                                 <button type="button" onclick="window.toggleSocioModule(this, 'socio-grp-pasos')"
-                                    class="socio-acc-btn w-full flex items-center justify-between gap-3 p-4 text-left transition-all cursor-pointer">
+                                    class="socio-acc-btn w-full flex items-center justify-between gap-2 p-3.5 text-left cursor-pointer">
                                     <div class="flex items-center gap-2.5">
-                                        <i class="ri-user-add-fill text-amber-400 text-lg"></i>
-                                        <span class="socio-acc-title text-slate-200 text-xs font-black uppercase tracking-wider">¿Cómo ser Socio? (4 Pasos)</span>
+                                        <i class="ri-user-add-fill text-amber-400 text-base"></i>
+                                        <span class="text-white text-xs font-black uppercase tracking-wider">¿Cómo ser Socio? (4 Pasos)</span>
                                     </div>
-                                    <i class="ri-arrow-down-s-line text-lg text-slate-400 socio-acc-arrow transition-transform duration-300"></i>
+                                    <i class="ri-arrow-down-s-line text-base text-slate-400 socio-acc-arrow transition-transform duration-300"></i>
                                 </button>
-                                <div id="socio-grp-pasos" class="socio-acc-panel hidden px-4 pb-4 pt-1 border-t border-white/5 text-[11px] text-slate-300 space-y-2.5">
-                                    <p><strong class="text-amber-400">1.</strong> Llena el formulario de inscripción: <a href="javascript:void(0)" onclick="window.openSocioRegistrationModal && window.openSocioRegistrationModal()" target="_blank" rel="noopener" class="text-amber-400 underline font-bold hover:text-amber-300">https://goo.gl/CcvnZB</a></p>
-                                    <p><strong class="text-amber-400">2.</strong> Realiza el depósito del costo de la membresía en la cuenta indicada.</p>
-                                    <p><strong class="text-amber-400">3.</strong> Envíanos una foto nítida del voucher con tu nombre completo y la palabra <strong class="text-white">"Socio Club" ✌</strong> al correo: <a href="mailto:lifextremeperu@gmail.com" class="text-amber-400 underline font-bold">lifextremeperu@gmail.com</a></p>
-                                    <p><strong class="text-amber-400">4.</strong> Envíanos una foto tamaño carnet (fondo blanco) y una foto tuya en algún viaje para nuestra Fan Page oficial.</p>
+                                <div id="socio-grp-pasos" class="socio-acc-panel hidden px-4 pb-4 pt-1 border-t border-white/10 text-[11px] text-slate-300 space-y-2">
+                                    <p><strong class="text-amber-400">1.</strong> Llena el formulario oficial de inscripción.</p>
+                                    <p><strong class="text-amber-400">2.</strong> Realiza el depósito o abono de membresía.</p>
+                                    <p><strong class="text-amber-400">3.</strong> Envía el voucher a lifextremeperu@gmail.com.</p>
+                                    <p><strong class="text-amber-400">4.</strong> Recibe tu Carnet Digital y Kit de bienvenida.</p>
                                 </div>
                             </div>
 
-                            <!-- Costos, Promoción Sedes & Kit de Bienvenida -->
-                            <div class="socio-acc-item rounded-2xl bg-slate-800/60 border border-white/10 transition-all duration-300 overflow-hidden">
+                            <!-- Costos y Promoción -->
+                            <div class="socio-acc-item rounded-2xl bg-slate-900 text-white transition-all overflow-hidden border border-slate-800">
                                 <button type="button" onclick="window.toggleSocioModule(this, 'socio-grp-costos')"
-                                    class="socio-acc-btn w-full flex items-center justify-between gap-3 p-4 text-left transition-all cursor-pointer">
+                                    class="socio-acc-btn w-full flex items-center justify-between gap-2 p-3.5 text-left cursor-pointer">
                                     <div class="flex items-center gap-2.5">
-                                        <i class="ri-vip-crown-2-fill text-amber-400 text-lg"></i>
-                                        <span class="socio-acc-title text-slate-200 text-xs font-black uppercase tracking-wider">Costos, Promo S/30 y Kit</span>
+                                        <i class="ri-vip-crown-2-fill text-amber-400 text-base"></i>
+                                        <span class="text-white text-xs font-black uppercase tracking-wider">Costos, Promo S/30 y Kit</span>
                                     </div>
-                                    <i class="ri-arrow-down-s-line text-lg text-slate-400 socio-acc-arrow transition-transform duration-300"></i>
+                                    <i class="ri-arrow-down-s-line text-base text-slate-400 socio-acc-arrow transition-transform duration-300"></i>
                                 </button>
-                                <div id="socio-grp-costos" class="socio-acc-panel hidden px-4 pb-4 pt-1 border-t border-white/5 text-[11px] text-slate-300 space-y-2">
-                                    <div class="bg-emerald-500/15 border border-emerald-500/30 rounded-xl p-2 text-emerald-300 font-black text-center uppercase text-[10px]">
-                                        🎉 Admisión: FREE (Hasta el 12 de Noviembre)
-                                    </div>
-                                    <div class="space-y-1">
-                                        <p>• <strong>Anual:</strong> S/. 99.00 Nuevos Soles</p>
-                                        <p>• <strong>Semestral:</strong> S/. 60.00 Nuevos Soles</p>
-                                        <p class="text-amber-400 font-bold">🔥 Promoción Sedes (Lima, Arequipa y Cusco): S/. 30.00 Nuevos Soles <span class="text-[10px] font-normal text-slate-300">(Válido hasta agotar stock: 100 Membresías Anuales)</span></p>
-                                    </div>
-                                    <div class="pt-2 border-t border-white/10">
-                                        <p class="text-[10px] font-black uppercase text-amber-400 mb-1">🎁 Incluye Kit Oficial:</p>
-                                        <div class="grid grid-cols-2 gap-1 text-[10px] text-slate-200 font-bold">
-                                            <span>✓ Carnet de socio</span>
-                                            <span>✓ Kit de Bienvenida</span>
-                                            <span>✓ Polo del Club</span>
-                                            <span>✓ Brazalete portátil</span>
-                                        </div>
-                                    </div>
+                                <div id="socio-grp-costos" class="socio-acc-panel hidden px-4 pb-4 pt-1 border-t border-white/10 text-[11px] text-slate-300 space-y-1.5">
+                                    <p class="text-emerald-400 font-black">🔥 Admisión: FREE (Primeros 100 cupos)</p>
+                                    <p>• <strong>Anual Pro:</strong> S/ 99 (Carnet + Polo + Kit)</p>
+                                    <p>• <strong>Semestral:</strong> S/ 60 por 6 meses</p>
+                                    <p class="text-amber-400 font-bold">• <strong>Promo Sedes:</strong> S/ 30.00 (Stock limitado)</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <style>
-                        .socio-acc-item:hover {
-                            border-color: rgba(245, 158, 11, 0.55) !important;
-                            background: rgba(30, 41, 59, 0.85) !important;
-                        }
-                        .socio-acc-btn:hover .socio-acc-title,
-                        .socio-acc-btn:hover .socio-acc-arrow {
-                            color: #f59e0b !important;
-                        }
-                        .socio-acc-btn:hover .socio-acc-badge {
-                            background: rgba(245, 158, 11, 0.2) !important;
-                            color: #f59e0b !important;
-                        }
-                    </style>
-                    <script>
-                        window.toggleSocioModule = function(btn, panelId) {
-                            var panel = document.getElementById(panelId);
-                            if (!panel) return;
-                            var group = btn.closest('.socio-accordion-group');
-                            var isOpening = panel.classList.contains('hidden');
-                            if (group) {
-                                group.querySelectorAll('.socio-acc-panel').forEach(function(p) {
-                                    p.classList.add('hidden');
-                                });
-                                group.querySelectorAll('.socio-acc-title').forEach(function(t) {
-                                    t.classList.remove('text-amber-400');
-                                    t.classList.add('text-slate-200');
-                                });
-                                group.querySelectorAll('.socio-acc-arrow').forEach(function(a) {
-                                    a.style.transform = 'rotate(0deg)';
-                                    a.classList.remove('text-amber-400');
-                                    a.classList.add('text-slate-400');
-                                });
-                                group.querySelectorAll('.socio-acc-badge').forEach(function(b) {
-                                    b.className = 'socio-acc-badge w-11 h-11 rounded-xl bg-slate-700/60 text-slate-300 flex items-center justify-center shrink-0 transition-all';
-                                });
-                            }
-                            if (isOpening) {
-                                panel.classList.remove('hidden');
-                                var title = btn.querySelector('.socio-acc-title');
-                                var arrow = btn.querySelector('.socio-acc-arrow');
-                                var badge = btn.querySelector('.socio-acc-badge');
-                                if (title) { title.classList.remove('text-slate-200'); title.classList.add('text-amber-400'); }
-                                if (arrow) { arrow.style.transform = 'rotate(180deg)'; arrow.classList.remove('text-slate-400'); arrow.classList.add('text-amber-400'); }
-                                if (badge) { badge.className = 'socio-acc-badge w-11 h-11 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0 transition-all shadow-[0_0_15px_rgba(245,158,11,0.25)]'; }
-                            }
-                        };
-                    </script>
-
-            <p class="text-[9px] text-slate-500 mt-6 font-bold uppercase tracking-widest italic">
+                    <p class="text-[9px] text-slate-500 mt-6 font-bold uppercase tracking-widest italic">
                 * Beneficios actualmente en gestión de alianzas estratégicas. Oferta válida hasta agotar stock (100 membresías).
             </p>
             </div>
