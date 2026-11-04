@@ -1,0 +1,73 @@
+{
+  "source": "Estudio Estratégico y Técnico de Viabilidad: Discord como Ecosistema Comunitario y Motor Transaccional para lifextreme.store en el Sector de Turismo de Aventura",
+  "version": "2026.1",
+  "category": "market_research_and_customer_personas",
+  "country": "Peru",
+  "scope": "LATAM_Outdoor_Community",
+  "key_findings": {
+    "discord_market_in_peru": {
+      "monthly_traffic_peru_ips": "8.87 millones de visitas mensuales provenientes de IPs peruanas a discord.com",
+      "demographic_profile": "Fuerte concentración en 18-34 años (69.9% a 78%), con alta afinidad hacia tecnología, deportes outdoor y viajes no tradicionales",
+      "session_duration": "29.1 minutos por sesión diaria; 280 a 314 minutos mensuales por usuario activo",
+      "regional_penetration_latam": "Chile 17.8%, Argentina 17.1%, Brasil 16.4%, México 12.9%, Colombia 10.3%"
+    },
+    "problem_statement_peru_adventure": {
+      "informality_rate": "70% de las agencias de turismo de aventura constituidas reportan la operación sistemática de agentes informales sin acreditación",
+      "perceived_risk": "Hasta un 45% de los turistas califica las actividades de aventura en Perú como inseguras o de alto riesgo",
+      "churn_rate": "29% de viajeros no vuelve a contratar servicios tras experimentar condiciones inseguras o guías no certificados",
+      "lifextreme_solution": "Formalización y confianza mediante verificación de licencias (MINCETUR D.S. 005-2016-MINCETUR / R.M. 392-2026-MINCETUR), guías UIAGM/AGMP, monitoreo satelital y alertas de SENAMHI/SUTRAN"
+    },
+    "customer_personas": [
+      {
+        "role_tier": "@Aventurero / Aspirante",
+        "description": "Viajero novato o intermedio de 20-35 años en busca de trekking, campamentos o salidas de fin de semana.",
+        "needs": "Guías verificados, recomendaciones de equipo accesible, seguridad de ruta y compañeros de viaje (evitar viajar solos).",
+        "conversion_hook": "Pase de bienvenida, descuentos comunitarios, checklist de equipo para el primer 5,000 msnm."
+      },
+      {
+        "role_tier": "@Expedicionario",
+        "description": "Montañista activo con experiencia previa en alta montaña (Ausangate, Huayhuash, Salkantay).",
+        "needs": "Tracks GPX precisos, estado de caminos en tiempo real, alertas de clima en nevados y alquiler de equipo técnico.",
+        "conversion_hook": "Acceso a canales de briefing logístico por voz, salidas guiadas con UIAGM y pool de compras comunitarias."
+      },
+      {
+        "role_tier": "@Guía / Operador Formal",
+        "description": "Guía oficial de montaña (AGMP / UIAGM) o agencia con registro DIRCETUR/MINCETUR.",
+        "needs": "Canal de captación sin depender de intermediarios informales de plaza, validación reputacional y respaldo normativo.",
+        "conversion_hook": "Publicación de itinerarios en la comunidad, insignia de verificación oficial y monetización en lifextreme.store."
+      },
+      {
+        "role_tier": "@Club VIP / Socio",
+        "description": "Miembro recurrente o de alto ticket suscrito al Club Lifextreme.",
+        "needs": "Descuentos en expediciones internacionales, descarga de cartografía premium GPX, lounge exclusivo y 15% en tienda de equipos.",
+        "conversion_hook": "Membresía anual/semestral integrada con pasarelas peruanas (Yape, Plin, Niubiz, Mercado Pago)."
+      }
+    ],
+    "marketing_funnel_architecture": {
+      "top_of_funnel_tofu": {
+        "channels": ["TikTok (28.3M usuarios en Perú)", "Instagram", "Blog SEO lifextreme.store"],
+        "lead_magnet": "Descarga de mapas GPX, guías de altimetría y checklist de equipo técnico",
+        "cta": "Únete a la Tribu en Discord (enlace permanente discord.gg/C4uJNTaHuN)"
+      },
+      "middle_of_funnel_mofu": {
+        "channels": ["Discord público (#general, #trekking-montaña, #escalada-roca, #clima-senamhi)"],
+        "activity": "Briefings de voz interactivos, webinars de seguridad, resolución de dudas en foros indexados",
+        "objective": "Romper el 45% de desconfianza en el turismo de aventura mediante rigor técnico"
+      },
+      "bottom_of_funnel_bofu": {
+        "channels": ["Checkout en lifextreme.store (Niubiz, Yape, Plin)", "Categoría VIP Discord"],
+        "activity": "Reserva de expedición con el 30%, compra de Gift Pass de Aventura, activación de membresía Club Socio",
+        "automation": "Aprovisionamiento automático de roles en Discord mediante webhooks y bot"
+      }
+    },
+    "technical_discord_architecture": {
+      "server_structure": [
+        {"category": "01-Bienvenida y Reglas", "channels": ["#bienvenida", "#reglas-comunidad", "#roles-autoasignables"]},
+        {"category": "02-Operaciones y Rutas", "channels": ["#calendario-salidas", "#briefing-logistico", "#bitacoras"]},
+        {"category": "03-Disciplinas Técnicas", "channels": ["#trekking-montaña", "#escalada-roca", "#ciclismo-mtb", "#aguas-bravas"]},
+        {"category": "04-Marco Legal y Clima", "channels": ["#normativa-mincetur", "#alertas-senamhi", "#operadores-formales"]},
+        {"category": "05-Club de Socios VIP", "channels": ["#lounge-vip", "#descargas-gpx", "#descuentos-tienda"]}
+      ]
+    }
+  }
+}
