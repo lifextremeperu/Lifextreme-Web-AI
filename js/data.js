@@ -1731,10 +1731,10 @@ const equips = [
         cat: 'Carpas & Campamento',
         price: 2850,
         rentPrice: 65,
-        img: 'https://images.unsplash.com/photo-1510312305653-8ed496efae75?w=800&fm=webp&q=80',
+        img: 'assets/images/equipos/equipo_mountain_25.jpg',
         views360: [
-            'https://images.unsplash.com/photo-1510312305653-8ed496efae75?w=800&fm=webp&q=80',
-            'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800&fm=webp&q=80',
+            'assets/images/equipos/equipo_mountain_25.jpg',
+            'assets/images/equipos/equipo_msr_hubba.jpg',
             'https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=800&fm=webp&q=80',
             'https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?w=800&fm=webp&q=80'
         ],
@@ -1753,10 +1753,10 @@ const equips = [
         cat: 'Carpas & Campamento',
         price: 1950,
         rentPrice: 48,
-        img: 'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800&fm=webp&q=80',
+        img: 'assets/images/equipos/equipo_msr_hubba.jpg',
         views360: [
-            'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800&fm=webp&q=80',
-            'https://images.unsplash.com/photo-1510312305653-8ed496efae75?w=800&fm=webp&q=80',
+            'assets/images/equipos/equipo_msr_hubba.jpg',
+            'assets/images/equipos/equipo_mountain_25.jpg',
             'https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?w=800&fm=webp&q=80',
             'https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=800&fm=webp&q=80'
         ],
@@ -1778,8 +1778,8 @@ const equips = [
         img: 'https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?w=800&fm=webp&q=80',
         views360: [
             'https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?w=800&fm=webp&q=80',
-            'https://images.unsplash.com/photo-1510312305653-8ed496efae75?w=800&fm=webp&q=80',
-            'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800&fm=webp&q=80',
+            'assets/images/equipos/equipo_mountain_25.jpg',
+            'assets/images/equipos/equipo_msr_hubba.jpg',
             'https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=800&fm=webp&q=80'
         ],
         specs: {
@@ -1799,12 +1799,12 @@ const equips = [
         cat: 'Sleepings & Matras',
         price: 3100,
         rentPrice: 50,
-        img: 'https://images.unsplash.com/photo-1547847932-d3a3d538df59?w=800&fm=webp&q=80',
+        img: 'assets/images/equipos/equipo_marmot_col.jpg',
         views360: [
-            'https://images.unsplash.com/photo-1547847932-d3a3d538df59?w=800&fm=webp&q=80',
+            'assets/images/equipos/equipo_marmot_col.jpg',
             'https://images.unsplash.com/photo-1617326693439-0bd649033376?w=800&fm=webp&q=80',
-            'https://images.unsplash.com/photo-1510312305653-8ed496efae75?w=800&fm=webp&q=80',
-            'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800&fm=webp&q=80'
+            'assets/images/equipos/equipo_mountain_25.jpg',
+            'assets/images/equipos/equipo_msr_hubba.jpg'
         ],
         specs: {
             peso: '1.76 kg',
@@ -1824,9 +1824,9 @@ const equips = [
         img: 'https://images.unsplash.com/photo-1617326693439-0bd649033376?w=800&fm=webp&q=80',
         views360: [
             'https://images.unsplash.com/photo-1617326693439-0bd649033376?w=800&fm=webp&q=80',
-            'https://images.unsplash.com/photo-1547847932-d3a3d538df59?w=800&fm=webp&q=80',
-            'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800&fm=webp&q=80',
-            'https://images.unsplash.com/photo-1510312305653-8ed496efae75?w=800&fm=webp&q=80'
+            'assets/images/equipos/equipo_marmot_col.jpg',
+            'assets/images/equipos/equipo_msr_hubba.jpg',
+            'assets/images/equipos/equipo_mountain_25.jpg'
         ],
         specs: {
             peso: '1.45 kg',
@@ -1847,8 +1847,8 @@ const equips = [
         views360: [
             'https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=800&fm=webp&q=80',
             'https://images.unsplash.com/photo-1617326693439-0bd649033376?w=800&fm=webp&q=80',
-            'https://images.unsplash.com/photo-1547847932-d3a3d538df59?w=800&fm=webp&q=80',
-            'https://images.unsplash.com/photo-1510312305653-8ed496efae75?w=800&fm=webp&q=80'
+            'assets/images/equipos/equipo_marmot_col.jpg',
+            'assets/images/equipos/equipo_mountain_25.jpg'
         ],
         specs: {
             peso: '439 g',
@@ -1867,9 +1867,9 @@ const equips = [
         cat: 'Casacas & Ropa Técnica',
         price: 3600,
         rentPrice: 70,
-        img: 'https://images.unsplash.com/photo-1548883354-7622d03aca27?w=800&fm=webp&q=80',
+        img: 'assets/images/equipos/equipo_arcteryx_alpha.jpg',
         views360: [
-            'https://images.unsplash.com/photo-1548883354-7622d03aca27?w=800&fm=webp&q=80',
+            'assets/images/equipos/equipo_arcteryx_alpha.jpg',
             'https://images.unsplash.com/photo-1578632767115-351597cf2477?w=800&fm=webp&q=80',
             'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&fm=webp&q=80',
             'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&fm=webp&q=80'
@@ -1892,7 +1892,7 @@ const equips = [
         img: 'https://images.unsplash.com/photo-1578632767115-351597cf2477?w=800&fm=webp&q=80',
         views360: [
             'https://images.unsplash.com/photo-1578632767115-351597cf2477?w=800&fm=webp&q=80',
-            'https://images.unsplash.com/photo-1548883354-7622d03aca27?w=800&fm=webp&q=80',
+            'assets/images/equipos/equipo_arcteryx_alpha.jpg',
             'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&fm=webp&q=80',
             'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&fm=webp&q=80'
         ],
@@ -1914,7 +1914,7 @@ const equips = [
         img: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&fm=webp&q=80',
         views360: [
             'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&fm=webp&q=80',
-            'https://images.unsplash.com/photo-1548883354-7622d03aca27?w=800&fm=webp&q=80',
+            'assets/images/equipos/equipo_arcteryx_alpha.jpg',
             'https://images.unsplash.com/photo-1578632767115-351597cf2477?w=800&fm=webp&q=80',
             'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&fm=webp&q=80'
         ],
@@ -1935,10 +1935,10 @@ const equips = [
         cat: 'Escalada Hielo & Roca',
         price: 2100,
         rentPrice: 55,
-        img: 'https://images.unsplash.com/photo-1506377225131-41e98d9ba0d1?w=800&fm=webp&q=80',
+        img: 'assets/images/equipos/equipo_petzl_quark.jpg',
         views360: [
-            'https://images.unsplash.com/photo-1506377225131-41e98d9ba0d1?w=800&fm=webp&q=80',
-            'https://images.unsplash.com/photo-1520639888713-7851133b1ed0?w=800&fm=webp&q=80',
+            'assets/images/equipos/equipo_petzl_quark.jpg',
+            'assets/images/equipos/equipo_grivel_g12.jpg',
             'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&fm=webp&q=80',
             'https://images.unsplash.com/photo-1512990414788-d97cb4a25db3?w=800&fm=webp&q=80'
         ],
@@ -1957,10 +1957,10 @@ const equips = [
         cat: 'Escalada Hielo & Roca',
         price: 920,
         rentPrice: 30,
-        img: 'https://images.unsplash.com/photo-1520639888713-7851133b1ed0?w=800&fm=webp&q=80',
+        img: 'assets/images/equipos/equipo_grivel_g12.jpg',
         views360: [
-            'https://images.unsplash.com/photo-1520639888713-7851133b1ed0?w=800&fm=webp&q=80',
-            'https://images.unsplash.com/photo-1506377225131-41e98d9ba0d1?w=800&fm=webp&q=80',
+            'assets/images/equipos/equipo_grivel_g12.jpg',
+            'assets/images/equipos/equipo_petzl_quark.jpg',
             'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&fm=webp&q=80',
             'https://images.unsplash.com/photo-1512990414788-d97cb4a25db3?w=800&fm=webp&q=80'
         ],
@@ -1982,8 +1982,8 @@ const equips = [
         img: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&fm=webp&q=80',
         views360: [
             'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&fm=webp&q=80',
-            'https://images.unsplash.com/photo-1520639888713-7851133b1ed0?w=800&fm=webp&q=80',
-            'https://images.unsplash.com/photo-1506377225131-41e98d9ba0d1?w=800&fm=webp&q=80',
+            'assets/images/equipos/equipo_grivel_g12.jpg',
+            'assets/images/equipos/equipo_petzl_quark.jpg',
             'https://images.unsplash.com/photo-1512990414788-d97cb4a25db3?w=800&fm=webp&q=80'
         ],
         specs: {
@@ -2005,8 +2005,8 @@ const equips = [
         views360: [
             'https://images.unsplash.com/photo-1512990414788-d97cb4a25db3?w=800&fm=webp&q=80',
             'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&fm=webp&q=80',
-            'https://images.unsplash.com/photo-1520639888713-7851133b1ed0?w=800&fm=webp&q=80',
-            'https://images.unsplash.com/photo-1506377225131-41e98d9ba0d1?w=800&fm=webp&q=80'
+            'assets/images/equipos/equipo_grivel_g12.jpg',
+            'assets/images/equipos/equipo_petzl_quark.jpg'
         ],
         specs: {
             peso: '394 g',
@@ -2029,7 +2029,7 @@ const equips = [
         views360: [
             'https://images.unsplash.com/photo-1622260614153-03223fb72052?w=800&fm=webp&q=80',
             'https://images.unsplash.com/photo-1581605405669-fcdf81165afa?w=800&fm=webp&q=80',
-            'https://images.unsplash.com/photo-1547847932-d3a3d538df59?w=800&fm=webp&q=80',
+            'assets/images/equipos/equipo_marmot_col.jpg',
             'https://images.unsplash.com/photo-1590845947698-8924d7409b56?w=800&fm=webp&q=80'
         ],
         specs: {
@@ -2129,7 +2129,7 @@ const guides = [
         languages: ['Quechua', 'Español', 'Inglés'],
         exp: '18 años',
         cert: 'UIAGM / AGMP Cert. #042 PE • DIRCETUR Cusco',
-        img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1887&auto=format&fit=crop',
+        img: 'assets/images/guias/guia_inti_quispe.jpg',
         desc: 'Nacido en Ollantaytambo, maestro de las rutas incas y rescate en altura. Más de 200 cruces exitosos por Salkantay y Ausangate.',
         fullItinerary: [
             { day: '06:00', desc: 'Briefing técnico de aclimatación y revisión de equipo en Cusco.' },
@@ -2149,7 +2149,7 @@ const guides = [
         languages: ['Español', 'Inglés', 'Francés'],
         exp: '9 años',
         cert: 'Instructora FEPAM • WFR (Wilderness First Responder)',
-        img: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1964&auto=format&fit=crop',
+        img: 'assets/images/guias/guia_valeria_condori.jpg',
         desc: 'Campeona nacional de bouldering y referente técnica en vías ferratas del Valle Sagrado. Especialista en seguridad de cuerdas.',
         fullItinerary: [
             { day: '08:00', desc: 'Punto de encuentro en Urubamba o Pachar.' },
@@ -2169,7 +2169,7 @@ const guides = [
         languages: ['Español', 'Inglés', 'Alemán', 'Quechua'],
         exp: '22 años',
         cert: 'Guía UIAGM Internacional • IFMGA Certified #108',
-        img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop',
+        img: 'assets/images/guias/guia_alberto_morales.jpg',
         desc: 'Leyenda viva de Huaraz. Más de 40 ascensiones al Huascarán Sur (6,768m) y apertura de rutas en la pared SO del Alpamayo.',
         fullItinerary: [
             { day: '03:00', desc: 'Ataque a cumbre desde campo alto sobre glaciar con crampones y encordamiento.' },
@@ -2189,7 +2189,7 @@ const guides = [
         languages: ['Español', 'Inglés', 'Italiano'],
         exp: '12 años',
         cert: 'Guía Oficial de Montaña AGMP • Paramédico WEMT',
-        img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1888&auto=format&fit=crop',
+        img: 'assets/images/guias/guia_sofia_huaman.jpg',
         desc: 'Líder del circuito completo Cordillera Huayhuash. Experta en nutrición de resistencia, telemedicina y rescate en grietas.',
         fullItinerary: [
             { day: '07:00', desc: 'Revisión meteorológica satelital y partida desde campamento laguna Carhuacocha.' },
@@ -2209,7 +2209,7 @@ const guides = [
         languages: ['Español', 'Inglés', 'Portugués'],
         exp: '14 años',
         cert: 'Guía de Montaña DIRCETUR Arequipa • Rescatista Cruz Roja',
-        img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1887&auto=format&fit=crop',
+        img: 'assets/images/guias/guia_mateo_ramos.jpg',
         desc: 'Geólogo y montañista arequipeño. Más de 150 cumbres al Volcán Misti (5,822m) y descensos de cañones profundos en Cotahuasi.',
         fullItinerary: [
             { day: '01:00', desc: 'Ascenso nocturno por arenales del Misti para ganar la arista del cráter.' },
@@ -2229,7 +2229,7 @@ const guides = [
         languages: ['Español', 'Portugués', 'Inglés', 'Shipibo'],
         exp: '15 años',
         cert: 'Rescue 3 International • IRF White Water Guide Grade 5',
-        img: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1888&auto=format&fit=crop',
+        img: 'assets/images/guias/guia_elena_tuanama.jpg',
         desc: 'Nacida junto al río Ucayali. Capitana de rafting en los cañones del Río Apurímac y Tambopata. Experta en supervivencia selvática.',
         fullItinerary: [
             { day: '09:00', desc: 'Charla de seguridad, comando de remos y prueba de natación en rápidos clase III.' },
