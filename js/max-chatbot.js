@@ -243,23 +243,102 @@
     }
     .max-quick-reply:hover { background: rgba(230,57,70,0.15); border-color: #e63946; color: #e63946; }
 
+    .max-chips-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .max-chip {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #cbd5e1;
+      padding: 5px 11px;
+      border-radius: 999px;
+      font-size: 11.5px;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .max-chip:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(245,158,11,0.5);
+      color: #fff;
+    }
+    .max-chip.subtle-book {
+      border-color: rgba(245,158,11,0.35);
+      color: #fcd34d;
+    }
+
     @media (max-width: 480px) {
       #max-chat-panel { width: calc(100vw - 32px); right: -4px; }
     }
   `;
 
-  // ── TEMPLATE HTML ─────────────────────────────────────────
-  const INITIAL_MSG = '¡Hola! Soy MAX 🏔️, Director Comercial de Expediciones de Lifextreme.\n\n'
-    + 'No soy un simple chatbot de información: **armo y cierro tu paquete todo incluido al instante** con todo lo que necesitas para tu seguridad y confort:\n\n'
-    + '🎒 **Tour oficial** + 🧗 **Equipo técnico** + 🕶️ **Accesorios** + 🩺 **Asistencia médica y oxígeno** + 🛡️ **Seguro extremo**.\n\n'
-    + '¿Qué cumbre o aventura deseas conquistar hoy? Elige una opción o dime tu destino:';
+  // ── TEMPLATE HTML (MINIMALISTA Y LIMPIO ESTILO GEMINI / CHATGPT) ─────────
+  const INITIAL_MSG = 'Hola, soy **MAX** 🏔️. ¿Qué ruta o aventura en Perú estás planeando?';
 
-  const QUICK_REPLIES = [
-    '🏔️ Paquete Machu Picchu Pro',
-    '⚡ Nevado Mateo con Todo Incluido',
-    '🧗 Choquequirao Expedición Completa',
-    '💳 Quiero Cotizar y Reservar con 30%'
-  ];
+  // ── DETECTOR DE INTENCIÓN REAL DE COMPRA / RESERVA ──────────────────────
+  function hasExplicitBookingIntent(query) {
+    const q = (query || '').toLowerCase();
+    return /(quiero reservar|como reservo|cómo reservo|reservar cupo|separar cupo|quiero pagar|proceder a reservar|agregar al carrito|comprar paquete|confirmar reserva|ver resumen para reservar)/i.test(q);
+  }
+
+  // ── PÍLDORAS SUTILES PARA GUIAR EN LA WEB Y EN LA CONVERSACIÓN ──────────
+  window.maxNavigateSection = function(sectionId) {
+    if (typeof window.navigateTo === 'function') {
+      window.navigateTo(sectionId);
+    } else {
+      const el = document.getElementById(sectionId);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  window.maxSendChipPrompt = function(promptText) {
+    const input = document.getElementById('max-input');
+    if (input) {
+      input.value = promptText;
+      const sendBtn = document.getElementById('max-send-btn');
+      if (sendBtn) sendBtn.click();
+    }
+  };
+
+  function buildOrganicChipsHtml(query, bundle, turnCount, hasActiveBooking) {
+    if (hasActiveBooking) {
+      return `
+        <div class="max-chips-row">
+          <button type="button" class="max-chip" onclick="window.maxSendChipPrompt('¿Cómo es mi plan de aclimatación?')">🩺 Plan de aclimatación</button>
+          <button type="button" class="max-chip" onclick="window.maxSendChipPrompt('¿Qué debo llevar en el Duffle Bag de 7 kg?')">🎒 Mi Duffle Bag 7 kg</button>
+        </div>
+      `;
+    }
+
+    const q = (query || '').toLowerCase();
+    const chips = [];
+
+    if (q.includes('fecha') || q.includes('diciembre') || q.includes('cuando')) {
+      chips.push(`<button type="button" class="max-chip" onclick="window.maxSendChipPrompt('¿Qué incluye la expedición y los domos?')">✨ ¿Qué incluye?</button>`);
+      chips.push(`<button type="button" class="max-chip" onclick="window.maxSendChipPrompt('¿Cómo nos aclimatamos a la altura?')">🩺 Aclimatación</button>`);
+      chips.push(`<button type="button" class="max-chip subtle-book" onclick="window.maxSendChipPrompt('Quiero ver el resumen para reservar')">📅 Ver opciones de reserva</button>`);
+    } else if (q.includes('altura') || q.includes('aclimat') || q.includes('soroche')) {
+      chips.push(`<button type="button" class="max-chip" onclick="window.maxSendChipPrompt('¿Qué equipaje debo llevar?')">🎒 Equipaje 7 kg</button>`);
+      chips.push(`<button type="button" class="max-chip" onclick="window.maxNavigateSection('guias')">🧭 Conocer a los guías</button>`);
+      chips.push(`<button type="button" class="max-chip subtle-book" onclick="window.maxSendChipPrompt('Quiero ver el resumen para reservar')">📅 Separar fecha</button>`);
+    } else if (q.includes('equipaje') || q.includes('mochila') || q.includes('llevar')) {
+      chips.push(`<button type="button" class="max-chip" onclick="window.maxNavigateSection('equipos')">⛺ Ver equipos en la web</button>`);
+      chips.push(`<button type="button" class="max-chip subtle-book" onclick="window.maxSendChipPrompt('Quiero ver el resumen para reservar')">📅 Ver opciones de reserva</button>`);
+    } else {
+      chips.push(`<button type="button" class="max-chip" onclick="window.maxNavigateSection('destinos')">🗺️ Ver rutas en la web</button>`);
+      chips.push(`<button type="button" class="max-chip" onclick="window.maxSendChipPrompt('¿Qué fechas de salida tienen disponibles?')">🗓️ Consultar fechas</button>`);
+      if (turnCount >= 2) {
+        chips.push(`<button type="button" class="max-chip subtle-book" onclick="window.maxSendChipPrompt('Quiero ver el resumen para reservar')">📅 Opciones de reserva</button>`);
+      }
+    }
+
+    return `<div class="max-chips-row">${chips.join('')}</div>`;
+  }
 
   // ── SALES CLOSER ENGINE (TOUR + EQUIPO + ACCESORIOS + ASISTENCIA + SEGURO) ──
   let lastSelectedBundle = null;
@@ -497,13 +576,9 @@
         <div id="max-chat-header">
           <div id="max-avatar">M</div>
           <div id="max-header-info">
-            <h4>MAX — Closer Comercial Pro</h4>
-            <span>● En línea · Cierre de Reservas 24/7</span>
+            <h4>MAX</h4>
+            <span>● Asistente de Montaña · Lifextreme Perú</span>
           </div>
-        </div>
-
-        <div id="max-quick-replies">
-          ${QUICK_REPLIES.map(q => `<button class="max-quick-reply">${q}</button>`).join('')}
         </div>
 
         <div id="max-messages">
@@ -513,7 +588,7 @@
         <div id="max-action-bar"></div>
 
         <div id="max-input-area">
-          <input id="max-input" type="text" placeholder="Escribe tu destino (ej: Machu Picchu, Mateo...)" maxlength="500" autocomplete="off" />
+          <input id="max-input" type="text" placeholder="Pregunta sobre rutas, fechas, clima o aclimatación..." maxlength="500" autocomplete="off" />
           <button id="max-send-btn" aria-label="Enviar">
             <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
           </button>
@@ -528,13 +603,6 @@
     document.getElementById('max-send-btn').addEventListener('click', handleSend);
     document.getElementById('max-input').addEventListener('keydown', e => {
       if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSend(); }
-    });
-    document.querySelectorAll('.max-quick-reply').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.getElementById('max-input').value = btn.textContent;
-        handleSend();
-        btn.closest('#max-quick-replies').style.display = 'none';
-      });
     });
   }
 
@@ -554,8 +622,9 @@
     showTyping();
     isLoading = true;
 
-    // Generar la cotización de venta completa de 5 componentes
     const salesBundle = buildSalesBundle(text);
+    const showBookingCard = hasExplicitBookingIntent(text);
+    const turnCount = Math.floor(history.length / 2) + 1;
 
     let streamSucceeded = false;
     let fullText = '';
@@ -579,70 +648,62 @@
       }
     } catch (e) {}
 
-    // 1. Intentar con el motor conversacional Serverless (/api/max-chat) o Backend Local (localhost:8000)
-    const isLocalHost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-    const primaryUrl = isLocalHost ? 'http://localhost:8000/webhook/lifextreme' : '/api/max-chat';
-    const secondaryUrl = isLocalHost ? '/api/max-chat' : STREAM_ENDPOINT;
+    // Prioridad estricta al Cerebro Real Qdrant (337,000+ vectores + 5 Agentes):
+    // 1) http://localhost:8000/webhook/lifextreme (Directo al motor local Qdrant + FastAPI)
+    // 2) https://max.lifextreme.store/webhook/lifextreme (Túnel Cloudflare hacia Qdrant + FastAPI)
+    // 3) /api/max-chat (Respaldo Serverless solo si el servidor Qdrant estuviera apagado)
+    const candidateEndpoints = [
+      'http://localhost:8000/webhook/lifextreme',
+      ENDPOINT,
+      '/api/max-chat'
+    ];
 
-    try {
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 7000);
-      const response = await fetch(primaryUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: text, history, profile: clientProfile }),
-        signal: controller.signal
-      });
-      clearTimeout(timeoutId);
-
-      if (response.ok) {
-        const data = await response.json();
-        const replyMsg = data.mensaje || data.reply || '';
-        if (replyMsg) {
-          hideTyping();
-          fullText = replyMsg;
-          const cardHtml = !hasActiveBooking ? createSalesCardHtml(salesBundle) : '';
-          appendMessage('bot', `${formatMd(replyMsg)}${cardHtml}`, true);
-          streamSucceeded = true;
-        }
+    // Solo mostrar la tarjeta de reserva si el usuario tiene intención explícita de reservar;
+    // de lo contrario, mostrar píldoras sutiles para guiar la conversación de forma orgánica.
+    const buildFollowUpHtml = () => {
+      if (!hasActiveBooking && showBookingCard) {
+        return createSalesCardHtml(salesBundle);
       }
-    } catch (err) {
-      // Intentar endpoint secundario si el primario no respondió
+      return buildOrganicChipsHtml(text, salesBundle, turnCount, hasActiveBooking);
+    };
+
+    for (const url of candidateEndpoints) {
+      if (streamSucceeded) break;
       try {
-        const controller2 = new AbortController();
-        const timeoutId2 = setTimeout(() => controller2.abort(), 5000);
-        const res2 = await fetch(secondaryUrl, {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 9000);
+        const response = await fetch(url, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ message: text, history, profile: clientProfile }),
-          signal: controller2.signal
+          signal: controller.signal
         });
-        clearTimeout(timeoutId2);
-        if (res2.ok) {
-          const data2 = await res2.json();
-          const replyMsg2 = data2.mensaje || data2.reply || '';
-          if (replyMsg2) {
+        clearTimeout(timeoutId);
+
+        if (response.ok) {
+          const data = await response.json();
+          const replyMsg = data.mensaje || data.reply || '';
+          if (replyMsg && !replyMsg.includes('Disculpa, estoy teniendo un problema técnico')) {
             hideTyping();
-            fullText = replyMsg2;
-            const cardHtml = !hasActiveBooking ? createSalesCardHtml(salesBundle) : '';
-            appendMessage('bot', `${formatMd(replyMsg2)}${cardHtml}`, true);
+            fullText = replyMsg;
+            appendMessage('bot', `${formatMd(replyMsg)}${buildFollowUpHtml()}`, true);
             streamSucceeded = true;
+            break;
           }
         }
-      } catch (e2) {}
+      } catch (err) {}
     }
 
     if (!streamSucceeded) {
       hideTyping();
       const smartAnswer = buildIntelligentLocalReply(text, salesBundle, hasActiveBooking, clientProfile);
       fullText = smartAnswer.replace(/<[^>]+>/g, '');
-      const cardHtml = !hasActiveBooking ? createSalesCardHtml(salesBundle) : '';
-      appendMessage('bot', `${smartAnswer}${cardHtml}`, true);
+      appendMessage('bot', `${smartAnswer}${buildFollowUpHtml()}`, true);
     }
 
     // Actualizar historial
     history.push({ role: 'user', content: text });
-    history.push({ role: 'assistant', content: fullText || `Información enviada sobre ${salesBundle.title}` });
+    history.push({ role: 'assistant', content: fullText || `Conversación sobre ${salesBundle.title}` });
     if (history.length > 20) history = history.slice(-20);
 
     isLoading = false;

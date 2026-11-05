@@ -1,7 +1,6 @@
 // ==============================================================================
-// LIFEXTREME MAX AI — Serverless Conversational & Multiagent Endpoint (Vercel)
-// Responde preguntas reales (fechas, Salkantay, aclimatación, Duffle Bag 7kg, VIP)
-// y diferencia entre Visitante Web (Ventas) y Pasajero Confirmado (Post-Venta).
+// LIFEXTREME MAX AI — Conversational Assistant & Multiagent Orchestrator (Vercel)
+// Estilo limpio, orgánico y consultivo (tipo Gemini / ChatGPT).
 // ==============================================================================
 
 export default async function handler(req, res) {
@@ -21,27 +20,26 @@ export default async function handler(req, res) {
         const groqKey = (process.env.GROQ_API_KEY || '').trim();
 
         const hasBooking = Boolean(profile && profile.booking_code) || /\bLX-[A-Z0-9]{4,10}\b/i.test(message);
-        const bookingBanner = hasBooking
-            ? `ESTADO DEL CLIENTE: PASAJERO CON RESERVA CONFIRMADA (${profile.booking_code || 'Código verificado'}). Atiéndelo como Concierge Post-Venta activando el Agente 1 (Médico/Aclimatación), Agente 2 (Duffle Bag 7kg & Ley 31614) y Agente 5 (Calidad). NO le vendas de nuevo.`
-            : `ESTADO DEL CLIENTE: VISITANTE EN LA WEB. Responde directamente a su pregunta específica (fechas, salidas, clima, precios, ruta) con calidez y precisión de operador UIAGM.`;
+        const roleDirective = hasBooking
+            ? `El usuario YA TIENE UNA RESERVA CONFIRMADA (${profile.booking_code || 'Activa'}). Atiéndelo como su Concierge Post-Venta (aclimatación médica, Duffle Bag de 7 kg, itinerario). No intentes venderle.`
+            : `El usuario está explorando o consultando en la web. Atiéndelo de forma orgánica, consultiva y sin presionarlo a comprar.`;
 
-        const systemPrompt = `Eres MAX, Director Comercial y Operador UIAGM de Lifextreme Perú.
-${bookingBanner}
+        const systemPrompt = `Eres MAX, el asistente experto en montaña y expediciones de Lifextreme Perú (certificado UIAGM).
+${roleDirective}
 
-REGLAS DE ORO:
-1. RESPONDE SIEMPRE LA PREGUNTA EXACTA DEL USUARIO PRIMERO (en 2 párrafos cortos y claros). NUNCA cambies de destino (si pregunta por Salkantay, habla de Salkantay 4D/3N o 5D/4N, jamás lo cambies por Choquequirao).
-2. FECHAS Y SALIDAS EN DICIEMBRE / TODO EL AÑO:
-   - Salkantay Trek & Domos Glamping (4D/3N y 5D/4N): Tenemos salidas garantizadas TODOS LOS DÍAS en diciembre (del 1 al 31 de diciembre, incluyendo salidas especiales de Navidad y Año Nuevo en Machu Picchu) a partir de 2 pasajeros, tanto en grupo reducido (ratio máx. 1:8) como en modalidad Privada VIP.
-   - En diciembre (inicio de temporada verde andina), nuestros Domos Geodésicos en Soraypampa (3,900m) ofrecen aislamiento térmico total, camas confort y duchas calientes, además de salidas con desfase horario (Offset Trekking +/- 90 min) para caminar sin multitudes.
-3. ESTÁNDARES EXCLUSIVOS LIFEXTREME PERÚ (MALLA DE 5 AGENTES):
-   - Agente 1 (Médico & Aclimatación): Escalera de 2 días previos en Cusco/Valle Sagrado, control de SpO2/Tensión 2 veces al día, oxígeno medicinal 3m³, fisioterapia en campamento con botas de compresión neumática solar y pediluvios botánicos andinos, y corredor clínico con O2 Medical Network.
-   - Agente 2 (Duffle Bag 7 kg & Ley 31614): Entregamos Duffle Bag para hasta 7 kg llevado por arrieros/mulas, con pesaje digital certificado visible ante el cliente y Pasaporte Ético Animal.
-   - Agente 3 (Tailor-Made VIP): Expediciones privadas con camioneta 4x4 de respaldo, guía UIAGM exclusivo y gastronomía funcional hiperlocal.
-4. PRECIOS OFICIALES REFERENCIALES:
-   - Salkantay Trek a Machu Picchu 4D/3N (Glamping & Tren): S/ 1,850 por persona (Reserva con 30%: S/ 555).
-   - Choquequirao Expedición Legendaria 4D/3N: S/ 3,200 por persona.
-   - Circuito Ausangate & 7 Lagunas 6D: S/ 2,100 por persona.
-   - Camino Inca Clásico 4D: S/ 2,450 por persona (cerrado solo en febrero por mantenimiento; abierto todo diciembre con reserva anticipada).`;
+ESTILO DE CONVERSACIÓN (TIPO GEMINI / CHATGPT):
+1. Limpio, natural, empático y directo al grano (máximo 2 párrafos breves, 60 a 90 palabras).
+2. Responde SIEMPRE la duda exacta del usuario primero (ej. fechas, clima en diciembre, ruta, dificultad, aclimatación o equipaje).
+3. NO lances discursos agresivos de venta, ni listes precios o enlaces de pago si el usuario no los ha pedido.
+4. Al final de tu respuesta, haz una sola pregunta suave y natural para entender mejor su viaje (por ejemplo: con quién viaja, qué ritmo de caminata prefieren o qué días de ese mes les acomodan más).
+
+INFORMACIÓN OPERATIVA VERIFICADA DE LIFEXTREME PERÚ:
+- Fechas en Diciembre y Todo el Año: En Salkantay Trek (4D/3N y 5D/4N), Ausangate y Choquequirao tenemos salidas diarias garantizadas del 1 al 31 de diciembre (incluyendo Navidad y Año Nuevo) desde 2 personas, en grupo reducido (máx. 8 personas por guía) o en privado.
+- Alojamiento: Domos Geodésicos Glamping en Soraypampa (3,900 msnm) con aislamiento térmico y duchas calientes.
+- Desfase Horario (Offset Trekking): Salimos 90 minutos antes que los grupos masivos para cruzar el Abra Salkantay (4,630m) en silencio y sin multitudes.
+- Equipaje (Duffle Bag 7 kg & Ley N° 31614): Te damos un Duffle Bag para hasta 7 kg que llevan nuestros arrieros con pesaje digital certificado; tú solo caminas con una mochila ligera de día.
+- Seguridad y Aclimatación: Control de oximetría 2 veces al día, oxígeno medicinal portátil, fisioterapia en campamento (botas de compresión y pediluvios botánicos) y soporte clínico con O2 Medical Network.
+- Precios de referencia (solo menciónalos si el usuario pregunta cuánto cuesta o quiere reservar): Salkantay 4D/3N S/ 1,850, Ausangate 6D S/ 2,100, Choquequirao 4D S/ 3,200, Camino Inca 4D S/ 2,450 (se separan con el 30%).`;
 
         const messages = [
             { role: 'system', content: systemPrompt },
@@ -52,36 +50,47 @@ REGLAS DE ORO:
             { role: 'user', content: String(message) }
         ];
 
-        const groqRes = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${groqKey}`,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                model: 'llama-3.3-70b-versatile',
-                messages,
-                temperature: 0.45,
-                max_tokens: 450
-            })
-        });
+        if (groqKey) {
+            const groqRes = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${groqKey}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    model: 'llama-3.3-70b-versatile',
+                    messages,
+                    temperature: 0.45,
+                    max_tokens: 350
+                })
+            });
 
-        if (groqRes.ok) {
-            const data = await groqRes.json();
-            const reply = data.choices?.[0]?.message?.content || '';
-            if (reply) {
-                return res.status(200).json({ mensaje: reply, source: 'groq_lpu' });
+            if (groqRes.ok) {
+                const data = await groqRes.json();
+                const reply = data.choices?.[0]?.message?.content || '';
+                if (reply) {
+                    return res.status(200).json({ mensaje: reply, source: 'groq_lpu' });
+                }
             }
         }
 
-        return res.status(200).json({
-            mensaje: `¡Hola! Para el **Salkantay Trek 4 Días / 3 Noches en diciembre**, contamos con **salidas diarias garantizadas todo el mes (del 1 al 31 de diciembre)** a partir de 2 personas, incluyendo fechas especiales de Navidad y Año Nuevo.\n\nNuestra expedición incluye pernocta en **Domos Geodésicos Glamping en Soraypampa (3,900 msnm)**, **Duffle Bag de 7 kg** porteado por arrieros bajo la Ley N° 31614, monitoreo biométrico de oxígeno dos veces al día y desfase horario (*Offset Trekking*) para cruzar el Abra Salkantay (4,630m) sin multitudes. ¿Para qué día exacto de diciembre y para cuántas personas deseas bloquear tus cupos con el 30%?`,
-            source: 'fallback_domain'
-        });
+        // Respuesta conversacional inteligente por dominio si no hay API key en entorno cloud
+        const q = String(message).toLowerCase();
+        let fallbackReply = '';
+        if (q.includes('fecha') || q.includes('diciembre') || q.includes('cuando') || q.includes('salid')) {
+            fallbackReply = `Para **Salkantay 4 Días / 3 Noches en diciembre** tenemos salidas diarias confirmadas del **1 al 31 de diciembre** (incluyendo semanas de Navidad y Año Nuevo), tanto en grupos pequeños (máximo 8 viajeros por guía) como en formato privado.\n\nEn diciembre la montaña luce increíble y descansamos en nuestros **Domos Geodésicos en Soraypampa (3,900 msnm)** bien abrigados de la lluvia andina. ¿Tienen pensado viajar en la primera quincena o cerca de fin de año, y cuántos serían en el grupo?`;
+        } else if (q.includes('altura') || q.includes('aclimat') || q.includes('soroche')) {
+            fallbackReply = `Para que disfrutes el paso de montaña sin malestar, te recomendamos estar en Cusco o el Valle Sagrado al menos **2 días antes** de iniciar la caminata.\n\nDurante toda la ruta medimos tu saturación de oxígeno mañana y tarde, llevamos oxígeno medicinal y al llegar al campamento realizamos sesiones de recuperación muscular con botas de compresión y pediluvios calientes. ¿Ya has caminado antes sobre los 3,500 metros?`;
+        } else if (q.includes('equipaje') || q.includes('mochila') || q.includes('llevar') || q.includes('peso') || q.includes('duffle')) {
+            fallbackReply = `No tienes que cargar peso pesado en la caminata: la noche previa en Cusco te entregamos un **Duffle Bag oficial donde puedes meter hasta 7 kg** (tu ropa de abrigo y saco de dormir), el cual llevan nuestros arrieros en mulas.\n\nTú solo caminas con una mochila ligera de día (20 a 25 litros) para tu agua, cámara y casaca impermeable. ¿Ya cuentas con equipo de trekking o te gustaría ver qué implementos tenemos disponibles?`;
+        } else {
+            fallbackReply = `El **Salkantay 4 Días / 3 Noches** es una de las travesías más hermosas de Cusco: combina los **Domos Glamping frente al glaciar en Soraypampa**, salidas con desfase horario para caminar sin multitudes y el cierre en **Machu Picchu**.\n\nCuéntame un poco más de tu plan: ¿para qué mes están pensando viajar y cuántas personas vienen contigo?`;
+        }
+
+        return res.status(200).json({ mensaje: fallbackReply, source: 'organic_domain' });
     } catch (err) {
         return res.status(200).json({
-            mensaje: `¡Hola! Tenemos salidas diarias confirmadas todo diciembre para **Salkantay 4D/3N** con Domos Glamping, Duffle Bag de 7 kg y guía certificado UIAGM/WFR. Cuéntame para qué fecha exacta de diciembre y cuántos viajeros son para bloquearte los cupos.`,
-            error: String(err)
+            mensaje: `Para **Salkantay 4D/3N** contamos con salidas diarias todo diciembre y descanso en Domos Glamping en Soraypampa. ¿Para qué fechas aproximadas estás planeando tu viaje?`
         });
     }
 }
