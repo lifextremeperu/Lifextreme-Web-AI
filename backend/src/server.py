@@ -19,15 +19,18 @@ try:
     from .max_agent import process_message, process_message_stream
     from .rag_service import find_matching_catalog_item
     from .partner_agent import process_b2b_stream
+    from .agents.router import router as multiagent_router
 except ImportError:
     from max_agent import process_message, process_message_stream
     from rag_service import find_matching_catalog_item
     from partner_agent import process_b2b_stream
+    from agents.router import router as multiagent_router
 
 from app.routers.geoint import router as geoint_router
 
 app = FastAPI(title="Lifextreme MAX AI OS v2.5 - Hybrid Catalog + Qdrant + Groq LPU")
 app.include_router(geoint_router)
+app.include_router(multiagent_router, prefix="/api/v1/agents", tags=["Multiagent Operational Mesh"])
 
 app.add_middleware(
     CORSMiddleware,
