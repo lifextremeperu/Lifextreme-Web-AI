@@ -18,6 +18,28 @@ export default async function handler(req, res) {
     try {
         const { message = '', history = [], profile = {} } = req.body || {};
         const groqKey = (process.env.GROQ_API_KEY || '').trim();
+        const qdrantTunnelUrl = (process.env.QDRANT_TUNNEL_URL || 'https://expression-writings-boxing-mitsubishi.trycloudflare.com').replace(/\/$/, '');
+
+        // 1. PRIORIDAD 1: Puente directo a nuestro Cerebro Vectorial Qdrant (337,000+ vectores + 5 Agentes + Ollama local)
+        try {
+            const qdrantRes = await fetch(`${qdrantTunnelUrl}/webhook/lifextreme`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message, history, profile })
+            });
+            if (qdrantRes.ok) {
+                const qdrantData = await qdrantRes.json();
+                const qdrantReply = qdrantData.mensaje || qdrantData.reply || '';
+                if (qdrantReply && !qdrantReply.includes('Disculpa, estoy teniendo un problema')) {
+                    return res.status(200).json({
+                        mensaje: qdrantReply,
+                        source: 'qdrant_337k_rag'
+                    });
+                }
+            }
+        } catch (tunnelErr) {
+            // Si el túnel local está cerrado temporalmente, continúa al motor conversacional
+        }
 
         const hasBooking = Boolean(profile && profile.booking_code) || /\bLX-[A-Z0-9]{4,10}\b/i.test(message);
         const roleDirective = hasBooking
