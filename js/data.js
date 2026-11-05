@@ -1735,8 +1735,8 @@ const equips = [
         views360: [
             'assets/images/equipos/equipo_mountain_25.jpg',
             'assets/images/equipos/equipo_msr_hubba.jpg',
-            'https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=800&fm=webp&q=80',
-            'https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?w=800&fm=webp&q=80'
+            'assets/images/equipos/equipo_ferrino_svalbard.jpg',
+            'assets/images/equipos/equipo_marmot_col.jpg'
         ],
         specs: {
             peso: '4.0 kg',
@@ -1757,8 +1757,8 @@ const equips = [
         views360: [
             'assets/images/equipos/equipo_msr_hubba.jpg',
             'assets/images/equipos/equipo_mountain_25.jpg',
-            'https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?w=800&fm=webp&q=80',
-            'https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=800&fm=webp&q=80'
+            'assets/images/equipos/equipo_ferrino_svalbard.jpg',
+            'assets/images/equipos/equipo_thermarest_neoair.jpg'
         ],
         specs: {
             peso: '1.54 kg (Trail Weight)',
@@ -1775,12 +1775,12 @@ const equips = [
         cat: 'Carpas & Campamento',
         price: 2400,
         rentPrice: 55,
-        img: 'https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?w=800&fm=webp&q=80',
+        img: 'assets/images/equipos/equipo_ferrino_svalbard.jpg',
         views360: [
-            'https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?w=800&fm=webp&q=80',
+            'assets/images/equipos/equipo_ferrino_svalbard.jpg',
             'assets/images/equipos/equipo_mountain_25.jpg',
             'assets/images/equipos/equipo_msr_hubba.jpg',
-            'https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=800&fm=webp&q=80'
+            'assets/images/equipos/equipo_ferrino_nightec.jpg'
         ],
         specs: {
             peso: '4.7 kg',
@@ -1802,9 +1802,9 @@ const equips = [
         img: 'assets/images/equipos/equipo_marmot_col.jpg',
         views360: [
             'assets/images/equipos/equipo_marmot_col.jpg',
-            'https://images.unsplash.com/photo-1617326693439-0bd649033376?w=800&fm=webp&q=80',
-            'assets/images/equipos/equipo_mountain_25.jpg',
-            'assets/images/equipos/equipo_msr_hubba.jpg'
+            'assets/images/equipos/equipo_ferrino_nightec.jpg',
+            'assets/images/equipos/equipo_thermarest_neoair.jpg',
+            'assets/images/equipos/equipo_mountain_25.jpg'
         ],
         specs: {
             peso: '1.76 kg',
@@ -1821,12 +1821,12 @@ const equips = [
         cat: 'Sleepings & Matras',
         price: 1100,
         rentPrice: 32,
-        img: 'https://images.unsplash.com/photo-1617326693439-0bd649033376?w=800&fm=webp&q=80',
+        img: 'assets/images/equipos/equipo_ferrino_nightec.jpg',
         views360: [
-            'https://images.unsplash.com/photo-1617326693439-0bd649033376?w=800&fm=webp&q=80',
+            'assets/images/equipos/equipo_ferrino_nightec.jpg',
             'assets/images/equipos/equipo_marmot_col.jpg',
-            'assets/images/equipos/equipo_msr_hubba.jpg',
-            'assets/images/equipos/equipo_mountain_25.jpg'
+            'assets/images/equipos/equipo_thermarest_neoair.jpg',
+            'assets/images/equipos/equipo_ferrino_svalbard.jpg'
         ],
         specs: {
             peso: '1.45 kg',
@@ -1843,10 +1843,10 @@ const equips = [
         cat: 'Sleepings & Matras',
         price: 980,
         rentPrice: 28,
-        img: 'https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=800&fm=webp&q=80',
+        img: 'assets/images/equipos/equipo_thermarest_neoair.jpg',
         views360: [
-            'https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=800&fm=webp&q=80',
-            'https://images.unsplash.com/photo-1617326693439-0bd649033376?w=800&fm=webp&q=80',
+            'assets/images/equipos/equipo_thermarest_neoair.jpg',
+            'assets/images/equipos/equipo_ferrino_nightec.jpg',
             'assets/images/equipos/equipo_marmot_col.jpg',
             'assets/images/equipos/equipo_mountain_25.jpg'
         ],
@@ -1870,9 +1870,9 @@ const equips = [
         img: 'assets/images/equipos/equipo_arcteryx_alpha.jpg',
         views360: [
             'assets/images/equipos/equipo_arcteryx_alpha.jpg',
-            'https://images.unsplash.com/photo-1578632767115-351597cf2477?w=800&fm=webp&q=80',
-            'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&fm=webp&q=80',
-            'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&fm=webp&q=80'
+            'assets/images/equipos/equipo_tnf_summit_l3.jpg',
+            'assets/images/equipos/equipo_patagonia_triolet.jpg',
+            'assets/images/equipos/equipo_petzl_quark.jpg'
         ],
         specs: {
             peso: '485 g',
@@ -1889,12 +1889,12 @@ const equips = [
         cat: 'Casacas & Ropa Técnica',
         price: 1850,
         rentPrice: 42,
-        img: 'https://images.unsplash.com/photo-1578632767115-351597cf2477?w=800&fm=webp&q=80',
+        img: 'assets/images/equipos/equipo_tnf_summit_l3.jpg',
         views360: [
-            'https://images.unsplash.com/photo-1578632767115-351597cf2477?w=800&fm=webp&q=80',
+            'assets/images/equipos/equipo_tnf_summit_l3.jpg',
             'assets/images/equipos/equipo_arcteryx_alpha.jpg',
-            'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&fm=webp&q=80',
-            'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&fm=webp&q=80'
+            'assets/images/equipos/equipo_patagonia_triolet.jpg',
+            'assets/images/equipos/equipo_mountain_25.jpg'
         ],
         specs: {
             peso: '380 g',
@@ -1911,12 +1911,12 @@ const equips = [
         cat: 'Casacas & Ropa Técnica',
         price: 1450,
         rentPrice: 35,
-        img: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&fm=webp&q=80',
+        img: 'assets/images/equipos/equipo_patagonia_triolet.jpg',
         views360: [
-            'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&fm=webp&q=80',
+            'assets/images/equipos/equipo_patagonia_triolet.jpg',
             'assets/images/equipos/equipo_arcteryx_alpha.jpg',
-            'https://images.unsplash.com/photo-1578632767115-351597cf2477?w=800&fm=webp&q=80',
-            'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&fm=webp&q=80'
+            'assets/images/equipos/equipo_tnf_summit_l3.jpg',
+            'assets/images/equipos/equipo_grivel_g12.jpg'
         ],
         specs: {
             peso: '540 g',
@@ -1939,8 +1939,8 @@ const equips = [
         views360: [
             'assets/images/equipos/equipo_petzl_quark.jpg',
             'assets/images/equipos/equipo_grivel_g12.jpg',
-            'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&fm=webp&q=80',
-            'https://images.unsplash.com/photo-1512990414788-d97cb4a25db3?w=800&fm=webp&q=80'
+            'assets/images/equipos/equipo_petzl_sirocco.jpg',
+            'assets/images/equipos/equipo_bd_solution.jpg'
         ],
         specs: {
             peso: '550 g c/u (1.10 kg el par)',
@@ -1961,8 +1961,8 @@ const equips = [
         views360: [
             'assets/images/equipos/equipo_grivel_g12.jpg',
             'assets/images/equipos/equipo_petzl_quark.jpg',
-            'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&fm=webp&q=80',
-            'https://images.unsplash.com/photo-1512990414788-d97cb4a25db3?w=800&fm=webp&q=80'
+            'assets/images/equipos/equipo_petzl_sirocco.jpg',
+            'assets/images/equipos/equipo_arcteryx_alpha.jpg'
         ],
         specs: {
             peso: '970 g el par',
@@ -1979,12 +1979,12 @@ const equips = [
         cat: 'Escalada Hielo & Roca',
         price: 580,
         rentPrice: 18,
-        img: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&fm=webp&q=80',
+        img: 'assets/images/equipos/equipo_petzl_sirocco.jpg',
         views360: [
-            'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&fm=webp&q=80',
-            'assets/images/equipos/equipo_grivel_g12.jpg',
+            'assets/images/equipos/equipo_petzl_sirocco.jpg',
+            'assets/images/equipos/equipo_bd_solution.jpg',
             'assets/images/equipos/equipo_petzl_quark.jpg',
-            'https://images.unsplash.com/photo-1512990414788-d97cb4a25db3?w=800&fm=webp&q=80'
+            'assets/images/equipos/equipo_grivel_g12.jpg'
         ],
         specs: {
             peso: '170 g (Ultralight)',
@@ -2001,10 +2001,10 @@ const equips = [
         cat: 'Escalada Hielo & Roca',
         price: 490,
         rentPrice: 16,
-        img: 'https://images.unsplash.com/photo-1512990414788-d97cb4a25db3?w=800&fm=webp&q=80',
+        img: 'assets/images/equipos/equipo_bd_solution.jpg',
         views360: [
-            'https://images.unsplash.com/photo-1512990414788-d97cb4a25db3?w=800&fm=webp&q=80',
-            'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&fm=webp&q=80',
+            'assets/images/equipos/equipo_bd_solution.jpg',
+            'assets/images/equipos/equipo_petzl_sirocco.jpg',
             'assets/images/equipos/equipo_grivel_g12.jpg',
             'assets/images/equipos/equipo_petzl_quark.jpg'
         ],
@@ -2025,12 +2025,12 @@ const equips = [
         cat: 'Mochilas & Trekking',
         price: 1350,
         rentPrice: 45,
-        img: 'https://images.unsplash.com/photo-1622260614153-03223fb72052?w=800&fm=webp&q=80',
+        img: 'assets/images/equipos/equipo_osprey_aether.jpg',
         views360: [
-            'https://images.unsplash.com/photo-1622260614153-03223fb72052?w=800&fm=webp&q=80',
-            'https://images.unsplash.com/photo-1581605405669-fcdf81165afa?w=800&fm=webp&q=80',
-            'assets/images/equipos/equipo_marmot_col.jpg',
-            'https://images.unsplash.com/photo-1590845947698-8924d7409b56?w=800&fm=webp&q=80'
+            'assets/images/equipos/equipo_osprey_aether.jpg',
+            'assets/images/equipos/equipo_bd_bastones.jpg',
+            'assets/images/equipos/equipo_garmin_inreach.jpg',
+            'assets/images/equipos/equipo_marmot_col.jpg'
         ],
         specs: {
             capacidad: '65 Litros',
@@ -2047,12 +2047,12 @@ const equips = [
         cat: 'Mochilas & Trekking',
         price: 520,
         rentPrice: 18,
-        img: 'https://images.unsplash.com/photo-1563857508098-b6483134604d?w=800&fm=webp&q=80',
+        img: 'assets/images/equipos/equipo_bd_bastones.jpg',
         views360: [
-            'https://images.unsplash.com/photo-1563857508098-b6483134604d?w=800&fm=webp&q=80',
-            'https://images.unsplash.com/photo-1557262947-2cb2d4705540?w=800&fm=webp&q=80',
-            'https://images.unsplash.com/photo-1622260614153-03223fb72052?w=800&fm=webp&q=80',
-            'https://images.unsplash.com/photo-1581605405669-fcdf81165afa?w=800&fm=webp&q=80'
+            'assets/images/equipos/equipo_bd_bastones.jpg',
+            'assets/images/equipos/equipo_osprey_aether.jpg',
+            'assets/images/equipos/equipo_garmin_inreach.jpg',
+            'assets/images/equipos/equipo_thermarest_neoair.jpg'
         ],
         specs: {
             peso: '590 g el par',
@@ -2069,12 +2069,12 @@ const equips = [
         cat: 'Mochilas & Trekking',
         price: 1850,
         rentPrice: 50,
-        img: 'https://images.unsplash.com/photo-1557262947-2cb2d4705540?w=800&fm=webp&q=80',
+        img: 'assets/images/equipos/equipo_garmin_inreach.jpg',
         views360: [
-            'https://images.unsplash.com/photo-1557262947-2cb2d4705540?w=800&fm=webp&q=80',
-            'https://images.unsplash.com/photo-1563857508098-b6483134604d?w=800&fm=webp&q=80',
-            'https://images.unsplash.com/photo-1622260614153-03223fb72052?w=800&fm=webp&q=80',
-            'https://images.unsplash.com/photo-1581605405669-fcdf81165afa?w=800&fm=webp&q=80'
+            'assets/images/equipos/equipo_garmin_inreach.jpg',
+            'assets/images/equipos/equipo_osprey_aether.jpg',
+            'assets/images/equipos/equipo_bd_bastones.jpg',
+            'assets/images/equipos/equipo_ferrino_svalbard.jpg'
         ],
         specs: {
             cobertura: 'Red 100% Satelital Global Iridium',
