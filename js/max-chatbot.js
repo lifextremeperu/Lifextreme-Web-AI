@@ -262,46 +262,82 @@
   ];
 
   // ── SALES CLOSER ENGINE (TOUR + EQUIPO + ACCESORIOS + ASISTENCIA + SEGURO) ──
+  let lastSelectedBundle = null;
+
+  function formatMd(str) {
+    return String(str || '')
+      .replace(/\[CARR[^\]]*\]?/gi, '')
+      .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+      .replace(/\n/g, '<br>');
+  }
+
   function buildSalesBundle(query) {
     const q = (query || '').toLowerCase();
-    let tourTitle = 'Expedición Machu Picchu & Tren Panorámico';
-    let tourDept = 'Cusco';
-    let basePrice = 620;
+    let tourTitle = lastSelectedBundle ? lastSelectedBundle.title : 'Salkantay Trek & Domos Glamping a Machu Picchu (4D/3N)';
+    let tourDept = lastSelectedBundle ? lastSelectedBundle.dept : 'Cusco';
+    let basePrice = lastSelectedBundle ? lastSelectedBundle.basePrice : 1630;
 
-    if (window.tours && Array.isArray(window.tours) && window.tours.length > 0) {
-      const found = window.tours.find(t => 
-        q.includes(t.title.toLowerCase()) || 
-        q.includes(t.dept.toLowerCase()) || 
-        (t.detail && q.includes(t.detail.toLowerCase()))
+    if (q.includes('salkantay')) {
+      tourTitle = 'Salkantay Trek & Domos Glamping a Machu Picchu (4D/3N)';
+      tourDept = 'Cusco';
+      basePrice = 1630;
+    } else if (q.includes('choquequirao')) {
+      tourTitle = 'Choquequirao Expedición Legendaria (4D/3N)';
+      tourDept = 'Cusco';
+      basePrice = 790;
+    } else if (q.includes('camino inca') || q.includes('inca trail')) {
+      tourTitle = 'Camino Inca Clásico a Machu Picchu (4D/3N)';
+      tourDept = 'Cusco';
+      basePrice = 2230;
+    } else if (q.includes('ausangate')) {
+      tourTitle = 'Circuito Ausangate & 7 Lagunas Glamping (6D/5N)';
+      tourDept = 'Cusco';
+      basePrice = 1880;
+    } else if (q.includes('vinicunca') || q.includes('colores')) {
+      tourTitle = 'Montaña de los 7 Colores & Valle Rojo Pro';
+      tourDept = 'Cusco';
+      basePrice = 230;
+    } else if (q.includes('humantay')) {
+      tourTitle = 'Laguna Humantay & Soraypampa Glamping';
+      tourDept = 'Cusco';
+      basePrice = 230;
+    } else if (q.includes('mateo') || q.includes('pastoruri')) {
+      tourTitle = 'Nevado Mateo 5,150m (Cumbre Glaciar)';
+      tourDept = 'Huaraz';
+      basePrice = 380;
+    } else if (q.includes('santa cruz') || q.includes('huaraz') || q.includes('laguna 69')) {
+      tourTitle = 'Trekking Santa Cruz & Laguna 69 Cordillera Blanca (4D/3N)';
+      tourDept = 'Huaraz';
+      basePrice = 980;
+    } else if (q.includes('colca') || q.includes('arequipa')) {
+      tourTitle = 'Trekking Cañón del Colca (3D/2N)';
+      tourDept = 'Arequipa';
+      basePrice = 630;
+    } else if (q.includes('misti')) {
+      tourTitle = 'Ascenso Volcán Misti 5,825m (2D/1N)';
+      tourDept = 'Arequipa';
+      basePrice = 880;
+    } else if (q.includes('parapente') || q.includes('miraflores') || q.includes('costa')) {
+      tourTitle = 'Parapente Táctico Costa Verde Miraflores';
+      tourDept = 'Lima';
+      basePrice = 260;
+    } else if (q.includes('rafting') || q.includes('lunahuana') || q.includes('canete')) {
+      tourTitle = 'Rafting Extremo & Canopy Lunahuaná';
+      tourDept = 'Lima';
+      basePrice = 220;
+    } else if (q.includes('machu picchu')) {
+      tourTitle = 'Expedición Machu Picchu & Tren Panorámico';
+      tourDept = 'Cusco';
+      basePrice = 620;
+    } else if (window.tours && Array.isArray(window.tours) && window.tours.length > 0) {
+      const words = q.split(/\s+/).filter(w => w.length >= 4);
+      const found = window.tours.find(t =>
+        words.some(w => t.title.toLowerCase().includes(w))
       );
       if (found) {
         tourTitle = found.title;
         tourDept = found.dept;
         basePrice = Number(found.price) || 450;
-      }
-    }
-
-    if (!window.tours || tourTitle.includes('Machu Picchu')) {
-      if (q.includes('mateo') || q.includes('huaraz') || q.includes('glaciar') || q.includes('pastoruri')) {
-        tourTitle = 'Nevado Mateo 5,150m (Cumbre Glaciar)';
-        tourDept = 'Huaraz';
-        basePrice = 380;
-      } else if (q.includes('choquequirao') || q.includes('salkantay')) {
-        tourTitle = 'Choquequirao Expedición Legendaria (4D/3N)';
-        tourDept = 'Cusco';
-        basePrice = 790;
-      } else if (q.includes('parapente') || q.includes('miraflores') || q.includes('costa')) {
-        tourTitle = 'Parapente Táctico Costa Verde Miraflores';
-        tourDept = 'Lima';
-        basePrice = 260;
-      } else if (q.includes('rafting') || q.includes('lunahuana') || q.includes('canete')) {
-        tourTitle = 'Rafting Extremo & Canopy Lunahuaná';
-        tourDept = 'Lima';
-        basePrice = 220;
-      } else if (q.includes('ausangate') || q.includes('vinicunca') || q.includes('colores')) {
-        tourTitle = 'Ausangate & Montaña de 7 Colores Pro';
-        tourDept = 'Cusco';
-        basePrice = 420;
       }
     }
 
@@ -315,7 +351,7 @@
     const reserva30 = Math.round(totalBundle * 0.30);
     const saldo70 = totalBundle - reserva30;
 
-    return {
+    const bundle = {
       title: tourTitle,
       dept: tourDept,
       basePrice,
@@ -329,6 +365,34 @@
       reserva30,
       saldo70
     };
+    lastSelectedBundle = bundle;
+    return bundle;
+  }
+
+  function buildIntelligentLocalReply(query, bundle, hasActiveBooking, clientProfile) {
+    const q = (query || '').toLowerCase();
+    if (hasActiveBooking && clientProfile) {
+      return `¡Hola <strong>${clientProfile.passenger_name || 'Explorador'}</strong>! 🏔️ Veo tu reserva confirmada <strong>${clientProfile.booking_code}</strong> para <strong>${clientProfile.tour_name}</strong>.<br><br>` +
+        `• <strong>Escudo Médico & Aclimatación (Agente 1):</strong> Recuerda llegar a Cusco al menos 48h antes; en campamento mediremos tu saturación (SpO₂) a las 07:00 y 19:00 hrs e incluimos botas de compresión neumática y pediluvios botánicos.<br>` +
+        `• <strong>Duffle Bag 7 kg (Agente 2):</strong> Te entregaremos tu duffle bag en el briefing la noche previa; los arrieros llevarán hasta 7 kg con pesaje digital certificado bajo la Ley N° 31614.`;
+    }
+    if (q.includes('fecha') || q.includes('diciembre') || q.includes('cuando') || q.includes('salid') || q.includes('disponib') || q.includes('mes')) {
+      const monthMention = q.includes('diciembre') ? 'todo el mes de <strong>diciembre (del 1 al 31 de diciembre, incluyendo salidas especiales de Navidad y Año Nuevo)</strong>' : '<strong>todos los días de la semana</strong> con salidas confirmadas a partir de 2 pasajeros';
+      return `¡Hola! 🏔️ Para <strong>${bundle.title}</strong> tenemos <strong>salidas diarias garantizadas durante ${monthMention}</strong>, tanto en grupo reducido (ratio máx. 1:8 con guía UIAGM/WFR) como en modalidad Privada VIP.<br><br>` +
+        `Nuestra ruta de 4 Días / 3 Noches incluye pernocta en <strong>Domos Geodésicos Glamping en Soraypampa (3,900 msnm)</strong>, <strong>Duffle Bag de 7 kg</strong> porteado por arrieros (Ley N° 31614), desfase horario (<em>Offset Trekking</em> sin multitudes en el Abra Salkantay a 4,630m) y monitoreo de oxígeno dos veces al día.<br><br>` +
+        `¿Para qué día exacto deseas programar tu salida y cuántas personas viajan contigo?`;
+    }
+    if (q.includes('altura') || q.includes('soroche') || q.includes('aclimat') || q.includes('oxigeno')) {
+      return `En <strong>${bundle.title}</strong> aplicamos el protocolo de nuestro <strong>Agente Médico & Aclimatación</strong>:<br><br>` +
+        `1️⃣ Recomendamos 2 días previos en Cusco/Valle Sagrado (2,870m - 3,399m).<br>` +
+        `2️⃣ Controlamos tu oximetría (SpO₂) y pulso 2 veces al día en campamento, contamos con balón de oxígeno medicinal de 3 m³, fisioterapia con botas de compresión solar y evacuación clínica garantizada con O2 Medical Network.`;
+    }
+    if (q.includes('equipaje') || q.includes('duffle') || q.includes('peso') || q.includes('7 kg') || q.includes('mochila') || q.includes('mula') || q.includes('porteador')) {
+      return `Con nuestro <strong>Agente Duffle Bag Optimizer (Regla 7 kg & Ley N° 31614)</strong>:<br><br>` +
+        `• Te entregamos en Cusco un <strong>Duffle Bag oficial para hasta 7.0 kg</strong> (allí va tu saco de dormir, ropa térmica y calzado de campamento), que llevan nuestros arrieros y mulas con pesaje digital visible.<br>` +
+        `• Tú solo caminas con una <strong>mochila ligera de día (20-30L)</strong> con tu agua, cámara y casaca impermeable.`;
+    }
+    return `¡Excelente elección con <strong>${bundle.title}</strong>! 🏔️ Contamos con salidas diarias confirmadas, Domos Glamping, Duffle Bag de 7 kg porteado (Ley N° 31614), guía certificado UIAGM/WFR y monitoreo biométrico de altura.<br><br>Aquí tienes el detalle de tu paquete todo incluido para bloquear tu fecha con el 30%:`;
   }
 
   function createSalesCardHtml(bundle) {
@@ -443,7 +507,7 @@
         </div>
 
         <div id="max-messages">
-          <div class="max-msg bot">${INITIAL_MSG.replace(/\n/g, '<br>')}</div>
+          <div class="max-msg bot">${formatMd(INITIAL_MSG)}</div>
         </div>
 
         <div id="max-action-bar"></div>
@@ -515,68 +579,70 @@
       }
     } catch (e) {}
 
+    // 1. Intentar con el motor conversacional Serverless (/api/max-chat) o Backend Local (localhost:8000)
+    const isLocalHost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    const primaryUrl = isLocalHost ? 'http://localhost:8000/webhook/lifextreme' : '/api/max-chat';
+    const secondaryUrl = isLocalHost ? '/api/max-chat' : STREAM_ENDPOINT;
+
     try {
-      const response = await fetch(STREAM_ENDPOINT, {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 7000);
+      const response = await fetch(primaryUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: text, history, profile: clientProfile })
+        body: JSON.stringify({ message: text, history, profile: clientProfile }),
+        signal: controller.signal
       });
+      clearTimeout(timeoutId);
 
       if (response.ok) {
-        hideTyping();
-        const botMsgDiv = appendMessage('bot', '', true);
-        const reader = response.body.getReader();
-        const decoder = new TextDecoder('utf-8');
-        let sseBuffer = '';
-
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) break;
-
-          sseBuffer += decoder.decode(value, { stream: true });
-          const lines = sseBuffer.split('\n');
-          sseBuffer = lines.pop() || '';
-
-          for (const rawLine of lines) {
-            const line = rawLine.replace(/\\n$/g, '').trim();
-            if (line.startsWith('data: ')) {
-              try {
-                const data = JSON.parse(line.substring(6));
-                if (data.chunk) {
-                  fullText += data.chunk;
-                  botMsgDiv.innerHTML = fullText.replace(/\[CARR[^\]]*\]?/gi, '').replace(/\n/g, '<br>');
-                  botMsgDiv.parentElement.scrollTop = botMsgDiv.parentElement.scrollHeight;
-                }
-              } catch (e) {}
-            }
-          }
+        const data = await response.json();
+        const replyMsg = data.mensaje || data.reply || '';
+        if (replyMsg) {
+          hideTyping();
+          fullText = replyMsg;
+          const cardHtml = !hasActiveBooking ? createSalesCardHtml(salesBundle) : '';
+          appendMessage('bot', `${formatMd(replyMsg)}${cardHtml}`, true);
+          streamSucceeded = true;
         }
-
-        // Anexar la tarjeta comercial de venta solo si aún NO tiene reserva confirmada
-        if (!hasActiveBooking) {
-          botMsgDiv.innerHTML += createSalesCardHtml(salesBundle);
-        }
-        botMsgDiv.parentElement.scrollTop = botMsgDiv.parentElement.scrollHeight;
-        streamSucceeded = true;
       }
     } catch (err) {
-      // Backend no disponible: el motor autónomo de ventas local toma el control instantáneamente
-      console.log('[MAX Closer] Backend offline, activando motor autónomo de ventas local...');
+      // Intentar endpoint secundario si el primario no respondió
+      try {
+        const controller2 = new AbortController();
+        const timeoutId2 = setTimeout(() => controller2.abort(), 5000);
+        const res2 = await fetch(secondaryUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: text, history, profile: clientProfile }),
+          signal: controller2.signal
+        });
+        clearTimeout(timeoutId2);
+        if (res2.ok) {
+          const data2 = await res2.json();
+          const replyMsg2 = data2.mensaje || data2.reply || '';
+          if (replyMsg2) {
+            hideTyping();
+            fullText = replyMsg2;
+            const cardHtml = !hasActiveBooking ? createSalesCardHtml(salesBundle) : '';
+            appendMessage('bot', `${formatMd(replyMsg2)}${cardHtml}`, true);
+            streamSucceeded = true;
+          }
+        }
+      } catch (e2) {}
     }
 
     if (!streamSucceeded) {
       hideTyping();
-      const botResponseHtml = `
-        <strong>¡Excelente elección!</strong> He preparado tu propuesta comercial con todo incluido para <strong>${salesBundle.title}</strong>.<br><br>
-        En Lifextreme no vendemos boletos sueltos: te garantizamos la expedición completa con <strong>guía UIAGM certificado, equipo técnico homologado, accesorios, asistencia médica con oxígeno y seguro extremo</strong> para que viajes 100% blindado.
-        ${createSalesCardHtml(salesBundle)}
-      `;
-      appendMessage('bot', botResponseHtml, true);
+      const smartAnswer = buildIntelligentLocalReply(text, salesBundle, hasActiveBooking, clientProfile);
+      fullText = smartAnswer.replace(/<[^>]+>/g, '');
+      const cardHtml = !hasActiveBooking ? createSalesCardHtml(salesBundle) : '';
+      appendMessage('bot', `${smartAnswer}${cardHtml}`, true);
     }
 
     // Actualizar historial
     history.push({ role: 'user', content: text });
-    history.push({ role: 'assistant', content: `Propuesta comercial enviada para ${salesBundle.title}` });
+    history.push({ role: 'assistant', content: fullText || `Información enviada sobre ${salesBundle.title}` });
     if (history.length > 20) history = history.slice(-20);
 
     isLoading = false;
