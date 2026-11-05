@@ -117,7 +117,8 @@ SYSTEM_PROMPT = """Eres MAX, el Asistente Experto de Montaña y Expediciones de 
 CÓMO DEBES CONVERSAR (ESTILO LIMPIO, ORGÁNICO Y CONSULTIVO TIPO GEMINI / CHATGPT):
 1. RESPONDE SIEMPRE LA PREGUNTA EXACTA DEL USUARIO PRIMERO:
    - Si pregunta por fechas (ej. "fechas para Salkantay 4D/3N en diciembre"), confírmale de inmediato que contamos con **salidas diarias garantizadas durante todo diciembre (del 1 al 31 de diciembre, incluyendo Navidad y Año Nuevo)** a partir de 2 viajeros, tanto en grupos reducidos (ratio máx. 1:8) como en modalidad Privada VIP.
-   - NUNCA cambies el destino por el que pregunta el usuario (si pregunta por Salkantay, habla de Salkantay, jamás lo cambies por Choquequirao).
+   - Si pide **otras opciones / otra ruta** (ej. "hola quiero salkantay o que otra opcion tienen", "otra ruta?"), preséntale brevemente Salkantay y compáralo con nuestras **otras grandes rutas en Cusco y Perú**: **Circuito Ausangate & 7 Lagunas (6D/5N)** (alta montaña y glaciares sin multitudes), **Choquequirao Expedición Legendaria (4D/3N)** (la ciudadela hermana de Machu Picchu), **Camino Inca Clásico (4D/3N)** o **Cordillera Blanca en Huaraz (Santa Cruz / Laguna 69)**.
+   - Si pregunta específicamente por **Ausangate**, **Choquequirao**, **Camino Inca**, **Huaraz**, **Arequipa (Colca/Misti)** o **Iquitos (Pacaya Samiria)**, háblale **exclusivamente de ese destino** con sus detalles reales de altitud, paisajes, duración y logística Lifextreme (NUNCA repitas Salkantay si el usuario pidió otra ruta).
    - Responde en 1 o 2 párrafos breves y limpios (máximo 70 a 95 palabras).
 
 2. CONVERSACIÓN ORGÁNICA Y SUTILEZA COMERCIAL (SIN APURAR AL CLIENTE):
@@ -266,16 +267,16 @@ async def _stream_groq(messages: List[dict], api_key: str) -> AsyncGenerator[str
 
 
 async def _stream_ollama(messages: List[dict]) -> AsyncGenerator[str, None]:
-    """Nivel 1 (Fallback local): Streaming directo en 1 solo viaje a Ollama local."""
+    """Nivel 1 (Motor Local Soberano): Streaming directo en 1 solo viaje a Ollama local."""
     payload = {
         "model": OLLAMA_MODEL,
         "messages": messages,
         "stream": True,
         "keep_alive": -1,
         "options": {
-            "temperature": 0.45,
-            "num_ctx": 2048,
-            "num_predict": 320,
+            "temperature": 0.4,
+            "num_ctx": 1536,
+            "num_predict": 220,
         },
     }
     async with _llm_http.stream("POST", f"{OLLAMA_URL}/api/chat", json=payload) as resp:
@@ -292,22 +293,27 @@ async def _stream_ollama(messages: List[dict]) -> AsyncGenerator[str, None]:
                 continue
 
 
+_groq_disabled = False
+
 async def process_message_stream(
     prompt: str,
     history: List[dict] = None,
     user_data=None
 ) -> AsyncGenerator[str, None]:
+    global _groq_disabled
     try:
         load_dotenv(override=True)
         messages = await _build_messages(prompt, history, user_data)
         groq_key = os.getenv("GROQ_API_KEY", "").strip()
 
-        if groq_key and groq_key.startswith("gsk_"):
+        if groq_key and groq_key.startswith("gsk_") and not _groq_disabled:
             try:
                 async for chunk in _stream_groq(messages, groq_key):
                     yield chunk
                 return
             except Exception as groq_err:
+                if "401" in str(groq_err) or "403" in str(groq_err):
+                    _groq_disabled = True
                 print(f"[MAX] Groq fallback a Ollama local: {groq_err}")
 
         async for chunk in _stream_ollama(messages):

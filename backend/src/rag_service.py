@@ -122,11 +122,11 @@ def search_web_catalog(query: str) -> str:
 
     if not matched_tours:
         # Si no filtro region especifica, mostrar los principales de cada region
-        matched_tours = tours[:15]
+        matched_tours = tours[:10]
 
     t_lines = [
         f"  • [ID {t['id']}] {t['title']} ({t['dept']}) — Precio: S/ {t['price']} por persona | Duración: {t.get('duration')} | Dificultad: {t.get('difficulty')} | {t.get('detail')}"
-        for t in matched_tours[:12]
+        for t in matched_tours[:8]
     ]
     if t_lines:
         sections.append("CATÁLOGO OFICIAL DE TOURS EN WWW.LIFEXTREME.STORE:\n" + "\n".join(t_lines))
@@ -262,17 +262,17 @@ async def search_knowledge(
                 _query_single_collection("Lifextreme_Knowledge", query_vector, b2c_filter, limit=limit, min_similarity=min_similarity),
                 _query_single_collection("lifextreme_benchmark_best_practices", query_vector, None, limit=2, min_similarity=0.38),
                 _query_single_collection("lifextreme_peru_strategy", query_vector, None, limit=2, min_similarity=0.38),
-                _query_single_collection("lifextreme_safety_protocols", query_vector, None, limit=2, min_similarity=0.38),
+                _query_single_collection("lifextreme_safety_protocols", query_vector, None, limit=1, min_similarity=0.38),
                 _query_single_collection("lifextreme_porter_welfare_peru", query_vector, None, limit=1, min_similarity=0.38),
                 _query_single_collection("lifextreme_peru_routes", query_vector, None, limit=2, min_similarity=0.38),
-                _query_single_collection("Perplexity_Knowledge", query_vector, None, limit=2, min_similarity=0.30),
+                _query_single_collection("Perplexity_Knowledge", query_vector, None, limit=1, min_similarity=0.32),
             ]
             results = await asyncio.gather(*tasks)
             combined = []
             for r in results:
                 combined.extend(r)
             combined.sort(key=lambda x: x["similarity"], reverse=True)
-            return combined[:limit + 2]
+            return combined[:3]
     except Exception as e:
         print(f"[-] Error en Qdrant RAG ({mode}): {e}")
         return []

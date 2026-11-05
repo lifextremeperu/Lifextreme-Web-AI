@@ -455,23 +455,46 @@
         `• <strong>Escudo Médico & Aclimatación (Agente 1):</strong> Recuerda llegar a Cusco al menos 48h antes; en campamento mediremos tu saturación (SpO₂) a las 07:00 y 19:00 hrs e incluimos botas de compresión neumática y pediluvios botánicos.<br>` +
         `• <strong>Duffle Bag 7 kg (Agente 2):</strong> Te entregaremos tu duffle bag en el briefing la noche previa; los arrieros llevarán hasta 7 kg con pesaje digital certificado bajo la Ley N° 31614.`;
     }
+    if (q.includes('otra') || q.includes('otrra') || q.includes('opcion') || q.includes('ppcion') || q.includes('alternativa') || q.includes('rutas') || q.includes('cuales')) {
+      return `En Cusco y el Perú operamos varias travesías de clase mundial para que elijas según tu estilo:<br><br>` +
+        `• <strong>Salkantay Trek & Glamping (4D/3N):</strong> Domos Geodésicos frente al glaciar en Soraypampa (3,900m), desfase horario sin multitudes y cierre en Machu Picchu.<br>` +
+        `• <strong>Circuito Ausangate & 7 Lagunas (6D/5N):</strong> Alta montaña pura rodeando el Apu Ausangate (pasos de 5,000m), aguas termales de Pacchanta y cero masificación.<br>` +
+        `• <strong>Choquequirao Expedición Legendaria (4D/3N):</strong> El cañón del Apurímac y la ciudadela hermana de Machu Picchu en exclusividad.<br>` +
+        `• <strong>Cordillera Blanca en Huaraz:</strong> Trekking Santa Cruz (4D) y Laguna 69.<br><br>` +
+        `¿Buscas una ruta que termine en Machu Picchu o prefieres una expedición de alta montaña y lagunas como Ausangate?`;
+    }
+    if (q.includes('ausangate')) {
+      return `El <strong>Circuito Ausangate & 7 Lagunas Glamping (6D/5N)</strong> es nuestra ruta más espectacular de alta montaña en Cusco: rodeamos el nevado sagrado Ausangate pasando por pasos como Palomani (5,100 msnm), las <strong>7 Lagunas turquesas de Pacchanta</strong> con aguas termales y comunidades alpaqueras.<br><br>` +
+        `Incluimos <strong>Duffle Bag de 7 kg</strong> porteado por arrieros (Ley N° 31614), carpas térmicas 4 estaciones / domos, monitoreo de oxígeno dos veces al día y fisioterapia de recuperación en campamento. ¿Para qué mes estás planeando hacer Ausangate y cuántas personas viajan contigo?`;
+    }
+    if (q.includes('choquequirao')) {
+      return `<strong>Choquequirao Expedición Legendaria (4D/3N)</strong> te lleva a la ciudadela inca hermana de Machu Picchu, suspendida sobre el imponente Cañón del Apurímac y visitada por menos del 1% de los viajeros que llegan a Cusco.<br><br>` +
+        `Operamos con mulas y arrieros certificados (llevan tu <strong>Duffle Bag de 7 kg</strong>), campamentos privados y guías UIAGM/WFR. ¿Qué mes tienes en mente para esta travesía?`;
+    }
+    if (q.includes('camino inca') || q.includes('inca trail')) {
+      return `El <strong>Camino Inca Clásico a Machu Picchu (4D/3N)</strong> recorre la red vial imperial entrando directamente por la Puerta del Sol (Inti Punku), con cumplimiento estricto de la <strong>Ley del Porteador N° 31614</strong> (pesaje digital auditado).<br><br>` +
+        `Recuerda que los permisos del Ministerio de Cultura son limitados por día (y en febrero cierra por mantenimiento anual). ¿Para qué mes te gustaría verificar disponibilidad de permisos?`;
+    }
+    if (q.includes('huaraz') || q.includes('santa cruz') || q.includes('laguna 69') || q.includes('mateo')) {
+      return `En la <strong>Cordillera Blanca (Huaraz)</strong> operamos el famoso <strong>Trekking Santa Cruz (4D/3N)</strong> cruzando el paso Punta Unión (4,750m), la aclimatación en <strong>Laguna 69</strong> y tu primer glaciar de alta montaña en el <strong>Nevado Mateo (5,150m)</strong> con equipo técnico Petzl/Grivel incluido.<br><br>` +
+        `¿Buscas trekking escénico entre lagunas o te gustaría coronar cumbre en glaciar?`;
+    }
     if (q.includes('fecha') || q.includes('diciembre') || q.includes('cuando') || q.includes('salid') || q.includes('disponib') || q.includes('mes')) {
       const monthMention = q.includes('diciembre') ? 'todo el mes de <strong>diciembre (del 1 al 31 de diciembre, incluyendo salidas especiales de Navidad y Año Nuevo)</strong>' : '<strong>todos los días de la semana</strong> con salidas confirmadas a partir de 2 pasajeros';
-      return `¡Hola! 🏔️ Para <strong>${bundle.title}</strong> tenemos <strong>salidas diarias garantizadas durante ${monthMention}</strong>, tanto en grupo reducido (ratio máx. 1:8 con guía UIAGM/WFR) como en modalidad Privada VIP.<br><br>` +
-        `Nuestra ruta de 4 Días / 3 Noches incluye pernocta en <strong>Domos Geodésicos Glamping en Soraypampa (3,900 msnm)</strong>, <strong>Duffle Bag de 7 kg</strong> porteado por arrieros (Ley N° 31614), desfase horario (<em>Offset Trekking</em> sin multitudes en el Abra Salkantay a 4,630m) y monitoreo de oxígeno dos veces al día.<br><br>` +
-        `¿Para qué día exacto deseas programar tu salida y cuántas personas viajan contigo?`;
+      return `Para <strong>${bundle.title}</strong> tenemos <strong>salidas diarias garantizadas durante ${monthMention}</strong>, tanto en grupo reducido (ratio máx. 1:8 con guía UIAGM/WFR) como en modalidad Privada VIP.<br><br>` +
+        `Incluimos <strong>Duffle Bag de 7 kg</strong> porteado por arrieros (Ley N° 31614), desfase horario (<em>Offset Trekking</em> sin multitudes) y monitoreo de oxígeno dos veces al día. ¿Para qué días aproximados desean viajar y cuántos serían en el grupo?`;
     }
     if (q.includes('altura') || q.includes('soroche') || q.includes('aclimat') || q.includes('oxigeno')) {
       return `En <strong>${bundle.title}</strong> aplicamos el protocolo de nuestro <strong>Agente Médico & Aclimatación</strong>:<br><br>` +
         `1️⃣ Recomendamos 2 días previos en Cusco/Valle Sagrado (2,870m - 3,399m).<br>` +
-        `2️⃣ Controlamos tu oximetría (SpO₂) y pulso 2 veces al día en campamento, contamos con balón de oxígeno medicinal de 3 m³, fisioterapia con botas de compresión solar y evacuación clínica garantizada con O2 Medical Network.`;
+        `2️⃣ Controlamos tu oximetría (SpO₂) y pulso 2 veces al día en campamento, contamos con balón de oxígeno medicinal, fisioterapia con botas de compresión solar y soporte con O2 Medical Network. ¿Ya has caminado antes sobre los 3,500 metros?`;
     }
     if (q.includes('equipaje') || q.includes('duffle') || q.includes('peso') || q.includes('7 kg') || q.includes('mochila') || q.includes('mula') || q.includes('porteador')) {
       return `Con nuestro <strong>Agente Duffle Bag Optimizer (Regla 7 kg & Ley N° 31614)</strong>:<br><br>` +
-        `• Te entregamos en Cusco un <strong>Duffle Bag oficial para hasta 7.0 kg</strong> (allí va tu saco de dormir, ropa térmica y calzado de campamento), que llevan nuestros arrieros y mulas con pesaje digital visible.<br>` +
-        `• Tú solo caminas con una <strong>mochila ligera de día (20-30L)</strong> con tu agua, cámara y casaca impermeable.`;
+        `• Te entregamos en Cusco un <strong>Duffle Bag oficial para hasta 7.0 kg</strong> (allí va tu saco de dormir y ropa de abrigo), que llevan nuestros arrieros con pesaje digital visible.<br>` +
+        `• Tú solo caminas con una <strong>mochila ligera de día (20-25L)</strong>. ¿Ya cuentas con equipo de trekking o te gustaría ver qué implementos incluimos?`;
     }
-    return `¡Excelente elección con <strong>${bundle.title}</strong>! 🏔️ Contamos con salidas diarias confirmadas, Domos Glamping, Duffle Bag de 7 kg porteado (Ley N° 31614), guía certificado UIAGM/WFR y monitoreo biométrico de altura.<br><br>Aquí tienes el detalle de tu paquete todo incluido para bloquear tu fecha con el 30%:`;
+    return `En <strong>${bundle.title}</strong> (${bundle.dept}) contamos con salidas diarias confirmadas en grupos pequeños o privados, <strong>Duffle Bag de 7 kg</strong> porteado (Ley N° 31614), guía certificado UIAGM/WFR y monitoreo biométrico de altura.<br><br>Cuéntame un poco más de tu plan: ¿para qué mes estás pensando viajar y cuántas personas vienen contigo?`;
   }
 
   function createSalesCardHtml(bundle) {
@@ -671,7 +694,10 @@
       if (streamSucceeded) break;
       try {
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 9000);
+        // Dar 25s a los endpoints Qdrant + Ollama local para que nunca se corte antes de responder
+        const isQdrantEndpoint = url.includes('localhost:8000') || url.includes('max.lifextreme.store');
+        const timeoutMs = isQdrantEndpoint ? 25000 : 12000;
+        const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
         const response = await fetch(url, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
