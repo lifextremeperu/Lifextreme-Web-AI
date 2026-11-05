@@ -2401,6 +2401,24 @@ async function confirmManualPayment() {
                 }
             }).catch(() => {});
         }
+        const backendBase = (window.LIFEXTREME_BACKEND_URL || 'http://localhost:8000').replace(/\/$/, '');
+        fetch(`${backendBase}/api/v1/agents/bookings/register`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                booking_code: bookingCode,
+                passenger_name: localStorage.getItem('lifextreme_user_name') || `Explorador (${bookingCode})`,
+                email: localStorage.getItem('lifextreme_user_email') || 'contacto@lifextreme.store',
+                phone: '+51 958 050 928',
+                tour_name: tourNames,
+                tour_date: tourDateStr,
+                pax_count: items.length || 1,
+                total_amount_pen: finalTotal,
+                paid_amount_pen: amountToday,
+                payment_plan: currentPaymentPlan === 'split' ? 'split_30_30_40' : 'full_100',
+                lifecycle_stage: 'RESERVA_CONFIRMADA_PRE_VIAJE'
+            })
+        }).catch(() => {});
         fetch('/api/send-email', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

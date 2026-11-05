@@ -496,11 +496,30 @@
     let streamSucceeded = false;
     let fullText = '';
 
+    // Detectar si el cliente ya tiene una reserva confirmada en este navegador
+    let clientProfile = {};
+    let hasActiveBooking = false;
+    try {
+      const savedOrder = JSON.parse(localStorage.getItem('lifextreme_last_order') || 'null');
+      if (savedOrder && savedOrder.bookingCode) {
+        hasActiveBooking = true;
+        clientProfile = {
+          booking_code: savedOrder.bookingCode,
+          passenger_name: localStorage.getItem('lifextreme_user_name') || 'Explorador Lifextreme',
+          email: localStorage.getItem('lifextreme_user_email') || '',
+          tour_name: (savedOrder.items || []).map(i => i.name).join(' + ') || 'Expedición Lifextreme',
+          tour_date: savedOrder.tourDate || '',
+          paid_today: savedOrder.paidToday || 0,
+          lifecycle_stage: 'RESERVA_CONFIRMADA_PRE_VIAJE'
+        };
+      }
+    } catch (e) {}
+
     try {
       const response = await fetch(STREAM_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: text, history, profile: {} })
+        body: JSON.stringify({ message: text, history, profile: clientProfile })
       });
 
       if (response.ok) {
@@ -533,8 +552,10 @@
           }
         }
 
-        // Anexar la tarjeta comercial completa de venta
-        botMsgDiv.innerHTML += createSalesCardHtml(salesBundle);
+        // Anexar la tarjeta comercial de venta solo si aún NO tiene reserva confirmada
+        if (!hasActiveBooking) {
+          botMsgDiv.innerHTML += createSalesCardHtml(salesBundle);
+        }
         botMsgDiv.parentElement.scrollTop = botMsgDiv.parentElement.scrollHeight;
         streamSucceeded = true;
       }

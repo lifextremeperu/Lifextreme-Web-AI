@@ -13,15 +13,18 @@ try:
     from .agents.medical_acclimatization_agent import MedicalAcclimatizationAgent, MedicalAssessRequest
     from .agents.duffle_bag_optimizer_agent import DuffleBagOptimizerAgent, DuffleOptimizeRequest, DuffleItemInput
     from .agents.tailor_made_private_agent import TailorMadePrivateAgent, TailorMadeRequest
+    from .agents.booking_registry import BookingRegistry
 except ImportError:
     from rag_service import get_rag_context
     from agents.medical_acclimatization_agent import MedicalAcclimatizationAgent, MedicalAssessRequest
     from agents.duffle_bag_optimizer_agent import DuffleBagOptimizerAgent, DuffleOptimizeRequest, DuffleItemInput
     from agents.tailor_made_private_agent import TailorMadePrivateAgent, TailorMadeRequest
+    from agents.booking_registry import BookingRegistry
 
 _medical_subagent = MedicalAcclimatizationAgent()
 _duffle_subagent = DuffleBagOptimizerAgent()
 _tailor_subagent = TailorMadePrivateAgent()
+_booking_registry = BookingRegistry()
 
 
 def _consult_specialized_agents(query: str) -> str:
@@ -158,13 +161,50 @@ CÓMO DEBES CONVERSAR (ESTILO OPERADOR EXPERTO DE WHATSAPP):
 _QUICK_GREETINGS = {"hola", "buenas", "buenos dias", "buenas tardes", "buenas noches", "hi", "hello", "que tal", "ola"}
 
 
-async def _build_messages(prompt: str, history: List[dict] = None) -> List[dict]:
+async def _build_messages(prompt: str, history: List[dict] = None, user_data: dict = None) -> List[dict]:
     """
     Construye el historial y extrae el contexto de Qdrant combinando la intencion actual
-    con el contexto reciente de la conversacion para no perder el hilo del destino.
+    con el contexto reciente de la conversacion y verificando en el Registro de Reservas
+    si es un VISITANTE WEB o un CLIENTE CON RESERVA CONFIRMADA.
     """
     fecha_actual = datetime.now().strftime("%Y-%m-%d %H:%M")
     clean_q = prompt.strip().lower().rstrip("?!.")
+
+    # Verificar si el usuario ya tiene reserva activa (por localStorage profile, código LX-XXXX en texto, email o teléfono)
+    u_dict = user_data if isinstance(user_data, dict) else {}
+    active_booking = _booking_registry.find_booking(
+        booking_code=u_dict.get("booking_code"),
+        phone=u_dict.get("phone"),
+        email=u_dict.get("email"),
+        text_message=prompt
+    )
+    # Si el navegador envió directamente los datos de localStorage ('lifextreme_last_order') pero aún no estaba en disco, registrarlo
+    if not active_booking and u_dict.get("booking_code") and u_dict.get("tour_name"):
+        active_booking = {
+            "booking_code": u_dict.get("booking_code"),
+            "passenger_name": u_dict.get("passenger_name", "Explorador Lifextreme"),
+            "tour_name": u_dict.get("tour_name"),
+            "tour_date": u_dict.get("tour_date", "Próxima salida"),
+            "paid_amount_pen": u_dict.get("paid_today", 0),
+            "lifecycle_stage": u_dict.get("lifecycle_stage", "RESERVA_CONFIRMADA_PRE_VIAJE")
+        }
+
+    booking_context_banner = ""
+    if active_booking:
+        booking_context_banner = (
+            f"\n=== 🎫 ESTADO DEL CLIENTE: PASAJERO CON RESERVA CONFIRMADA ({active_booking['booking_code']}) ===\n"
+            f"• Nombre: {active_booking.get('passenger_name')} | Expedición Reservada: {active_booking.get('tour_name')}\n"
+            f"• Fecha de Salida: {active_booking.get('tour_date')} | Etapa Actual: {active_booking.get('lifecycle_stage')}\n"
+            f"• DIRECTIVA DE ROL PARA MAX: ¡Este cliente YA COMPRÓ y tiene su reserva activa! NO le vendas de nuevo ni pongas etiqueta [CARRITO:...]. "
+            f"Atiéndelo como su Concierge Oficial Post-Venta de Lifextreme ayudándolo con su Escalera de Aclimatación (Agente 1), "
+            f"su Duffle Bag de 7 kg (Agente 2) o su seguimiento de Calidad Post-Viaje (Agente 5).\n"
+        )
+    else:
+        booking_context_banner = (
+            "\n=== 🟢 ESTADO DEL CLIENTE: VISITANTE EN LA WEB (AÚN SIN RESERVA) ===\n"
+            "• DIRECTIVA DE ROL PARA MAX: Este usuario aún no tiene reserva registrada. Atiéndelo en Modo Ventas Consultivas, "
+            "resuelve sus dudas con excelencia y guíalo al cierre de reserva con el 30% en el Carrito.\n"
+        )
 
     # Si el usuario responde corto (ej. "somos 4 amigos de 28 años"), enriquecer la query de Qdrant con el turno anterior
     rag_query = prompt
@@ -173,7 +213,7 @@ async def _build_messages(prompt: str, history: List[dict] = None) -> List[dict]
         if prev_user_msgs:
             rag_query = f"{prev_user_msgs[-1]} {prompt}"
 
-    if clean_q in _QUICK_GREETINGS and not history:
+    if clean_q in _QUICK_GREETINGS and not history and not active_booking:
         rag_context = (
             "El viajero acaba de saludar. Dale una bienvenida cálida como MAX de Lifextreme Perú "
             "y pregúntale qué destino le llama la atención y si viaja en familia, con amigos, en pareja o solo."
@@ -185,7 +225,8 @@ async def _build_messages(prompt: str, history: List[dict] = None) -> List[dict]
             rag_context = f"{subagent_insights}\n\n{rag_context}"
 
     system_with_rag = (
-        f"{SYSTEM_PROMPT}\n\n"
+        f"{SYSTEM_PROMPT}\n"
+        f"{booking_context_banner}\n"
         f"FECHA ACTUAL DEL SISTEMA: {fecha_actual}\n\n"
         f"=== CONOCIMIENTO REAL LIFEXTREME (QDRANT 336K VECTORES) ===\n{rag_context}"
     )
@@ -270,7 +311,7 @@ async def process_message_stream(
 ) -> AsyncGenerator[str, None]:
     try:
         load_dotenv(override=True)
-        messages = await _build_messages(prompt, history)
+        messages = await _build_messages(prompt, history, user_data)
         groq_key = os.getenv("GROQ_API_KEY", "").strip()
 
         if groq_key and groq_key.startswith("gsk_"):

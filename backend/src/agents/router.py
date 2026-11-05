@@ -24,15 +24,17 @@ from .reputation_quality_agent import (
     TripFeedbackInput,
     ReputationActionResponse
 )
+from .booking_registry import BookingRegistry, BookingRecord
 
 router = APIRouter()
 
-# Instancias singleton de los agentes
+# Instancias singleton de los agentes y registro central de reservas
 medical_agent = MedicalAcclimatizationAgent()
 duffle_agent = DuffleBagOptimizerAgent()
 tailor_made_agent = TailorMadePrivateAgent()
 sentinel_agent = FieldSentinelSafetyAgent()
 reputation_agent = ReputationQualityAgent()
+booking_registry = BookingRegistry()
 
 @router.get("/health")
 async def health_check():
@@ -82,3 +84,20 @@ async def process_trip_reputation(req: TripFeedbackInput):
         return reputation_agent.process_feedback(req)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error en cierre reputacional: {str(e)}")
+
+
+@router.post("/bookings/register")
+async def register_confirmed_booking(req: BookingRecord):
+    try:
+        return booking_registry.register_booking(req)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error registrando reserva: {str(e)}")
+
+
+@router.get("/bookings/{booking_code}")
+async def verify_booking_status(booking_code: str):
+    rec = booking_registry.find_booking(booking_code=booking_code)
+    if not rec:
+        raise HTTPException(status_code=404, detail="Reserva no encontrada")
+    return rec
+
