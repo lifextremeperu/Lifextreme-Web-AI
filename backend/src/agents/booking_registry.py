@@ -84,7 +84,43 @@ class BookingRegistry:
             record["created_at"] = datetime.now().isoformat()
         data[code] = record
         self._save(data)
+        self._notify_telegram(record)
         return record
+
+    def _notify_telegram(self, record: dict):
+        try:
+            bot_token = os.getenv("TELEGRAM_BOT_TOKEN", "8795186534:AAFv8qT_yW-n2L_9rB0A2m_6zH5j8K9v0L1").strip()
+            # Leer de .env si no está en os.environ
+            env_path = Path(__file__).resolve().parents[3] / ".env"
+            if env_path.exists():
+                for line in env_path.read_text(encoding="utf-8", errors="ignore").splitlines():
+                    if line.startswith("TELEGRAM_BOT_TOKEN="):
+                        bot_token = line.split("=", 1)[1].strip().strip('"').strip("'")
+            chat_id = "2094843795"
+            msg = (
+                f"🎉 *NUEVA RESERVA CONFIRMADA EN LIFEXTREME WEB*\n\n"
+                f"🔖 *Código:* `{record.get('booking_code')}`\n"
+                f"👤 *Pasajero:* {record.get('passenger_name')}\n"
+                f"🏔️ *Expedición:* {record.get('tour_name')}\n"
+                f"📅 *Fecha:* {record.get('tour_date')}\n"
+                f"👥 *Participantes:* {record.get('pax_count')} Pax\n"
+                f"💳 *Abonado hoy:* S/ {record.get('paid_amount_pen')} (Total S/ {record.get('total_amount_pen')})\n\n"
+                f"✅ *Agente 1 (Médico & Aclimatación)* y *Agente 2 (Duffle Bag 7 kg)* activados automáticamente para este pasajero."
+            )
+            payload = json.dumps({
+                "chat_id": chat_id,
+                "text": msg,
+                "parse_mode": "Markdown"
+            }).encode("utf-8")
+            req_tg = urllib.request.Request(
+                f"https://api.telegram.org/bot{bot_token}/sendMessage",
+                data=payload,
+                headers={"Content-Type": "application/json"},
+                method="POST"
+            )
+            urllib.request.urlopen(req_tg, timeout=5)
+        except Exception:
+            pass
 
     def find_booking(
         self,

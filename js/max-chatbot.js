@@ -283,7 +283,7 @@
   // ── DETECTOR DE INTENCIÓN REAL DE COMPRA / RESERVA ──────────────────────
   function hasExplicitBookingIntent(query) {
     const q = (query || '').toLowerCase();
-    return /(quiero reservar|como reservo|cómo reservo|reservar cupo|separar cupo|quiero pagar|proceder a reservar|agregar al carrito|comprar paquete|confirmar reserva|ver resumen para reservar)/i.test(q);
+    return /(quiero reservar|como reservo|cómo reservo|reservar cupo|separar cupo|quiero pagar|proceder a reservar|agregar al carrito|comprar paquete|confirmar reserva|ver resumen|el resumen para reservar|opciones de reserva|reservar ahora|separar fecha|cotizar|cuanto cuesta|cuánto cuesta|precio para reservar)/i.test(q);
   }
 
   // ── PÍLDORAS SUTILES PARA GUIAR EN LA WEB Y EN LA CONVERSACIÓN ──────────
@@ -305,6 +305,46 @@
     }
   };
 
+  window.maxOpenBookingOptions = function() {
+    const bundle = buildSalesBundle('');
+    const cardHtml = createSalesCardHtml(bundle);
+    appendMessage(
+      'bot',
+      `Aquí tienes las opciones oficiales de reserva para <strong>${bundle.title}</strong> (${bundle.dept}). Puedes bloquear tu cupo hoy mismo con el <strong>30% (S/ ${bundle.reserva30})</strong> en la pasarela rápida, abrir el configurador completo de fecha y pasajeros, o coordinar directo por WhatsApp:${cardHtml}`,
+      true
+    );
+  };
+
+  window.maxOpenTourWizard = function(tourId, tourTitle) {
+    try {
+      isOpen = false;
+      document.getElementById('max-chat-panel')?.classList.remove('open');
+      let targetId = Number(tourId) || 1;
+      if (window.tours && Array.isArray(window.tours) && tourTitle) {
+        const lower = String(tourTitle).toLowerCase();
+        const found = window.tours.find(t =>
+          t.title.toLowerCase().includes(lower.split(' ')[0]) ||
+          (lower.includes('ausangate') && t.title.toLowerCase().includes('ausangate')) ||
+          (lower.includes('choquequirao') && t.title.toLowerCase().includes('choquequirao')) ||
+          (lower.includes('santa cruz') && t.title.toLowerCase().includes('santa cruz')) ||
+          (lower.includes('laguna 69') && t.title.toLowerCase().includes('laguna 69')) ||
+          (lower.includes('colca') && t.title.toLowerCase().includes('colca')) ||
+          (lower.includes('misti') && t.title.toLowerCase().includes('misti')) ||
+          (lower.includes('pacaya') && t.title.toLowerCase().includes('pacaya'))
+        );
+        if (found) targetId = found.id;
+      }
+      if (typeof window.openBooking === 'function') {
+        window.openBooking(targetId);
+      } else {
+        const modal = document.getElementById('booking-modal');
+        if (modal) modal.classList.remove('hidden');
+      }
+    } catch (err) {
+      console.error('[MAX Wizard] Error abriendo configurador:', err);
+    }
+  };
+
   function buildOrganicChipsHtml(query, bundle, turnCount, hasActiveBooking) {
     if (hasActiveBooking) {
       return `
@@ -321,20 +361,18 @@
     if (q.includes('fecha') || q.includes('diciembre') || q.includes('cuando')) {
       chips.push(`<button type="button" class="max-chip" onclick="window.maxSendChipPrompt('¿Qué incluye la expedición y los domos?')">✨ ¿Qué incluye?</button>`);
       chips.push(`<button type="button" class="max-chip" onclick="window.maxSendChipPrompt('¿Cómo nos aclimatamos a la altura?')">🩺 Aclimatación</button>`);
-      chips.push(`<button type="button" class="max-chip subtle-book" onclick="window.maxSendChipPrompt('Quiero ver el resumen para reservar')">📅 Ver opciones de reserva</button>`);
+      chips.push(`<button type="button" class="max-chip subtle-book" onclick="window.maxOpenBookingOptions()">📅 Opciones de reserva</button>`);
     } else if (q.includes('altura') || q.includes('aclimat') || q.includes('soroche')) {
       chips.push(`<button type="button" class="max-chip" onclick="window.maxSendChipPrompt('¿Qué equipaje debo llevar?')">🎒 Equipaje 7 kg</button>`);
       chips.push(`<button type="button" class="max-chip" onclick="window.maxNavigateSection('guias')">🧭 Conocer a los guías</button>`);
-      chips.push(`<button type="button" class="max-chip subtle-book" onclick="window.maxSendChipPrompt('Quiero ver el resumen para reservar')">📅 Separar fecha</button>`);
+      chips.push(`<button type="button" class="max-chip subtle-book" onclick="window.maxOpenBookingOptions()">📅 Separar fecha</button>`);
     } else if (q.includes('equipaje') || q.includes('mochila') || q.includes('llevar')) {
       chips.push(`<button type="button" class="max-chip" onclick="window.maxNavigateSection('equipos')">⛺ Ver equipos en la web</button>`);
-      chips.push(`<button type="button" class="max-chip subtle-book" onclick="window.maxSendChipPrompt('Quiero ver el resumen para reservar')">📅 Ver opciones de reserva</button>`);
+      chips.push(`<button type="button" class="max-chip subtle-book" onclick="window.maxOpenBookingOptions()">📅 Opciones de reserva</button>`);
     } else {
       chips.push(`<button type="button" class="max-chip" onclick="window.maxNavigateSection('destinos')">🗺️ Ver rutas en la web</button>`);
       chips.push(`<button type="button" class="max-chip" onclick="window.maxSendChipPrompt('¿Qué fechas de salida tienen disponibles?')">🗓️ Consultar fechas</button>`);
-      if (turnCount >= 2) {
-        chips.push(`<button type="button" class="max-chip subtle-book" onclick="window.maxSendChipPrompt('Quiero ver el resumen para reservar')">📅 Opciones de reserva</button>`);
-      }
+      chips.push(`<button type="button" class="max-chip subtle-book" onclick="window.maxOpenBookingOptions()">📅 Opciones de reserva</button>`);
     }
 
     return `<div class="max-chips-row">${chips.join('')}</div>`;
@@ -351,69 +389,99 @@
   }
 
   function buildSalesBundle(query) {
-    const q = (query || '').toLowerCase();
+    // Combinar el mensaje actual con los últimos mensajes del historial para no perder nunca la ruta elegida
+    const recentContext = [
+      String(query || ''),
+      ...(Array.isArray(history) ? history.slice(-6).map(m => String(m.content || '')) : [])
+    ].join(' ').toLowerCase();
+    const q = String(query || '').toLowerCase() || recentContext;
+
+    let tourId = lastSelectedBundle ? lastSelectedBundle.tourId : 1;
     let tourTitle = lastSelectedBundle ? lastSelectedBundle.title : 'Salkantay Trek & Domos Glamping a Machu Picchu (4D/3N)';
     let tourDept = lastSelectedBundle ? lastSelectedBundle.dept : 'Cusco';
     let basePrice = lastSelectedBundle ? lastSelectedBundle.basePrice : 1630;
 
-    if (q.includes('salkantay')) {
-      tourTitle = 'Salkantay Trek & Domos Glamping a Machu Picchu (4D/3N)';
-      tourDept = 'Cusco';
-      basePrice = 1630;
-    } else if (q.includes('choquequirao')) {
-      tourTitle = 'Choquequirao Expedición Legendaria (4D/3N)';
-      tourDept = 'Cusco';
-      basePrice = 790;
-    } else if (q.includes('camino inca') || q.includes('inca trail')) {
-      tourTitle = 'Camino Inca Clásico a Machu Picchu (4D/3N)';
-      tourDept = 'Cusco';
-      basePrice = 2230;
-    } else if (q.includes('ausangate')) {
+    const matchSource = (q.includes('ausangate') || q.includes('salkantay') || q.includes('choquequirao') || q.includes('camino inca') || q.includes('inca trail') || q.includes('vinicunca') || q.includes('colores') || q.includes('humantay') || q.includes('mateo') || q.includes('pastoruri') || q.includes('santa cruz') || q.includes('huaraz') || q.includes('laguna 69') || q.includes('colca') || q.includes('arequipa') || q.includes('misti') || q.includes('parapente') || q.includes('rafting') || q.includes('pacaya'))
+      ? q
+      : recentContext;
+
+    if (matchSource.includes('ausangate')) {
+      tourId = 5;
       tourTitle = 'Circuito Ausangate & 7 Lagunas Glamping (6D/5N)';
       tourDept = 'Cusco';
       basePrice = 1880;
-    } else if (q.includes('vinicunca') || q.includes('colores')) {
+    } else if (matchSource.includes('choquequirao')) {
+      tourId = 4;
+      tourTitle = 'Choquequirao Expedición Legendaria (4D/3N)';
+      tourDept = 'Cusco';
+      basePrice = 2980;
+    } else if (matchSource.includes('camino inca') || matchSource.includes('inca trail')) {
+      tourId = 1;
+      tourTitle = 'Camino Inca Clásico a Machu Picchu (4D/3N)';
+      tourDept = 'Cusco';
+      basePrice = 2230;
+    } else if (matchSource.includes('salkantay')) {
+      tourId = 1;
+      tourTitle = 'Salkantay Trek & Domos Glamping a Machu Picchu (4D/3N)';
+      tourDept = 'Cusco';
+      basePrice = 1630;
+    } else if (matchSource.includes('vinicunca') || matchSource.includes('colores')) {
+      tourId = 3;
       tourTitle = 'Montaña de los 7 Colores & Valle Rojo Pro';
       tourDept = 'Cusco';
       basePrice = 230;
-    } else if (q.includes('humantay')) {
+    } else if (matchSource.includes('humantay')) {
+      tourId = 3;
       tourTitle = 'Laguna Humantay & Soraypampa Glamping';
       tourDept = 'Cusco';
       basePrice = 230;
-    } else if (q.includes('mateo') || q.includes('pastoruri')) {
+    } else if (matchSource.includes('mateo') || matchSource.includes('pastoruri')) {
+      tourId = 9;
       tourTitle = 'Nevado Mateo 5,150m (Cumbre Glaciar)';
       tourDept = 'Huaraz';
       basePrice = 380;
-    } else if (q.includes('santa cruz') || q.includes('huaraz') || q.includes('laguna 69')) {
+    } else if (matchSource.includes('santa cruz') || matchSource.includes('huaraz') || matchSource.includes('laguna 69')) {
+      tourId = 6;
       tourTitle = 'Trekking Santa Cruz & Laguna 69 Cordillera Blanca (4D/3N)';
       tourDept = 'Huaraz';
       basePrice = 980;
-    } else if (q.includes('colca') || q.includes('arequipa')) {
+    } else if (matchSource.includes('colca') || matchSource.includes('arequipa')) {
+      tourId = 31;
       tourTitle = 'Trekking Cañón del Colca (3D/2N)';
       tourDept = 'Arequipa';
       basePrice = 630;
-    } else if (q.includes('misti')) {
+    } else if (matchSource.includes('misti')) {
+      tourId = 32;
       tourTitle = 'Ascenso Volcán Misti 5,825m (2D/1N)';
       tourDept = 'Arequipa';
       basePrice = 880;
-    } else if (q.includes('parapente') || q.includes('miraflores') || q.includes('costa')) {
+    } else if (matchSource.includes('pacaya') || matchSource.includes('iquitos') || matchSource.includes('selva')) {
+      tourId = 11;
+      tourTitle = 'Expedición Pacaya Samiria Amazonía (5D/4N)';
+      tourDept = 'Iquitos';
+      basePrice = 1650;
+    } else if (matchSource.includes('parapente') || matchSource.includes('miraflores') || matchSource.includes('costa')) {
+      tourId = 36;
       tourTitle = 'Parapente Táctico Costa Verde Miraflores';
       tourDept = 'Lima';
       basePrice = 260;
-    } else if (q.includes('rafting') || q.includes('lunahuana') || q.includes('canete')) {
+    } else if (matchSource.includes('rafting') || matchSource.includes('lunahuana') || matchSource.includes('canete')) {
+      tourId = 33;
       tourTitle = 'Rafting Extremo & Canopy Lunahuaná';
       tourDept = 'Lima';
       basePrice = 220;
-    } else if (q.includes('machu picchu')) {
-      tourTitle = 'Expedición Machu Picchu & Tren Panorámico';
+    } else if (matchSource.includes('machu picchu')) {
+      tourId = 1;
+      tourTitle = 'Salkantay Trek & Domos Glamping a Machu Picchu (4D/3N)';
       tourDept = 'Cusco';
-      basePrice = 620;
+      basePrice = 1630;
     } else if (window.tours && Array.isArray(window.tours) && window.tours.length > 0) {
       const words = q.split(/\s+/).filter(w => w.length >= 4);
       const found = window.tours.find(t =>
         words.some(w => t.title.toLowerCase().includes(w))
       );
       if (found) {
+        tourId = found.id;
         tourTitle = found.title;
         tourDept = found.dept;
         basePrice = Number(found.price) || 450;
@@ -431,6 +499,7 @@
     const saldo70 = totalBundle - reserva30;
 
     const bundle = {
+      tourId,
       title: tourTitle,
       dept: tourDept,
       basePrice,
@@ -558,7 +627,10 @@
 
         <div style="display:flex; flex-direction:column; gap:6px;">
           <button type="button" onclick="window.maxAddToCartAndPay('${safeTourName}', ${bundle.totalBundle}, 1, true)" style="background:linear-gradient(135deg, #f59e0b, #ea580c); color:#0f172a; border:none; border-radius:12px; padding:11px; font-weight:900; font-size:11px; text-transform:uppercase; letter-spacing:0.06em; cursor:pointer; box-shadow:0 6px 18px rgba(245,158,11,0.35); transition:transform 0.2s;">
-            💳 Reservar Cupo con 30% (S/ ${bundle.reserva30})
+            💳 Reservar Cupo con 30% (S/ ${bundle.reserva30}) — Pago Rápido
+          </button>
+          <button type="button" onclick="window.maxOpenTourWizard(${bundle.tourId || 1}, '${safeTourName}')" style="background:rgba(255,255,255,0.08); color:#fff; border:1px solid rgba(255,255,255,0.2); border-radius:12px; padding:9px; font-weight:800; font-size:10.5px; text-transform:uppercase; letter-spacing:0.05em; cursor:pointer;">
+            🗓️ Configurar Fecha, Pasajeros y Firma Digital
           </button>
           <a href="https://wa.me/51958050928?text=${encodeURIComponent('Hola MAX! Deseo cerrar la reserva de mi Paquete Todo Incluido: ' + bundle.title + ' (Total S/ ' + bundle.totalBundle + ' | 30% S/ ' + bundle.reserva30 + '). ¿Tienen cupos disponibles para esta fecha?')}" target="_blank" rel="noopener noreferrer" style="background:#22c55e; color:#0f172a; text-decoration:none; text-align:center; border-radius:12px; padding:9px; font-weight:900; font-size:11px; text-transform:uppercase; letter-spacing:0.05em; display:flex; align-items:center; justify-content:center; gap:6px;">
             📲 Cerrar y Coordinar con Guía en WhatsApp
@@ -789,9 +861,17 @@
         drawer.classList.remove('translate-x-full');
       }
 
-      // Si eligio pagar directo, abrir modal de checkout con plan 30/30/40
-      if (openCheckoutNow && typeof window.openStripeCheckout === 'function') {
-        setTimeout(() => window.openStripeCheckout(), 350);
+      // Si eligió pagar directo, abrir modal de checkout con plan 30/30/40 preseleccionado
+      if (openCheckoutNow) {
+        setTimeout(() => {
+          if (typeof window.openStripeCheckout === 'function') {
+            window.openStripeCheckout('split');
+          } else {
+            const modal = document.getElementById('stripe-checkout-modal');
+            if (modal) modal.classList.remove('hidden');
+            setTimeout(() => document.getElementById('payment-plan-split')?.click(), 80);
+          }
+        }, 250);
       }
     } catch (e) {
       console.error('[MAX Cart] Error agregando al carrito:', e);
@@ -830,7 +910,7 @@
     if (promptText && input) {
       input.value = promptText;
       setTimeout(() => {
-        sendMessage();
+        handleSend();
       }, 200);
     }
   };

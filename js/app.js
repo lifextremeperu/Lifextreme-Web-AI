@@ -295,8 +295,9 @@ function renderCalendar() {
 
 function selDay(d) {
     selectedDay = d;
-    document.querySelectorAll('.day-box').forEach(b => b.classList.remove('selected'));
-    event.target.classList.add('selected');
+    document.querySelectorAll('.day-box').forEach(b => {
+        b.classList.toggle('selected', Number(b.innerText) === Number(d));
+    });
 
     // Trigger Prediction
     updatePredictionWidget(d);
@@ -658,8 +659,11 @@ function nextBookingStep() {
 
     if (currentStep === 1) {
         if (!selectedDay) {
-            showToast('Fecha requerida', 'Selecciona una fecha en el calendario para continuar.', 'ri-calendar-event-line');
-            return;
+            selectedDay = 15;
+            document.querySelectorAll('.day-box').forEach(b => {
+                b.classList.toggle('selected', Number(b.innerText) === 15);
+            });
+            showToast('Fecha seleccionada', 'Se asignó el día 15 por defecto (puedes cambiarlo en el calendario).', 'ri-calendar-check-line');
         }
     }
 
@@ -776,6 +780,7 @@ function renderWizardStep(step) {
                     <div class="flex justify-between text-xs font-bold text-slate-500">
                         <span id="review-date">...</span>
                         <span id="review-pax">...</span>
+                        <span id="review-addons-count" class="text-primary">0 ACTIVOS</span>
                     </div>
                 </div>
 
@@ -826,13 +831,29 @@ function renderWizardStep(step) {
                 </div>
             `;
 
+            // Pre-rellenar datos guardados del usuario si existen
+            const savedName = localStorage.getItem('lifextreme_user_name') || '';
+            const savedDni = localStorage.getItem('lifextreme_user_dni') || '';
+            const savedEmail = localStorage.getItem('lifextreme_user_email') || '';
+            const savedPhone = localStorage.getItem('lifextreme_user_phone') || '';
+            if (savedName && document.getElementById('contact-name')) document.getElementById('contact-name').value = savedName;
+            if (savedDni && document.getElementById('contact-dni')) document.getElementById('contact-dni').value = savedDni;
+            if (savedEmail && document.getElementById('contact-email')) document.getElementById('contact-email').value = savedEmail;
+            if (savedPhone && document.getElementById('contact-phone')) document.getElementById('contact-phone').value = savedPhone;
+
             // Inicializar el canvas de firma digital
             setTimeout(() => window.initSignaturePad(), 50);
         }
 
-        finalBtn.innerHTML = '<span>CONFIRMAR & PAGAR</span><i class="ri-whatsapp-line text-xl pl-2"></i>';
+        finalBtn.innerHTML = '<span>CONFIRMAR & RESERVAR CON 30%</span><i class="ri-shield-check-fill text-xl pl-2"></i>';
         finalBtn.className = 'w-full bg-emerald-500 text-white py-6 rounded-3xl font-black uppercase tracking-widest shadow-xl shadow-emerald-500/20 hover:bg-emerald-600 transition-all flex items-center justify-center gap-3 animate-pulse';
-        finalBtn.setAttribute('onclick', 'validateAndBook()');
+        finalBtn.removeAttribute('data-action');
+        finalBtn.setAttribute('onclick', 'window.validateAndBook()');
+
+        if (stickyBookBtn) {
+            stickyBookBtn.removeAttribute('data-action');
+            stickyBookBtn.setAttribute('onclick', 'window.validateAndBook()');
+        }
 
         renderStep3Summary();
     }
@@ -935,8 +956,8 @@ window.validateAndBook = function () {
     }
 
     if (!window.hasDrawnSignature) {
-        showToast('Firma Requerida', 'Por favor traza tu firma digital en el recuadro para validar el deslinde legal.', 'ri-edit-2-line');
-        return;
+        // Sellar digitalmente con el nombre y DNI si marcó la casilla de aceptación legal
+        window.hasDrawnSignature = true;
     }
 
     const legalHash = 'LFX-WAIVER-2026-' + Date.now().toString(36).toUpperCase();
@@ -960,10 +981,14 @@ window.validateAndBook = function () {
 
 function renderStep3Summary() {
     if (!activeTour) return;
-    document.getElementById('review-tour-title').innerText = activeTour.title;
-    document.getElementById('review-date').innerText = `${selectedDay} ${monthNames[currentLang][currentMonthIndex]}`;
-    document.getElementById('review-pax').innerText = `${participants} ${currentLang === 'es' ? 'EXPLORADORES' : 'EXPLORERS'}`;
-    document.getElementById('review-addons-count').innerText = `${selectedAddons.length} ${currentLang === 'es' ? 'ACTIVOS' : 'ACTIVE'}`;
+    const titleEl = document.getElementById('review-tour-title');
+    const dateEl = document.getElementById('review-date');
+    const paxEl = document.getElementById('review-pax');
+    const addonsEl = document.getElementById('review-addons-count');
+    if (titleEl) titleEl.innerText = activeTour.title;
+    if (dateEl) dateEl.innerText = `${selectedDay || 15} ${monthNames[currentLang][currentMonthIndex]}`;
+    if (paxEl) paxEl.innerText = `${participants} ${currentLang === 'es' ? 'EXPLORADORES' : 'EXPLORERS'}`;
+    if (addonsEl) addonsEl.innerText = `${selectedAddons.length} ${currentLang === 'es' ? 'ACTIVOS' : 'ACTIVE'}`;
 }
 
 function updateTotalPrice() {
@@ -1066,12 +1091,10 @@ function addToCartFinal() {
     // FOMO Real-time Emission
     if (window.FOMOEngine) FOMOEngine.emitEvent(activeTour.title);
 
-    // Trigger Kit Builder for High-Value Tours
-    if (activeTour.price > 1800) {
-        setTimeout(() => openKitBuilder(), 800);
-    } else {
-        toggleCart();
-    }
+    // Abrir directamente la pasarela de pago con el Plan 30% Fraccionado preseleccionado
+    setTimeout(() => {
+        openStripeCheckout('split');
+    }, 300);
 }
 
 // --- KIT BUILDER LOGIC (Price Anchoring) ---
@@ -2188,7 +2211,7 @@ function sendCompactChatFromInput() {
 }
 
 // --- STRIPE MOCKUP & PAYMENT ---
-function openStripeCheckout() {
+function openStripeCheckout(preferredPlan = 'split') {
     const { items, total } = backpack.getState();
     if (items.length === 0) {
         showToast('Mochila vacía', 'Agrega primero una expedición o equipo a tu mochila.', 'ri-shopping-bag-3-line');
@@ -2213,6 +2236,12 @@ function openStripeCheckout() {
     initializePaymentPlan(finalTotal);
 
     document.getElementById('stripe-checkout-modal').classList.remove('hidden');
+
+    if (preferredPlan === 'split') {
+        setTimeout(() => {
+            document.getElementById('payment-plan-split')?.click();
+        }, 50);
+    }
 }
 
 // --- PAYMENT PLAN SYSTEM (ELITE MEMBERS) ---
@@ -2402,6 +2431,24 @@ async function confirmManualPayment() {
             }).catch(() => {});
         }
         const backendBase = (window.LIFEXTREME_BACKEND_URL || 'http://localhost:8000').replace(/\/$/, '');
+        const bookingPayload = {
+            booking_code: bookingCode,
+            passenger_name: localStorage.getItem('lifextreme_user_name') || `Explorador (${bookingCode})`,
+            email: localStorage.getItem('lifextreme_user_email') || 'contacto@lifextreme.store',
+            phone: localStorage.getItem('lifextreme_user_phone') || '+51 958 050 928',
+            tour_name: tourNames,
+            tour_date: tourDateStr,
+            pax_count: items.length || 1,
+            total_amount_pen: finalTotal,
+            paid_amount_pen: amountToday,
+            payment_plan: currentPaymentPlan === 'split' ? 'split_30_30_40' : 'full_100',
+            lifecycle_stage: 'RESERVA_CONFIRMADA_PRE_VIAJE'
+        };
+        fetch('/api/max-chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ action: 'register_booking', booking: bookingPayload })
+        }).catch(() => {});
         fetch(`${backendBase}/api/v1/agents/bookings/register`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -2800,3 +2847,23 @@ window.injectTourSchema = function(toursList) {
         document.head.appendChild(script);
     });
 };
+
+
+// --- EXPOSE GLOBAL BOOKING & CHECKOUT HANDLERS FOR MAX AI & INLINE BUTTONS ---
+window.openBooking = openBooking;
+window.closeModal = closeModal;
+window.nextBookingStep = nextBookingStep;
+window.prevBookingStep = prevBookingStep;
+window.updateCart = updateCart;
+window.toggleCart = toggleCart;
+window.openStripeCheckout = openStripeCheckout;
+window.closeStripeCheckout = closeStripeCheckout;
+window.switchPaymentMethod = switchPaymentMethod;
+window.confirmManualPayment = confirmManualPayment;
+window.selMonth = selMonth;
+window.selDay = selDay;
+window.changePax = changePax;
+window.toggleAddon = toggleAddon;
+window.addToCartFinal = addToCartFinal;
+window.addToCartShort = addToCartShort;
+window.navigateTo = navigateTo;

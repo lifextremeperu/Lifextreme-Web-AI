@@ -1,0 +1,53 @@
+{
+  "LX-DEMO99": {
+    "booking_code": "LX-DEMO99",
+    "passenger_name": "Dra. Elena Vance",
+    "email": "elena.vance@miamihealth.org",
+    "phone": "+13055550199",
+    "tour_name": "Salkantay Trek & Glamping 5D",
+    "tour_date": "2026-11-20",
+    "pax_count": 2,
+    "total_amount_pen": 3700.0,
+    "paid_amount_pen": 1110.0,
+    "payment_plan": "split_30_30_40",
+    "lifecycle_stage": "RESERVA_CONFIRMADA_PRE_VIAJE",
+    "medical_cleared": false,
+    "duffle_verified": false,
+    "feedback_completed": false,
+    "created_at": "2026-11-05T13:28:38.208507"
+  },
+  "LX-958050": {
+    "booking_code": "LX-958050",
+    "passenger_name": "Socio Elite Lifextreme",
+    "email": "contacto@lifextreme.store",
+    "phone": "+51958050928",
+    "tour_name": "Salkantay Trek & Domos Glamping VIP 5D",
+    "tour_date": "2026-11-15",
+    "pax_count": 2,
+    "total_amount_pen": 3700.0,
+    "paid_amount_pen": 1110.0,
+    "payment_plan": "split_30_30_40",
+    "lifecycle_stage": "RESERVA_CONFIRMADA_PRE_VIAJE",
+    "medical_cleared": false,
+    "duffle_verified": false,
+    "feedback_completed": false,
+    "created_at": "2026-11-05T13:28:42.324854"
+  },
+  "LX-TEST30": {
+    "booking_code": "LX-TEST30",
+    "passenger_name": "Cliente Prueba Lifextreme",
+    "email": "cliente@lifextreme.store",
+    "phone": "+51 958 050 928",
+    "tour_name": "Circuito Ausangate & 7 Lagunas Glamping (6D/5N)",
+    "tour_date": "15 Dic 2026",
+    "pax_count": 2,
+    "total_amount_pen": 2100.0,
+    "paid_amount_pen": 630.0,
+    "payment_plan": "split_30_30_40",
+    "lifecycle_stage": "RESERVA_CONFIRMADA_PRE_VIAJE",
+    "medical_cleared": false,
+    "duffle_verified": false,
+    "feedback_completed": false,
+    "created_at": "2026-11-05T15:02:58.965519"
+  }
+}

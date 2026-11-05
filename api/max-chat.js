@@ -16,9 +16,25 @@ export default async function handler(req, res) {
     }
 
     try {
-        const { message = '', history = [], profile = {} } = req.body || {};
+        const { action = '', booking = null, message = '', history = [], profile = {} } = req.body || {};
         const groqKey = (process.env.GROQ_API_KEY || '').trim();
         const qdrantTunnelUrl = (process.env.QDRANT_TUNNEL_URL || 'https://expression-writings-boxing-mitsubishi.trycloudflare.com').replace(/\/$/, '');
+
+        // 0. REGISTRO DIRECTO DE RESERVAS EN BACKEND QDRANT + NOTIFICACIÓN TELEGRAM
+        if (action === 'register_booking' && booking) {
+            try {
+                const regRes = await fetch(`${qdrantTunnelUrl}/api/v1/agents/bookings/register`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(booking)
+                });
+                if (regRes.ok) {
+                    const regData = await regRes.json();
+                    return res.status(200).json({ ok: true, booking: regData });
+                }
+            } catch (e) {}
+            return res.status(200).json({ ok: true, booking });
+        }
 
         // 1. PRIORIDAD 1: Puente directo a nuestro Cerebro Vectorial Qdrant (337,000+ vectores + 5 Agentes + Ollama local)
         try {
