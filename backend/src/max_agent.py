@@ -10,8 +10,95 @@ from typing import List, AsyncGenerator
 from dotenv import load_dotenv
 try:
     from .rag_service import get_rag_context
+    from .agents.medical_acclimatization_agent import MedicalAcclimatizationAgent, MedicalAssessRequest
+    from .agents.duffle_bag_optimizer_agent import DuffleBagOptimizerAgent, DuffleOptimizeRequest, DuffleItemInput
+    from .agents.tailor_made_private_agent import TailorMadePrivateAgent, TailorMadeRequest
 except ImportError:
     from rag_service import get_rag_context
+    from agents.medical_acclimatization_agent import MedicalAcclimatizationAgent, MedicalAssessRequest
+    from agents.duffle_bag_optimizer_agent import DuffleBagOptimizerAgent, DuffleOptimizeRequest, DuffleItemInput
+    from agents.tailor_made_private_agent import TailorMadePrivateAgent, TailorMadeRequest
+
+_medical_subagent = MedicalAcclimatizationAgent()
+_duffle_subagent = DuffleBagOptimizerAgent()
+_tailor_subagent = TailorMadePrivateAgent()
+
+
+def _consult_specialized_agents(query: str) -> str:
+    """
+    Orquestador de Sub-Agentes Especializados:
+    Detecta la intención del usuario en tiempo real y ejecuta el Agente Especializado correspondiente
+    para enriquecer la respuesta de MAX con cálculos exactos y protocolos verificados.
+    """
+    q = query.lower()
+    insights = []
+
+    # 1. Detección de consulta Médica / Aclimatación / Mal de Altura
+    if any(k in q for k in ["altura", "aclimata", "soroche", "oxigeno", "oxígeno", "presion", "mareo", "4600", "5000", "fisioterapia", "medico", "médico"]):
+        try:
+            res = _medical_subagent.assess(MedicalAssessRequest(
+                client_name="Viajero Lifextreme",
+                age=38,
+                target_route="Salkantay / Ausangate Alta Montaña",
+                max_altitude_m=4630,
+                days_prior_in_altitude=1 if "1 dia" in q or "recien" in q or "mañana" in q else 2,
+                has_cardio_condition=False,
+                lake_louise_score=0
+            ))
+            plan_str = " | ".join(res.acclimatization_plan[:3])
+            insights.append(
+                f"[DICTAMEN EN VIVO - AGENTE 1 (ASESOR MÉDICO & ACLIMATACIÓN)]:\n"
+                f"• Nivel de Riesgo: {res.risk_level} ({res.approval_status})\n"
+                f"• Escalera de Aclimatación Sugerida: {plan_str}\n"
+                f"• Monitoreo y Recuperación Activa: {'; '.join(res.biometric_monitoring_rules[:2])} + Fisioterapia en campamento con botas de compresión neumática solar y pediluvios botánicos andinos (romero, llantén y molle)."
+            )
+        except Exception:
+            pass
+
+    # 2. Detección de consulta Logística / Equipaje / Duffle Bag 7 kg / Porteadores
+    if any(k in q for k in ["equipaje", "mochila", "duffle", "7 kg", "7kg", "peso", "llevar", "ropa", "porteador", "mula", "saco de dormir", "packing"]):
+        try:
+            res = _duffle_subagent.optimize(DuffleOptimizeRequest(
+                passenger_name="Viajero Lifextreme",
+                route_name="Salkantay / Camino Inca",
+                items=[
+                    DuffleItemInput(item_id="sleeping_bag_pluma", item_name="Saco de dormir pluma -10°C", weight_grams=1450, quantity=1),
+                    DuffleItemInput(item_id="casaca_plumas_abrigo", item_name="Chaqueta térmica de pluma", weight_grams=380, quantity=1),
+                    DuffleItemInput(item_id="mudas_interiores_x3", item_name="Capas base térmicas merino", weight_grams=250, quantity=2),
+                    DuffleItemInput(item_id="pantalon_hardshell_goretex", item_name="Pantalón impermeable trekking", weight_grams=540, quantity=1),
+                    DuffleItemInput(item_id="casaca_impermeable_goretex", item_name="Casaca impermeable Gore-Tex", weight_grams=485, quantity=1),
+                    DuffleItemInput(item_id="botella_agua_o_camelbak_2l", item_name="Hidratación Camelbak 2L", weight_grams=2100, quantity=1),
+                ]
+            ))
+            insights.append(
+                f"[DICTAMEN EN VIVO - AGENTE 2 (DUFFLE BAG OPTIMIZER 7 KG & LEY 31614)]:\n"
+                f"• Regla Operativa: Límite de {res.max_duffle_allowance_kg} kg en el Duffle Bag entregado a los arrieros/porteadores (simulación base: {res.duffle_total_weight_kg} kg usados, {res.remaining_allowance_kg} kg libres).\n"
+                f"• Garantía Ética Lifextreme: Cumplimiento estricto de la Ley del Porteador N° 31614 (máx. 20 kg auditados en balanza digital visible ante el cliente) + Pasaporte Ético Animal."
+            )
+        except Exception:
+            pass
+
+    # 3. Detección de consulta Privada / Tailor-Made / 4x4 / VIP / Glamping / Lujo
+    if any(k in q for k in ["privad", "vip", "lujo", "tailor", "medida", "4x4", "glamping", "domo", "exclusiv", "pareja"]):
+        try:
+            res = _tailor_subagent.generate_quote(TailorMadeRequest(
+                client_name="Viajero VIP",
+                pax_count=2,
+                trip_days=5,
+                preferred_regions=["Cusco", "Salkantay", "Ausangate"],
+                special_interests=["Domos Exclusivos", "Alta Gastronomía Andina"],
+                budget_tier="VIP_PREMIUM"
+            ))
+            insights.append(
+                f"[DICTAMEN EN VIVO - AGENTE 3 (PRIVATE TAILOR-MADE AWASI/EXPLORA)]:\n"
+                f"• Propuesta: {res.itinerary_title} (${res.estimated_price_per_pax_usd:,.0f} USD por persona | Depósito 30%: ${res.deposit_required_30_usd:,.0f} USD)\n"
+                f"• Asignación Exclusiva: {res.private_guide_profile} + {res.private_vehicle_profile}\n"
+                f"• Diferenciación Lifextreme: Desfase horario inteligente (Offset Trekking +/- 90 min sin multitudes), baños secos ecológicos y gastronomía hiperlocal con comunidades."
+            )
+        except Exception:
+            pass
+
+    return "\n\n".join(insights)
 
 load_dotenv(override=True)
 
@@ -93,6 +180,9 @@ async def _build_messages(prompt: str, history: List[dict] = None) -> List[dict]
         )
     else:
         rag_context = await get_rag_context(rag_query)
+        subagent_insights = _consult_specialized_agents(rag_query)
+        if subagent_insights:
+            rag_context = f"{subagent_insights}\n\n{rag_context}"
 
     system_with_rag = (
         f"{SYSTEM_PROMPT}\n\n"

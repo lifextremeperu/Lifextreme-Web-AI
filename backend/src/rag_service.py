@@ -241,10 +241,12 @@ async def search_knowledge(
             b2b_filter = Filter(must=must_conditions + [FieldCondition(key="area", match=MatchAny(any=b2b_areas))])
 
             tasks = [
-                _query_single_collection("Lifextreme_Knowledge", query_vector, b2b_filter, limit=5, min_similarity=min_similarity),
-                _query_single_collection("Marketing_PHD_Knowledge", query_vector, None, limit=4, min_similarity=0.20),
-                _query_single_collection("Lifextreme_Partners_Vault", query_vector, None, limit=4, min_similarity=0.20),
-                _query_single_collection("Perplexity_Knowledge", query_vector, None, limit=3, min_similarity=0.24),
+                _query_single_collection("Lifextreme_Knowledge", query_vector, b2b_filter, limit=4, min_similarity=min_similarity),
+                _query_single_collection("lifextreme_benchmark_best_practices", query_vector, None, limit=3, min_similarity=0.35),
+                _query_single_collection("lifextreme_peru_strategy", query_vector, None, limit=3, min_similarity=0.35),
+                _query_single_collection("Marketing_PHD_Knowledge", query_vector, None, limit=3, min_similarity=0.20),
+                _query_single_collection("Lifextreme_Partners_Vault", query_vector, None, limit=3, min_similarity=0.20),
+                _query_single_collection("Perplexity_Knowledge", query_vector, None, limit=2, min_similarity=0.24),
             ]
             results = await asyncio.gather(*tasks)
             combined = []
@@ -258,6 +260,11 @@ async def search_knowledge(
 
             tasks = [
                 _query_single_collection("Lifextreme_Knowledge", query_vector, b2c_filter, limit=limit, min_similarity=min_similarity),
+                _query_single_collection("lifextreme_benchmark_best_practices", query_vector, None, limit=2, min_similarity=0.38),
+                _query_single_collection("lifextreme_peru_strategy", query_vector, None, limit=2, min_similarity=0.38),
+                _query_single_collection("lifextreme_safety_protocols", query_vector, None, limit=2, min_similarity=0.38),
+                _query_single_collection("lifextreme_porter_welfare_peru", query_vector, None, limit=1, min_similarity=0.38),
+                _query_single_collection("lifextreme_peru_routes", query_vector, None, limit=2, min_similarity=0.38),
                 _query_single_collection("Perplexity_Knowledge", query_vector, None, limit=2, min_similarity=0.30),
             ]
             results = await asyncio.gather(*tasks)
@@ -265,7 +272,7 @@ async def search_knowledge(
             for r in results:
                 combined.extend(r)
             combined.sort(key=lambda x: x["similarity"], reverse=True)
-            return combined[:limit]
+            return combined[:limit + 2]
     except Exception as e:
         print(f"[-] Error en Qdrant RAG ({mode}): {e}")
         return []
