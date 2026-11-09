@@ -1,0 +1,173 @@
+<!DOCTYPE html><html><head><meta charset='utf-8'><style>
+    body {
+        font-family: sans-serif;
+        color: #1e293b;
+        line-height: 1.45;
+        font-size: 9.5pt;
+    }
+    h1 {
+        color: #0F3D5E;
+        font-size: 16pt;
+        margin-top: 8pt;
+        margin-bottom: 4pt;
+    }
+    h2 {
+        color: #0F3D5E;
+        font-size: 12.5pt;
+        margin-top: 12pt;
+        margin-bottom: 4pt;
+    }
+    h3 {
+        color: #334155;
+        font-size: 10.5pt;
+        margin-top: 8pt;
+        margin-bottom: 3pt;
+    }
+    p, li {
+        font-size: 9.2pt;
+        margin-top: 2pt;
+        margin-bottom: 3pt;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 6pt;
+        margin-bottom: 8pt;
+        font-size: 8.2pt;
+    }
+    th {
+        background-color: #0F3D5E;
+        color: #ffffff;
+        padding: 5pt;
+        font-weight: bold;
+    }
+    td {
+        padding: 5pt;
+        border: 1px solid #cbd5e1;
+    }
+    </style></head><body><h1>EXPEDIENTE TÉCNICO DE GOBERNANZA DE INTELIGENCIA ARTIFICIAL, PROTECCIÓN DE DATOS E INTEGRIDAD DIGITAL</h1>
+<h2>INSTITUTO DE EDUCACIÓN SUPERIOR TECNOLÓGICO PRIVADO (IESTP) "URUSAYHUA" — LICENCIADO POR MINEDU</h2>
+<p><b>Código de Expediente:</b> <code>DIR-AG-QDRANT-2026-URU-001</code></p>
+<p><b>Entidad Auditada:</b> Instituto de Educación Superior Tecnológico Privado (IESTP) Urusayhua (<code>https://urusayhua.edu.pe/</code>)</p>
+<p><b>Sede Principal:</b> Jr. Quillabamba N° 110, Distrito de Santa Ana, Provincia de La Convención, Región Cusco</p>
+<p><b>Condición Regulatoria:</b> Primer Instituto Licenciado por el MINEDU en la Provincia de La Convención y Entidad Elegible PRONABEC (Beca 18)</p>
+<p><b>Marco Legal Rector:</b> Ley N° 31814 | D.S. N° 115-2025-PCM | Ley N° 29733 y D.S. N° 016-2024-JUS (ANPD) | Ley N° 30512 (MINEDU) | Estándares ISO/IEC 42001:2023, ISO/IEC 42005 y OWASP GenAI Top 10 (2026)</p>
+<p><b>Fecha de Emisión:</b> Noviembre 2026</p>
+<hr/>
+<h3>EQUIPO CONSULTOR MULTIDISCIPLINARIO ACREDITADO (FIRMAS RESPONSABLES)</h3>
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+<tr><th bgcolor="#0F3D5E" style="color:white;font-weight:bold;text-align:left;">Rol en el Comité Consultor</th><th bgcolor="#0F3D5E" style="color:white;font-weight:bold;text-align:left;">Especialidad y Grado Académico</th><th bgcolor="#0F3D5E" style="color:white;font-weight:bold;text-align:left;">Competencia Normativa y Técnica Asignada</th></tr>
+<tr><td><b>Director de Arquitectura IA & Ciberseguridad</b></td><td><b>Ing. Engelberth Egoavil</b> — Arquitecto Senior de Sistemas IA & RAG</td><td>Cumplimiento Técnico Art. 31.1 D.S. N° 115-2025-PCM, ISO/IEC 42001, Auditoría Algorítmica de <i>"Otito Beca 18"</i> y Controles OWASP Agentic Top 10 (2026).</td></tr>
+<tr><td><b>Directora de Gestión Pedagógica & Licenciamiento</b></td><td><b>Magíster en Educación & Directora Educativa (Cusco)</b></td><td>Adecuación del Reglamento Institucional (RI), Proyecto Educativo Institucional (PEI), Semáforo de Integridad Académica y Condiciones Básicas de Calidad (CBC - MINEDU / DRE Cusco).</td></tr>
+<tr><td><b>Directora de Impacto Cognitivo & Ética Psicométrica</b></td><td><b>Magíster en Psicología</b></td><td>Evaluación de Impacto Algorítmico en Salud Mental y Desarrollo Cognitivo Estudiantil (ISO/IEC 42005), Protocolos para Postulantes Menores de Edad (16-17 años) y Prevención de Sesgos Psicométricos.</td></tr>
+<tr><td><b>Director de Equidad Intercultural & Enfoque Territorial</b></td><td><b>Magíster en Antropología</b></td><td>Auditoría de No Discriminación Algorítmica, Pertinencia Cultural y Lingüística (Quechua / Matsigenka / Ámbito Amazónico-Andino de La Convención) conforme al Principio de Equidad de la Ley N° 31814 y PRONABEC Beca 18.</td></tr>
+</table>
+<hr style="margin: 18pt 0; border: 1px solid #ccc;"/>
+<h2>MÓDULO 1: DIAGNÓSTICO DE URGENCIA LEGAL Y MAPEO DE BRECHAS (ANPD / PCM / MINEDU / INDECOPI)</h2>
+<h3>1.1 Perfilamiento Técnico-Institucional (<code>Agente_1_Profiler</code>)</h3>
+<p>El <b>IESTP Urusayhua</b> opera como la institución líder de educación superior tecnológica licenciada por el MINEDU en la provincia de La Convención (Cusco), ofertando cinco (05) programas de estudios en modalidades <b>presencial, semipresencial y virtual/a distancia</b>:</p>
+<ul>
+<li>1. <b>Arquitectura de Plataformas y Servicios de TI</b> (desarrollo web, infraestructura cloud, soporte e IA aplicada).</li>
+<li>2. <b>Enfermería Técnica</b> (tratamiento de datos clínicos, prácticas de salud y simulación).</li>
+<li>3. <b>Contabilidad</b> (sistemas tributarios, financieros y automatización contable).</li>
+<li>4. <b>Gestión Administrativa</b> (ERP, ofimática avanzada y procesos empresariales).</li>
+<li>5. <b>Producción Agropecuaria</b> (sanidad agraria, agroexportación e innovación rural en ceja de selva).</li>
+</ul>
+<p>Adicionalmente, el instituto despliega en su ecosistema digital (<code>https://urusayhua.edu.pe/</code>) un activo crítico diferenciador: el <b>Simulador y Programa de Acompañamiento "Otito Beca 18"</b>, orientado a captar, perfilar y preparar postulantes a <b>Beca 18 de PRONABEC</b>.</p>
+<h3>1.2 Matriz de Brechas Normativas Detectadas y Riesgo Sancionador (2026)</h3>
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+<tr><th bgcolor="#0F3D5E" style="color:white;font-weight:bold;text-align:left;">Eje Regulatorio</th><th bgcolor="#0F3D5E" style="color:white;font-weight:bold;text-align:left;">Norma Peruana Exigible</th><th bgcolor="#0F3D5E" style="color:white;font-weight:bold;text-align:left;">Hallazgo en <code>urusayhua.edu.pe</code></th><th bgcolor="#0F3D5E" style="color:white;font-weight:bold;text-align:left;">Nivel de Riesgo</th><th bgcolor="#0F3D5E" style="color:white;font-weight:bold;text-align:left;">Sanción / Contingencia Legal</th></tr>
+<tr><td><b>1. Protección de Datos de Postulantes y Menores ("Otito Beca 18")</b></td><td><b>Ley N° 29733 y Nuevo Reglamento D.S. N° 016-2024-JUS (ANPD)</b></td><td>Captación de datos personales, socioeconómicos (SISFOH) y académicos de escolares de 5to de secundaria (menores de 16-17 años) y jóvenes de comunidades rurales sin protocolo verificable de <b>Consentimiento Parental Expreso</b> ni cláusula de flujo transfronterizo (servidores cloud/IA).</td><td><b>CRÍTICO (ROJO)</b></td><td>Multas de la <b>ANPD (Ministerio de Justicia)</b> desde <b>5 UIT hasta 100 UIT</b> (S/ 26,750 a S/ 535,000) por tratamiento de datos de menores y datos sensibles sin consentimiento válido.</td></tr>
+<tr><td><b>2. Gobernanza y Registro de Sistemas de IA</b></td><td><b>Ley N° 31814 y Reglamento D.S. N° 115-2025-PCM (Art. 31.1)</b></td><td>Ausencia de un <b>Registro Técnico Vivo de Sistemas de IA</b> para el simulador <i>"Otito Beca 18"</i>, el Aula Virtual (modalidad a distancia), chatbots de admisión (<code>+51 956 899 969</code>) y herramientas generativas usadas en las 5 carreras.</td><td><b>ALTO (ROJO)</b></td><td>Observación regulatoria en supervisión de <b>Condiciones Básicas de Calidad (MINEDU / DRE Cusco)</b> y pérdida de elegibilidad en convenios estatales.</td></tr>
+<tr><td><b>3. Datos Sensibles de Salud y Equidad Intercultural</b></td><td><b>D.S. N° 115-2025-PCM (Sistemas de Riesgo Alto en Educación y Salud)</b></td><td>En la carrera de <b>Enfermería Técnica</b> y en el perfilamiento de becarios <b>PRONABEC</b> de poblaciones quechua y amazónicas (Matsigenka) de La Convención, no existe una Evaluación de Impacto Algorítmico ni protocolo contra sesgos lingüísticos/culturales.</td><td><b>ALTO (ÁMBAR)</b></td><td>Infracción al Principio de No Discriminación (Ley N° 31814) y contingencias ante <b>INDECOPI</b> por idoneidad del servicio educativo (Código de Protección al Consumidor Ley N° 29571).</td></tr>
+<tr><td><b>4. Designación de Oficial de Datos Personales (ODP) y Comité IA</b></td><td><b>D.S. N° 016-2024-JUS (Vigencia escalonada 2025-2026)</b></td><td>No figura publicado en el portal web institucional el acto de designación ni el canal de contacto del <b>Oficial de Datos Personales (ODP)</b> ni la inscripción actualizada de Bancos de Datos en el <b>RNPDP</b>.</td><td><b>CRÍTICO (ROJO)</b></td><td>Infracción grave tipificada por la Autoridad Nacional de Protección de Datos Personales (ANPD).</td></tr>
+</table>
+<hr style="margin: 18pt 0; border: 1px solid #ccc;"/>
+<h2>MÓDULO 2: REGISTRO TÉCNICO VIVO DE SISTEMAS DE IA (ART. 31.1 D.S. N° 115-2025-PCM)</h2>
+<p>Conforme al <b>Artículo 31.1 del Reglamento de la Ley N° 31814 (D.S. N° 115-2025-PCM)</b> y la cláusula 6.1 de la norma <b>ISO/IEC 42001:2023</b>, se estructura el inventario inicial de activos algorítmicos y digitales del <b>IESTP Urusayhua</b> sujetos a supervisión humana:</p>
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+<tr><th bgcolor="#0F3D5E" style="color:white;font-weight:bold;text-align:left;">ID Activo</th><th bgcolor="#0F3D5E" style="color:white;font-weight:bold;text-align:left;">Nombre del Sistema / Proceso</th><th bgcolor="#0F3D5E" style="color:white;font-weight:bold;text-align:left;">Programa / Área Usuaria</th><th bgcolor="#0F3D5E" style="color:white;font-weight:bold;text-align:left;">Clasificación de Riesgo (D.S. 115-2025-PCM)</th><th bgcolor="#0F3D5E" style="color:white;font-weight:bold;text-align:left;">Datos Tratados</th><th bgcolor="#0F3D5E" style="color:white;font-weight:bold;text-align:left;">Medida de Control Obligatoria (Human-in-the-Loop)</th></tr>
+<tr><td><b>IA-URU-01</b></td><td><b>Simulador y Perfilador "Otito Beca 18"</b></td><td>Admisión / Bienestar y PRONABEC</td><td><b>Riesgo Alto</b> (Evaluación de acceso a educación y becas)</td><td>Datos de postulantes (incluye menores de 16-17 años), puntajes simulados, condición socioeconómica y procedencia rural/indígena.</td><td>Validación psicopedagógica y antropológica del algoritmo de puntaje; prohibición de exclusión automatizada sin revisión humana; consentimiento parental digital previo.</td></tr>
+<tr><td><b>IA-URU-02</b></td><td><b>Aula Virtual / LMS (Modalidad Semipresencial y a Distancia)</b></td><td>Los 5 Programas de Estudio</td><td><b>Riesgo Alto</b> (Seguimiento académico y evaluación)</td><td>Historial de calificaciones, analítica de aprendizaje, entregas de proyectos y asistencia virtual.</td><td>Transparencia de rúbricas asistidas por IA; derecho de impugnación estudiantil ante evaluaciones automatizadas.</td></tr>
+<tr><td><b>IA-URU-03</b></td><td><b>Asistente de Captación y Atención WhatsApp / Web</b></td><td>Marketing y Admisión (<code>informes@urusayhua.edu.pe</code>)</td><td><b>Riesgo Limitado</b> (Obligación de Transparencia)</td><td>Nombres, teléfonos, colegio de procedencia e intereses vocacionales.</td><td>Aviso explícito de interacción con IA; cláusula informativa Art. 18 Ley N° 29733 al primer mensaje.</td></tr>
+<tr><td><b>IA-URU-04</b></td><td><b>Laboratorios de IA Generativa y Desarrollo de Software</b></td><td>Carrera de <b>Arquitectura de Plataformas y Servicios de TI</b></td><td><b>Riesgo Moderado</b></td><td>Código fuente, bases de datos de prueba y prompts de estudiantes/docentes.</td><td>Prohibición de inyectar datos reales de alumnos o pacientes en LLMs públicos; entorno aislado (Sandbox).</td></tr>
+<tr><td><b>IA-URU-05</b></td><td><b>Asistentes de Triaje/Casos Clínicos y Gestión Agraria</b></td><td>Carreras de <b>Enfermería Técnica</b> y <b>Producción Agropecuaria</b></td><td><b>Riesgo Alto / Moderado</b></td><td>Casos clínicos pedagógicos, fichas sanitarias y diagnósticos fitosanitarios del valle de La Convención.</td><td>Anonimización absoluta de historias clínicas (D.S. 016-2024-JUS) y validación docente obligatoria.</td></tr>
+</table>
+<hr style="margin: 18pt 0; border: 1px solid #ccc;"/>
+<h2>MÓDULO 3: POLÍTICA INSTITUCIONAL Y SEMÁFORO ACADÉMICO / OPERATIVO POR CARRERA</h2>
+<p>Para blindar el licenciamiento MINEDU del <b>IESTP Urusayhua</b> e incorporar la Gobernanza de IA en su <b>Reglamento Institucional (RI)</b>, se establece el <b>Semáforo de Integridad Académica y Operativa</b>:</p>
+<h3>🟢 NIVEL VERDE (Usos Permitidos y Fomentados con Cita Metodológica)</h3>
+<ul>
+<li><b>Arquitectura de Plataformas y Servicios de TI:</b> Generación asistida de código boilerplate, refactorización, pruebas unitarias y diseño de arquitecturas en la nube, documentando el prompt utilizado.</li>
+<li><b>Producción Agropecuaria:</b> Uso de modelos predictivos climáticos y de plagas en cultivos tropicales de La Convención (café, cacao, frutales) como insumo de apoyo técnico.</li>
+<li><b>Contabilidad y Gestión Administrativa:</b> Automatización de conciliaciones sobre datos sintéticos y simulación de planes de negocio regionales.</li>
+<li><b>Docencia Transversal:</b> Diseño de sílabos adaptativos y materiales bilingües/interculturales revisados por el docente titular.</li>
+</ul>
+<h3>🟡 NIVEL ÁMBAR (Usos Supervisados que Requieren Validación Humana y Registro)</h3>
+<ul>
+<li><b>Simulador "Otito Beca 18":</b> Generación de retroalimentación vocacional y simulacros de examen PRONABEC, bajo supervisión del área psicopedagógica para evitar sesgos contra estudiantes cuya lengua materna sea el quechua o matsigenka.</li>
+<li><b>Enfermería Técnica:</b> Uso de IA para consulta bibliográfica de protocolos de atención primaria, exigiendo contraste obligatorio con las Guías Técnicas del MINSA.</li>
+<li><b>Trabajos de Aplicación Profesional (Titulación):</b> Uso de IA para corrección de estilo o estructuración metodológica, con declaración jurada de autoría original anexada al expediente de titulación.</li>
+</ul>
+<h3>🔴 NIVEL ROJO (Usos Estrictamente Prohibidos — Falta Grave en el Reglamento Institucional)</h3>
+<ul>
+<li><b>Ingesta de Datos Personales o Clínicos en IA Pública:</b> Subir padrones de postulantes de <i>"Otito Beca 18"</i>, DNI, notas reales, fichas socioeconómicas o datos de pacientes de prácticas de Enfermería Técnica a cuentas gratuitas de ChatGPT, Claude, Gemini o DeepSeek.</li>
+<li><b>Sustitución de Evaluación Docente:</b> Calificar exámenes finales o proyectos de titulación de forma 100% automatizada sin revisión humana documentada.</li>
+<li><b>Suplantación Académica:</b> Presentar código, informes contables o proyectos productivos generados íntegramente por IA sin comprensión ni defensa oral verificable por el jurado.</li>
+</ul>
+<hr style="margin: 18pt 0; border: 1px solid #ccc;"/>
+<h2>MÓDULO 4: EVALUACIÓN DE IMPACTO ALGORÍTMICO MULTIDISCIPLINARIA (ISO/IEC 42005) Y CIBERSEGURIDAD AGÉNTICA (OWASP 2026)</h2>
+<p>A diferencia de una auditoría meramente informática, este Expediente cumple con el estándar internacional <b>ISO/IEC 42005 (AI System Impact Assessment)</b> y el <b>D.S. N° 115-2025-PCM</b> mediante <b>cuatro (04) dimensiones periciales obligatorias</b>:</p>
+<h3>4.1 Dimensión Psicológica y Cognitiva (Dirigida por Magíster en Psicología)</h3>
+<ul>
+<li>1. <b>Protocolo de Protección del Postulante Menor de Edad (16-17 años en "Otito Beca 18"):</b></li>
+<li>Evaluación del impacto emocional y de ansiedad ante resultados automatizados de simulacros de beca.</li>
+<li>Diseño de mensajes de retroalimentación algorítmica con enfoque formativo y no punitivo.</li>
+<li>2. <b>Prevención de Dependencia Cognitiva Estudiantil:</b></li>
+<li>Instrumento psicométrico de línea base para medir pensamiento crítico y autonomía en estudiantes de modalidades semipresencial y virtual.</li>
+</ul>
+<h3>4.2 Dimensión Antropológica e Intercultural (Dirigida por Magíster en Antropología)</h3>
+<ul>
+<li>1. <b>Auditoría de Sesgo Cultural y Lingüístico en La Convención (Cusco):</b></li>
+<li>Los modelos de lenguaje (LLMs) comerciales presentan sesgos estructurales frente a variantes dialectales andinas (Quechua) y amazónicas (Matsigenka / Asháninka) presentes en los distritos de Echarati, Megantoni, Pichari, Kimbiri y Santa Ana.</li>
+<li><b>Mitigación:</b> Calibración intercultural del simulador <i>"Otito Beca 18"</i> y de los instrumentos de evaluación del aula virtual para garantizar que ningún estudiante rural o indígena sea penalizado por constructos lingüísticos o culturales ajenos a su entorno territorial (cumplimiento estricto del <b>Art. 4 de la Ley N° 31814</b>).</li>
+</ul>
+<h3>4.3 Dimensión Pedagógica y Regulatoria MINEDU (Dirigida por Magíster en Educación / Directora Educativa)</h3>
+<ul>
+<li>1. <b>Alineamiento con Condiciones Básicas de Calidad (CBC - Ley N° 30512):</b></li>
+<li>Inserción formal de la Política de Gobernanza de IA en el Reglamento Institucional (RI) y en los sílabos de los 5 programas de estudio, lista para cualquier fiscalización de <b>MINEDU / DRE Cusco / PRONABEC</b>.</li>
+</ul>
+<h3>4.4 Dimensión de Arquitectura IA y Ciberseguridad (Dirigida por Ing. Engelberth Egoavil)</h3>
+<ul>
+<li>1. <b>Blindaje OWASP Top 10 for LLM & Agentic Applications (2026):</b></li>
+<li><b>LLM01 (Prompt Injection):</b> Filtros de entrada en el simulador <i>"Otito Beca 18"</i> y chatbots para impedir manipulación de resultados o extracción de respuestas.</li>
+<li><b>LLM02 (Sensitive Information Disclosure):</b> Despliegue de pasarela de anonimización de PII (DNI, teléfonos, notas) antes de cualquier llamada a APIs de IA.</li>
+<li><b>Inscripción Formal ante la ANPD (Ministerio de Justicia):</b> Registro de los Bancos de Datos y comunicación de Flujo Transfronterizo conforme al <b>D.S. N° 016-2024-JUS</b>.</li>
+</ul>
+<hr style="margin: 18pt 0; border: 1px solid #ccc;"/>
+<h2>MÓDULO 5: PLAN DE IMPLEMENTACIÓN EN 5 SEMANAS Y PROPUESTA ECONÓMICA (TDR EN SOLES)</h2>
+<h3>5.1 Cronograma de Ejecución (Sprint de 5 Semanas — Entregables Verificables ante MINEDU y ANPD)</h3>
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+<tr><th bgcolor="#0F3D5E" style="color:white;font-weight:bold;text-align:left;">Semana</th><th bgcolor="#0F3D5E" style="color:white;font-weight:bold;text-align:left;">Fase del Proyecto</th><th bgcolor="#0F3D5E" style="color:white;font-weight:bold;text-align:left;">Entregables Oficiales Firmados por el Comité de 4 Especialistas</th></tr>
+<tr><td><b>Semana 1</b></td><td><b>Auditoría Legal, Tecnológica y RNPDP (ANPD)</b></td><td>• Informe de Brechas D.S. N° 016-2024-JUS y D.S. N° 115-2025-PCM.<br>• Expediente listo para inscripción/actualización de Bancos de Datos y designación del Oficial de Datos Personales (ODP) ante el Ministerio de Justicia.</td></tr>
+<tr><td><b>Semana 2</b></td><td><b>Registro Técnico Art. 31.1 y Blindaje "Otito Beca 18"</b></td><td>• <b>Registro Técnico Vivo de Sistemas de IA</b> del IESTP Urusayhua.<br>• Formato legal de Consentimiento Parental Digital para menores postulantes a Beca 18 y cláusulas de privacidad web (<code>urusayhua.edu.pe</code>).</td></tr>
+<tr><td><b>Semana 3</b></td><td><b>Evaluación de Impacto Psicológico y Antropológico (ISO 42005)</b></td><td>• <b>Informe Pericial Psicológico</b> (impacto cognitivo y protección de menores).<br>• <b>Informe Pericial Antropológico-Intercultural</b> (equidad lingüística y territorial en La Convención para postulantes PRONABEC).</td></tr>
+<tr><td><b>Semana 4</b></td><td><b>Reforma Pedagógica y Reglamento Institucional (MINEDU)</b></td><td>• Resolución Directoral de aprobación del <b>Reglamento de Uso Ético de IA y Semáforo Académico</b> para las 5 carreras.<br>• Guías docentes para Arquitectura de TI, Enfermería, Contabilidad, Administración y Agropecuaria.</td></tr>
+<tr><td><b>Semana 5</b></td><td><b>Capacitación Directiva, Simulacro de Fiscalización y Certificación</b></td><td>• Taller Ejecutivo para Dirección General, Jefes de Área Académica y Docentes.<br>• Entrega del <b>Dossier Maestro Impreso y Digital</b> blindado ante auditorías de <b>MINEDU, PRONABEC, ANPD e INDECOPI</b>.</td></tr>
+</table>
+<hr/>
+<h3>5.2 Propuesta Económica Escalonada (Expresada en Soles — S/)</h3>
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+<tr><th bgcolor="#0F3D5E" style="color:white;font-weight:bold;text-align:left;">Modalidad de Contratación</th><th bgcolor="#0F3D5E" style="color:white;font-weight:bold;text-align:left;">Alcance para el IESTP Urusayhua</th><th bgcolor="#0F3D5E" style="color:white;font-weight:bold;text-align:left;">Plazo</th><th bgcolor="#0F3D5E" style="color:white;font-weight:bold;text-align:left;">Inversión Total (S/)</th></tr>
+<tr><td><b>PACK 1: ADECUACIÓN URGENTE & BLINDAJE LEGAL ANPD / MINEDU</b></td><td>• Diagnóstico de Brechas + Adecuación Web <code>urusayhua.edu.pe</code> (Política de Privacidad, Consentimiento Parental <i>"Otito Beca 18"</i>).<br>• Registro Técnico de Sistemas de IA (Art. 31.1 D.S. 115-2025-PCM).<br>• Reglamento de IA y Semáforo Académico para el RI.</td><td><b>2 a 3 Semanas</b></td><td><b>S/ 6,500.00</b></td></tr>
+<tr><td><b>PACK 2: GOBERNANZA INTEGRAL 360° + PERITAJE MULTIDISCIPLINARIO (RECOMENDADO)</b></td><td>• <b>Todo el Pack 1</b>, más:<br>• <b>Peritaje Psicológico (ISO 42005)</b> + <b>Peritaje Antropológico Intercultural (Beca 18 / La Convención)</b> + <b>Adecuación Curricular Pedagógica en las 5 Carreras</b>.<br>• Expediente de Inscripción de Bancos de Datos ante la ANPD + Capacitación Docente Certificada.</td><td><b>5 Semanas</b></td><td><b>S/ 12,800.00</b></td></tr>
+<tr><td><b>PACK 3: ACOMPAÑAMIENTO ANUAL (OFICIALÍA EXTERNA ODP / OIA AS A SERVICE)</b></td><td>• Soporte continuo ante fiscalizaciones de MINEDU, PRONABEC, ANPD e INDECOPI.<br>• Actualización semestral del Registro Técnico Art. 31.1 y auditoría del Aula Virtual.</td><td><b>Mensual (Opcional)</b></td><td><b>S/ 1,200.00 / mes</b></td></tr>
+</table>
+<hr/>
+<p><b>Firmado en Cusco, noviembre de 2026:</b></p>
+<ul>
+<li><b>Ing. Engelberth Egoavil</b> — <i>Director de Arquitectura de IA, RAG & Ciberseguridad Agéntica</i></li>
+<li><b>Mg. en Psicología</b> — <i>Especialista en Evaluación de Impacto Cognitivo y Protección de Menores (ISO 42005)</i></li>
+<li><b>Mg. en Educación (Directora Educativa - Cusco)</b> — <i>Especialista en Gestión Pedagógica y Normativa MINEDU</i></li>
+<li><b>Mg. en Antropología</b> — <i>Especialista en Equidad Intercultural, Pueblos Originarios y Enfoque Territorial</i></li>
+</ul></body></html>

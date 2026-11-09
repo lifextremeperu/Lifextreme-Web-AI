@@ -219,24 +219,45 @@ async def search_knowledge(
     mode: str = "b2c"
 ) -> list[dict]:
     """
-    Ruteador Dual sobre el mismo Cerebro Qdrant (337,012 vectores):
+    Ruteador Tri-Modal sobre el mismo Cerebro Qdrant (337,012+ vectores):
       - mode="b2c" (MAX Operador Turístico): Filtra áreas ['ventas', 'operaciones', 'general'] + Perplexity_Knowledge.
-        Excluye Lifextreme_FQSA_Knowledge (contaminación de Santa Cruz, Argentina) y documentos confidenciales B2B.
+        Excluye Lifextreme_FQSA_Knowledge, documentos confidenciales B2B y la colección educativa/gobernanza.
       - mode="b2b" (LIFEXTREME-CORE Partners & Proyectos Turísticos): Consulta en paralelo:
         1) Lifextreme_Knowledge en áreas ['finanzas', 'ceo', 'alianzas', 'marketing', 'tecnologia', 'operaciones']
-        2) Marketing_PHD_Knowledge (Ley 29408, Exoneración IGV Ley 28780, SERNANP, Turismo Emprende, WTTC)
-        3) Lifextreme_Partners_Vault (PENTUR_INSIGHTS regionales)
-        4) Perplexity_Knowledge (Benchmarks de rentabilidad OTA vs Directo)
+        2) Marketing_PHD_Knowledge, Lifextreme_Partners_Vault, Perplexity_Knowledge
+        3) peru_ai_governance (apoyo normativo transversal en Protección de Datos D.S. 016-2024-JUS / Ley 31814)
+      - mode="govtech_edu" (DIRECTIVA DIR-AG-QDRANT-2026-001 — Educación & Gobernanza IA Perú):
+        1) Consulta prioritaria a `peru_ai_governance` (Top 8: Ley 31814, D.S. 115-2025-PCM, D.S. 016-2024-JUS,
+           Directiva OIA N° 002-2026-PCM, ISO/IEC 42001, ISO 42005, OWASP Agentic Top 10 y notas de NotebookLM).
+        2) Sinergia transversal con `Lifextreme_Knowledge` filtrando únicamente áreas ['finanzas', 'tecnologia']
+           (INDECOPI, Protección al Consumidor, SUNAFIL, Código Civil y Arquitectura IA) sin contaminar con turismo.
     """
     try:
         query_vector = await get_embedding(query)
-        is_b2b = (mode.lower() == "b2b") or (collection == "Lifextreme_Partners_Vault")
+        mode_clean = mode.lower().strip()
+        is_govtech = (mode_clean in {"govtech_edu", "govtech", "edu", "governance"}) or (collection == "peru_ai_governance")
+        is_b2b = (mode_clean == "b2b") or (collection == "Lifextreme_Partners_Vault")
 
         must_conditions = []
         if region:
             must_conditions.append(FieldCondition(key="region", match=MatchValue(value=region.lower())))
 
-        if is_b2b:
+        if is_govtech:
+            legal_tech_areas = ["finanzas", "tecnologia"]
+            synergy_filter = Filter(must=[FieldCondition(key="area", match=MatchAny(any=legal_tech_areas))])
+
+            tasks = [
+                _query_single_collection("peru_ai_governance", query_vector, None, limit=8, min_similarity=0.24),
+                _query_single_collection("Lifextreme_Knowledge", query_vector, synergy_filter, limit=3, min_similarity=0.38),
+            ]
+            results = await asyncio.gather(*tasks)
+            combined = []
+            for r in results:
+                combined.extend(r)
+            combined.sort(key=lambda x: x["similarity"], reverse=True)
+            return combined[:10]
+
+        elif is_b2b:
             b2b_areas = ["finanzas", "ceo", "alianzas", "marketing", "tecnologia", "operaciones"]
             b2b_filter = Filter(must=must_conditions + [FieldCondition(key="area", match=MatchAny(any=b2b_areas))])
 
@@ -247,6 +268,7 @@ async def search_knowledge(
                 _query_single_collection("Marketing_PHD_Knowledge", query_vector, None, limit=3, min_similarity=0.20),
                 _query_single_collection("Lifextreme_Partners_Vault", query_vector, None, limit=3, min_similarity=0.20),
                 _query_single_collection("Perplexity_Knowledge", query_vector, None, limit=2, min_similarity=0.24),
+                _query_single_collection("peru_ai_governance", query_vector, None, limit=2, min_similarity=0.36),
             ]
             results = await asyncio.gather(*tasks)
             combined = []
@@ -285,9 +307,28 @@ async def get_rag_context(
     mode: str = "b2c"
 ) -> str:
     """
-    Combina el Catalogo Oficial de www.lifextreme.store (0ms) + Busqueda Vectorial Separada en Qdrant (~80ms).
+    Combina el Catalogo Oficial de www.lifextreme.store (0ms, solo en B2C/B2B) + Busqueda Vectorial en Qdrant (~80ms).
+    En mode="govtech_edu", omite el catálogo turístico y entrega contexto normativo puro (peru_ai_governance + legal).
     """
-    is_b2b = (mode.lower() == "b2b") or (collection == "Lifextreme_Partners_Vault")
+    mode_clean = mode.lower().strip()
+    is_govtech = (mode_clean in {"govtech_edu", "govtech", "edu", "governance"}) or (collection == "peru_ai_governance")
+    is_b2b = (mode_clean == "b2b") or (collection == "Lifextreme_Partners_Vault")
+
+    if is_govtech:
+        chunks = await search_knowledge(query, limit=8, region=region, collection="peru_ai_governance", mode="govtech_edu")
+        qdrant_parts = []
+        for i, chunk in enumerate(chunks, 1):
+            sim = chunk.get("similarity", 0)
+            col = chunk.get("collection", "peru_ai_governance")
+            area = (chunk.get("area") or "govtech_edu").upper()
+            mod = chunk.get("modulo_nombre", "Gobernanza IA Perú")
+            txt = chunk.get("text_content", "").strip()
+            qdrant_parts.append(f"[Vector {i} | Colección: {col} | Área: {area} | Módulo: {mod} | Similitud: {sim:.0%}]\n{txt}")
+
+        qdrant_str = "\n\n".join(qdrant_parts) if qdrant_parts else "Sin fragmentos vectoriales recuperados; aplicar marco base Ley 31814, D.S. 115-2025-PCM y D.S. 016-2024-JUS."
+        header_label = "=== BÓVEDA NORMATIVA PERU_AI_GOVERNANCE + SINERGIA LEGAL LIFEXTREME (QDRANT) ==="
+        return f"{header_label}\n{qdrant_str}"
+
     catalog_context = search_web_catalog(query)
     chunks = await search_knowledge(query, limit=6 if is_b2b else 3, region=region, collection=collection, mode="b2b" if is_b2b else "b2c")
 

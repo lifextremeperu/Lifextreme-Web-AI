@@ -1,0 +1,33 @@
+{
+  "system_name": "Peruvian AI Governance & Compliance Engine (Lifextreme Unified Brain)",
+  "directive_code": "DIR-AG-QDRANT-2026-001",
+  "version": "2026.1",
+  "knowledge_folder": "C:\\Users\\ASUS\\OneDrive\\VARIOS\\Documentos\\GPTS IA\\ARQUITECTURA Y GOBERNANZA AI",
+  "vector_db": {
+    "provider": "qdrant",
+    "url": "http://localhost:6333",
+    "collection": "peru_ai_governance",
+    "synergy_collection": "Lifextreme_Knowledge",
+    "synergy_areas": ["finanzas", "tecnologia"],
+    "embedding_model": "nomic-embed-text",
+    "embedding_dim": 768,
+    "top_k": 8
+  },
+  "agents": [
+    {
+      "name": "Agente_1_Profiler",
+      "role": "Web Scraper & Identity Mapper",
+      "task": "Extraer tipo de entidad (Pública/Privada), sector (K-12, IESTP, Universidad), servicios digitales activos, política de privacidad actual y paleta de colores CSS."
+    },
+    {
+      "name": "Agente_2_Legal_RAG",
+      "role": "Senior AI Compliance Officer",
+      "task": "Consultar Qdrant (`peru_ai_governance` + sinergia legal de `Lifextreme_Knowledge`) para mapear la entidad con la Ley 31814, D.S. 115-2025-PCM, D.S. 016-2024-JUS y la Directiva OIA N° 002-2026-PCM. Generar la matriz de riesgos y el presupuesto ajustado."
+    },
+    {
+      "name": "Agente_3_Publisher",
+      "role": "Expediente Document Architect",
+      "task": "Sintetizar los módulos en un documento Markdown estandarizado listo para ser compilado a PDF de impresión profesional con WeasyPrint o Pandoc."
+    }
+  ]
+}

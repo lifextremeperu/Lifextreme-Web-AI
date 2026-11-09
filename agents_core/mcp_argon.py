@@ -72,5 +72,61 @@ def argon_scripts_huerfanos() -> str:
     return audit_orphan_scripts()
 
 
+# ─── Tools de Gobernanza IA & Puente NotebookLM (DIR-AG-QDRANT-2026-001) ──────
+
+@mcp.tool()
+def argon_ingestar_gobernanza_ia(
+    carpeta: str = r"C:\Users\ASUS\OneDrive\VARIOS\Documentos\GPTS IA\ARQUITECTURA Y GOBERNANZA AI"
+) -> str:
+    """
+    Ingesta y vectoriza todos los PDFs, DOCX y notas de NotebookLM de la carpeta
+    'ARQUITECTURA Y GOBERNANZA AI' dentro de la colección `peru_ai_governance` en Qdrant (localhost:6333)
+    usando `nomic-embed-text` (mismo cerebro que Lifextreme, aislado de turismo B2C).
+    """
+    try:
+        from scripts.ingest_peru_ai_governance import populate_knowledge_base
+        populate_knowledge_base(carpeta)
+        return f"✅ Ingesta completada desde '{carpeta}' hacia la colección Qdrant `peru_ai_governance`."
+    except Exception as e:
+        return f"[-] Error en ingesta de Gobernanza IA: {e}"
+
+
+@mcp.tool()
+def argon_guardar_nota_notebooklm(titulo: str, contenido: str, scope: str = "general") -> str:
+    """
+    Puente MCP NotebookLM -> Qdrant: Guarda cualquier investigación, informe, tabla o síntesis
+    del cuaderno 'ARQUITECTURA Y GOBERNANZA IA' de NotebookLM en `peru_ai_governance` con Tier 1 (1.15x boost).
+    """
+    try:
+        from scripts.notebooklm_bridge import save_notebooklm_synthesis_to_qdrant
+        n = save_notebooklm_synthesis_to_qdrant(titulo, contenido, scope)
+        return f"✅ Se vectorizaron {n} fragmentos de NotebookLM ('{titulo}') en `peru_ai_governance` (Tier 1)."
+    except Exception as e:
+        return f"[-] Error guardando síntesis de NotebookLM en Qdrant: {e}"
+
+
+@mcp.tool()
+async def argon_generar_expediente_institucion(url_institucion: str, nombre_institucion: str = "") -> str:
+    """
+    Ejecuta la Directiva DIR-AG-QDRANT-2026-001 (Agente 1 Profiler + Agente 2 Legal RAG + Agente 3 Publisher)
+    para cualquier URL educativa o institucional del Perú (ej. istta.edu.pe, pukllasunchis.org, unsaac.edu.pe).
+    """
+    try:
+        from backend.src.agents.governance_expediente_agent import GovernanceExpedienteAgent, ExpedienteRequest
+        agent = GovernanceExpedienteAgent()
+        res = await agent.generate_expediente_package(
+            ExpedienteRequest(institution_url=url_institucion, institution_name=nombre_institucion or None)
+        )
+        return (
+            f"✅ Expediente generado para {res.profile.institution_name} ({res.profile.entity_type} - {res.profile.sector})\n"
+            f"Colores detectados: {res.profile.brand_colors}\n"
+            f"Vectores recuperados: {res.rag_chunks_retrieved}\n\n"
+            f"{res.markdown_template}\n\n"
+            f"--- CONTEXTO RAG RECUPERADO ---\n{res.rag_context_preview}"
+        )
+    except Exception as e:
+        return f"[-] Error generando expediente técnico: {e}"
+
+
 if __name__ == "__main__":
     mcp.run()

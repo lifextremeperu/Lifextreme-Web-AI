@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asesor Senior de Arquitectura y Gobernanza de IA — Consorcio Educativo Perú (DIR-AG-QDRANT-2026-001)</title>
+  <style>
+    :root {
+      --bg: #0b1320;
+      --card: #142238;
+      --card-alt: #1b2e4b;
+      --gold: #d4af37;
+      --cyan: #38bdf8;
+      --green: #34d399;
+      --red: #f87171;
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding-bottom: 60px;
+    }
+    header {
+      background: linear-gradient(135deg, #0b1320 0%, #172a46 100%);
+      border-bottom: 3px solid var(--gold);
+      padding: 28px 24px;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    .badge {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--cyan);
+      border: 1px solid var(--cyan);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 999px;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+    h1 { font-size: 28px; color: #fff; margin-bottom: 6px; }
+    .subtitle { color: var(--gold); font-size: 15px; font-weight: 500; }
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .stat-box {
+      background: var(--card);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .stat-num { font-size: 24px; font-weight: 800; color: var(--gold); }
+    .stat-label { font-size: 12.5px; color: var(--muted); }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 28px;
+    }
+    @media (max-width: 900px) { .grid-2 { grid-template-columns: 1fr; } }
+
+    .panel {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .panel h2 {
+      font-size: 19px;
+      color: var(--gold);
+      margin-bottom: 14px;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+      padding-bottom: 8px;
+    }
+    label { display: block; font-size: 13px; color: var(--muted); margin: 12px 0 6px; font-weight: 600; }
+    input, select, textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: #0f1a2c;
+      color: #fff;
+      font-size: 14px;
+    }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 18px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+      transition: transform 0.15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-gold { background: var(--gold); color: #0b1320; }
+    .btn-cyan { background: var(--cyan); color: #0b1320; }
+    .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--gold); }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .team-card {
+      background: var(--card-alt);
+      border-left: 4px solid var(--gold);
+      padding: 14px;
+      border-radius: 8px;
+    }
+    .team-card h4 { color: var(--cyan); font-size: 14px; margin-bottom: 4px; }
+    .team-card p { font-size: 12.5px; color: var(--muted); }
+
+    #expediente-preview {
+      margin-top: 28px;
+      background: #ffffff;
+      color: #1e293b;
+      padding: 36px;
+      border-radius: 12px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.45);
+    }
+    #expediente-preview h2 { color: #0f3d5e; border-bottom: 2px solid #d4af37; padding-bottom: 6px; margin-bottom: 14px; }
+    #expediente-preview h3 { color: #0f3d5e; margin-top: 18px; margin-bottom: 8px; }
+    #expediente-preview table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 13px; }
+    #expediente-preview th { background: #0f3d5e; color: #fff; padding: 8px; text-align: left; }
+    #expediente-preview td { border: 1px solid #cbd5e1; padding: 8px; }
+
+    @media print {
+      body { background: #fff; color: #000; padding: 0; }
+      header, .no-print { display: none !important; }
+      #expediente-preview { box-shadow: none; padding: 0; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <span class="badge">DIRECTIVA DIR-AG-QDRANT-2026-001 • CEREBRO VECTORIAL ACTIVO</span>
+      <h1>Asesor Senior de Arquitectura y Gobernanza de IA — Perú</h1>
+      <p class="subtitle">Generador Automatizado de Expedientes Técnicos (Ley N° 31814 • D.S. 115-2025-PCM • D.S. 016-2024-JUS • ISO/IEC 42005)</p>
+
+      <div class="stats-bar">
+        <div class="stat-box">
+          <div class="stat-num">18,932</div>
+          <div class="stat-label">Vectores Normativos en <code>peru_ai_governance</code> (Tier 1 NotebookLM + Leyes)</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">355,801</div>
+          <div class="stat-label">Vectores Totales en el Cerebro Qdrant Unificado (Aislado de Turismo B2C)</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">4 Dimensiones</div>
+          <div class="stat-label">Ingeniería IA + Mg. Psicología + Mg. Educación + Mg. Antropología</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">69 Entidades</div>
+          <div class="stat-label">Colegios, IESTP, UGELs y Universidades Mapeadas en Base de Datos</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="grid-2 no-print">
+      <!-- Panel Izquierdo: Generador Interactivo -->
+      <div class="panel">
+        <h2>⚡ Generador de Expediente Institucional (3 Agentes)</h2>
+        <label for="presetSelect">Seleccionar Institución Mapeada o Ingresar Nueva URL:</label>
+        <select id="presetSelect" onchange="applyPreset()">
+          <option value="urusayhua">IESTP Urusayhua — Quillabamba, La Convención (https://urusayhua.edu.pe/)</option>
+          <option value="khipu">Instituto Superior Khipu — Cusco (https://khipu.edu.pe/)</option>
+          <option value="pukllasunchis">Colegio Pukllasunchis — Cusco (https://pukllasunchis.org/)</option>
+          <option value="istta">IESTP Túpac Amaru — Cusco (https://istta.edu.pe/)</option>
+          <option value="unsaac">Universidad Nacional de San Antonio Abad del Cusco — UNSAAC (https://unsaac.edu.pe/)</option>
+          <option value="custom">Otra Institución (Ingresar URL abajo)</option>
+        </select>
+
+        <label for="instUrl">URL Oficial de la Institución:</label>
+        <input type="text" id="instUrl" value="https://urusayhua.edu.pe/" />
+
+        <label for="instName">Nombre Oficial de la Entidad:</label>
+        <input type="text" id="instName" value="Instituto de Educación Superior Tecnológico Privado (IESTP) Urusayhua" />
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+          <div>
+            <label for="instType">Naturaleza Jurídica:</label>
+            <select id="instType">
+              <option value="Privada">Entidad Privada (ANPD 5-100 UIT / MINEDU)</option>
+              <option value="Pública">Entidad Pública (Directiva OIA 002-2026-PCM / PIDE)</option>
+            </select>
+          </div>
+          <div>
+            <label for="instSector">Sector Educativo:</label>
+            <select id="instSector">
+              <option value="IESTP / Instituto Superior Licenciado">IESTP / Instituto Superior</option>
+              <option value="K-12 / Colegio Privado o Asociación">K-12 / Colegio Educación Básica</option>
+              <option value="Universidad Licenciada por SUNEDU">Universidad (Pública / Privada)</option>
+              <option value="DRE / UGEL / Entidad Gubernamental">DRE / UGEL / Sector Público</option>
+            </select>
+          </div>
+        </div>
+
+        <label for="instServices">Activos Digitales y Programas Detectados:</label>
+        <textarea id="instServices" rows="2">Simulador "Otito Beca 18" (PRONABEC), Aula Virtual Semipresencial/Distancia, 5 Carreras (Arquitectura TI, Enfermería Técnica, Contabilidad, Administración, Producción Agropecuaria)</textarea>
+
+        <div class="btn-row">
+          <button class="btn btn-gold" onclick="renderExpediente()">🧠 Generar / Actualizar Expediente 4D</button>
+          <button class="btn btn-cyan" onclick="window.print()">🖨️ Imprimir / Guardar como PDF A4</button>
+        </div>
+      </div>
+
+      <!-- Panel Derecho: Descargas Oficiales y Comité -->
+      <div class="panel">
+        <h2>📥 Dossiers y Presentaciones Oficiales Listas (PDF / PPTX)</h2>
+        <p style="font-size:13.5px; color:var(--muted); margin-bottom:14px;">
+          Descarga directa de los entregables compilados por el motor Qdrant (<code>peru_ai_governance</code>):
+        </p>
+        <div class="btn-row" style="margin-bottom:20px;">
+          <a class="btn btn-gold" href="Expediente_Tecnico_IESTP_Urusayhua_2026.pdf" download>📄 Descargar PDF Expediente IESTP Urusayhua (6 págs A4)</a>
+          <a class="btn btn-cyan" href="Tesis_Maestria_Gobernanza_IA_Equipo_Cusco_2026.pdf" download>📑 Descargar PDF Tesis de Maestría (Equipo 10 láminas)</a>
+          <a class="btn btn-outline" href="Tesis_Maestria_Gobernanza_IA_Equipo_Cusco_2026.pptx" download>📊 Descargar PowerPoint Editable (.pptx)</a>
+        </div>
+
+        <h2>🎓 Comité Consultor Multidisciplinario (4 Firmas)</h2>
+        <div class="team-grid">
+          <div class="team-card">
+            <h4>1. Ing. Engelberth Egoavil</h4>
+            <p>Arquitectura IA, Registro Técnico Art. 31.1 D.S. 115-2025-PCM y Ciberseguridad OWASP 2026.</p>
+          </div>
+          <div class="team-card">
+            <h4>2. Magíster en Psicología</h4>
+            <p>Evaluación de Impacto Cognitivo Estudiantil (ISO/IEC 42005) y Protocolo de Menores (16-17 años).</p>
+          </div>
+          <div class="team-card">
+            <h4>3. Magíster en Educación (Directora)</h4>
+            <p>Reforma de Reglamento Institucional (RI), PEI, Sílabos y Semáforo Académico MINEDU / DRE Cusco.</p>
+          </div>
+          <div class="team-card">
+            <h4>4. Magíster en Antropología</h4>
+            <p>Peritaje de Equidad Intercultural y Lingüística (Quechua / Matsigenka / Beca 18 - Art. 4 Ley 31814).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vista Previa Imprimible A4 -->
+    <div id="expediente-preview"></div>
+  </div>
+
+  <script>
+    const PRESETS = {
+      urusayhua: {
+        url: "https://urusayhua.edu.pe/",
+        name: "Instituto de Educación Superior Tecnológico Privado (IESTP) Urusayhua — Quillabamba, La Convención",
+        type: "Privada",
+        sector: "IESTP / Instituto Superior Licenciado",
+        services: "Simulador 'Otito Beca 18' (postulantes de 16-17 años y comunidades Quechua/Matsigenka), Aula Virtual Semipresencial/Distancia, 5 Carreras (Arquitectura TI, Enfermería Técnica, Contabilidad, Administración, Producción Agropecuaria)"
+      },
+      khipu: {
+        url: "https://khipu.edu.pe/",
+        name: "Instituto de Educación Superior Tecnológico Privado Khipu — Cusco",
+        type: "Privada",
+        sector: "IESTP / Instituto Superior Licenciado",
+        services: "Campus Virtual / Intranet Académica, Admisión Digital, Bolsa de Trabajo, Programas de Desarrollo de Sistemas, Contabilidad, Guía Oficial de Turismo y Administración"
+      },
+      pukllasunchis: {
+        url: "https://pukllasunchis.org/",
+        name: "Asociación Pukllasunchis — Colegio, EESP e Inclusión Intercultural (Cusco)",
+        type: "Privada",
+        sector: "K-12 / Colegio Privado o Asociación",
+        services: "Educación Básica Regular (Inicial, Primaria, Secundaria con menores de edad), Escuela de Educación Superior Pedagógica (EESP), Programas de Educación Intercultural Bilingüe (Quechua)"
+      },
+      istta: {
+        url: "https://istta.edu.pe/",
+        name: "IESTP Túpac Amaru del Cusco (ISTTA)",
+        type: "Pública",
+        sector: "IESTP / Instituto Superior Licenciado",
+        services: "Portal de Transparencia Estándar, Mesa de Partes Virtual, Aula Virtual Institucional, Admisión Pública y Laboratorios Técnicos"
+      },
+      unsaac: {
+        url: "https://unsaac.edu.pe/",
+        name: "Universidad Nacional de San Antonio Abad del Cusco (UNSAAC)",
+        type: "Pública",
+        sector: "Universidad Licenciada por SUNEDU",
+        services: "Sistema de Gestión Académica, Repositorio Institucional ALICIA/CONCYTEC, Trámite Documentario PIDE, Escuelas Profesionales y Posgrado"
+      }
+    };
+
+    function applyPreset() {
+      const val = document.getElementById("presetSelect").value;
+      if (PRESETS[val]) {
+        document.getElementById("instUrl").value = PRESETS[val].url;
+        document.getElementById("instName").value = PRESETS[val].name;
+        document.getElementById("instType").value = PRESETS[val].type;
+        document.getElementById("instSector").value = PRESETS[val].sector;
+        document.getElementById("instServices").value = PRESETS[val].services;
+        renderExpediente();
+      }
+    }
+
+    function renderExpediente() {
+      const url = document.getElementById("instUrl").value;
+      const name = document.getElementById("instName").value;
+      const type = document.getElementById("instType").value;
+      const sector = document.getElementById("instSector").value;
+      const services = document.getElementById("instServices").value;
+
+      const normaFoco = type === "Pública"
+        ? "Directiva N° 002-2026-PCM/SGTD (Designación obligatoria del Oficial de IA - OIA), Comité de Gobierno y Transformación Digital (CGTD), Interoperabilidad PIDE y Art. 31.1 D.S. N° 115-2025-PCM"
+        : "Ley N° 29733 y Nuevo Reglamento D.S. N° 016-2024-JUS (Inscripción RNPDP, Consentimiento Parental Expreso de Menores y sanciones ANPD de 5 a 100 UIT = hasta S/ 535,000), además del Art. 31.1 D.S. N° 115-2025-PCM";
+
+      const html = `
+        <h2>EXPEDIENTE TÉCNICO DE GOBERNANZA DE IA, PROTECCIÓN DE DATOS E INTEGRIDAD DIGITAL</h2>
+        <p><strong>Entidad Auditada:</strong> ${name} (<code>${url}</code>)</p>
+        <p><strong>Naturaleza Jurídica y Sector:</strong> Entidad ${type} — ${sector}</p>
+        <p><strong>Activos y Servicios Auditados:</strong> ${services}</p>
+        <p><strong>Base Vectorial Consultada:</strong> Qdrant <code>peru_ai_governance</code> (18,932 vectores normativos Tier 1)</p>
+
+        <h3>Módulo 1: Diagnóstico de Urgencia Legal y Brechas Sancionadoras (ANPD / PCM / MINEDU)</h3>
+        <p>El análisis automatizado sobre <code>${url}</code> identifica exigencias inmediatas bajo <strong>${normaFoco}</strong>:</p>
+        <table>
+          <tr>
+            <th>Dimensión Regulatoria</th>
+            <th>Base Legal Peruana</th>
+            <th>Riesgo Detectado</th>
+            <th>Medida Correctiva Inmediata</th>
+          </tr>
+          <tr>
+            <td><strong>1. Protección de Datos y Menores (RNPDP)</strong></td>
+            <td>Ley N° 29733 y D.S. N° 016-2024-JUS</td>
+            <td>Multas de 5 a 100 UIT (S/ 26,750 a S/ 535,000) ante la ANPD.</td>
+            <td>Inscripción de Bancos de Datos, Flujo Transfronterizo IA y designación del Oficial de Datos Personales (ODP).</td>
+          </tr>
+          <tr>
+            <td><strong>2. Registro Técnico de Sistemas de IA</strong></td>
+            <td>Ley N° 31814 y Art. 31.1 D.S. N° 115-2025-PCM</td>
+            <td>Observación en supervisión MINEDU / SUNEDU / Contraloría.</td>
+            <td>Implementación del Registro Técnico Vivo de Sistemas de IA bajo estándar ISO/IEC 42001.</td>
+          </tr>
+          <tr>
+            <td><strong>3. Evaluación de Impacto Cognitivo e Intercultural</strong></td>
+            <td>ISO/IEC 42005 y Art. 4 Ley N° 31814</td>
+            <td>Sesgo algorítmico contra poblaciones bilingües (Quechua/Amazónico) y dependencia cognitiva.</td>
+            <td>Peritaje conjunto de Psicología Educativa + Antropología Intercultural + Reforma del Reglamento Institucional (RI).</td>
+          </tr>
+        </table>
+
+        <h3>Módulo 2: Intervención Pericial Cuadridimensional (Firmas del Consorcio)</h3>
+        <ul>
+          <li><strong>Eje 1 — Arquitectura de IA y Ciberseguridad (Ing. Engelberth Egoavil):</strong> Inventario Art. 31.1, blindaje OWASP Agentic Top 10 (2026) y expediente técnico RNPDP.</li>
+          <li><strong>Eje 2 — Psicología y Protección Cognitiva (Magíster en Psicología):</strong> Evaluación de Impacto Algorítmico ISO/IEC 42005 y protocolo para estudiantes/postulantes menores de edad (16-17 años).</li>
+          <li><strong>Eje 3 — Gestión Pedagógica y Normativa MINEDU (Magíster en Educación / Directora):</strong> Incorporación del Semáforo Académico (Verde/Ámbar/Rojo) en el RI, PEI, PAT y sílabos.</li>
+          <li><strong>Eje 4 — Equidad Intercultural y Territorial (Magíster en Antropología):</strong> Certificación de no discriminación lingüística y pertinencia cultural andino-amazónica (Beca 18 / PRONABEC).</li>
+        </ul>
+
+        <h3>Módulo 3: Cronograma de 5 Semanas y Propuesta Económica Referencial (S/)</h3>
+        <table>
+          <tr>
+            <th>Modalidad</th>
+            <th>Entregables Auditables ante MINEDU, ANPD e INDECOPI</th>
+            <th>Plazo</th>
+            <th>Inversión (S/)</th>
+          </tr>
+          <tr>
+            <td><strong>Pack 1: Blindaje Legal Urgente</strong></td>
+            <td>Diagnóstico de Brechas + Política de Privacidad Web + Registro Técnico Art. 31.1 + Semáforo Académico RI.</td>
+            <td>2 - 3 Semanas</td>
+            <td><strong>S/ 6,500.00</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Pack 2: Gobernanza Integral 360° (4 Especialistas)</strong></td>
+            <td>Pack 1 + Peritaje Psicológico (ISO 42005) + Peritaje Antropológico Intercultural + Reforma Curricular + Inscripción ANPD.</td>
+            <td>5 Semanas</td>
+            <td><strong>S/ 12,800.00</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Pack 3: Oficialía Externa ODP / OIA Mensual</strong></td>
+            <td>Soporte continuo ante fiscalizaciones, actualización semestral del Registro IA y capacitación docente.</td>
+            <td>Mensual</td>
+            <td><strong>S/ 1,200.00 / mes</strong></td>
+          </tr>
+        </table>
+      `;
+      document.getElementById("expediente-preview").innerHTML = html;
+    }
+
+    renderExpediente();
+  </script>
+</body>
+</html>
