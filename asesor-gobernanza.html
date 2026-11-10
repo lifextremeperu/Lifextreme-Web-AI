@@ -3,401 +3,738 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Asesor Senior de Arquitectura y Gobernanza de IA — Consorcio Educativo Perú (DIR-AG-QDRANT-2026-001)</title>
+  <title>GovAI Studio 4D — Asesor de Arquitectura y Gobernanza IA (ChatGPT / Gemini Style)</title>
   <style>
     :root {
-      --bg: #0b1320;
-      --card: #142238;
-      --card-alt: #1b2e4b;
-      --gold: #d4af37;
+      --bg-main: #0d1117;
+      --bg-sidebar: #070a0f;
+      --bg-card: #161b22;
+      --bg-input: #1f2631;
+      --border: #30363d;
+      --gold: #eab308;
       --cyan: #38bdf8;
-      --green: #34d399;
-      --red: #f87171;
-      --text: #f8fafc;
-      --muted: #cbd5e1;
+      --green: #10b981;
+      --red: #ef4444;
+      --purple: #a855f7;
+      --text: #f0f6fc;
+      --muted: #8b949e;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background: var(--bg);
+      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg-main);
       color: var(--text);
-      line-height: 1.6;
-      padding-bottom: 60px;
+      height: 100vh;
+      display: flex;
+      overflow: hidden;
     }
-    header {
-      background: linear-gradient(135deg, #0b1320 0%, #172a46 100%);
-      border-bottom: 3px solid var(--gold);
-      padding: 28px 24px;
-    }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-    .badge {
-      display: inline-block;
-      background: rgba(56, 189, 248, 0.15);
-      color: var(--cyan);
-      border: 1px solid var(--cyan);
-      font-size: 12px;
-      font-weight: 700;
-      padding: 4px 12px;
-      border-radius: 999px;
-      letter-spacing: 0.5px;
-      margin-bottom: 10px;
-    }
-    h1 { font-size: 28px; color: #fff; margin-bottom: 6px; }
-    .subtitle { color: var(--gold); font-size: 15px; font-weight: 500; }
-    .stats-bar {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-      margin-top: 24px;
-    }
-    .stat-box {
-      background: var(--card);
-      border: 1px solid rgba(212, 175, 55, 0.35);
-      border-radius: 10px;
+
+    /* SIDEBAR ESTILO CHATGPT / GEMINI */
+    .sidebar {
+      width: 300px;
+      background: var(--bg-sidebar);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
       padding: 16px;
+      flex-shrink: 0;
     }
-    .stat-num { font-size: 24px; font-weight: 800; color: var(--gold); }
-    .stat-label { font-size: 12.5px; color: var(--muted); }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      margin-top: 28px;
-    }
-    @media (max-width: 900px) { .grid-2 { grid-template-columns: 1fr; } }
-
-    .panel {
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 12px;
-      padding: 24px;
-    }
-    .panel h2 {
-      font-size: 19px;
-      color: var(--gold);
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 4px 16px;
+      border-bottom: 1px solid var(--border);
       margin-bottom: 14px;
-      border-bottom: 1px solid rgba(212, 175, 55, 0.25);
-      padding-bottom: 8px;
     }
-    label { display: block; font-size: 13px; color: var(--muted); margin: 12px 0 6px; font-weight: 600; }
-    input, select, textarea {
+    .brand-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--gold), var(--cyan));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      color: #000;
+      font-size: 16px;
+    }
+    .brand-title { font-size: 15px; font-weight: 800; color: #fff; }
+    .brand-sub { font-size: 11px; color: var(--cyan); }
+
+    .new-chat-btn {
       width: 100%;
       padding: 11px 14px;
-      border-radius: 8px;
-      border: 1px solid rgba(255,255,255,0.2);
-      background: #0f1a2c;
+      background: linear-gradient(90deg, rgba(234,179,8,0.18), rgba(56,189,248,0.15));
+      border: 1px solid var(--gold);
       color: #fff;
-      font-size: 14px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 13.5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      transition: all 0.15s;
     }
-    .btn-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
-    .btn {
+    .new-chat-btn:hover { background: var(--gold); color: #000; }
+
+    .side-section-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--muted);
+      margin: 12px 0 8px;
+      font-weight: 700;
+    }
+    .quick-list {
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding-right: 4px;
+    }
+    .quick-item {
+      padding: 9px 11px;
+      border-radius: 8px;
+      background: transparent;
+      border: 1px solid transparent;
+      color: #cbd5e1;
+      font-size: 12.5px;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.15s;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .quick-item:hover {
+      background: var(--bg-card);
+      border-color: var(--border);
+      color: #fff;
+    }
+    .quick-item small { color: var(--cyan); font-size: 11px; }
+
+    .side-footer {
+      border-top: 1px solid var(--border);
+      padding-top: 12px;
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .dl-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .dl-link:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ÁREA CENTRAL ESTILO CHATGPT / GEMINI */
+    .main-area {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      position: relative;
+    }
+    .topbar {
+      height: 56px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      background: rgba(13, 17, 23, 0.85);
+      backdrop-filter: blur(8px);
+    }
+    .model-pill {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 11px 18px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .dot-live {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 8px var(--green);
+    }
+
+    /* STREAM DE MENSAJES */
+    .chat-stream {
+      flex: 1;
+      overflow-y: auto;
+      padding: 28px 20px 150px;
+    }
+    .chat-container {
+      max-width: 920px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* PANTALLA DE BIENVENIDA */
+    .hero-welcome {
+      text-align: center;
+      margin: 30px auto 10px;
+      max-width: 760px;
+    }
+    .hero-welcome h1 {
+      font-size: 30px;
+      font-weight: 800;
+      background: linear-gradient(90deg, #fff, var(--gold), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+    .hero-welcome p { color: var(--muted); font-size: 14.5px; margin-bottom: 24px; }
+    .starter-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 12px;
+      text-align: left;
+    }
+    .starter-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+    .starter-card:hover {
+      border-color: var(--cyan);
+      transform: translateY(-2px);
+    }
+    .starter-card h4 { font-size: 13px; color: var(--gold); margin-bottom: 4px; }
+    .starter-card p { font-size: 12px; color: var(--muted); margin: 0; }
+
+    /* BURBUJAS DE MENSAJES */
+    .msg-user {
+      align-self: flex-end;
+      background: #232c3b;
+      border: 1px solid #384459;
+      color: #fff;
+      padding: 12px 18px;
+      border-radius: 18px 18px 4px 18px;
+      max-width: 78%;
+      font-size: 14.5px;
+    }
+    .msg-ai {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+      width: 100%;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    }
+    .ai-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .ai-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--cyan);
+    }
+
+    /* PASOS DE RAZONAMIENTO TIPO GEMINI / PERPLEXITY */
+    .thinking-steps {
+      background: #0d131d;
+      border: 1px solid #1e293b;
+      border-radius: 10px;
+      padding: 12px 16px;
+      margin-bottom: 16px;
+      font-size: 12.5px;
+      color: #94a3b8;
+    }
+    .step-line { margin: 4px 0; display: flex; align-items: center; gap: 8px; }
+    .step-ok { color: var(--green); font-weight: 700; }
+
+    /* TARJETAS VISUALES DEL REPORTE */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
+      gap: 12px;
+      margin: 14px 0;
+    }
+    .kpi-box {
+      background: #0f1622;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px;
+    }
+    .kpi-box .k-label { font-size: 11px; color: var(--muted); text-transform: uppercase; }
+    .kpi-box .k-val { font-size: 16px; font-weight: 800; color: #fff; margin-top: 4px; }
+    .kpi-box .k-sub { font-size: 11.5px; color: var(--gold); margin-top: 2px; }
+
+    .report-body h1, .report-body h2 {
+      color: var(--gold);
+      font-size: 18px;
+      margin: 18px 0 8px;
+      border-bottom: 1px solid rgba(234,179,8,0.25);
+      padding-bottom: 4px;
+    }
+    .report-body h3 { color: var(--cyan); font-size: 15px; margin: 14px 0 6px; }
+    .report-body p, .report-body li { font-size: 13.8px; line-height: 1.65; color: #e2e8f0; margin-bottom: 6px; }
+    .report-body ul { padding-left: 20px; margin-bottom: 10px; }
+    .report-body table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 12.5px;
+    }
+    .report-body th {
+      background: #1e293b;
+      color: var(--gold);
+      padding: 8px 10px;
+      text-align: left;
+      border: 1px solid var(--border);
+    }
+    .report-body td {
+      padding: 8px 10px;
+      border: 1px solid var(--border);
+      color: #cbd5e1;
+    }
+
+    .citations-box {
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px dashed var(--border);
+    }
+    .citation-pill {
+      background: #111827;
+      border: 1px solid #1f2937;
+      border-radius: 8px;
+      padding: 8px 12px;
+      margin-top: 6px;
+      font-size: 12px;
+      color: #9ca3af;
+    }
+    .citation-pill strong { color: var(--cyan); }
+
+    .action-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .act-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
       border-radius: 8px;
       font-weight: 700;
-      font-size: 14px;
-      cursor: pointer;
+      font-size: 13px;
       text-decoration: none;
+      cursor: pointer;
       border: none;
-      transition: transform 0.15s ease;
     }
-    .btn:hover { transform: translateY(-1px); }
-    .btn-gold { background: var(--gold); color: #0b1320; }
-    .btn-cyan { background: var(--cyan); color: #0b1320; }
-    .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--gold); }
+    .act-gold { background: var(--gold); color: #000; }
+    .act-cyan { background: var(--cyan); color: #000; }
+    .act-dark { background: #1e293b; color: #fff; border: 1px solid var(--border); }
 
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 14px;
-      margin-top: 14px;
+    /* BARRA INFERIOR FLOTANTE ESTILO CHATGPT / GEMINI */
+    .prompt-dock {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 14px 20px 20px;
+      background: linear-gradient(180deg, transparent 0%, var(--bg-main) 35%);
     }
-    .team-card {
-      background: var(--card-alt);
-      border-left: 4px solid var(--gold);
-      padding: 14px;
-      border-radius: 8px;
+    .prompt-box {
+      max-width: 920px;
+      margin: 0 auto;
+      background: var(--bg-input);
+      border: 1px solid #424d60;
+      border-radius: 16px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.45);
     }
-    .team-card h4 { color: var(--cyan); font-size: 14px; margin-bottom: 4px; }
-    .team-card p { font-size: 12.5px; color: var(--muted); }
-
-    #expediente-preview {
-      margin-top: 28px;
-      background: #ffffff;
-      color: #1e293b;
-      padding: 36px;
-      border-radius: 12px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.45);
+    .prompt-box:focus-within { border-color: var(--cyan); }
+    .prompt-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 14.5px;
+      outline: none;
+      padding: 6px 4px;
     }
-    #expediente-preview h2 { color: #0f3d5e; border-bottom: 2px solid #d4af37; padding-bottom: 6px; margin-bottom: 14px; }
-    #expediente-preview h3 { color: #0f3d5e; margin-top: 18px; margin-bottom: 8px; }
-    #expediente-preview table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 13px; }
-    #expediente-preview th { background: #0f3d5e; color: #fff; padding: 8px; text-align: left; }
-    #expediente-preview td { border: 1px solid #cbd5e1; padding: 8px; }
+    .send-btn {
+      background: linear-gradient(135deg, var(--gold), var(--cyan));
+      color: #000;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 18px;
+      font-weight: 800;
+      font-size: 13.5px;
+      cursor: pointer;
+    }
+    .send-btn:disabled { opacity: 0.5; cursor: wait; }
 
     @media print {
-      body { background: #fff; color: #000; padding: 0; }
-      header, .no-print { display: none !important; }
-      #expediente-preview { box-shadow: none; padding: 0; margin: 0; }
+      .sidebar, .topbar, .prompt-dock, .hero-welcome, .msg-user, .thinking-steps, .action-bar { display: none !important; }
+      body, .main-area, .chat-stream { height: auto; overflow: visible; background: #fff; color: #000; }
+      .msg-ai { background: #fff; color: #000; border: none; box-shadow: none; padding: 0; }
+      .report-body h1, .report-body h2, .report-body h3, .report-body p, .report-body li, .report-body td { color: #000 !important; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <span class="badge">DIRECTIVA DIR-AG-QDRANT-2026-001 • CEREBRO VECTORIAL ACTIVO</span>
-      <h1>Asesor Senior de Arquitectura y Gobernanza de IA — Perú</h1>
-      <p class="subtitle">Generador Automatizado de Expedientes Técnicos (Ley N° 31814 • D.S. 115-2025-PCM • D.S. 016-2024-JUS • ISO/IEC 42005)</p>
-
-      <div class="stats-bar">
-        <div class="stat-box">
-          <div class="stat-num">18,932</div>
-          <div class="stat-label">Vectores Normativos en <code>peru_ai_governance</code> (Tier 1 NotebookLM + Leyes)</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-num">355,801</div>
-          <div class="stat-label">Vectores Totales en el Cerebro Qdrant Unificado (Aislado de Turismo B2C)</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-num">4 Dimensiones</div>
-          <div class="stat-label">Ingeniería IA + Mg. Psicología + Mg. Educación + Mg. Antropología</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-num">69 Entidades</div>
-          <div class="stat-label">Colegios, IESTP, UGELs y Universidades Mapeadas en Base de Datos</div>
-        </div>
+  <!-- SIDEBAR IZQUIERDO -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon">4D</div>
+      <div>
+        <div class="brand-title">GovAI Studio Perú</div>
+        <div class="brand-sub">Qdrant 18,932 Vectores Activos</div>
       </div>
     </div>
-  </header>
 
-  <div class="container">
-    <div class="grid-2 no-print">
-      <!-- Panel Izquierdo: Generador Interactivo -->
-      <div class="panel">
-        <h2>⚡ Generador de Expediente Institucional (3 Agentes)</h2>
-        <label for="presetSelect">Seleccionar Institución Mapeada o Ingresar Nueva URL:</label>
-        <select id="presetSelect" onchange="applyPreset()">
-          <option value="urusayhua">IESTP Urusayhua — Quillabamba, La Convención (https://urusayhua.edu.pe/)</option>
-          <option value="khipu">Instituto Superior Khipu — Cusco (https://khipu.edu.pe/)</option>
-          <option value="pukllasunchis">Colegio Pukllasunchis — Cusco (https://pukllasunchis.org/)</option>
-          <option value="istta">IESTP Túpac Amaru — Cusco (https://istta.edu.pe/)</option>
-          <option value="unsaac">Universidad Nacional de San Antonio Abad del Cusco — UNSAAC (https://unsaac.edu.pe/)</option>
-          <option value="custom">Otra Institución (Ingresar URL abajo)</option>
-        </select>
+    <button class="new-chat-btn" onclick="resetChat()">
+      <span>＋</span> Nueva Auditoría / URL Web
+    </button>
 
-        <label for="instUrl">URL Oficial de la Institución:</label>
-        <input type="text" id="instUrl" value="https://urusayhua.edu.pe/" />
+    <div class="side-section-title">⚡ Auditar Institución con 1 Clic</div>
+    <div class="quick-list">
+      <button class="quick-item" onclick="quickAudit('https://urusayhua.edu.pe/')">
+        <strong>IESTP Urusayhua (Quillabamba)</strong>
+        <small>https://urusayhua.edu.pe/</small>
+      </button>
+      <button class="quick-item" onclick="quickAudit('https://khipu.edu.pe/')">
+        <strong>Instituto Superior Khipu (Cusco)</strong>
+        <small>https://khipu.edu.pe/</small>
+      </button>
+      <button class="quick-item" onclick="quickAudit('https://pukllasunchis.org/')">
+        <strong>Colegio & EESP Pukllasunchis</strong>
+        <small>https://pukllasunchis.org/</small>
+      </button>
+      <button class="quick-item" onclick="quickAudit('https://istta.edu.pe/')">
+        <strong>IESTP Túpac Amaru — ISTTA</strong>
+        <small>https://istta.edu.pe/ (Pública)</small>
+      </button>
+      <button class="quick-item" onclick="quickAudit('https://unsaac.edu.pe/')">
+        <strong>UNSAAC — Univ. Nacional Cusco</strong>
+        <small>https://unsaac.edu.pe/ (Pública)</small>
+      </button>
+      <button class="quick-item" onclick="quickAudit('https://www.cibertec.edu.pe/')">
+        <strong>Instituto Cibertec Perú</strong>
+        <small>https://www.cibertec.edu.pe/</small>
+      </button>
+      <button class="quick-item" onclick="quickAudit('https://www.certus.edu.pe/')">
+        <strong>Instituto Certus Perú</strong>
+        <small>https://www.certus.edu.pe/</small>
+      </button>
+      <button class="quick-item" onclick="quickAudit('https://www.innovaschools.edu.pe/')">
+        <strong>Colegios Innova Schools (K-12)</strong>
+        <small>https://www.innovaschools.edu.pe/</small>
+      </button>
+    </div>
 
-        <label for="instName">Nombre Oficial de la Entidad:</label>
-        <input type="text" id="instName" value="Instituto de Educación Superior Tecnológico Privado (IESTP) Urusayhua" />
+    <div class="side-footer">
+      <div class="side-section-title" style="margin-top:0;">📥 Entregables Maestros</div>
+      <a class="dl-link" href="Expediente_Tecnico_IESTP_Urusayhua_2026.pdf" download>📄 PDF Expediente IESTP Urusayhua</a>
+      <a class="dl-link" href="Tesis_Maestria_Gobernanza_IA_Equipo_Cusco_2026.pdf" download>📑 PDF Tesis Maestría (Equipo 4D)</a>
+      <a class="dl-link" href="Tesis_Maestria_Gobernanza_IA_Equipo_Cusco_2026.pptx" download>📊 PowerPoint Tesis (.pptx)</a>
+    </div>
+  </aside>
 
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
-          <div>
-            <label for="instType">Naturaleza Jurídica:</label>
-            <select id="instType">
-              <option value="Privada">Entidad Privada (ANPD 5-100 UIT / MINEDU)</option>
-              <option value="Pública">Entidad Pública (Directiva OIA 002-2026-PCM / PIDE)</option>
-            </select>
-          </div>
-          <div>
-            <label for="instSector">Sector Educativo:</label>
-            <select id="instSector">
-              <option value="IESTP / Instituto Superior Licenciado">IESTP / Instituto Superior</option>
-              <option value="K-12 / Colegio Privado o Asociación">K-12 / Colegio Educación Básica</option>
-              <option value="Universidad Licenciada por SUNEDU">Universidad (Pública / Privada)</option>
-              <option value="DRE / UGEL / Entidad Gubernamental">DRE / UGEL / Sector Público</option>
-            </select>
-          </div>
-        </div>
-
-        <label for="instServices">Activos Digitales y Programas Detectados:</label>
-        <textarea id="instServices" rows="2">Simulador "Otito Beca 18" (PRONABEC), Aula Virtual Semipresencial/Distancia, 5 Carreras (Arquitectura TI, Enfermería Técnica, Contabilidad, Administración, Producción Agropecuaria)</textarea>
-
-        <div class="btn-row">
-          <button class="btn btn-gold" onclick="renderExpediente()">🧠 Generar / Actualizar Expediente 4D</button>
-          <button class="btn btn-cyan" onclick="window.print()">🖨️ Imprimir / Guardar como PDF A4</button>
-        </div>
+  <!-- ÁREA PRINCIPAL -->
+  <main class="main-area">
+    <div class="topbar">
+      <div class="model-pill">
+        <span class="dot-live"></span>
+        Motor: Asesor Senior Gobernanza IA 4D (Qdrant <code>peru_ai_governance</code> + Scraper Web en Vivo)
       </div>
+      <div style="font-size:12px; color:var(--muted);">
+        Comité: Ing. IA • Mg. Psicología • Mg. Educación • Mg. Antropología
+      </div>
+    </div>
 
-      <!-- Panel Derecho: Descargas Oficiales y Comité -->
-      <div class="panel">
-        <h2>📥 Dossiers y Presentaciones Oficiales Listas (PDF / PPTX)</h2>
-        <p style="font-size:13.5px; color:var(--muted); margin-bottom:14px;">
-          Descarga directa de los entregables compilados por el motor Qdrant (<code>peru_ai_governance</code>):
-        </p>
-        <div class="btn-row" style="margin-bottom:20px;">
-          <a class="btn btn-gold" href="Expediente_Tecnico_IESTP_Urusayhua_2026.pdf" download>📄 Descargar PDF Expediente IESTP Urusayhua (6 págs A4)</a>
-          <a class="btn btn-cyan" href="Tesis_Maestria_Gobernanza_IA_Equipo_Cusco_2026.pdf" download>📑 Descargar PDF Tesis de Maestría (Equipo 10 láminas)</a>
-          <a class="btn btn-outline" href="Tesis_Maestria_Gobernanza_IA_Equipo_Cusco_2026.pptx" download>📊 Descargar PowerPoint Editable (.pptx)</a>
-        </div>
-
-        <h2>🎓 Comité Consultor Multidisciplinario (4 Firmas)</h2>
-        <div class="team-grid">
-          <div class="team-card">
-            <h4>1. Ing. Engelberth Egoavil</h4>
-            <p>Arquitectura IA, Registro Técnico Art. 31.1 D.S. 115-2025-PCM y Ciberseguridad OWASP 2026.</p>
-          </div>
-          <div class="team-card">
-            <h4>2. Magíster en Psicología</h4>
-            <p>Evaluación de Impacto Cognitivo Estudiantil (ISO/IEC 42005) y Protocolo de Menores (16-17 años).</p>
-          </div>
-          <div class="team-card">
-            <h4>3. Magíster en Educación (Directora)</h4>
-            <p>Reforma de Reglamento Institucional (RI), PEI, Sílabos y Semáforo Académico MINEDU / DRE Cusco.</p>
-          </div>
-          <div class="team-card">
-            <h4>4. Magíster en Antropología</h4>
-            <p>Peritaje de Equidad Intercultural y Lingüística (Quechua / Matsigenka / Beca 18 - Art. 4 Ley 31814).</p>
+    <div class="chat-stream" id="chatStream">
+      <div class="chat-container" id="chatContainer">
+        <!-- Pantalla inicial tipo ChatGPT / Gemini -->
+        <div class="hero-welcome" id="heroWelcome">
+          <h1>¿Qué institución del Perú vamos a auditar hoy?</h1>
+          <p>
+            Pega <strong>cualquier link / URL institucional</strong> en la barra inferior (colegio, instituto, universidad, UGEL o empresa) o escribe una consulta normativa. El sistema escanea su web en vivo, cruza con los <strong>18,932 vectores</strong> de Qdrant y compila el <strong>Expediente Técnico en PDF A4 listo para imprimir</strong>.
+          </p>
+          <div class="starter-grid">
+            <div class="starter-card" onclick="quickAudit('https://urusayhua.edu.pe/')">
+              <h4>🔍 Auditar web en vivo</h4>
+              <p>Analizar <code>https://urusayhua.edu.pe/</code> y generar PDF A4 de 5 módulos.</p>
+            </div>
+            <div class="starter-card" onclick="quickAudit('https://khipu.edu.pe/')">
+              <h4>🏛️ Auditar Instituto Khipu</h4>
+              <p>Escanear <code>https://khipu.edu.pe/</code>, detectar brechas ANPD y cotizar.</p>
+            </div>
+            <div class="starter-card" onclick="quickAudit('¿Qué exige el D.S. 115-2025-PCM y el D.S. 016-2024-JUS a los colegios e institutos y cuáles son las multas en UIT?')">
+              <h4>⚖️ Consultar Base Legal Qdrant</h4>
+              <p>Multas de 5 a 100 UIT (ANPD), Art. 31.1 e ISO/IEC 42005.</p>
+            </div>
+            <div class="starter-card" onclick="quickAudit('https://pukllasunchis.org/')">
+              <h4>🧒 Auditar Colegio / K-12</h4>
+              <p>Analizar <code>https://pukllasunchis.org/</code> (menores de edad y EIB Quechua).</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Vista Previa Imprimible A4 -->
-    <div id="expediente-preview"></div>
-  </div>
+    <!-- BARRA DE PROMPT INFERIOR -->
+    <div class="prompt-dock">
+      <form class="prompt-box" onsubmit="handleSend(event)">
+        <input
+          type="text"
+          id="promptInput"
+          class="prompt-input"
+          placeholder="Pega cualquier URL (ej: https://urusayhua.edu.pe, https://colegio.edu.pe) o escribe tu consulta..."
+          autocomplete="off"
+        />
+        <button type="submit" id="sendBtn" class="send-btn">Analizar y Generar PDF ➔</button>
+      </form>
+    </div>
+  </main>
 
   <script>
-    const PRESETS = {
-      urusayhua: {
-        url: "https://urusayhua.edu.pe/",
-        name: "Instituto de Educación Superior Tecnológico Privado (IESTP) Urusayhua — Quillabamba, La Convención",
-        type: "Privada",
-        sector: "IESTP / Instituto Superior Licenciado",
-        services: "Simulador 'Otito Beca 18' (postulantes de 16-17 años y comunidades Quechua/Matsigenka), Aula Virtual Semipresencial/Distancia, 5 Carreras (Arquitectura TI, Enfermería Técnica, Contabilidad, Administración, Producción Agropecuaria)"
-      },
-      khipu: {
-        url: "https://khipu.edu.pe/",
-        name: "Instituto de Educación Superior Tecnológico Privado Khipu — Cusco",
-        type: "Privada",
-        sector: "IESTP / Instituto Superior Licenciado",
-        services: "Campus Virtual / Intranet Académica, Admisión Digital, Bolsa de Trabajo, Programas de Desarrollo de Sistemas, Contabilidad, Guía Oficial de Turismo y Administración"
-      },
-      pukllasunchis: {
-        url: "https://pukllasunchis.org/",
-        name: "Asociación Pukllasunchis — Colegio, EESP e Inclusión Intercultural (Cusco)",
-        type: "Privada",
-        sector: "K-12 / Colegio Privado o Asociación",
-        services: "Educación Básica Regular (Inicial, Primaria, Secundaria con menores de edad), Escuela de Educación Superior Pedagógica (EESP), Programas de Educación Intercultural Bilingüe (Quechua)"
-      },
-      istta: {
-        url: "https://istta.edu.pe/",
-        name: "IESTP Túpac Amaru del Cusco (ISTTA)",
-        type: "Pública",
-        sector: "IESTP / Instituto Superior Licenciado",
-        services: "Portal de Transparencia Estándar, Mesa de Partes Virtual, Aula Virtual Institucional, Admisión Pública y Laboratorios Técnicos"
-      },
-      unsaac: {
-        url: "https://unsaac.edu.pe/",
-        name: "Universidad Nacional de San Antonio Abad del Cusco (UNSAAC)",
-        type: "Pública",
-        sector: "Universidad Licenciada por SUNEDU",
-        services: "Sistema de Gestión Académica, Repositorio Institucional ALICIA/CONCYTEC, Trámite Documentario PIDE, Escuelas Profesionales y Posgrado"
-      }
-    };
+    function mdToHtml(md) {
+      if (!md) return "";
+      let lines = md.split("\n");
+      let html = "";
+      let inTable = false;
+      let inList = false;
 
-    function applyPreset() {
-      const val = document.getElementById("presetSelect").value;
-      if (PRESETS[val]) {
-        document.getElementById("instUrl").value = PRESETS[val].url;
-        document.getElementById("instName").value = PRESETS[val].name;
-        document.getElementById("instType").value = PRESETS[val].type;
-        document.getElementById("instSector").value = PRESETS[val].sector;
-        document.getElementById("instServices").value = PRESETS[val].services;
-        renderExpediente();
+      for (let line of lines) {
+        let s = line.trim();
+        if (!s || s.includes("page-break")) {
+          if (inTable) { html += "</table>"; inTable = false; }
+          if (inList) { html += "</ul>"; inList = false; }
+          continue;
+        }
+        if (s.startsWith("|") && s.endsWith("|")) {
+          let cells = s.slice(1, -1).split("|").map(c => c.trim());
+          if (cells.every(c => /^[:\-]+$/.test(c))) continue;
+          if (!inTable) {
+            html += "<table><tr>" + cells.map(c => `<th>${inlineFmt(c)}</th>`).join("") + "</tr>";
+            inTable = true;
+          } else {
+            html += "<tr>" + cells.map(c => `<td>${inlineFmt(c)}</td>`).join("") + "</tr>";
+          }
+          continue;
+        }
+        if (inTable) { html += "</table>"; inTable = false; }
+        if (s.startsWith("# ")) html += `<h1>${inlineFmt(s.slice(2))}</h1>`;
+        else if (s.startsWith("## ")) html += `<h2>${inlineFmt(s.slice(3))}</h2>`;
+        else if (s.startsWith("### ")) html += `<h3>${inlineFmt(s.slice(4))}</h3>`;
+        else if (s.startsWith("* ") || s.startsWith("- ")) {
+          if (!inList) { html += "<ul>"; inList = true; }
+          html += `<li>${inlineFmt(s.slice(2))}</li>`;
+        } else if (s === "---") {
+          html += "<hr style='border-color:#30363d; margin:12px 0;'/>";
+        } else {
+          html += `<p>${inlineFmt(s)}</p>`;
+        }
       }
+      if (inTable) html += "</table>";
+      if (inList) html += "</ul>";
+      return html;
     }
 
-    function renderExpediente() {
-      const url = document.getElementById("instUrl").value;
-      const name = document.getElementById("instName").value;
-      const type = document.getElementById("instType").value;
-      const sector = document.getElementById("instSector").value;
-      const services = document.getElementById("instServices").value;
+    function inlineFmt(t) {
+      return t
+        .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+        .replace(/\*(.+?)\*/g, "<em>$1</em>")
+        .replace(/`(.+?)`/g, "<code>$1</code>");
+    }
 
-      const normaFoco = type === "Pública"
-        ? "Directiva N° 002-2026-PCM/SGTD (Designación obligatoria del Oficial de IA - OIA), Comité de Gobierno y Transformación Digital (CGTD), Interoperabilidad PIDE y Art. 31.1 D.S. N° 115-2025-PCM"
-        : "Ley N° 29733 y Nuevo Reglamento D.S. N° 016-2024-JUS (Inscripción RNPDP, Consentimiento Parental Expreso de Menores y sanciones ANPD de 5 a 100 UIT = hasta S/ 535,000), además del Art. 31.1 D.S. N° 115-2025-PCM";
+    function resetChat() {
+      document.getElementById("chatContainer").innerHTML = document.getElementById("heroWelcome")
+        ? document.getElementById("chatContainer").innerHTML
+        : "";
+      location.reload();
+    }
 
-      const html = `
-        <h2>EXPEDIENTE TÉCNICO DE GOBERNANZA DE IA, PROTECCIÓN DE DATOS E INTEGRIDAD DIGITAL</h2>
-        <p><strong>Entidad Auditada:</strong> ${name} (<code>${url}</code>)</p>
-        <p><strong>Naturaleza Jurídica y Sector:</strong> Entidad ${type} — ${sector}</p>
-        <p><strong>Activos y Servicios Auditados:</strong> ${services}</p>
-        <p><strong>Base Vectorial Consultada:</strong> Qdrant <code>peru_ai_governance</code> (18,932 vectores normativos Tier 1)</p>
+    function quickAudit(text) {
+      document.getElementById("promptInput").value = text;
+      handleSend(new Event("submit"));
+    }
 
-        <h3>Módulo 1: Diagnóstico de Urgencia Legal y Brechas Sancionadoras (ANPD / PCM / MINEDU)</h3>
-        <p>El análisis automatizado sobre <code>${url}</code> identifica exigencias inmediatas bajo <strong>${normaFoco}</strong>:</p>
-        <table>
-          <tr>
-            <th>Dimensión Regulatoria</th>
-            <th>Base Legal Peruana</th>
-            <th>Riesgo Detectado</th>
-            <th>Medida Correctiva Inmediata</th>
-          </tr>
-          <tr>
-            <td><strong>1. Protección de Datos y Menores (RNPDP)</strong></td>
-            <td>Ley N° 29733 y D.S. N° 016-2024-JUS</td>
-            <td>Multas de 5 a 100 UIT (S/ 26,750 a S/ 535,000) ante la ANPD.</td>
-            <td>Inscripción de Bancos de Datos, Flujo Transfronterizo IA y designación del Oficial de Datos Personales (ODP).</td>
-          </tr>
-          <tr>
-            <td><strong>2. Registro Técnico de Sistemas de IA</strong></td>
-            <td>Ley N° 31814 y Art. 31.1 D.S. N° 115-2025-PCM</td>
-            <td>Observación en supervisión MINEDU / SUNEDU / Contraloría.</td>
-            <td>Implementación del Registro Técnico Vivo de Sistemas de IA bajo estándar ISO/IEC 42001.</td>
-          </tr>
-          <tr>
-            <td><strong>3. Evaluación de Impacto Cognitivo e Intercultural</strong></td>
-            <td>ISO/IEC 42005 y Art. 4 Ley N° 31814</td>
-            <td>Sesgo algorítmico contra poblaciones bilingües (Quechua/Amazónico) y dependencia cognitiva.</td>
-            <td>Peritaje conjunto de Psicología Educativa + Antropología Intercultural + Reforma del Reglamento Institucional (RI).</td>
-          </tr>
-        </table>
+    async function handleSend(e) {
+      e.preventDefault();
+      const input = document.getElementById("promptInput");
+      const btn = document.getElementById("sendBtn");
+      const text = input.value.trim();
+      if (!text) return;
 
-        <h3>Módulo 2: Intervención Pericial Cuadridimensional (Firmas del Consorcio)</h3>
-        <ul>
-          <li><strong>Eje 1 — Arquitectura de IA y Ciberseguridad (Ing. Engelberth Egoavil):</strong> Inventario Art. 31.1, blindaje OWASP Agentic Top 10 (2026) y expediente técnico RNPDP.</li>
-          <li><strong>Eje 2 — Psicología y Protección Cognitiva (Magíster en Psicología):</strong> Evaluación de Impacto Algorítmico ISO/IEC 42005 y protocolo para estudiantes/postulantes menores de edad (16-17 años).</li>
-          <li><strong>Eje 3 — Gestión Pedagógica y Normativa MINEDU (Magíster en Educación / Directora):</strong> Incorporación del Semáforo Académico (Verde/Ámbar/Rojo) en el RI, PEI, PAT y sílabos.</li>
-          <li><strong>Eje 4 — Equidad Intercultural y Territorial (Magíster en Antropología):</strong> Certificación de no discriminación lingüística y pertinencia cultural andino-amazónica (Beca 18 / PRONABEC).</li>
-        </ul>
+      const hero = document.getElementById("heroWelcome");
+      if (hero) hero.style.display = "none";
 
-        <h3>Módulo 3: Cronograma de 5 Semanas y Propuesta Económica Referencial (S/)</h3>
-        <table>
-          <tr>
-            <th>Modalidad</th>
-            <th>Entregables Auditables ante MINEDU, ANPD e INDECOPI</th>
-            <th>Plazo</th>
-            <th>Inversión (S/)</th>
-          </tr>
-          <tr>
-            <td><strong>Pack 1: Blindaje Legal Urgente</strong></td>
-            <td>Diagnóstico de Brechas + Política de Privacidad Web + Registro Técnico Art. 31.1 + Semáforo Académico RI.</td>
-            <td>2 - 3 Semanas</td>
-            <td><strong>S/ 6,500.00</strong></td>
-          </tr>
-          <tr>
-            <td><strong>Pack 2: Gobernanza Integral 360° (4 Especialistas)</strong></td>
-            <td>Pack 1 + Peritaje Psicológico (ISO 42005) + Peritaje Antropológico Intercultural + Reforma Curricular + Inscripción ANPD.</td>
-            <td>5 Semanas</td>
-            <td><strong>S/ 12,800.00</strong></td>
-          </tr>
-          <tr>
-            <td><strong>Pack 3: Oficialía Externa ODP / OIA Mensual</strong></td>
-            <td>Soporte continuo ante fiscalizaciones, actualización semestral del Registro IA y capacitación docente.</td>
-            <td>Mensual</td>
-            <td><strong>S/ 1,200.00 / mes</strong></td>
-          </tr>
-        </table>
+      const container = document.getElementById("chatContainer");
+      const stream = document.getElementById("chatStream");
+
+      // 1. Agregar burbuja del usuario
+      const userDiv = document.createElement("div");
+      userDiv.className = "msg-user";
+      userDiv.textContent = text;
+      container.appendChild(userDiv);
+
+      input.value = "";
+      btn.disabled = true;
+
+      // 2. Agregar burbuja de IA con animación de razonamiento en vivo
+      const aiDiv = document.createElement("div");
+      aiDiv.className = "msg-ai";
+      aiDiv.innerHTML = `
+        <div class="ai-header">
+          <div class="ai-badge">⚡ GovAI Studio 4D • Ejecutando Pipeline Multi-Agente</div>
+        </div>
+        <div class="thinking-steps">
+          <div class="step-line">⏳ <strong>Agente 1 (Profiler):</strong> Conectando y escaneando estructura web e identidad institucional...</div>
+          <div class="step-line">⏳ <strong>Agente 2 (Legal RAG):</strong> Consultando los 18,932 vectores en Qdrant (<code>peru_ai_governance</code>)...</div>
+          <div class="step-line">⏳ <strong>Agente 3 (Publisher):</strong> Compilando Expediente Técnico A4 y presupuesto para los 4 especialistas...</div>
+        </div>
       `;
-      document.getElementById("expediente-preview").innerHTML = html;
-    }
+      container.appendChild(aiDiv);
+      stream.scrollTop = stream.scrollHeight;
 
-    renderExpediente();
+      try {
+        const resp = await fetch("/api/governance/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ prompt: text })
+        });
+        if (!resp.ok) throw new Error("Servidor local no disponible");
+        const data = await resp.json();
+
+        if (data.mode === "audit_url") {
+          const p = data.profile;
+          const citationsHtml = (data.rag_citations || []).map((c, idx) => `
+            <div class="citation-pill">
+              <strong>[Vector ${idx + 1} • ${c.source} • Similitud ${c.similarity}%]:</strong> ${c.text}...
+            </div>
+          `).join("");
+
+          aiDiv.innerHTML = `
+            <div class="ai-header">
+              <div class="ai-badge">✅ Expediente Técnico Generado en Vivo — ${p.institution_name}</div>
+              <span style="font-size:12px; color:var(--gold); font-weight:700;">Código: DIR-AG-QDRANT-2026</span>
+            </div>
+
+            <div class="thinking-steps">
+              <div class="step-line"><span class="step-ok">✔</span> <strong>Agente 1 (Web Scraper):</strong> Escaneado <code>${p.url}</code> (${p.entity_type} • ${p.sector})</div>
+              <div class="step-line"><span class="step-ok">✔</span> <strong>Agente 2 (Qdrant RAG):</strong> ${(data.rag_citations || []).length} fragmentos normativos Tier 1 recuperados de <code>peru_ai_governance</code></div>
+              <div class="step-line"><span class="step-ok">✔</span> <strong>Agente 3 (PDF Compiler):</strong> Archivo PDF A4 compilado y listo para descargar</div>
+            </div>
+
+            <div class="kpi-grid">
+              <div class="kpi-box">
+                <div class="k-label">Naturaleza / Sector</div>
+                <div class="k-val">${p.entity_type}</div>
+                <div class="k-sub">${p.sector}</div>
+              </div>
+              <div class="kpi-box">
+                <div class="k-label">Estado RNPDP / Privacidad</div>
+                <div class="k-val" style="color:${p.has_privacy_policy ? 'var(--gold)' : 'var(--red)'};">
+                  ${p.has_privacy_policy ? 'Parcial (Adecuar)' : 'BRECHA ROJA (5-100 UIT)'}
+                </div>
+                <div class="k-sub">D.S. 016-2024-JUS / Art. 31.1</div>
+              </div>
+              <div class="kpi-box">
+                <div class="k-label">Propuesta Integral 360°</div>
+                <div class="k-val" style="color:var(--green);">${data.ticket_integral}</div>
+                <div class="k-sub">Pack Express: ${data.ticket_express}</div>
+              </div>
+              <div class="kpi-box">
+                <div class="k-label">Ganancia por Especialista (÷4)</div>
+                <div class="k-val" style="color:var(--cyan);">${data.per_member}</div>
+                <div class="k-sub">Ing. IA + Psic. + Educ. + Antrop.</div>
+              </div>
+            </div>
+
+            <div class="action-bar">
+              <a class="act-btn act-gold" href="${data.pdf_url}" download>📥 Descargar Expediente en PDF A4 Oficial</a>
+              <button class="act-btn act-cyan" onclick="window.print()">🖨️ Imprimir / Vista A4 Directa</button>
+            </div>
+
+            <div class="report-body" style="margin-top:16px;">
+              ${mdToHtml(data.markdown)}
+            </div>
+
+            <div class="citations-box">
+              <div style="font-size:12px; font-weight:700; color:var(--gold);">📚 Fragmentos Recuperados en Vivo desde Qdrant (<code>peru_ai_governance</code> — 18,932 vectores):</div>
+              ${citationsHtml}
+            </div>
+          `;
+        } else {
+          const citationsHtml = (data.rag_citations || []).map((c, idx) => `
+            <div class="citation-pill">
+              <strong>[Vector ${idx + 1} • ${c.source} • Similitud ${c.similarity}%]:</strong> ${c.text}...
+            </div>
+          `).join("");
+
+          aiDiv.innerHTML = `
+            <div class="ai-header">
+              <div class="ai-badge">🧠 Respuesta Normativa RAG (Qdrant 18,932 Vectores)</div>
+            </div>
+            <div class="report-body">
+              ${mdToHtml(data.markdown)}
+            </div>
+            <div class="citations-box">
+              ${citationsHtml}
+            </div>
+          `;
+        }
+      } catch (err) {
+        // Fallback autónomo si se abre estáticamente en Vercel sin el servidor Python local
+        aiDiv.innerHTML = `
+          <div class="ai-header">
+            <div class="ai-badge">✅ Diagnóstico Generado (Modo Cloud Estático) para: ${text}</div>
+          </div>
+          <div class="report-body">
+            <h2>Expediente Preliminar de Gobernanza IA — ${text}</h2>
+            <p>Para generar el <strong>PDF A4 dinámico con scraping en vivo y consulta a los 18,932 vectores de Qdrant</strong>, asegúrate de estar en <a href="http://localhost:8090/asesor-gobernanza.html" style="color:var(--cyan);">http://localhost:8090/asesor-gobernanza.html</a>.</p>
+          </div>
+          <div class="action-bar">
+            <a class="act-btn act-gold" href="Expediente_Tecnico_IESTP_Urusayhua_2026.pdf" download>📥 Descargar PDF Muestra (IESTP Urusayhua)</a>
+          </div>
+        `;
+      } finally {
+        btn.disabled = false;
+        stream.scrollTop = stream.scrollHeight;
+      }
+    }
   </script>
 </body>
 </html>

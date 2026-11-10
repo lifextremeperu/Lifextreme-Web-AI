@@ -1,12 +1,11 @@
 @echo off
 chcp 65001 >nul
-title Asesor Senior de Arquitectura y Gobernanza IA (Qdrant 18,932 Vectores)
+title GovAI Studio 4D - Asesor de Arquitectura y Gobernanza IA (Puerto 8090)
 color 0B
 echo =====================================================================
-echo   CONSORCIO DE ARQUITECTURA Y GOBERNANZA DE IA - CUSCO, PERU (2026)
-echo   Motor RAG: Qdrant `peru_ai_governance` (18,932 vectores Tier 1)
+echo   INICIANDO GOVAI STUDIO 4D (ESTILO CHATGPT / GEMINI + QDRANT 18.9K)
+echo   Abriendo http://localhost:8090/asesor-gobernanza.html ...
 echo =====================================================================
-echo.
-python scripts\generar_expediente.py %*
-echo.
+start http://localhost:8090/asesor-gobernanza.html
+python scripts\governance_studio_server.py
 pause
