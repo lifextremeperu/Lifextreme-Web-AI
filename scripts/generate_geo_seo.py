@@ -53,7 +53,7 @@ def generate_json_ld():
         "@context": "https://schema.org",
         "@type": "TravelAgency",
         "name": "Lifextreme",
-        "url": "https://lifextreme.store",
+        "url": "https://www.lifextreme.com.pe",
         "description": "Agencia operadora de turismo de aventura en Perú.",
         "address": {
             "@type": "PostalAddress",
