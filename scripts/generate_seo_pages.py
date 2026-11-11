@@ -14,7 +14,7 @@ QDRANT_URL = "http://localhost:6333"
 COLLECTION_NAME = "Lifextreme_Knowledge"
 OLLAMA_URL = "http://localhost:11434/api/generate"
 OLLAMA_MODEL = "phi3:latest" # Usando phi3 por su velocidad y sintesis comercial
-BASE_URL = "https://www.lifextreme.store"
+BASE_URL = "https://www.lifextreme.com.pe"
 
 def get_unique_regions():
     try:

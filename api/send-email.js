@@ -675,7 +675,7 @@ export default async function handler(req, res) {
 
     // CORS — permitir desde cualquier subdominio de lifextreme si es necesario
     const origin = req.headers.origin;
-    if (origin && (origin.includes('lifextreme.com.pe') || origin.includes('lifextreme.com.pe') || origin.includes('lifextreme.store') || origin.includes('vercel.app'))) {
+    if (origin && (origin.includes('lifextreme.com.pe') || origin.includes('lifextreme.store') || origin.includes('vercel.app'))) {
         res.setHeader('Access-Control-Allow-Origin', origin);
     }
     res.setHeader('Access-Control-Allow-Methods', 'POST');

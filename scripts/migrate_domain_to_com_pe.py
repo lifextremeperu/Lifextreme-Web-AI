@@ -51,6 +51,12 @@ TARGET_FILES = [
     "backend/discord_agent/rag_service.py",
     "scripts/blog_agent.py",
     "scripts/generar_llms_txt.py",
+    "scripts/max_chat_server.py",
+    "scripts/whatsapp_operator_bridge.py",
+    "scripts/dao_invisible_engine.py",
+    "scripts/generate_seo_pages.py",
+    "scripts/daily_quantum_ux_audit.py",
+    "scripts/run_lifextreme_ux_audit.py",
     "submit_indexnow.ps1",
     "README.md",
 ]
@@ -64,9 +70,14 @@ def main() -> None:
     if send_email_path.exists():
         txt = send_email_path.read_text(encoding="utf-8")
         txt = txt.replace(
-            "origin.includes('lifextreme.store') || origin.includes('vercel.app')",
-            "origin.includes('lifextreme.com.pe') || origin.includes('lifextreme.store') || origin.includes('vercel.app')",
+            "origin.includes('lifextreme.com.pe') || origin.includes('lifextreme.com.pe') || origin.includes('lifextreme.store')",
+            "origin.includes('lifextreme.com.pe') || origin.includes('lifextreme.store')",
         )
+        if "origin.includes('lifextreme.com.pe')" not in txt:
+            txt = txt.replace(
+                "origin.includes('lifextreme.store') || origin.includes('vercel.app')",
+                "origin.includes('lifextreme.com.pe') || origin.includes('lifextreme.store') || origin.includes('vercel.app')",
+            )
         txt = txt.replace("<strong>lifextreme.store</strong>", "<strong>lifextreme.com.pe</strong>")
         send_email_path.write_text(txt, encoding="utf-8")
 
@@ -74,18 +85,28 @@ def main() -> None:
     if qscan_path.exists():
         txt = qscan_path.read_text(encoding="utf-8")
         txt = txt.replace(
-            "normalizedUrl.includes('lifextreme.store')",
+            "(normalizedUrl.includes('lifextreme.com.pe') || (normalizedUrl.includes('lifextreme.com.pe') || normalizedUrl.includes('lifextreme.store')))",
             "(normalizedUrl.includes('lifextreme.com.pe') || normalizedUrl.includes('lifextreme.store'))",
         )
+        if "normalizedUrl.includes('lifextreme.com.pe')" not in txt:
+            txt = txt.replace(
+                "normalizedUrl.includes('lifextreme.store')",
+                "(normalizedUrl.includes('lifextreme.com.pe') || normalizedUrl.includes('lifextreme.store'))",
+            )
         qscan_path.write_text(txt, encoding="utf-8")
 
     max_chat_path = PROJECT_ROOT / "js/max-chatbot.js"
     if max_chat_path.exists():
         txt = max_chat_path.read_text(encoding="utf-8")
         txt = txt.replace(
-            "url.includes('max.lifextreme.store')",
+            "url.includes('max.lifextreme.com.pe') || url.includes('max.lifextreme.com.pe') || url.includes('max.lifextreme.store')",
             "url.includes('max.lifextreme.com.pe') || url.includes('max.lifextreme.store')",
         )
+        if "url.includes('max.lifextreme.com.pe')" not in txt:
+            txt = txt.replace(
+                "url.includes('max.lifextreme.store')",
+                "url.includes('max.lifextreme.com.pe') || url.includes('max.lifextreme.store')",
+            )
         max_chat_path.write_text(txt, encoding="utf-8")
 
     auth_path = PROJECT_ROOT / "partners/js/auth.js"

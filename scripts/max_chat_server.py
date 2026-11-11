@@ -153,7 +153,7 @@ def tool_crear_reserva(destino, fecha, pasajeros, nombre_cliente):
             print(f"      [!] Nota DB: Tabla bookings requiere FK estricta. Procediendo con Link Mockeado. {db_err}")
             
         # 3. Generar enlace de pago mágico
-        payment_link = f"https://www.lifextreme.store/payment-yape.html?booking_id={booking_id}&amount={precio_total}"
+        payment_link = f"https://www.lifextreme.com.pe/payment-yape.html?booking_id={booking_id}&amount={precio_total}"
         
         return f"¡Reserva creada con éxito en la base de datos! El total es ${precio_total}. Entrégale EXCLUSIVAMENTE este link mágico de pago al cliente: {payment_link}"
 

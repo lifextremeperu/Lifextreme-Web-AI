@@ -4,7 +4,7 @@
 =============================================================================
 LIFEXTREME QUANTUM UX SIMULATOR & DAILY AUDITOR
 Proprietary Engine: PennyLane Quantum Variational Circuit (QML)
-Target: https://www.lifextreme.store
+Target: https://www.lifextreme.com.pe
 Schedule: Daily at 9:00 AM (America/Lima / UTC-5)
 =============================================================================
 """
@@ -75,12 +75,12 @@ def quantum_ux_funnel_circuit(user_features, web_friction_weights):
 # =====================================================================
 # 2. AUDITORIA LIVE DEL SITIO WEB (SCRAPER & TELEMETRY)
 # =====================================================================
-def audit_target_web(url="https://www.lifextreme.store"):
+def audit_target_web(url="https://www.lifextreme.com.pe"):
     print(f"\n[+] Iniciando escaneo telemetrico de: {url}")
     t0 = time.time()
     
     headers = {
-        "User-Agent": "Lifextreme-QuantumUX-Sentinel/2.0 (+https://www.lifextreme.store)",
+        "User-Agent": "Lifextreme-QuantumUX-Sentinel/2.0 (+https://www.lifextreme.com.pe)",
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
     }
 
@@ -366,7 +366,7 @@ def run_auto_improvements(telemetry, simulation_results):
 # =====================================================================
 def main():
     parser = argparse.ArgumentParser(description="Lifextreme Daily Quantum UX Auditor")
-    parser.add_argument("--url", default="https://www.lifextreme.store", help="URL a auditar")
+    parser.add_argument("--url", default="https://www.lifextreme.com.pe", help="URL a auditar")
     parser.add_argument("--users", type=int, default=50, help="Numero de usuarios sinteticos")
     parser.add_argument("--auto-improve", action="store_true", help="Ejecutar rutinas de diagnostico y mejora automatica")
     parser.add_argument("--output-dir", default="reports", help="Directorio para almacenar reportes")

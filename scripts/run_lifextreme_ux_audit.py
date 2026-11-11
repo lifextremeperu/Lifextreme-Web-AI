@@ -8,7 +8,7 @@ sys.stdout.reconfigure(encoding='utf-8')
 # =====================================================================
 # LIFEXTREME PROPRIETARY QUANTUM UX AUDITOR (PennyLane QML Engine)
 # Canonical Bloch Sphere Mapping: Theta = (1 - Feature) * pi
-# Target: https://www.lifextreme.store
+# Target: https://www.lifextreme.com.pe
 # =====================================================================
 
 num_qubits = 4
@@ -70,7 +70,7 @@ for i in range(50):
         "tech": float(np.clip(base[5] + jitter[3], 0.1, 0.99)),
     })
 
-# Calibrated UX Parameters of CURRENT www.lifextreme.store:
+# Calibrated UX Parameters of CURRENT www.lifextreme.com.pe:
 # 1. Hero Friction = 0.10 (Clean white, high contrast H1, clear value prop, zero lag)
 # 2. Catalog Friction = 0.12 (Live search, region chips, instant card loading, live telemetry)
 # 3. Group Value Boost = 0.28 (Strong boost: 30% deposit anchor, Lifecoins -S/50, verified guides)
@@ -121,7 +121,7 @@ for r in results:
     drop_breakdown[s] = drop_breakdown.get(s, 0) + 1
 
 output = {
-    "site": "https://www.lifextreme.store",
+    "site": "https://www.lifextreme.com.pe",
     "total_simulated": total,
     "conversions": conversions,
     "conversion_rate": round(conv_rate, 1),

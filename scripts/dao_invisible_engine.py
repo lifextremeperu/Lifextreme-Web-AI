@@ -25,7 +25,7 @@ if sys.stdout and hasattr(sys.stdout, 'reconfigure'):
 ROOT_DIR = Path(__file__).resolve().parent.parent
 sys.path.append(str(ROOT_DIR))
 
-BASE_URL = "https://www.lifextreme.store"
+BASE_URL = "https://www.lifextreme.com.pe"
 DAO_DATA_FILE = ROOT_DIR / "data" / "dao_votes.json"
 
 # Espacio oficial de gobernanza Snapshot

@@ -766,7 +766,7 @@
       try {
         const controller = new AbortController();
         // Dar 25s a los endpoints Qdrant + Ollama local para que nunca se corte antes de responder
-        const isQdrantEndpoint = url.includes('localhost:8000') || url.includes('trycloudflare.com') || url.includes('max.lifextreme.com.pe') || url.includes('max.lifextreme.com.pe') || url.includes('max.lifextreme.store') || url.includes('/api/max-chat');
+        const isQdrantEndpoint = url.includes('localhost:8000') || url.includes('trycloudflare.com') || url.includes('max.lifextreme.com.pe') || url.includes('max.lifextreme.store') || url.includes('/api/max-chat');
         const timeoutMs = isQdrantEndpoint ? 25000 : 12000;
         const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
         const response = await fetch(url, {
