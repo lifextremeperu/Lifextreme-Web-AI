@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LifeIntelligence Pro — Programa de Capacitación IA para Agencias de Viaje</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,900&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0a1628;
+      --navy2: #0f2042;
+      --gold: #f0b429;
+      --gold2: #ffd060;
+      --cyan: #00e5ff;
+      --green: #00e676;
+      --red: #ff5252;
+      --slate: #1e293b;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --white: #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--navy);
+      color: var(--text);
+      overflow: hidden;
+      height: 100vh;
+    }
+
+    /* ═══════════ SLIDES ═══════════ */
+    .slides-wrap {
+      width: 100%;
+      height: 100vh;
+      position: relative;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 60px;
+      text-align: center;
+      animation: fadeIn .4s ease;
+    }
+    .slide.active { display: flex; }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+
+    /* ═══════════ NAV ═══════════ */
+    .nav-bar {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: rgba(255,255,255,.07);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 999px;
+      padding: 10px 22px;
+      z-index: 100;
+    }
+    .nav-bar button {
+      background: rgba(255,255,255,.12);
+      border: none;
+      color: #fff;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 50%;
+      width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      transition: .2s;
+    }
+    .nav-bar button:hover { background: var(--gold); color: #000; }
+    .nav-bar .slide-counter {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      min-width: 60px;
+      text-align: center;
+    }
+    .dots {
+      display: flex; gap: 6px;
+    }
+    .dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.25);
+      cursor: pointer;
+      transition: .2s;
+    }
+    .dot.active { background: var(--gold); transform: scale(1.3); }
+
+    /* ═══════════ PROGRESS BAR ═══════════ */
+    .progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--cyan));
+      transition: width .3s ease;
+      z-index: 200;
+    }
+
+    /* ═══════════ SLIDE 1 — PORTADA ═══════════ */
+    .s-cover {
+      background: radial-gradient(ellipse at 30% 50%, #0f2a5a 0%, #050d1a 70%);
+      position: relative;
+      overflow: hidden;
+    }
+    .s-cover::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='1' cy='1' r='1' fill='rgba(255,255,255,0.03)'/%3E%3C/svg%3E") repeat;
+    }
+    .cover-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(240,180,41,.12);
+      border: 1px solid rgba(240,180,41,.35);
+      border-radius: 999px;
+      padding: 7px 18px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+    .cover-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      font-weight: 900;
+      font-style: italic;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+    .cover-title span { color: var(--gold); }
+    .cover-sub {
+      font-size: clamp(1rem, 2vw, 1.35rem);
+      font-weight: 300;
+      color: var(--muted);
+      margin-bottom: 36px;
+      max-width: 680px;
+    }
+    .cover-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 44px;
+    }
+    .tag {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 999px;
+      padding: 6px 16px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .cover-logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-style: italic;
+      font-size: 15px;
+      color: rgba(255,255,255,.4);
+      letter-spacing: .05em;
+    }
+    .cover-logo span { color: var(--gold); }
+
+    /* ═══════════ GENERIC SLIDE PARTS ═══════════ */
+    .slide-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .slide-h {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+    .slide-h span { color: var(--gold); }
+    .slide-h span.c { color: var(--cyan); }
+    .slide-lead {
+      font-size: clamp(.9rem, 1.8vw, 1.1rem);
+      color: var(--muted);
+      max-width: 740px;
+      margin-bottom: 36px;
+      line-height: 1.6;
+    }
+
+    /* ═══════════ CARDS GRID ═══════════ */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      width: 100%;
+      max-width: 1000px;
+    }
+    .card {
+      background: rgba(255,255,255,.045);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 16px;
+      padding: 22px 20px;
+      text-align: left;
+      transition: .2s;
+    }
+    .card:hover { background: rgba(255,255,255,.08); border-color: rgba(240,180,41,.4); transform: translateY(-2px); }
+    .card-icon { font-size: 2rem; margin-bottom: 10px; }
+    .card-num {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .15em;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .card-title { font-size: 15px; font-weight: 700; margin-bottom: 6px; color: var(--white); }
+    .card-desc { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+
+    /* ═══════════ STAT ROW ═══════════ */
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 10px;
+    }
+    .stat-box {
+      background: rgba(240,180,41,.08);
+      border: 1px solid rgba(240,180,41,.25);
+      border-radius: 14px;
+      padding: 18px 28px;
+      text-align: center;
+      min-width: 140px;
+    }
+    .stat-num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--gold);
+    }
+    .stat-label { font-size: 11px; color: var(--muted); margin-top: 4px; font-weight: 600; }
+
+    /* ═══════════ MODULE SLIDE ═══════════ */
+    .module-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 28px;
+      text-align: left;
+      width: 100%;
+      max-width: 980px;
+    }
+    .module-num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: rgba(240,180,41,.18);
+      line-height: 1;
+      min-width: 70px;
+    }
+    .module-info .eyebrow { font-size: 10px; color: var(--gold); font-weight: 700; letter-spacing: .2em; text-transform: uppercase; margin-bottom: 4px; }
+    .module-info h2 { font-family: 'Montserrat', sans-serif; font-size: clamp(1.3rem, 2.5vw, 2rem); font-weight: 900; color: var(--white); }
+    .module-info p { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+    .lesson-list {
+      width: 100%;
+      max-width: 980px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .lesson {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 12px;
+      padding: 14px 16px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      text-align: left;
+    }
+    .lesson-icon { font-size: 1.3rem; min-width: 28px; }
+    .lesson-title { font-size: 13.5px; font-weight: 700; color: var(--white); margin-bottom: 3px; }
+    .lesson-desc { font-size: 11.5px; color: var(--muted); line-height: 1.4; }
+    .lesson-dur {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--gold);
+      background: rgba(240,180,41,.1);
+      border-radius: 999px;
+      padding: 2px 8px;
+      margin-top: 4px;
+      display: inline-block;
+    }
+
+    /* ═══════════ TOOLS SLIDE ═══════════ */
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      max-width: 1000px;
+      width: 100%;
+    }
+    .tool-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 14px;
+      padding: 18px;
+      text-align: left;
+      transition: .2s;
+    }
+    .tool-card:hover { border-color: var(--cyan); background: rgba(0,229,255,.05); }
+    .tool-top { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .tool-icon { font-size: 1.8rem; }
+    .tool-name { font-size: 14px; font-weight: 700; color: var(--white); }
+    .tool-cat { font-size: 10px; color: var(--cyan); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .tool-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+    .tool-use {
+      margin-top: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    /* ═══════════ PRICING SLIDE ═══════════ */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      max-width: 940px;
+      width: 100%;
+    }
+    .price-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 20px;
+      padding: 28px 22px;
+      text-align: left;
+      position: relative;
+      transition: .2s;
+    }
+    .price-card.featured {
+      background: rgba(240,180,41,.08);
+      border-color: rgba(240,180,41,.5);
+      transform: scale(1.03);
+    }
+    .price-badge {
+      position: absolute;
+      top: -12px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--gold);
+      color: #000;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 999px;
+    }
+    .price-tier { font-size: 11px; color: var(--gold); font-weight: 700; letter-spacing: .15em; text-transform: uppercase; margin-bottom: 8px; }
+    .price-name { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 900; margin-bottom: 6px; }
+    .price-desc { font-size: 12px; color: var(--muted); margin-bottom: 18px; line-height: 1.5; }
+    .price-amount {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+    .price-amount small { font-size: .9rem; color: var(--muted); font-weight: 400; }
+    .price-unit { font-size: 11.5px; color: var(--muted); margin-bottom: 20px; }
+    .price-features { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .price-features li { font-size: 12.5px; display: flex; gap: 8px; align-items: flex-start; }
+    .price-features li::before { content: '✓'; color: var(--green); font-weight: 700; }
+
+    /* ═══════════ SCHEDULE SLIDE ═══════════ */
+    .schedule-row {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+      max-width: 820px;
+    }
+    .sch-item {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 12px;
+      padding: 14px 20px;
+      display: grid;
+      grid-template-columns: 100px 1fr auto;
+      align-items: center;
+      gap: 20px;
+      text-align: left;
+    }
+    .sch-day { font-size: 11px; font-weight: 800; color: var(--gold); letter-spacing: .1em; text-transform: uppercase; }
+    .sch-title { font-size: 14px; font-weight: 700; color: var(--white); }
+    .sch-sub { font-size: 11.5px; color: var(--muted); margin-top: 2px; }
+    .sch-dur {
+      background: rgba(240,180,41,.12);
+      border-radius: 999px;
+      padding: 4px 14px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+
+    /* ═══════════ DIFFERENTIALS SLIDE ═══════════ */
+    .diff-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      max-width: 900px;
+      width: 100%;
+    }
+    .diff-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 14px;
+      padding: 20px;
+      text-align: left;
+      display: flex;
+      gap: 14px;
+    }
+    .diff-icon { font-size: 2rem; min-width: 40px; }
+    .diff-title { font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 5px; }
+    .diff-desc { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+
+    /* ═══════════ CTA SLIDE ═══════════ */
+    .cta-box {
+      background: rgba(240,180,41,.08);
+      border: 1px solid rgba(240,180,41,.3);
+      border-radius: 24px;
+      padding: 40px 60px;
+      max-width: 760px;
+      width: 100%;
+    }
+    .cta-box .big-num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(3rem, 7vw, 6rem);
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .cta-contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+      margin-top: 28px;
+    }
+    .cta-contact {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 12px;
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    /* ═══════════ KEYPOINTS ═══════════ */
+    .kp-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      max-width: 900px;
+    }
+    .kp {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 12px;
+      padding: 10px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .kp.g { border-color: rgba(0,230,118,.35); background: rgba(0,230,118,.05); }
+    .kp.b { border-color: rgba(0,229,255,.35); background: rgba(0,229,255,.05); }
+    .kp.y { border-color: rgba(240,180,41,.35); background: rgba(240,180,41,.05); }
+
+    /* BG DECORATIONS */
+    .bg-glow {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.12;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<div class="slides-wrap" id="slides">
+
+  <!-- ══ SLIDE 1: PORTADA ══ -->
+  <div class="slide s-cover active">
+    <div class="bg-glow" style="width:500px;height:500px;background:#3b82f6;top:-100px;left:-100px;"></div>
+    <div class="bg-glow" style="width:400px;height:400px;background:#f0b429;bottom:-80px;right:-80px;"></div>
+    <div class="cover-badge">🤖 Programa Oficial de Capacitación — Lifextreme</div>
+    <h1 class="cover-title">LifeIntelligence <span>Pro</span></h1>
+    <p class="cover-sub">Programa In-House de Inteligencia Artificial para Agencias de Viaje<br>Cusco & Perú — 2026</p>
+    <div class="cover-tags">
+      <span class="tag">🏔️ Turismo de Aventura</span>
+      <span class="tag">🤖 IA Generativa</span>
+      <span class="tag">📊 Automatización</span>
+      <span class="tag">💰 Precios Dinámicos</span>
+      <span class="tag">🧠 RAG & Chatbots</span>
+      <span class="tag">📸 Marketing con IA</span>
+    </div>
+    <div class="cover-logo">LIFE<span>EXTREME</span> · www.lifextreme.com.pe · +51 958 050 928</div>
+  </div>
+
+  <!-- ══ SLIDE 2: EL PROBLEMA ══ -->
+  <div class="slide" style="background: radial-gradient(ellipse at 70% 30%, #1a0a2e 0%, #050d1a 70%);">
+    <div class="slide-eyebrow">El Contexto</div>
+    <h2 class="slide-h">Tu agencia compite contra<br><span>gigantes que usan IA.</span> ¿La tuya también?</h2>
+    <p class="slide-lead">Booking.com, Airbnb, GetYourGuide y Viator invierten millones en IA. Las agencias locales que no adopten estas herramientas perderán el 60% de sus reservas directas antes de 2027.</p>
+    <div class="stats">
+      <div class="stat-box">
+        <div class="stat-num">78%</div>
+        <div class="stat-label">de viajeros usan IA para planificar su viaje</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">3.4×</div>
+        <div class="stat-label">más conversiones con chatbot vs. formulario</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">-62%</div>
+        <div class="stat-label">costo de atención al cliente con IA</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">+41%</div>
+        <div class="stat-label">ingresos con precios dinámicos IA</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 3: LA SOLUCIÓN ══ -->
+  <div class="slide">
+    <div class="slide-eyebrow">La Solución</div>
+    <h2 class="slide-h">Programa <span>LifeIntelligence Pro</span></h2>
+    <p class="slide-lead">Capacitamos a tu equipo para implementar IA real, práctica y funcional en tu agencia de viajes — sin necesitar programadores, sin inversiones millonarias.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">🏛️</div>
+        <div class="card-num">Formato</div>
+        <div class="card-title">In-House en tu agencia</div>
+        <div class="card-desc">Capacitación presencial en tus instalaciones. Tu equipo aprende en su propio entorno de trabajo.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <div class="card-num">Duración</div>
+        <div class="card-title">8 horas intensivas</div>
+        <div class="card-desc">1 día completo (o 2 tardes de 4h). Sin teoría vacía — 70% práctica hands-on.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">👥</div>
+        <div class="card-num">Grupos</div>
+        <div class="card-title">Hasta 12 personas</div>
+        <div class="card-desc">Equipo completo de tu agencia: directores, asesores de viaje, marketing y operaciones.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎯</div>
+        <div class="card-num">Resultado</div>
+        <div class="card-title">IA funcionando el Día 1</div>
+        <div class="card-desc">Al terminar el taller, tu agencia tendrá herramientas activas y configuradas.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 4: MÓDULO 1 ══ -->
+  <div class="slide" style="justify-content: flex-start; padding-top: 50px;">
+    <div class="module-header">
+      <div class="module-num">01</div>
+      <div class="module-info">
+        <div class="eyebrow">Módulo 1 · 60 min</div>
+        <h2>Fundamentos de IA para el Sector Turístico</h2>
+        <p>Del miedo a la IA → al dominio de la IA en tu agencia</p>
+      </div>
+    </div>
+    <div class="lesson-list">
+      <div class="lesson">
+        <div class="lesson-icon">🧠</div>
+        <div>
+          <div class="lesson-title">¿Qué es la IA Generativa y por qué importa en turismo?</div>
+          <div class="lesson-desc">GPT-4, Gemini, Claude — cómo funcionan y qué pueden hacer por tu agencia HOY.</div>
+          <span class="lesson-dur">15 min</span>
+        </div>
+      </div>
+      <div class="lesson">
+        <div class="lesson-icon">🌍</div>
+        <div>
+          <div class="lesson-title">Casos reales: agencias que duplicaron ventas con IA</div>
+          <div class="lesson-desc">Ejemplos reales de Cusco, Lima, Colombia y España. Métricas y resultados verificables.</div>
+          <span class="lesson-dur">15 min</span>
+        </div>
+      </div>
+      <div class="lesson">
+        <div class="lesson-icon">🗺️</div>
+        <div>
+          <div class="lesson-title">El ecosistema IA para turismo en 2026</div>
+          <div class="lesson-desc">Mapa completo de herramientas: desde chatbots hasta precios dinámicos y RAG normativo.</div>
+          <span class="lesson-dur">15 min</span>
+        </div>
+      </div>
+      <div class="lesson">
+        <div class="lesson-icon">⚠️</div>
+        <div>
+          <div class="lesson-title">Riesgos y ética: qué NO hacer con IA en tu agencia</div>
+          <div class="lesson-desc">ANPD, privacidad de datos de clientes, cumplimiento de la Ley 29733 y Ley 31814.</div>
+          <span class="lesson-dur">15 min</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 5: MÓDULO 2 ══ -->
+  <div class="slide" style="justify-content: flex-start; padding-top: 50px;">
+    <div class="module-header">
+      <div class="module-num">02</div>
+      <div class="module-info">
+        <div class="eyebrow">Módulo 2 · 90 min · PRÁCTICA</div>
+        <h2>ChatBot IA para tu Agencia — WhatsApp + Web</h2>
+        <p>Configura tu asistente virtual que responde 24/7 y cierra reservas mientras duermes</p>
+      </div>
+    </div>
+    <div class="lesson-list">
+      <div class="lesson">
+        <div class="lesson-icon">💬</div>
+        <div>
+          <div class="lesson-title">Arquitectura de un Chatbot Turístico con IA</div>
+          <div class="lesson-desc">Cómo entrenarlo con tus propios tours, precios y políticas de tu agencia.</div>
+          <span class="lesson-dur">20 min</span>
+        </div>
+      </div>
+      <div class="lesson">
+        <div class="lesson-icon">📱</div>
+        <div>
+          <div class="lesson-title">Integración con WhatsApp Business API</div>
+          <div class="lesson-desc">Setup en vivo: bot que responde cotizaciones, disponibilidad y reservas por WhatsApp.</div>
+          <span class="lesson-dur">30 min · PRÁCTICA</span>
+        </div>
+      </div>
+      <div class="lesson">
+        <div class="lesson-icon">🌐</div>
+        <div>
+          <div class="lesson-title">Bot en tu web: captura de leads automática</div>
+          <div class="lesson-desc">Instalamos el widget en tu sitio web. Captura nombre, destino, fecha y presupuesto.</div>
+          <span class="lesson-dur">20 min · PRÁCTICA</span>
+        </div>
+      </div>
+      <div class="lesson">
+        <div class="lesson-icon">🧩</div>
+        <div>
+          <div class="lesson-title">RAG: Entrena tu bot con tu propio conocimiento</div>
+          <div class="lesson-desc">Alimenta el bot con tus PDF de tours, itinerarios, FAQs y precios. Demo en vivo con Qdrant.</div>
+          <span class="lesson-dur">20 min · PRÁCTICA</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 6: MÓDULO 3 ══ -->
+  <div class="slide" style="justify-content: flex-start; padding-top: 50px;">
+    <div class="module-header">
+      <div class="module-num">03</div>
+      <div class="module-info">
+        <div class="eyebrow">Módulo 3 · 75 min · PRÁCTICA</div>
+        <h2>Precios Dinámicos con IA — Vende Más en Temporada Alta</h2>
+        <p>El mismo motor que usan Booking.com y Airbnb — adaptado a tu agencia en Cusco</p>
+      </div>
+    </div>
+    <div class="lesson-list">
+      <div class="lesson">
+        <div class="lesson-icon">📈</div>
+        <div>
+          <div class="lesson-title">¿Cómo funciona el Revenue Management Turístico?</div>
+          <div class="lesson-desc">Temporada alta/baja, saturación de rutas (Vinicunca, Machu Picchu), predicción de demanda.</div>
+          <span class="lesson-dur">20 min</span>
+        </div>
+      </div>
+      <div class="lesson">
+        <div class="lesson-icon">🤖</div>
+        <div>
+          <div class="lesson-title">Motor de Precios IA: configuración para tu agencia</div>
+          <div class="lesson-desc">Implementamos el modelo de precios por demanda, anticipación de compra y grupo.</div>
+          <span class="lesson-dur">25 min · PRÁCTICA</span>
+        </div>
+      </div>
+      <div class="lesson">
+        <div class="lesson-icon">🎯</div>
+        <div>
+          <div class="lesson-title">Oferta dinámica personalizada por perfil de viajero</div>
+          <div class="lesson-desc">IA que detecta si el cliente es mochilero, familiar o corporativo y ajusta el precio y paquete.</div>
+          <span class="lesson-dur">15 min · PRÁCTICA</span>
+        </div>
+      </div>
+      <div class="lesson">
+        <div class="lesson-icon">🛡️</div>
+        <div>
+          <div class="lesson-title">Anti-Overtourism: predicción y redirección de flujos</div>
+          <div class="lesson-desc">Sistema que detecta saturación en rutas populares y propone alternativas rentables.</div>
+          <span class="lesson-dur">15 min</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 7: MÓDULO 4 ══ -->
+  <div class="slide" style="justify-content: flex-start; padding-top: 50px;">
+    <div class="module-header">
+      <div class="module-num">04</div>
+      <div class="module-info">
+        <div class="eyebrow">Módulo 4 · 90 min · PRÁCTICA</div>
+        <h2>Marketing Digital con IA — Contenido, Email y Redes</h2>
+        <p>Genera en minutos lo que antes tardabas días — con calidad profesional</p>
+      </div>
+    </div>
+    <div class="lesson-list">
+      <div class="lesson">
+        <div class="lesson-icon">✍️</div>
+        <div>
+          <div class="lesson-title">Generación de contenido con IA: tours, blogs e itinerarios</div>
+          <div class="lesson-desc">Escribe descripciones de tours, blogs SEO y propuestas personalizadas en segundos con GPT-4.</div>
+          <span class="lesson-dur">25 min · PRÁCTICA</span>
+        </div>
+      </div>
+      <div class="lesson">
+        <div class="lesson-icon">📧</div>
+        <div>
+          <div class="lesson-title">Secuencias de Email Marketing Automáticas</div>
+          <div class="lesson-desc">Diseñamos 5 correos de bienvenida, follow-up y reactivación con Zoho Campaigns + IA.</div>
+          <span class="lesson-dur">25 min · PRÁCTICA</span>
+        </div>
+      </div>
+      <div class="lesson">
+        <div class="lesson-icon">📸</div>
+        <div>
+          <div class="lesson-title">Imágenes y videos con IA para Instagram y TikTok</div>
+          <div class="lesson-desc">Midjourney, Runway ML y CapCut AI: crea contenido visual de tus destinos sin fotógrafo.</div>
+          <span class="lesson-dur">20 min · PRÁCTICA</span>
+        </div>
+      </div>
+      <div class="lesson">
+        <div class="lesson-icon">🔍</div>
+        <div>
+          <div class="lesson-title">SEO + AEO + GEO con IA: aparece en Google y en el chat de IA</div>
+          <div class="lesson-desc">Optimiza tu web para que ChatGPT y Gemini recomienden tu agencia cuando alguien pregunte.</div>
+          <span class="lesson-dur">20 min</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 8: MÓDULO 5 ══ -->
+  <div class="slide" style="justify-content: flex-start; padding-top: 50px;">
+    <div class="module-header">
+      <div class="module-num">05</div>
+      <div class="module-info">
+        <div class="eyebrow">Módulo 5 · 60 min · PRÁCTICA</div>
+        <h2>CRM Inteligente + API B2B para Operadores</h2>
+        <p>Gestiona tus leads, reservas y partners desde un sistema con IA integrada</p>
+      </div>
+    </div>
+    <div class="lesson-list">
+      <div class="lesson">
+        <div class="lesson-icon">📊</div>
+        <div>
+          <div class="lesson-title">CRM con IA: pipeline de ventas automático</div>
+          <div class="lesson-desc">Zoho CRM o HubSpot configurado con IA: scoring de leads, recordatorios y seguimiento automático.</div>
+          <span class="lesson-dur">20 min · PRÁCTICA</span>
+        </div>
+      </div>
+      <div class="lesson">
+        <div class="lesson-icon">🔗</div>
+        <div>
+          <div class="lesson-title">API B2B: conéctate con operadores y mayoristas</div>
+          <div class="lesson-desc">Sincronización de inventario en tiempo real. Tus socios reservan espacios directamente sin llamadas.</div>
+          <span class="lesson-dur">20 min</span>
+        </div>
+      </div>
+      <div class="lesson">
+        <div class="lesson-icon">📱</div>
+        <div>
+          <div class="lesson-title">Dashboard de analytics en tiempo real</div>
+          <div class="lesson-desc">Looker Studio + GA4: visualiza tus reservas, conversiones y comportamiento de clientes con IA.</div>
+          <span class="lesson-dur">10 min</span>
+        </div>
+      </div>
+      <div class="lesson">
+        <div class="lesson-icon">🤝</div>
+        <div>
+          <div class="lesson-title">Red de aliados automatizada con comisiones</div>
+          <div class="lesson-desc">Sistema de referidos con tracking automático y liquidación de comisiones para tu red B2B.</div>
+          <span class="lesson-dur">10 min</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 9: HERRAMIENTAS ══ -->
+  <div class="slide">
+    <div class="slide-eyebrow">Stack Tecnológico</div>
+    <h2 class="slide-h">Las <span>12 Herramientas IA</span> que implementamos en tu agencia</h2>
+    <div class="tool-grid">
+      <div class="tool-card">
+        <div class="tool-top"><div class="tool-icon">🤖</div><div><div class="tool-name">ChatGPT / Gemini</div><div class="tool-cat">IA Generativa</div></div></div>
+        <div class="tool-desc">Redacción de tours, respuestas a clientes, itinerarios personalizados al instante.</div>
+        <div class="tool-use">→ Ahorra 3h/día de escritura</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-top"><div class="tool-icon">🗃️</div><div><div class="tool-name">Qdrant RAG</div><div class="tool-cat">Base de Conocimiento</div></div></div>
+        <div class="tool-desc">Tu chatbot entrenado con tus propios documentos, precios y políticas de tu agencia.</div>
+        <div class="tool-use">→ Bot que sabe TODO de tu agencia</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-top"><div class="tool-icon">📱</div><div><div class="tool-name">WhatsApp Business AI</div><div class="tool-cat">Atención al Cliente</div></div></div>
+        <div class="tool-desc">Automatiza respuestas, cotizaciones y seguimiento por WhatsApp sin intervención humana.</div>
+        <div class="tool-use">→ Responde 24/7 sin personal extra</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-top"><div class="tool-icon">📧</div><div><div class="tool-name">Zoho Campaigns IA</div><div class="tool-cat">Email Marketing</div></div></div>
+        <div class="tool-desc">Secuencias automáticas, A/B testing con IA y personalización de contenido por perfil.</div>
+        <div class="tool-use">→ Emails que se escriben solos</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-top"><div class="tool-icon">🎨</div><div><div class="tool-name">Midjourney + Runway</div><div class="tool-cat">Contenido Visual</div></div></div>
+        <div class="tool-desc">Genera imágenes y videos de tus destinos con IA para Instagram, TikTok y tu web.</div>
+        <div class="tool-use">→ Sin fotógrafo ni diseñador</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-top"><div class="tool-icon">📊</div><div><div class="tool-name">Google Analytics 4 + IA</div><div class="tool-cat">Analytics</div></div></div>
+        <div class="tool-desc">Predicciones de comportamiento de clientes, audiencias automáticas y alertas inteligentes.</div>
+        <div class="tool-use">→ Decisiones basadas en datos reales</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-top"><div class="tool-icon">💰</div><div><div class="tool-name">Motor de Precios IA</div><div class="tool-cat">Revenue Management</div></div></div>
+        <div class="tool-desc">Ajuste dinámico de precios según demanda, temporalidad y perfil de cliente.</div>
+        <div class="tool-use">→ +41% ingresos temporada alta</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-top"><div class="tool-icon">🔍</div><div><div class="tool-name">SEO/AEO/GEO con IA</div><div class="tool-cat">Visibilidad Digital</div></div></div>
+        <div class="tool-desc">Optimiza para que Google Y ChatGPT/Gemini recomienden tu agencia orgánicamente.</div>
+        <div class="tool-use">→ Aparece donde buscan tus clientes</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-top"><div class="tool-icon">🤝</div><div><div class="tool-name">Supabase CRM</div><div class="tool-cat">Gestión de Leads</div></div></div>
+        <div class="tool-desc">Base de datos inteligente de clientes con scoring automático y seguimiento predictivo.</div>
+        <div class="tool-use">→ Cierra más ventas con menos esfuerzo</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 10: CRONOGRAMA ══ -->
+  <div class="slide">
+    <div class="slide-eyebrow">Agenda del Día</div>
+    <h2 class="slide-h">Programa de <span>8 horas</span> intensivas</h2>
+    <div class="schedule-row">
+      <div class="sch-item">
+        <div class="sch-day">08:30 am</div>
+        <div><div class="sch-title">🚀 Bienvenida + Diagnóstico de tu Agencia</div><div class="sch-sub">Mapeamos qué herramientas ya usas y dónde está el mayor potencial de mejora</div></div>
+        <div class="sch-dur">30 min</div>
+      </div>
+      <div class="sch-item">
+        <div class="sch-day">09:00 am</div>
+        <div><div class="sch-title">🧠 Módulo 1: Fundamentos de IA para Turismo</div><div class="sch-sub">Contexto, casos reales y ecosistema de herramientas</div></div>
+        <div class="sch-dur">60 min</div>
+      </div>
+      <div class="sch-item">
+        <div class="sch-day">10:00 am</div>
+        <div><div class="sch-title">💬 Módulo 2: ChatBot IA — WhatsApp + Web</div><div class="sch-sub">PRÁCTICA: configuramos el bot de tu agencia en vivo</div></div>
+        <div class="sch-dur">90 min</div>
+      </div>
+      <div class="sch-item">
+        <div class="sch-day">11:30 am</div>
+        <div><div class="sch-title">☕ Break — Networking</div><div class="sch-sub">Café y preguntas uno a uno con el instructor</div></div>
+        <div class="sch-dur">20 min</div>
+      </div>
+      <div class="sch-item">
+        <div class="sch-day">11:50 am</div>
+        <div><div class="sch-title">💰 Módulo 3: Precios Dinámicos con IA</div><div class="sch-sub">PRÁCTICA: configuramos tu motor de revenue management</div></div>
+        <div class="sch-dur">75 min</div>
+      </div>
+      <div class="sch-item">
+        <div class="sch-day">01:05 pm</div>
+        <div><div class="sch-title">🍽️ Almuerzo de trabajo</div><div class="sch-sub">Incluido — Seguimos conversando casos de tu agencia</div></div>
+        <div class="sch-dur">60 min</div>
+      </div>
+      <div class="sch-item">
+        <div class="sch-day">02:05 pm</div>
+        <div><div class="sch-title">📢 Módulo 4: Marketing Digital con IA</div><div class="sch-sub">PRÁCTICA: email marketing, contenido y SEO/AEO/GEO</div></div>
+        <div class="sch-dur">90 min</div>
+      </div>
+      <div class="sch-item">
+        <div class="sch-day">03:35 pm</div>
+        <div><div class="sch-title">🔗 Módulo 5: CRM + API B2B</div><div class="sch-sub">PRÁCTICA: configuramos tu pipeline de ventas inteligente</div></div>
+        <div class="sch-dur">60 min</div>
+      </div>
+      <div class="sch-item">
+        <div class="sch-day">04:35 pm</div>
+        <div><div class="sch-title">🏆 Cierre: Plan de Implementación 30 días</div><div class="sch-sub">Hoja de ruta personalizada + entrega de materiales + soporte post-taller</div></div>
+        <div class="sch-dur">30 min</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 11: DIFERENCIALES ══ -->
+  <div class="slide">
+    <div class="slide-eyebrow">¿Por qué Lifextreme?</div>
+    <h2 class="slide-h">No enseñamos IA de libro.<br><span>Enseñamos la IA que nosotros usamos.</span></h2>
+    <p class="slide-lead">Lifextreme opera en turismo de aventura extrema en Cusco. Cada herramienta que enseñamos la usamos en nuestro propio negocio — con resultados reales y medibles.</p>
+    <div class="diff-grid">
+      <div class="diff-card">
+        <div class="diff-icon">🏔️</div>
+        <div>
+          <div class="diff-title">Experiencia real en turismo peruano</div>
+          <div class="diff-desc">No somos consultores genéricos. Operamos tours de aventura en Cusco y conocemos los retos específicos del sector: permisos SERNANP, estacionalidad, operadores B2B, turismo extranjero.</div>
+        </div>
+      </div>
+      <div class="diff-card">
+        <div class="diff-icon">🧠</div>
+        <div>
+          <div class="diff-title">18,932 vectores de conocimiento normativo</div>
+          <div class="diff-desc">Nuestro sistema RAG contiene toda la legislación turística peruana (MINCETUR, SERNANP, INDECOPI) vectorizada. Lo usamos para capacitar a tu equipo con contexto legal real.</div>
+        </div>
+      </div>
+      <div class="diff-card">
+        <div class="diff-icon">⚡</div>
+        <div>
+          <div class="diff-title">70% práctica — salís con herramientas funcionando</div>
+          <div class="diff-desc">No es un taller de PowerPoints. Al terminar, tu agencia tiene el bot configurado, los emails automatizados y el CRM activo. Resultado el Día 1.</div>
+        </div>
+      </div>
+      <div class="diff-card">
+        <div class="diff-icon">🛡️</div>
+        <div>
+          <div class="diff-title">Cumplimiento legal incluido (Ley 29733 / 31814)</div>
+          <div class="diff-desc">Enseñamos a implementar IA dentro del marco de la Ley de Protección de Datos y la nueva Ley de Gobernanza de IA en Perú. Tu agencia protegida desde el día 1.</div>
+        </div>
+      </div>
+      <div class="diff-card">
+        <div class="diff-icon">🤝</div>
+        <div>
+          <div class="diff-title">Soporte 30 días post-taller</div>
+          <div class="diff-desc">Canales de soporte por WhatsApp durante 30 días. Tu equipo no queda solo con las herramientas — acompañamos la implementación real.</div>
+        </div>
+      </div>
+      <div class="diff-card">
+        <div class="diff-icon">🔗</div>
+        <div>
+          <div class="diff-title">Red de partners B2B Lifextreme</div>
+          <div class="diff-desc">Agencias que completan el programa ingresan a nuestra red de partners y reciben referidos de clientes que buscan tours complementarios a los nuestros.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 12: PRECIOS ══ -->
+  <div class="slide">
+    <div class="slide-eyebrow">Inversión</div>
+    <h2 class="slide-h">Planes de <span>Capacitación</span></h2>
+    <p class="slide-lead">Inversión única. Sin mensualidades. Con ROI medible en 60 días.</p>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-tier">🌱 Esencial</div>
+        <div class="price-name">Starter</div>
+        <div class="price-desc">Ideal para agencias pequeñas o startups de turismo aventura</div>
+        <div class="price-amount">S/ 1,800<small></small></div>
+        <div class="price-unit">hasta 4 personas · 4 horas · Módulos 1 y 2</div>
+        <ul class="price-features">
+          <li>Fundamentos de IA en Turismo</li>
+          <li>ChatBot WhatsApp + Web configurado</li>
+          <li>Base de datos RAG con tus tours</li>
+          <li>Material digital completo</li>
+          <li>Soporte 15 días</li>
+        </ul>
+      </div>
+      <div class="price-card featured">
+        <div class="price-badge">⭐ MÁS POPULAR</div>
+        <div class="price-tier">🚀 Profesional</div>
+        <div class="price-name">Pro Agency</div>
+        <div class="price-desc">Para agencias consolidadas que quieren dominar la IA completa</div>
+        <div class="price-amount">S/ 3,900<small></small></div>
+        <div class="price-unit">hasta 8 personas · 8 horas · Todos los módulos</div>
+        <ul class="price-features">
+          <li>Los 5 módulos completos (8 horas)</li>
+          <li>Bot IA + Precios Dinámicos + CRM</li>
+          <li>Email marketing automático activo</li>
+          <li>API B2B configurada</li>
+          <li>Almuerzo incluido</li>
+          <li>Soporte 30 días por WhatsApp</li>
+          <li>Ingreso a red de partners Lifextreme</li>
+        </ul>
+      </div>
+      <div class="price-card">
+        <div class="price-tier">🏢 Corporativo</div>
+        <div class="price-name">Enterprise</div>
+        <div class="price-desc">Para grupos de agencias, cámaras de turismo o gremios del sector</div>
+        <div class="price-amount">S/ 6,500<small></small></div>
+        <div class="price-unit">hasta 15 personas · 2 días · Implementación asistida</div>
+        <ul class="price-features">
+          <li>Programa completo 2 días</li>
+          <li>Implementación asistida en cada agencia</li>
+          <li>Módulo extra: Heli-Rescue y seguros de aventura</li>
+          <li>Dashboard compartido de analytics</li>
+          <li>Soporte 60 días dedicado</li>
+          <li>Certificado oficial Lifextreme IA</li>
+          <li>Partner preferente en nuestra red B2B</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 13: LO QUE SE LLEVAN ══ -->
+  <div class="slide">
+    <div class="slide-eyebrow">Entregables</div>
+    <h2 class="slide-h">¿Qué se lleva tu agencia<br><span>al terminar el programa?</span></h2>
+    <div class="kp-row">
+      <span class="kp g">✅ ChatBot WhatsApp configurado con tus tours</span>
+      <span class="kp g">✅ Bot en tu web capturando leads 24/7</span>
+      <span class="kp g">✅ Base de conocimiento RAG con tus documentos</span>
+      <span class="kp b">📧 5 secuencias de email marketing activas</span>
+      <span class="kp b">📊 Dashboard GA4 con eventos de reserva</span>
+      <span class="kp b">🔗 CRM con pipeline de ventas configurado</span>
+      <span class="kp y">🎯 Motor de precios dinámicos activado</span>
+      <span class="kp y">📸 Guía de contenido IA para redes sociales</span>
+      <span class="kp y">🗺️ Plan de implementación personalizado 30 días</span>
+      <span class="kp">📚 Acceso a todos los materiales y grabaciones</span>
+      <span class="kp">🏆 Certificado LifeIntelligence Pro</span>
+      <span class="kp">🤝 Ingreso a la red de partners Lifextreme</span>
+    </div>
+    <div class="stats" style="margin-top:28px;">
+      <div class="stat-box"><div class="stat-num">12</div><div class="stat-label">Herramientas IA instaladas</div></div>
+      <div class="stat-box"><div class="stat-num">30</div><div class="stat-label">Días de soporte post-taller</div></div>
+      <div class="stat-box"><div class="stat-num">60</div><div class="stat-label">Días para ROI medible</div></div>
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 14: CTA ══ -->
+  <div class="slide" style="background: radial-gradient(ellipse at 50% 50%, #1a2a0a 0%, #050d1a 70%);">
+    <div class="slide-eyebrow">¡Empecemos!</div>
+    <div class="cta-box">
+      <div class="big-num">2026</div>
+      <h2 class="slide-h" style="font-size:1.8rem; margin-bottom:10px;">Es el año en que tu agencia<br>da el salto a la <span>IA real</span></h2>
+      <p style="color:var(--muted); font-size:14px; line-height:1.6; margin-bottom:20px;">
+        Los primeros <strong style="color:var(--gold)">5 grupos</strong> que reserven antes del <strong style="color:var(--white)">30 de noviembre</strong><br>obtienen el plan Pro por el precio del Starter (<strong style="color:var(--green)">S/ 1,800 en vez de S/ 3,900</strong>).
+      </p>
+      <div class="cta-contact-row">
+        <div class="cta-contact">📱 WhatsApp: <strong>+51 958 050 928</strong></div>
+        <div class="cta-contact">📧 contacto@lifextreme.com.pe</div>
+        <div class="cta-contact">🌐 www.lifextreme.com.pe</div>
+        <div class="cta-contact">📍 San Blas 626, Cusco</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /slides -->
+
+<!-- Navigation -->
+<div class="nav-bar">
+  <button onclick="prevSlide()" title="Anterior">&#8592;</button>
+  <div class="dots" id="dots"></div>
+  <span class="slide-counter" id="counter">1 / 14</span>
+  <button onclick="nextSlide()" title="Siguiente">&#8594;</button>
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const dotsContainer = document.getElementById('dots');
+  const counter = document.getElementById('counter');
+  const progress = document.getElementById('progress');
+  let current = 0;
+  const total = slides.length;
+
+  // Create dots
+  slides.forEach((_, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.onclick = () => goTo(i);
+    dotsContainer.appendChild(dot);
+  });
+
+  function updateUI() {
+    slides.forEach((s, i) => { s.classList.toggle('active', i === current); });
+    document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
+    counter.textContent = (current + 1) + ' / ' + total;
+    progress.style.width = ((current + 1) / total * 100) + '%';
+  }
+
+  function goTo(n) { current = Math.max(0, Math.min(total - 1, n)); updateUI(); }
+  function nextSlide() { goTo(current + 1); }
+  function prevSlide() { goTo(current - 1); }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+    if (e.key === 'ArrowLeft') prevSlide();
+  });
+
+  // Touch swipe
+  let startX = 0;
+  document.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
+  document.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 50) dx < 0 ? nextSlide() : prevSlide();
+  });
+
+  updateUI();
+</script>
+</body>
+</html>
