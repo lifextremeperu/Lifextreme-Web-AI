@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lifextreme OS | Ecosistema Open Source IA & ERP para Turismo de Aventura</title>
-    <link rel="icon" type="image/png" href="https://www.lifextreme.store/logo.png">
+    <link rel="icon" type="image/png" href="https://www.lifextreme.com.pe/logo.png">
 
     <!-- Tailwind CSS & Lifextreme Brand Design System -->
     <script src="https://cdn.tailwindcss.com/3.4.16"></script>
@@ -40,7 +40,7 @@
             }
         }
 
-        let currentCmd = 'curl -sSL https://www.lifextreme.store/install.sh | bash';
+        let currentCmd = 'curl -sSL https://www.lifextreme.com.pe/install.sh | bash';
 
         function setOS(os) {
             const btnMac = document.getElementById('btn-mac');
@@ -57,7 +57,7 @@
             const activeClass = "px-3.5 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-wider bg-primary text-white shadow-md transition-all cursor-pointer";
 
             if (os === 'win') {
-                currentCmd = 'wsl bash -c "curl -sSL https://www.lifextreme.store/install.sh | bash"';
+                currentCmd = 'wsl bash -c "curl -sSL https://www.lifextreme.com.pe/install.sh | bash"';
                 cmdText.innerText = currentCmd;
                 promptText.innerText = 'PS C:\\Lifextreme> ';
                 btnWin.className = activeClass;
@@ -67,7 +67,7 @@
                 promptText.innerText = 'docker@node:~# ';
                 btnDocker.className = activeClass;
             } else {
-                currentCmd = 'curl -sSL https://www.lifextreme.store/install.sh | bash';
+                currentCmd = 'curl -sSL https://www.lifextreme.com.pe/install.sh | bash';
                 cmdText.innerText = currentCmd;
                 promptText.innerText = 'root@server:~# ';
                 btnMac.className = activeClass;
@@ -275,7 +275,7 @@
                             <div class="p-5 sm:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-mono text-xs sm:text-sm">
                                 <div class="overflow-x-auto pb-2 sm:pb-0">
                                     <span id="cmd-prompt" class="text-emerald-400 font-bold select-none">root@server:~# </span>
-                                    <span id="install-cmd" class="text-slate-100">curl -sSL https://www.lifextreme.store/install.sh | bash</span>
+                                    <span id="install-cmd" class="text-slate-100">curl -sSL https://www.lifextreme.com.pe/install.sh | bash</span>
                                 </div>
                                 <button type="button" id="copyBtn" onclick="copyInstallCommand()"
                                     class="shrink-0 bg-primary hover:bg-indigo-500 text-white font-sans font-black uppercase text-[10px] tracking-widest px-5 py-3.5 rounded-2xl transition-all flex items-center justify-center gap-2 shadow-lg cursor-pointer">

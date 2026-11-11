@@ -1,34 +1,34 @@
 $body = @{
-    host = "www.lifextreme.store"
+    host = "www.lifextreme.com.pe"
     key = "6b273d72c060439da28d58ec61809f4a"
-    keyLocation = "https://www.lifextreme.store/6b273d72c060439da28d58ec61809f4a.txt"
+    keyLocation = "https://www.lifextreme.com.pe/6b273d72c060439da28d58ec61809f4a.txt"
     urlList = @(
-        "https://www.lifextreme.store/",
-        "https://www.lifextreme.store/empresa.html",
-        "https://www.lifextreme.store/embajadores.html",
-        "https://www.lifextreme.store/community.html",
-        "https://www.lifextreme.store/recompensas.html",
-        "https://www.lifextreme.store/investors.html",
-        "https://www.lifextreme.store/blog.html",
-        "https://www.lifextreme.store/blog-article.html",
-        "https://www.lifextreme.store/destinos/global.html",
-        "https://www.lifextreme.store/destinos/peru.html",
-        "https://www.lifextreme.store/destinos/cusco.html",
-        "https://www.lifextreme.store/destinos/arequipa.html",
-        "https://www.lifextreme.store/destinos/lima.html",
-        "https://www.lifextreme.store/destinos/amazonas.html",
-        "https://www.lifextreme.store/destinos/ancash.html",
-        "https://www.lifextreme.store/destinos/piura.html",
-        "https://www.lifextreme.store/destinos/turismo.html",
-        "https://www.lifextreme.store/partners/",
-        "https://www.lifextreme.store/partners/registro.html",
-        "https://www.lifextreme.store/registro-guia.html",
-        "https://www.lifextreme.store/seguros.html",
-        "https://www.lifextreme.store/privacidad.html",
-        "https://www.lifextreme.store/terminos.html",
-        "https://www.lifextreme.store/cookies.html",
-        "https://www.lifextreme.store/reclamaciones.html",
-        "https://www.lifextreme.store/politica-proveedores.html"
+        "https://www.lifextreme.com.pe/",
+        "https://www.lifextreme.com.pe/empresa.html",
+        "https://www.lifextreme.com.pe/embajadores.html",
+        "https://www.lifextreme.com.pe/community.html",
+        "https://www.lifextreme.com.pe/recompensas.html",
+        "https://www.lifextreme.com.pe/investors.html",
+        "https://www.lifextreme.com.pe/blog.html",
+        "https://www.lifextreme.com.pe/blog-article.html",
+        "https://www.lifextreme.com.pe/destinos/global.html",
+        "https://www.lifextreme.com.pe/destinos/peru.html",
+        "https://www.lifextreme.com.pe/destinos/cusco.html",
+        "https://www.lifextreme.com.pe/destinos/arequipa.html",
+        "https://www.lifextreme.com.pe/destinos/lima.html",
+        "https://www.lifextreme.com.pe/destinos/amazonas.html",
+        "https://www.lifextreme.com.pe/destinos/ancash.html",
+        "https://www.lifextreme.com.pe/destinos/piura.html",
+        "https://www.lifextreme.com.pe/destinos/turismo.html",
+        "https://www.lifextreme.com.pe/partners/",
+        "https://www.lifextreme.com.pe/partners/registro.html",
+        "https://www.lifextreme.com.pe/registro-guia.html",
+        "https://www.lifextreme.com.pe/seguros.html",
+        "https://www.lifextreme.com.pe/privacidad.html",
+        "https://www.lifextreme.com.pe/terminos.html",
+        "https://www.lifextreme.com.pe/cookies.html",
+        "https://www.lifextreme.com.pe/reclamaciones.html",
+        "https://www.lifextreme.com.pe/politica-proveedores.html"
     )
 } | ConvertTo-Json -Depth 3
 

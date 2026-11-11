@@ -23,7 +23,7 @@ load_dotenv()
 GEMINI_KEY = os.getenv("GEMINI_API_KEY")
 CIXTUR_PATH = os.getenv("CIXTUR_JSONL_PATH", "data/cixtur_knowledge.jsonl")
 OUTPUT_DIR = os.getenv("BLOG_OUTPUT_DIR", "blog/articulos")
-BASE_URL = os.getenv("BLOG_BASE_URL", "https://www.lifextreme.store/blog")
+BASE_URL = os.getenv("BLOG_BASE_URL", "https://www.lifextreme.com.pe/blog")
 
 # ── Modelo de Datos del Artículo (Pydantic) ───────────────
 class FAQItem(BaseModel):
@@ -112,12 +112,12 @@ def generar_json_ld(articulo: BlogArticle) -> str:
             "author": {
                 "@type": "Organization",
                 "name": "Lifextreme Peru",
-                "url": "https://www.lifextreme.store"
+                "url": "https://www.lifextreme.com.pe"
             },
             "publisher": {
                 "@type": "Organization",
                 "name": "Lifextreme Peru",
-                "logo": {"@type": "ImageObject", "url": "https://www.lifextreme.store/logo.png"}
+                "logo": {"@type": "ImageObject", "url": "https://www.lifextreme.com.pe/logo.png"}
             },
             "about": {
                 "@type": "TouristDestination",
@@ -198,8 +198,8 @@ def generar_html_pagina(articulo: BlogArticle) -> str:
 </head>
 <body>
     <nav class="nav">
-        <a href="https://www.lifextreme.store">⚡ LIFEXTREME</a>
-        <a href="https://www.lifextreme.store/blog" class="back">← Volver al Blog</a>
+        <a href="https://www.lifextreme.com.pe">⚡ LIFEXTREME</a>
+        <a href="https://www.lifextreme.com.pe/blog" class="back">← Volver al Blog</a>
     </nav>
     
     <header class="hero">
@@ -225,7 +225,7 @@ def generar_html_pagina(articulo: BlogArticle) -> str:
         <div class="cta">
             <h3>¿Listo para tu próxima aventura?</h3>
             <p style="color:#94a3b8;margin-bottom:1.5rem;">Reserva con guías certificados y equipo homologado.</p>
-            <a href="https://www.lifextreme.store/#destinos">Ver Tours Disponibles →</a>
+            <a href="https://www.lifextreme.com.pe/#destinos">Ver Tours Disponibles →</a>
         </div>
         
         <p style="font-size:.75rem;color:#94a3b8;margin-top:2rem;padding-top:1rem;border-top:1px solid #e2e8f0;">
@@ -235,8 +235,8 @@ def generar_html_pagina(articulo: BlogArticle) -> str:
     
     <footer>
         <p>© 2026 Lifextreme Peru · 
-        <a href="https://www.lifextreme.store/privacidad.html" style="color:#64748b">Privacidad</a> · 
-        <a href="https://www.lifextreme.store/reclamaciones.html" style="color:#64748b">Reclamaciones</a> ·
+        <a href="https://www.lifextreme.com.pe/privacidad.html" style="color:#64748b">Privacidad</a> · 
+        <a href="https://www.lifextreme.com.pe/reclamaciones.html" style="color:#64748b">Reclamaciones</a> ·
         Calle Chihuampata N° 626 - Barrio de San Blas - Cusco, Perú
         </p>
     </footer>

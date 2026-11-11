@@ -1111,9 +1111,9 @@
         function shareLink(id) {
             const exp = expeditions.find(e => e.id === id);
             if (!exp) return;
-            const text = `🏔️ ¡Hola! Estoy armando grupo en Lifextreme para ir a *${exp.target}* el *${exp.date}*. Dividiendo gastos nos sale a *S/ ${exp.budget}* por persona (separas con el 30%). ¿Te unes a la tribu? Entra aquí: https://www.lifextreme.store/community`;
+            const text = `🏔️ ¡Hola! Estoy armando grupo en Lifextreme para ir a *${exp.target}* el *${exp.date}*. Dividiendo gastos nos sale a *S/ ${exp.budget}* por persona (separas con el 30%). ¿Te unes a la tribu? Entra aquí: https://www.lifextreme.com.pe/community`;
             if (navigator.share) {
-                navigator.share({ title: `Tribu Lifextreme: ${exp.target}`, text: text, url: 'https://www.lifextreme.store/community' });
+                navigator.share({ title: `Tribu Lifextreme: ${exp.target}`, text: text, url: 'https://www.lifextreme.com.pe/community' });
             } else {
                 window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
             }

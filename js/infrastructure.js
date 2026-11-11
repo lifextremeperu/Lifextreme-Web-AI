@@ -135,7 +135,7 @@ function injectSchema(items) {
             "provider": {
                 "@type": "Organization",
                 "name": "Lifextreme Peru",
-                "url": "https://www.lifextreme.store"
+                "url": "https://www.lifextreme.com.pe"
             }
         };
         const script = document.createElement('script');

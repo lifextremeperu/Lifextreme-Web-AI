@@ -1,7 +1,7 @@
 """
 rag_service.py - Buscador Hibrido: Catalogo Oficial Web (js/data.js) + Qdrant (336,869 vectores)
 Combina en tiempo real:
-  1. Catalogo exacto publicado en www.lifextreme.store (40 Tours, 28 Eventos Running/Trail, 164 Parques de Aventura, 4 Guias, 15 Equipos).
+  1. Catalogo exacto publicado en www.lifextreme.com.pe (40 Tours, 28 Eventos Running/Trail, 164 Parques de Aventura, 4 Guias, 15 Equipos).
   2. Conocimiento profundo vectorial en Qdrant (Lifextreme_Knowledge + Lifextreme_FQSA_Knowledge).
 """
 import os
@@ -46,7 +46,7 @@ def _norm(text: str) -> str:
 
 def search_web_catalog(query: str) -> str:
     """
-    Busca instantaneamente en el catalogo oficial publicado en www.lifextreme.store:
+    Busca instantaneamente en el catalogo oficial publicado en www.lifextreme.com.pe:
     - 40 Tours oficiales
     - 28 Eventos (Trail Running, Maratones, Festivales)
     - 164 Parques de Aventura verificados en Peru
@@ -307,7 +307,7 @@ async def get_rag_context(
     mode: str = "b2c"
 ) -> str:
     """
-    Combina el Catalogo Oficial de www.lifextreme.store (0ms, solo en B2C/B2B) + Busqueda Vectorial en Qdrant (~80ms).
+    Combina el Catalogo Oficial de www.lifextreme.com.pe (0ms, solo en B2C/B2B) + Busqueda Vectorial en Qdrant (~80ms).
     En mode="govtech_edu", omite el catálogo turístico y entrega contexto normativo puro (peru_ai_governance + legal).
     """
     mode_clean = mode.lower().strip()

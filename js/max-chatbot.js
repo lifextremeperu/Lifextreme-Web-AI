@@ -744,7 +744,7 @@
     } catch (e) {}
 
     // Prioridad estricta al Cerebro Real Qdrant (337,000+ vectores + 5 Agentes):
-    // 1) ENDPOINT HTTPS via Cloudflare Tunnel directo a Qdrant + FastAPI (funciona en www.lifextreme.store HTTPS)
+    // 1) ENDPOINT HTTPS via Cloudflare Tunnel directo a Qdrant + FastAPI (funciona en www.lifextreme.com.pe HTTPS)
     // 2) http://localhost:8000/webhook/lifextreme (cuando se abre en entorno local HTTP)
     // 3) /api/max-chat (puente serverless que también reenvía al túnel Qdrant)
     const isHttpsPage = window.location.protocol === 'https:';
@@ -766,7 +766,7 @@
       try {
         const controller = new AbortController();
         // Dar 25s a los endpoints Qdrant + Ollama local para que nunca se corte antes de responder
-        const isQdrantEndpoint = url.includes('localhost:8000') || url.includes('trycloudflare.com') || url.includes('max.lifextreme.store') || url.includes('/api/max-chat');
+        const isQdrantEndpoint = url.includes('localhost:8000') || url.includes('trycloudflare.com') || url.includes('max.lifextreme.com.pe') || url.includes('max.lifextreme.com.pe') || url.includes('max.lifextreme.store') || url.includes('/api/max-chat');
         const timeoutMs = isQdrantEndpoint ? 25000 : 12000;
         const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
         const response = await fetch(url, {

@@ -20,7 +20,7 @@ export function injectTourJSONLD(tour) {
         "provider": {
             "@type": "TravelAgency",
             "name": "Lifextreme",
-            "url": "https://www.lifextreme.store",
+            "url": "https://www.lifextreme.com.pe",
             // Trust indicators for AI/Google
             "taxID": "10416419545",
             "sameAs": [
@@ -32,7 +32,7 @@ export function injectTourJSONLD(tour) {
             "@type": "Offer",
             "price": tour.price || 0,
             "priceCurrency": "USD",
-            "url": `https://www.lifextreme.store/index.html?tour=${tour.id}`,
+            "url": `https://www.lifextreme.com.pe/index.html?tour=${tour.id}`,
             "availability": "https://schema.org/InStock"
         }
     };

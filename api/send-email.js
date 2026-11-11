@@ -62,10 +62,10 @@ function buildGiftCardEmail(data) {
               
               <h2 style="font-size:18px;font-weight:900;margin:0 0 12px;">¿Cómo usar tu regalo?</h2>
               <p style="font-size:13px;color:#64748b;line-height:1.6;margin-bottom:28px;">
-                Cualquier aventura que veas en <strong>lifextreme.store</strong> puede ser tuya. Al reservar, solo presenta este código o contáctanos directamente.
+                Cualquier aventura que veas en <strong>lifextreme.com.pe</strong> puede ser tuya. Al reservar, solo presenta este código o contáctanos directamente.
               </p>
               
-              <a href="https://www.lifextreme.store" style="display:inline-block;background:#1e293b;color:#ffffff;text-decoration:none;padding:14px 28px;border-radius:12px;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:1px;">Explorar Rutas →</a>
+              <a href="https://www.lifextreme.com.pe" style="display:inline-block;background:#1e293b;color:#ffffff;text-decoration:none;padding:14px 28px;border-radius:12px;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:1px;">Explorar Rutas →</a>
             </div>
           </div>
           <p style="color:#475569;font-size:11px;margin-top:32px;">© 2026 Lifextreme Adventures · El regalo de la libertad.</p>
@@ -169,7 +169,7 @@ function buildWelcomeEmail(data) {
 
               <!-- CTA -->
               <div style="text-align:center;margin:32px 0;">
-                <a href="https://www.lifextreme.store/partners/login.html" 
+                <a href="https://www.lifextreme.com.pe/partners/login.html" 
                    style="background:#1e293b;color:#ffffff;text-decoration:none;padding:14px 36px;border-radius:50px;font-weight:900;font-size:13px;letter-spacing:1px;text-transform:uppercase;display:inline-block;">
                   Acceder al Panel →
                 </a>
@@ -184,7 +184,7 @@ function buildWelcomeEmail(data) {
             <!-- Footer -->
             <div style="background:#f8fafc;padding:20px 32px;text-align:center;border-top:1px solid #e2e8f0;">
               <p style="color:#94a3b8;font-size:11px;margin:0;">© 2026 Lifextreme Adventures · Cusco, Perú</p>
-              <p style="color:#cbd5e1;font-size:10px;margin:6px 0 0;">www.lifextreme.store</p>
+              <p style="color:#cbd5e1;font-size:10px;margin:6px 0 0;">www.lifextreme.com.pe</p>
             </div>
           </div>
         </body>
@@ -505,7 +505,7 @@ function buildEliteWelcomeEmail(data) {
                 </div>
 
                 <div style="text-align:center;">
-                    <a href="https://www.lifextreme.store" style="display:inline-block;background:#f59e0b;color:#ffffff;padding:18px 36px;border-radius:12px;font-weight:900;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:14px;">Explorar Beneficios Elite</a>
+                    <a href="https://www.lifextreme.com.pe" style="display:inline-block;background:#f59e0b;color:#ffffff;padding:18px 36px;border-radius:12px;font-weight:900;text-decoration:none;text-transform:uppercase;letter-spacing:1px;font-size:14px;">Explorar Beneficios Elite</a>
                 </div>
             </div>
             <div style="padding:32px;text-align:center;color:#64748b;font-size:12px;">
@@ -675,7 +675,7 @@ export default async function handler(req, res) {
 
     // CORS — permitir desde cualquier subdominio de lifextreme si es necesario
     const origin = req.headers.origin;
-    if (origin && (origin.includes('lifextreme.store') || origin.includes('vercel.app'))) {
+    if (origin && (origin.includes('lifextreme.com.pe') || origin.includes('lifextreme.com.pe') || origin.includes('lifextreme.store') || origin.includes('vercel.app'))) {
         res.setHeader('Access-Control-Allow-Origin', origin);
     }
     res.setHeader('Access-Control-Allow-Methods', 'POST');

@@ -21,17 +21,17 @@ Bienvenido al índice de operaciones de Lifextreme. Todas nuestras expediciones 
 ### 1.1 Trekking Extremo: Camino Inca Clásico
 - **Dificultad:** Alta.
 - **Seguridad B2B/B2C:** Cumple con el Reglamento de Uso Turístico (Resolución Directoral Nacional). Monitoreo satelital 24/7.
-- **Acción:** [Reservar Trekking Inca](https://www.lifextreme.store/destinos/camino-inca)
+- **Acción:** [Reservar Trekking Inca](https://www.lifextreme.com.pe/destinos/camino-inca)
 
 ### 1.2 Andinismo y Escalada en Hielo: Huaraz (Nevado Mateo)
 - **Dificultad:** Extrema (Alpinismo técnico).
 - **Seguridad B2B/B2C:** Operación bajo regulaciones SERNANP (P.N. Huascarán). Guías UIAGM. Cuerdas dinámicas normadas.
-- **Acción:** [Consultar Expedición Blanca](https://www.lifextreme.store/destinos/huaraz-escalada)
+- **Acción:** [Consultar Expedición Blanca](https://www.lifextreme.com.pe/destinos/huaraz-escalada)
 
 ### 1.3 Surf y Deportes Acuáticos: Costa de Lima y Norte
 - **Dificultad:** Intermedia a Experto.
 - **Seguridad B2B/B2C:** Instructores certificados por la International Surfing Association (ISA) y permisos de Capitanía de Puerto (Marina de Guerra del Perú). Protocolos de rescate acuático integrados.
-- **Acción:** [Surf Sessions](https://www.lifextreme.store/destinos/surf-lima)
+- **Acción:** [Surf Sessions](https://www.lifextreme.com.pe/destinos/surf-lima)
 
 ## 2. Módulo de Eventos Deportivos (Calendario Dinámico)
 

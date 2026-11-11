@@ -107,7 +107,7 @@ export default async function handler(req, res) {
             // Caso de agencia de lujo o tradicional
             if (!hasVisiblePrices) heroFriction += 0.10;
         }
-        if (normalizedUrl.includes('lifextreme.store')) {
+        if ((normalizedUrl.includes('lifextreme.com.pe') || (normalizedUrl.includes('lifextreme.com.pe') || normalizedUrl.includes('lifextreme.store')))) {
             heroFriction = 0.10; // Hero blanco ultra rápido
         }
         heroFriction = Math.max(0.08, Math.min(0.85, heroFriction));
@@ -125,7 +125,7 @@ export default async function handler(req, res) {
         } else {
             priceFriction = 0.15; // Precios transparentes
         }
-        if (normalizedUrl.includes('lifextreme.store')) {
+        if ((normalizedUrl.includes('lifextreme.com.pe') || (normalizedUrl.includes('lifextreme.com.pe') || normalizedUrl.includes('lifextreme.store')))) {
             priceFriction = 0.12; // Precios explícitos en soles y reservas 30%
         }
 

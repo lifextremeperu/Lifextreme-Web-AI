@@ -1,10 +1,10 @@
 # 🏔️ LIFEXTREME AI — Enterprise Adventure Tech & Hybrid RAG Platform
 
-[![Production Status](https://img.shields.io/badge/Production-Live%20(lifextreme.store)-10b981?style=for-the-badge)](https://www.lifextreme.store)
+[![Production Status](https://img.shields.io/badge/Production-Live%20(lifextreme.store)-10b981?style=for-the-badge)](https://www.lifextreme.com.pe)
 [![AI Engine](https://img.shields.io/badge/AI%20Engine-Groq%20LPU%20120B%20%2B%20Qdrant%20336.8K%20Vectors-6366f1?style=for-the-badge)](https://max.lifextreme.store/health)
 [![SRE Governance](https://img.shields.io/badge/SRE%20Governance-Argon%20MCP%20v2.0-f59e0b?style=for-the-badge)](#4-argon-sre--devsecops-governance)
 
-**Lifextreme (`www.lifextreme.store`)** es una plataforma tecnológica verticalmente integrada para el sector de **Turismo de Aventura, Alta Montaña, Eventos Outdoor e Infraestructura Turística en Latinoamérica**, respaldada por un motor propio de Inteligencia Artificial Conversacional y Regulatoria (**MAX Hybrid RAG Engine**) con **336,869 vectores semánticos activos**.
+**Lifextreme (`www.lifextreme.com.pe`)** es una plataforma tecnológica verticalmente integrada para el sector de **Turismo de Aventura, Alta Montaña, Eventos Outdoor e Infraestructura Turística en Latinoamérica**, respaldada por un motor propio de Inteligencia Artificial Conversacional y Regulatoria (**MAX Hybrid RAG Engine**) con **336,869 vectores semánticos activos**.
 
 ---
 
@@ -172,4 +172,4 @@ npx vercel --prod --yes
 ```
 
 ---
-© 2026 **Lifextreme Perú S.A.C.** · Calle Chihuampata N° 626, San Blas, Cusco, Perú · [www.lifextreme.store](https://www.lifextreme.store)
+© 2026 **Lifextreme Perú S.A.C.** · Calle Chihuampata N° 626, San Blas, Cusco, Perú · [www.lifextreme.com.pe](https://www.lifextreme.com.pe)

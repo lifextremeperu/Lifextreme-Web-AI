@@ -105,7 +105,7 @@ const COMPANY_CONFIG = {
         title: "Lifextreme | Turismo de Aventura, Alta Montaña e IA en Perú",
         description: "Plataforma tecnológica líder de turismo de aventura, trekking, escalada y eventos outdoor en Perú, impulsada por Inteligencia Artificial (MAX RAG 336K+ vectores).",
         keywords: "aventuras perú, trekking cusco, escalada huaraz, ausangate, quellccaya, huayhuash, pacaya samiria, parques de aventura perú",
-        ogImage: "https://www.lifextreme.store/LOGOS%20LIFEXTREME/LOGO%20OFICIAL.png",
+        ogImage: "https://www.lifextreme.com.pe/LOGOS%20LIFEXTREME/LOGO%20OFICIAL.png",
         twitterHandle: "@lifextremeperu"
     },
 

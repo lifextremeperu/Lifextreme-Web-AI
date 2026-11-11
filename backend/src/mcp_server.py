@@ -500,7 +500,7 @@ async def handle_call_tool(
                 text=json.dumps({
                     "status": "pending_payment",
                     "booking_reference": f"BKG-{park_id}-9999",
-                    "payment_url": f"https://www.lifextreme.store/checkout?ref=BKG-{park_id}-9999"
+                    "payment_url": f"https://www.lifextreme.com.pe/checkout?ref=BKG-{park_id}-9999"
                 })
             )
         ]
@@ -514,7 +514,7 @@ async def handle_call_tool(
                     "status": "success",
                     "giftcard_code": "LFX-GIFT-X7Y8Z",
                     "value": amt,
-                    "checkout_url": f"https://www.lifextreme.store/giftcard/checkout?amount={amt}"
+                    "checkout_url": f"https://www.lifextreme.com.pe/giftcard/checkout?amount={amt}"
                 })
             )
         ]
@@ -528,7 +528,7 @@ async def handle_call_tool(
                     "status": "success",
                     "tokens": tokens,
                     "total_usd": tokens * 1.5,
-                    "checkout_url": f"https://www.lifextreme.store/lifecoin/buy?tokens={tokens}"
+                    "checkout_url": f"https://www.lifextreme.com.pe/lifecoin/buy?tokens={tokens}"
                 })
             )
         ]

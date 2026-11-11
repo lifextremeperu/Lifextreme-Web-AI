@@ -304,7 +304,7 @@ function initArticlePage() {
                 "name": "Lifextreme",
                 "logo": {
                     "@type": "ImageObject",
-                    "url": "https://www.lifextreme.store/logo.png"
+                    "url": "https://www.lifextreme.com.pe/logo.png"
                 }
             },
             "datePublished": "2026-01-08"

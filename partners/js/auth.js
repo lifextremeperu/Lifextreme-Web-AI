@@ -67,6 +67,10 @@ function initLoginForm() {
                 // MODO DEMO / EJECUTIVO / DESARROLLADOR BYPASS
                 const normalizedEmail = (email || '').trim().toLowerCase();
                 const bypassEmails = [
+                    'admin@lifextreme.com.pe',
+                    'partner@lifextreme.com.pe',
+                    'demo@lifextreme.com.pe',
+                    'inversionista@lifextreme.com.pe',
                     'admin@lifextreme.store',
                     'admin@lifextreme.local',
                     'partner@lifextreme.store',
@@ -123,7 +127,7 @@ function initLoginForm() {
                 console.warn('Supabase auth notice, activating Partner Demo Session fallback:', error);
                 localStorage.setItem('dev_bypass_token', 'DEV_SECRET_LIFEXTREME_2026');
                 const sessionData = {
-                    email: email || 'admin@lifextreme.store',
+                    email: email || 'admin@lifextreme.com.pe',
                     id: 'partner-demo-fallback',
                     timestamp: Date.now(),
                     role: 'partner',

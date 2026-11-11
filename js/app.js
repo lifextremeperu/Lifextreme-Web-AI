@@ -2783,9 +2783,9 @@ window.injectTourSchema = function(toursList) {
             "@graph": [
                 {
                     "@type": "Organization",
-                    "@id": "https://www.lifextreme.store/#organization",
+                    "@id": "https://www.lifextreme.com.pe/#organization",
                     "name": "Lifextreme Peru",
-                    "url": "https://www.lifextreme.store",
+                    "url": "https://www.lifextreme.com.pe",
                     "address": {
                         "@type": "PostalAddress",
                         "streetAddress": "Cl. Chihuampata 626 - Barrio de San Blas",
@@ -2802,11 +2802,11 @@ window.injectTourSchema = function(toursList) {
                 },
                 {
                     "@type": "WebSite",
-                    "@id": "https://www.lifextreme.store/#website",
-                    "url": "https://www.lifextreme.store",
+                    "@id": "https://www.lifextreme.com.pe/#website",
+                    "url": "https://www.lifextreme.com.pe",
                     "name": "Lifextreme",
                     "dateModified": new Date(Date.now() - 86400000).toISOString().split('T')[0],
-                    "publisher": { "@id": "https://www.lifextreme.store/#organization" },
+                    "publisher": { "@id": "https://www.lifextreme.com.pe/#organization" },
                     "speakable": {
                         "@type": "SpeakableSpecification",
                         "cssSelector": [".faq-answer", "h3"]
@@ -2814,18 +2814,18 @@ window.injectTourSchema = function(toursList) {
                 },
                 {
                     "@type": ["TouristTrip", "Product"],
-                    "@id": `https://www.lifextreme.store/#tour-${t.id}`,
+                    "@id": `https://www.lifextreme.com.pe/#tour-${t.id}`,
                     "name": t.title,
                     "image": t.img,
                     "description": t.description || `Expedición de aventura en ${t.dept} por Lifextreme.`,
                     "dateModified": new Date(Date.now() - 86400000).toISOString().split('T')[0],
-                    "brand": { "@id": "https://www.lifextreme.store/#organization" },
+                    "brand": { "@id": "https://www.lifextreme.com.pe/#organization" },
                     "offers": {
                         "@type": "Offer",
                         "price": t.price,
                         "priceCurrency": "PEN",
                         "availability": "https://schema.org/InStock",
-                        "seller": { "@id": "https://www.lifextreme.store/#organization" }
+                        "seller": { "@id": "https://www.lifextreme.com.pe/#organization" }
                     }
                 }
             ]
@@ -2834,9 +2834,9 @@ window.injectTourSchema = function(toursList) {
         if (faqSchema.length > 0) {
             schema["@graph"].push({
                 "@type": "FAQPage",
-                "@id": `https://www.lifextreme.store/#faq-${t.id}`,
+                "@id": `https://www.lifextreme.com.pe/#faq-${t.id}`,
                 "mainEntity": faqSchema,
-                "isPartOf": { "@id": "https://www.lifextreme.store/#website" }
+                "isPartOf": { "@id": "https://www.lifextreme.com.pe/#website" }
             });
         }
 

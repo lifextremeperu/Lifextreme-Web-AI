@@ -95,12 +95,12 @@ const Lifecoins = {
                 amount = 50;
                 title = "Misión Cumplida";
                 msg = "Compartido en WhatsApp.";
-                window.open('https://wa.me/?text=¡Chequea%20Lifextreme!%20Tienen%20tours%20increíbles%20en%20Perú.%20https://lifextreme.store', '_blank');
+                window.open('https://wa.me/?text=¡Chequea%20Lifextreme!%20Tienen%20tours%20increíbles%20en%20Perú.%20https://www.lifextreme.com.pe', '_blank');
                 break;
 
             case 'refer_friend':
                 // Use Clipboard API
-                navigator.clipboard.writeText('https://lifextreme.store?ref=user123');
+                navigator.clipboard.writeText('https://www.lifextreme.com.pe?ref=user123');
                 this.showToast('Link Copiado', 'Compártelo con tus amigos para ganar 200 LC por registro.', 'success');
                 return; // No immediate coins
 
