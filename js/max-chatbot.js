@@ -359,17 +359,23 @@
     const pastQueries = (Array.isArray(history) ? history.filter(m => m.role === 'user').map(m => String(m.content || '').toLowerCase()) : []).join(' ');
     const chips = [];
 
+    const safeBundleName = (bundle && bundle.title ? bundle.title : 'la expedición').replace(/'/g, "\\'");
+
     if (q.includes('incluye') || q.includes('domo') || q.includes('glamping') || q.includes('comida') || q.includes('servicio')) {
-      chips.push(`<button type="button" class="max-chip" onclick="window.maxSendChipPrompt('¿Cómo nos aclimatamos a la altura?')">🩺 Aclimatación y altura</button>`);
-      chips.push(`<button type="button" class="max-chip" onclick="window.maxSendChipPrompt('¿Qué equipaje debo llevar en el Duffle Bag de 7 kg?')">🎒 Equipaje 7 kg</button>`);
+      chips.push(`<button type="button" class="max-chip" onclick="window.maxSendChipPrompt('¿Qué fechas de salida tienen disponibles?')">🗓️ Consultar fechas</button>`);
+      chips.push(`<button type="button" class="max-chip" onclick="window.maxSendChipPrompt('¿Qué equipaje debo llevar?')">🎒 Equipaje recomendado</button>`);
       chips.push(`<button type="button" class="max-chip subtle-book" onclick="window.maxOpenBookingOptions()">💰 Ver precios y reservar</button>`);
+    } else if (q.includes('gocta') || q.includes('chachapoyas') || q.includes('kuelap') || q.includes('amazonas')) {
+      chips.push(`<button type="button" class="max-chip" onclick="window.maxSendChipPrompt('¿Qué incluye la expedición a Gocta y Kuélap?')">✨ ¿Qué incluye Gocta?</button>`);
+      chips.push(`<button type="button" class="max-chip" onclick="window.maxSendChipPrompt('¿Qué fechas de salida tienen para Gocta?')">🗓️ Consultar fechas</button>`);
+      chips.push(`<button type="button" class="max-chip subtle-book" onclick="window.maxOpenBookingOptions()">📅 Opciones de reserva</button>`);
     } else if (q.includes('tour') || (q.includes('cusco') && !q.includes('salkantay')) || q.includes('rutas') || q.includes('cuales') || q.includes('otra')) {
       chips.push(`<button type="button" class="max-chip" onclick="window.maxSendChipPrompt('Cuéntame sobre Salkantay y los Domos Glamping')">🏔️ Salkantay & Domos (4D)</button>`);
       chips.push(`<button type="button" class="max-chip" onclick="window.maxSendChipPrompt('Cuéntame sobre Ausangate y 7 Lagunas')">🌈 Ausangate 7 Lagunas (6D)</button>`);
       chips.push(`<button type="button" class="max-chip" onclick="window.maxSendChipPrompt('¿Qué tours de 1 día tienen en Cusco?')">⚡ Rutas de 1 Día</button>`);
     } else if (q.includes('fecha') || q.includes('diciembre') || q.includes('cuando') || q.includes('disponib')) {
-      chips.push(`<button type="button" class="max-chip" onclick="window.maxSendChipPrompt('¿Qué incluye la expedición y los domos?')">✨ ¿Qué incluye?</button>`);
-      chips.push(`<button type="button" class="max-chip" onclick="window.maxSendChipPrompt('¿Cómo nos aclimatamos a la altura?')">🩺 Aclimatación</button>`);
+      chips.push(`<button type="button" class="max-chip" onclick="window.maxSendChipPrompt('¿Qué incluye ${safeBundleName}?')">✨ ¿Qué incluye?</button>`);
+      chips.push(`<button type="button" class="max-chip" onclick="window.maxSendChipPrompt('¿Cómo es la preparación y aclimatación?')">🩺 Preparación y altura</button>`);
       chips.push(`<button type="button" class="max-chip subtle-book" onclick="window.maxOpenBookingOptions()">📅 Opciones de reserva</button>`);
     } else if (q.includes('altura') || q.includes('aclimat') || q.includes('soroche') || q.includes('oxigeno')) {
       chips.push(`<button type="button" class="max-chip" onclick="window.maxSendChipPrompt('¿Qué equipaje debo llevar?')">🎒 Equipaje 7 kg</button>`);
@@ -381,7 +387,7 @@
       chips.push(`<button type="button" class="max-chip subtle-book" onclick="window.maxOpenBookingOptions()">📅 Opciones de reserva</button>`);
     } else {
       if (!pastQueries.includes('incluye')) {
-        chips.push(`<button type="button" class="max-chip" onclick="window.maxSendChipPrompt('¿Qué incluye la expedición y los domos?')">✨ ¿Qué incluye?</button>`);
+        chips.push(`<button type="button" class="max-chip" onclick="window.maxSendChipPrompt('¿Qué incluye ${safeBundleName}?')">✨ ¿Qué incluye?</button>`);
       }
       if (!pastQueries.includes('fecha')) {
         chips.push(`<button type="button" class="max-chip" onclick="window.maxSendChipPrompt('¿Qué fechas de salida tienen disponibles?')">🗓️ Consultar fechas</button>`);
@@ -417,11 +423,21 @@
     let tourDept = lastSelectedBundle ? lastSelectedBundle.dept : 'Cusco';
     let basePrice = lastSelectedBundle ? lastSelectedBundle.basePrice : 1630;
 
-    const matchSource = (q.includes('ausangate') || q.includes('salkantay') || q.includes('choquequirao') || q.includes('camino inca') || q.includes('inca trail') || q.includes('vinicunca') || q.includes('colores') || q.includes('humantay') || q.includes('mateo') || q.includes('pastoruri') || q.includes('santa cruz') || q.includes('huaraz') || q.includes('laguna 69') || q.includes('colca') || q.includes('arequipa') || q.includes('misti') || q.includes('parapente') || q.includes('rafting') || q.includes('pacaya'))
+    const matchSource = (q.includes('gocta') || q.includes('chachapoyas') || q.includes('kuelap') || q.includes('amazonas') || q.includes('tambopata') || q.includes('ausangate') || q.includes('salkantay') || q.includes('choquequirao') || q.includes('camino inca') || q.includes('inca trail') || q.includes('vinicunca') || q.includes('colores') || q.includes('humantay') || q.includes('mateo') || q.includes('pastoruri') || q.includes('santa cruz') || q.includes('huaraz') || q.includes('laguna 69') || q.includes('colca') || q.includes('arequipa') || q.includes('misti') || q.includes('parapente') || q.includes('rafting') || q.includes('pacaya'))
       ? q
       : recentContext;
 
-    if (matchSource.includes('ausangate')) {
+    if (matchSource.includes('gocta') || matchSource.includes('chachapoyas') || matchSource.includes('kuelap') || matchSource.includes('amazonas')) {
+      tourId = 15;
+      tourTitle = 'Expedición Catarata de Gocta & Kuélap (3D/2N)';
+      tourDept = 'Amazonas';
+      basePrice = 890;
+    } else if (matchSource.includes('tambopata')) {
+      tourId = 12;
+      tourTitle = 'Expedición Reserva Nacional Tambopata (3D/2N)';
+      tourDept = 'Madre de Dios';
+      basePrice = 950;
+    } else if (matchSource.includes('ausangate')) {
       tourId = 5;
       tourTitle = 'Circuito Ausangate & 7 Lagunas Glamping (6D/5N)';
       tourDept = 'Cusco';
@@ -543,6 +559,12 @@
       return `¡Hola <strong>${clientProfile.passenger_name || 'Explorador'}</strong>! 🏔️ Veo tu reserva confirmada <strong>${clientProfile.booking_code}</strong> para <strong>${clientProfile.tour_name}</strong>.<br><br>` +
         `• <strong>Escudo Médico & Aclimatación (Agente 1):</strong> Recuerda llegar a Cusco al menos 48h antes; en campamento mediremos tu saturación (SpO₂) a las 07:00 y 19:00 hrs e incluimos botas de compresión neumática y pediluvios botánicos.<br>` +
         `• <strong>Duffle Bag 7 kg (Agente 2):</strong> Te entregaremos tu duffle bag en el briefing la noche previa; los arrieros llevarán hasta 7 kg con pesaje digital certificado bajo la Ley N° 31614.`;
+    }
+    if (q.includes('gocta') || q.includes('chachapoyas') || q.includes('kuelap') || q.includes('amazonas') || q.includes('cocachimba')) {
+      return `¡La <strong>Catarata de Gocta (771 metros)</strong> en <strong>Chachapoyas (Amazonas)</strong> es una de las joyas de selva alta y bosque de neblina más espectaculares del Perú!<br><br>` +
+        `• <strong>Trekking Catarata de Gocta Full Day (S/ 190):</strong> Caminata escénica desde Cocachimba o San Pablo de Valera entre bosque nuboso (hábitat del gallito de las rocas y colibrí cola de espátula), almuerzo regional y guía oficial.<br>` +
+        `• <strong>Expedición Amazonas, Gocta & Kuélap (3D/2N - S/ 890):</strong> Incluye Eco-Lodge frente a la catarata de Gocta, teleférico a la fortaleza amurallada de <strong>Kuélap</strong> y Sarcófagos de Karajía.<br><br>` +
+        `¿Prefieres el trekking de 1 día a Gocta o el circuito completo de 3 días por Amazonas?`;
     }
     if (q.includes('incluye') || q.includes('domo') || q.includes('glamping') || q.includes('servicio') || q.includes('alojamiento') || q.includes('comida') || q.includes('alimentacion')) {
       return `En <strong>${bundle.title}</strong> incluimos toda la logística de principio a fin:<br><br>` +

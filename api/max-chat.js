@@ -1,44 +1,40 @@
 // ==============================================================================
 // LIFEXTREME MAX AI — Conversational Assistant & Multiagent Orchestrator (Vercel)
 // Motor Híbrido Multi-LLM (Qdrant RAG -> Groq LPU -> Gemini -> Cloud LLM -> Context Engine)
-// Con memoria conversacional, anti-repetición y cobertura total de intenciones.
+// Con memoria conversacional, anti-repetición y cobertura total de destinos del Perú.
 // ==============================================================================
 
-const SYSTEM_PROMPT_BASE = `Eres MAX 🏔️, el especialista en alta montaña, expediciones y logística de Lifextreme Perú (certificado UIAGM / WFR), operando desde Cusco para todo el Perú.
+const SYSTEM_PROMPT_BASE = `Eres MAX 🏔️, el especialista en alta montaña, selva, costa y expediciones de Lifextreme Perú (certificado UIAGM / WFR).
 
 REGLAS DE COHERENCIA Y ESTILO (OBLIGATORIAS):
-1. RESPONDE DIRECTAMENTE A LA PREGUNTA EXACTA DEL USUARIO en la primera frase. Nunca repitas una respuesta anterior del historial.
-2. Si el usuario pide "información de tours en Cusco" o qué rutas tienen, preséntale un panorama claro de las rutas principales en Cusco (Salkantay Glamping 4D, Ausangate 7 Lagunas 6D, Choquequirao 4D, Camino Inca 4D, Vinicunca y Laguna Humantay) con sus diferencias clave.
-3. Si el usuario pregunta "¿Qué incluye la expedición y los domos?", detalla qué incluye exactamente: Domos Geodésicos Glamping en Soraypampa con aislamiento térmico y baño/ducha caliente, alimentación completa gourmet de montaña (desayuno, almuerzo, cena y snacks energéticos), Duffle Bag de 7 kg porteado por arrieros (Ley N° 31614), guía certificado UIAGM/WFR con monitoreo de oximetría 2 veces al día, oxígeno medicinal, entradas a Machu Picchu, tren de retorno y transporte completo.
-4. Mantén un tono cálido, experto, conciso y natural (máximo 2 a 3 párrafos cortos o viñetas limpias, entre 70 y 130 palabras).
-5. Cierra con UNA pregunta consultiva relevante que ayude a avanzar según lo que el usuario acaba de preguntar (sin repetir preguntas ya hechas en el historial).
+1. RESPONDE DIRECTAMENTE A LA PREGUNTA O DESTINO EXACTO DEL USUARIO desde la primera línea (si pregunta por Gocta, habla de Gocta en Amazonas/Chachapoyas; si pregunta por Huaraz, habla de Huaraz; si pregunta por Cusco, habla de Cusco). NUNCA cambies de tema a Salkantay si el usuario pregunta por otro destino.
+2. Nunca repitas una respuesta anterior del historial.
+3. Mantén un tono cálido, experto, conciso y natural (máximo 2 a 3 párrafos cortos o viñetas limpias, entre 70 y 130 palabras).
+4. Cierra con UNA pregunta consultiva relevante sobre el destino que el usuario está consultando.
 
-CATÁLOGO Y DATOS OFICIALES VERIFICADOS DE LIFEXTREME PERÚ:
+CATÁLOGO Y GEOGRAFÍA OFICIAL VERIFICADA DE LIFEXTREME PERÚ:
+• AMAZONAS / CHACHAPOYAS (Selva Alta Norte):
+  - Catarata de Gocta & Fortaleza de Kuélap (3D/2N o Full Day desde Chachapoyas): Caminata escénica por bosque de neblina desde Cocachimba o San Pablo de Valera hacia la Catarata de Gocta (771 metros de caída, una de las más altas del mundo, hábitat del gallito de las rocas y colibrí cola de espátula), combinada con la ciudadela amurallada de Kuélap en teleférico y Sarcófagos de Karajía. Tarifa: Full Day Gocta S/ 190 | Expedición Amazonas & Gocta 3D/2N S/ 890.
+• AMAZONÍA / SELVA BAJA (Iquitos y Madre de Dios):
+  - Reserva Nacional Pacaya Samiria desde Iquitos (5D/4N o 3D/2N): Navegación por la "Selva de los Espejos", delfines rosados, caminatas nocturnas y campamento inmersivo (S/ 1,650).
+  - Reserva Nacional Tambopata & Lago Sandoval en Puerto Maldonado (3D/2N): Collpa de guacamayos de Chuncho, nutrias gigantes y lodges amazónicos (S/ 950).
 • CUSCO — Travesías Multidía:
-  1. Salkantay Trek & Domos Glamping a Machu Picchu (4D/3N o 5D/4N): Paso Abra Salkantay (4,630 msnm), Laguna Humantay, noche en Domos Geodésicos en Soraypampa (3,900m), desfase horario (salimos 90 min antes sin multitudes) y cierre en Machu Picchu. Tarifa base: S/ 1,630 (Paquete All-Inclusive: S/ 1,850).
-  2. Circuito Ausangate & 7 Lagunas Glamping (6D/5N): Alta montaña pura rodeando el Apu Ausangate (6,384m), pasos sobre 5,000m (Palomani), 7 Lagunas de Pacchanta, aguas termales y cero masificación. Tarifa base: S/ 1,880 (All-Inclusive: S/ 2,100).
-  3. Choquequirao Expedición Legendaria (4D/3N): Cañón del Apurímac y la ciudadela inca hermana de Machu Picchu con menos del 1% de visitantes. Tarifa base: S/ 2,980.
-  4. Camino Inca Clásico a Machu Picchu (4D/3N): Ingreso directo por Inti Punku (Puerta del Sol), cumplimiento auditado de la Ley del Porteador N° 31614. Tarifa base: S/ 2,230.
-• CUSCO — Rutas de 1 Día (Aclimatación y Aventura):
-  5. Montaña de 7 Colores (Vinicunca) & Valle Rojo Pro (1 Día): Salida temprana anti-multitudes (03:30 am), desayuno y almuerzo buffet, oxígeno médico a bordo. S/ 230.
-  6. Laguna Humantay & Soraypampa (1 Día): Caminata escénica a 4,200 msnm al pie del glaciar Humantay. S/ 230.
-  7. Valle Sagrado VIP / Maras Moray en Cuatrimotos / Vía Ferrata & Zipline: Ideales para los primeros 2 días de aclimatación en Cusco.
-• OTRAS REGIONES DEL PERÚ:
-  - Huaraz (Cordillera Blanca): Trekking Santa Cruz (4D/3N, S/ 980), Laguna 69 (1D) y Cumbre Glaciar Nevado Mateo 5,150m (1D, S/ 380 con crampones, piolet y casco Petzl/Grivel).
+  - Salkantay Trek & Domos Glamping a Machu Picchu (4D/3N): Laguna Humantay, noche en Domos Geodésicos en Soraypampa (3,900m), Abra Salkantay (4,630m) con desfase horario sin multitudes y cierre en Machu Picchu. Tarifa base: S/ 1,630 (All-Inclusive: S/ 1,850).
+  - Circuito Ausangate & 7 Lagunas Glamping (6D/5N): Alta montaña pura rodeando el Apu Ausangate (6,384m), pasos sobre 5,000m (Palomani), 7 Lagunas de Pacchanta y aguas termales. Tarifa base: S/ 1,880.
+  - Choquequirao Expedición Legendaria (4D/3N): Cañón del Apurímac y la ciudadela hermana de Machu Picchu (S/ 2,980).
+  - Camino Inca Clásico a Machu Picchu (4D/3N): Ingreso directo por la Puerta del Sol - Inti Punku (S/ 2,230).
+• CUSCO — Rutas de 1 Día:
+  - Montaña de 7 Colores (Vinicunca) & Valle Rojo Pro (1D, S/ 230), Laguna Humantay (1D, S/ 230), Cuatrimotos Maras Moray y Vía Ferrata & Zipline en el Valle Sagrado.
+• HUARAZ / CORDILLERA BLANCA (Áncash):
+  - Trekking Santa Cruz (4D/3N, S/ 980), Laguna 69 (1D, S/ 180) y Cumbre Glaciar Nevado Mateo 5,150m (1D, S/ 380 con equipo técnico Petzl/Grivel).
+• AREQUIPA, ICA Y LIMA:
   - Arequipa: Trekking Cañón del Colca 3D/2N (S/ 630) y Ascenso Volcán Misti 5,825m 2D/1N (S/ 880).
-  - Amazonía (Iquitos): Expedición Reserva Nacional Pacaya Samiria 5D/4N (S/ 1,650).
+  - Ica: Tubulares & Sandboarding Pro en Dunas de Huacachina + Islas Ballestas Paracas (S/ 240).
   - Lima: Parapente Costa Verde Miraflores (S/ 260) y Rafting/Canopy en Lunahuaná (S/ 220).
-• QUÉ INCLUYEN NUESTRAS EXPEDICIONES:
-  - Alojamiento de Montaña: Domos Geodésicos Glamping en Soraypampa y campamentos térmicos 4 estaciones (carpas comedor calefaccionadas y colchones aislantes de alta densidad).
-  - Alimentación Completa: Chefs de montaña especializados (desayunos proteicos, almuerzos, cenas calientes, hora del té y opciones vegetarianas/veganas/celíacas sin costo extra).
-  - Equipaje Libre de Carga (Duffle Bag 7 kg - Ley N° 31614): Entregamos un Duffle Bag la noche previa en el briefing en Cusco para hasta 7 kg (ropa y saco de dormir), transportado por nuestros arrieros y mulas con pesaje digital certificado. El viajero solo lleva su mochila de día (20-25L).
-  - Protocolo Médico y Seguridad: Guías certificados UIAGM/AGMP y WFR (Wilderness First Responder), control de oximetría (SpO2) y pulso 2 veces al día, balón de oxígeno medicinal portátil, comunicación satelital y sesiones de recuperación muscular en campamento (botas de compresión y pediluvios botánicos).
-  - Logística Machu Picchu: Boleto oficial Llaqta Machu Picchu, bus Consettur subida/bajada, tren turístico de retorno a Ollantaytambo y traslado privado a tu hotel en Cusco.
-• FECHAS Y RESERVAS:
-  - Salidas diarias confirmadas todo el año (incluyendo todo diciembre, Navidad y Año Nuevo) a partir de 2 viajeros, en grupos reducidos (máx. 8 personas por guía) o en servicio Privado.
-  - Sistema de Reserva Flexible 30/70: Se bloquea el cupo y permisos hoy con el 30% y el 70% restante se abona en Cusco antes de partir.`;
+• ESTÁNDARES DE OPERACIÓN LIFEXTREME:
+  - En treks de montaña incluimos Duffle Bag de 7 kg porteado por arrieros (Ley N° 31614), alimentación completa, guías UIAGM/WFR con oxímetro y oxígeno medicinal, y reserva flexible con el 30%.`;
 
-async function fetchWithTimeout(url, options, timeoutMs = 4500) {
+async function fetchWithTimeout(url, options, timeoutMs = 5000) {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeoutMs);
     try {
@@ -57,6 +53,42 @@ function detectActiveRoute(message, history) {
         ...(Array.isArray(history) ? history.slice(-6).map(m => String(m.content || '')) : [])
     ].join(' ').toLowerCase();
 
+    if (combined.includes('gocta') || combined.includes('chachapoyas') || combined.includes('kuelap') || combined.includes('amazonas') || combined.includes('cocachimba')) {
+        return {
+            name: 'Expedición Catarata de Gocta & Kuélap - Amazonas (3D/2N)',
+            shortName: 'Catarata de Gocta & Kuélap (Amazonas)',
+            region: 'Amazonas (Chachapoyas)',
+            maxAltitude: '2,400 msnm (Bosque de Neblina)',
+            priceBase: 'S/ 890 (3D/2N) o S/ 190 (Full Day Gocta)',
+            priceAllInc: 'S/ 1,050',
+            reserva30: 'S/ 267',
+            campType: 'Eco-Lodges con vista a la caída de agua de 771m en Cocachimba'
+        };
+    }
+    if (combined.includes('tambopata') || combined.includes('madre de dios') || combined.includes('puerto maldonado') || combined.includes('sandoval')) {
+        return {
+            name: 'Expedición Reserva Nacional Tambopata & Collpa Chuncho (3D/2N)',
+            shortName: 'Reserva Tambopata (3D/2N)',
+            region: 'Madre de Dios',
+            maxAltitude: '200 msnm (Selva Baja Amazónica)',
+            priceBase: 'S/ 950',
+            priceAllInc: 'S/ 1,150',
+            reserva30: 'S/ 285',
+            campType: 'Amazon Eco-Lodge a orillas del río Tambopata'
+        };
+    }
+    if (combined.includes('iquitos') || combined.includes('pacaya') || (combined.includes('selva') && !combined.includes('gocta'))) {
+        return {
+            name: 'Expedición Pacaya Samiria Amazonía (5D/4N)',
+            shortName: 'Pacaya Samiria (Iquitos)',
+            region: 'Loreto (Iquitos)',
+            maxAltitude: '120 msnm (Selva de los Espejos)',
+            priceBase: 'S/ 1,650',
+            priceAllInc: 'S/ 1,850',
+            reserva30: 'S/ 495',
+            campType: 'Refugios amazónicos y campamentos inmersivos con guías nativos'
+        };
+    }
     if (combined.includes('ausangate') || combined.includes('7 lagunas') || combined.includes('siete lagunas')) {
         return {
             name: 'Circuito Ausangate & 7 Lagunas Glamping (6D/5N)',
@@ -78,7 +110,7 @@ function detectActiveRoute(message, history) {
             priceBase: 'S/ 2,980',
             priceAllInc: 'S/ 3,200',
             reserva30: 'S/ 960',
-            campType: 'Campamentos privados en el Cañón del Apurímac (Chiquisca y Marampata)'
+            campType: 'Campamentos privados en el Cañón del Apurímac'
         };
     }
     if (combined.includes('camino inca') || combined.includes('inca trail')) {
@@ -102,19 +134,7 @@ function detectActiveRoute(message, history) {
             priceBase: 'S/ 230',
             priceAllInc: 'S/ 450',
             reserva30: 'S/ 135',
-            campType: 'Full Day con salida temprana anti-multitudes (03:30 am) y restaurante andino buffet'
-        };
-    }
-    if (combined.includes('humantay') && !combined.includes('salkantay') && !combined.includes('4d') && !combined.includes('4 días')) {
-        return {
-            name: 'Laguna Humantay & Soraypampa Pro (1 Día)',
-            shortName: 'Laguna Humantay (1 Día)',
-            region: 'Cusco',
-            maxAltitude: '4,200 msnm (Laguna Humantay)',
-            priceBase: 'S/ 230',
-            priceAllInc: 'S/ 450',
-            reserva30: 'S/ 135',
-            campType: 'Full Day con desayuno y almuerzo en Soraypampa'
+            campType: 'Full Day con salida temprana anti-multitudes (03:30 am) y restaurante buffet'
         };
     }
     if (combined.includes('huaraz') || combined.includes('santa cruz') || combined.includes('laguna 69') || combined.includes('mateo')) {
@@ -129,7 +149,18 @@ function detectActiveRoute(message, history) {
             campType: 'Campamentos de alta montaña en el Parque Nacional Huascarán'
         };
     }
-    // Por defecto Salkantay
+    if (combined.includes('arequipa') || combined.includes('colca') || combined.includes('misti')) {
+        return {
+            name: 'Trekking Cañón del Colca & Ascenso Volcán Misti (Arequipa)',
+            shortName: 'Colca & Volcán Misti (Arequipa)',
+            region: 'Arequipa',
+            maxAltitude: '5,825 msnm (Cumbre Misti)',
+            priceBase: 'S/ 630 (Colca 3D) / S/ 880 (Misti 2D)',
+            priceAllInc: 'S/ 1,050',
+            reserva30: 'S/ 264',
+            campType: 'Oasis de Sangalle en el Colca y Campamento Nido de Águilas (4,600m) en el Misti'
+        };
+    }
     return {
         name: 'Salkantay Trek & Domos Glamping a Machu Picchu (4D/3N)',
         shortName: 'Salkantay Trek & Domos (4D/3N)',
@@ -153,7 +184,24 @@ function buildSmartContextFallback(message, history, profile) {
         ? [...history].reverse().find(m => m.role === 'assistant')?.content || ''
         : '';
 
-    // 1. ¿QUÉ INCLUYE LA EXPEDICIÓN Y LOS DOMOS? (¡Crucial para el chip "✨ ¿Qué incluye?"!)
+    // 0. GOCTA / CHACHAPOYAS / AMAZONAS / SELVA
+    if (q.includes('gocta') || q.includes('chachapoyas') || q.includes('kuelap') || q.includes('amazonas') || q.includes('cocachimba')) {
+        return `¡La **Catarata de Gocta (771 metros)** en **Chachapoyas (Amazonas)** es una de las joyas de selva alta y bosque de neblina más espectaculares del Perú!\n\n` +
+            `Operamos dos formatos en la zona:\n` +
+            `• **Trekking Catarata de Gocta Full Day (S/ 190):** Caminata de 5.5 horas (ida y vuelta) desde Cocachimba o ruta integral desde San Pablo de Valera atravesando cañaverales y bosque nuboso (hábitat del gallito de las rocas y el colibrí cola de espátula), almuerzo regional y guía local.\n` +
+            `• **Expedición Amazonas, Gocta & Kuélap (3D/2N - S/ 890):** Incluye Gocta con alojamiento en Eco-Lodge frente a la catarata, teleférico a la fortaleza preínca de **Kuélap** y los **Sarcófagos de Karajía**.\n\n` +
+            `¿Te gustaría hacer solo el trekking de 1 día a la catarata de Gocta o el paquete completo de 3 días por Chachapoyas?`;
+    }
+
+    if (q.includes('selva') || q.includes('iquitos') || q.includes('pacaya') || q.includes('tambopata') || q.includes('puerto maldonado')) {
+        return `En la **Selva del Perú** operamos tres grandes expediciones según el tipo de aventura que busques:\n\n` +
+            `• **Selva Alta (Chachapoyas - Amazonas):** Trekking a la **Catarata de Gocta (771m)** y fortaleza de **Kuélap** (3D/2N, S/ 890).\n` +
+            `• **Selva Baja Norte (Iquitos):** **Reserva Nacional Pacaya Samiria (5D/4N, S/ 1,650)** navegando entre delfines rosados y caimanes.\n` +
+            `• **Selva Sur (Puerto Maldonado - conexión directa desde Cusco):** **Reserva Tambopata & Lago Sandoval (3D/2N, S/ 950)** con la collpa de guacamayos más grande del mundo.\n\n` +
+            `¿Cuál de estas tres zonas de selva te llama más la atención explorar?`;
+    }
+
+    // 1. ¿QUÉ INCLUYE LA EXPEDICIÓN?
     if (
         q.includes('incluye') ||
         q.includes('domo') ||
@@ -164,12 +212,12 @@ function buildSmartContextFallback(message, history, profile) {
         q.includes('alimentacion') ||
         q.includes('beneficio')
     ) {
-        return `En **${route.shortName}** incluimos toda la logística de principio a fin para que solo te concentres en disfrutar la montaña:\n\n` +
-            `• **Alojamiento & Domos:** ${route.campType}, con camas térmicas y duchas calientes.\n` +
-            `• **Alimentación Completa:** Chefs de montaña (desayunos energéticos, almuerzos, cenas calientes, hora del té y opciones vegetarianas/veganas).\n` +
-            `• **Equipaje Libre (Duffle Bag 7 kg):** Nuestros arrieros llevan hasta 7 kg de tu equipaje (Ley N° 31614); tú solo caminas con una mochila ligera.\n` +
-            `• **Entradas, Tren y Seguridad:** Boleto a Machu Picchu (en rutas hacia la Llaqta), tren de retorno, transporte completo y guía UIAGM/WFR con control de oxígeno 2 veces al día.\n\n` +
-            `¿Te gustaría conocer cómo manejamos la **aclimatación a la altura** o prefieres ver los **precios y cómo separar tu cupo**?`;
+        return `En **${route.shortName}** (${route.region}) incluimos toda la logística de principio a fin:\n\n` +
+            `• **Alojamiento:** ${route.campType}.\n` +
+            `• **Alimentación Completa:** Desayunos energéticos, almuerzos, cenas calientes y snacks de ruta (con opciones vegetarianas/veganas).\n` +
+            `• **Logística y Entradas:** Todos los boletos de ingreso oficiales, transporte turístico privado y guía especializado certificado.\n` +
+            `• **Seguridad:** Botiquín WFR de primeros auxilios, comunicación de ruta y acompañamiento permanente.\n\n` +
+            `¿Te gustaría revisar las **fechas disponibles** o ver las **tarifas y opciones de reserva** para ${route.shortName}?`;
     }
 
     // 2. INFORMACIÓN DE TOURS EN CUSCO / CATÁLOGO DE RUTAS
@@ -209,10 +257,10 @@ function buildSmartContextFallback(message, history, profile) {
         q.includes('pagar') ||
         q.includes('reservar')
     ) {
-        return `Para **${route.name}** manejamos dos modalidades transparentes:\n\n` +
-            `• **Tarifa Expedición Base (${route.priceBase} por persona):** Incluye guía UIAGM/WFR, domos/campamentos, alimentación completa, Duffle Bag de 7 kg con arrieros, entradas y transporte.\n` +
-            `• **Paquete All-Inclusive Pro (${route.priceAllInc} por persona):** Suma todo el equipo técnico (botas Gore-Tex, bastones de carbono, casaca térmica), asistencia médica de altura y seguro extremo.\n\n` +
-            `Puedes bloquear tu cupo y permisos oficiales hoy mismo con solo el **30% (${route.reserva30})** y pagar el 70% restante al llegar a Cusco. ¿Para cuántas personas te gustaría cotizar?`;
+        return `Para **${route.name}** manejamos tarifas todo incluido transparentes:\n\n` +
+            `• **Tarifa Expedición Base:** **${route.priceBase}** por persona (incluye guía oficial, alojamiento en ruta, alimentación, entradas y transporte).\n` +
+            `• **Paquete All-Inclusive Pro:** **${route.priceAllInc}** por persona (suma equipamiento técnico completo y seguro de aventura).\n\n` +
+            `Puedes bloquear tu cupo hoy mismo con solo el **30% (${route.reserva30})** y cancelar el 70% restante antes de iniciar la ruta. ¿Para cuántas personas te gustaría cotizar?`;
     }
 
     // 4. FECHAS / DISPONIBILIDAD / MESES / CUÁNDO SALEN
@@ -235,8 +283,8 @@ function buildSmartContextFallback(message, history, profile) {
         q.includes('noviembre') ||
         q.includes('calendario')
     ) {
-        return `Para **${route.shortName}** tenemos **salidas diarias confirmadas durante todo el año** (incluyendo feriados, Navidad y Año Nuevo) a partir de 2 viajeros, tanto en **grupo reducido (máx. 8 personas por guía)** como en formato **Privado VIP**.\n\n` +
-            `*Nota importante:* La única ruta que cierra en febrero por mantenimiento anual de SERNANP es el Camino Inca Clásico; **Salkantay, Ausangate y Humantay operan los 12 meses**. ¿En qué mes o quincena tienen pensado viajar?`;
+        return `Para **${route.shortName}** tenemos **salidas diarias confirmadas durante todo el año** a partir de 2 viajeros, tanto en **grupo reducido (máx. 8 personas por guía)** como en formato **Privado VIP**.\n\n` +
+            `¿En qué mes o fechas aproximadas tienen pensado viajar y cuántos integrantes serían?`;
     }
 
     // 5. ACLIMATACIÓN / ALTURA / SOROCHE / SEGURIDAD MÉDICA / DIFICULTAD
@@ -251,11 +299,8 @@ function buildSmartContextFallback(message, history, profile) {
         q.includes('fisico') ||
         q.includes('principiante')
     ) {
-        return `En **${route.shortName}** (altitud máxima: ${route.maxAltitude}) cuidamos tu adaptación con nuestro protocolo de medicina de montaña:\n\n` +
-            `1. **Antes del trek:** Te recomendamos pasar **2 días previos en Cusco o el Valle Sagrado** haciendo caminatas suaves.\n` +
-            `2. **Durante la ruta:** Nuestros guías WFR miden tu **saturación de oxígeno (SpO₂) y pulso 2 veces al día**, llevamos balón de oxígeno medicinal portátil y caballos de emergencia.\n` +
-            `3. **En campamento:** Realizamos sesiones de descarga muscular con botas de compresión y pediluvios calientes.\n\n` +
-            `¿Ya has estado antes sobre los 3,400 metros de altitud o sería tu primera experiencia en los Andes?`;
+        return `En **${route.shortName}** (altitud máxima: ${route.maxAltitude}) cuidamos tu experiencia con guías certificados WFR (Wilderness First Responder), monitoreo de signos vitales en ruta y ritmo adaptado a tu grupo.\n\n` +
+            `Si vienes a rutas sobre los 3,500 metros (como Cusco o Huaraz), te recomendamos 2 días previos de aclimatación suave. ¿Qué nivel de caminata suelen hacer o con quiénes viajas?`;
     }
 
     // 6. EQUIPAJE / MOCHILA / DUFFLE BAG 7 KG / EQUIPO / ALQUILER
@@ -271,63 +316,30 @@ function buildSmartContextFallback(message, history, profile) {
         q.includes('bota') ||
         q.includes('saco')
     ) {
-        return `Caminarás súper ligero gracias a nuestro sistema **Duffle Bag 7 kg (Ley N° 31614)**:\n\n` +
-            `• En el briefing la noche previa en Cusco te entregamos una maleta **Duffle Bag donde guardas hasta 7 kg** (tu ropa de cambio, abrigo y saco de dormir). Nuestros arrieros la llevan de campamento en campamento.\n` +
-            `• Tú solo caminas con una **mochila pequeña de 20-25L** (agua, bloqueador, cámara y casaca cortaviento).\n` +
-            `• Si te falta algún implemento (botas Gore-Tex, bastones de carbono o saco de pluma -15°C), contamos con **alquiler Pro higienizado en Cusco**.\n\n` +
-            `¿Ya cuentas con tu propio calzado de trekking o prefieres incluir nuestro Kit de Equipo Pro?`;
+        return `Para **${route.shortName}** solo necesitas caminar con una **mochila ligera de día (20-25L)** con agua, bloqueador, impermeable y cámara.\n\n` +
+            `En nuestras travesías de varios días te entregamos un **Duffle Bag para hasta 7 kg** que trasladamos por ti entre campamentos. Además, contamos con alquiler de calzado Gore-Tex, bastones de carbono y casacas térmicas. ¿Ya cuentas con tus implementos de trekking?`;
     }
 
-    // 7. CLIMA / MEJOR ÉPOCA / LLUVIA / FRÍO
-    if (
-        q.includes('clima') ||
-        q.includes('lluvia') ||
-        q.includes('frio') ||
-        q.includes('temperatura') ||
-        q.includes('epoca') ||
-        q.includes('temporada') ||
-        q.includes('tiempo')
-    ) {
-        return `En los Andes de Cusco tenemos dos temporadas bien marcadas:\n\n` +
-            `• **Temporada Seca (Abril a Octubre):** Días soleados y cielos despejados azules, con noches frías en altura (-5°C a 0°C).\n` +
-            `• **Temporada Verde / Lluvias (Noviembre a Marzo):** Montañas intensamente verdes, temperaturas nocturnas más templadas y menos viajeros en ruta. Como en **Salkantay dormimos en Domos Geodésicos cerrados e impermeables**, estás 100% protegido.\n\n` +
-            `¿En qué época del año te gustaría vivir la experiencia?`;
-    }
-
-    // 8. RUTAS ESPECÍFICAS
+    // 7. RUTAS ESPECÍFICAS ADICIONALES
     if (q.includes('ausangate')) {
-        return `El **Circuito Ausangate & 7 Lagunas Glamping (6D/5N)** es la joya de alta montaña en Cusco: rodeamos el nevado sagrado Ausangate (6,384m), cruzamos pasos como Palomani (5,100m) y nos relajamos en las **aguas termales de Pacchanta** frente a los glaciares.\n\nIncluye campamentos térmicos 4 estaciones, alimentación completa, **Duffle Bag de 7 kg** porteado por arrieros y monitoreo de oximetría diario. ¿Para qué mes estás planeando Ausangate y cuántos viajeros serían?`;
+        return `El **Circuito Ausangate & 7 Lagunas Glamping (6D/5N)** es la joya de alta montaña en Cusco: rodeamos el nevado sagrado Ausangate (6,384m), cruzamos pasos como Palomani (5,100m) y nos relajamos en las **aguas termales de Pacchanta** frente a los glaciares.\n\n¿Para qué mes estás planeando Ausangate y cuántos viajeros serían?`;
     }
     if (q.includes('choquequirao')) {
-        return `**Choquequirao Expedición Legendaria (4D/3N)** te lleva a la "Cuna de Oro" de los Incas sobre el Cañón del Apurímac, una ciudadela monumental donde aún el 70% permanece oculto en la vegetación y sin turismo masivo.\n\nOperamos con arrieros y mulas para tu **Duffle Bag de 7 kg**, campamentos privados y guías certificados. ¿Qué fechas tienes en mente para esta expedición?`;
-    }
-    if (q.includes('camino inca') || q.includes('inca trail')) {
-        return `El **Camino Inca Clásico (4D/3N)** es la ruta imperial histórica que entra a Machu Picchu directamente por la **Puerta del Sol (Inti Punku)** al amanecer del cuarto día.\n\nGestionamos tu permiso oficial del Ministerio de Cultura y operamos bajo la **Ley del Porteador N° 31614**. Como los cupos estatales se agotan con meses de anticipación, ¿para qué mes te gustaría verificar espacios disponibles?`;
-    }
-    if (q.includes('vinicunca') || q.includes('7 colores') || q.includes('siete colores') || q.includes('humantay')) {
-        return `Nuestras rutas de **1 Día en Cusco (Montaña de 7 Colores + Valle Rojo y Laguna Humantay)** operan bajo modalidad **Offset Trekking**: salimos a las 03:30 am para que llegues al mirador antes que los buses masivos.\n\nIncluyen transporte turístico, desayuno y almuerzo buffet andino, bastones de apoyo, oxígeno médico a bordo y guía oficial (S/ 230 por persona). ¿Te gustaría usarlas como aclimatación antes de un trek más largo o como excursiones principales?`;
+        return `**Choquequirao Expedición Legendaria (4D/3N)** te lleva a la "Cuna de Oro" de los Incas sobre el Cañón del Apurímac, una ciudadela monumental sin turismo masivo.\n\nOperamos con arrieros y mulas para tu **Duffle Bag de 7 kg**, campamentos privados y guías certificados. ¿Qué fechas tienes en mente para esta expedición?`;
     }
     if (q.includes('huaraz') || q.includes('santa cruz') || q.includes('laguna 69') || q.includes('mateo')) {
         return `En la **Cordillera Blanca (Huaraz)** operamos el **Trekking Santa Cruz (4D/3N)** cruzando Punta Unión (4,750m), el full day a **Laguna 69** y el ascenso glaciar al **Nevado Mateo (5,150m)** con todo el equipo técnico de alpinismo incluido.\n\n¿Te atrae más una caminata escénica entre lagunas turquesas o coronar tu primera cumbre glaciar?`;
     }
-
-    // 9. ANTI-REPETICIÓN INTELIGENTE SI EL USUARIO ESCRIBE ALGO CORTO (ej. "hola", "más info", "2 personas", un mes, etc.)
-    if (/\b(1|2|3|4|5|6|7|8|dos|tres|cuatro|solo|pareja|familia|amigos)\b/.test(q)) {
-        return `¡Excelente! Para un grupo de ese tamaño en **${route.shortName}**, garantizamos atención personalizada (máximo 8 viajeros por guía UIAGM/WFR) o podemos armarlo en formato **100% Privado**.\n\nLa tarifa base es de **${route.priceBase}** por persona (o **${route.priceAllInc}** en el paquete All-Inclusive con equipo técnico completo), y pueden separar sus cupos hoy con el **30% (${route.reserva30})**. ¿Quieres que te muestre el desglose completo para reservar o tienes alguna duda sobre el itinerario día por día?`;
+    if (q.includes('arequipa') || q.includes('colca') || q.includes('misti')) {
+        return `En **Arequipa** operamos el **Trekking al Cañón del Colca (3D/2N, S/ 630)** descendiendo hasta el Oasis de Sangalle y el **Ascenso al Volcán Misti (5,825m en 2D/1N, S/ 880)** con guías de alta montaña UIAGM.\n\n¿Prefieres caminata por cañón y aguas termales o cumbre volcánica?`;
     }
 
-    // Si la última respuesta ya fue la presentación de Salkantay, no repetirla jamás; dar el itinerario día por día
-    if (lastBotMsg.includes('Salkantay 4 Días / 3 Noches') || lastBotMsg.includes('travesías más hermosas')) {
-        return `Aquí tienes el resumen día por día de nuestra ruta estrella **${route.shortName}**:\n\n` +
-            `• **Día 1:** Cusco → Challacancha → ascenso a la **Laguna Humantay (4,200m)** y noche en **Domos Glamping en Soraypampa**.\n` +
-            `• **Día 2:** Salida temprana sin multitudes hacia el **Abra Salkantay (4,630m)** y descenso a la ceja de selva en Collpapampa.\n` +
-            `• **Día 3:** Sendero tropical por Lucmabamba, cafetales orgánicos y llegada a **Aguas Calientes** (hotel incluido).\n` +
-            `• **Día 4:** Visita guiada en **Machu Picchu**, tren panorámico a Ollantaytambo y retorno privado a Cusco.\n\n` +
-            `¿Te gustaría revisar qué incluye el paquete o consultar las tarifas y opciones de reserva?`;
+    // 8. ANTI-REPETICIÓN
+    if (lastBotMsg.includes('Salkantay') || lastBotMsg.includes('ruta favorita')) {
+        return `En **Lifextreme Perú** operamos expediciones en **Cusco** (Salkantay, Ausangate, Choquequirao, Camino Inca), **Huaraz** (Santa Cruz, Laguna 69, Nevado Mateo), **Amazonas** (Catarata de Gocta y Kuélap), **Iquitos / Tambopata** (Selva Amazónica) y **Arequipa** (Colca y Volcán Misti).\n\n¿Qué región del Perú o qué tipo de aventura (montaña, selva o costa) te gustaría explorar?`;
     }
 
-    // Presentación inicial consultiva
-    return `En **Cusco** nuestra ruta favorita es el **Salkantay Trek & Domos Glamping a Machu Picchu (4D/3N)**: duermes en Domos Geodésicos frente al glaciar en Soraypampa, visitas la Laguna Humantay y llegas a Machu Picchu sin multitudes. También operamos **Ausangate 7 Lagunas (6D)**, **Choquequirao (4D)** y rutas de 1 día como **Vinicunca & Valle Rojo**.\n\n¿Buscas una expedición de varios días hacia Machu Picchu o prefieres rutas cortas de 1 día desde Cusco?`;
+    return `En **Lifextreme Perú** diseñamos expediciones en **Cusco** (Salkantay Glamping, Ausangate 7 Lagunas, Choquequirao), **Amazonas / Selva** (Catarata de Gocta, Pacaya Samiria, Tambopata), **Huaraz** (Santa Cruz, Nevado Mateo) y **Arequipa** (Colca y Misti).\n\nCuéntame: ¿qué destino del Perú te gustaría conocer y cuántos días tienes planeados para tu viaje?`;
 }
 
 export default async function handler(req, res) {
@@ -345,6 +357,7 @@ export default async function handler(req, res) {
     try {
         const { action = '', booking = null, message = '', history = [], profile = {} } = req.body || {};
         const groqKey = (process.env.GROQ_API_KEY || '').trim();
+        const groqModel = (process.env.GROQ_MODEL || 'openai/gpt-oss-120b').trim();
         const geminiKey = (process.env.GEMINI_API_KEY || '').trim();
         const qdrantTunnelUrl = (process.env.QDRANT_TUNNEL_URL || '').replace(/\/$/, '');
 
@@ -373,7 +386,7 @@ export default async function handler(req, res) {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ message, history, profile })
-                }, 4000);
+                }, 3500);
                 if (qdrantRes.ok) {
                     const qdrantData = await qdrantRes.json();
                     const qdrantReply = qdrantData.mensaje || qdrantData.reply || '';
@@ -390,8 +403,8 @@ export default async function handler(req, res) {
         const hasBooking = Boolean(profile && profile.booking_code) || /\bLX-[A-Z0-9]{4,10}\b/i.test(message);
         const activeRoute = detectActiveRoute(message, history);
         const roleDirective = hasBooking
-            ? `El usuario YA TIENE UNA RESERVA CONFIRMADA (${profile.booking_code || 'Activa'}). Atiéndelo como su Concierge Post-Venta (aclimatación médica, Duffle Bag de 7 kg, itinerario).`
-            : `Ruta actualmente en contexto: ${activeRoute.name}. El usuario está consultando en la web. Responde exactamente su pregunta de forma consultiva y coherente con el historial.`;
+            ? `El usuario YA TIENE UNA RESERVA CONFIRMADA (${profile.booking_code || 'Activa'}). Atiéndelo como su Concierge Post-Venta.`
+            : `Destino/ruta detectado en la consulta actual: ${activeRoute.name} (${activeRoute.region}). Responde directamente sobre el destino que consulta el usuario sin desviarte a otra ruta.`;
 
         const systemPrompt = `${SYSTEM_PROMPT_BASE}\n\nCONTEXTO ACTUAL DE LA SESIÓN:\n${roleDirective}`;
 
@@ -408,39 +421,43 @@ export default async function handler(req, res) {
             { role: 'user', content: String(message) }
         ];
 
-        // 2. PRIORIDAD 2: Groq LPU (llama-3.3-70b-versatile)
+        // 2. PRIORIDAD 2: Groq Cloud LPU (modelos actuales 2026: openai/gpt-oss-120b, qwen/qwen3.8-27b, openai/gpt-oss-20b)
         if (groqKey) {
-            try {
-                const groqRes = await fetchWithTimeout('https://api.groq.com/openai/v1/chat/completions', {
-                    method: 'POST',
-                    headers: {
-                        'Authorization': `Bearer ${groqKey}`,
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        model: 'llama-3.3-70b-versatile',
-                        messages,
-                        temperature: 0.4,
-                        max_tokens: 400
-                    })
-                }, 7000);
+            const candidateGroqModels = [groqModel, 'openai/gpt-oss-120b', 'qwen/qwen3.8-27b', 'openai/gpt-oss-20b'];
+            const uniqueModels = [...new Set(candidateGroqModels)];
+            for (const mdl of uniqueModels) {
+                try {
+                    const groqRes = await fetchWithTimeout('https://api.groq.com/openai/v1/chat/completions', {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': `Bearer ${groqKey}`,
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            model: mdl,
+                            messages,
+                            temperature: 0.35,
+                            max_tokens: 400
+                        })
+                    }, 6500);
 
-                if (groqRes.ok) {
-                    const data = await groqRes.json();
-                    const reply = data.choices?.[0]?.message?.content?.trim() || '';
-                    if (reply) {
-                        return res.status(200).json({ mensaje: reply, source: 'groq_lpu' });
+                    if (groqRes.ok) {
+                        const data = await groqRes.json();
+                        const reply = data.choices?.[0]?.message?.content?.trim() || '';
+                        if (reply) {
+                            return res.status(200).json({ mensaje: reply, source: `groq_${mdl}` });
+                        }
                     }
-                }
-            } catch (_) {}
+                } catch (_) {}
+            }
         }
 
-        // 3. PRIORIDAD 3: Google Gemini API (gemini-2.0-flash)
+        // 3. PRIORIDAD 3: Google Gemini API (si GEMINI_API_KEY es válida)
         if (geminiKey) {
             try {
                 const geminiContents = [
                     { role: 'user', parts: [{ text: `INSTRUCCIONES DEL SISTEMA:\n${systemPrompt}` }] },
-                    { role: 'model', parts: [{ text: 'Entendido. Responderé como MAX de Lifextreme Perú de forma directa, coherente y sin repetir respuestas.' }] },
+                    { role: 'model', parts: [{ text: 'Entendido. Responderé como MAX de Lifextreme Perú sobre el destino exacto consultado.' }] },
                     ...cleanHistory.map(m => ({
                         role: m.role === 'user' ? 'user' : 'model',
                         parts: [{ text: m.content }]
@@ -455,10 +472,10 @@ export default async function handler(req, res) {
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
                             contents: geminiContents,
-                            generationConfig: { temperature: 0.4, maxOutputTokens: 400 }
+                            generationConfig: { temperature: 0.35, maxOutputTokens: 400 }
                         })
                     },
-                    7000
+                    6000
                 );
 
                 if (gemRes.ok) {
@@ -479,7 +496,7 @@ export default async function handler(req, res) {
                 body: JSON.stringify({
                     model: 'openai',
                     messages,
-                    temperature: 0.4
+                    temperature: 0.35
                 })
             }, 6500);
 
@@ -492,9 +509,9 @@ export default async function handler(req, res) {
             }
         } catch (_) {}
 
-        // 5. PRIORIDAD 5: Motor Conversacional Contextual y Anti-Repetición de Dominio
+        // 5. PRIORIDAD 5: Motor Conversacional Contextual Multi-Destino
         const fallbackReply = buildSmartContextFallback(message, history, profile);
-        return res.status(200).json({ mensaje: fallbackReply, source: 'context_domain_v2' });
+        return res.status(200).json({ mensaje: fallbackReply, source: 'context_domain_v3' });
 
     } catch (err) {
         const safeReply = buildSmartContextFallback(req.body?.message || '', req.body?.history || [], {});
