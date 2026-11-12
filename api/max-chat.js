@@ -437,9 +437,9 @@ export default async function handler(req, res) {
                             model: mdl,
                             messages,
                             temperature: 0.35,
-                            max_tokens: 400
+                            max_tokens: 1024
                         })
-                    }, 6500);
+                    }, 8000);
 
                     if (groqRes.ok) {
                         const data = await groqRes.json();
@@ -452,64 +452,7 @@ export default async function handler(req, res) {
             }
         }
 
-        // 3. PRIORIDAD 3: Google Gemini API (si GEMINI_API_KEY es válida)
-        if (geminiKey) {
-            try {
-                const geminiContents = [
-                    { role: 'user', parts: [{ text: `INSTRUCCIONES DEL SISTEMA:\n${systemPrompt}` }] },
-                    { role: 'model', parts: [{ text: 'Entendido. Responderé como MAX de Lifextreme Perú sobre el destino exacto consultado.' }] },
-                    ...cleanHistory.map(m => ({
-                        role: m.role === 'user' ? 'user' : 'model',
-                        parts: [{ text: m.content }]
-                    })),
-                    { role: 'user', parts: [{ text: String(message) }] }
-                ];
-
-                const gemRes = await fetchWithTimeout(
-                    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${geminiKey}`,
-                    {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            contents: geminiContents,
-                            generationConfig: { temperature: 0.35, maxOutputTokens: 400 }
-                        })
-                    },
-                    6000
-                );
-
-                if (gemRes.ok) {
-                    const gemData = await gemRes.json();
-                    const reply = gemData.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || '';
-                    if (reply) {
-                        return res.status(200).json({ mensaje: reply, source: 'gemini_flash' });
-                    }
-                }
-            } catch (_) {}
-        }
-
-        // 4. PRIORIDAD 4: Cloud OpenAI-Compatible Inference (Keyless Cloud LLM Fallback)
-        try {
-            const cloudRes = await fetchWithTimeout('https://text.pollinations.ai/openai', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    model: 'openai',
-                    messages,
-                    temperature: 0.35
-                })
-            }, 6500);
-
-            if (cloudRes.ok) {
-                const cloudData = await cloudRes.json();
-                const reply = cloudData.choices?.[0]?.message?.content?.trim() || '';
-                if (reply && reply.length > 25 && !reply.toLowerCase().includes('rate limit')) {
-                    return res.status(200).json({ mensaje: reply, source: 'cloud_llm' });
-                }
-            }
-        } catch (_) {}
-
-        // 5. PRIORIDAD 5: Motor Conversacional Contextual Multi-Destino
+        // 3. PRIORIDAD 3: Motor Conversacional Contextual Multi-Destino (Instantáneo y Verificado)
         const fallbackReply = buildSmartContextFallback(message, history, profile);
         return res.status(200).json({ mensaje: fallbackReply, source: 'context_domain_v3' });
 
