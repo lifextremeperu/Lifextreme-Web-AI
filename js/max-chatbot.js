@@ -310,7 +310,7 @@
     const cardHtml = createSalesCardHtml(bundle);
     appendMessage(
       'bot',
-      `Aquí tienes las opciones oficiales de reserva para <strong>${bundle.title}</strong> (${bundle.dept}). Puedes bloquear tu cupo hoy mismo con el <strong>30% (S/ ${bundle.reserva30})</strong> en la pasarela rápida, abrir el configurador completo de fecha y pasajeros, o coordinar directo por WhatsApp:${cardHtml}`,
+      `¡Listo! Reserva en <strong>3 simples pasos</strong>:${cardHtml}`,
       true
     );
   };
@@ -423,7 +423,7 @@
     let tourDept = lastSelectedBundle ? lastSelectedBundle.dept : 'Cusco';
     let basePrice = lastSelectedBundle ? lastSelectedBundle.basePrice : 1630;
 
-    const matchSource = (q.includes('gocta') || q.includes('chachapoyas') || q.includes('kuelap') || q.includes('amazonas') || q.includes('tambopata') || q.includes('ausangate') || q.includes('salkantay') || q.includes('choquequirao') || q.includes('camino inca') || q.includes('inca trail') || q.includes('vinicunca') || q.includes('colores') || q.includes('humantay') || q.includes('mateo') || q.includes('pastoruri') || q.includes('santa cruz') || q.includes('huaraz') || q.includes('laguna 69') || q.includes('colca') || q.includes('arequipa') || q.includes('misti') || q.includes('parapente') || q.includes('rafting') || q.includes('pacaya'))
+    const matchSource = (q.includes('gocta') || q.includes('chachapoyas') || q.includes('kuelap') || q.includes('amazonas') || q.includes('tambopata') || q.includes('ausangate') || q.includes('salkantay') || q.includes('choquequirao') || q.includes('camino inca') || q.includes('inca trail') || q.includes('vinicunca') || q.includes('colores') || q.includes('humantay') || q.includes('1 día') || q.includes('1 dia') || q.includes('full day') || q.includes('maras') || q.includes('moray') || q.includes('cuatrimoto') || q.includes('mateo') || q.includes('pastoruri') || q.includes('santa cruz') || q.includes('huaraz') || q.includes('laguna 69') || q.includes('colca') || q.includes('arequipa') || q.includes('misti') || q.includes('parapente') || q.includes('rafting') || q.includes('pacaya'))
       ? q
       : recentContext;
 
@@ -437,6 +437,26 @@
       tourTitle = 'Expedición Reserva Nacional Tambopata (3D/2N)';
       tourDept = 'Madre de Dios';
       basePrice = 950;
+    } else if (matchSource.includes('vinicunca') || matchSource.includes('colores')) {
+      tourId = 3;
+      tourTitle = 'Montaña de 7 Colores & Valle Rojo (1D)';
+      tourDept = 'Cusco';
+      basePrice = 230;
+    } else if (matchSource.includes('humantay') && !matchSource.includes('salkantay')) {
+      tourId = 3;
+      tourTitle = 'Laguna Humantay Pro (1D)';
+      tourDept = 'Cusco';
+      basePrice = 230;
+    } else if (matchSource.includes('maras') || matchSource.includes('moray') || matchSource.includes('cuatrimoto')) {
+      tourId = 3;
+      tourTitle = 'Cuatrimotos Maras & Moray VIP (1D)';
+      tourDept = 'Cusco';
+      basePrice = 230;
+    } else if ((matchSource.includes('1 día') || matchSource.includes('1 dia') || matchSource.includes('full day')) && !matchSource.includes('salkantay')) {
+      tourId = 3;
+      tourTitle = 'Montaña de 7 Colores & Valle Rojo (1D)';
+      tourDept = 'Cusco';
+      basePrice = 230;
     } else if (matchSource.includes('ausangate')) {
       tourId = 5;
       tourTitle = 'Circuito Ausangate & 7 Lagunas Glamping (6D/5N)';
@@ -631,74 +651,146 @@
     return `En <strong>${bundle.title}</strong> (${bundle.dept}) contamos con salidas diarias confirmadas en grupos pequeños o privados, <strong>Domos Glamping</strong>, <strong>Duffle Bag de 7 kg</strong> porteado (Ley N° 31614) y guía certificado UIAGM/WFR.<br><br>Cuéntame un poco más de tu plan: ¿para qué mes estás pensando viajar y cuántas personas vienen contigo?`;
   }
 
-  function createSalesCardHtml(bundle) {
-    const safeTourName = bundle.title.replace(/'/g, "\\'");
-    let sentinelBadge = '';
-    if (bundle.title.toLowerCase().includes('machu picchu')) {
-      sentinelBadge = `
-        <div style="background:rgba(16,185,129,0.12); border:1px solid rgba(16,185,129,0.3); border-radius:10px; padding:6px 10px; margin-bottom:8px; font-size:10px; display:flex; justify-content:space-between; align-items:center;">
-          <span style="color:#6ee7b7; font-weight:700; display:flex; align-items:center; gap:5px;">
-            <span style="width:6px; height:6px; border-radius:50%; background:#10b981; box-shadow:0 0 6px #10b981; display:inline-block;"></span>
-            TuBoleto Cultura: 284 cupos confirmados
-          </span>
-          <span style="color:#94a3b8; font-size:9px;">Tren: Asientos OK</span>
-        </div>
-      `;
+  const QUICK_BOOK_TOURS = [
+    { name: 'Montaña de 7 Colores & Valle Rojo (1D)', price: 230 },
+    { name: 'Laguna Humantay Pro (1D)', price: 230 },
+    { name: 'Cuatrimotos Maras & Moray VIP (1D)', price: 230 },
+    { name: 'Salkantay Trek & Domos Glamping (4D/3N)', price: 1630 },
+    { name: 'Circuito Ausangate & 7 Lagunas (6D/5N)', price: 1880 },
+    { name: 'Choquequirao Expedición (4D/3N)', price: 2980 },
+    { name: 'Camino Inca Clásico (4D/3N)', price: 2230 },
+    { name: 'Catarata de Gocta & Kuélap Amazonas (3D/2N)', price: 890 },
+    { name: 'Trekking Santa Cruz Huaraz (4D/3N)', price: 980 },
+    { name: 'Reserva Nacional Tambopata (3D/2N)', price: 950 }
+  ];
+
+  window.maxStepPax = function(cardId, delta) {
+    const paxEl = document.getElementById(`${cardId}-pax`);
+    if (!paxEl) return;
+    let val = parseInt(paxEl.dataset.val || '1', 10) + delta;
+    if (val < 1) val = 1;
+    if (val > 12) val = 12;
+    paxEl.dataset.val = String(val);
+    paxEl.textContent = String(val);
+    window.maxUpdateQuickBook(cardId);
+  };
+
+  window.maxUpdateQuickBook = function(cardId) {
+    const sel = document.getElementById(`${cardId}-tour`);
+    const paxEl = document.getElementById(`${cardId}-pax`);
+    const dateEl = document.getElementById(`${cardId}-date`);
+    const btnEl = document.getElementById(`${cardId}-submit`);
+    const waEl = document.getElementById(`${cardId}-wa`);
+    const priceNote = document.getElementById(`${cardId}-price-note`);
+    if (!sel || !paxEl || !btnEl) return;
+
+    const unitPrice = Number(sel.options[sel.selectedIndex]?.dataset.price || 230);
+    const tourName = sel.value;
+    const pax = Number(paxEl.dataset.val || 1);
+    const total = unitPrice * pax;
+    const reserva30 = Math.round(total * 0.30);
+    const dateVal = dateEl ? dateEl.value : '';
+
+    if (priceNote) {
+      priceNote.innerHTML = `Total: <strong style="color:#fff;">S/ ${total}</strong> · Separa hoy (30%): <strong style="color:#38bdf8;">S/ ${reserva30}</strong>`;
     }
+    btnEl.innerHTML = `🚀 Reservar Ahora (S/ ${reserva30})`;
+    if (waEl) {
+      const waText = `Hola MAX! Quiero reservar: ${tourName} (${pax} persona${pax > 1 ? 's' : ''}) para el ${dateVal || 'próxima fecha'}. Total S/ ${total} (Reserva 30%: S/ ${reserva30}).`;
+      waEl.href = `https://wa.me/51958050928?text=${encodeURIComponent(waText)}`;
+    }
+  };
+
+  window.maxSubmitQuickBook = function(cardId) {
+    const sel = document.getElementById(`${cardId}-tour`);
+    const paxEl = document.getElementById(`${cardId}-pax`);
+    const dateEl = document.getElementById(`${cardId}-date`);
+    if (!sel || !paxEl) return;
+
+    const unitPrice = Number(sel.options[sel.selectedIndex]?.dataset.price || 230);
+    const tourName = sel.value;
+    const pax = Number(paxEl.dataset.val || 1);
+    const dateVal = dateEl ? dateEl.value : '';
+    const total = unitPrice * pax;
+
+    window.maxAddToCartAndPay(tourName, total, pax, true, dateVal);
+  };
+
+  function createSalesCardHtml(bundle) {
+    const cardId = 'qb-' + Date.now() + '-' + Math.floor(Math.random() * 1000);
+    const defaultDate = new Date(Date.now() + 7 * 86400000).toISOString().slice(0, 10);
+
+    // Asegurar que la ruta detectada aparezca seleccionada por defecto
+    const optionsList = [...QUICK_BOOK_TOURS];
+    const targetLower = (bundle.title || '').toLowerCase();
+    let matchedIndex = optionsList.findIndex(t =>
+      targetLower.includes('7 colores') && t.name.includes('7 Colores') ||
+      targetLower.includes('humantay') && t.name.includes('Humantay') ||
+      targetLower.includes('maras') && t.name.includes('Maras') ||
+      targetLower.includes('salkantay') && t.name.includes('Salkantay') ||
+      targetLower.includes('ausangate') && t.name.includes('Ausangate') ||
+      targetLower.includes('choquequirao') && t.name.includes('Choquequirao') ||
+      targetLower.includes('camino inca') && t.name.includes('Camino Inca') ||
+      targetLower.includes('gocta') && t.name.includes('Gocta') ||
+      targetLower.includes('santa cruz') && t.name.includes('Santa Cruz') ||
+      targetLower.includes('tambopata') && t.name.includes('Tambopata')
+    );
+    if (matchedIndex === -1) {
+      optionsList.unshift({ name: bundle.title, price: bundle.basePrice });
+      matchedIndex = 0;
+    }
+
+    const activeTour = optionsList[matchedIndex];
+    const reserva30 = Math.round(activeTour.price * 0.30);
+
+    const optionsHtml = optionsList.map((t, idx) =>
+      `<option value="${t.name}" data-price="${t.price}" ${idx === matchedIndex ? 'selected' : ''}>${t.name} — S/ ${t.price}</option>`
+    ).join('');
+
+    const waInitial = `Hola MAX! Quiero reservar: ${activeTour.name} (1 persona) para el ${defaultDate}. Total S/ ${activeTour.price} (Reserva 30%: S/ ${reserva30}).`;
+
     return `
-      <div style="background: linear-gradient(145deg, #0b0f19, #131d31); border: 1px solid rgba(245, 158, 11, 0.4); border-radius: 16px; padding: 14px; margin-top: 10px; color: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-          <span style="font-size:9px; font-weight:900; color:#f59e0b; text-transform:uppercase; letter-spacing:0.12em; background:rgba(245,158,11,0.15); padding:2px 8px; border-radius:20px; border:1px solid rgba(245,158,11,0.3);">
-            🔥 Paquete Oficial All-Inclusive
-          </span>
-          <span style="font-size:9px; font-weight:bold; background:rgba(34,197,94,0.15); color:#4ade80; padding:2px 6px; border-radius:6px; border:1px solid rgba(34,197,94,0.3);">
-            UIAGM Verificado
-          </span>
-        </div>
-        <h4 style="font-weight:900; font-size:14px; margin:0 0 8px; color:#fff; line-height:1.3;">
-          ${bundle.title} (${bundle.dept})
-        </h4>
-        ${sentinelBadge}
-
-        <div style="font-size:11px; line-height:1.55; color:#cbd5e1; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:8px; margin-bottom:8px;">
-          <div>✅ <strong style="color:#fff;">1. Tour & Tickets:</strong> Ruta guiada oficial con Guía UIAGM/AGMP + Permisos</div>
-          <div>✅ <strong style="color:#fff;">2. Equipo Técnico Pro:</strong> Botas Gore-Tex, bastones carbono, casco y arnés Petzl</div>
-          <div>✅ <strong style="color:#fff;">3. Accesorios de Altura:</strong> Lentes UV400 cat. 4, linterna 450lm y guantes térmicos</div>
-          <div>✅ <strong style="color:#fff;">4. Asistencia Médica:</strong> Monitoreo oximetría + Balón de oxígeno medicinal 99.5%</div>
-          <div>✅ <strong style="color:#fff;">5. Seguro Extremo:</strong> Cobertura médica y rescate integral hasta S/ 50,000</div>
+      <div style="background: linear-gradient(145deg, #0b0f19, #131d31); border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 16px; padding: 14px; margin-top: 8px; color: #fff; box-shadow: 0 8px 24px rgba(0,0,0,0.45);">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+          <span style="font-size:10px; font-weight:900; color:#f59e0b; text-transform:uppercase; letter-spacing:0.08em;">⚡ Reserva Rápida en 3 Pasos</span>
+          <span style="font-size:9px; color:#4ade80; font-weight:700;">✓ Cancelación flexible</span>
         </div>
 
-        <div style="background:rgba(255,255,255,0.04); padding:10px; border-radius:12px; margin-bottom:10px; border:1px solid rgba(255,255,255,0.06);">
-          <div style="display:flex; justify-content:space-between; font-size:11px; color:#94a3b8;">
-            <span>Valor Total del Paquete:</span>
-            <span style="text-decoration:line-through;">S/ ${bundle.subtotal}</span>
+        <!-- PASO 1: TOUR -->
+        <div style="margin-bottom:8px;">
+          <label style="display:block; font-size:9px; font-weight:800; color:#94a3b8; text-transform:uppercase; margin-bottom:4px;">1. Elige tu Tour</label>
+          <select id="${cardId}-tour" onchange="window.maxUpdateQuickBook('${cardId}')" style="width:100%; background:#1e293b; color:#fff; border:1px solid rgba(255,255,255,0.18); border-radius:10px; padding:8px 10px; font-size:11.5px; font-weight:700; outline:none;">
+            ${optionsHtml}
+          </select>
+        </div>
+
+        <!-- PASO 2: FECHA Y PERSONAS -->
+        <div style="display:grid; grid-template-columns:1.3fr 1fr; gap:8px; margin-bottom:10px;">
+          <div>
+            <label style="display:block; font-size:9px; font-weight:800; color:#94a3b8; text-transform:uppercase; margin-bottom:4px;">2. Fecha</label>
+            <input id="${cardId}-date" type="date" value="${defaultDate}" min="${new Date().toISOString().slice(0, 10)}" onchange="window.maxUpdateQuickBook('${cardId}')" style="width:100%; background:#1e293b; color:#fff; border:1px solid rgba(255,255,255,0.18); border-radius:10px; padding:6px 8px; font-size:11px; font-weight:700; outline:none; color-scheme:dark;" />
           </div>
-          <div style="display:flex; justify-content:space-between; font-size:11px; color:#4ade80; font-weight:bold;">
-            <span>Bono Lifecoins Aplicado:</span>
-            <span>- S/ ${bundle.discount}.00</span>
-          </div>
-          <div style="display:flex; justify-content:space-between; font-size:13px; font-weight:900; color:#fff; margin-top:5px; border-top:1px solid rgba(255,255,255,0.1); padding-top:5px;">
-            <span>Inversión Todo Incluido:</span>
-            <span style="color:#f59e0b; font-size:15px;">S/ ${bundle.totalBundle}.00</span>
-          </div>
-          <div style="display:flex; justify-content:space-between; font-size:13px; font-weight:900; color:#38bdf8; margin-top:3px;">
-            <span>🚀 Bloquea tu Cupo Hoy (30%):</span>
-            <span style="font-size:15px; color:#38bdf8;">S/ ${bundle.reserva30}.00</span>
-          </div>
-          <div style="font-size:9px; color:#94a3b8; text-align:right; margin-top:3px;">
-            *El 70% restante (S/ ${bundle.saldo70}.00) se cancela antes de partir.
+          <div>
+            <label style="display:block; font-size:9px; font-weight:800; color:#94a3b8; text-transform:uppercase; margin-bottom:4px;">Personas</label>
+            <div style="display:flex; align-items:center; justify-content:space-between; background:#1e293b; border:1px solid rgba(255,255,255,0.18); border-radius:10px; padding:4px 6px;">
+              <button type="button" onclick="window.maxStepPax('${cardId}', -1)" style="width:22px; height:22px; border-radius:6px; background:rgba(255,255,255,0.1); color:#fff; border:none; font-weight:900; cursor:pointer;">−</button>
+              <span id="${cardId}-pax" data-val="1" style="font-size:12px; font-weight:900; color:#fff;">1</span>
+              <button type="button" onclick="window.maxStepPax('${cardId}', 1)" style="width:22px; height:22px; border-radius:6px; background:rgba(255,255,255,0.1); color:#fff; border:none; font-weight:900; cursor:pointer;">+</button>
+            </div>
           </div>
         </div>
 
-        <div style="display:flex; flex-direction:column; gap:6px;">
-          <button type="button" onclick="window.maxAddToCartAndPay('${safeTourName}', ${bundle.totalBundle}, 1, true)" style="background:linear-gradient(135deg, #f59e0b, #ea580c); color:#0f172a; border:none; border-radius:12px; padding:11px; font-weight:900; font-size:11px; text-transform:uppercase; letter-spacing:0.06em; cursor:pointer; box-shadow:0 6px 18px rgba(245,158,11,0.35); transition:transform 0.2s;">
-            💳 Reservar Cupo con 30% (S/ ${bundle.reserva30}) — Pago Rápido
+        <!-- PASO 3: CONFIRMAR -->
+        <div id="${cardId}-price-note" style="font-size:11px; color:#cbd5e1; text-align:center; margin-bottom:8px;">
+          Total: <strong style="color:#fff;">S/ ${activeTour.price}</strong> · Separa hoy (30%): <strong style="color:#38bdf8;">S/ ${reserva30}</strong>
+        </div>
+
+        <div style="display:flex; gap:6px;">
+          <button id="${cardId}-submit" type="button" onclick="window.maxSubmitQuickBook('${cardId}')" style="flex:1; background:linear-gradient(135deg, #f59e0b, #ea580c); color:#0f172a; border:none; border-radius:10px; padding:10px; font-weight:900; font-size:11px; text-transform:uppercase; cursor:pointer; box-shadow:0 4px 12px rgba(245,158,11,0.3);">
+            🚀 Reservar Ahora (S/ ${reserva30})
           </button>
-          <button type="button" onclick="window.maxOpenTourWizard(${bundle.tourId || 1}, '${safeTourName}')" style="background:rgba(255,255,255,0.08); color:#fff; border:1px solid rgba(255,255,255,0.2); border-radius:12px; padding:9px; font-weight:800; font-size:10.5px; text-transform:uppercase; letter-spacing:0.05em; cursor:pointer;">
-            🗓️ Configurar Fecha, Pasajeros y Firma Digital
-          </button>
-          <a href="https://wa.me/51958050928?text=${encodeURIComponent('Hola MAX! Deseo cerrar la reserva de mi Paquete Todo Incluido: ' + bundle.title + ' (Total S/ ' + bundle.totalBundle + ' | 30% S/ ' + bundle.reserva30 + '). ¿Tienen cupos disponibles para esta fecha?')}" target="_blank" rel="noopener noreferrer" style="background:#22c55e; color:#0f172a; text-decoration:none; text-align:center; border-radius:12px; padding:9px; font-weight:900; font-size:11px; text-transform:uppercase; letter-spacing:0.05em; display:flex; align-items:center; justify-content:center; gap:6px;">
-            📲 Cerrar y Coordinar con Guía en WhatsApp
+          <a id="${cardId}-wa" href="https://wa.me/51958050928?text=${encodeURIComponent(waInitial)}" target="_blank" rel="noopener noreferrer" title="Consultar por WhatsApp" style="background:#22c55e; color:#0f172a; text-decoration:none; border-radius:10px; padding:10px 12px; font-weight:900; font-size:12px; display:flex; align-items:center; justify-content:center;">
+            📲
           </a>
         </div>
       </div>
@@ -847,8 +939,13 @@
           const replyMsg = data.mensaje || data.reply || '';
           if (replyMsg && !replyMsg.includes('Disculpa, estoy teniendo un problema técnico')) {
             hideTyping();
-            fullText = replyMsg;
-            appendMessage('bot', `${formatMd(replyMsg)}${buildFollowUpHtml()}`, true);
+            if (!hasActiveBooking && showBookingCard) {
+              fullText = '¡Listo! Reserva en 3 simples pasos:';
+              appendMessage('bot', `¡Listo! Reserva en <strong>3 simples pasos</strong>:${buildFollowUpHtml()}`, true);
+            } else {
+              fullText = replyMsg;
+              appendMessage('bot', `${formatMd(replyMsg)}${buildFollowUpHtml()}`, true);
+            }
             streamSucceeded = true;
             break;
           }
@@ -899,17 +996,17 @@
   }
 
   // Funcion global para llevar al usuario del chat al Carrito / Pasarela de Pago
-  window.maxAddToCartAndPay = function (tourName, totalPrice, pax, openCheckoutNow) {
+  window.maxAddToCartAndPay = function (tourName, totalPrice, pax, openCheckoutNow, selectedDate) {
     try {
       if (window.useBackpack) {
         const bp = window.useBackpack();
         bp.addItem({
           id: Date.now(),
           name: `${tourName} (${pax} Pax)`,
-          price: Number(totalPrice) || 450,
+          price: Number(totalPrice) || 230,
           img: 'assets/images/destinos/cusco/trekking.jpg',
-          detail: `${pax} Participante(s) | Asesoría MAX AI`,
-          date: new Date().getDate(),
+          detail: `${pax} Participante(s) | Salida: ${selectedDate || 'Por confirmar'}`,
+          date: selectedDate || new Date().toISOString().slice(0, 10),
           pax: pax
         });
       }
