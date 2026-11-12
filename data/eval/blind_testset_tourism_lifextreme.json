@@ -1,0 +1,86 @@
+[
+  {
+    "id": "TOUR-BLIND-01",
+    "category": "rutas_trekking",
+    "question": "¿Cuál es la diferencia de altitud y dificultad entre el trekking al Salkantay y el Camino Inca Clásico?",
+    "ground_truth": "El Salkantay Trek alcanza los 4,630 msnm en el paso Salkantay y es de dificultad alta/exigente (aprox. 74 km en 5 días). El Camino Inca Clásico alcanza los 4,215 msnm en el paso de Warmiwañusqa (Mujer Muerta) y es de dificultad moderada-alta (aprox. 43 km en 4 días). Salkantay requiere mayor resistencia física ante el frío y desnivel.",
+    "expected_concepts": ["4630", "4215", "warmiwañusqa", "dificultad", "altitud"]
+  },
+  {
+    "id": "TOUR-BLIND-02",
+    "category": "rutas_trekking",
+    "question": "¿Con cuántos meses de anticipación se deben reservar los permisos para el Camino Inca de 4 días y por qué se agotan?",
+    "ground_truth": "Se recomienda reservar entre 4 y 6 meses antes (especialmente para temporada seca de mayo a septiembre). Los permisos son limitados por SERNANP y el Ministerio de Cultura a 500 personas por día (incluyendo guías, cocineros y porteadores), y son intransferibles.",
+    "expected_concepts": ["500", "sernanp", "cultura", "intransferibles", "anticipacion"]
+  },
+  {
+    "id": "TOUR-BLIND-03",
+    "category": "rutas_trekking",
+    "question": "¿Es obligatorio contratar un guía oficial para hacer la caminata a Choquequirao?",
+    "ground_truth": "Aunque técnicamente no hay una garita que restrinja el acceso autónomo en todo el tramo, por seguridad de alta montaña, riesgo de deshidratación en el cañón del Apurímac y normativa de turismo de aventura (MINCETUR), se recomienda enfáticamente ir con guía oficial acreditado y arrieros locales.",
+    "expected_concepts": ["apurimac", "mincetur", "guia", "canon", "arrieros"]
+  },
+  {
+    "id": "TOUR-BLIND-04",
+    "category": "seguridad_medica",
+    "question": "¿Qué incluye el protocolo de evacuación médica y rescate aeromédico (Heli-Rescue) de Lifextreme en zonas remotas?",
+    "ground_truth": "Incluye coordinación con operadores aéreos privados para extracción en helicóptero en zonas autorizadas de los Andes, botiquín de trauma avanzado, oxigenoterapia portátil y enlace con SAMU y clínicas privadas en Cusco.",
+    "expected_concepts": ["helicoptero", "oxigeno", "samu", "evacuacion", "clinica"]
+  },
+  {
+    "id": "TOUR-BLIND-05",
+    "category": "bienestar_porteadores",
+    "question": "¿Cómo cumple Lifextreme con la Ley N° 27607 del Porteador en el Camino Inca?",
+    "ground_truth": "Cumple estrictamente con el límite máximo de carga de 20 kg por porteador varón (y regulaciones para mujeres), pago de remuneraciones por encima del mínimo legal, seguro de accidentes y salud, carpas térmicas propias y alimentación equivalente a la de la expedición.",
+    "expected_concepts": ["20 kg", "27607", "seguro", "salario", "alimentacion"]
+  },
+  {
+    "id": "TOUR-BLIND-06",
+    "category": "clima_temporadas",
+    "question": "¿Por qué el Camino Inca está cerrado en febrero y qué alternativas operan ese mes?",
+    "ground_truth": "Permanece cerrado durante todo el mes de febrero por disposición del SERNANP para mantenimiento de senderos, conservación ambiental y por ser el pico de lluvias. Como alternativas operan rutas como Lares Trek, Valle Sagrado, Huchuy Qosqo o Machu Picchu por tren.",
+    "expected_concepts": ["febrero", "mantenimiento", "lluvias", "lares", "sernanp"]
+  },
+  {
+    "id": "TOUR-BLIND-07",
+    "category": "equipamiento_tecnico",
+    "question": "¿Qué equipo técnico personal debo llevar obligatoriamente para ascender a nevados superiores a 5,500 msnm como el Ausangate?",
+    "ground_truth": "Se requiere botas de alta montaña rígidas o semirrígidas, grampones, piolet de travesía, arnés con líneas de anclaje, casco de escalada certificado (UIAA/CE), gafas con filtro UV categoría 4 y sistema de capas térmicas para temperaturas bajo cero.",
+    "expected_concepts": ["grampones", "piolet", "arnes", "casco", "uv categoria 4"]
+  },
+  {
+    "id": "TOUR-BLIND-08",
+    "category": "politica_cancelacion",
+    "question": "¿Qué porcentaje del pago se reembolsa si el cliente cancela su expedición por motivos de salud antes del viaje?",
+    "ground_truth": "Los pagos de tickets gubernamentales no reembolsables (Machu Picchu, SERNANP, trenes) no son pasibles de devolución según normatividad de los proveedores. Para los servicios propios de Lifextreme, se aplican reprogramaciones o notas de crédito según la antelación de la notificación.",
+    "expected_concepts": ["no reembolsable", "reprogramacion", "tickets", "sernanp"]
+  },
+  {
+    "id": "TOUR-BLIND-09",
+    "category": "b2b_operadores",
+    "question": "¿Qué beneficios y comisiones reciben las agencias aliadas que se integran a la API B2B de Lifextreme?",
+    "ground_truth": "Comisión estándar del 10% por pasajero referido, sincronización de cupos e inventario en tiempo real, tarifas netas mayoristas y acceso a panel de seguimiento de reservas y pagos.",
+    "expected_concepts": ["10%", "api", "tiempo real", "tarifas netas", "inventario"]
+  },
+  {
+    "id": "TOUR-BLIND-10",
+    "category": "fuera_de_alcance",
+    "question": "¿Tienen salidas diarias de buceo en las Islas Ballestas o tours en kayak en el Lago Titicaca?",
+    "ground_truth": "Lifextreme está especializado en turismo de aventura, alta montaña y trekking en los Andes del sur peruano (Cusco, Cordillera Vilcanota y Salkantay). No operamos expediciones de buceo marino en Ballestas ni servicios regulares de kayak en Titicaca.",
+    "expected_concepts": ["no operamos", "especializado", "cusco", "andes"]
+  },
+  {
+    "id": "TOUR-BLIND-11",
+    "category": "fuera_de_alcance",
+    "question": "¿Venden pasajes de bus interprovincial de Lima a Trujillo en su plataforma?",
+    "ground_truth": "No. Lifextreme no es una boletería de transporte interprovincial regular; gestionamos expediciones técnicas, aventura y logística de montaña privada.",
+    "expected_concepts": ["no", "expediciones", "montaña"]
+  },
+  {
+    "id": "TOUR-BLIND-12",
+    "category": "aclimatacion",
+    "question": "¿Cuántos días de aclimatación en Cusco recomiendan antes de iniciar una caminata de varios días a más de 4,000 m?",
+    "ground_truth": "Se recomienda un mínimo de 2 a 3 días completos en la ciudad del Cusco (3,400 msnm) o en el Valle Sagrado antes de iniciar rutas exigentes como Salkantay, Choquequirao o Ausangate, realizando caminatas cortas de baja intensidad.",
+    "expected_concepts": ["2 a 3 dias", "3400", "aclimatacion", "valle sagrado"]
+  }
+]

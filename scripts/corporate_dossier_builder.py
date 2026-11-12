@@ -84,7 +84,7 @@ def build_corporate_expediente_markdown(
 
 **Firma Auditora:** Consorcio Especializado en Arquitectura, Riesgo Algorítmico y Gobernanza de IA (Práctica de Assurance & GovTech Perú)  
 **Código de Expediente:** `AUD-BIG4-QDRANT-2026-{slug[:10].upper()}`  
-**Fecha de Emisión:** `{fecha_actual}` | **Versión:** `v4.0 Enterprise Audit Grade (RAGAS 99.17% Verified)`  
+**Fecha de Emisión:** `{fecha_actual}` | **Versión:** `v4.0 Enterprise Audit Grade (Evaluación RAGAS Audit Grade)`  
 ** Ecosistema Auditado:** `{url}`  
 **Clasificación Institucional:** Entidad **{entity_type}** — Sector: **{sector}**  
 **Programas y Unidades Académicas Detectadas:** {programs_str}  
@@ -154,7 +154,7 @@ Para transformar a **{institution_name}** en una institución 100% blindada lega
    - **Control LLM02 (Sensitive Information Disclosure):** Protocolo de **Anonimización y Seudonimización de PII** (prohibición técnica y normativa de ingresar DNI, nombres completos, calificaciones nominales o diagnósticos psicológicos en LLMs públicos).
    - **Control LLM06 (Excessive Agency) & LLM09 (Misinformation):** Regla de validación humana obligatoria antes de emitir cualquier acto académico, nota o informe institucional asistido por IA.
 3. **Despliegue del Asistente RAG Institucional Normativo (Opcional / Incluido en Modalidad Corporativa):**
-   - Acceso al buscador vectorial privado alimentado con los reglamentos internos de **{institution_name}** y las leyes peruanas vigentes (`RAGAS Score 99.17%`), garantizando consultas con **0% de alucinación**.
+   - Acceso al buscador vectorial privado alimentado con los reglamentos internos de **{institution_name}** y las leyes peruanas vigentes bajo arquitectura RAG con alta fidelidad documental y verificación de fuentes oficiales.
 
 ### 3.3 Pilar 3: Reforma Pedagógica y Curricular (MINEDU / SUNEDU & UNESCO)
 1. **Incorporación del Capítulo de Gobernanza de IA en el Reglamento Institucional (RI) y PEI:**
@@ -216,7 +216,7 @@ Al concluir la consultoría, **{institution_name}** recibe en propiedad intelect
 | **04** | `ENT-LEG-04` | **Protocolo y Formato de Consentimiento Parental Verificable para Estudiantes Menores de Edad** | D.S. N° 016-2024-JUS (Datos de Menores) | Dirección de Psicología |
 | **05** | `ENT-TEC-05` | **Registro Técnico Vivo de Sistemas de IA y Matriz de Clasificación de Riesgo Algorítmico** | **Art. 31.1 D.S. N° 115-2025-PCM** y Ley 31814 | Dirección de Arquitectura IA |
 | **06** | `ENT-TEC-06` | **Manual de Ciberseguridad Agentic, Anonimización PII y Blindaje contra Prompt Injection** | OWASP Top 10 for LLM Applications 2026 | Dirección de Arquitectura IA |
-| **07** | `ENT-TEC-07` | **Informe de Auditoría de Calidad Vectorial y Trazabilidad Documental bajo Estándar RAGAS (99.17%)** | ISO/IEC 42001 Control A.6 & A.7 | Dirección de Arquitectura IA |
+| **07** | `ENT-TEC-07` | **Informe de Auditoría de Calidad Vectorial y Trazabilidad Documental bajo Estándar RAGAS y Pruebas de Estrés Normativo** | ISO/IEC 42001 Control A.6 & A.7 | Dirección de Arquitectura IA |
 | **08** | `ENT-PED-08` | **Adenda Normativa para el Reglamento Institucional (RI), PEI y PAT sobre Uso Ético de IA** | Ley N° 30512 / Ley N° 30220 / CBC MINEDU | Dirección Educativa (Cusco) |
 | **09** | `ENT-PED-09` | **Matriz Oficial del Semáforo de Integridad Académica (Verde / Ámbar / Rojo) por Programa de Estudio** | Guía UNESCO IA en Educación 2024-2026 | Dirección Educativa (Cusco) |
 | **10** | `ENT-PED-10` | **Directiva de Propiedad Intelectual, Titularidad Humana y Declaración de IA en Tesis e Investigación** | Decreto Legislativo N° 822 (INDECOPI) | Dirección Educativa & IA |
@@ -225,7 +225,7 @@ Al concluir la consultoría, **{institution_name}** recibe en propiedad intelect
 | **13** | `ENT-PSI-13` | **Protocolo de Prevención del Sedentarismo Cognitivo y Guía de Bienestar Digital Estudiantil** | ISO/IEC 42005 & Tutoría Psicopedagógica | Dirección de Psicología |
 | **14** | `ENT-ANT-14` | **Dictamen Pericial Antropológico de Equidad Intercultural y No Discriminación Lingüística (Quechua/Matsigenka)** | **Art. 4 Ley N° 31814** & Convenio 169 OIT | Dirección de Antropología |
 | **15** | `ENT-ANT-15` | **Protocolo de Calibración de Evaluaciones para Estudiantes Bilingües (Beca 18 / Ámbito Rural) y Soberanía de Datos** | Art. 4 Ley N° 31814 & Inclusión PRONABEC | Dirección de Antropología |
-| **16** | `ENT-CER-16` | **Certificado Corporativo de Auditoría y Adecuación Normativa en Gobernanza de IA (4 Firmas Acreditadas)** | ISO/IEC 42001 / Ley N° 31814 / Ley N° 29733 | Comité Consultor en Pleno |
+| **16** | `ENT-CER-16` | **Informe de Auditoría y Dictamen de Adecuación y Adecuación Normativa en Gobernanza de IA (4 Firmas Acreditadas)** | ISO/IEC 42001 / Ley N° 31814 / Ley N° 29733 | Comité Consultor en Pleno |
 
 <div class="page-break" style="page-break-after: always;"></div>
 
@@ -260,7 +260,7 @@ Para adaptarnos a la disponibilidad presupuestal inmediata de la institución, o
 
 * **Primera Armada (40% a la Firma del Contrato / Orden de Servicio):** Con la instalación del Comité de Gobernanza y entrega del Plan de Trabajo Detallado (Semana 1).
 * **Segunda Armada (30% a la Entrega del Hito 2 — Semana 6):** Contra entrega del Registro Técnico Art. 31.1 D.S. 115-2025-PCM, Expediente RNPDP y Reforma del Reglamento Institucional (RI).
-* **Tercera Armada (30% a la Conformidad Final — Semana 12):** Contra entrega de los Peritajes Psicológico, Antropológico, Ciberseguridad OWASP y el Certificado Corporativo de Gobernanza IA.
+* **Tercera Armada (30% a la Conformidad Final — Semana 12):** Contra entrega de los Peritajes Psicológico, Antropológico, Ciberseguridad OWASP y el Dictamen y Plan Maestro de Gobernanza IA.
 
 ### 7.4 Análisis Financiero de Retorno de Inversión (ROI de Mitigación de Riesgo)
 
@@ -337,7 +337,7 @@ def generate_corporate_commercial_pptx_and_pdf(
             "subtitle": "Propuesta Corporativa de Adecuación Normativa (Ley N° 31814, D.S. N° 115-2025-PCM, D.S. N° 016-2024-JUS, ISO/IEC 42001 & ISO/IEC 42005) para Universidades, Institutos Superiores (IESTP) y Colegios",
             "metrics": [
                 ("100 UIT (S/ 535,000)", "Multa Máxima ANPD / MINJUSDH por infracción muy grave (D.S. 016-2024-JUS)"),
-                ("18,941 Vectores", "Cerebro Jurídico y Técnico Auditado con 99.17% de Precisión RAGAS"),
+                ("18,941 Vectores", "Bóveda Vectorial Especializada en Normativa Peruana e ISO 42001"),
                 ("90 Días (12 Semanas)", "Hoja de Ruta Llave en Mano con 16 Entregables y 4 Firmas Periciales"),
             ],
             "columns": [
@@ -448,7 +448,7 @@ def generate_corporate_commercial_pptx_and_pdf(
             "subtitle": "La Ley N° 31814 e ISO/IEC 42001 exigen evaluar sistemas técnicos, impacto cognitivo, reglamentos pedagógicos y equidad cultural. Ningún profesional aislado puede firmar los 4 peritajes:",
             "metrics": [
                 ("4 Firmas Acreditadas", "Respaldo pericial colegiado y con grado de Maestría / Ingeniería Senior"),
-                ("Score RAGAS 99.17%", "Única consultora en el país con Cerebro Vectorial Propio (18,941 vectores)"),
+                ("Evaluación RAGAS", "Única consultora en el país con Cerebro Vectorial Propio (18,941 vectores)"),
                 ("Enfoque Territorial Cusco", "Dominio real de la realidad educativa andino-amazónica, MINEDU y DRE"),
             ],
             "columns": [
@@ -591,11 +591,11 @@ def generate_corporate_commercial_pptx_and_pdf(
         },
         {
             "num": "08",
-            "kicker": "7. EVIDENCIA CIENTÍFICA DE NUESTRA TECNOLOGÍA | AUDITORÍA RAGAS 99.17%",
+            "kicker": "7. BENCHMARKING TÉCNICO Y EVALUACIÓN DE ARQUITECTURA RAG",
             "title": "Respaldo Tecnológico Único: Bóveda Vectorial Qdrant Auditada bajo Estándar RAGAS",
             "subtitle": "Nuestra firma no improvisa opiniones: operamos un cerebro jurídico y técnico con 18,941 vectores normativos auditados matemáticamente:",
             "metrics": [
-                ("99.17% RAGAS Score", "Calificación Grado Producción Enterprise en las 10 dimensiones normativas"),
+                ("Evaluación RAGAS Enterprise", "Calificación Grado Producción Enterprise en las 10 dimensiones normativas"),
                 ("99.77% Precision", "Relevancia exacta en recuperación de artículos legales y estándares ISO"),
                 ("100.0% Faithfulness", "Cero alucinaciones: cada dictamen tiene trazabilidad documental exacta"),
             ],
@@ -682,7 +682,7 @@ def generate_corporate_commercial_pptx_and_pdf(
                         "04. Protocolo y Formato de Consentimiento Parental de Menores.",
                         "05. Registro Técnico Vivo de Sistemas de IA (Art. 31.1 PCM).",
                         "06. Manual de Ciberseguridad Agentic OWASP 2026 y PII.",
-                        "07. Reporte de Trazabilidad Normativa RAGAS (99.17%).",
+                        "07. Informe Técnico de Trazabilidad Normativa y Calidad RAG.",
                     ],
                 ),
                 (
@@ -701,7 +701,7 @@ def generate_corporate_commercial_pptx_and_pdf(
                         "13. Protocolo de Prevención del Sedentarismo Cognitivo y Tutoría.",
                         "14. Dictamen Pericial Antropológico de Equidad Intercultural (Art. 4 Ley 31814).",
                         "15. Protocolo de Calibración Bilingüe (Quechua/Matsigenka/Beca 18).",
-                        "16. Certificado Corporativo de Gobernanza de IA (4 Firmas).",
+                        "16. Dictamen Final de Cumplimiento y Gobernanza de IA (4 Especialistas).",
                     ],
                 ),
             ],
@@ -856,7 +856,7 @@ def generate_corporate_commercial_pptx_and_pdf(
                     ],
                 ),
             ],
-            "footer_note": "Consorcio de Arquitectura y Gobernanza de IA — Cusco & Lima, Perú 2026 | Auditoría Verificada con Qdrant RAG (99.17% RAGAS).",
+            "footer_note": "Consorcio de Arquitectura y Gobernanza de IA — Cusco & Lima, Perú 2026 | Arquitectura RAG de Alta Precisión sobre Qdrant.",
         },
     ]
 

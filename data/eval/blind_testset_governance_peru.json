@@ -1,0 +1,58 @@
+[
+  {
+    "id": "GOV-BLIND-01",
+    "category": "clasificacion_riesgo_ia",
+    "question": "¿Bajo qué criterios el D.S. N° 115-2025-PCM clasifica a un sistema de Inteligencia Artificial como de 'Alto Riesgo' en el Perú?",
+    "ground_truth": "El D.S. N° 115-2025-PCM clasifica un sistema de IA como de alto riesgo si su implementación puede comprometer derechos fundamentales, la salud, la seguridad ciudadana, infraestructura crítica, servicios esenciales, perfilamiento biométrico masivo o decisiones automatizadas en admisiones y empleo.",
+    "expected_concepts": ["derechos fundamentales", "salud", "seguridad", "biometrico", "infraestructura critica"]
+  },
+  {
+    "id": "GOV-BLIND-02",
+    "category": "oficial_ia_publico",
+    "question": "¿Qué entidad pública peruana está obligada a designar un Oficial de Inteligencia Artificial (OIA) según la Directiva N° 002-2026-PCM/SGTD?",
+    "ground_truth": "Todas las entidades que conforman el Sistema Nacional de Transformación Digital del Poder Ejecutivo, gobiernos regionales y locales que desplieguen modelos algorítmicos en la prestación de servicios digitales ciudadanos.",
+    "expected_concepts": ["sgtd", "transformacion digital", "entidades publicas", "oia"]
+  },
+  {
+    "id": "GOV-BLIND-03",
+    "category": "proteccion_datos_menores",
+    "question": "¿Cuáles son las condiciones legales para el tratamiento de datos personales de menores de edad en plataformas educativas según el D.S. N° 016-2024-JUS?",
+    "ground_truth": "Exige consentimiento expreso de padres o tutores para menores de 14 años, prohibición de perfilamiento publicitario encubierto, medidas de seguridad reforzadas y notificación obligatoria a la ANPD ante brechas de seguridad.",
+    "expected_concepts": ["14 años", "consentimiento", "padres", "anpd", "perfilamiento"]
+  },
+  {
+    "id": "GOV-BLIND-04",
+    "category": "escala_sancionadora_anpd",
+    "question": "¿Cuál es el rango de multas en Unidades Impositivas Tributarias (UIT) que puede imponer la ANPD por infracciones muy graves?",
+    "ground_truth": "Las infracciones muy graves conllevan sanciones de 50 hasta 100 UIT (Unidades Impositivas Tributarias), además de medidas correctivas de cese de tratamiento o destrucción de bases de datos.",
+    "expected_concepts": ["50 a 100 uit", "muy graves", "anpd", "medidas correctivas"]
+  },
+  {
+    "id": "GOV-BLIND-05",
+    "category": "iso_42001_alcance",
+    "question": "¿En qué se diferencia el estándar ISO/IEC 42001 del estándar de ciberseguridad ISO/IEC 27001?",
+    "ground_truth": "ISO/IEC 27001 se enfoca en el Sistema de Gestión de Seguridad de la Información (confidencialidad, integridad, disponibilidad), mientras que ISO/IEC 42001 es el estándar específico de Sistema de Gestión de Inteligencia Artificial (SGIA), centrado en transparencia algorítmica, equidad, explicabilidad, sesgo y supervisión humana.",
+    "expected_concepts": ["sgia", "sesgo", "explicabilidad", "transparencia", "seguridad"]
+  },
+  {
+    "id": "GOV-BLIND-06",
+    "category": "fuera_de_alcance_normativo",
+    "question": "¿Cuál es la sanción penal estipulada en la Ley 39950 sobre computación cuántica de combate en el Perú?",
+    "ground_truth": "No existe en el ordenamiento legal peruano ninguna ley con denominación 'Ley 39950 sobre computación cuántica de combate'. El marco vigente de IA está delimitado principalmente por la Ley N° 31814 y sus normas conexas.",
+    "expected_concepts": ["no existe", "31814", "ficticia", "ordenamiento"]
+  },
+  {
+    "id": "GOV-BLIND-07",
+    "category": "fuera_de_alcance_normativo",
+    "question": "¿Qué tarifa de arbitrios municipales cobra la Municipalidad de Miraflores por uso de servidores de GPU?",
+    "ground_truth": "El sistema normativo de gobernanza de IA no regula ni almacena tasas tributarias locales o arbitrios municipales de distritos específicos sobre hardware informático.",
+    "expected_concepts": ["no regula", "arbitrios", "tributaria", "fuera de contexto"]
+  },
+  {
+    "id": "GOV-BLIND-08",
+    "category": "registro_algoritmos",
+    "question": "¿Qué información debe contener obligatoriamente el Registro Técnico de Sistemas de IA según el artículo 31.1 del D.S. N° 115-2025-PCM?",
+    "ground_truth": "Finalidad del sistema, nivel de riesgo clasificado, arquitectura del modelo, fuentes y calidad de datos de entrenamiento, medidas de mitigación de sesgo, responsables técnicos y registro de incidentes.",
+    "expected_concepts": ["finalidad", "riesgo", "sesgo", "datos de entrenamiento", "responsables"]
+  }
+]
