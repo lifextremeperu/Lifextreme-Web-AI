@@ -355,23 +355,39 @@
       `;
     }
 
-    const q = (query || '').toLowerCase();
+    const q = (query || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const pastQueries = (Array.isArray(history) ? history.filter(m => m.role === 'user').map(m => String(m.content || '').toLowerCase()) : []).join(' ');
     const chips = [];
 
-    if (q.includes('fecha') || q.includes('diciembre') || q.includes('cuando')) {
+    if (q.includes('incluye') || q.includes('domo') || q.includes('glamping') || q.includes('comida') || q.includes('servicio')) {
+      chips.push(`<button type="button" class="max-chip" onclick="window.maxSendChipPrompt('¿Cómo nos aclimatamos a la altura?')">🩺 Aclimatación y altura</button>`);
+      chips.push(`<button type="button" class="max-chip" onclick="window.maxSendChipPrompt('¿Qué equipaje debo llevar en el Duffle Bag de 7 kg?')">🎒 Equipaje 7 kg</button>`);
+      chips.push(`<button type="button" class="max-chip subtle-book" onclick="window.maxOpenBookingOptions()">💰 Ver precios y reservar</button>`);
+    } else if (q.includes('tour') || (q.includes('cusco') && !q.includes('salkantay')) || q.includes('rutas') || q.includes('cuales') || q.includes('otra')) {
+      chips.push(`<button type="button" class="max-chip" onclick="window.maxSendChipPrompt('Cuéntame sobre Salkantay y los Domos Glamping')">🏔️ Salkantay & Domos (4D)</button>`);
+      chips.push(`<button type="button" class="max-chip" onclick="window.maxSendChipPrompt('Cuéntame sobre Ausangate y 7 Lagunas')">🌈 Ausangate 7 Lagunas (6D)</button>`);
+      chips.push(`<button type="button" class="max-chip" onclick="window.maxSendChipPrompt('¿Qué tours de 1 día tienen en Cusco?')">⚡ Rutas de 1 Día</button>`);
+    } else if (q.includes('fecha') || q.includes('diciembre') || q.includes('cuando') || q.includes('disponib')) {
       chips.push(`<button type="button" class="max-chip" onclick="window.maxSendChipPrompt('¿Qué incluye la expedición y los domos?')">✨ ¿Qué incluye?</button>`);
       chips.push(`<button type="button" class="max-chip" onclick="window.maxSendChipPrompt('¿Cómo nos aclimatamos a la altura?')">🩺 Aclimatación</button>`);
       chips.push(`<button type="button" class="max-chip subtle-book" onclick="window.maxOpenBookingOptions()">📅 Opciones de reserva</button>`);
-    } else if (q.includes('altura') || q.includes('aclimat') || q.includes('soroche')) {
+    } else if (q.includes('altura') || q.includes('aclimat') || q.includes('soroche') || q.includes('oxigeno')) {
       chips.push(`<button type="button" class="max-chip" onclick="window.maxSendChipPrompt('¿Qué equipaje debo llevar?')">🎒 Equipaje 7 kg</button>`);
       chips.push(`<button type="button" class="max-chip" onclick="window.maxNavigateSection('guias')">🧭 Conocer a los guías</button>`);
       chips.push(`<button type="button" class="max-chip subtle-book" onclick="window.maxOpenBookingOptions()">📅 Separar fecha</button>`);
-    } else if (q.includes('equipaje') || q.includes('mochila') || q.includes('llevar')) {
+    } else if (q.includes('equipaje') || q.includes('mochila') || q.includes('llevar') || q.includes('duffle') || q.includes('equipo')) {
       chips.push(`<button type="button" class="max-chip" onclick="window.maxNavigateSection('equipos')">⛺ Ver equipos en la web</button>`);
+      chips.push(`<button type="button" class="max-chip" onclick="window.maxSendChipPrompt('¿Cómo es el itinerario día por día?')">🗺️ Itinerario día por día</button>`);
       chips.push(`<button type="button" class="max-chip subtle-book" onclick="window.maxOpenBookingOptions()">📅 Opciones de reserva</button>`);
     } else {
-      chips.push(`<button type="button" class="max-chip" onclick="window.maxNavigateSection('destinos')">🗺️ Ver rutas en la web</button>`);
-      chips.push(`<button type="button" class="max-chip" onclick="window.maxSendChipPrompt('¿Qué fechas de salida tienen disponibles?')">🗓️ Consultar fechas</button>`);
+      if (!pastQueries.includes('incluye')) {
+        chips.push(`<button type="button" class="max-chip" onclick="window.maxSendChipPrompt('¿Qué incluye la expedición y los domos?')">✨ ¿Qué incluye?</button>`);
+      }
+      if (!pastQueries.includes('fecha')) {
+        chips.push(`<button type="button" class="max-chip" onclick="window.maxSendChipPrompt('¿Qué fechas de salida tienen disponibles?')">🗓️ Consultar fechas</button>`);
+      } else {
+        chips.push(`<button type="button" class="max-chip" onclick="window.maxNavigateSection('destinos')">🗺️ Ver rutas en la web</button>`);
+      }
       chips.push(`<button type="button" class="max-chip subtle-book" onclick="window.maxOpenBookingOptions()">📅 Opciones de reserva</button>`);
     }
 
@@ -518,19 +534,43 @@
   }
 
   function buildIntelligentLocalReply(query, bundle, hasActiveBooking, clientProfile) {
-    const q = (query || '').toLowerCase();
+    const q = (query || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const lastBotMsg = Array.isArray(history)
+      ? [...history].reverse().find(m => m.role === 'assistant')?.content || ''
+      : '';
+
     if (hasActiveBooking && clientProfile) {
       return `¡Hola <strong>${clientProfile.passenger_name || 'Explorador'}</strong>! 🏔️ Veo tu reserva confirmada <strong>${clientProfile.booking_code}</strong> para <strong>${clientProfile.tour_name}</strong>.<br><br>` +
         `• <strong>Escudo Médico & Aclimatación (Agente 1):</strong> Recuerda llegar a Cusco al menos 48h antes; en campamento mediremos tu saturación (SpO₂) a las 07:00 y 19:00 hrs e incluimos botas de compresión neumática y pediluvios botánicos.<br>` +
         `• <strong>Duffle Bag 7 kg (Agente 2):</strong> Te entregaremos tu duffle bag en el briefing la noche previa; los arrieros llevarán hasta 7 kg con pesaje digital certificado bajo la Ley N° 31614.`;
     }
-    if (q.includes('otra') || q.includes('otrra') || q.includes('opcion') || q.includes('ppcion') || q.includes('alternativa') || q.includes('rutas') || q.includes('cuales')) {
-      return `En Cusco y el Perú operamos varias travesías de clase mundial para que elijas según tu estilo:<br><br>` +
-        `• <strong>Salkantay Trek & Glamping (4D/3N):</strong> Domos Geodésicos frente al glaciar en Soraypampa (3,900m), desfase horario sin multitudes y cierre en Machu Picchu.<br>` +
-        `• <strong>Circuito Ausangate & 7 Lagunas (6D/5N):</strong> Alta montaña pura rodeando el Apu Ausangate (pasos de 5,000m), aguas termales de Pacchanta y cero masificación.<br>` +
-        `• <strong>Choquequirao Expedición Legendaria (4D/3N):</strong> El cañón del Apurímac y la ciudadela hermana de Machu Picchu en exclusividad.<br>` +
-        `• <strong>Cordillera Blanca en Huaraz:</strong> Trekking Santa Cruz (4D) y Laguna 69.<br><br>` +
-        `¿Buscas una ruta que termine en Machu Picchu o prefieres una expedición de alta montaña y lagunas como Ausangate?`;
+    if (q.includes('incluye') || q.includes('domo') || q.includes('glamping') || q.includes('servicio') || q.includes('alojamiento') || q.includes('comida') || q.includes('alimentacion')) {
+      return `En <strong>${bundle.title}</strong> incluimos toda la logística de principio a fin:<br><br>` +
+        `• <strong>Alojamiento & Domos Glamping:</strong> Domos Geodésicos en Soraypampa / campamentos térmicos 4 estaciones con camas confortables y duchas calientes.<br>` +
+        `• <strong>Alimentación Completa:</strong> Chefs de montaña (desayunos proteicos, almuerzos, cenas calientes, hora del té y opciones vegetarianas/veganas).<br>` +
+        `• <strong>Equipaje Libre (Duffle Bag 7 kg):</strong> Nuestros arrieros llevan hasta 7 kg de tu equipaje (Ley N° 31614); tú solo caminas con una mochila ligera.<br>` +
+        `• <strong>Entradas, Tren y Seguridad:</strong> Boleto oficial a Machu Picchu (en rutas hacia la Llaqta), tren de retorno, transporte completo y guía UIAGM/WFR con control de oxígeno 2 veces al día.<br><br>` +
+        `¿Te gustaría saber cómo manejamos la <strong>aclimatación a la altura</strong> o ver las <strong>opciones de reserva</strong>?`;
+    }
+    if (q.includes('1 dia') || q.includes('un dia') || q.includes('vinicunca') || q.includes('7 colores') || (q.includes('humantay') && !q.includes('salkantay'))) {
+      return `Nuestras rutas de <strong>1 Día en Cusco (Montaña de 7 Colores + Valle Rojo y Laguna Humantay)</strong> operan con <strong>salida temprana anti-multitudes (03:30 am)</strong> para que disfrutes el paisaje sin aglomeraciones.<br><br>` +
+        `Incluyen transporte turístico, desayuno y almuerzo buffet andino, bastones de carbono, oxígeno médico a bordo y guía certificado (<strong>S/ 230</strong> por persona). ¿Te gustaría usarlas para aclimatarte antes de un trek más largo o como excursiones principales?`;
+    }
+    if (q.includes('otra') || q.includes('otrra') || q.includes('opcion') || q.includes('ppcion') || q.includes('alternativa') || q.includes('rutas') || q.includes('cuales') || q.includes('tours en cusco') || q.includes('tour en cusco') || q.includes('informacion de tour') || q.includes('que tours')) {
+      return `En <strong>Cusco</strong> operamos dos categorías de experiencias según los días que tengas disponibles:<br><br>` +
+        `• <strong>Salkantay Trek & Domos Glamping (4D/3N):</strong> Laguna Humantay, noche en Domos frente al glaciar en Soraypampa, paso de 4,630m sin multitudes y cierre en Machu Picchu.<br>` +
+        `• <strong>Circuito Ausangate & 7 Lagunas (6D/5N):</strong> Alta montaña pura a 5,000m, aguas termales de Pacchanta y cero masificación.<br>` +
+        `• <strong>Choquequirao Legendario (4D/3N)</strong> y <strong>Camino Inca Clásico (4D/3N)</strong>.<br>` +
+        `• <strong>Rutas de 1 Día:</strong> Montaña de 7 Colores & Valle Rojo y Laguna Humantay.<br><br>` +
+        `¿Buscas una travesía de varios días que llegue a Machu Picchu o prefieres excursiones de 1 día desde Cusco?`;
+    }
+    if (q.includes('itinerario') || q.includes('dia por dia') || q.includes('recorrido')) {
+      return `Aquí tienes el itinerario resumido de <strong>${bundle.title}</strong>:<br><br>` +
+        `• <strong>Día 1:</strong> Cusco → Challacancha → ascenso a la <strong>Laguna Humantay (4,200m)</strong> y noche en <strong>Domos Glamping en Soraypampa</strong>.<br>` +
+        `• <strong>Día 2:</strong> Salida temprana sin multitudes hacia el <strong>Abra Salkantay (4,630m)</strong> y descenso a la ceja de selva.<br>` +
+        `• <strong>Día 3:</strong> Sendero tropical de cafetales orgánicos en Lucmabamba y llegada a <strong>Aguas Calientes</strong> (hotel incluido).<br>` +
+        `• <strong>Día 4:</strong> Visita guiada en <strong>Machu Picchu</strong>, tren panorámico a Ollantaytambo y retorno privado a Cusco.<br><br>` +
+        `¿Para qué mes estás planeando realizar la travesía?`;
     }
     if (q.includes('ausangate')) {
       return `El <strong>Circuito Ausangate & 7 Lagunas Glamping (6D/5N)</strong> es nuestra ruta más espectacular de alta montaña en Cusco: rodeamos el nevado sagrado Ausangate pasando por pasos como Palomani (5,100 msnm), las <strong>7 Lagunas turquesas de Pacchanta</strong> con aguas termales y comunidades alpaqueras.<br><br>` +
@@ -549,9 +589,9 @@
         `¿Buscas trekking escénico entre lagunas o te gustaría coronar cumbre en glaciar?`;
     }
     if (q.includes('fecha') || q.includes('diciembre') || q.includes('cuando') || q.includes('salid') || q.includes('disponib') || q.includes('mes')) {
-      const monthMention = q.includes('diciembre') ? 'todo el mes de <strong>diciembre (del 1 al 31 de diciembre, incluyendo salidas especiales de Navidad y Año Nuevo)</strong>' : '<strong>todos los días de la semana</strong> con salidas confirmadas a partir de 2 pasajeros';
+      const monthMention = q.includes('diciembre') ? 'todo el mes de <strong>diciembre (del 1 al 31 de diciembre, incluyendo salidas especiales de Navidad y Año Nuevo)</strong>' : '<strong>todos los días del año</strong> con salidas confirmadas a partir de 2 pasajeros';
       return `Para <strong>${bundle.title}</strong> tenemos <strong>salidas diarias garantizadas durante ${monthMention}</strong>, tanto en grupo reducido (ratio máx. 1:8 con guía UIAGM/WFR) como en modalidad Privada VIP.<br><br>` +
-        `Incluimos <strong>Duffle Bag de 7 kg</strong> porteado por arrieros (Ley N° 31614), desfase horario (<em>Offset Trekking</em> sin multitudes) y monitoreo de oxígeno dos veces al día. ¿Para qué días aproximados desean viajar y cuántos serían en el grupo?`;
+        `Incluimos <strong>Domos Geodésicos / Campamentos Pro</strong>, <strong>Duffle Bag de 7 kg</strong> porteado por arrieros (Ley N° 31614) y monitoreo de oxígeno dos veces al día. ¿En qué quincena o fecha aproximada desean viajar y cuántos serían en el grupo?`;
     }
     if (q.includes('altura') || q.includes('soroche') || q.includes('aclimat') || q.includes('oxigeno')) {
       return `En <strong>${bundle.title}</strong> aplicamos el protocolo de nuestro <strong>Agente Médico & Aclimatación</strong>:<br><br>` +
@@ -563,7 +603,10 @@
         `• Te entregamos en Cusco un <strong>Duffle Bag oficial para hasta 7.0 kg</strong> (allí va tu saco de dormir y ropa de abrigo), que llevan nuestros arrieros con pesaje digital visible.<br>` +
         `• Tú solo caminas con una <strong>mochila ligera de día (20-25L)</strong>. ¿Ya cuentas con equipo de trekking o te gustaría ver qué implementos incluimos?`;
     }
-    return `En <strong>${bundle.title}</strong> (${bundle.dept}) contamos con salidas diarias confirmadas en grupos pequeños o privados, <strong>Duffle Bag de 7 kg</strong> porteado (Ley N° 31614), guía certificado UIAGM/WFR y monitoreo biométrico de altura.<br><br>Cuéntame un poco más de tu plan: ¿para qué mes estás pensando viajar y cuántas personas vienen contigo?`;
+    if (lastBotMsg.includes('Salkantay') || lastBotMsg.includes('salidas diarias')) {
+      return `Para <strong>${bundle.title}</strong> la tarifa base es de <strong>S/ ${bundle.basePrice}</strong> por persona (o <strong>S/ ${bundle.totalBundle}</strong> con el Paquete All-Inclusive que suma todo el equipo técnico de montaña y seguro extremo), y puedes separar tu cupo hoy con el <strong>30% (S/ ${bundle.reserva30})</strong>.<br><br>¿Te gustaría ver el detalle día por día o abrir el configurador de reserva?`;
+    }
+    return `En <strong>${bundle.title}</strong> (${bundle.dept}) contamos con salidas diarias confirmadas en grupos pequeños o privados, <strong>Domos Glamping</strong>, <strong>Duffle Bag de 7 kg</strong> porteado (Ley N° 31614) y guía certificado UIAGM/WFR.<br><br>Cuéntame un poco más de tu plan: ¿para qué mes estás pensando viajar y cuántas personas vienen contigo?`;
   }
 
   function createSalesCardHtml(bundle) {
@@ -749,8 +792,8 @@
     // 3) /api/max-chat (puente serverless que también reenvía al túnel Qdrant)
     const isHttpsPage = window.location.protocol === 'https:';
     const candidateEndpoints = isHttpsPage
-      ? [ENDPOINT, '/api/max-chat']
-      : ['http://localhost:8000/webhook/lifextreme', ENDPOINT, '/api/max-chat'];
+      ? ['/api/max-chat', ENDPOINT]
+      : ['http://localhost:8000/webhook/lifextreme', '/api/max-chat', ENDPOINT];
 
     // Solo mostrar la tarjeta de reserva si el usuario tiene intención explícita de reservar;
     // de lo contrario, mostrar píldoras sutiles para guiar la conversación de forma orgánica.
