@@ -4293,23 +4293,76 @@
 
     <!-- Stripe Checkout -->
     <div id="stripe-checkout-modal"
-        class="hidden fixed inset-0 z-[4000] bg-slate-900/60 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="bg-white text-slate-900 w-full max-w-4xl rounded-[48px] overflow-hidden flex flex-col lg:flex-row shadow-3xl">
-            <div class="flex-1 p-12 lg:p-16 border-r border-slate-50">
-                <h3 class="text-2xl font-black italic mb-8">Detalles de Orden</h3>
-                <div id="stripe-order-items" class="space-y-6 mb-8 max-h-64 overflow-y-auto pr-4"></div>
-                <div class="border-t pt-6 flex justify-between items-center"><span
-                        class="text-xs font-black">SUBTOTAL</span><span id="stripe-total-amount"
-                        class="text-xl font-black"></span></div>
+        class="hidden fixed inset-0 z-[4000] bg-slate-900/75 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
+        <div class="bg-white text-slate-900 w-full max-w-4xl max-h-[90vh] rounded-[32px] lg:rounded-[40px] overflow-y-auto lg:overflow-hidden flex flex-col lg:flex-row shadow-3xl relative border border-slate-200/80">
+            <!-- Columna Izquierda: Detalles de Orden y Garantías -->
+            <div class="flex-1 p-6 sm:p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-slate-100 flex flex-col justify-between lg:overflow-y-auto custom-scrollbar bg-white">
+                <div>
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center gap-3">
+                            <img src="/assets/images/lifextreme_logo_icon_64.png" alt="Lifextreme" class="w-9 h-9 rounded-xl shadow-sm" width="36" height="36">
+                            <div>
+                                <span class="text-[9px] font-black uppercase tracking-widest text-primary block">Resumen Oficial</span>
+                                <h3 class="text-xl sm:text-2xl font-black italic leading-none text-slate-900">Detalles de Orden</h3>
+                            </div>
+                        </div>
+                        <button data-action="close-checkout" class="lg:hidden w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600">
+                            <i class="ri-close-line text-xl"></i>
+                        </button>
+                    </div>
+
+                    <div id="stripe-order-items" class="space-y-4 mb-6 max-h-56 overflow-y-auto pr-2 custom-scrollbar"></div>
+
+                    <div class="bg-slate-50 rounded-2xl p-4 border border-slate-200/80 flex justify-between items-center mb-6">
+                        <div>
+                            <span class="text-[10px] font-black text-slate-400 uppercase tracking-wider block">Total con Dcto. Socio Elite (-15%)</span>
+                            <span class="text-xs font-bold text-emerald-600">Impuestos y permisos incluidos</span>
+                        </div>
+                        <span id="stripe-total-amount" class="text-2xl font-black text-slate-900"></span>
+                    </div>
+                </div>
+
+                <!-- Garantías Operativas Lifextreme (evita espacio blanco vacío y da confianza) -->
+                <div class="bg-slate-950 text-white rounded-3xl p-5 space-y-3 mt-auto">
+                    <div class="flex items-center justify-between border-b border-white/10 pb-3">
+                        <span class="text-[10px] font-black uppercase tracking-widest text-amber-400 flex items-center gap-1.5">
+                            <i class="ri-shield-star-fill text-sm"></i> Garantía Oficial Lifextreme
+                        </span>
+                        <span class="text-[9px] font-bold bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-full border border-emerald-500/30">UIAGM / WFR</span>
+                    </div>
+                    <div class="space-y-2 text-[11px] text-slate-300 leading-snug">
+                        <div class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-fill text-emerald-400 mt-0.5 shrink-0"></i>
+                            <span><strong class="text-white">Bloqueo Inmediato (30%):</strong> Asegura tus boletos, domos y guía oficial hoy mismo.</span>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-fill text-emerald-400 mt-0.5 shrink-0"></i>
+                            <span><strong class="text-white">Reprogramación Flexible:</strong> Cambio de fecha sin penalidad hasta 7 días antes.</span>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-fill text-emerald-400 mt-0.5 shrink-0"></i>
+                            <span><strong class="text-white">Soporte 24/7 en Cusco:</strong> Confirmación y voucher digital directo a tu WhatsApp y correo.</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="flex-1 p-12 lg:p-16 bg-slate-50 relative overflow-y-auto">
-                <button data-action="close-checkout"
-                    class="mb-6 text-slate-400 underline font-bold uppercase text-[10px] hover:text-red-500">Cancelar
-                    Operación</button>
+
+            <!-- Columna Derecha: Plan de Pago y Métodos (Scroll Interno Fluido) -->
+            <div class="flex-1 p-6 sm:p-8 lg:p-10 bg-slate-50 relative lg:overflow-y-auto custom-scrollbar">
+                <div class="flex items-center justify-between mb-5">
+                    <button data-action="close-checkout"
+                        class="text-slate-500 hover:text-red-500 font-black uppercase text-[10px] tracking-wider flex items-center gap-1 transition-colors cursor-pointer">
+                        <i class="ri-arrow-left-line text-sm"></i> Cancelar Operación
+                    </button>
+                    <button data-action="close-checkout" aria-label="Cerrar"
+                        class="w-8 h-8 rounded-full bg-white border border-slate-200 hover:bg-red-50 hover:text-red-500 text-slate-500 flex items-center justify-center transition-colors cursor-pointer shadow-sm">
+                        <i class="ri-close-line text-lg"></i>
+                    </button>
+                </div>
 
                 <!-- ELITE MEMBER PAYMENT PLAN SELECTOR -->
                 <div
-                    class="mb-8 bg-gradient-to-br from-primary/5 to-accent/5 p-6 rounded-3xl border-2 border-primary/20">
+                    class="mb-6 bg-gradient-to-br from-primary/5 to-accent/5 p-5 rounded-3xl border-2 border-primary/20">
                     <div class="flex items-center justify-between mb-4">
                         <div class="flex items-center gap-3">
                             <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
@@ -4398,38 +4451,38 @@
                     </div>
                 </div>
 
-                <h4 class="text-xl font-black italic text-slate-900 mb-6">Selecciona Método de Pago</h4>
+                <h4 class="text-lg font-black italic text-slate-900 mb-3">Selecciona Método de Pago</h4>
 
                 <!-- Payment Tabs -->
-                <div class="grid grid-cols-2 gap-4 mb-8">
+                <div class="grid grid-cols-2 gap-3 mb-5">
                     <button data-action="switch-payment" data-method="qr" id="btn-pay-qr"
-                        class="bg-white border-2 border-primary text-primary p-4 rounded-2xl flex flex-col items-center gap-2 transition-all shadow-md">
-                        <i class="ri-qr-code-line text-2xl"></i>
+                        class="bg-white border-2 border-primary text-primary p-3 rounded-2xl flex flex-col items-center gap-1.5 transition-all shadow-md cursor-pointer">
+                        <i class="ri-qr-code-line text-xl"></i>
                         <span class="text-[9px] font-black uppercase">Yape / Plin</span>
                     </button>
                     <button data-action="switch-payment" data-method="bank" id="btn-pay-bank"
-                        class="bg-white border-2 border-transparent text-slate-400 hover:text-slate-600 p-4 rounded-2xl flex flex-col items-center gap-2 transition-all">
-                        <i class="ri-bank-card-line text-2xl"></i>
+                        class="bg-white border-2 border-transparent text-slate-400 hover:text-slate-600 p-3 rounded-2xl flex flex-col items-center gap-1.5 transition-all cursor-pointer">
+                        <i class="ri-bank-card-line text-xl"></i>
                         <span class="text-[9px] font-black uppercase">Transferencia</span>
                     </button>
                 </div>
 
                 <!-- QR Payment View -->
-                <div id="view-pay-qr" class="space-y-6 text-center">
-                    <div class="bg-white p-6 rounded-3xl shadow-lg inline-block border border-slate-100">
+                <div id="view-pay-qr" class="space-y-3 text-center">
+                    <div class="bg-white p-4 rounded-3xl shadow-md inline-block border border-slate-100">
                         <img loading="lazy" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=00020101021126580016A00000067701011101130036123456789020465.10530360490000508101004HOLA5802PE5915LIFEXTREME_CORP6007LIFEXTR62190115REFERENCIA_PAGO63041234"
-                            class="w-40 h-40 mx-auto opacity-90" alt="QR Yape/Plin">
-                        <p class="text-[10px] font-black text-slate-400 mt-4 uppercase">Escanear con Yape o Plin</p>
+                            class="w-32 h-32 mx-auto opacity-90" alt="QR Yape/Plin">
+                        <p class="text-[9px] font-black text-slate-400 mt-2 uppercase">Escanear con Yape o Plin</p>
                     </div>
                     <div>
-                        <p class="text-[10px] font-bold text-slate-500 mb-1">Titular: Lifextreme Adventures SAC</p>
-                        <p class="text-lg font-black text-slate-900 tracking-widest">987 654 321</p>
+                        <p class="text-[10px] font-bold text-slate-500 mb-0.5">Titular: Lifextreme Perú</p>
+                        <p class="text-base font-black text-slate-900 tracking-widest">958 050 928</p>
                     </div>
                 </div>
 
                 <!-- Bank Transfer View (Hidden by default) -->
-                <div id="view-pay-bank" class="hidden space-y-6">
-                    <div class="bg-white p-6 rounded-3xl border border-slate-100 space-y-4">
+                <div id="view-pay-bank" class="hidden space-y-4">
+                    <div class="bg-white p-4 rounded-3xl border border-slate-100 space-y-3">
                         <div class="flex items-center gap-4">
                             <div
                                 class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-black text-xs">
@@ -4449,21 +4502,21 @@
                             </div>
                         </div>
                     </div>
-                    <div class="bg-indigo-50 p-4 rounded-2xl flex items-start gap-3">
+                    <div class="bg-indigo-50 p-3 rounded-2xl flex items-start gap-2.5">
                         <i class="ri-information-fill text-primary mt-0.5"></i>
                         <p class="text-[10px] font-bold text-primary leading-tight">Envía la constancia de transferencia
                             al WhatsApp oficial para validar tu reserva inmediatamente.</p>
                     </div>
                 </div>
 
-                <div class="mt-8 pt-6 border-t border-slate-100 space-y-3">
+                <div class="mt-6 pt-4 border-t border-slate-200/80 space-y-2.5">
                     <button id="confirm-payment-btn" data-action="confirm-payment"
-                        class="w-full bg-emerald-500 text-white py-4 rounded-2xl font-black uppercase text-[11px] tracking-widest shadow-xl shadow-emerald-500/20 hover:scale-[1.02] transition-all">
+                        class="w-full bg-emerald-500 hover:bg-emerald-600 text-white py-3.5 rounded-2xl font-black uppercase text-[11px] tracking-widest shadow-xl shadow-emerald-500/20 hover:scale-[1.01] transition-all cursor-pointer">
                         Confirmar Pago Enviado
                     </button>
                     <button
                         onclick="navigateTo('home'); document.getElementById('stripe-checkout-modal').classList.add('hidden'); document.getElementById('cart-drawer').classList.add('translate-x-full');"
-                        class="w-full bg-white border-2 border-slate-200 text-slate-700 py-4 rounded-2xl font-black uppercase text-[11px] tracking-widest hover:border-primary hover:text-primary transition-all flex items-center justify-center gap-2 group">
+                        class="w-full bg-white border-2 border-slate-200 text-slate-700 py-3 rounded-2xl font-black uppercase text-[11px] tracking-widest hover:border-primary hover:text-primary transition-all flex items-center justify-center gap-2 group cursor-pointer">
                         <i class="ri-home-4-line text-lg group-hover:scale-110 transition-transform"></i>
                         Volver al Inicio
                     </button>
