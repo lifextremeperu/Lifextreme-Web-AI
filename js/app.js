@@ -2425,7 +2425,7 @@ async function confirmManualPayment() {
                 price: amountToday,
                 contact: {
                     name: localStorage.getItem('lifextreme_user_name') || 'Explorador Web',
-                    email: localStorage.getItem('lifextreme_user_email') || 'contacto@lifextreme.store',
+                    email: localStorage.getItem('lifextreme_user_email') || 'contacto@lifextreme.com.pe',
                     phone: '+51 958 050 928'
                 }
             }).catch(() => {});
@@ -2434,7 +2434,7 @@ async function confirmManualPayment() {
         const bookingPayload = {
             booking_code: bookingCode,
             passenger_name: localStorage.getItem('lifextreme_user_name') || `Explorador (${bookingCode})`,
-            email: localStorage.getItem('lifextreme_user_email') || 'contacto@lifextreme.store',
+            email: localStorage.getItem('lifextreme_user_email') || 'contacto@lifextreme.com.pe',
             phone: localStorage.getItem('lifextreme_user_phone') || '+51 958 050 928',
             tour_name: tourNames,
             tour_date: tourDateStr,
@@ -2455,7 +2455,7 @@ async function confirmManualPayment() {
             body: JSON.stringify({
                 booking_code: bookingCode,
                 passenger_name: localStorage.getItem('lifextreme_user_name') || `Explorador (${bookingCode})`,
-                email: localStorage.getItem('lifextreme_user_email') || 'contacto@lifextreme.store',
+                email: localStorage.getItem('lifextreme_user_email') || 'contacto@lifextreme.com.pe',
                 phone: '+51 958 050 928',
                 tour_name: tourNames,
                 tour_date: tourDateStr,
@@ -2472,7 +2472,7 @@ async function confirmManualPayment() {
             body: JSON.stringify({
                 tipo: 'booking_confirmation',
                 fullName: localStorage.getItem('lifextreme_user_name') || `Reserva Web (${bookingCode})`,
-                email: localStorage.getItem('lifextreme_user_email') || 'contacto@lifextreme.store',
+                email: localStorage.getItem('lifextreme_user_email') || 'contacto@lifextreme.com.pe',
                 phone: '+51 958 050 928',
                 tourName: `${tourNames} [${currentPaymentPlan === 'split' ? 'Plan 30-30-40' : 'Pago 100%'}]`,
                 date: tourDateStr,

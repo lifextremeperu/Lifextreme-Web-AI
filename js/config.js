@@ -12,11 +12,11 @@ const COMPANY_CONFIG = {
     // CONTACTO OFICIAL
     contact: {
         email: {
-            info: "contacto@lifextreme.store",
-            reservas: "contacto@lifextreme.store",
-            soporte: "contacto@lifextreme.store",
-            legal: "contacto@lifextreme.store",
-            privacidad: "contacto@lifextreme.store"
+            info: "contacto@lifextreme.com.pe",
+            reservas: "contacto@lifextreme.com.pe",
+            soporte: "contacto@lifextreme.com.pe",
+            legal: "contacto@lifextreme.com.pe",
+            privacidad: "contacto@lifextreme.com.pe"
         },
         phone: {
             main: "+51 958 050 928",
@@ -120,7 +120,7 @@ const COMPANY_CONFIG = {
     // CONFIGURACIÓN DE NOTIFICACIONES TRANSACCIONALES
     email: {
         provider: "Zoho Enterprise SMTP (Serverless /api/send-email)",
-        sender: "contacto@lifextreme.store"
+        sender: "contacto@lifextreme.com.pe"
     },
 
     // MONEDA E IDIOMAS

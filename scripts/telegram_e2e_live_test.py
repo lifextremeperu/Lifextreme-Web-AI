@@ -63,7 +63,7 @@ async def run_e2e_and_listen():
     booking = registry.register_booking(BookingRecord(
         booking_code=BOOKING_CODE,
         passenger_name="Socio Elite Lifextreme",
-        email="contacto@lifextreme.store",
+        email="contacto@lifextreme.com.pe",
         phone=USER_PHONE,
         tour_name="Salkantay Trek & Domos Glamping VIP 5D",
         tour_date="2026-11-15",
@@ -171,7 +171,7 @@ async def run_e2e_and_listen():
     rep_agent = ReputationQualityAgent()
     rep_res = rep_agent.process_feedback(TripFeedbackInput(
         passenger_name="Socio Lifextreme",
-        email="contacto@lifextreme.store",
+        email="contacto@lifextreme.com.pe",
         phone=USER_PHONE,
         nps_score=10,
         overall_rating_stars=5,

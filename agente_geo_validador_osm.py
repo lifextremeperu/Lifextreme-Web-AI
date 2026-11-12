@@ -68,7 +68,7 @@ def buscar_lugares_osm(query: str) -> List[dict]:
     """Realiza una búsqueda geoespacial usando Nominatim de OpenStreetMap"""
     headers = {
         # OSM requiere un User-Agent identificable para no bloquear la petición
-        "User-Agent": "Lifextreme-GeoAgent/1.0 (contacto@lifextreme.store)"
+        "User-Agent": "Lifextreme-GeoAgent/1.0 (contacto@lifextreme.com.pe)"
     }
     
     payload = {

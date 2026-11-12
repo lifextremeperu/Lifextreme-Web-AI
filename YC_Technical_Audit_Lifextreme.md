@@ -47,7 +47,7 @@ All early seed-stage risks identified in prior internal reviews have been **100%
 
 1. **Inference Bottlenecks Resolved:** Migrated primary inference from local single-threaded Ollama to **Groq LPU (`openai/gpt-oss-120b`)** while retaining Ollama as an automated local fallback in `backend/src/server.py`.
 2. **Zero Catalog Hallucination (Metadata Drift Resolved):** Implemented a deterministic pre-search layer (`search_web_catalog` over `web_catalog.json`) combined with dual-collection Qdrant vector search (`Lifextreme_Knowledge` + `Lifextreme_FQSA_Knowledge`), guaranteeing exact prices, durations, and regions for all 251 web assets.
-3. **End-to-End Checkout & Serverless Reliability:** Fixed all serverless email routes in `/api/send-email.js`, unified official corporate communications (`+51 958 050 928` / `contacto@lifextreme.store`), and hardened HTTP security headers (`CSP`, `X-Frame-Options`, `.vercelignore`).
+3. **End-to-End Checkout & Serverless Reliability:** Fixed all serverless email routes in `/api/send-email.js`, unified official corporate communications (`+51 958 050 928` / `contacto@lifextreme.com.pe`), and hardened HTTP security headers (`CSP`, `X-Frame-Options`, `.vercelignore`).
 
 ---
 

@@ -15,7 +15,7 @@ Todos los módulos críticos de frontend, pasarelas de reserva, funciones server
 | **Catálogo Comercial (251 Activos)** | ✅ Operativo | **40 Tours**, **28 Eventos Outdoor**, **164 Parques de Aventura**, **4 Guías UIAGM**, **15 Equipos**. |
 | **Motor IA Conversacional (MAX RAG)** | ✅ Operativo | **Groq LPU (`openai/gpt-oss-120b`)** + **Qdrant (`336,869` vectores)** + Inyección directa al carrito. |
 | **Pasarela y Reserva Fraccionada 30/30/40** | ✅ Operativo | Modal de pago QR (Yape/Plin), Transferencia Bancaria, Niubiz, PayPal y cronograma automático 30%-30%-40%. |
-| **Persistencia Cloud & Emails (`/api/send-email`)** | ✅ Operativo | Sincronización con **Supabase PostgreSQL** + **Zoho Enterprise SMTP SSL** (`contacto@lifextreme.store`). |
+| **Persistencia Cloud & Emails (`/api/send-email`)** | ✅ Operativo | Sincronización con **Supabase PostgreSQL** + **Zoho Enterprise SMTP SSL** (`contacto@lifextreme.com.pe`). |
 | **Cumplimiento Legal e INDECOPI** | ✅ Operativo | `terminos.html`, `privacidad.html` y `reclamaciones.html` (con generación de código `REC-2026-XXXXXX` e impresión). |
 | **Data Room para Inversionistas** | ✅ Operativo | `investors.html` (telemetría conectada a `/health`) + `investor-brain.html` (Topología 3D WebGL). |
 | **Seguridad & DevSecOps** | ✅ Operativo | Cabeceras `CSP`, `X-Frame-Options: DENY`, `.vercelignore` blindado y auditoría **Argon SRE MCP**. |

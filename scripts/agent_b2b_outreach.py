@@ -31,7 +31,7 @@ COLLECTION_NAME = "Lifextreme_Knowledge"
 OLLAMA_URL = "http://localhost:11434/api/generate"
 OLLAMA_MODEL = "llama3:8b"
 
-ZOHO_EMAIL = "contacto@lifextreme.store"
+ZOHO_EMAIL = "contacto@lifextreme.com.pe"
 ZOHO_PASSWORD = os.getenv("ZOHO_PASSWORD", "TU_PASSWORD_AQUI")
 ZOHO_SMTP = "smtp.zoho.com"
 ZOHO_PORT = 465

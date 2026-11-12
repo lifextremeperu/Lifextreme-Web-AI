@@ -42,7 +42,7 @@ window.processBookingCusco = async function (bookingData) {
                 body: JSON.stringify({
                     tipo: 'booking_confirmation',
                     fullName: bookingData.contact?.name || "Explorador Web",
-                    email: bookingData.contact?.email || "contacto@lifextreme.store",
+                    email: bookingData.contact?.email || "contacto@lifextreme.com.pe",
                     phone: bookingData.contact?.phone || "+51 958 050 928",
                     tourName: bookingData.tourName || "Expedición Lifextreme",
                     date: bookingData.date,

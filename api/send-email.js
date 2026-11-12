@@ -1,7 +1,7 @@
 // ============================================
 // LIFEXTREME — Vercel Serverless Email Function
 // Vía: Zoho SMTP (smtp.zoho.com:465)
-// Destino: contacto@lifextreme.store
+// Destino: contacto@lifextreme.com.pe
 // ============================================
 
 import nodemailer from 'nodemailer';
@@ -12,7 +12,7 @@ const transporter = nodemailer.createTransport({
     port: 465,
     secure: true, // SSL
     auth: {
-        user: process.env.ZOHO_USER, // contacto@lifextreme.store
+        user: process.env.ZOHO_USER, // contacto@lifextreme.com.pe
         pass: process.env.ZOHO_PASS  // App Password de Zoho
     }
 });
@@ -177,7 +177,7 @@ function buildWelcomeEmail(data) {
 
               <p style="color:#94a3b8;font-size:12px;text-align:center;margin:0;">
                 ¿Tienes preguntas? Escríbenos a 
-                <a href="mailto:contacto@lifextreme.store" style="color:#f59e0b;">contacto@lifextreme.store</a>
+                <a href="mailto:contacto@lifextreme.com.pe" style="color:#f59e0b;">contacto@lifextreme.com.pe</a>
               </p>
             </div>
 
@@ -204,7 +204,7 @@ function buildInternalAlert(data) {
 
     return {
         from: `"Lifextreme Web" <${process.env.ZOHO_USER}>`,
-        to: process.env.ZOHO_USER, // contacto@lifextreme.store
+        to: process.env.ZOHO_USER, // contacto@lifextreme.com.pe
         replyTo: data.email,
         subject: `🏔️ NUEVO PARTNER: ${data.empresa} (${data.pais}) — Revisión Pendiente`,
         html: `
@@ -278,7 +278,7 @@ function buildInternalAlert(data) {
             </div>
 
             <div style="padding:16px 28px;border-top:1px solid #334155;text-align:center;">
-              <p style="color:#475569;font-size:11px;margin:0;">Lifextreme Web System · contacto@lifextreme.store</p>
+              <p style="color:#475569;font-size:11px;margin:0;">Lifextreme Web System · contacto@lifextreme.com.pe</p>
             </div>
           </div>
         </body>

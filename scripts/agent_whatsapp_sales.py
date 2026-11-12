@@ -49,7 +49,7 @@ LLM_MODEL       = os.getenv("LLM_MODEL", "mistral:latest")
 WHATSAPP_NUMBER = "51958050928"
 YAPE_NUMBER     = "958 050 928"
 WEB_URL         = "https://www.lifextreme.store"
-EMAIL_CONTACTO  = "contacto@lifextreme.store"
+EMAIL_CONTACTO  = "contacto@lifextreme.com.pe"
 
 # Base de datos de leads
 DB_PATH = os.path.join(
