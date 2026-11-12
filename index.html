@@ -896,10 +896,10 @@
                 </a>
             </nav>
 
-            <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+                        <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
                 <!-- COIN WALLET WIDGET (ABRE MÓDULO LIFECOINS) -->
                 <button type="button" onclick="openLifecoinsModal()"
-                    class="flex items-center gap-1.5 bg-amber-100/80 hover:bg-amber-400/30 px-2.5 py-1.5 rounded-xl transition-all border border-amber-300 shadow-sm group shrink-0 cursor-pointer"
+                    class="hidden sm:flex items-center gap-1.5 bg-amber-100/80 hover:bg-amber-400/30 px-2.5 py-1.5 rounded-xl transition-all border border-amber-300 shadow-sm group shrink-0 cursor-pointer"
                     title="Ver Mis Recompensas y Canjear Lifecoins">
                     <i class="ri-coin-fill text-amber-500 group-hover:rotate-12 transition-transform text-base sm:text-lg"></i>
                     <div class="leading-none text-left">
@@ -919,11 +919,11 @@
                         class="w-9 h-9 rounded-xl object-cover border border-slate-200 shadow-sm" loading="lazy">
                 </div>
 
-                <!-- SINGLE LANGUAGE DROPDOWN SELECTOR -->
-                <div class="relative" id="lang-dropdown-wrapper" style="position:relative;">
+                <!-- SINGLE LANGUAGE DROPDOWN SELECTOR (DESKTOP / TABLET) -->
+                <div class="relative hidden sm:block" id="lang-dropdown-wrapper" style="position:relative;">
                     <button type="button" id="lang-dropdown-btn"
                         onclick="event.stopPropagation(); var m=document.getElementById('lang-dropdown-menu'); if(m){ var open=(m.style.display==='none'||m.classList.contains('hidden')); m.classList.toggle('hidden', !open); m.style.display=open?'block':'none'; }"
-                        class="flex items-center gap-1.5 bg-white hover:bg-slate-50 px-2.5 py-2 rounded-xl shadow-sm border border-slate-200 hover:border-primary/40 transition-all cursor-pointer text-[10px] font-black uppercase tracking-wider text-slate-700"
+                        class="flex items-center gap-1.5 bg-white hover:bg-slate-50 px-2 py-1.5 sm:px-2.5 sm:py-2 rounded-xl shadow-sm border border-slate-200 hover:border-primary/40 transition-all cursor-pointer text-[10px] font-black uppercase tracking-wider text-slate-700"
                         title="Seleccionar Idioma">
                         <i class="ri-global-line text-primary text-sm"></i>
                         <span id="current-lang-label">🇪🇸 ES</span>
@@ -949,19 +949,9 @@
                         </button>
                     </div>
                 </div>
-                <script>
-                    document.addEventListener('click', function(ev) {
-                        var w = document.getElementById('lang-dropdown-wrapper');
-                        var m = document.getElementById('lang-dropdown-menu');
-                        if (m && (!w || !w.contains(ev.target))) {
-                            m.classList.add('hidden');
-                            m.style.display = 'none';
-                        }
-                    });
-                </script>
 
-                <!-- CURRENCY SELECTOR -->
-                <div class="flex items-center bg-slate-50 rounded-xl px-1.5 py-1.5 shadow-inner border border-slate-200/80 shrink-0">
+                <!-- CURRENCY SELECTOR (DESKTOP / TABLET) -->
+                <div class="hidden sm:flex items-center bg-slate-50 rounded-xl px-1.5 py-1.5 shadow-inner border border-slate-200/80 shrink-0">
                     <select id="currency-selector" aria-label="Moneda" onchange="window.handleCurrencyChange(this.value);" class="bg-transparent text-[10px] font-black uppercase tracking-wider text-slate-700 outline-none cursor-pointer pr-0.5">
                         <option value="PEN">S/ PEN</option>
                         <option value="USD">$ USD</option>
@@ -972,16 +962,17 @@
                 <!-- PROMINENT SHOPPING CART BUTTON (WEB & MOBILE) -->
                 <button data-action="toggle-cart" id="header-cart-btn"
                     title="Abrir Carrito / Mochila Táctica"
-                    class="bg-primary hover:bg-slate-900 text-white px-3 py-2 sm:px-3.5 sm:py-2 rounded-xl flex items-center gap-1.5 relative shadow-lg shadow-primary/25 transition-all cursor-pointer shrink-0">
+                    class="bg-primary hover:bg-slate-900 text-white px-2.5 py-2 sm:px-3.5 sm:py-2 rounded-xl flex items-center gap-1.5 relative shadow-md shadow-primary/25 transition-all cursor-pointer shrink-0">
                     <i class="ri-shopping-cart-2-fill text-base sm:text-lg"></i>
-                    <span class="hidden sm:inline text-[10px] font-black uppercase tracking-wider">Carrito</span>
+                    <span class="hidden md:inline text-[10px] font-black uppercase tracking-wider">Carrito</span>
                     <span id="cart-count"
                         class="bg-accent text-slate-900 text-[10px] font-black rounded-full min-w-[18px] h-[18px] px-1 flex items-center justify-center shadow-sm">0</span>
                 </button>
 
-                <button data-action="toggle-mobile-menu" aria-label="Menú Principal"
-                    class="xl:hidden w-9 h-9 sm:w-10 sm:h-10 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-xl flex items-center justify-center border border-slate-200 relative z-[2000] shrink-0">
-                    <i class="ri-menu-4-line text-lg"></i>
+                <!-- BOTÓN DE 3 LÍNEAS (HAMBURGUESA MÓVIL DESTACADO) -->
+                <button data-action="toggle-mobile-menu" aria-label="Abrir Menú Principal"
+                    class="xl:hidden w-10 h-10 bg-slate-900 hover:bg-slate-800 text-white rounded-xl flex items-center justify-center shadow-md border border-slate-700 relative z-[2000] shrink-0 cursor-pointer active:scale-95 transition-all">
+                    <i class="ri-menu-4-line text-xl"></i>
                 </button>
             </div>
         </div>
@@ -989,7 +980,37 @@
 
     <!-- MOBILE MENU OVERLAY (OPTIMIZADO CON SCROLL Y ACCESO A TODOS LOS MÓDULOS) -->
     <div id="mobile-menu"
-        class="fixed inset-0 z-[1500] bg-white translate-x-full transition-transform duration-500 flex flex-col pt-24 pb-10 px-6 overflow-y-auto">
+        class="fixed inset-0 z-[2500] bg-white translate-x-full transition-transform duration-300 flex flex-col pt-4 pb-12 px-6 overflow-y-auto">
+        
+        <!-- Header superior del menú móvil con Logo y Botón Cerrar (X) -->
+        <div class="flex items-center justify-between pb-4 mb-3 border-b border-slate-100">
+            <div class="flex items-center gap-2">
+                <span class="font-black italic text-xl tracking-tight text-slate-950">LIFEXTREME</span>
+                <span class="px-2 py-0.5 rounded bg-primary text-white text-[9px] font-black uppercase">MENÚ</span>
+            </div>
+            <button data-action="toggle-mobile-menu" aria-label="Cerrar Menú"
+                class="w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center cursor-pointer transition-colors">
+                <i class="ri-close-line text-2xl font-bold"></i>
+            </button>
+        </div>
+
+        <!-- Ajustes rápidos de Idioma y Moneda en móvil -->
+        <div class="flex items-center justify-between bg-slate-50 p-3 rounded-2xl border border-slate-200/80 mb-3">
+            <div class="flex items-center gap-2">
+                <span class="text-xs font-black text-slate-500 uppercase">Idioma:</span>
+                <button type="button" onclick="localStorage.setItem('lifextreme_lang','es'); if(window.setLanguage) setLanguage('es');" class="px-2 py-1 rounded-lg bg-white border border-slate-200 text-xs font-black text-primary">ES</button>
+                <button type="button" onclick="localStorage.setItem('lifextreme_lang','en'); window.location.href='/en/' + window.location.hash;" class="px-2 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-600">EN</button>
+                <button type="button" onclick="localStorage.setItem('lifextreme_lang','pt'); window.location.href='/pt/' + window.location.hash;" class="px-2 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-600">PT</button>
+            </div>
+            <div class="flex items-center gap-1.5">
+                <span class="text-xs font-black text-slate-500 uppercase">Moneda:</span>
+                <select onchange="window.handleCurrencyChange(this.value);" class="bg-white border border-slate-200 text-xs font-black rounded-lg px-2 py-1 text-slate-800">
+                    <option value="PEN">S/ PEN</option>
+                    <option value="USD">$ USD</option>
+                    <option value="BRL">R$ BRL</option>
+                </select>
+            </div>
+        </div>
         <!-- Quick Actions Row Mobile -->
         <div class="grid grid-cols-2 gap-3 pb-4 mb-2 border-b border-slate-100">
             <button data-action="toggle-cart" onclick="document.getElementById('mobile-menu').classList.add('translate-x-full')"
