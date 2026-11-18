@@ -1,0 +1,428 @@
+[
+  {
+    "slug": "andean_roots_peru",
+    "agencia": "Andean Roots Peru",
+    "razon_social": "Andean Roots Peru E.I.R.L.",
+    "ruc": "20600722370",
+    "rep_legal": "Hernán Gutiérrez Serrano",
+    "saludo_nombre": "Hernán",
+    "email": "info@andeanrootsperu.com",
+    "telefono": "949116895",
+    "web": "https://www.andeanrootsperu.com",
+    "clase": "Operador Turismo",
+    "distrito": "Cusco",
+    "audit": {
+      "status": 200,
+      "final_url": "https://andeanrootsperu.com/",
+      "load_s": 2.59,
+      "title": "Andean Roots Peru - Andean Roots Peru",
+      "meta_desc": "",
+      "cms": "WordPress",
+      "has_schema_jsonld": true,
+      "schema_types": [
+        "BreadcrumbList",
+        "EntryPoint",
+        "ListItem",
+        "PropertyValueSpecification",
+        "ReadAction",
+        "SearchAction"
+      ],
+      "has_llms_txt": false,
+      "has_whatsapp": true,
+      "multilang": true,
+      "tours_detected": [
+        "Machu Picchu",
+        "Salkantay",
+        "Ausangate",
+        "Inca Trail",
+        "Sacred Valley",
+        "Rainbow Mountain"
+      ],
+      "error": null
+    },
+    "diagnostico_bullets": [
+      "Detectamos que tu web (<code>andeanrootsperu.com</code>) corre sobre <strong>WordPress</strong> (carga en 2.59s). En el taller verás cómo crear landings y cotizadores propios con <strong>Claude Code</strong> sin depender de plugins lentos ni terceros.",
+      "<strong>Visibilidad en IA (GEO / AEO):</strong> ya tienes Schema (<code>BreadcrumbList, EntryPoint, ListItem, PropertyValueSpecification, ReadAction, SearchAction</code>), pero falta <strong><code>llms.txt</code> y contenido optimizado para respuestas de IA</strong> para captar reservas directas sin pagar 20%–30% a OTAs.",
+      "<strong>Operación diaria (Machu Picchu, Salkantay, Ausangate, Inca Trail, Sacred Valley, Rainbow Mountain):</strong> armamos en la laptop de tu equipo (5–10 personas) <strong>Skills de PDF para cotizar en minutos</strong>, conexión con <strong>Calendar/Drive</strong> y su <strong>propio RAG en Qdrant</strong> con tus tarifarios y políticas reales."
+    ]
+  },
+  {
+    "slug": "cusco_expeditions",
+    "agencia": "Cusco Expeditions",
+    "razon_social": "Cusco Expeditions Adventure Travel Specialists E.I.R.L.",
+    "ruc": "20491040492",
+    "rep_legal": "Edgar Catunta Guillén",
+    "saludo_nombre": "Edgar",
+    "email": "info@cuscoexpeditions.com",
+    "telefono": "084236307",
+    "web": "https://www.cuscoexpeditions.com",
+    "clase": "Operador Turismo",
+    "distrito": "Cusco",
+    "audit": {
+      "status": 200,
+      "final_url": "https://www.cuscoexpeditions.com",
+      "load_s": 1.72,
+      "title": "CUSCO EXPEDITIONS | how to travel from Cusco to Machu Picchu",
+      "meta_desc": "Step into the world of adventure with Cusco Expeditions, a trailblazing tour operator in Peru. Our exclusive focus on treks and adventure tours to the iconic Ma",
+      "cms": "Sitio personalizado / HTML",
+      "has_schema_jsonld": true,
+      "schema_types": [
+        "Organization",
+        "TravelAgency"
+      ],
+      "has_llms_txt": false,
+      "has_whatsapp": true,
+      "multilang": true,
+      "tours_detected": [
+        "Machu Picchu",
+        "Salkantay",
+        "Ausangate",
+        "Inca Trail",
+        "Sacred Valley",
+        "Rainbow Mountain"
+      ],
+      "error": null
+    },
+    "diagnostico_bullets": [
+      "Detectamos que tu web (<code>www.cuscoexpeditions.com</code>) corre sobre <strong>Sitio personalizado / HTML</strong> (carga en 1.72s). Con <strong>Claude Code</strong> tu equipo podrá actualizar rutas, precios y landings de venta directa en minutos.",
+      "<strong>Visibilidad en IA (GEO / AEO):</strong> ya tienes Schema (<code>Organization, TravelAgency</code>), pero falta <strong><code>llms.txt</code> y contenido optimizado para respuestas de IA</strong> para captar reservas directas sin pagar 20%–30% a OTAs.",
+      "<strong>Operación diaria (Machu Picchu, Salkantay, Ausangate, Inca Trail, Sacred Valley, Rainbow Mountain):</strong> armamos en la laptop de tu equipo (5–10 personas) <strong>Skills de PDF para cotizar en minutos</strong>, conexión con <strong>Calendar/Drive</strong> y su <strong>propio RAG en Qdrant</strong> con tus tarifarios y políticas reales."
+    ]
+  },
+  {
+    "slug": "veru_voyage",
+    "agencia": "Veru Voyage",
+    "razon_social": "Veru Voyage E.I.R.L.",
+    "ruc": "20605405950",
+    "rep_legal": "Maximiliano Taylor Coronel",
+    "saludo_nombre": "Maximiliano",
+    "email": "info@veruvoyage.com",
+    "telefono": "980589624",
+    "web": "https://www.veruvoyage.com",
+    "clase": "Minorista",
+    "distrito": "Cusco",
+    "audit": {
+      "status": 200,
+      "final_url": "https://veruvoyage.com/",
+      "load_s": 2.55,
+      "title": "Home - Veru Voyage",
+      "meta_desc": "",
+      "cms": "WordPress",
+      "has_schema_jsonld": true,
+      "schema_types": [
+        "BreadcrumbList",
+        "EntryPoint",
+        "ImageObject",
+        "ListItem",
+        "PropertyValueSpecification",
+        "ReadAction"
+      ],
+      "has_llms_txt": false,
+      "has_whatsapp": false,
+      "multilang": true,
+      "tours_detected": [
+        "Machu Picchu",
+        "Salkantay",
+        "Ausangate",
+        "Inca Trail",
+        "Rainbow Mountain",
+        "Titicaca"
+      ],
+      "error": null
+    },
+    "diagnostico_bullets": [
+      "Detectamos que tu web (<code>veruvoyage.com</code>) corre sobre <strong>WordPress</strong> (carga en 2.55s). En el taller verás cómo crear landings y cotizadores propios con <strong>Claude Code</strong> sin depender de plugins lentos ni terceros.",
+      "<strong>Visibilidad en IA (GEO / AEO):</strong> ya tienes Schema (<code>BreadcrumbList, EntryPoint, ImageObject, ListItem, PropertyValueSpecification, ReadAction</code>), pero falta <strong><code>llms.txt</code> y contenido optimizado para respuestas de IA</strong> para captar reservas directas sin pagar 20%–30% a OTAs.",
+      "<strong>Operación diaria (Machu Picchu, Salkantay, Ausangate, Inca Trail, Rainbow Mountain, Titicaca):</strong> armamos en la laptop de tu equipo (5–10 personas) <strong>Skills de PDF para cotizar en minutos</strong>, conexión con <strong>Calendar/Drive</strong> y su <strong>propio RAG en Qdrant</strong> con tus tarifarios y políticas reales."
+    ]
+  },
+  {
+    "slug": "ritisuyo",
+    "agencia": "Ritisuyo",
+    "razon_social": "Ritisuyo E.I.R.L.",
+    "ruc": "20603262035",
+    "rep_legal": "Nelson Branny Sierra Sánchez",
+    "saludo_nombre": "Nelson",
+    "email": "hoa@ritisuyo.com",
+    "telefono": "991411200",
+    "web": "https://www.ritisuyo.com",
+    "clase": "Operador Turismo",
+    "distrito": "Cusco",
+    "audit": {
+      "status": 200,
+      "final_url": "https://ritisuyo.com/",
+      "load_s": 2.21,
+      "title": "Travel Tour Companies and Operators in Peru | Ritisuyo",
+      "meta_desc": "Explore the best travel tour companies and operators in Peru with Ritisuyo. Find unforgettable experiences and guidance for your adventure.",
+      "cms": "WordPress",
+      "has_schema_jsonld": true,
+      "schema_types": [
+        "BreadcrumbList",
+        "EntryPoint",
+        "ListItem",
+        "PropertyValueSpecification",
+        "ReadAction",
+        "SearchAction"
+      ],
+      "has_llms_txt": false,
+      "has_whatsapp": true,
+      "multilang": true,
+      "tours_detected": [
+        "Machu Picchu",
+        "Salkantay",
+        "Ausangate",
+        "Inca Trail",
+        "Choquequirao"
+      ],
+      "error": null
+    },
+    "diagnostico_bullets": [
+      "Detectamos que tu web (<code>ritisuyo.com</code>) corre sobre <strong>WordPress</strong> (carga en 2.21s). En el taller verás cómo crear landings y cotizadores propios con <strong>Claude Code</strong> sin depender de plugins lentos ni terceros.",
+      "<strong>Visibilidad en IA (GEO / AEO):</strong> ya tienes Schema (<code>BreadcrumbList, EntryPoint, ListItem, PropertyValueSpecification, ReadAction, SearchAction</code>), pero falta <strong><code>llms.txt</code> y contenido optimizado para respuestas de IA</strong> para captar reservas directas sin pagar 20%–30% a OTAs.",
+      "<strong>Operación diaria (Machu Picchu, Salkantay, Ausangate, Inca Trail, Choquequirao):</strong> armamos en la laptop de tu equipo (5–10 personas) <strong>Skills de PDF para cotizar en minutos</strong>, conexión con <strong>Calendar/Drive</strong> y su <strong>propio RAG en Qdrant</strong> con tus tarifarios y políticas reales."
+    ]
+  },
+  {
+    "slug": "habitats_peru",
+    "agencia": "Habitats Peru Travel",
+    "razon_social": "Habitats Peru Travel S.C.R.L.",
+    "ruc": "20450500845",
+    "rep_legal": "Doris Valencia Puclla",
+    "saludo_nombre": "Doris",
+    "email": "info@habitatsperu.com",
+    "telefono": "984115593",
+    "web": "https://www.habitatsperu.com",
+    "clase": "Operador Turismo",
+    "distrito": "Wanchaq, Cusco",
+    "audit": {
+      "status": 200,
+      "final_url": "https://www.habitatsperu.com",
+      "load_s": 1.73,
+      "title": "Home",
+      "meta_desc": "",
+      "cms": "Sitio personalizado / HTML",
+      "has_schema_jsonld": false,
+      "schema_types": [],
+      "has_llms_txt": false,
+      "has_whatsapp": true,
+      "multilang": true,
+      "tours_detected": [
+        "Machu Picchu",
+        "Sacred Valley"
+      ],
+      "error": null
+    },
+    "diagnostico_bullets": [
+      "Detectamos que tu web (<code>www.habitatsperu.com</code>) corre sobre <strong>Sitio personalizado / HTML</strong> (carga en 1.73s). Con <strong>Claude Code</strong> tu equipo podrá actualizar rutas, precios y landings de venta directa en minutos.",
+      "<strong>Visibilidad en IA (SEO / GEO / AEO):</strong> hoy tu web <strong>no cuenta con datos estructurados Schema ni archivo <code>llms.txt</code></strong>, lo que reduce tus chances cuando un turista pregunta a ChatGPT, Claude o Perplexity qué agencia elegir en Cusco.",
+      "<strong>Operación diaria (Machu Picchu, Sacred Valley):</strong> armamos en la laptop de tu equipo (5–10 personas) <strong>Skills de PDF para cotizar en minutos</strong>, conexión con <strong>Calendar/Drive</strong> y su <strong>propio RAG en Qdrant</strong> con tus tarifarios y políticas reales."
+    ]
+  },
+  {
+    "slug": "tarvos_peru_tours",
+    "agencia": "Tarvos Peru Tours",
+    "razon_social": "Tarvos Peru Tours E.I.R.L.",
+    "ruc": "20606136588",
+    "rep_legal": "Gorki Borda Luza",
+    "saludo_nombre": "Gorki",
+    "email": "info@tarvosperutours.com",
+    "telefono": "084584532",
+    "web": "https://www.tarvosperutours.com",
+    "clase": "Operador Turismo",
+    "distrito": "Cusco",
+    "audit": {
+      "status": 200,
+      "final_url": "https://www.tarvosperutours.com",
+      "load_s": 5.1,
+      "title": "Tarvos Perú Tours ✓ Agencia de viajes ▷ Tours & Paquetes",
+      "meta_desc": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad",
+      "cms": "WordPress",
+      "has_schema_jsonld": true,
+      "schema_types": [
+        "Article",
+        "ImageObject",
+        "Person",
+        "SearchAction",
+        "WebPage",
+        "WebSite"
+      ],
+      "has_llms_txt": false,
+      "has_whatsapp": true,
+      "multilang": true,
+      "tours_detected": [
+        "Machu Picchu",
+        "Salkantay",
+        "Ausangate",
+        "Camino Inca",
+        "Valle Sagrado",
+        "Vinicunca"
+      ],
+      "error": null
+    },
+    "diagnostico_bullets": [
+      "Detectamos que tu web (<code>www.tarvosperutours.com</code>) corre sobre <strong>WordPress</strong> (carga en 5.1s). En el taller verás cómo crear landings y cotizadores propios con <strong>Claude Code</strong> sin depender de plugins lentos ni terceros.",
+      "<strong>Visibilidad en IA (GEO / AEO):</strong> ya tienes Schema (<code>Article, ImageObject, Person, SearchAction, WebPage, WebSite</code>), pero falta <strong><code>llms.txt</code> y contenido optimizado para respuestas de IA</strong> para captar reservas directas sin pagar 20%–30% a OTAs.",
+      "<strong>Operación diaria (Machu Picchu, Salkantay, Ausangate, Camino Inca, Valle Sagrado, Vinicunca):</strong> armamos en la laptop de tu equipo (5–10 personas) <strong>Skills de PDF para cotizar en minutos</strong>, conexión con <strong>Calendar/Drive</strong> y su <strong>propio RAG en Qdrant</strong> con tus tarifarios y políticas reales."
+    ]
+  },
+  {
+    "slug": "quechuas_peru",
+    "agencia": "Quechuas Peru",
+    "razon_social": "Quechuas Peru E.I.R.L.",
+    "ruc": "20527292973",
+    "rep_legal": "Hilda Calderón Vergara",
+    "saludo_nombre": "Hilda",
+    "email": "reservas@quechuasperu.net",
+    "telefono": "973975522",
+    "web": "https://www.quechuasperu.net",
+    "clase": "Operador Turismo",
+    "distrito": "San Sebastián, Cusco",
+    "audit": {
+      "status": 200,
+      "final_url": "https://www.quechuasperu.net",
+      "load_s": 0.81,
+      "title": "Quechuas Peru Travel",
+      "meta_desc": "",
+      "cms": "Sitio personalizado / HTML",
+      "has_schema_jsonld": false,
+      "schema_types": [],
+      "has_llms_txt": false,
+      "has_whatsapp": false,
+      "multilang": true,
+      "tours_detected": [],
+      "error": null
+    },
+    "diagnostico_bullets": [
+      "Detectamos que tu web (<code>www.quechuasperu.net</code>) corre sobre <strong>Sitio personalizado / HTML</strong> (carga en 0.81s). Con <strong>Claude Code</strong> tu equipo podrá actualizar rutas, precios y landings de venta directa en minutos.",
+      "<strong>Visibilidad en IA (SEO / GEO / AEO):</strong> hoy tu web <strong>no cuenta con datos estructurados Schema ni archivo <code>llms.txt</code></strong>, lo que reduce tus chances cuando un turista pregunta a ChatGPT, Claude o Perplexity qué agencia elegir en Cusco.",
+      "<strong>Operación diaria (rutas en Cusco y Machu Picchu):</strong> armamos en la laptop de tu equipo (5–10 personas) <strong>Skills de PDF para cotizar en minutos</strong>, conexión con <strong>Calendar/Drive</strong> y su <strong>propio RAG en Qdrant</strong> con tus tarifarios y políticas reales."
+    ]
+  },
+  {
+    "slug": "peruvian_sacred",
+    "agencia": "Peruvian Sacred & Adventure",
+    "razon_social": "Peruvian Sacred & Adventure E.I.R.L.",
+    "ruc": "20527307164",
+    "rep_legal": "Alcira Mildred Condori Cachi",
+    "saludo_nombre": "Alcira",
+    "email": "alcira@peruviansacred.com",
+    "telefono": "084251920",
+    "web": "https://www.peruviansacred.com",
+    "clase": "Operador Turismo",
+    "distrito": "Santiago, Cusco",
+    "audit": {
+      "status": 200,
+      "final_url": "https://www.peruviansacred.com",
+      "load_s": 2.63,
+      "title": "Caminatas Históricas por Perú | Peruvian Sacred",
+      "meta_desc": "Únete a Peruvian Sacred & Adventure para caminatas históricas por Peru más. Aventuras inolvidables te esperan",
+      "cms": "WordPress",
+      "has_schema_jsonld": true,
+      "schema_types": [
+        "BreadcrumbList",
+        "EntryPoint",
+        "ImageObject",
+        "ListItem",
+        "PropertyValueSpecification",
+        "ReadAction"
+      ],
+      "has_llms_txt": false,
+      "has_whatsapp": true,
+      "multilang": true,
+      "tours_detected": [
+        "Machu Picchu",
+        "Salkantay",
+        "Ausangate",
+        "Camino Inca",
+        "Vinicunca",
+        "Choquequirao"
+      ],
+      "error": null
+    },
+    "diagnostico_bullets": [
+      "Detectamos que tu web (<code>www.peruviansacred.com</code>) corre sobre <strong>WordPress</strong> (carga en 2.63s). En el taller verás cómo crear landings y cotizadores propios con <strong>Claude Code</strong> sin depender de plugins lentos ni terceros.",
+      "<strong>Visibilidad en IA (GEO / AEO):</strong> ya tienes Schema (<code>BreadcrumbList, EntryPoint, ImageObject, ListItem, PropertyValueSpecification, ReadAction</code>), pero falta <strong><code>llms.txt</code> y contenido optimizado para respuestas de IA</strong> para captar reservas directas sin pagar 20%–30% a OTAs.",
+      "<strong>Operación diaria (Machu Picchu, Salkantay, Ausangate, Camino Inca, Vinicunca, Choquequirao):</strong> armamos en la laptop de tu equipo (5–10 personas) <strong>Skills de PDF para cotizar en minutos</strong>, conexión con <strong>Calendar/Drive</strong> y su <strong>propio RAG en Qdrant</strong> con tus tarifarios y políticas reales."
+    ]
+  },
+  {
+    "slug": "eco_waykis",
+    "agencia": "Eco Waykis",
+    "razon_social": "Ewta E.I.R.L.",
+    "ruc": "20527593744",
+    "rep_legal": "Edwin Vásquez Salas",
+    "saludo_nombre": "Edwin",
+    "email": "info@ecowaykis.com",
+    "telefono": "084231992",
+    "web": "https://www.ecowaykis.com",
+    "clase": "Operador Turismo",
+    "distrito": "Wanchaq, Cusco",
+    "audit": {
+      "status": 200,
+      "final_url": "https://www.ecowaykis.com",
+      "load_s": 1.9,
+      "title": "kiss電子煙 ecowaykis-kis5電子煙線上購買",
+      "meta_desc": "kiss電子煙 ecowaykis",
+      "cms": "Sitio personalizado / HTML",
+      "has_schema_jsonld": false,
+      "schema_types": [],
+      "has_llms_txt": false,
+      "has_whatsapp": false,
+      "multilang": true,
+      "tours_detected": [],
+      "error": null
+    },
+    "diagnostico_bullets": [
+      "Detectamos que tu web (<code>www.ecowaykis.com</code>) corre sobre <strong>Sitio personalizado / HTML</strong> (carga en 1.9s). Con <strong>Claude Code</strong> tu equipo podrá actualizar rutas, precios y landings de venta directa en minutos.",
+      "<strong>Visibilidad en IA (SEO / GEO / AEO):</strong> hoy tu web <strong>no cuenta con datos estructurados Schema ni archivo <code>llms.txt</code></strong>, lo que reduce tus chances cuando un turista pregunta a ChatGPT, Claude o Perplexity qué agencia elegir en Cusco.",
+      "<strong>Operación diaria (rutas en Cusco y Machu Picchu):</strong> armamos en la laptop de tu equipo (5–10 personas) <strong>Skills de PDF para cotizar en minutos</strong>, conexión con <strong>Calendar/Drive</strong> y su <strong>propio RAG en Qdrant</strong> con tus tarifarios y políticas reales."
+    ]
+  },
+  {
+    "slug": "machupicchu_inca_boletos",
+    "agencia": "Machupicchu Inca Viajes",
+    "razon_social": "Machupicchu Inca Viajes Y Servicios E.I.R.L.",
+    "ruc": "20605740236",
+    "rep_legal": "Ana Melva Aliaga Mosquera",
+    "saludo_nombre": "Ana Melva",
+    "email": "info@machupicchu-inca-boletos.com",
+    "telefono": "984551030",
+    "web": "https://www.machupicchu-inca-boletos.com",
+    "clase": "Minorista, Operador Turismo",
+    "distrito": "Cusco",
+    "audit": {
+      "status": 200,
+      "final_url": "https://www.machupicchu-inca-boletos.com",
+      "load_s": 1.36,
+      "title": "Inicio - Machupicchu Inca Boletos",
+      "meta_desc": "",
+      "cms": "WordPress",
+      "has_schema_jsonld": true,
+      "schema_types": [
+        "BreadcrumbList",
+        "EntryPoint",
+        "ListItem",
+        "PropertyValueSpecification",
+        "ReadAction",
+        "SearchAction"
+      ],
+      "has_llms_txt": false,
+      "has_whatsapp": true,
+      "multilang": true,
+      "tours_detected": [
+        "Machu Picchu",
+        "Salkantay",
+        "Ausangate",
+        "Camino Inca",
+        "Valle Sagrado",
+        "Vinicunca"
+      ],
+      "error": null
+    },
+    "diagnostico_bullets": [
+      "Detectamos que tu web (<code>www.machupicchu-inca-boletos.com</code>) corre sobre <strong>WordPress</strong> (carga en 1.36s). En el taller verás cómo crear landings y cotizadores propios con <strong>Claude Code</strong> sin depender de plugins lentos ni terceros.",
+      "<strong>Visibilidad en IA (GEO / AEO):</strong> ya tienes Schema (<code>BreadcrumbList, EntryPoint, ListItem, PropertyValueSpecification, ReadAction, SearchAction</code>), pero falta <strong><code>llms.txt</code> y contenido optimizado para respuestas de IA</strong> para captar reservas directas sin pagar 20%–30% a OTAs.",
+      "<strong>Operación diaria (Machu Picchu, Salkantay, Ausangate, Camino Inca, Valle Sagrado, Vinicunca):</strong> armamos en la laptop de tu equipo (5–10 personas) <strong>Skills de PDF para cotizar en minutos</strong>, conexión con <strong>Calendar/Drive</strong> y su <strong>propio RAG en Qdrant</strong> con tus tarifarios y políticas reales."
+    ]
+  }
+]

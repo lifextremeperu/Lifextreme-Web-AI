@@ -1,0 +1,398 @@
+[
+  {
+    "slug": "encuentros_peru_adventure",
+    "agencia": "Encuentros Peru Adventure",
+    "razon_social": "ENCUENTROS PERU ADVENTURE E.I.R.L.",
+    "ruc": "20606891432",
+    "rep_legal": "José Luis Juño Quispe",
+    "saludo_nombre": "José Luis",
+    "email": "info@encuentrosperuadventure.com",
+    "telefono": "973124984",
+    "web": "https://www.encuentrosperuadventure.com",
+    "clase": "Minorista",
+    "distrito": "Cusco",
+    "reviews": "26 reseñas (4.8★)",
+    "audit": {
+      "status": null,
+      "final_url": "https://www.encuentrosperuadventure.com",
+      "load_s": null,
+      "title": "",
+      "meta_desc": "",
+      "cms": "Sitio personalizado / HTML",
+      "has_schema_jsonld": false,
+      "schema_types": [],
+      "has_llms_txt": false,
+      "has_whatsapp": false,
+      "multilang": false,
+      "tours_detected": [],
+      "error": "HTTP Error 502: Bad Gateway"
+    },
+    "diagnostico_bullets": [
+      "<strong>Tu presencia web (encuentrosperuadventure.com):</strong> detectamos que el sitio presentó latencia o bloqueo de acceso automático (<code>HTTP Error 502: Bad Gateway</code>); con <strong>Claude Code</strong> podemos optimizar tu web o crear una landing rápida de venta directa con cotizador en S/ y USD.",
+      "<strong>Visibilidad en IA (SEO / GEO / AEO):</strong> hoy tu web <strong>no cuenta con datos estructurados Schema ni archivo <code>llms.txt</code></strong>, lo que reduce tus chances cuando un turista pregunta a ChatGPT, Claude o Perplexity qué agencia elegir en Cusco.",
+      "<strong>Operación diaria (rutas en Cusco y Machu Picchu):</strong> armamos en la laptop de tu equipo (5–10 personas) <strong>Skills de PDF para cotizar en minutos</strong>, conexión con <strong>Calendar/Drive</strong> y su <strong>propio RAG en Qdrant</strong> con tus tarifarios y políticas reales."
+    ]
+  },
+  {
+    "slug": "adventure_peru_tours",
+    "agencia": "Adventure Peru Tours",
+    "razon_social": "AGENCIA DE VIAJES Y TURISMO ADVENTURE PERU TOURS, TOURS OPERATOR E.I.R.L.",
+    "ruc": "20450648672",
+    "rep_legal": "José Luis Toledo Villegas",
+    "saludo_nombre": "José Luis",
+    "email": "info@adventureperutours.com",
+    "telefono": "984264702",
+    "web": "https://www.adventureperutours.com",
+    "clase": "Operador de Turismo",
+    "distrito": "Santiago, Cusco",
+    "reviews": "18 reseñas (4.8★)",
+    "audit": {
+      "status": 200,
+      "final_url": "https://adventureperutours.com/",
+      "load_s": 2.58,
+      "title": "Tours in Cusco, Machupicchu Travel, Adventure Peru Tours",
+      "meta_desc": "We organize trips for groups, Family and exclusive private trips. Also adventure trips as river rafting, atv's tours, horseback riding, bicycles, motorbikes, ca",
+      "cms": "WordPress",
+      "has_schema_jsonld": true,
+      "schema_types": [
+        "BreadcrumbList",
+        "EntryPoint",
+        "ListItem",
+        "PropertyValueSpecification",
+        "ReadAction",
+        "SearchAction"
+      ],
+      "has_llms_txt": false,
+      "has_whatsapp": true,
+      "multilang": true,
+      "tours_detected": [
+        "Machu Picchu",
+        "Salkantay",
+        "Inca Trail",
+        "Camino Inca",
+        "Sacred Valley",
+        "Valle Sagrado"
+      ],
+      "error": null
+    },
+    "diagnostico_bullets": [
+      "Detectamos que tu web (<code>adventureperutours.com</code>) corre sobre <strong>WordPress</strong> (carga en 2.58s). En el taller verás cómo crear landings y cotizadores propios con <strong>Claude Code</strong> sin depender de plugins lentos ni terceros.",
+      "<strong>Visibilidad en IA (GEO / AEO):</strong> ya tienes Schema (<code>BreadcrumbList, EntryPoint, ListItem, PropertyValueSpecification, ReadAction, SearchAction</code>), pero falta <strong><code>llms.txt</code> y contenido optimizado para respuestas de IA</strong> para captar reservas directas sin pagar 20%–30% a OTAs.",
+      "<strong>Operación diaria (Machu Picchu, Salkantay, Inca Trail, Camino Inca, Sacred Valley, Valle Sagrado):</strong> armamos en la laptop de tu equipo (5–10 personas) <strong>Skills de PDF para cotizar en minutos</strong>, conexión con <strong>Calendar/Drive</strong> y su <strong>propio RAG en Qdrant</strong> con tus tarifarios y políticas reales."
+    ]
+  },
+  {
+    "slug": "ausangate_adventure",
+    "agencia": "Ausangate Adventure",
+    "razon_social": "AUSANGATE ADVENTURE S.A.C.",
+    "ruc": "20611891092",
+    "rep_legal": "Wilian Crispín Jancco",
+    "saludo_nombre": "Wilian",
+    "email": "INFO@AUSANGATEADVENTURE.COM",
+    "telefono": "914201334",
+    "web": "https://www.ausangateadventure.com",
+    "clase": "Operador de Turismo",
+    "distrito": "San Sebastián, Cusco",
+    "reviews": "15 reseñas (5.0★)",
+    "audit": {
+      "status": 200,
+      "final_url": "https://ausangateadventure.com/",
+      "load_s": 1.66,
+      "title": "Ausangate Trek | Trekking in Peru, Best tours to Machu Picchu - Ausangate Adventure",
+      "meta_desc": "We are specialists in tours, hikes, and expeditions to Machu Picchu, the Salkantay Trek, the Ausangate Trek, and the Inca Trail.",
+      "cms": "Sitio personalizado / HTML",
+      "has_schema_jsonld": true,
+      "schema_types": [
+        "BreadcrumbList",
+        "Country",
+        "ImageObject",
+        "ListItem",
+        "Organization",
+        "TravelAgency"
+      ],
+      "has_llms_txt": true,
+      "has_whatsapp": true,
+      "multilang": true,
+      "tours_detected": [
+        "Machu Picchu",
+        "Salkantay",
+        "Ausangate",
+        "Inca Trail",
+        "Sacred Valley",
+        "Rainbow Mountain"
+      ],
+      "error": null
+    },
+    "diagnostico_bullets": [
+      "Detectamos que tu web (<code>ausangateadventure.com</code>) corre sobre <strong>Sitio personalizado / HTML</strong> (carga en 1.66s). Con <strong>Claude Code</strong> tu equipo podrá actualizar rutas, precios y landings de venta directa en minutos.",
+      "<strong>Visibilidad en IA (GEO / AEO):</strong> tu web ya tiene base técnica; en el taller reforzaremos tu posicionamiento en motores de IA y propuestas visuales con <strong>Claude Design + Higgsfield</strong>.",
+      "<strong>Operación diaria (Machu Picchu, Salkantay, Ausangate, Inca Trail, Sacred Valley, Rainbow Mountain):</strong> armamos en la laptop de tu equipo (5–10 personas) <strong>Skills de PDF para cotizar en minutos</strong>, conexión con <strong>Calendar/Drive</strong> y su <strong>propio RAG en Qdrant</strong> con tus tarifarios y políticas reales."
+    ]
+  },
+  {
+    "slug": "cusco_aventura",
+    "agencia": "Cusco Aventura",
+    "razon_social": "CUSCO VENTURA E.I.R.L.",
+    "ruc": "20610721746",
+    "rep_legal": "Wilfredo Ayma Auccapuma",
+    "saludo_nombre": "Wilfredo",
+    "email": "info@cuscoaventura.com",
+    "telefono": "949904393",
+    "web": "https://www.cuscoaventura.com",
+    "clase": "Operador de Turismo",
+    "distrito": "Cusco",
+    "reviews": "13 reseñas (4.7★)",
+    "audit": {
+      "status": null,
+      "final_url": "https://www.cuscoaventura.com",
+      "load_s": null,
+      "title": "",
+      "meta_desc": "",
+      "cms": "Sitio personalizado / HTML",
+      "has_schema_jsonld": false,
+      "schema_types": [],
+      "has_llms_txt": false,
+      "has_whatsapp": false,
+      "multilang": false,
+      "tours_detected": [],
+      "error": "HTTP Error 500: Internal Server Error"
+    },
+    "diagnostico_bullets": [
+      "<strong>Tu presencia web (cuscoaventura.com):</strong> detectamos que el sitio presentó latencia o bloqueo de acceso automático (<code>HTTP Error 500: Internal Server Error</code>); con <strong>Claude Code</strong> podemos optimizar tu web o crear una landing rápida de venta directa con cotizador en S/ y USD.",
+      "<strong>Visibilidad en IA (SEO / GEO / AEO):</strong> hoy tu web <strong>no cuenta con datos estructurados Schema ni archivo <code>llms.txt</code></strong>, lo que reduce tus chances cuando un turista pregunta a ChatGPT, Claude o Perplexity qué agencia elegir en Cusco.",
+      "<strong>Operación diaria (rutas en Cusco y Machu Picchu):</strong> armamos en la laptop de tu equipo (5–10 personas) <strong>Skills de PDF para cotizar en minutos</strong>, conexión con <strong>Calendar/Drive</strong> y su <strong>propio RAG en Qdrant</strong> con tus tarifarios y políticas reales."
+    ]
+  },
+  {
+    "slug": "green_peru_adventures",
+    "agencia": "Green Peru Adventures",
+    "razon_social": "Green Peru Adventures E.I.R.L.",
+    "ruc": "20564395529",
+    "rep_legal": "Roland Leonardo Gamboa",
+    "saludo_nombre": "Roland",
+    "email": "info@greenperuadventures.com",
+    "telefono": "084 252003",
+    "web": "https://www.greenperuadventures.com",
+    "clase": "Minorista",
+    "distrito": "Calle Triunfo 392, Cusco",
+    "reviews": "11 reseñas (4.1★)",
+    "audit": {
+      "status": 200,
+      "final_url": "https://www.greenperuadventures.com",
+      "load_s": 1.3,
+      "title": "Peru Tours & Travel Packages | Machu Picchu & Adventures",
+      "meta_desc": "Peru tours with Machu Picchu, Amazon, Nazca Lines & adventure activities. Expert local guides, unforgettable experiences & travel packages.",
+      "cms": "WordPress",
+      "has_schema_jsonld": true,
+      "schema_types": [
+        "BreadcrumbList",
+        "EntryPoint",
+        "ImageObject",
+        "ListItem",
+        "PropertyValueSpecification",
+        "ReadAction"
+      ],
+      "has_llms_txt": false,
+      "has_whatsapp": true,
+      "multilang": true,
+      "tours_detected": [
+        "Machu Picchu",
+        "Salkantay",
+        "Inca Trail",
+        "Choquequirao",
+        "Titicaca",
+        "Arequipa"
+      ],
+      "error": null
+    },
+    "diagnostico_bullets": [
+      "Detectamos que tu web (<code>www.greenperuadventures.com</code>) corre sobre <strong>WordPress</strong> (carga en 1.3s). En el taller verás cómo crear landings y cotizadores propios con <strong>Claude Code</strong> sin depender de plugins lentos ni terceros.",
+      "<strong>Visibilidad en IA (GEO / AEO):</strong> ya tienes Schema (<code>BreadcrumbList, EntryPoint, ImageObject, ListItem, PropertyValueSpecification, ReadAction</code>), pero falta <strong><code>llms.txt</code> y contenido optimizado para respuestas de IA</strong> para captar reservas directas sin pagar 20%–30% a OTAs.",
+      "<strong>Operación diaria (Machu Picchu, Salkantay, Inca Trail, Choquequirao, Titicaca, Arequipa):</strong> armamos en la laptop de tu equipo (5–10 personas) <strong>Skills de PDF para cotizar en minutos</strong>, conexión con <strong>Calendar/Drive</strong> y su <strong>propio RAG en Qdrant</strong> con tus tarifarios y políticas reales."
+    ]
+  },
+  {
+    "slug": "aventuras_ecotrek_peru",
+    "agencia": "Aventuras Ecotrek Peru",
+    "razon_social": "Aventuras Ecotrek Peru Agencia De Viajes",
+    "ruc": "20490266179",
+    "rep_legal": "Luz Del Milagro Arrospide Miranda",
+    "saludo_nombre": "Luz",
+    "email": "info@aventurasecotrekperu.com",
+    "telefono": "984562260",
+    "web": "https://www.aventurasecotrekperu.com",
+    "clase": "Operador de Turismo",
+    "distrito": "Urb. Magisterio, Cusco",
+    "reviews": "6 reseñas (4.0★)",
+    "audit": {
+      "status": 200,
+      "final_url": "https://machupicchucusco.com.pe/",
+      "load_s": 1.62,
+      "title": "Machu Picchu Cusco - Travel & Tourism Agency - by Aventuras EcotrekPeru",
+      "meta_desc": "Book the best Machu Picchu tours 2025 with expert guides! All-inclusive packages: train tickets, entrance fees & hotels. Limited-time offers!",
+      "cms": "WordPress",
+      "has_schema_jsonld": true,
+      "schema_types": [
+        "BreadcrumbList",
+        "EntryPoint",
+        "ImageObject",
+        "ListItem",
+        "Organization",
+        "PropertyValueSpecification"
+      ],
+      "has_llms_txt": true,
+      "has_whatsapp": true,
+      "multilang": true,
+      "tours_detected": [
+        "Machu Picchu",
+        "Salkantay",
+        "Inca Trail",
+        "Sacred Valley",
+        "Rainbow Mountain",
+        "Humantay"
+      ],
+      "error": null
+    },
+    "diagnostico_bullets": [
+      "Detectamos que tu web (<code>machupicchucusco.com.pe</code>) corre sobre <strong>WordPress</strong> (carga en 1.62s). En el taller verás cómo crear landings y cotizadores propios con <strong>Claude Code</strong> sin depender de plugins lentos ni terceros.",
+      "<strong>Visibilidad en IA (GEO / AEO):</strong> tu web ya tiene base técnica; en el taller reforzaremos tu posicionamiento en motores de IA y propuestas visuales con <strong>Claude Design + Higgsfield</strong>.",
+      "<strong>Operación diaria (Machu Picchu, Salkantay, Inca Trail, Sacred Valley, Rainbow Mountain, Humantay):</strong> armamos en la laptop de tu equipo (5–10 personas) <strong>Skills de PDF para cotizar en minutos</strong>, conexión con <strong>Calendar/Drive</strong> y su <strong>propio RAG en Qdrant</strong> con tus tarifarios y políticas reales."
+    ]
+  },
+  {
+    "slug": "just_enjoy_peru",
+    "agencia": "Just Enjoy Peru",
+    "razon_social": "Just Enjoy Peru S.R.L.",
+    "ruc": "20605069241",
+    "rep_legal": "Miguel Ángel Salas Perea",
+    "saludo_nombre": "Miguel Ángel",
+    "email": "info@justenjoyperu.com",
+    "telefono": "963358623",
+    "web": "https://www.justenjoyperu.com",
+    "clase": "Operador de Turismo",
+    "distrito": "Poroy, Cusco",
+    "reviews": "Registro MINCETUR",
+    "audit": {
+      "status": null,
+      "final_url": "https://www.justenjoyperu.com",
+      "load_s": null,
+      "title": "",
+      "meta_desc": "",
+      "cms": "Sitio personalizado / HTML",
+      "has_schema_jsonld": false,
+      "schema_types": [],
+      "has_llms_txt": false,
+      "has_whatsapp": false,
+      "multilang": false,
+      "tours_detected": [],
+      "error": "<urlopen error [Errno 11002] getaddrinfo failed>"
+    },
+    "diagnostico_bullets": [
+      "<strong>Tu presencia web (justenjoyperu.com):</strong> detectamos que el sitio presentó latencia o bloqueo de acceso automático (<code><urlopen error [Errno 11002] getaddrinfo failed></code>); con <strong>Claude Code</strong> podemos optimizar tu web o crear una landing rápida de venta directa con cotizador en S/ y USD.",
+      "<strong>Visibilidad en IA (SEO / GEO / AEO):</strong> hoy tu web <strong>no cuenta con datos estructurados Schema ni archivo <code>llms.txt</code></strong>, lo que reduce tus chances cuando un turista pregunta a ChatGPT, Claude o Perplexity qué agencia elegir en Cusco.",
+      "<strong>Operación diaria (rutas en Cusco y Machu Picchu):</strong> armamos en la laptop de tu equipo (5–10 personas) <strong>Skills de PDF para cotizar en minutos</strong>, conexión con <strong>Calendar/Drive</strong> y su <strong>propio RAG en Qdrant</strong> con tus tarifarios y políticas reales."
+    ]
+  },
+  {
+    "slug": "mario_expeditions",
+    "agencia": "Mario Expeditions",
+    "razon_social": "Mario Expeditions E.I.R.L.",
+    "ruc": "20603081642",
+    "rep_legal": "Mario Hurtado Valencia",
+    "saludo_nombre": "Mario",
+    "email": "info@marioexpeditions.com",
+    "telefono": "973476992",
+    "web": "https://www.marioexpeditions.com",
+    "clase": "Operador de Turismo",
+    "distrito": "Santiago, Cusco",
+    "reviews": "Registro MINCETUR",
+    "audit": {
+      "status": null,
+      "final_url": "https://www.marioexpeditions.com",
+      "load_s": null,
+      "title": "",
+      "meta_desc": "",
+      "cms": "Sitio personalizado / HTML",
+      "has_schema_jsonld": false,
+      "schema_types": [],
+      "has_llms_txt": false,
+      "has_whatsapp": false,
+      "multilang": false,
+      "tours_detected": [],
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    "diagnostico_bullets": [
+      "<strong>Tu presencia web (marioexpeditions.com):</strong> detectamos que el sitio presentó latencia o bloqueo de acceso automático (<code><urlopen error [Errno 11001] getaddrinfo failed></code>); con <strong>Claude Code</strong> podemos optimizar tu web o crear una landing rápida de venta directa con cotizador en S/ y USD.",
+      "<strong>Visibilidad en IA (SEO / GEO / AEO):</strong> hoy tu web <strong>no cuenta con datos estructurados Schema ni archivo <code>llms.txt</code></strong>, lo que reduce tus chances cuando un turista pregunta a ChatGPT, Claude o Perplexity qué agencia elegir en Cusco.",
+      "<strong>Operación diaria (rutas en Cusco y Machu Picchu):</strong> armamos en la laptop de tu equipo (5–10 personas) <strong>Skills de PDF para cotizar en minutos</strong>, conexión con <strong>Calendar/Drive</strong> y su <strong>propio RAG en Qdrant</strong> con tus tarifarios y políticas reales."
+    ]
+  },
+  {
+    "slug": "turismo_peru_full",
+    "agencia": "Turismo Peru Full",
+    "razon_social": "Turismo Peru Full E.I.R.L.",
+    "ruc": "20601981018",
+    "rep_legal": "Richard Michael Hoffmann Arévalo",
+    "saludo_nombre": "Richard",
+    "email": "info@turismoperufull.com",
+    "telefono": "960123801",
+    "web": "https://www.turismoperufull.com",
+    "clase": "Operador de Turismo",
+    "distrito": "Av. El Sol 948, Cusco",
+    "reviews": "Registro MINCETUR",
+    "audit": {
+      "status": null,
+      "final_url": "https://www.turismoperufull.com",
+      "load_s": null,
+      "title": "",
+      "meta_desc": "",
+      "cms": "Sitio personalizado / HTML",
+      "has_schema_jsonld": false,
+      "schema_types": [],
+      "has_llms_txt": false,
+      "has_whatsapp": false,
+      "multilang": false,
+      "tours_detected": [],
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    "diagnostico_bullets": [
+      "<strong>Tu presencia web (turismoperufull.com):</strong> detectamos que el sitio presentó latencia o bloqueo de acceso automático (<code><urlopen error [Errno 11001] getaddrinfo failed></code>); con <strong>Claude Code</strong> podemos optimizar tu web o crear una landing rápida de venta directa con cotizador en S/ y USD.",
+      "<strong>Visibilidad en IA (SEO / GEO / AEO):</strong> hoy tu web <strong>no cuenta con datos estructurados Schema ni archivo <code>llms.txt</code></strong>, lo que reduce tus chances cuando un turista pregunta a ChatGPT, Claude o Perplexity qué agencia elegir en Cusco.",
+      "<strong>Operación diaria (rutas en Cusco y Machu Picchu):</strong> armamos en la laptop de tu equipo (5–10 personas) <strong>Skills de PDF para cotizar en minutos</strong>, conexión con <strong>Calendar/Drive</strong> y su <strong>propio RAG en Qdrant</strong> con tus tarifarios y políticas reales."
+    ]
+  },
+  {
+    "slug": "ed_pertur",
+    "agencia": "E.D. Pertur",
+    "razon_social": "E.D. Pertur E.I.R.L.",
+    "ruc": "20604072833",
+    "rep_legal": "Jimmy Mendoza Escalante",
+    "saludo_nombre": "Jimmy",
+    "email": "info@edpertur.com",
+    "telefono": "084 260732",
+    "web": "https://www.edpertur.com",
+    "clase": "Operador de Turismo",
+    "distrito": "Av. El Sol 315, Cusco",
+    "reviews": "Registro MINCETUR",
+    "audit": {
+      "status": null,
+      "final_url": "https://www.edpertur.com",
+      "load_s": null,
+      "title": "",
+      "meta_desc": "",
+      "cms": "Sitio personalizado / HTML",
+      "has_schema_jsonld": false,
+      "schema_types": [],
+      "has_llms_txt": false,
+      "has_whatsapp": false,
+      "multilang": false,
+      "tours_detected": [],
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    "diagnostico_bullets": [
+      "<strong>Tu presencia web (edpertur.com):</strong> detectamos que el sitio presentó latencia o bloqueo de acceso automático (<code><urlopen error [Errno 11001] getaddrinfo failed></code>); con <strong>Claude Code</strong> podemos optimizar tu web o crear una landing rápida de venta directa con cotizador en S/ y USD.",
+      "<strong>Visibilidad en IA (SEO / GEO / AEO):</strong> hoy tu web <strong>no cuenta con datos estructurados Schema ni archivo <code>llms.txt</code></strong>, lo que reduce tus chances cuando un turista pregunta a ChatGPT, Claude o Perplexity qué agencia elegir en Cusco.",
+      "<strong>Operación diaria (rutas en Cusco y Machu Picchu):</strong> armamos en la laptop de tu equipo (5–10 personas) <strong>Skills de PDF para cotizar en minutos</strong>, conexión con <strong>Calendar/Drive</strong> y su <strong>propio RAG en Qdrant</strong> con tus tarifarios y políticas reales."
+    ]
+  }
+]

@@ -131,3 +131,6 @@ data/pdfs_publicos/*.part
 
 .promptfoo/
 eval_results.html
+
+# Copia local de referencia (OpenDuet Back-Office)
+external/OpenDuet/

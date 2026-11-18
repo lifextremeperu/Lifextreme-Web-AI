@@ -1,0 +1,133 @@
+{
+  "meta": {
+    "titulo": "Implementa Claude Cowork en tu Agencia de Viajes",
+    "subtitulo": "Capacitación In-Office",
+    "organizador": "Lifextreme",
+    "experiencia": "Más de 10 años de experiencia en el sector turismo",
+    "segmentos_objetivo": [
+      "Operadores receptivos (DMCs) con alto volumen operativo",
+      "Agencias de viajes con equipos de 5 a 15 colaboradores",
+      "Operadores de trenes, hoteles y transporte turístico",
+      "Gremios e instituciones del sector turismo en Cusco"
+    ],
+    "cta_primario": {
+      "texto": "📅 Agendar reunión de 15 minutos",
+      "url": "https://www.lifextreme.com.pe/agendar-capacitacion.html",
+      "url_relativa": "../agendar-capacitacion.html"
+    },
+    "canales_secundarios": {
+      "telegram": "https://t.me/+51958050928",
+      "telefono_telegram": "+51 958 050 928",
+      "correo": "contacto@lifextreme.com.pe"
+    }
+  },
+  "oferta_entrada": {
+    "nombre": "Sesión Piloto In-Office (1 Módulo Práctico)",
+    "precio": 490,
+    "moneda": "PEN",
+    "duracion_horas": 2,
+    "participantes_max": 8,
+    "precio_por_persona": 61.25,
+    "beneficio_conversion": "100% descontable (S/ 490) si la agencia contrata el plan Starter, Pro Agency o Enterprise dentro de los 7 días siguientes",
+    "incluye": "Módulo Transversal de Datos Seguros + 1 proceso real a elección (ej. Cotizador en S/ y USD con tarifarios propios)"
+  },
+  "promocion": {
+    "activa": true,
+    "plan_aplicable": "pro_agency",
+    "descuento_porcentaje": 20,
+    "precio_lista": 3900,
+    "precio_promocional": 3120,
+    "precio_por_persona_lista": 487.5,
+    "precio_por_persona_promo": 390,
+    "moneda": "PEN",
+    "fecha_cierre": "2026-12-15",
+    "cupos_totales": 5,
+    "cupos_restantes": 5,
+    "condicion_texto": "20% de descuento en el plan Pro Agency (S/ 3,120 en lugar de S/ 3,900 · equivale a S/ 390 por persona con 8 participantes) para los primeros 5 grupos que reserven hasta el 15 de diciembre de 2026."
+  },
+  "condiciones": {
+    "garantia_acotada": "Si al finalizar el programa tu proceso piloto no muestra una reducción medible de tiempo frente a la medición inicial del Día 1 (cumpliendo con la asistencia del equipo y la entrega de tarifarios/formatos base), agregamos 1 sesión práctica adicional de 2 horas In-Office sin costo para ajustarlo hasta dejarlo operativo.",
+    "licencias": "No incluye suscripciones de Claude (Team ~USD 25–30/usuario/mes), Higgsfield ni Meta Ads; las contrata la agencia directamente.",
+    "forma_pago": "2 cuotas (50% / 50%) en Starter y hasta 3 cuotas sin intereses (40% al reservar fecha, 30% a mitad del programa y 30% al finalizar) en Pro Agency y Enterprise. Reprogramación sin costo con 72 horas de aviso.",
+    "facturacion_y_fondos": "Emisión de Factura Electrónica SUNAT por capacitación corporativa y entrega de sílabo/expediente técnico formal para gremios o postulaciones a fondos concursables (consultar con el contador de la agencia el tratamiento tributario aplicable).",
+    "portales_terceros": "En portales de trenes y boletería, el asistente ayuda a preparar y revisar la información, siempre con confirmación humana y respetando los términos de uso de cada portal."
+  },
+  "modulo_transversal": {
+    "nombre": "Módulo Transversal Obligatorio · Datos Seguros en la Agencia (Día 1 · 30 min)",
+    "normativa": [
+      "Ley N.º 29733 — Ley de Protección de Datos Personales",
+      "Ley N.º 31814 y Reglamento D.S. N.º 115-2025-PCM — Uso de IA en empresas privadas (supervisión humana, transparencia y gestión de riesgos)"
+    ]
+  },
+  "planes": [
+    {
+      "id": "starter",
+      "etiqueta": "Esencial",
+      "nombre": "Starter",
+      "precio_lista": 1800,
+      "precio_actual": 1800,
+      "moneda": "PEN",
+      "participantes_max": 5,
+      "precio_por_persona": 360,
+      "dias": 4,
+      "horas_por_dia": 2,
+      "horas_totales": 8,
+      "cuotas": "2 cuotas sin intereses (50% reserva / 50% Día 2)",
+      "modulos_incluidos": "Módulo de Datos Seguros + 3 módulos a elección (Ventas, Operaciones y Compras/Contabilidad)",
+      "soporte_dias": 15
+    },
+    {
+      "id": "pro_agency",
+      "etiqueta": "Más Popular",
+      "nombre": "Pro Agency",
+      "precio_lista": 3900,
+      "precio_actual": 3120,
+      "moneda": "PEN",
+      "participantes_max": 8,
+      "precio_por_persona_lista": 488,
+      "precio_por_persona_actual": 390,
+      "dias": 6,
+      "horas_por_dia": 2,
+      "horas_totales": 12,
+      "cuotas": "Hasta 3 cuotas sin intereses (40% reserva / 30% Día 3 / 30% Día 6)",
+      "modulos_incluidos": "Módulo de Datos Seguros + los 6 módulos completos en laptops (Cowork, Skills PDF/Higgsfield, Calendar/Drive, Claude Design y Claude Code)",
+      "soporte_dias": 30
+    },
+    {
+      "id": "enterprise",
+      "etiqueta": "Corporativo / Receptivos",
+      "nombre": "Enterprise",
+      "precio_lista": 6500,
+      "precio_actual": 6500,
+      "moneda": "PEN",
+      "participantes_max": 15,
+      "precio_por_persona": 433,
+      "dias": 8,
+      "horas_por_dia": 2,
+      "horas_totales": 16,
+      "cuotas": "Hasta 3 cuotas sin intereses (40% reserva / 30% Día 4 / 30% Día 8)",
+      "modulos_incluidos": "Módulo de Datos Seguros + los 6 módulos completos + configuración en cada laptop del equipo y Claude Code avanzado para web/herramientas internas",
+      "soporte_dias": 60
+    }
+  ],
+  "resultados": {
+    "fuente": "Medición interna Lifextreme (2026) en operación propia de agencia de viajes en Cusco. En la sesión 1 medimos tu línea base y en la última sesión comparamos el antes y después de tu equipo.",
+    "filas": [
+      {
+        "proceso": "Cotización personalizada en 3 idiomas (ES/EN/PT) con IGV (18%)",
+        "antes": "25 a 40 min en Word y Excel",
+        "despues": "3 a 5 min con tarifario cargado en Claude Projects"
+      },
+      {
+        "proceso": "Armado de manifiestos, rooming list y orden de servicio",
+        "antes": "45 a 60 min copiando datos entre hojas",
+        "despues": "5 a 10 min con plantilla verificada y revisión humana"
+      },
+      {
+        "proceso": "Comparación de tarifarios de hoteles/transporte y liquidación 30%/70%",
+        "antes": "1 a 2 horas revisando PDFs y vouchers",
+        "despues": "10 a 15 min con cuadro comparativo de márgenes y alertas"
+      }
+    ]
+  }
+}

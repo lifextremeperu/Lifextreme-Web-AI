@@ -668,23 +668,25 @@ function buildReclamacionEmail(data) {
 
 // ── Handler Principal ────────────────────────────────────────────────────────
 export default async function handler(req, res) {
+    // CORS — permitir solicitudes web y locales
+    const origin = req.headers.origin;
+    res.setHeader('Access-Control-Allow-Origin', origin || '*');
+    res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+    if (req.method === 'OPTIONS') {
+        return res.status(200).end();
+    }
+
     // Solo POST
     if (req.method !== 'POST') {
         return res.status(405).json({ error: 'Method not allowed' });
     }
 
-    // CORS — permitir desde cualquier subdominio de lifextreme si es necesario
-    const origin = req.headers.origin;
-    if (origin && (origin.includes('lifextreme.com.pe') || origin.includes('lifextreme.store') || origin.includes('vercel.app'))) {
-        res.setHeader('Access-Control-Allow-Origin', origin);
-    }
-    res.setHeader('Access-Control-Allow-Methods', 'POST');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
     try {
-        const data = req.body;
-        // Limpieza atómica: solo letras y guiones bajos, en minúsculas.
-        const tipoRecibido = (data.tipo || '').toLowerCase().replace(/[^a-z_]/g, '').trim();
+        const data = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+        // Limpieza atómica: acepta data.tipo o data.type, conservando letras, números y guiones bajos.
+        const tipoRecibido = (data.tipo || data.type || '').toLowerCase().replace(/[^a-z0-9_]/g, '').trim();
 
         // Validación flexible: el email puede estar en la raíz o en data.personal.email (Elite)
         const userEmail = data.email || (data.personal && data.personal.email);
@@ -800,6 +802,72 @@ export default async function handler(req, res) {
                 await transporter.sendMail(buildReclamacionEmail(data));
                 results.welcome = 'sent';
             } catch (err) { results.welcome = 'failed'; }
+        }
+
+        // ── PRIORIDAD 10: AGENDAR CAPACITACIÓN B2B (CORREO + TELEGRAM BOT) ──
+        else if (tipoRecibido.includes('capacitacion_agendar')) {
+            const bookingCode = data.bookingCode || `LX-B2B-${Math.random().toString(36).substring(2, 6).toUpperCase()}`;
+            const nombre = data.name || 'Director / Gerente';
+            const role = data.role || 'Directivo / Responsable';
+            const empresa = data.company || 'Agencia / Institución';
+            const teamSize = data.teamSize || '5 a 10 personas';
+            const processes = Array.isArray(data.processes) ? data.processes.join(', ') : (data.processes || 'Por diagnosticar en reunión');
+            const leadSource = data.leadSource || 'directo';
+            const privacyConsent = data.privacyConsent ? 'Aceptado (Ley N.º 29733)' : 'Pendiente';
+            const email = data.email;
+            const phone = data.phone || 'No indicado';
+            const meetingDay = data.meetingDay || 'Día hábil';
+            const meetingDate = data.meetingDate || 'Por confirmar';
+            const meetingTime = data.meetingTime || 'Por confirmar';
+            const modality = data.modality || 'Virtual / Presencial';
+            const plan = data.plan || 'Pro Agency — 6 días × 2h = 12h (hasta 8 pers.) · S/ 3,120';
+            const schedule = data.schedule || `${meetingDay} ${meetingDate} · ${meetingTime} (${modality})`;
+
+            // 1. Confirmación automática al interesado
+            if (email) {
+                try {
+                    await transporter.sendMail({
+                        from: `"Lifextreme AI · Capacitaciones" <${process.env.ZOHO_USER}>`,
+                        to: email,
+                        subject: `✅ Reunión confirmada [${bookingCode}]: Capacitación Claude Cowork — ${empresa}`,
+                        html: `
+                        <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#ffffff;border:1px solid #e7e5e4;border-radius:12px;overflow:hidden;">
+                          <div style="background:#0a0a0a;padding:24px;color:#ffffff;border-bottom:4px solid #f97316;">
+                            <div style="font-size:11px;color:#fb923c;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Lifextreme AI · Cusco · Código ${bookingCode}</div>
+                            <h2 style="margin:6px 0 0 0;font-size:20px;">¡Reunión de Prospección Confirmada!</h2>
+                          </div>
+                          <div style="padding:24px;color:#1c1917;font-size:14px;line-height:1.6;">
+                            <p>Hola <strong>${nombre}</strong>,</p>
+                            <p>Tu reunión de prospección (15 min) para evaluar la capacitación <strong>In-Office en ${empresa}</strong> ha quedado reservada con éxito.</p>
+                            <div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:14px;margin:16px 0;">
+                              <strong style="color:#ea580c;">Detalles de tu reserva (${bookingCode}):</strong><br/>
+                              • <strong>Día y Fecha:</strong> ${meetingDay} ${meetingDate}<br/>
+                              • <strong>Hora:</strong> ${meetingTime}<br/>
+                              • <strong>Modalidad:</strong> ${modality}<br/>
+                              • <strong>Plan de interés:</strong> ${plan}<br/>
+                              • <strong>Teléfono / Telegram:</strong> ${phone}
+                            </div>
+                            <p>Nuestro CEO <strong>Engelberth Egoavil</strong> te contactará por correo o teléfono para enviarte el enlace Meet (si es virtual) o confirmar la visita a tus oficinas en Cusco.</p>
+                            <p style="margin-top:18px;">
+                              <a href="tel:+51958050928" style="display:inline-block;background:#f97316;color:#ffffff;font-weight:700;padding:11px 20px;border-radius:8px;text-decoration:none;">📞 Llamar directo (+51 958 050 928)</a>
+                            </p>
+                          </div>
+                        </div>`
+                    });
+                    results.welcome = 'sent';
+                } catch (err) { results.welcome = 'failed'; }
+            }
+
+            // 2. Alerta interna por correo
+            try {
+                await transporter.sendMail({
+                    from: `"Lifextreme AI Leads" <${process.env.ZOHO_USER}>`,
+                    to: process.env.ZOHO_USER || 'contacto@lifextreme.com.pe',
+                    subject: `🔥 [${bookingCode}] Nueva Reunión IA: ${empresa} (${meetingDay} ${meetingDate} ${meetingTime})`,
+                    html: `<p><strong>Código:</strong> ${bookingCode}<br/><strong>Contacto:</strong> ${nombre} (${role})<br/><strong>Empresa:</strong> ${empresa}<br/><strong>Tamaño de equipo:</strong> ${teamSize}<br/><strong>Procesos prioritarios:</strong> ${processes}<br/><strong>Email:</strong> ${email}<br/><strong>Teléfono:</strong> ${phone}<br/><strong>Día y Fecha:</strong> ${meetingDay} ${meetingDate}<br/><strong>Hora:</strong> ${meetingTime}<br/><strong>Modalidad:</strong> ${modality}<br/><strong>Plan:</strong> ${plan}<br/><strong>Origen (UTM):</strong> ${leadSource}<br/><strong>Consentimiento Ley 29733:</strong> ${privacyConsent}</p>`
+                });
+                results.internal = 'sent';
+            } catch (err) { results.internal = 'failed'; }
         }
 
         return res.status(200).json({ 

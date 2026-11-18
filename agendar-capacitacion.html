@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agendar Reunión de Diagnóstico (15 min) · Capacitación Claude Cowork | Lifextreme</title>
+  <style>
+    body { margin:0; font-family:'Segoe UI', Arial, sans-serif; background:#0a0a0a; color:#f8fafc; display:flex; min-height:100vh; align-items:center; justify-content:center; padding:20px; }
+    .card { width:100%; max-width:560px; background:#ffffff; color:#1c1917; border-radius:14px; overflow:hidden; box-shadow:0 20px 45px rgba(0,0,0,0.45); }
+    .head { background:linear-gradient(135deg,#0a0a0a,#1c1917 70%,#29170b); color:#ffffff; padding:24px 26px; border-bottom:4px solid #f97316; }
+    .badge { display:inline-block; background:#1c1917; border:1px solid #f97316; color:#fb923c; font-size:11px; font-weight:700; padding:4px 10px; border-radius:999px; letter-spacing:0.8px; text-transform:uppercase; }
+    h1 { margin:10px 0 4px 0; font-size:21px; font-weight:800; }
+    .sub { margin:0; font-size:13px; color:#e7e5e4; line-height:1.5; }
+    form { padding:22px 26px; display:flex; flex-direction:column; gap:12px; }
+    .row { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    @media (max-width:540px){ .row { grid-template-columns:1fr; } }
+    label { font-size:12px; font-weight:700; color:#334155; display:block; margin-bottom:4px; }
+    input[type="text"], input[type="email"], input[type="tel"], input[type="date"], input[type="number"], select {
+      width:100%; box-sizing:border-box; padding:10px 12px; border:1px solid #cbd5e1; border-radius:8px; font-size:13.5px; color:#0f172a; background:#f8fafc;
+    }
+    input:focus, select:focus { outline:none; border-color:#f97316; background:#ffffff; }
+    .chips { display:grid; grid-template-columns:1fr 1fr; gap:6px; background:#f8fafc; border:1px solid #cbd5e1; border-radius:8px; padding:10px; }
+    @media (max-width:540px){ .chips { grid-template-columns:1fr; } }
+    .chip-label { font-size:12px; font-weight:600; color:#334155; display:flex; align-items:center; gap:6px; cursor:pointer; margin:0; }
+    .consent-box { background:#fff7ed; border:1px solid #fdba74; border-radius:8px; padding:10px 12px; font-size:11.5px; color:#431407; line-height:1.45; display:flex; align-items:flex-start; gap:8px; }
+    .consent-box input { margin-top:3px; cursor:pointer; }
+    .consent-box a { color:#ea580c; font-weight:700; text-decoration:underline; }
+    .hint { font-size:11px; color:#64748b; margin-top:4px; }
+    .btn { background:#f97316; color:#ffffff; border:none; padding:13px; border-radius:8px; font-size:14px; font-weight:800; cursor:pointer; margin-top:4px; }
+    .btn:hover { background:#ea580c; }
+    .btn:disabled { opacity:0.6; cursor:wait; }
+    .status { display:none; padding:14px; border-radius:8px; font-size:13px; line-height:1.55; margin-top:4px; }
+    .status.ok { display:block; background:#ecfdf5; border:1px solid #6ee7b7; color:#065f46; }
+    .status.err { display:block; background:#fef2f2; border:1px solid #fecaca; color:#991b1b; }
+    .foot { text-align:center; padding:0 26px 20px 26px; font-size:12px; color:#64748b; }
+    .foot a { color:#ea580c; text-decoration:none; font-weight:700; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="head">
+      <span class="badge">Lunes a Viernes · 10:00–12:00 m. y 3:00–6:00 p.m.</span>
+      <h1>Agendar Reunión de Diagnóstico (15 min)</h1>
+      <p class="sub">Elige día y hora disponible (Presencial en Cusco o Virtual). Recibirás confirmación automática en tu correo.</p>
+    </div>
+
+    <form id="bookingForm">
+      <div class="row">
+        <div>
+          <label for="name">Nombre y Apellido *</label>
+          <input id="name" name="name" type="text" required placeholder="Ej. Carlos Mendoza" />
+        </div>
+        <div>
+          <label for="role">Cargo en la empresa *</label>
+          <input id="role" name="role" type="text" required placeholder="Ej. Gerente General / Jefe de Operaciones" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <label for="company">Agencia / Institución *</label>
+          <input id="company" name="company" type="text" required placeholder="Ej. Cusco Expeditions" />
+        </div>
+        <div>
+          <label for="teamSize">Personas a capacitar (4 a 15) *</label>
+          <input id="teamSize" name="teamSize" type="number" min="1" max="50" value="6" required />
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <label for="email">Correo Electrónico *</label>
+          <input id="email" name="email" type="email" required placeholder="gerencia@tuagencia.com" />
+        </div>
+        <div>
+          <label for="phone">Teléfono / Celular *</label>
+          <input id="phone" name="phone" type="tel" required placeholder="+51 9..." />
+        </div>
+      </div>
+
+      <div>
+        <label>Procesos que más tiempo consumen hoy (selecciona uno o más) *</label>
+        <div class="chips">
+          <label class="chip-label"><input type="checkbox" name="processes" value="Cotizaciones e itinerarios" checked /> Cotizaciones e itinerarios</label>
+          <label class="chip-label"><input type="checkbox" name="processes" value="Manifiestos y rooming lists" /> Manifiestos y rooming lists</label>
+          <label class="chip-label"><input type="checkbox" name="processes" value="Comparación de tarifarios" /> Comparación de tarifarios</label>
+          <label class="chip-label"><input type="checkbox" name="processes" value="Conciliación 30%/70% y pagos" /> Conciliación 30%/70% y pagos</label>
+          <label class="chip-label"><input type="checkbox" name="processes" value="Marketing, reels y anuncios" /> Marketing, reels y anuncios</label>
+          <label class="chip-label"><input type="checkbox" name="processes" value="Reportes gerenciales" /> Reportes gerenciales</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <label for="meetingDate">Fecha (Lunes a Viernes) *</label>
+          <input id="meetingDate" name="meetingDate" type="date" required />
+          <div class="hint" id="dateHint">Solo días hábiles (Lunes a Viernes).</div>
+        </div>
+        <div>
+          <label for="meetingTime">Horario disponible *</label>
+          <select id="meetingTime" name="meetingTime" required>
+            <optgroup label="Mañana (10:00 a.m. – 12:00 m.)">
+              <option value="10:00 a.m.">10:00 a.m.</option>
+              <option value="10:30 a.m.">10:30 a.m.</option>
+              <option value="11:00 a.m.">11:00 a.m.</option>
+              <option value="11:30 a.m.">11:30 a.m.</option>
+            </optgroup>
+            <optgroup label="Tarde (3:00 p.m. – 6:00 p.m.)">
+              <option value="3:00 p.m.">3:00 p.m.</option>
+              <option value="3:30 p.m.">3:30 p.m.</option>
+              <option value="4:00 p.m.">4:00 p.m.</option>
+              <option value="4:30 p.m.">4:30 p.m.</option>
+              <option value="5:00 p.m.">5:00 p.m.</option>
+              <option value="5:30 p.m.">5:30 p.m.</option>
+            </optgroup>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <label for="modality">Modalidad de reunión *</label>
+          <select id="modality" name="modality" required>
+            <option value="Virtual (Google Meet / Zoom)">💻 Virtual (Google Meet / Zoom)</option>
+            <option value="Presencial (En tu oficina en Cusco)">🏢 Presencial (En tu oficina en Cusco)</option>
+          </select>
+        </div>
+        <div>
+          <label for="plan">Plan de interés *</label>
+          <select id="plan" name="plan">
+            <option value="Pro Agency (S/ 3,120 con 20% OFF · S/ 390/pers. · hasta 3 cuotas)">⭐ Pro Agency (S/ 3,120 · S/ 390/pers. · 3 cuotas)</option>
+            <option value="Sesión Piloto In-Office (S/ 490 · 1 Módulo 2h · 100% descontable)">🚀 Sesión Piloto (S/ 490 · 1 Módulo 2h · descontable)</option>
+            <option value="Starter (S/ 1,800 · S/ 360/pers. · 4 días × 2h = 8h)">Starter (S/ 1,800 · S/ 360/pers. · 8h)</option>
+            <option value="Enterprise (S/ 6,500 · ~S/ 433/pers. · 8 días × 2h = 16h)">Enterprise (S/ 6,500 · ~S/ 433/pers. · 16h)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- CONSENTIMIENTO LEY 29733 (SIN MARCAR POR DEFECTO) -->
+      <label class="consent-box" for="privacyConsent">
+        <input type="checkbox" id="privacyConsent" name="privacyConsent" required />
+        <span>
+          Autorizo de forma libre y expresa el tratamiento de mis datos de contacto para agendar esta reunión de diagnóstico conforme a la <strong>Ley N.º 29733 (Ley de Protección de Datos Personales)</strong> y la <a href="https://www.lifextreme.com.pe" target="_blank">Política de Privacidad de Lifextreme</a>. No solicitamos datos de pasajeros ni tarifarios en este paso.
+        </span>
+      </label>
+
+      <button type="submit" class="btn" id="submitBtn">📅 Agendar reunión de 15 minutos</button>
+      <div id="statusBox" class="status"></div>
+    </form>
+
+    <div class="foot">
+      Contacto directo: <a href="tel:+51958050928">📞 Llamar +51 958 050 928</a> · <a href="mailto:contacto@lifextreme.com.pe">contacto@lifextreme.com.pe</a> · <a href="https://www.lifextreme.com.pe">www.lifextreme.com.pe</a>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('bookingForm');
+    const dateInput = document.getElementById('meetingDate');
+    const dateHint = document.getElementById('dateHint');
+    const btn = document.getElementById('submitBtn');
+    const statusBox = document.getElementById('statusBox');
+
+    const params = new URLSearchParams(window.location.search);
+    const leadSource = params.get('utm_source') || params.get('ref') || document.referrer || 'directo_web';
+
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    dateInput.min = `${yyyy}-${mm}-${dd}`;
+
+    const dias = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+
+    // Preseleccionar automáticamente el próximo día hábil (Lunes a Viernes)
+    const nextBusinessDay = new Date(today);
+    nextBusinessDay.setDate(today.getDate() + 1);
+    while (nextBusinessDay.getDay() === 0 || nextBusinessDay.getDay() === 6) {
+      nextBusinessDay.setDate(nextBusinessDay.getDate() + 1);
+    }
+    const ny = nextBusinessDay.getFullYear();
+    const nm = String(nextBusinessDay.getMonth() + 1).padStart(2, '0');
+    const nd = String(nextBusinessDay.getDate()).padStart(2, '0');
+    dateInput.value = `${ny}-${nm}-${nd}`;
+    dateHint.textContent = `✅ Día sugerido: ${dias[nextBusinessDay.getDay()]} (${dateInput.value})`;
+    dateHint.style.color = '#059669';
+
+    function getWeekdayName(dateStr) {
+      if (!dateStr) return { dayIdx: -1, dayName: '' };
+      const [y, m, d] = dateStr.split('-').map(Number);
+      const dt = new Date(y, m - 1, d);
+      return { dayIdx: dt.getDay(), dayName: dias[dt.getDay()] };
+    }
+
+    function buildGoogleCalendarUrl(payload) {
+      const [y, m, d] = payload.meetingDate.split('-').map(Number);
+      const timeMap = {
+        '10:00 a.m.': [10, 0], '10:30 a.m.': [10, 30], '11:00 a.m.': [11, 0], '11:30 a.m.': [11, 30],
+        '3:00 p.m.': [15, 0], '3:30 p.m.': [15, 30], '4:00 p.m.': [16, 0], '4:30 p.m.': [16, 30],
+        '5:00 p.m.': [17, 0], '5:30 p.m.': [17, 30]
+      };
+      const [hr, min] = timeMap[payload.meetingTime] || [10, 0];
+      const pad = (n) => String(n).padStart(2, '0');
+      const startStr = `${y}${pad(m)}${pad(d)}T${pad(hr)}${pad(min)}00`;
+      const endMin = min + 15;
+      const endHr = hr + Math.floor(endMin / 60);
+      const endStr = `${y}${pad(m)}${pad(d)}T${pad(endHr)}${pad(endMin % 60)}00`;
+      const title = encodeURIComponent(`Diagnóstico Claude Cowork (15 min) · ${payload.company} [${payload.bookingCode}]`);
+      const details = encodeURIComponent(
+        `Código: ${payload.bookingCode}\nContacto: ${payload.name} (${payload.role})\nAgencia: ${payload.company} (${payload.teamSize} pers.)\nPlan: ${payload.plan}\nProcesos: ${payload.processes}\nModalidad: ${payload.modality}\nTelegram Lifextreme: +51 958 050 928`
+      );
+      const location = encodeURIComponent(payload.modality);
+      return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startStr}/${endStr}&details=${details}&location=${location}&ctz=America/Lima`;
+    }
+
+    dateInput.addEventListener('change', () => {
+      if (!dateInput.value) return;
+      const { dayIdx, dayName } = getWeekdayName(dateInput.value);
+      if (dayIdx === 0 || dayIdx === 6) {
+        dateHint.textContent = `⚠️ ${dayName} no disponible. Elige entre Lunes y Viernes.`;
+        dateHint.style.color = '#dc2626';
+        dateInput.setCustomValidity('Por favor selecciona un día entre Lunes y Viernes.');
+      } else {
+        dateHint.textContent = `✅ Día válido: ${dayName} (${dateInput.value})`;
+        dateHint.style.color = '#059669';
+        dateInput.setCustomValidity('');
+      }
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const { dayIdx, dayName } = getWeekdayName(dateInput.value);
+      if (dayIdx === -1 || dayIdx === 0 || dayIdx === 6) {
+        statusBox.className = 'status err';
+        statusBox.innerHTML = '⚠️ Por favor elige un día hábil entre <strong>Lunes y Viernes</strong>.';
+        return;
+      }
+
+      const checkedProcesses = Array.from(form.querySelectorAll('input[name="processes"]:checked')).map(el => el.value);
+      if (checkedProcesses.length === 0) {
+        statusBox.className = 'status err';
+        statusBox.innerHTML = '⚠️ Selecciona al menos un proceso que desees optimizar en tu agencia.';
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Registrando reserva y enviando confirmación...';
+      statusBox.className = 'status';
+
+      const bookingCode = 'LX-B2B-' + Math.random().toString(36).substring(2, 6).toUpperCase();
+      const payload = {
+        tipo: 'b2b_capacitacion_agendar',
+        type: 'b2b_capacitacion_agendar',
+        bookingCode,
+        name: form.name.value.trim(),
+        nombre: form.name.value.trim(),
+        role: form.role.value.trim(),
+        company: form.company.value.trim(),
+        empresa: form.company.value.trim(),
+        teamSize: form.teamSize.value,
+        processes: checkedProcesses.join(', '),
+        email: form.email.value.trim(),
+        phone: form.phone.value.trim(),
+        telefono: form.phone.value.trim(),
+        meetingDay: dayName,
+        meetingDate: dateInput.value,
+        meetingTime: form.meetingTime.value,
+        modality: form.modality.value,
+        plan: form.plan.value,
+        leadSource,
+        privacyConsent: true,
+        schedule: `${dayName} ${dateInput.value} · ${form.meetingTime.value} (${form.modality.value})`
+      };
+
+      // Guardar respaldo local de la reserva
+      try {
+        const saved = JSON.parse(localStorage.getItem('lifextreme_b2b_bookings') || '[]');
+        saved.push({ ...payload, createdAt: new Date().toISOString() });
+        localStorage.setItem('lifextreme_b2b_bookings', JSON.stringify(saved));
+      } catch (_) {}
+
+      let serverSent = false;
+      const endpoints = window.location.protocol === 'file:'
+        ? ['https://www.lifextreme.com.pe/api/send-email']
+        : ['/api/send-email', 'https://www.lifextreme.com.pe/api/send-email'];
+
+      for (const url of endpoints) {
+        try {
+          const res = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          if (res.ok) {
+            serverSent = true;
+            break;
+          }
+        } catch (_) {}
+      }
+
+      const gcalUrl = buildGoogleCalendarUrl(payload);
+
+      statusBox.className = 'status ok';
+      statusBox.innerHTML = `✅ <strong>¡Reunión agendada con éxito! (Código: ${bookingCode})</strong><br/>
+        • <strong>Contacto:</strong> ${payload.name} (${payload.role}) — ${payload.company}<br/>
+        • <strong>Fecha y hora:</strong> ${dayName} ${payload.meetingDate} a las ${payload.meetingTime}<br/>
+        • <strong>Modalidad:</strong> ${payload.modality}<br/>
+        • <strong>Prioridades registradas:</strong> ${payload.processes}<br/>
+        ${serverSent
+          ? `• Confirmación automática enviada por correo a <strong>${payload.email}</strong> y notificada a <strong>contacto@lifextreme.com.pe</strong>.`
+          : `• Reserva registrada localmente con código <strong>${bookingCode}</strong>.`}
+        <div style="margin-top:10px; display:flex; flex-wrap:wrap; gap:8px;">
+          <a href="${gcalUrl}" target="_blank" style="display:inline-block; background:#0f172a; color:#ffffff; text-decoration:none; font-weight:700; font-size:12px; padding:8px 12px; border-radius:6px;">📅 Agregar a Google Calendar</a>
+          <a href="tel:+51958050928" style="display:inline-block; background:#f97316; color:#ffffff; text-decoration:none; font-weight:700; font-size:12px; padding:8px 12px; border-radius:6px;">📞 Llamar directo (+51 958 050 928)</a>
+        </div>`;
+
+      btn.disabled = false;
+      btn.textContent = '📅 Agendar otra reunión';
+    });
+  </script>
+</body>
+</html>
