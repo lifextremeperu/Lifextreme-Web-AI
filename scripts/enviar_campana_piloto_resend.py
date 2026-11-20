@@ -20,10 +20,7 @@ LOG_PATH = "reportes_b2b/envios_piloto_log.json"
 
 
 def build_subject(p):
-    err = (p.get("audit") or {}).get("error") or ""
-    if "502" in err or "500" in err:
-        return f"{p['saludo_nombre']}, revisé la web de {p['agencia']} hoy (error detectado) + propuesta Cusco"
-    return f"{p['saludo_nombre']}, diagnóstico rápido de {p['agencia']} + Claude Cowork In-Office (Cusco)"
+    return f"{p['saludo_nombre']}, el sistema de IA que estamos instalando en agencias de Cusco"
 
 
 def prepare_email_html(raw_html):
