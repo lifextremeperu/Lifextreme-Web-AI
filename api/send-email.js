@@ -824,12 +824,13 @@ export default async function handler(req, res) {
             const schedule = data.schedule || `${meetingDay} ${meetingDate} · ${meetingTime} (${modality})`;
 
             // Helper rápido para enviar vía Resend si está configurado (evita bloqueo SMTP de Zoho Free)
+            const resendKey = (process.env.RESEND_API_KEY || '').trim();
             const sendEmailSmart = async ({ fromName, to, subject, html }) => {
-                if (process.env.RESEND_API_KEY) {
+                if (resendKey) {
                     const r = await fetch('https://api.resend.com/emails', {
                         method: 'POST',
                         headers: {
-                            'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
+                            'Authorization': `Bearer ${resendKey}`,
                             'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
@@ -897,32 +898,33 @@ export default async function handler(req, res) {
             } catch (err) { results.internal = 'failed'; }
 
             // 3. Alerta en tiempo real al Bot de Telegram
-            if (process.env.TELEGRAM_BOT_TOKEN && process.env.TELEGRAM_CHAT_ID) {
+            const tgToken = (process.env.TELEGRAM_BOT_TOKEN || '').trim();
+            const tgChatId = (process.env.TELEGRAM_CHAT_ID || '').trim();
+            if (tgToken && tgChatId) {
                 try {
                     const tgMsg = [
-                        `🔥 *NUEVA REUNIÓN AGENDADA* [${bookingCode}]`,
-                        `🏢 *Agencia:* ${empresa} (${teamSize})`,
-                        `👤 *Contacto:* ${nombre} (${role})`,
-                        `📅 *Fecha:* ${meetingDay} ${meetingDate} · ${meetingTime}`,
-                        `📍 *Modalidad:* ${modality}`,
-                        `📦 *Plan:* ${plan}`,
-                        `⚙️ *Procesos:* ${processes}`,
-                        `📞 *Tel/TG:* ${phone}`,
-                        `✉️ *Email:* ${email}`,
-                        `🔗 *Origen:* ${leadSource}`
+                        `🔥 NUEVA REUNIÓN AGENDADA [${bookingCode}]`,
+                        `🏢 Agencia: ${empresa} (${teamSize})`,
+                        `👤 Contacto: ${nombre} (${role})`,
+                        `📅 Fecha: ${meetingDay} ${meetingDate} · ${meetingTime}`,
+                        `📍 Modalidad: ${modality}`,
+                        `📦 Plan: ${plan}`,
+                        `⚙️ Procesos: ${processes}`,
+                        `📞 Tel/TG: ${phone}`,
+                        `✉️ Email: ${email}`,
+                        `🔗 Origen: ${leadSource}`
                     ].join('\n');
-                    const tgRes = await fetch(`https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
+                    const tgRes = await fetch(`https://api.telegram.org/bot${tgToken}/sendMessage`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
-                            chat_id: process.env.TELEGRAM_CHAT_ID,
-                            text: tgMsg,
-                            parse_mode: 'Markdown'
+                            chat_id: tgChatId,
+                            text: tgMsg
                         })
                     });
-                    results.telegram = tgRes.ok ? 'sent' : 'failed';
+                    results.telegram = tgRes.ok ? 'sent' : `failed_${tgRes.status}`;
                 } catch (err) {
-                    results.telegram = 'failed';
+                    results.telegram = 'failed_exception';
                 }
             } else {
                 results.telegram = 'missing_env';
