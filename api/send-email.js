@@ -823,11 +823,40 @@ export default async function handler(req, res) {
             const plan = data.plan || 'Pro Agency — 6 días × 2h = 12h (hasta 8 pers.) · S/ 3,120';
             const schedule = data.schedule || `${meetingDay} ${meetingDate} · ${meetingTime} (${modality})`;
 
+            // Helper rápido para enviar vía Resend si está configurado (evita bloqueo SMTP de Zoho Free)
+            const sendEmailSmart = async ({ fromName, to, subject, html }) => {
+                if (process.env.RESEND_API_KEY) {
+                    const r = await fetch('https://api.resend.com/emails', {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            from: `${fromName} <contacto@lifextreme.com.pe>`,
+                            to: [to],
+                            reply_to: 'contacto@lifextreme.com.pe',
+                            subject,
+                            html
+                        })
+                    });
+                    if (!r.ok) throw new Error(await r.text());
+                    return 'sent_resend';
+                }
+                await transporter.sendMail({
+                    from: `"${fromName}" <${process.env.ZOHO_USER}>`,
+                    to,
+                    subject,
+                    html
+                });
+                return 'sent_zoho';
+            };
+
             // 1. Confirmación automática al interesado
             if (email) {
                 try {
-                    await transporter.sendMail({
-                        from: `"Lifextreme AI · Capacitaciones" <${process.env.ZOHO_USER}>`,
+                    results.welcome = await sendEmailSmart({
+                        fromName: 'Lifextreme AI · Capacitaciones',
                         to: email,
                         subject: `✅ Reunión confirmada [${bookingCode}]: Capacitación Claude Cowork — ${empresa}`,
                         html: `
@@ -854,20 +883,50 @@ export default async function handler(req, res) {
                           </div>
                         </div>`
                     });
-                    results.welcome = 'sent';
                 } catch (err) { results.welcome = 'failed'; }
             }
 
             // 2. Alerta interna por correo
             try {
-                await transporter.sendMail({
-                    from: `"Lifextreme AI Leads" <${process.env.ZOHO_USER}>`,
+                results.internal = await sendEmailSmart({
+                    fromName: 'Lifextreme AI Leads',
                     to: process.env.ZOHO_USER || 'contacto@lifextreme.com.pe',
                     subject: `🔥 [${bookingCode}] Nueva Reunión IA: ${empresa} (${meetingDay} ${meetingDate} ${meetingTime})`,
                     html: `<p><strong>Código:</strong> ${bookingCode}<br/><strong>Contacto:</strong> ${nombre} (${role})<br/><strong>Empresa:</strong> ${empresa}<br/><strong>Tamaño de equipo:</strong> ${teamSize}<br/><strong>Procesos prioritarios:</strong> ${processes}<br/><strong>Email:</strong> ${email}<br/><strong>Teléfono:</strong> ${phone}<br/><strong>Día y Fecha:</strong> ${meetingDay} ${meetingDate}<br/><strong>Hora:</strong> ${meetingTime}<br/><strong>Modalidad:</strong> ${modality}<br/><strong>Plan:</strong> ${plan}<br/><strong>Origen (UTM):</strong> ${leadSource}<br/><strong>Consentimiento Ley 29733:</strong> ${privacyConsent}</p>`
                 });
-                results.internal = 'sent';
             } catch (err) { results.internal = 'failed'; }
+
+            // 3. Alerta en tiempo real al Bot de Telegram
+            if (process.env.TELEGRAM_BOT_TOKEN && process.env.TELEGRAM_CHAT_ID) {
+                try {
+                    const tgMsg = [
+                        `🔥 *NUEVA REUNIÓN AGENDADA* [${bookingCode}]`,
+                        `🏢 *Agencia:* ${empresa} (${teamSize})`,
+                        `👤 *Contacto:* ${nombre} (${role})`,
+                        `📅 *Fecha:* ${meetingDay} ${meetingDate} · ${meetingTime}`,
+                        `📍 *Modalidad:* ${modality}`,
+                        `📦 *Plan:* ${plan}`,
+                        `⚙️ *Procesos:* ${processes}`,
+                        `📞 *Tel/TG:* ${phone}`,
+                        `✉️ *Email:* ${email}`,
+                        `🔗 *Origen:* ${leadSource}`
+                    ].join('\n');
+                    const tgRes = await fetch(`https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            chat_id: process.env.TELEGRAM_CHAT_ID,
+                            text: tgMsg,
+                            parse_mode: 'Markdown'
+                        })
+                    });
+                    results.telegram = tgRes.ok ? 'sent' : 'failed';
+                } catch (err) {
+                    results.telegram = 'failed';
+                }
+            } else {
+                results.telegram = 'missing_env';
+            }
         }
 
         return res.status(200).json({ 
