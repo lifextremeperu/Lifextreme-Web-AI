@@ -20,10 +20,41 @@
   const CSS = `
     #max-chat-widget {
       position: fixed;
-      bottom: 28px;
-      right: 28px;
+      bottom: 24px;
+      right: 24px;
       z-index: 9999;
       font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    #max-pill-label {
+      background: #0f172a;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 9px 15px;
+      border-radius: 999px;
+      border: 1px solid rgba(230, 57, 70, 0.45);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.35);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: transform 0.2s, opacity 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    #max-pill-label:hover {
+      transform: translateY(-2px);
+      border-color: #e63946;
+    }
+    #max-pill-label.hidden-pill {
+      opacity: 0;
+      pointer-events: none;
+    }
+    @media (max-width: 640px) {
+      #max-pill-label { font-size: 12px; padding: 7px 12px; }
     }
 
     #max-chat-btn {
@@ -819,8 +850,9 @@
     const widget = document.createElement('div');
     widget.id = 'max-chat-widget';
     widget.innerHTML = `
+      <div id="max-pill-label" title="Habla con MAX AI">💬 Pregúntale a MAX 🏔️</div>
       <button id="max-chat-btn" aria-label="Abrir chat MAX">
-        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
         <div id="max-chat-badge"></div>
       </button>
 
@@ -852,6 +884,7 @@
 
   function bindEvents() {
     document.getElementById('max-chat-btn').addEventListener('click', togglePanel);
+    document.getElementById('max-pill-label')?.addEventListener('click', togglePanel);
     document.getElementById('max-send-btn').addEventListener('click', handleSend);
     document.getElementById('max-input').addEventListener('keydown', e => {
       if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSend(); }
@@ -861,6 +894,7 @@
   function togglePanel() {
     isOpen = !isOpen;
     document.getElementById('max-chat-panel').classList.toggle('open', isOpen);
+    document.getElementById('max-pill-label')?.classList.toggle('hidden-pill', isOpen);
   }
 
   async function handleSend() {
