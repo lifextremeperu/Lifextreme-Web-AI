@@ -60,10 +60,10 @@ def get_db_stats(table="prospectos_lote3"):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--table", default="prospectos_lote3", choices=["prospectos_lote2", "prospectos_lote3"])
+    parser.add_argument("--table", default="prospectos_lote4")
     args = parser.parse_args()
     table = args.table
-    lote_name = "LOTE 3" if "lote3" in table else "LOTE 2"
+    lote_name = table.replace("prospectos_", "").upper()
 
     print(f"[MONITOR {lote_name}] Iniciando vigilancia de campaña hacia Telegram (Chat ID: {CHAT_ID})...")
     prev_sent = -1

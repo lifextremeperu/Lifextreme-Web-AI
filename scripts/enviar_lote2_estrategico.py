@@ -164,7 +164,7 @@ def print_database_summary(table="prospectos_lote2"):
     cur.execute(f"SELECT estado, COUNT(*) FROM {table} GROUP BY estado")
     stats = dict(cur.fetchall())
     conn.close()
-    lote_label = "LOTE 3" if "lote3" in table else "LOTE 2"
+    lote_label = table.replace("prospectos_", "").upper()
     print("=" * 60)
     print(f"ESTADO ACTUAL DE LA BASE DE DATOS LOCAL ({lote_label}):")
     print(f" • Pendientes: {stats.get('PENDIENTE', 0)}")
@@ -176,7 +176,7 @@ def print_database_summary(table="prospectos_lote2"):
 
 def main():
     parser = argparse.ArgumentParser(description="Envío Seguro y Anti-Bloqueo - Campañas B2B")
-    parser.add_argument("--table", default="prospectos_lote2", choices=["prospectos_lote2", "prospectos_lote3"], help="Tabla de prospectos en SQLite (default: prospectos_lote2)")
+    parser.add_argument("--table", default="prospectos_lote2", help="Tabla de prospectos en SQLite (ej. prospectos_lote4, prospectos_lote5)")
     parser.add_argument("--batch-size", type=int, default=50, help="Cantidad máxima de correos a enviar en esta sesión (default: 50)")
     parser.add_argument("--micro-batch", type=int, default=10, help="Tamaño del micro-lote antes de una pausa larga (default: 10)")
     parser.add_argument("--batch-rest", type=int, default=300, help="Segundos de descanso entre micro-lotes (default: 300s = 5 min)")
