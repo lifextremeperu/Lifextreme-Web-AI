@@ -20,11 +20,11 @@ def get_stats():
         return 0, 50, []
     conn = sqlite3.connect(DB_PATH)
     cur = conn.cursor()
-    cur.execute("SELECT COUNT(*) FROM prospectos_lote2 WHERE estado = 'ENVIADO'")
+    cur.execute("SELECT COUNT(*) FROM prospectos_lote5 WHERE estado = 'ENVIADO'")
     sent = cur.fetchone()[0]
-    cur.execute("SELECT COUNT(*) FROM prospectos_lote2 WHERE estado = 'PENDIENTE'")
+    cur.execute("SELECT COUNT(*) FROM prospectos_lote5 WHERE estado = 'PENDIENTE'")
     pending = cur.fetchone()[0]
-    cur.execute("SELECT nombre, email, enviado_at, resend_id FROM prospectos_lote2 WHERE estado = 'ENVIADO' ORDER BY id DESC LIMIT 6")
+    cur.execute("SELECT nombre, email, enviado_at, resend_id FROM prospectos_lote5 WHERE estado = 'ENVIADO' ORDER BY id DESC LIMIT 6")
     recent = cur.fetchall()
     conn.close()
     return sent, pending, recent

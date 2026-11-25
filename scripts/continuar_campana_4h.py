@@ -33,15 +33,17 @@ BAD_KW = ("yahuoo", "gamil", "hotmial", "outlok", "yaju", "speedy.com.pe", "terr
 
 def send_telegram(text):
     if not TOKEN or not CHAT_ID:
-        return
+        return True
     try:
-        httpx.post(
+        r = httpx.post(
             f"https://api.telegram.org/bot{TOKEN}/sendMessage",
             json={"chat_id": CHAT_ID, "text": text, "parse_mode": "Markdown"},
             timeout=20.0,
         )
+        return r.status_code == 200
     except Exception as e:
         print(f"[TELEGRAM WARN] {e}")
+        return False
 
 
 def wait_for_lote4_completion():
@@ -175,27 +177,33 @@ def ensure_lote5_ready():
 
 
 def main():
-    wait_hours = 4
+    skip_wait = "--now" in sys.argv
+    wait_hours = 0 if skip_wait else 4
     wait_seconds = wait_hours * 3600
 
     wait_for_lote4_completion()
-    sync_github_and_vercel()
+    if not skip_wait:
+        sync_github_and_vercel()
 
-    resume_time = datetime.now() + timedelta(seconds=wait_seconds)
-    print(f"[FASE 3] Entrando en espera de {wait_hours} horas. Reanudación programada a las: {resume_time.strftime('%Y-%m-%d %H:%M:%S')}")
+        resume_time = datetime.now() + timedelta(seconds=wait_seconds)
+        print(f"[FASE 3] Entrando en espera de {wait_hours} horas. Reanudación programada a las: {resume_time.strftime('%Y-%m-%d %H:%M:%S')}")
 
-    elapsed = 0
-    step = 1800  # Log cada 30 min
-    while elapsed < wait_seconds:
-        to_sleep = min(step, wait_seconds - elapsed)
-        time.sleep(to_sleep)
-        elapsed += to_sleep
-        rem_min = max(0, (wait_seconds - elapsed) // 60)
-        print(f"   [ESPERA 4H] Faltan {rem_min} minutos para iniciar Lote 5...")
+        elapsed = 0
+        step = 1800  # Log cada 30 min
+        while elapsed < wait_seconds:
+            to_sleep = min(step, wait_seconds - elapsed)
+            time.sleep(to_sleep)
+            elapsed += to_sleep
+            rem_min = max(0, (wait_seconds - elapsed) // 60)
+            print(f"   [ESPERA 4H] Faltan {rem_min} minutos para iniciar Lote 5...")
+    else:
+        print("[FASE 3] Ejecución inmediata (--now): omitiendo espera de 4 horas.")
 
     count = ensure_lote5_ready()
     batch_today = min(40, count)
-    send_telegram(f"🚀 *Iniciando Primera Mitad del Lote 5 ({batch_today} de {count} agencias)* tras la pausa de 4 horas.\n\n🛡️ Límite seguro diario activo: se enviarán {batch_today} hoy y los otros {count - batch_today} quedarán listos para mañana.")
+    if not send_telegram(f"🚀 *Iniciando Primera Mitad del Lote 5 ({batch_today} de {count} agencias)* tras la pausa programada.\n\n🛡️ Límite seguro diario activo: se enviarán {batch_today} hoy y los otros {count - batch_today} quedarán listos para mañana."):
+        print("[ERROR] Sin acceso a red (API Telegram/Resend bloqueada). Abortando antes de iniciar envíos.")
+        sys.exit(1)
 
     print("[FASE 5] Lanzando monitor a Telegram para Lote 5...")
     subprocess.Popen([sys.executable, "-u", "scripts/monitor_campana_telegram.py", "--table", "prospectos_lote5"])
@@ -208,6 +216,24 @@ def main():
         "--micro-batch", "10", "--batch-rest", "300",
         "--delay-min", "90", "--delay-max", "180"
     ])
+
+    conn = sqlite3.connect(DB_PATH)
+    cur = conn.cursor()
+    cur.execute("SELECT COUNT(*) FROM prospectos_lote5 WHERE estado = 'ENVIADO'")
+    sent_now = cur.fetchone()[0]
+    cur.execute("SELECT COUNT(*) FROM prospectos_lote5 WHERE estado = 'PENDIENTE'")
+    pend_now = cur.fetchone()[0]
+    cur.execute("SELECT COUNT(*) FROM prospectos_lote5 WHERE estado = 'ERROR'")
+    err_now = cur.fetchone()[0]
+    conn.close()
+    send_telegram(
+        f"✅ *PRIMERA MITAD DEL LOTE 5 COMPLETADA*\n\n"
+        f"📊 *Resumen de la sesión:*\n"
+        f"• Correos enviados hoy: *{sent_now}*\n"
+        f"• Pendientes para mañana: *{pend_now}*\n"
+        f"• Errores: *{err_now}*\n\n"
+        f"_Lifextreme B2B Outreach Agent_ 🚀"
+    )
 
 
 if __name__ == "__main__":
