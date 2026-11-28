@@ -4,47 +4,486 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Agendar Reunión de Diagnóstico (15 min) · Capacitación Claude Cowork | Lifextreme</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
   <style>
-    body { margin:0; font-family:'Segoe UI', Arial, sans-serif; background:#0a0a0a; color:#f8fafc; display:flex; min-height:100vh; align-items:center; justify-content:center; padding:20px; }
-    .card { width:100%; max-width:560px; background:#ffffff; color:#1c1917; border-radius:14px; overflow:hidden; box-shadow:0 20px 45px rgba(0,0,0,0.45); }
-    .head { background:linear-gradient(135deg,#0a0a0a,#1c1917 70%,#29170b); color:#ffffff; padding:24px 26px; border-bottom:4px solid #f97316; }
-    .badge { display:inline-block; background:#1c1917; border:1px solid #f97316; color:#fb923c; font-size:11px; font-weight:700; padding:4px 10px; border-radius:999px; letter-spacing:0.8px; text-transform:uppercase; }
-    h1 { margin:10px 0 4px 0; font-size:21px; font-weight:800; }
-    .sub { margin:0; font-size:13px; color:#e7e5e4; line-height:1.5; }
-    form { padding:22px 26px; display:flex; flex-direction:column; gap:12px; }
-    .row { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-    @media (max-width:540px){ .row { grid-template-columns:1fr; } }
-    label { font-size:12px; font-weight:700; color:#334155; display:block; margin-bottom:4px; }
-    input[type="text"], input[type="email"], input[type="tel"], input[type="date"], input[type="number"], select {
-      width:100%; box-sizing:border-box; padding:10px 12px; border:1px solid #cbd5e1; border-radius:8px; font-size:13.5px; color:#0f172a; background:#f8fafc;
+    :root {
+      --bg: #FAF9F5;
+      --surface: #FFFFFF;
+      --surface-alt: #F0EEE6;
+      --ink: #141413;
+      --muted: #5E5D59;
+      --line: #E8E6DC;
+      --accent: #D97757;
+      --accent-hover: #C6613F;
+      --accent-soft: #FDF6F3;
     }
-    input:focus, select:focus { outline:none; border-color:#f97316; background:#ffffff; }
-    .chips { display:grid; grid-template-columns:1fr 1fr; gap:6px; background:#f8fafc; border:1px solid #cbd5e1; border-radius:8px; padding:10px; }
-    @media (max-width:540px){ .chips { grid-template-columns:1fr; } }
-    .chip-label { font-size:12px; font-weight:600; color:#334155; display:flex; align-items:center; gap:6px; cursor:pointer; margin:0; }
-    .consent-box { background:#fff7ed; border:1px solid #fdba74; border-radius:8px; padding:10px 12px; font-size:11.5px; color:#431407; line-height:1.45; display:flex; align-items:flex-start; gap:8px; }
-    .consent-box input { margin-top:3px; cursor:pointer; }
-    .consent-box a { color:#ea580c; font-weight:700; text-decoration:underline; }
-    .hint { font-size:11px; color:#64748b; margin-top:4px; }
-    .btn { background:#f97316; color:#ffffff; border:none; padding:13px; border-radius:8px; font-size:14px; font-weight:800; cursor:pointer; margin-top:4px; }
-    .btn:hover { background:#ea580c; }
-    .btn:disabled { opacity:0.6; cursor:wait; }
-    .status { display:none; padding:14px; border-radius:8px; font-size:13px; line-height:1.55; margin-top:4px; }
-    .status.ok { display:block; background:#ecfdf5; border:1px solid #6ee7b7; color:#065f46; }
-    .status.err { display:block; background:#fef2f2; border:1px solid #fecaca; color:#991b1b; }
-    .foot { text-align:center; padding:0 26px 20px 26px; font-size:12px; color:#64748b; }
-    .foot a { color:#ea580c; text-decoration:none; font-weight:700; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-feature-settings: "cv02", "cv03", "cv04", "cv11", "tnum";
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      padding: 44px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .shell {
+      width: 100%;
+      max-width: 1060px;
+      display: grid;
+      grid-template-columns: 0.92fr 1.18fr;
+      gap: 32px;
+      align-items: start;
+    }
+    @media (max-width: 880px) {
+      .shell { grid-template-columns: 1fr; gap: 22px; }
+      body { padding: 20px 14px; }
+    }
+    .aside {
+      padding: 12px 6px;
+    }
+    .top-logo-header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+      padding: 16px 24px;
+      background: #FFFFFF;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(20, 20, 19, 0.04);
+    }
+    .top-logo-lockup {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .claude-full-logo {
+      height: 36px;
+      width: auto;
+      display: block;
+    }
+    .logo-divider {
+      width: 1px;
+      height: 28px;
+      background: var(--line);
+    }
+    .lifextreme-brand-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .lifextreme-brand-pill img {
+      height: 28px;
+      width: 28px;
+      border-radius: 6px;
+      object-fit: contain;
+    }
+    .top-header-tag {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border: 1px solid #f2d3c8;
+      padding: 6px 14px;
+      border-radius: 999px;
+    }
+    .hero-claude-showcase {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background: #FFFFFF;
+      border: 1.5px solid #f2d3c8;
+      border-radius: 14px;
+      padding: 12px 18px;
+      margin-bottom: 18px;
+      box-shadow: 0 8px 22px rgba(217, 119, 87, 0.08);
+    }
+    .hero-claude-showcase img {
+      height: 38px;
+      width: auto;
+      display: block;
+    }
+    .hero-claude-meta {
+      border-left: 1px solid var(--line);
+      padding-left: 12px;
+      font-size: 11.5px;
+      line-height: 1.35;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .hero-claude-meta strong {
+      display: block;
+      color: var(--accent);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .brand-bar {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border: 1px solid #f2d3c8;
+      padding: 6px 12px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+    }
+    .aside h1 {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: clamp(32px, 3.8vw, 44px);
+      font-weight: 500;
+      line-height: 1.12;
+      margin: 0 0 16px 0;
+      color: var(--ink);
+      letter-spacing: -0.025em;
+    }
+    .aside h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .aside-lead {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--muted);
+      margin: 0 0 24px 0;
+    }
+    .steps {
+      border-top: 1px solid var(--line);
+      padding-top: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+    .step {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 12px;
+      align-items: start;
+    }
+    .step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .step strong { display: block; font-size: 13.5px; color: var(--ink); margin-bottom: 2px; }
+    .step span { font-size: 13px; color: var(--muted); line-height: 1.5; }
+    .trust-card {
+      background: var(--surface-alt);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px 18px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+    .trust-card strong { color: var(--ink); display: block; margin-bottom: 4px; }
+    .trust-links { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 12px; font-weight: 700; }
+    .trust-links a { color: var(--accent); text-decoration: none; }
+    .trust-links a:hover { text-decoration: underline; }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: 0 18px 40px rgba(22, 21, 19, 0.06);
+      overflow: hidden;
+    }
+    .card-head {
+      padding: 20px 26px 16px 26px;
+      border-bottom: 1px solid var(--line);
+      background: #fcfbf8;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .card-head-title { font-size: 15px; font-weight: 800; color: var(--ink); margin: 0; }
+    .card-head-hours { font-size: 12px; font-weight: 600; color: var(--muted); }
+    form { padding: 22px 26px 26px 26px; display: flex; flex-direction: column; gap: 14px; }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 540px) { .row { grid-template-columns: 1fr; } }
+    label { font-size: 12px; font-weight: 700; color: #292524; display: block; margin-bottom: 5px; }
+    input[type="text"], input[type="email"], input[type="tel"], input[type="date"], input[type="number"], select {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #d6d3cd;
+      border-radius: 9px;
+      font-family: inherit;
+      font-size: 13.5px;
+      color: var(--ink);
+      background: #faf9f6;
+      transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+    }
+    input:focus, select:focus {
+      outline: none;
+      border-color: var(--accent);
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(194, 94, 62, 0.12);
+    }
+    .chips {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      background: #faf9f6;
+      border: 1px solid #d6d3cd;
+      border-radius: 10px;
+      padding: 12px;
+    }
+    @media (max-width: 540px) { .chips { grid-template-columns: 1fr; } }
+    .chip-label {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #292524;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      cursor: pointer;
+      margin: 0;
+    }
+    .chip-label input { accent-color: var(--accent); }
+    .consent-box {
+      background: var(--accent-soft);
+      border: 1px solid #f2d3c8;
+      border-radius: 10px;
+      padding: 11px 13px;
+      font-size: 11.5px;
+      color: #431407;
+      line-height: 1.5;
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      margin: 0;
+      font-weight: 500;
+    }
+    .consent-box input { margin-top: 3px; cursor: pointer; accent-color: var(--accent); }
+    .consent-box a { color: var(--accent); font-weight: 700; text-decoration: underline; }
+    .hint { font-size: 11px; color: var(--muted); margin-top: 4px; }
+    .btn {
+      background: var(--accent);
+      color: #ffffff;
+      border: none;
+      padding: 14px 18px;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 14.5px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 2px;
+      transition: background 0.15s, transform 0.1s;
+    }
+    .btn:hover { background: var(--accent-hover); }
+    .btn:active { transform: translateY(1px); }
+    .btn:disabled { opacity: 0.6; cursor: wait; }
+    .status { display: none; padding: 14px; border-radius: 10px; font-size: 13px; line-height: 1.55; margin-top: 4px; }
+    .status.ok { display: block; background: #ecfdf5; border: 1px solid #6ee7b7; color: #065f46; }
+    .status.err { display: block; background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; }
+
+    /* Secciones editoriales inferiores: Módulos, Ponente y Planes */
+    .page-wrap { width: 100%; max-width: 1060px; display: flex; flex-direction: column; gap: 38px; }
+    .section-block { border-top: 1px solid var(--line); padding-top: 30px; }
+    .section-eyebrow { font-size: 11.5px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+    .section-title { font-family: 'Source Serif 4', Georgia, serif; font-size: clamp(26px, 3vw, 33px); font-weight: 500; letter-spacing: -0.02em; margin: 0 0 10px 0; color: var(--ink); }
+    .section-sub { font-size: 14.5px; color: var(--muted); margin: 0 0 22px 0; line-height: 1.65; max-width: 720px; }
+    .modules-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    @media (max-width: 880px) { .modules-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 580px) { .modules-grid { grid-template-columns: 1fr; } }
+    .mod-card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; }
+    .mod-card img { width: 100%; height: 150px; object-fit: cover; border-bottom: 3px solid var(--accent); display: block; }
+    .mod-body { padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+    .mod-tag { display: inline-block; align-self: flex-start; background: var(--ink); color: #f4a282; font-size: 10px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; }
+    .mod-body h3 { margin: 2px 0 0 0; font-size: 15px; font-weight: 800; color: var(--ink); }
+    .mod-body p { margin: 0; font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+    .mod-body details { margin-top: auto; padding-top: 6px; font-size: 12px; color: #334155; }
+    .mod-body summary { cursor: pointer; font-weight: 700; color: var(--accent); }
+    .mod-body details div { margin-top: 6px; line-height: 1.55; border-top: 1px solid var(--line); padding-top: 6px; }
+
+    .speaker-card { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 14px; padding: 22px 24px; display: grid; grid-template-columns: 96px 1fr; gap: 20px; align-items: start; }
+    @media (max-width: 600px) { .speaker-card { grid-template-columns: 1fr; } }
+    .speaker-photo { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent); }
+    .speaker-name { font-size: 18px; font-weight: 800; color: var(--ink); margin: 0 0 4px 0; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+    .speaker-li { font-size: 11.5px; font-weight: 700; color: #0369a1; background: #e0f2fe; border: 1px solid #bae6fd; padding: 3px 10px; border-radius: 999px; text-decoration: none; }
+    .speaker-role { font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 8px; }
+    .speaker-bio { font-size: 13.5px; line-height: 1.6; color: var(--muted); margin: 0 0 12px 0; }
+    .speaker-certs { background: #faf9f6; border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; font-size: 12.5px; }
+    .speaker-certs summary { cursor: pointer; font-weight: 700; color: var(--ink); }
+    .speaker-certs .cert-list { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line); line-height: 1.65; color: #334155; }
+
+    .plans-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    @media (max-width: 880px) { .plans-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 540px) { .plans-grid { grid-template-columns: 1fr; } }
+    .plan-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+    .plan-card.featured { border: 2px solid var(--accent); background: #fffaf8; }
+    .plan-tag { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); }
+    .plan-name { font-size: 15px; font-weight: 800; color: var(--ink); margin: 4px 0; }
+    .plan-price { font-size: 22px; font-weight: 800; color: var(--ink); margin: 4px 0; }
+    .plan-meta { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+    .tools-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 720px) { .tools-grid { grid-template-columns: 1fr; } }
+    .tool-card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; }
+    .tool-card.accent { background: var(--accent-soft); border-color: #f2d3c8; }
+    .tool-title { font-size: 13px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink); margin: 0 0 12px 0; }
+    .tool-card.accent .tool-title { color: var(--accent); }
+    .tool-list { margin: 0; padding-left: 18px; font-size: 13.5px; line-height: 1.65; color: #334155; }
+    .tool-list li { margin-bottom: 6px; }
+
+    .proof-strip {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px 24px;
+      padding: 16px 22px;
+      background: var(--surface-alt);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      font-size: 12.5px;
+      color: var(--muted);
+    }
+    .proof-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .proof-items {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px 18px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .proof-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 6px 12px;
+      font-size: 12.5px;
+      line-height: 1.2;
+    }
+    .proof-item img {
+      height: 24px;
+      width: auto;
+      max-width: 72px;
+      object-fit: contain;
+      display: block;
+    }
+    .proof-item img.dark-logo {
+      background: #141413;
+      padding: 3px 6px;
+      border-radius: 5px;
+    }
+    .proof-sub {
+      display: block;
+      font-size: 10.5px;
+      font-weight: 500;
+      color: var(--muted);
+    }
   </style>
 </head>
 <body>
-  <div class="card">
-    <div class="head">
-      <span class="badge">Lunes a Viernes · 10:00–12:00 m. y 3:00–6:00 p.m.</span>
-      <h1>Agendar Reunión de Diagnóstico (15 min)</h1>
-      <p class="sub">Elige día y hora disponible (Presencial en Cusco o Virtual). Recibirás confirmación automática en tu correo.</p>
+  <div class="page-wrap">
+  <!-- BARRA SUPERIOR CON EL LOGO OFICIAL REAL DE CLAUDE -->
+  <header class="top-logo-header">
+    <div class="top-logo-lockup">
+      <img src="reportes_b2b/assets/logos/claude_full_logo.svg" alt="Claude AI Logo Oficial" class="claude-full-logo" />
+      <span class="logo-divider"></span>
+      <div class="lifextreme-brand-pill">
+        <img src="assets/images/lifextreme_logo_icon_64.png" alt="Lifextreme" />
+        <span>Lifextreme Cusco · Capacitación In-Office</span>
+      </div>
     </div>
+    <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+      <a href="#modulos" style="font-size:12px; font-weight:700; color:var(--ink); background:var(--surface-alt); border:1px solid var(--line); padding:6px 12px; border-radius:999px; text-decoration:none;">Ver los 6 Módulos ↓</a>
+      <a href="#planes" style="font-size:12px; font-weight:700; color:var(--ink); background:var(--surface-alt); border:1px solid var(--line); padding:6px 12px; border-radius:999px; text-decoration:none;">Planes ↓</a>
+      <a href="#ponente" style="font-size:12px; font-weight:700; color:var(--ink); background:var(--surface-alt); border:1px solid var(--line); padding:6px 12px; border-radius:999px; text-decoration:none;">Ponente ↓</a>
+      <span class="top-header-tag">Cowork · Code · Design · MCP</span>
+    </div>
+  </header>
 
-    <form id="bookingForm">
+  <div class="shell">
+    <aside class="aside">
+      <h1>Integra <em>Claude</em> en las operaciones de tu agencia</h1>
+      <p class="aside-lead">
+        Sin diapositivas genéricas. Revisamos cómo cotiza y atiende hoy tu equipo y te mostramos en vivo cómo automatizar tareas repetitivas en tu propia oficina.
+      </p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div>
+            <strong>Mapeo de cuellos de botella</strong>
+            <span>Identificamos qué consume más horas hoy (cotizaciones, itinerarios, tarifarios o WhatsApp).</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div>
+            <strong>Demo en vivo con tus rutas</strong>
+            <span>Ves funcionando un flujo real de Claude Cowork aplicado a paquetes de Cusco sin cambiar tu sistema.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div>
+            <strong>Plan práctico In-Office o Virtual</strong>
+            <span>Te llevas una ruta clara de implementación (y puedes empezar con una sesión piloto de 2 horas).</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="trust-card">
+        <strong>Atención directa en Cusco</strong>
+        Lunes a Viernes · Mañanas 10:00–12:00 m. y Tardes 3:00–6:00 p.m.<br />
+        Confirmación instantánea por correo y enlace directo a Google Calendar.
+        <div class="trust-links">
+          <a href="https://t.me/+51958050928" target="_blank">Telegram: +51 958 050 928</a>
+          <a href="tel:+51958050928">Llamar: +51 958 050 928</a>
+          <a href="mailto:contacto@lifextreme.com.pe">contacto@lifextreme.com.pe</a>
+        </div>
+      </div>
+    </aside>
+
+    <main class="card">
+      <div class="card-head">
+        <h2 class="card-head-title">Reserva tu espacio de 15 minutos</h2>
+        <span class="card-head-hours">Presencial en Cusco o Google Meet</span>
+      </div>
+
+      <form id="bookingForm">
       <div class="row">
         <div>
           <label for="name">Nombre y Apellido *</label>
@@ -121,16 +560,17 @@
         <div>
           <label for="modality">Modalidad de reunión *</label>
           <select id="modality" name="modality" required>
-            <option value="Virtual (Google Meet / Zoom)">💻 Virtual (Google Meet / Zoom)</option>
-            <option value="Presencial (En tu oficina en Cusco)">🏢 Presencial (En tu oficina en Cusco)</option>
+            <option value="Virtual (Google Meet / Zoom)">Virtual (Google Meet / Zoom)</option>
+            <option value="Presencial (En tu oficina en Cusco)">Presencial (En tu oficina en Cusco)</option>
           </select>
         </div>
         <div>
           <label for="plan">Plan de interés *</label>
           <select id="plan" name="plan">
-            <option value="Pro Agency (S/ 3,120 con 20% OFF · S/ 390/pers. · hasta 3 cuotas)">⭐ Pro Agency (S/ 3,120 · S/ 390/pers. · 3 cuotas)</option>
-            <option value="Sesión Piloto In-Office (S/ 490 · 1 Módulo 2h · 100% descontable)">🚀 Sesión Piloto (S/ 490 · 1 Módulo 2h · descontable)</option>
+            <option value="Sesión Piloto In-Office (S/ 490 · 1 Módulo 2h · 100% descontable)">Sesión Piloto (S/ 490 · 1 Módulo 2h · 100% descontable)</option>
+            <option value="Diagnóstico gratuito 15 min (definir plan en la reunión)">Solo diagnóstico gratuito de 15 min (definir plan juntos)</option>
             <option value="Starter (S/ 1,800 · S/ 360/pers. · 4 días × 2h = 8h)">Starter (S/ 1,800 · S/ 360/pers. · 8h)</option>
+            <option value="Pro Agency (S/ 3,120 con 20% OFF · S/ 390/pers. · hasta 3 cuotas)">Pro Agency (S/ 3,120 · S/ 390/pers. · 3 cuotas)</option>
             <option value="Enterprise (S/ 6,500 · ~S/ 433/pers. · 8 días × 2h = 16h)">Enterprise (S/ 6,500 · ~S/ 433/pers. · 16h)</option>
           </select>
         </div>
@@ -144,13 +584,259 @@
         </span>
       </label>
 
-      <button type="submit" class="btn" id="submitBtn">📅 Agendar reunión de 15 minutos</button>
+      <button type="submit" class="btn" id="submitBtn">Agendar reunión de 15 minutos</button>
+      <a href="https://t.me/+51958050928" target="_blank" style="display:block; text-align:center; padding:12px 14px; border-radius:10px; border:1.5px solid #D97757; background:#FDF6F3; box-shadow:0 4px 12px rgba(217,119,87,0.14); color:var(--ink); font-size:13px; font-weight:600; text-decoration:none;">
+        ¿Prefieres coordinar directo por Telegram? Escríbenos al <span style="color:var(--accent); font-weight:700;">+51 958 050 928 →</span>
+      </a>
       <div id="statusBox" class="status"></div>
-    </form>
+      </form>
+    </main>
+  </div>
 
-    <div class="foot">
-      Contacto directo: <a href="tel:+51958050928">📞 Llamar +51 958 050 928</a> · <a href="mailto:contacto@lifextreme.com.pe">contacto@lifextreme.com.pe</a> · <a href="https://www.lifextreme.com.pe">www.lifextreme.com.pe</a>
+  <!-- FRANJA DE PRUEBA SOCIAL DISCRETA CON LOGOS -->
+  <div class="proof-strip" aria-label="Respaldo y reconocimientos">
+    <span class="proof-label">Respaldo y premios</span>
+    <div class="proof-items">
+      <a class="proof-item" href="https://www.lifextreme.com.pe/reportes_b2b/assets/certificados/premio_innovandes_cusco_andina_2024.jpg" target="_blank" style="text-decoration:none; color:inherit;">
+        <img src="reportes_b2b/assets/logos/uandina.svg" alt="Universidad Andina del Cusco" />
+        <span>Innovandes 2024<span class="proof-sub">1.er Puesto · U. Andina</span></span>
+      </a>
+      <a class="proof-item" href="https://www.lifextreme.com.pe/reportes_b2b/assets/certificados/certificado_startup_uni_tourbot.pdf" target="_blank" style="text-decoration:none; color:inherit;">
+        <img src="reportes_b2b/assets/logos/startup_uni.png" alt="StartUP UNI" />
+        <span>StartUP UNI<span class="proof-sub">3.er Puesto · Lima</span></span>
+      </a>
+      <a class="proof-item" href="https://www.lifextreme.com.pe/reportes_b2b/assets/certificados/constancia_unsaac_paqarina_wasi.pdf" target="_blank" style="text-decoration:none; color:inherit;">
+        <img src="reportes_b2b/assets/logos/unsaac.png" alt="UNSAAC" />
+        <span>UNSAAC Paqarina Wasi<span class="proof-sub">Startup Lab 2025</span></span>
+      </a>
+      <div class="proof-item">
+        <img src="reportes_b2b/assets/logos/fidi.webp" alt="FIDI Destinos Inteligentes" class="dark-logo" />
+        <span>FIDI 2025<span class="proof-sub">Disertante · Brasil</span></span>
+      </div>
     </div>
+  </div>
+
+  <!-- SECCIÓN 0: HERRAMIENTAS EN LAPTOPS -->
+  <section class="section-block">
+    <div style="display:flex; align-items:center; gap:12px; margin-bottom:8px;">
+      <img src="reportes_b2b/assets/logos/claude_full_logo.svg" alt="Claude" style="height:26px; width:auto;" />
+      <span class="section-eyebrow" style="margin:0;">· Stack instalado en tu oficina</span>
+    </div>
+    <h2 class="section-title">¿Qué aprende a usar y conectar tu equipo en sus laptops?</h2>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <h3 class="tool-title" style="display:flex; align-items:center; gap:8px;">
+          <img src="reportes_b2b/assets/logos/claude.svg" alt="Claude" style="width:20px; height:20px;" />
+          <span>1. Ventas, Reservas y Operaciones (Cowork + MCP + RAG Qdrant)</span>
+        </h3>
+        <ul class="tool-list">
+          <li><strong>Dpto. de Ventas y Reservas (90 seg):</strong> el 78 % de los turistas compra a la primera agencia que responde; conecta tus carpetas de Word, Excel y PDF para cotizar en S/ y USD al instante.</li>
+          <li><strong>Dpto. de Atención Multilingüe (Gmail + Drive + Calendar):</strong> responde en inglés, francés, portugués o alemán con persuasión nativa y agenda salidas sin tocar hojas de cálculo.</li>
+          <li><strong>Dpto. de Operaciones, Compras y Contabilidad:</strong> compara tarifarios de hoteles/trenes en PDF, emite órdenes de servicio, rooming lists y cruza pagos 30 %/70 % automáticamente.</li>
+          <li><strong>Dpto. de TI y Conocimiento (Cerebro RAG con Qdrant):</strong> una base de memoria inteligente que aprende todos tus tours, tarifarios y políticas para que Claude responda como tu vendedor más experto sin inventar datos (Ley N.º 29733 y 31814).</li>
+        </ul>
+      </div>
+      <div class="tool-card accent">
+        <h3 class="tool-title" style="display:flex; align-items:center; gap:8px;">
+          <img src="reportes_b2b/assets/logos/claude.svg" alt="Claude" style="width:20px; height:20px;" />
+          <span>2. Marketing, Diseño y Gerencia General (Design + Higgsfield + Code)</span>
+        </h3>
+        <ul class="tool-list">
+          <li><strong>Dpto. de Marketing Audiovisual (Skills de Higgsfield + Reels IA):</strong> produce videos cinematográficos, reels para TikTok/Instagram y fotos publicitarias sin salir de Claude.</li>
+          <li><strong>Dpto. de Diseño Comercial (Claude Design):</strong> diseña flyers, catálogos interactivos e itinerarios visuales listos para cerrar ventas por WhatsApp y correo.</li>
+          <li><strong>Gerencia Comercial (Independencia de OTAs con Claude Code):</strong> deja de ceder 20 %–30 % de comisión a Booking o GetYourGuide creando tus propias calculadoras internas y tableros por área.</li>
+          <li><strong>Dirección Estratégica y Web (SEO + GEO + AEO):</strong> estructura tu web propia (sin WordPress) para que ChatGPT, Claude y Gemini recomienden directamente a tu agencia.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 1: LOS 6 MÓDULOS PRÁCTICOS -->
+  <section class="section-block" id="modulos">
+    <div class="section-eyebrow">Programa In-Office · 100 % Práctico</div>
+    <h2 class="section-title">Los 6 Módulos Prácticos del Taller</h2>
+    <p class="section-sub">
+      Inicia con <strong>15 min de diagnóstico</strong> + <strong>Módulo Transversal (30 min)</strong> de <strong>Datos Seguros (Ley N.º 29733 y Ley N.º 31814 · D.S. 115-2025-PCM)</strong>. Todo queda instalado en las laptops de tu equipo.
+    </p>
+    <div class="modules-grid">
+      <article class="mod-card">
+        <img src="reportes_b2b/assets/modulo1_reservas.jpg" alt="Módulo 1: Cowork en Laptop + Skills PDF" />
+        <div class="mod-body">
+          <span class="mod-tag">Módulo 1 · Reservas</span>
+          <h3>Cowork en Laptop + Skills PDF</h3>
+          <p>Arma itinerarios y cotizaciones en minutos leyendo tus PDFs y correos.</p>
+          <details>
+            <summary>Ver detalle</summary>
+            <div>• Laptop conectada a carpetas locales.<br />• Skills PDF en S/ y USD.<br />• Respuestas en 3 idiomas en segundos.</div>
+          </details>
+        </div>
+      </article>
+      <article class="mod-card">
+        <img src="reportes_b2b/assets/modulo2_operaciones.jpg" alt="Módulo 2: Calendar, Drive y Manifiestos" />
+        <div class="mod-body">
+          <span class="mod-tag">Módulo 2 · Operaciones</span>
+          <h3>Calendar, Drive y Manifiestos</h3>
+          <p>Conecta Google Calendar y Drive para salidas, guías y rooming lists.</p>
+          <details>
+            <summary>Ver detalle</summary>
+            <div>• Agenda salidas en Google Calendar &amp; Drive.<br />• Manifiestos directo desde tus PDFs.<br />• Checklists con revisión humana previa.</div>
+          </details>
+        </div>
+      </article>
+      <article class="mod-card">
+        <img src="reportes_b2b/assets/modulo3_neuromarketing.jpg" alt="Módulo 3: Claude Design + Higgsfield" />
+        <div class="mod-body">
+          <span class="mod-tag">Módulo 3 · Marketing</span>
+          <h3>Claude Design + Higgsfield</h3>
+          <p>Crea fotos, reels turísticos, flyers y catálogos conectado a Claude.</p>
+          <details>
+            <summary>Ver detalle</summary>
+            <div>• Fotos y reels sin ser editor.<br />• Flyers e itinerarios visuales en Claude Design.<br />• Guiones para redes y LLMs.</div>
+          </details>
+        </div>
+      </article>
+      <article class="mod-card">
+        <img src="reportes_b2b/assets/modulo4_compras.jpg" alt="Módulo 4: Tarifarios PDF y Órdenes" />
+        <div class="mod-body">
+          <span class="mod-tag">Módulo 4 · Compras</span>
+          <h3>Tarifarios PDF y Órdenes</h3>
+          <p>Compara hoteles y trenes en PDF y emite órdenes de servicio con Skills.</p>
+          <details>
+            <summary>Ver detalle</summary>
+            <div>• Comparativa PDF/Excel al instante.<br />• Detección de penalidades y plazos.<br />• Órdenes de servicio uniformes en 1 clic.</div>
+          </details>
+        </div>
+      </article>
+      <article class="mod-card">
+        <img src="reportes_b2b/assets/modulo5_contabilidad.jpg" alt="Módulo 5: Contabilidad y Liquidaciones" />
+        <div class="mod-body">
+          <span class="mod-tag">Módulo 5 · Contabilidad</span>
+          <h3>Pagos, Vouchers y Reportes</h3>
+          <p>Ordena liquidaciones 30%/70% sobre tus carpetas de Excel y PDFs diarios.</p>
+          <details>
+            <summary>Ver detalle</summary>
+            <div>• Cruce automático de vouchers y saldos.<br />• Calculadora práctica S/ y USD.<br />• Resúmenes visuales para gerencia.</div>
+          </details>
+        </div>
+      </article>
+      <article class="mod-card">
+        <img src="reportes_b2b/assets/modulo6_gerencia.jpg" alt="Módulo 6: Claude Code Web y SEO/GEO/AEO" />
+        <div class="mod-body">
+          <span class="mod-tag">Módulo 6 · Web y Legal</span>
+          <h3>Web Propia, SEO/GEO y Ley IA</h3>
+          <p>Mejora tu web (no WordPress) y apps internas sin depender de externos.</p>
+          <details>
+            <summary>Ver detalle</summary>
+            <div>• SEO, GEO y AEO para aparecer en ChatGPT/Gemini.<br />• Cotizadores internos S/USD.<br />• Cumplimiento Ley 29733 y 31814.</div>
+          </details>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 2: PLANES E INVERSIÓN -->
+  <section class="section-block" id="planes">
+    <div class="section-eyebrow">Inversión In-Office · Cusco</div>
+    <h2 class="section-title">Planes para tu agencia (puedes iniciar con 1 piloto)</h2>
+    <div class="plans-grid">
+      <div class="plan-card">
+        <div class="plan-tag">Oferta de Entrada</div>
+        <div class="plan-name">Sesión Piloto</div>
+        <div class="plan-price">S/ 490</div>
+        <div class="plan-meta">1 Módulo práctico (2h) en tu oficina · hasta 8 personas · 100% descontable si pasas a un plan.</div>
+      </div>
+      <div class="plan-card">
+        <div class="plan-tag">Esencial</div>
+        <div class="plan-name">Starter</div>
+        <div class="plan-price">S/ 1,800</div>
+        <div class="plan-meta">Hasta 5 personas · 4 días × 2h (8h) · S/ 360 por persona.</div>
+      </div>
+      <div class="plan-card featured">
+        <div class="plan-tag">Más elegido · 20% OFF</div>
+        <div class="plan-name">Pro Agency</div>
+        <div class="plan-price">S/ 3,120</div>
+        <div class="plan-meta">Hasta 8 personas · 6 módulos completos · S/ 390/pers. · hasta 3 cuotas.</div>
+      </div>
+      <div class="plan-card">
+        <div class="plan-tag">Operadores &amp; Gremios</div>
+        <div class="plan-name">Enterprise</div>
+        <div class="plan-price">S/ 6,500</div>
+        <div class="plan-meta">Hasta 15 personas · 8 días × 2h (16h) · Implementación asistida.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 3: PONENTE / INSTRUCTOR -->
+  <section class="section-block" id="ponente">
+    <div class="section-eyebrow">Tu Ponente · Experiencia Real en Cusco y Tech</div>
+    <h2 class="section-title">¿Quién dicta la capacitación?</h2>
+    <div class="speaker-card">
+      <img class="speaker-photo" src="reportes_b2b/assets/engelberth_instructor.jpg" alt="Engelberth Paolo Egoavil Palomino" />
+      <div>
+        <h3 class="speaker-name">
+          Engelberth Paolo Egoavil Palomino
+          <a class="speaker-li" href="https://www.linkedin.com/in/engelberthep/" target="_blank">in LinkedIn ↗</a>
+        </h3>
+        <div class="speaker-role">CEO de Lifextreme · Instructor Certificado por Anthropic (MCP &amp; AI Fluency)</div>
+        <p class="speaker-bio">
+          Más de 10 años en el sector turismo en Cusco. Ganador del <strong>1.er puesto Innovandes 2024</strong> (U. Andina del Cusco / PROInnóvate · S/ 15,000) y <strong>3.er puesto StartUP UNI</strong> (Lima). Incubado en <strong>UNSAAC Paqarina Wasi</strong> y Disertante Internacional en Turismo Inteligente (<strong>FIDI 2025, Brasil</strong>).
+        </p>
+        <details class="speaker-certs" open>
+          <summary>Certificaciones verificables en Turismo Inteligente, Incubadoras e IA</summary>
+          <div class="cert-list">
+            <div style="margin-bottom:10px;">
+              <strong style="color:#c25e3e;">1. Turismo Inteligente, Incubadoras e Instituciones Educativas:</strong><br />
+              • <strong>Innovandes Cusco 2024 – U. Andina del Cusco / PROInnóvate:</strong> 1.er Puesto (Capital Semilla S/ 15,000 a Lifextreme) (<a href="https://www.lifextreme.com.pe/reportes_b2b/assets/certificados/premio_innovandes_cusco_andina_2024.jpg" target="_blank" style="color:#0369a1; text-decoration:underline; font-weight:600;">Ver evidencia ↗</a>)<br />
+              • <strong>UNI – StartUP UNI (Lima):</strong> 3.er Puesto y Programa de Incubación en Tecnología Turística con Startup <em>TOUR BOT</em> [Cód: <code>C-013-VRI-DITT-26 - SGDUNI 6862-2026</code>] (<a href="https://www.lifextreme.com.pe/reportes_b2b/assets/certificados/certificado_startup_uni_tourbot.pdf" target="_blank" style="color:#0369a1; text-decoration:underline; font-weight:600;">Ver certificado PDF ↗</a>)<br />
+              • <strong>UNSAAC – Paqarina Wasi / PROInnóvate:</strong> Cusco Startup Lab 2025 (60h, innovación turística y tecnológica) [N.º <code>013-2025</code>] (<a href="https://www.lifextreme.com.pe/reportes_b2b/assets/certificados/constancia_unsaac_paqarina_wasi.pdf" target="_blank" style="color:#0369a1; text-decoration:underline; font-weight:600;">Ver constancia PDF ↗</a>)<br />
+              • <strong>FIDI 2025 (Bonito, Brasil):</strong> Disertante Internacional en la Feria Internacional de Destinos Inteligentes (Ecoturismo Inteligente)<br />
+              • <strong>DRTPE Cusco, Apurímac &amp; CIP Cusco:</strong> Expositor en Capacitación Virtual para Docentes, Instituciones Educativas y Reactivación de MYPEs en Cusco
+            </div>
+            <div style="margin-bottom:10px;">
+              <strong style="color:#b45309;">2. Inteligencia Artificial Aplicada a Negocios y Automatización:</strong><br />
+              • <strong>Anthropic:</strong> Model Context Protocol (MCP) [ID: <code>bvfsgij9dex6</code>] · AI Fluency for Small Businesses (PayPal + Anthropic) [ID: <code>m7t8fc73zfap</code>] · AI Fluency for Nonprofits (Anthropic + GivingTuesday)<br />
+              • <strong>AWS Training &amp; Certification (Abril 2026 – 9 certificaciones):</strong> AWS AI Practitioner Learning Plan · Developing Generative AI Solutions · Essentials of Prompt Engineering · Fundamentals of Machine Learning &amp; AI · Optimizing Foundation Models · Responsible AI Practices · Security, Compliance &amp; Governance for AI Solutions · Developing Machine Learning Solutions · Exploring AI Use Cases &amp; Applications<br />
+              • <strong>Google Cloud:</strong> MLOps for Generative AI [ID: <code>24170852</code>] · MLOps with Vertex AI [ID: <code>24171022</code>] · Security in the World of AI [ID: <code>24170791</code>] · Responsible AI [ID: <code>24171203</code>]<br />
+              • <strong>Qdrant:</strong> Qdrant Essentials (100%) [ID: <code>QDRANT-98AA186A</code>] (<a href="https://train.qdrant.dev/certificate/QDRANT-98AA186A" target="_blank" style="color:#0369a1; text-decoration:underline; font-weight:600;">Verificar certificado ↗</a>)<br />
+              • <strong>University of Helsinki &amp; MinnaLearn (2026):</strong> Elements of AI (2 ECTS) (<a href="https://certificates.mooc.fi/validate/a0reg9oebqb" target="_blank" style="color:#0369a1; text-decoration:underline; font-weight:600;">Validar certificado ↗</a>)
+            </div>
+            <div>
+              <strong style="color:#b45309;">3. Ciberseguridad, Procesos y Gobernanza de IA:</strong><br />
+              • <strong>The Linux Foundation (2026):</strong> Understanding the OWASP&reg; Top 10 Security Threats (SKF100) [ID: <code>LF-72toianwsj</code>]<br />
+              • <strong>IBM SkillsBuild (2026):</strong> Cybersecurity Fundamentals (<a href="https://www.credly.com/badges/7c9d3acf-2342-44d0-88c7-5b9bb2749e9b" target="_blank" style="color:#0369a1; text-decoration:underline; font-weight:600;">Verificar badge en Credly ↗</a>)<br />
+              • <strong>Cisco Networking Academy (2026):</strong> Introducción a la Ciberseguridad (Nivel Avanzado · 82 pts)<br />
+              • <strong>ENAP – SERVIR (2026 · 96h totales):</strong> Inteligencia Artificial para servidores públicos [ID: <code>2026-933740</code>] · Transformación Digital en el Perú (PCM) [ID: <code>2026-932979</code>] · Gestión por procesos [ID: <code>2026-934436</code>] · Modernización de la gestión pública [ID: <code>2026-932264</code>] (<a href="http://sivac.servir.gob.pe/ConsultaCertificadoWeb" target="_blank" style="color:#0369a1; text-decoration:underline; font-weight:600;">Verificar en SIVAC SERVIR ↗</a>)
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 4: PREGUNTAS FRECUENTES (FAQ) -->
+  <section class="section-block">
+    <div class="section-eyebrow">Transparencia Operativa</div>
+    <h2 class="section-title">Preguntas Frecuentes (Licencias, Portales, Datos y Pagos)</h2>
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <details class="speaker-certs">
+        <summary>¿El precio incluye las licencias de Claude, Higgsfield o Meta Ads?</summary>
+        <div class="cert-list">No. Cada agencia contrata sus cuentas directamente para ser dueña al 100% de sus accesos, carpetas y datos. En la sesión 1 te guiamos para elegir el plan más económico según tu equipo.</div>
+      </details>
+      <details class="speaker-certs">
+        <summary>¿El asistente compra boletos de tren o entradas solo sin supervisión?</summary>
+        <div class="cert-list">No prometemos automatización ciega en portales de terceros. La IA prepara manifiestos, valida pasaportes y asiste el llenado, pero siempre un operador humano revisa y confirma la emisión respetando los términos de uso.</div>
+      </details>
+      <details class="speaker-certs">
+        <summary>¿Cómo se protegen los pasaportes y tarifarios de mi agencia?</summary>
+        <div class="cert-list">Desde el Día 1 aplicamos el Módulo Transversal de Datos Seguros bajo la Ley N.º 29733 y la Ley N.º 31814 (D.S. N.º 115-2025-PCM), configurando cuentas que no entrenan modelos públicos con la información de tu agencia.</div>
+      </details>
+    </div>
+  </section>
+
+  <footer style="border-top:1px solid var(--line); padding:22px 0 8px 0; text-align:center; font-size:12.5px; color:var(--muted); line-height:1.7;">
+    <strong style="color:var(--ink);">Lifextreme AI &amp; Outdoor Experience — Cusco, Perú</strong><br />
+    Calle Chihuampata N.º 626, Cusco • Tel / Línea directa: <a href="tel:+51958050928" style="color:var(--accent); font-weight:700; text-decoration:none;">+51 958 050 928</a> • <a href="https://www.lifextreme.com.pe/" target="_blank" style="color:var(--accent); font-weight:700; text-decoration:none;">www.lifextreme.com.pe</a> • <a href="https://www.linkedin.com/in/engelberthep" target="_blank" style="color:var(--accent); font-weight:700; text-decoration:none;">LinkedIn</a>
+  </footer>
   </div>
 
   <script>

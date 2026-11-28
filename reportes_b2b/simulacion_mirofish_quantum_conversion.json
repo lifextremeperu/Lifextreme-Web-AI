@@ -1,0 +1,138 @@
+{
+  "html_audit": {
+    "old_landing": {
+      "file": "agendar-capacitacion.backup.html",
+      "lines": 322,
+      "size_kb": 17.2,
+      "images": 0,
+      "tables": 0,
+      "form_inputs": 17,
+      "trust_logos": 0
+    },
+    "new_claude_landing": {
+      "file": "agendar-capacitacion.html",
+      "lines": 999,
+      "size_kb": 48.6,
+      "images": 16,
+      "tables": 0,
+      "form_inputs": 17,
+      "trust_logos": 18
+    },
+    "current_email_template": {
+      "file": "email_presentacion_ia_agencias_cusco.html",
+      "lines": 624,
+      "size_kb": 54.8,
+      "images": 9,
+      "tables": 21,
+      "form_inputs": 0,
+      "trust_logos": 12
+    }
+  },
+  "quantum_landing_comparison": {
+    "old_landing_weighted_conv_pct": 14.0,
+    "new_claude_landing_weighted_conv_pct": 18.0,
+    "landing_improvement_factor": 1.29,
+    "by_archetype": [
+      {
+        "archetype": "Dueño E.I.R.L. Saturado (Responde WhatsApp y Opera)",
+        "population_share_pct": 22,
+        "old_landing_conv_pct": 14.0,
+        "new_claude_landing_conv_pct": 20.7,
+        "relative_lift_x": 1.48
+      },
+      {
+        "archetype": "Agencia Boutique Nicho Francés/Europeo (A medida)",
+        "population_share_pct": 14,
+        "old_landing_conv_pct": 14.0,
+        "new_claude_landing_conv_pct": 17.6,
+        "relative_lift_x": 1.26
+      },
+      {
+        "archetype": "Operador Trekking Mediano (Salkantay/Camino Inca)",
+        "population_share_pct": 15,
+        "old_landing_conv_pct": 14.0,
+        "new_claude_landing_conv_pct": 18.4,
+        "relative_lift_x": 1.31
+      },
+      {
+        "archetype": "Agencia Familiar Tradicional Cusco (Cauta con gastos)",
+        "population_share_pct": 18,
+        "old_landing_conv_pct": 14.0,
+        "new_claude_landing_conv_pct": 15.1,
+        "relative_lift_x": 1.08
+      },
+      {
+        "archetype": "Agencia Joven Digital (RUC 2061x · Tech-Curious)",
+        "population_share_pct": 12,
+        "old_landing_conv_pct": 14.0,
+        "new_claude_landing_conv_pct": 21.7,
+        "relative_lift_x": 1.55
+      },
+      {
+        "archetype": "Recepcionista / Counter (`info@` que filtra correos)",
+        "population_share_pct": 19,
+        "old_landing_conv_pct": 14.0,
+        "new_claude_landing_conv_pct": 15.5,
+        "relative_lift_x": 1.11
+      }
+    ]
+  },
+  "funnel_simulations_250_emails": [
+    {
+      "scenario": "1. Diseño Anterior (Lotes 2-5: Correo Masivo 623 líneas + Landing Negra Anterior)",
+      "emails_sent": 250,
+      "expected_opens": 34.8,
+      "open_rate_pct": 13.9,
+      "expected_clicks": 1.6,
+      "ctr_pct": 0.64,
+      "expected_meetings_booked": 0.22,
+      "landing_conversion_pct": 14.0,
+      "expected_paying_clients": 0.07,
+      "prob_zero_clients_pct": 93.3,
+      "prob_at_least_1_client_pct": 6.7,
+      "prob_at_least_3_clients_pct": 0.1
+    },
+    {
+      "scenario": "2. Rediseño Actual (Intro Sniper + Correo Largo 623 líneas + Nueva Landing Claude)",
+      "emails_sent": 250,
+      "expected_opens": 69.9,
+      "open_rate_pct": 27.9,
+      "expected_clicks": 4.5,
+      "ctr_pct": 1.82,
+      "expected_meetings_booked": 0.81,
+      "landing_conversion_pct": 18.0,
+      "expected_paying_clients": 0.34,
+      "prob_zero_clients_pct": 71.9,
+      "prob_at_least_1_client_pct": 28.1,
+      "prob_at_least_3_clients_pct": 0.5
+    },
+    {
+      "scenario": "3. Estrategia 10x (Correo Corto Conversacional 1-a-1 sin precios altos + Nueva Landing Claude + Follow-up WhatsApp)",
+      "emails_sent": 250,
+      "expected_opens": 105.0,
+      "open_rate_pct": 42.0,
+      "expected_clicks": 20.0,
+      "ctr_pct": 8.01,
+      "expected_meetings_booked": 4.47,
+      "landing_conversion_pct": 22.6,
+      "expected_paying_clients": 1.99,
+      "prob_zero_clients_pct": 14.1,
+      "prob_at_least_1_client_pct": 85.9,
+      "prob_at_least_3_clients_pct": 32.6
+    }
+  ],
+  "next_week_target_simulation_60_pymes": {
+    "scenario": "Meta Próxima Semana: 60 Agencias PYME Sniper (Correo Corto 1-a-1 + Nueva Landing Claude + Contacto WhatsApp a quienes abran)",
+    "emails_sent": 60,
+    "expected_opens": 28.7,
+    "open_rate_pct": 47.9,
+    "expected_clicks": 7.5,
+    "ctr_pct": 12.43,
+    "expected_meetings_booked": 3.88,
+    "landing_conversion_pct": 52.0,
+    "expected_paying_clients": 1.96,
+    "prob_zero_clients_pct": 13.5,
+    "prob_at_least_1_client_pct": 86.5,
+    "prob_at_least_3_clients_pct": 30.6
+  }
+}
